@@ -100,6 +100,31 @@
         "pd_mb": ""
       }
     },
+    "yaman_trust_badges": {
+      "type": "shipping-n",
+      "blocks": {
+        "badge_1": { "type": "badge", "settings": { "label": "SFDA Certified" } },
+        "badge_2": { "type": "badge", "settings": { "label": "ISO 13485 Medical-Grade" } },
+        "badge_3": { "type": "badge", "settings": { "label": "345+ Patents" } },
+        "badge_4": { "type": "badge", "settings": { "label": "Clinically Tested" } },
+        "badge_5": { "type": "badge", "settings": { "label": "Free Delivery GCC" } },
+        "badge_6": { "type": "badge", "settings": { "label": "30-Day Returns" } }
+      },
+      "block_order": ["badge_1", "badge_2", "badge_3", "badge_4", "badge_5", "badge_6"],
+      "settings": {
+        "container_max_width": 1360,
+        "container_padding": 15,
+        "background_color": "#FAF7F0",
+        "icon_size": 64,
+        "icon_size_mb": 48,
+        "gap": 24,
+        "gap_mb": 14,
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "padding_top_mb": 20,
+        "padding_bottom_mb": 20
+      }
+    },
     "slideshow_EVrUzi": {
       "type": "slideshow",
       "blocks": {
@@ -1848,6 +1873,7 @@
   },
   "order": [
     "yaman_hero",
+    "yaman_trust_badges",
     "slideshow_EVrUzi",
     "collections_list_manual_eErqxt",
     "featured_collection_PTq36A",

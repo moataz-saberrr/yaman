@@ -59,7 +59,7 @@
     {{ content_for_header }}
     {%- endunless -%}
 
-    <link rel="preload" as="font" href="{{ 'DINNextLTArabic-Bold.woff2' | asset_url }}" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="https://cdn.shopify.com/s/files/1/0834/2061/0802/files/DINNextLTArabic-Bold.woff2?v=1781544465" type="font/woff2" crossorigin="anonymous">
 
     {{ 'custom-general.css' | asset_url | stylesheet_tag: preload: true }}
     {% if template.name == "product" and template.suffix != blank %}

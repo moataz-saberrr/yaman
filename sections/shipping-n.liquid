@@ -1,0 +1,222 @@
+<!-- section/shipping-n.liquid — YAMAN Trust Icons / Badges slider (custom; do NOT confuse with the original Kalles shipping.liquid) -->
+<div
+  class="hdt-yaman-trust-badges"
+  style="
+    --tb-maxw: {{ section.settings.container_max_width }}px;
+    --tb-pad-x: {{ section.settings.container_padding }}px;
+    --tb-bg: {{ section.settings.background_color }};
+    --tb-icon: {{ section.settings.icon_size }}px;
+    --tb-icon-mb: {{ section.settings.icon_size_mb }}px;
+    --tb-gap: {{ section.settings.gap }}px;
+    --tb-gap-mb: {{ section.settings.gap_mb }}px;
+    --tb-pt: {{ section.settings.padding_top }}px;
+    --tb-pb: {{ section.settings.padding_bottom }}px;
+    --tb-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --tb-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+  "
+>
+  <div class="hdt-yaman-trust-badges__container">
+    <div class="hdt-yaman-trust-badges__slider">
+      <ul class="hdt-yaman-trust-badges__track" role="list">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign label = block.settings.label
+            assign link = block.settings.link
+            assign icon = block.settings.icon
+            assign alt = block.settings.alt | default: block.settings.label
+          -%}
+          {%- capture badge_inner -%}
+            <span class="hdt-yaman-trust-badges__icon">
+              {%- if icon != blank -%}
+                {{ icon | image_url: width: 240 | image_tag: loading: 'lazy', class: 'hdt-yaman-trust-badges__img', alt: alt, widths: '48,64,96,128,160,200,240' }}
+              {%- else -%}
+                <span class="hdt-yaman-trust-badges__placeholder" aria-hidden="true"></span>
+              {%- endif -%}
+            </span>
+            {%- if label != blank -%}<span class="hdt-yaman-trust-badges__label">{{ label }}</span>{%- endif -%}
+          {%- endcapture -%}
+          <li class="hdt-yaman-trust-badges__item" {{ block.shopify_attributes }}>
+            {%- if link != blank -%}
+              <a class="hdt-yaman-trust-badges__inner" href="{{ link }}">{{ badge_inner }}</a>
+            {%- else -%}
+              <div class="hdt-yaman-trust-badges__inner">{{ badge_inner }}</div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "YAMAN Trust Icons / Badges",
+  "tag": "section",
+  "class": "hdt-yaman-trust-badges-section hdt-section",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Container"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 960,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1360
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 15
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FAF7F0"
+    },
+    {
+      "type": "header",
+      "content": "Icons & spacing"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 32,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon size (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "icon_size_mb",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon size (mobile)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap between items (desktop)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "gap_mb",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap between items (mobile)",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image",
+          "info": "Recommended: a circular grey line icon (transparent PNG/SVG). Leave empty to show a placeholder circle."
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Trust badge"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Image alt text (optional)",
+          "info": "Defaults to the label if left empty."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Trust Icons / Badges",
+      "category": "YAMAN",
+      "blocks": [
+        { "type": "badge", "settings": { "label": "SFDA Certified" } },
+        { "type": "badge", "settings": { "label": "ISO 13485 Medical-Grade" } },
+        { "type": "badge", "settings": { "label": "345+ Patents" } },
+        { "type": "badge", "settings": { "label": "Clinically Tested" } },
+        { "type": "badge", "settings": { "label": "Free Delivery GCC" } },
+        { "type": "badge", "settings": { "label": "30-Day Returns" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

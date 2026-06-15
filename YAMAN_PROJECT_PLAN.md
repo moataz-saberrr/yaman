@@ -110,7 +110,7 @@ Each section follows the same loop: duplicate (or create) → add scoped markup 
 3. **Reviews in "Discover Your Glow"** — hardcoded/manual blocks, or pulled from a **reviews app** (Judge.me, Loox, Shopify product reviews, etc.)? Where does the 4.8 star rating come from?
 4. **"Get personalized recommendation" (How to Choose)** — does it link to a page, a quiz, or an app?
 5. **Newsletter WhatsApp opt-in** — just a checkbox + text, or integrate with a specific WhatsApp/marketing service?
-6. **Design tokens** — should YAMAN brand colors/fonts be mapped into Kalles **theme color schemes & typography settings** (preferred, reusable) or only applied within `custom_yaman.css` scopes?
+6. **Design tokens** — brand **fonts are now resolved** via the dev2 merge (DIN Next bundled, wired in `assets/base.css`; see §11, incl. the `@font-face` caveat). Still open: should brand **colours** be mapped into Kalles **theme colour schemes** (preferred, reusable) or only applied within `custom_yaman.css` scopes?
 7. **Per-instance reuse** — do you want a `custom_class` / `section_unique_class` text setting added to each new section now (for multi-instance scoping), or only where a section is actually reused?
 8. **Header / announcement / footer** — confirm these are restyled at the end (not rebuilt as body sections).
 
@@ -118,8 +118,29 @@ Each section follows the same loop: duplicate (or create) → add scoped markup 
 
 ### Section 1 — Hero (`slideshow-n`) — DONE
 - **New block `blocks/_slide-item-n.liquid`** (the shared `_slide-item` was left untouched). Reason: the original block is overlap-only (theme `hdt-media-overlap-content`) and uses nested child blocks; it can't cleanly produce the mobile black-panel-above-image stack. The new block uses direct settings + purpose-built markup (`.hdt-yaman-hero__*`).
-- **`sections/slideshow-n.liquid`** rewritten as "YAMAN Hero Slideshow": reuses the Kalles `<hdt-slideshow>` slider/dots/arrows mechanics, points at `_slide-item-n`, trimmed hero-focused schema (+ `hero_min_height`, `hero_image_height_mb`, `overlay_opacity`), clean name + 3-slide preset.
+- **`sections/slideshow-n.liquid`** rewritten as "YAMAN Hero Slideshow": reuses the Kalles `<hdt-slideshow>` slider/dots/arrows mechanics, points at `_slide-item-n`, trimmed hero-focused schema, clean name + 3-slide preset. Later updated to the 4 Kalles height modes (`image_height` / `image_height_mb` = adapt_image_first / adapt_image / full / fixed, with `fixed_height` / `fixed_height_mb` + `overlay_opacity`) and pill-style pagination dots (scoped `--pag-*` overrides).
 - **CSS** added to `assets/custom_yaman.css`, all scoped under `.hdt-slideshow-n`: mobile-first stacked panel (`#070707`) + image; desktop image background with overlaid left content + dark gradient overlay; cream CTA (`#f5ebdd`); bar-separated meta line; optional mobile heading override + last-line accent.
 - **`templates/index.json`**: added `yaman_hero` as the first entry in `order` (above all default sections); defaults untouched.
 - Block settings exposed: desktop image, mobile image, heading, mobile-heading override, subheading (richtext), button label/link/new-tab, meta line, accent-last-line toggle, accent colour, panel colour.
 - **Manual steps in Shopify:** upload/select per-slide desktop + mobile images; set the CTA `button_link` (currently empty → renders as a disabled link until set).
+
+## 11. Merge log
+
+### 2026-06-15 — merged `main` (dev2: general settings + header + brand fonts) into `dev1`
+Merge commit `733f29c`; dev2 work in `7ed08c3`, `260f454`.
+
+**Brand fonts — "DIN Next" (this is the "correct font")**
+- Added to `assets/`: `DINNextLTW23-Regular.woff2` (400), `DINNextLTW23-Medium.woff2` (500), `DINNextLTArabic-Bold.woff2` (700, Arabic).
+- `@font-face` + tokens added to **`assets/base.css`** (a Kalles original, edited by dev2): `--font-body-family: 'DIN Next LT'`, `--font-heading-family: 'DIN Next Arabic'`, applied to `body` and `h1–h3`.
+- `layout/theme.liquid` preloads `DINNextLTArabic-Bold.woff2`.
+- **Impact on our hero:** the heading is an `<h2>` → now inherits `--font-heading-family` automatically; CTA/body text inherits `--font-body-family`. `custom_yaman.css` hardcodes no font-family, so nothing to change there.
+- ✅ **Resolved (2026-06-15):** the `@font-face` `src` in `base.css` originally used Liquid `{{ "…woff2" | asset_url }}`, which doesn't render inside a static `.css` (so the web fonts wouldn't load for visitors without DIN Next installed locally — why it looked fine on the dev machine). Replaced with the store's direct Shopify **Files** CDN URLs (e.g. `https://cdn.shopify.com/s/files/1/0834/2061/0802/files/DINNextLTW23-Regular.woff2?v=1781544465`), which load statically for everyone. The `theme.liquid` Arabic-bold `<link rel="preload">` was pointed at the same CDN URL so the preload is actually used.
+
+**New custom CSS files (dev2 convention)**
+- `assets/custom-general.css` (loaded globally, preload), `assets/custom-product.css` (product templates with a suffix), `assets/custom-collection.css` (collection templates, no suffix) — all wired in `layout/theme.liquid`. Currently **empty placeholders**. YAMAN homepage CSS stays in `assets/custom_yaman.css`; coordinate before mixing conventions.
+
+**`layout/theme.liquid`**
+- Added the font preload + the three custom CSS loads; `<body>` class now includes `{{ template.name }}`. Our `custom_yaman.css` load (right after `css-variables`) is preserved.
+
+**Header / announcement bar (dev2 customization, part 1)**
+- Modified `sections/header-group.json`, `sections/header-inline-blocks.liquid`, `snippets/header_group_icons.liquid`, `blocks/_menu_mobile.liquid`; added `assets/burger-menu.svg`, `assets/cart.svg`; general tweaks in `config/settings_data.json` (e.g. button font size 16→14). This is the header/announcement restyle the plan deferred to the end — now owned by dev2.

@@ -49,7 +49,7 @@ NOTE: most of the CSS variables used are defined in the "css-variables.liquid" s
 /* Regular Weight (English/Latin) */
 @font-face {
   font-family: 'DIN Next LT';
-  src: url('{{ "DINNextLTW23-Regular.woff2" | asset_url }}') format('woff2');
+  src: url('https://cdn.shopify.com/s/files/1/0834/2061/0802/files/DINNextLTW23-Regular.woff2?v=1781544465') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -58,7 +58,7 @@ NOTE: most of the CSS variables used are defined in the "css-variables.liquid" s
 /* Medium Weight (English/Latin) */
 @font-face {
   font-family: 'DIN Next LT';
-  src: url('{{ "DINNextLTW23-Medium.woff2" | asset_url }}') format('woff2');
+  src: url('https://cdn.shopify.com/s/files/1/0834/2061/0802/files/DINNextLTW23-Medium.woff2?v=1781544465') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -67,7 +67,7 @@ NOTE: most of the CSS variables used are defined in the "css-variables.liquid" s
 /* Bold Weight (Arabic) */
 @font-face {
   font-family: 'DIN Next Arabic';
-  src: url('{{ "DINNextLTArabic-Bold.woff2" | asset_url }}') format('woff2');
+  src: url('https://cdn.shopify.com/s/files/1/0834/2061/0802/files/DINNextLTArabic-Bold.woff2?v=1781544465') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
