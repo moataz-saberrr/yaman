@@ -25,7 +25,7 @@
   id="block_id-{{ block.id }}"
   class="hdt-slider__slide hdt-slideshow_item hdt-yaman-hero__slide hdt-oh{% if block.settings.accent_last_line %} is-accent{% endif %}"
   {{ block.shopify_attributes }}
-  style="--yaman-accent: {{ block.settings.accent_color }}; --yaman-panel: {{ block.settings.panel_color }};"
+  style="--yaman-accent: {{ block.settings.accent_color }}; --yaman-panel: {{ block.settings.panel_color }}; --yh-ratio-md: {{ block.settings.image.aspect_ratio | default: 2.0 }}; --yh-ratio: {{ image_mb.aspect_ratio | default: block.settings.image.aspect_ratio | default: 1.5 }};"
 >
   <div class="hdt-yaman-hero__inner">
     <div class="hdt-yaman-hero__media">

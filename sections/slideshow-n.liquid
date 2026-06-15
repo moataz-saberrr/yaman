@@ -1,16 +1,23 @@
 <!-- section/slideshow-n.liquid — YAMAN Hero Slideshow (custom; do NOT confuse with the original Kalles slideshow.liquid) -->
 {{ 'slideshow.css' | asset_url | stylesheet_tag: media: 'all' }}
+{%- liquid
+  assign first_block = section.blocks.first
+  assign first_img = first_block.settings.image
+  assign first_img_mb = first_block.settings.image_mb | default: first_block.settings.image
+-%}
 {%- style -%}
   .hdt-section-spacing-{{ section.id }} {
-    --yaman-hero-h: {{ section.settings.hero_min_height }}px;
-    --yaman-hero-img-h-mb: {{ section.settings.hero_image_height_mb }}px;
     --yaman-hero-ov: {{ section.settings.overlay_opacity | divided_by: 100.00 }};
+    --yh-fixed-md: {{ section.settings.fixed_height }}px;
+    --yh-fixed-mb: {{ section.settings.fixed_height_mb }}px;
+    --yh-ratio-md-first: {{ first_img.aspect_ratio | default: 2.0 }};
+    --yh-ratio-first: {{ first_img_mb.aspect_ratio | default: first_img.aspect_ratio | default: 1.5 }};
   }
   {%- render 'spacing-vars', box: section -%}
 {%- endstyle -%}
 
 <div class="hdt-s-inner hdt-section-spacing hdt-section-spacing-{{ section.id }} hdt-s-gradient" {%- if section.settings.colors_by_section %} color-scheme="{{ section.settings.color_scheme }}" style="--background-opacity: {{ section.settings.background_opacity }};" {%- endif %} {%- unless section.index == 1 %} hdt-reveal="fade-in"{%- endunless -%}>
-  <hdt-slideshow {% if section.settings.is_fade %}isfade {% endif %}id="Slider-{{ section.id }}" autoheight class="hdt-slider hdt-relative hdt-container{% if section.settings.full_width %}-full{% endif %} hdt-slideshow hdt-slides-1 hdt-yaman-hero" config='{"loop": {{ section.settings.loop }}, "navUI": {{ section.settings.navUI }}, "dotUI": {{ section.settings.dotUI }}, "autoPlay": {{ section.settings.autoplay | times: 1000 }}, "pauseOnHover": {{ section.settings.pauseOnHover }}, "autoHeight": true, "slidesToScroll": 1 }'>
+  <hdt-slideshow {% if section.settings.is_fade %}isfade {% endif %}id="Slider-{{ section.id }}" autoheight class="hdt-slider hdt-relative hdt-container{% if section.settings.full_width %}-full{% endif %} hdt-slideshow hdt-slides-1 hdt-yaman-hero hdt-yh-md--{{ section.settings.image_height }} hdt-yh-mb--{{ section.settings.image_height_mb }}" config='{"loop": {{ section.settings.loop }}, "navUI": {{ section.settings.navUI }}, "dotUI": {{ section.settings.dotUI }}, "autoPlay": {{ section.settings.autoplay | times: 1000 }}, "pauseOnHover": {{ section.settings.pauseOnHover }}, "autoHeight": true, "slidesToScroll": 1 }'>
     <div class="hdt-slider__viewport hdt-yaman-hero__viewport">
       <div class="hdt-slider__container">
         {% content_for "blocks" %}
@@ -47,25 +54,52 @@
       "content": "Hero layout"
     },
     {
-      "type": "range",
-      "id": "hero_min_height",
-      "min": 320,
-      "max": 820,
-      "step": 10,
-      "unit": "px",
-      "label": "Hero height (desktop)",
-      "default": 560
+      "type": "select",
+      "id": "image_height",
+      "label": "Height (desktop)",
+      "info": "Adapt to image keeps the image full width and uses its own aspect ratio.",
+      "options": [
+        { "value": "adapt_image_first", "label": "Adapt to first image" },
+        { "value": "adapt_image", "label": "Adapt to image" },
+        { "value": "full", "label": "Fill screen height" },
+        { "value": "fixed", "label": "Fixed height" }
+      ],
+      "default": "adapt_image"
     },
     {
       "type": "range",
-      "id": "hero_image_height_mb",
+      "id": "fixed_height",
       "min": 200,
-      "max": 600,
+      "max": 1000,
       "step": 10,
       "unit": "px",
-      "label": "Image height (mobile)",
-      "info": "Height of the image shown below the black content panel on mobile.",
-      "default": 340
+      "label": "Fixed height (desktop)",
+      "default": 560,
+      "visible_if": "{{ section.settings.image_height == 'fixed' }}"
+    },
+    {
+      "type": "select",
+      "id": "image_height_mb",
+      "label": "Height (mobile image)",
+      "info": "Applies to the image shown below the black content panel on mobile.",
+      "options": [
+        { "value": "adapt_image_first", "label": "Adapt to first image" },
+        { "value": "adapt_image", "label": "Adapt to image" },
+        { "value": "full", "label": "Fill screen height" },
+        { "value": "fixed", "label": "Fixed height" }
+      ],
+      "default": "adapt_image"
+    },
+    {
+      "type": "range",
+      "id": "fixed_height_mb",
+      "min": 150,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Fixed height (mobile image)",
+      "default": 340,
+      "visible_if": "{{ section.settings.image_height_mb == 'fixed' }}"
     },
     {
       "type": "range",

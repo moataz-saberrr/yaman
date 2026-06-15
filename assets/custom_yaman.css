@@ -31,11 +31,16 @@
 /* ---------------------------------------------------------------------------
  * 1. HERO / SLIDESHOW  ->  sections/slideshow-n.liquid + blocks/_slide-item-n.liquid
  *    Scope class: .hdt-slideshow-n   |   markup BEM: .hdt-yaman-hero__*
- *    Desktop/tablet: image background + overlaid content (left) + dark gradient.
+ *    Desktop/tablet: image sizes the slide, content overlays (left) + gradient.
  *    Mobile (<768px): black content panel stacked ABOVE the image (one slide).
- *    CSS vars come from section/block settings:
- *      --yaman-hero-h (desktop height), --yaman-hero-img-h-mb (mobile image height),
- *      --yaman-hero-ov (overlay opacity), --yaman-accent, --yaman-panel.
+ *    Height modes (like the Kalles slideshow) come from classes on <hdt-slideshow>:
+ *      .hdt-yh-md--{adapt_image|adapt_image_first|full|fixed}  (desktop image)
+ *      .hdt-yh-mb--{ ... same options ... }                    (mobile image)
+ *    Driven by CSS vars:
+ *      --yh-ratio-md / --yh-ratio          per-slide desktop/mobile image ratios
+ *      --yh-ratio-md-first / --yh-ratio-first   first slide (for adapt_image_first)
+ *      --yh-fixed-md / --yh-fixed-mb       fixed px heights
+ *      --yaman-hero-ov (overlay), --yaman-accent, --yaman-panel
  * ------------------------------------------------------------------------- */
 .hdt-slideshow-n { --yaman-hero-ink: #0d0d0d; }
 
@@ -43,30 +48,16 @@
 .hdt-slideshow-n .hdt-slider__viewport { overflow: hidden; }
 .hdt-slideshow-n .hdt-slider__slide { height: auto; }
 
-/* ---- slide layout: mobile-first = stacked (black panel, then image) ---- */
-.hdt-slideshow-n .hdt-yaman-hero__inner { display: flex; flex-direction: column; }
-
-.hdt-slideshow-n .hdt-yaman-hero__content {
-  order: 0;
-  background: var(--yaman-panel, #070707);
-  color: #fff;
-  padding: 34px 22px 40px;
-  text-align: start;
-}
-.hdt-slideshow-n .hdt-yaman-hero__media { order: 1; position: relative; line-height: 0; }
+/* ---- media (image) — common ---- */
+.hdt-slideshow-n .hdt-yaman-hero__media { position: relative; line-height: 0; }
+.hdt-slideshow-n .hdt-yaman-hero__picture { display: block; }
 .hdt-slideshow-n .hdt-yaman-hero__media img,
-.hdt-slideshow-n .hdt-yaman-hero__placeholder {
-  display: block;
-  width: 100%;
-  height: var(--yaman-hero-img-h-mb, 340px);
-  object-fit: cover;
-}
-.hdt-slideshow-n .hdt-yaman-hero__placeholder svg { width: 100%; height: 100%; object-fit: cover; }
-.hdt-slideshow-n .hdt-yaman-hero__overlay { display: none; }
+.hdt-slideshow-n .hdt-yaman-hero__placeholder { display: block; width: 100%; object-fit: cover; }
+.hdt-slideshow-n .hdt-yaman-hero__placeholder { background: #100f0e; }
+.hdt-slideshow-n .hdt-yaman-hero__placeholder svg { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-/* ---- content elements ---- */
+/* ---- content typography (breakpoint-agnostic) ---- */
 .hdt-slideshow-n .hdt-yaman-hero__content-inner { max-width: 560px; }
-
 .hdt-slideshow-n .hdt-yaman-hero__heading {
   margin: 0;
   font-weight: 800;
@@ -81,7 +72,6 @@
 .hdt-slideshow-n .hdt-yaman-hero__slide.is-accent .hdt-yaman-hero__heading-group .hdt-yaman-hero__line:last-child {
   color: var(--yaman-accent, #f5ebdd);
 }
-
 .hdt-slideshow-n .hdt-yaman-hero__text {
   margin-top: 16px;
   max-width: 42ch;
@@ -90,7 +80,6 @@
   color: rgba(255, 255, 255, 0.82);
 }
 .hdt-slideshow-n .hdt-yaman-hero__text p { margin: 0; }
-
 .hdt-slideshow-n .hdt-yaman-hero__button {
   display: inline-flex;
   align-items: center;
@@ -108,7 +97,6 @@
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 .hdt-slideshow-n .hdt-yaman-hero__button:hover { opacity: 0.9; transform: translateY(-1px); }
-
 .hdt-slideshow-n .hdt-yaman-hero__meta {
   display: flex;
   flex-wrap: wrap;
@@ -137,14 +125,40 @@
   background: rgba(255, 255, 255, 0.35);
 }
 
-/* ---- desktop / tablet: image background with overlaid content ---- */
-@media (min-width: 768px) {
-  .hdt-slideshow-n .hdt-yaman-hero__viewport { min-height: var(--yaman-hero-h, 560px); }
-  .hdt-slideshow-n .hdt-yaman-hero__inner { display: block; position: relative; min-height: var(--yaman-hero-h, 560px); }
+/* ---- MOBILE (<768px): black content panel stacked above the image ---- */
+@media (max-width: 767px) {
+  .hdt-slideshow-n .hdt-yaman-hero__inner { display: flex; flex-direction: column; }
+  .hdt-slideshow-n .hdt-yaman-hero__content {
+    order: 0;
+    position: static;
+    background: var(--yaman-panel, #070707);
+    color: #fff;
+    padding: 34px 22px 40px;
+    text-align: start;
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__media { order: 1; }
+  .hdt-slideshow-n .hdt-yaman-hero__overlay { display: none; }
+  .hdt-slideshow-n .hdt-yaman-hero__button { width: 100%; }
 
-  .hdt-slideshow-n .hdt-yaman-hero__media { order: 0; position: absolute; inset: 0; height: 100%; }
-  .hdt-slideshow-n .hdt-yaman-hero__media img,
-  .hdt-slideshow-n .hdt-yaman-hero__placeholder { width: 100%; height: 100%; }
+  /* show the mobile heading override when present */
+  .hdt-slideshow-n .hdt-yaman-hero__heading--has-mb .hdt-yaman-hero__heading-group--dk { display: none; }
+  .hdt-slideshow-n .hdt-yaman-hero__heading--has-mb .hdt-yaman-hero__heading-group--mb { display: block; }
+
+  /* mobile image height modes */
+  .hdt-slideshow-n .hdt-yh-mb--adapt_image .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-mb--adapt_image .hdt-yaman-hero__placeholder { aspect-ratio: var(--yh-ratio, 1.5); height: auto; }
+  .hdt-slideshow-n .hdt-yh-mb--adapt_image_first .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-mb--adapt_image_first .hdt-yaman-hero__placeholder { aspect-ratio: var(--yh-ratio-first, 1.5); height: auto; }
+  .hdt-slideshow-n .hdt-yh-mb--fixed .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-mb--fixed .hdt-yaman-hero__placeholder { height: var(--yh-fixed-mb, 340px); aspect-ratio: auto; }
+  .hdt-slideshow-n .hdt-yh-mb--full .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-mb--full .hdt-yaman-hero__placeholder { height: 100vh; height: 100svh; aspect-ratio: auto; }
+}
+
+/* ---- DESKTOP / TABLET (>=768px): image sizes the slide, content overlays ---- */
+@media (min-width: 768px) {
+  .hdt-slideshow-n .hdt-yaman-hero__inner { display: block; position: relative; }
+  .hdt-slideshow-n .hdt-yaman-hero__media { width: 100%; }
 
   .hdt-slideshow-n .hdt-yaman-hero__overlay {
     display: block;
@@ -156,10 +170,10 @@
   }
 
   .hdt-slideshow-n .hdt-yaman-hero__content {
-    position: relative;
+    position: absolute;
+    inset: 0;
     z-index: 2;
     background: transparent;
-    min-height: var(--yaman-hero-h, 560px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -170,17 +184,31 @@
   .hdt-slideshow-n .hdt-yaman-hero__heading { font-size: clamp(44px, 5.2vw, 68px); }
   .hdt-slideshow-n .hdt-yaman-hero__text { font-size: 16px; }
   .hdt-slideshow-n .hdt-yaman-hero__meta { margin-top: clamp(28px, 6vh, 60px); }
+
+  /* desktop image height modes */
+  .hdt-slideshow-n .hdt-yh-md--adapt_image .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-md--adapt_image .hdt-yaman-hero__placeholder { aspect-ratio: var(--yh-ratio-md, 2); height: auto; }
+  .hdt-slideshow-n .hdt-yh-md--adapt_image_first .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-md--adapt_image_first .hdt-yaman-hero__placeholder { aspect-ratio: var(--yh-ratio-md-first, 2); height: auto; }
+  .hdt-slideshow-n .hdt-yh-md--fixed .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-md--fixed .hdt-yaman-hero__placeholder { height: var(--yh-fixed-md, 560px); aspect-ratio: auto; }
+  .hdt-slideshow-n .hdt-yh-md--full .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-md--full .hdt-yaman-hero__placeholder { height: 100vh; height: 100svh; aspect-ratio: auto; }
 }
 
-/* ---- mobile: use the mobile heading override + full-width CTA ---- */
-@media (max-width: 767px) {
-  .hdt-slideshow-n .hdt-yaman-hero__heading--has-mb .hdt-yaman-hero__heading-group--dk { display: none; }
-  .hdt-slideshow-n .hdt-yaman-hero__heading--has-mb .hdt-yaman-hero__heading-group--mb { display: block; }
-  .hdt-slideshow-n .hdt-yaman-hero__button { width: 100%; }
+/* ---- pagination dots: scoped pill style (overrides the var-driven theme dots) ---- */
+.hdt-slideshow-n .hdt-yaman-hero__dots {
+  z-index: 3;
+  --pag-w: 18px;
+  --pag-h: 4px;
+  --pag-w-active: 32px;
+  --pag-h-active: 4px;
+  --pag-bg: rgba(255, 255, 255, 0.55);
+  --pag-bg-active: #f5ebdd;
+  --pag-border: transparent;
+  --pag-radius: 999px;
 }
-
-/* ---- pagination dots sit above the media ---- */
-.hdt-slideshow-n .hdt-yaman-hero__dots { z-index: 3; }
+.hdt-slideshow-n .hdt-yaman-hero__dots button { border: none; }
 
 
 /* ---------------------------------------------------------------------------
