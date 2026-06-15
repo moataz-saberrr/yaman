@@ -9,6 +9,85 @@
  */
 {
   "sections": {
+    "yaman_hero": {
+      "type": "slideshow-n",
+      "blocks": {
+        "slide_1": {
+          "type": "_slide-item-n",
+          "settings": {
+            "heading": "LIFT.\nSCULPT.\nREDEFINE.",
+            "heading_mb": "ELEVATE.\nSCULPT.\nREDEFINE.",
+            "subheading": "<p>46 years of R&D. 345+ patents. Clinical-grade technology designed for you.</p>",
+            "button_label": "SHOP MEDI LIFT PLUS — 1,700 SAR",
+            "button_link": "",
+            "button_target": false,
+            "meta_text": "345+ PATENTS | ISO 13485 CERTIFIED | 10M+ UNITS SOLD",
+            "accent_last_line": false,
+            "accent_color": "#f5ebdd",
+            "panel_color": "#070707"
+          }
+        },
+        "slide_2": {
+          "type": "_slide-item-n",
+          "settings": {
+            "heading": "FIRM.\nDEFINE.\nGLOW.",
+            "subheading": "<p>Clinically proven results powered by Japanese R&D.</p>",
+            "button_label": "EXPLORE THE 4 SETS",
+            "button_link": "",
+            "button_target": false,
+            "meta_text": "SFDA CERTIFIED | CLINICALLY TESTED | FREE GCC DELIVERY",
+            "accent_last_line": false,
+            "accent_color": "#f5ebdd",
+            "panel_color": "#070707"
+          }
+        },
+        "slide_3": {
+          "type": "_slide-item-n",
+          "settings": {
+            "heading": "YOUR\nDAILY\nRITUAL.",
+            "subheading": "<p>Spa-grade skincare technology, designed for home.</p>",
+            "button_label": "DISCOVER YOUR GLOW",
+            "button_link": "",
+            "button_target": false,
+            "meta_text": "30-DAY RETURNS | 10M+ UNITS SOLD | TRUSTED WORLDWIDE",
+            "accent_last_line": false,
+            "accent_color": "#f5ebdd",
+            "panel_color": "#070707"
+          }
+        }
+      },
+      "block_order": ["slide_1", "slide_2", "slide_3"],
+      "settings": {
+        "hero_min_height": 560,
+        "hero_image_height_mb": 340,
+        "overlay_opacity": 40,
+        "is_fade": true,
+        "loop": true,
+        "autoplay": 5,
+        "pauseOnHover": true,
+        "navUI": false,
+        "nav_visible": "hover",
+        "nav_style": "default",
+        "nav_shape": "rounded",
+        "nav_size": "medium",
+        "nav_hide_mobile": true,
+        "dotUI": true,
+        "pag_style": "default",
+        "pag_position": "center",
+        "pag_rounded": true,
+        "pag_space": 10,
+        "pag_mgt": 20,
+        "pag_hide_mobile": false,
+        "colors_by_section": false,
+        "color_scheme": "",
+        "background_opacity": 0,
+        "full_width": true,
+        "mg": ",,50px,",
+        "mg_mb": ",,30px,",
+        "pd": "",
+        "pd_mb": ""
+      }
+    },
     "slideshow_EVrUzi": {
       "type": "slideshow",
       "blocks": {
@@ -1627,6 +1706,7 @@
     }
   },
   "order": [
+    "yaman_hero",
     "slideshow_EVrUzi",
     "collections_list_manual_eErqxt",
     "featured_collection_PTq36A",

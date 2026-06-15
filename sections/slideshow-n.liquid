@@ -1,20 +1,17 @@
-<!-- section/slideshow.liquid -->
+<!-- section/slideshow-n.liquid — YAMAN Hero Slideshow (custom; do NOT confuse with the original Kalles slideshow.liquid) -->
 {{ 'slideshow.css' | asset_url | stylesheet_tag: media: 'all' }}
 {%- style -%}
-  #Slider-{{section.id}} { 
-    {%- if section.settings.image_height_mb=='adapt_image_first' or section.settings.image_height_mb=='fixed' -%}
-      --aspect-ratioapt:{% if section.settings.image_height_mb=='adapt_image_first' %}var(--slide-{{ section.blocks.first.id }}-ratio){% else %}{{section.settings.fixed_height_mb}}px{% endif %};
-    {%- endif -%}
-    {%- if section.settings.image_height=='adapt_image_first' or section.settings.image_height=='fixed' -%}
-      --aspect-ratioapt-md:{% if section.settings.image_height=='adapt_image_first' %}var(--slide-{{ section.blocks.first.id }}-ratio-md){% else %}{{section.settings.fixed_height}}px{% endif %};
-    {%- endif -%}
+  .hdt-section-spacing-{{ section.id }} {
+    --yaman-hero-h: {{ section.settings.hero_min_height }}px;
+    --yaman-hero-img-h-mb: {{ section.settings.hero_image_height_mb }}px;
+    --yaman-hero-ov: {{ section.settings.overlay_opacity | divided_by: 100.00 }};
   }
   {%- render 'spacing-vars', box: section -%}
 {%- endstyle -%}
 
 <div class="hdt-s-inner hdt-section-spacing hdt-section-spacing-{{ section.id }} hdt-s-gradient" {%- if section.settings.colors_by_section %} color-scheme="{{ section.settings.color_scheme }}" style="--background-opacity: {{ section.settings.background_opacity }};" {%- endif %} {%- unless section.index == 1 %} hdt-reveal="fade-in"{%- endunless -%}>
-  <hdt-slideshow {% if section.settings.is_fade %}isfade {% endif %}id="Slider-{{ section.id }}" autoheight class="hdt-slider hdt-relative hdt-container{% if section.settings.full_width %}-full{% endif %} hdt-slideshow hdt-slides-1 hdt-relative hdt-slider-center-{{ section.settings.carousel_center }}" config='{"loop": {{ section.settings.loop }}, "navUI": {{ section.settings.navUI }}, "dotUI": {{ section.settings.dotUI }}, "autoPlay": {{ section.settings.autoplay | times: 1000 }}, "pauseOnHover": {{ section.settings.pauseOnHover }}, "autoHeight": true, "slidesToScroll": 1 }'>
-    <div class="hdt-slider__viewport md:hdt-height--{{ section.settings.image_height }} hdt-height--{{ section.settings.image_height_mb }}{% unless section.settings.full_width %} {{ section.settings.rounded }}{% endunless %}">
+  <hdt-slideshow {% if section.settings.is_fade %}isfade {% endif %}id="Slider-{{ section.id }}" autoheight class="hdt-slider hdt-relative hdt-container{% if section.settings.full_width %}-full{% endif %} hdt-slideshow hdt-slides-1 hdt-yaman-hero" config='{"loop": {{ section.settings.loop }}, "navUI": {{ section.settings.navUI }}, "dotUI": {{ section.settings.dotUI }}, "autoPlay": {{ section.settings.autoplay | times: 1000 }}, "pauseOnHover": {{ section.settings.pauseOnHover }}, "autoHeight": true, "slidesToScroll": 1 }'>
+    <div class="hdt-slider__viewport hdt-yaman-hero__viewport">
       <div class="hdt-slider__container">
         {% content_for "blocks" %}
       </div>
@@ -30,113 +27,72 @@
       </div>
     {%- endif -%}
     {%- if section.settings.dotUI -%}
-      <div hdt-slider-dots aria-controls="Slider-{{ section.id }}" class="hdt-slider__dots hdt-pagination hdt-position-{{ section.settings.pag_position }} hdt-style-{{ section.settings.pag_style }} hdt-radius-{{ section.settings.pag_rounded }} hdt-hide-mobile-{{ section.settings.pag_hide_mobile }}" style="--space-between: {{ section.settings.pag_space }}px; --margin-top: {{ section.settings.pag_mgt }}px;" hdt-reveal="slide-in" timeline></div>
+      <div hdt-slider-dots aria-controls="Slider-{{ section.id }}" class="hdt-slider__dots hdt-pagination hdt-yaman-hero__dots hdt-position-{{ section.settings.pag_position }} hdt-style-{{ section.settings.pag_style }} hdt-radius-{{ section.settings.pag_rounded }} hdt-hide-mobile-{{ section.settings.pag_hide_mobile }}" style="--space-between: {{ section.settings.pag_space }}px; --margin-top: {{ section.settings.pag_mgt }}px;" hdt-reveal="slide-in" timeline></div>
     {%- endif -%}
   </hdt-slideshow>
 </div>
 {% schema %}
 {
-  "name": "t:sections.slideshow.name n",
+  "name": "YAMAN Hero Slideshow",
   "tag": "section",
   "class": "hdt-slideshow-n hdt-slideshow hdt-section section-allow-transparent",
-  "blocks": [{ "type": "_slide-item" }],
+  "blocks": [{ "type": "_slide-item-n" }],
   "max_blocks": 5,
   "disabled_on": {
-    "groups": [
-      "*"
-    ]
+    "groups": ["*"]
   },
   "settings": [
     {
       "type": "header",
-      "content": "t:sections.slideshow.settings.image_height.label"
-    },
-    {
-      "type": "select",
-      "id": "image_height",
-      "options": [
-        {
-          "value": "adapt_image_first",
-          "label": "t:sections.slideshow.settings.image_height.options__1.label"
-        },
-        {
-          "value": "adapt_image",
-          "label": "t:sections.slideshow.settings.image_height.options__2.label"
-        },
-        {
-          "value": "full",
-          "label": "t:sections.slideshow.settings.image_height.options__3.label"
-        },
-        {
-          "value": "fixed",
-          "label": "t:sections.slideshow.settings.image_height.options__4.label"
-        }
-      ],
-      "default": "adapt_image",
-      "label": "t:sections.slideshow.settings.image_height.label",
-      "info": "t:sections.slideshow.settings.image_height.info"
+      "content": "Hero layout"
     },
     {
       "type": "range",
-      "id": "fixed_height",
+      "id": "hero_min_height",
+      "min": 320,
+      "max": 820,
+      "step": 10,
+      "unit": "px",
+      "label": "Hero height (desktop)",
+      "default": 560
+    },
+    {
+      "type": "range",
+      "id": "hero_image_height_mb",
       "min": 200,
-      "max": 1000,
+      "max": 600,
       "step": 10,
       "unit": "px",
-      "label": "t:sections.slideshow.settings.fixed_height.label",
-      "default": 860,
-      "visible_if": "{{ section.settings.image_height == 'fixed' }}"
-    },
-    {
-      "type": "select",
-      "id": "image_height_mb",
-      "options": [
-        {
-          "value": "adapt_image_first",
-          "label": "t:sections.slideshow.settings.image_height.options__1.label"
-        },
-        {
-          "value": "adapt_image",
-          "label": "t:sections.slideshow.settings.image_height.options__2.label"
-        },
-        {
-          "value": "full",
-          "label": "t:sections.slideshow.settings.image_height.options__3.label"
-        },
-        {
-          "value": "fixed",
-          "label": "t:sections.slideshow.settings.image_height.options__4.label"
-        }
-      ],
-      "default": "adapt_image",
-      "label": "t:sections.slideshow.settings.image_height_mb.label"
+      "label": "Image height (mobile)",
+      "info": "Height of the image shown below the black content panel on mobile.",
+      "default": 340
     },
     {
       "type": "range",
-      "id": "fixed_height_mb",
-      "min": 100,
-      "max": 1000,
-      "step": 10,
-      "unit": "px",
-      "label": "t:sections.slideshow.settings.fixed_height_mb.label",
-      "default": 300,
-      "visible_if": "{{ section.settings.image_height_mb == 'fixed' }}"
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Image overlay (desktop)",
+      "info": "Dark gradient over the image so the white text stays readable. Not used on mobile.",
+      "default": 40
     },
     {
       "type": "header",
-      "content": "t:blocks.carousel.name"
+      "content": "Slider"
     },
     {
       "type": "checkbox",
       "id": "is_fade",
-      "label": "t:sections.slideshow.settings.is_fade.label",
-      "default": false
+      "label": "Fade between slides",
+      "default": true
     },
     {
       "type": "checkbox",
       "id": "loop",
-      "label": "t:blocks.carousel.settings.loop",
-      "default": false
+      "label": "Loop",
+      "default": true
     },
     {
       "type": "range",
@@ -145,61 +101,46 @@
       "max": 7,
       "step": 0.5,
       "unit": "s",
-      "label": "t:blocks.carousel.settings.autoplay.label",
-      "default": 0,
-      "info": "t:blocks.carousel.settings.autoplay.info"
+      "label": "Auto-rotate every",
+      "info": "Set to 0 to disable auto-rotate.",
+      "default": 5
     },
     {
       "type": "checkbox",
       "id": "pauseOnHover",
-      "label": "t:blocks.carousel.settings.autoplay.pause_on_hover",
-      "default": false,
+      "label": "Pause on hover",
+      "default": true,
       "visible_if": "{{ section.settings.autoplay > 0 }}"
     },
     {
       "type": "header",
-      "content": "t:blocks.carousel.settings.navigation.label"
+      "content": "Navigation arrows"
     },
     {
       "type": "checkbox",
       "id": "navUI",
-      "label": "t:blocks.carousel.settings.navigation.use_navigation",
+      "label": "Show arrows",
       "default": false
     },
     {
       "type": "select",
       "id": "nav_visible",
-      "label": "t:blocks.carousel.settings.navigation.nav_visible.label",
+      "label": "Arrows visibility",
       "options": [
-        {
-          "value": "always",
-          "label": "t:blocks.carousel.settings.navigation.nav_visible.options.always"
-        },
-        {
-          "value": "hover",
-          "label": "t:blocks.carousel.settings.navigation.nav_visible.options.hover"
-        }
+        { "value": "always", "label": "Always" },
+        { "value": "hover", "label": "On hover" }
       ],
-      "default": "always",
+      "default": "hover",
       "visible_if": "{{ section.settings.navUI }}"
     },
     {
       "type": "select",
       "id": "nav_style",
-      "label": "t:blocks.carousel.settings.navigation.nav_style.label",
+      "label": "Arrows style",
       "options": [
-        {
-          "value": "default",
-          "label": "t:default"
-        },
-        {
-          "value": "outline",
-          "label": "t:blocks.carousel.settings.navigation.nav_style.options.outline"
-        },
-        {
-          "value": "simple",
-          "label": "t:blocks.carousel.settings.navigation.nav_style.options.simple"
-        }
+        { "value": "default", "label": "Default" },
+        { "value": "outline", "label": "Outline" },
+        { "value": "simple", "label": "Simple" }
       ],
       "default": "default",
       "visible_if": "{{ section.settings.navUI }}"
@@ -207,83 +148,53 @@
     {
       "type": "select",
       "id": "nav_shape",
-      "label": "t:blocks.carousel.settings.navigation.nav_shape.label",
+      "label": "Arrows shape",
       "options": [
-        {
-          "value": "default",
-          "label": "t:default"
-        },
-        {
-          "value": "rounded",
-          "label": "t:blocks.carousel.settings.navigation.nav_shape.options.rounded"
-        },
-        {
-          "value": "rotate",
-          "label": "t:blocks.carousel.settings.navigation.nav_shape.options.rotate"
-        }
+        { "value": "default", "label": "Default" },
+        { "value": "rounded", "label": "Rounded" },
+        { "value": "rotate", "label": "Rotate" }
       ],
-      "default": "default",
+      "default": "rounded",
       "visible_if": "{{ section.settings.nav_style != 'simple' and section.settings.navUI }}"
     },
     {
       "type": "select",
       "id": "nav_size",
-      "label": "t:blocks.carousel.settings.navigation.nav_size.label",
+      "label": "Arrows size",
       "options": [
-        {
-          "value": "small",
-          "label": "t:blocks.carousel.settings.navigation.nav_size.options.small"
-        },
-        {
-          "value": "medium",
-          "label": "t:blocks.carousel.settings.navigation.nav_size.options.medium"
-        },
-        {
-          "value": "large",
-          "label": "t:blocks.carousel.settings.navigation.nav_size.options.large"
-        }
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
       ],
-      "default": "small",
+      "default": "medium",
       "visible_if": "{{ section.settings.navUI }}"
     },
     {
       "type": "checkbox",
       "id": "nav_hide_mobile",
-      "label": "t:blocks.carousel.settings.navigation.nav_hide_mobile.label",
-      "default": false,
+      "label": "Hide arrows on mobile",
+      "default": true,
       "visible_if": "{{ section.settings.navUI }}"
     },
     {
       "type": "header",
-      "content": "t:blocks.carousel.settings.pagination.label"
+      "content": "Pagination dots"
     },
     {
       "type": "checkbox",
       "id": "dotUI",
-      "label": "t:blocks.carousel.settings.pagination.use_pagination",
-      "default": false
+      "label": "Show dots",
+      "default": true
     },
     {
       "type": "select",
       "id": "pag_style",
-      "label": "t:blocks.carousel.settings.pagination.style.label",
+      "label": "Dots style",
       "options": [
-        {
-          "value": "default",
-          "label": "t:default"
-        },
-        {
-          "value": "outline",
-          "label": "t:blocks.carousel.settings.pagination.style.options.outline"
-        },
-        {
-          "value": "elessi",
-          "label": "t:blocks.carousel.settings.pagination.style.options.elessi"
-        },
-        {
-          "value": "dot-outline",
-          "label": "Dot outline"
-        }
+        { "value": "default", "label": "Default" },
+        { "value": "outline", "label": "Outline" },
+        { "value": "elessi", "label": "Elessi" },
+        { "value": "dot-outline", "label": "Dot outline" }
       ],
       "default": "default",
       "visible_if": "{{ section.settings.dotUI }}"
@@ -291,20 +202,11 @@
     {
       "type": "select",
       "id": "pag_position",
-      "label": "t:blocks.carousel.settings.pagination.position.label",
+      "label": "Dots position",
       "options": [
-        {
-          "value": "left",
-          "label": "t:blocks.carousel.settings.pagination.position.options.left"
-        },
-        {
-          "value": "center",
-          "label": "t:blocks.carousel.settings.pagination.position.options.center"
-        },
-        {
-          "value": "right",
-          "label": "t:blocks.carousel.settings.pagination.position.options.right"
-        }
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
       ],
       "default": "center",
       "visible_if": "{{ section.settings.dotUI }}"
@@ -312,7 +214,7 @@
     {
       "type": "checkbox",
       "id": "pag_rounded",
-      "label": "t:blocks.carousel.settings.pagination.rounded",
+      "label": "Rounded dots",
       "default": true,
       "visible_if": "{{ section.settings.dotUI }}"
     },
@@ -323,7 +225,7 @@
       "max": 50,
       "step": 1,
       "unit": "px",
-      "label": "t:blocks.carousel.settings.pagination.space",
+      "label": "Space between dots",
       "default": 10,
       "visible_if": "{{ section.settings.dotUI }}"
     },
@@ -334,30 +236,31 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "t:blocks.carousel.settings.pagination.space_between_pagination",
-      "default": 10,
+      "label": "Dots offset",
+      "default": 20,
       "visible_if": "{{ section.settings.dotUI }}"
     },
     {
       "type": "checkbox",
       "id": "pag_hide_mobile",
-      "label": "t:blocks.carousel.settings.pagination.pag_hide_mobile",
+      "label": "Hide dots on mobile",
       "default": false,
       "visible_if": "{{ section.settings.dotUI }}"
     },
     {
       "type": "header",
-      "content": "t:settings_schema.layout.name"
+      "content": "Section"
     },
     {
       "type": "checkbox",
       "id": "colors_by_section",
-      "label": "t:sections.all.colors.display_colors_by_section"
+      "label": "Custom colors for this section",
+      "default": false
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
+      "label": "Color scheme",
       "visible_if": "{{ section.settings.colors_by_section }}"
     },
     {
@@ -366,222 +269,83 @@
       "min": 0,
       "max": 1,
       "step": 0.1,
-      "label": "t:sections.all.background.opacity",
+      "label": "Background opacity",
       "default": 0,
       "visible_if": "{{ section.settings.colors_by_section }}"
     },
     {
       "type": "checkbox",
       "id": "full_width",
-      "label": "t:sections.all.full_width.label",
+      "label": "Full width",
       "default": true
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_spacing"
+      "content": "Section spacing"
     },
     {
       "type": "text",
       "id": "mg",
       "label": "Margin",
-      "info": "Margin top, margin right, margin bottom, margin left. If you not use to blank",
+      "info": "Margin top, right, bottom, left. Leave a slot blank to skip it.",
       "default": ",,50px,",
       "placeholder": ",,50px,"
     },
     {
       "type": "text",
       "id": "mg_mb",
-      "label": "Margin (Mobile)",
+      "label": "Margin (mobile)",
       "default": ",,30px,",
-      "placeholder": ",,50px,",
+      "placeholder": ",,30px,",
       "visible_if": "{{ section.settings.mg != blank }}"
     },
     {
       "type": "text",
       "id": "pd",
       "label": "Padding",
-      "info": "Padding top, padding right, padding bottom, padding left. If you not use to blank",
+      "info": "Padding top, right, bottom, left. Leave a slot blank to skip it.",
       "placeholder": "50px,,50px,"
     },
     {
       "type": "text",
       "id": "pd_mb",
-      "label": "Padding (Mobile)",
+      "label": "Padding (mobile)",
       "placeholder": ",,50px,",
       "visible_if": "{{ section.settings.pd != blank }}"
     }
   ],
   "presets": [
     {
-      "name": "t:sections.slideshow.name",
+      "name": "YAMAN Hero Slideshow",
       "category": "t:sections_categories.01_hero.name",
       "blocks": [
         {
-          "type": "_slide-item",
+          "type": "_slide-item-n",
           "settings": {
-            "url": "",
-            "banner_target": false,
-            "color_scheme": "",
-            "content_position": "center-start",
-            "content_position_mb": "center-start"
-          },
-          "blocks": [
-            {
-              "type": "heading",
-              "settings": {
-                "heading": "<h2>Glamorous <br>Glam<\/h2>",
-                "heading_size": "h2"
-              }
-            },
-            {
-              "type": "spacer",
-              "settings": {
-                "space_lg": 20,
-                "space_md": 16,
-                "space": 10
-              }
-            },
-            {
-              "type": "text",
-              "settings": {
-                "text": "<p>From casual to formal, we've got you covered<\/p>",
-                "text_size": "2xl"
-              }
-            },
-            {
-              "type": "spacer",
-              "settings": {
-                "space_lg": 50,
-                "space_md": 30,
-                "space": 20
-              }
-            },
-            {
-              "type": "button",
-              "settings": {
-                "label": "Shop collection",
-                "link": "shopify:\/\/collections",
-                "open_in_new_tab": false,
-                "full_width": false,
-                "icon": "none",
-                "icon_position": "after",
-                "icon_height": 16,
-                "icon_spacing": 5
-              }
-            }
-          ]
+            "heading": "LIFT.\nSCULPT.\nREDEFINE.",
+            "heading_mb": "ELEVATE.\nSCULPT.\nREDEFINE.",
+            "subheading": "<p>46 years of R&D. 345+ patents. Clinical-grade technology designed for you.</p>",
+            "button_label": "SHOP MEDI LIFT PLUS — 1,700 SAR",
+            "meta_text": "345+ PATENTS | ISO 13485 CERTIFIED | 10M+ UNITS SOLD"
+          }
         },
         {
-          "type": "_slide-item",
+          "type": "_slide-item-n",
           "settings": {
-            
-            "url": "",
-            "banner_target": false,
-            "color_scheme": "",
-            "content_position": "center-start",
-            "content_position_mb": "center-start"
-          },
-          "blocks": [
-            {
-              "type": "heading",
-              "settings": {
-                "heading": "<h2>Simple <br>Style<\/h2>",
-                "heading_size": "h2"
-              }
-            },
-            {
-              "type": "spacer",
-              "settings": {
-                "space_lg": 20,
-                "space_md": 16,
-                "space": 10
-              }
-            },
-            {
-              "type": "text",
-              "settings": {
-                "text": "<p>From casual to formal, we've got you covered<\/p>",
-                "text_size": "2xl"
-              }
-            },
-            {
-              "type": "spacer",
-              "settings": {
-                "space_lg": 50,
-                "space_md": 30,
-                "space": 20
-              }
-            },
-            {
-              "type": "button",
-              "settings": {
-                "label": "Shop collection",
-                "link": "shopify:\/\/collections",
-                "open_in_new_tab": false,
-                "full_width": false,
-                "icon": "none",
-                "icon_position": "after",
-                "icon_height": 16,
-                "icon_spacing": 5
-              }
-            }
-          ]
+            "heading": "FIRM.\nDEFINE.\nGLOW.",
+            "subheading": "<p>Clinically proven results powered by Japanese R&D.</p>",
+            "button_label": "EXPLORE THE 4 SETS",
+            "meta_text": "SFDA CERTIFIED | CLINICALLY TESTED | FREE GCC DELIVERY"
+          }
         },
         {
-          "type": "_slide-item",
+          "type": "_slide-item-n",
           "settings": {
-            
-            "url": "",
-            "banner_target": false,
-            "color_scheme": "",
-            "content_position": "center-start",
-            "content_position_mb": "center-start"
-          },
-          "blocks": [
-            {
-              "type": "heading",
-              "settings": {
-                "heading": "<h2>Discreet <br>Style<\/h2>",
-                "heading_size": "h2"
-              }
-            },
-            {
-              "type": "spacer",
-              "settings": {
-                "space_lg": 20,
-                "space_md": 16,
-                "space": 10
-              }
-            },
-            {
-              "type": "text",
-              "settings": {
-                "text": "<p>From casual to formal, we've got you covered<\/p>",
-                "text_size": "2xl"
-              }
-            },
-            {
-              "type": "spacer",
-              "settings": {
-                "space_lg": 50,
-                "space_md": 30,
-                "space": 20
-              }
-            },
-            {
-              "type": "button",
-              "settings": {
-                "label": "Shop collection",
-                "link": "shopify:\/\/collections",
-                "open_in_new_tab": false,
-                "full_width": false,
-                "icon": "none",
-                "icon_position": "after",
-                "icon_height": 16,
-                "icon_spacing": 5
-              }
-            }
-          ]
+            "heading": "YOUR\nDAILY\nRITUAL.",
+            "subheading": "<p>Spa-grade skincare technology, designed for home.</p>",
+            "button_label": "DISCOVER YOUR GLOW",
+            "meta_text": "30-DAY RETURNS | 10M+ UNITS SOLD | TRUSTED WORLDWIDE"
+          }
         }
       ]
     }

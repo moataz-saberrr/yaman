@@ -6,6 +6,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **Shopify theme**: "Kalles" v5.4.2 by The4 ([docs](https://support.the4.co/collections/kalles-5)). It is a large, feature-rich commercial Online Store 2.0 theme written in Liquid, with vanilla-JS custom elements and plain CSS — **there is no build step, package.json, or bundler**. Files are uploaded as-is to Shopify. The `assets/*.min.js` / `*.min.css` files are pre-minified vendored/built outputs; edit the un-minified source where one exists (e.g. `custom.js`, `events.js`, `utilities.js`) rather than the `.min` files.
 
+## YAMAN homepage project — working rules
+
+We are converting a Figma homepage design into this Kalles theme, section by section. See `YAMAN_PROJECT_PLAN.md` for the full plan and section breakdown. These rules OVERRIDE the generic guidance below:
+
+- **Never edit original Kalles files.** Do not modify original Kalles sections, snippets, blocks, or any original CSS/JS (and never touch `*.min.css` / `*.min.js`). Work only on duplicated/new section/block files, new custom CSS/JS, markdown docs, and explicitly-needed setup files (e.g. `layout/theme.liquid`).
+- **Duplicate, then customize.** For each homepage section, duplicate the closest Kalles section to a new `*-n` (or `yaman-*`) file and customize the copy; only build from scratch when no suitable Kalles section exists. New files must follow Kalles coding style and structure.
+- **One custom CSS file:** all custom YAMAN CSS goes in `assets/custom_yaman.css` (loaded globally from `layout/theme.liquid`, after the `css-variables` snippet).
+- **Scope every style** under a unique section-specific parent class (e.g. `.hdt-slideshow-n`) so it cannot leak into other Kalles sections or other instances. For sections that may appear more than once, expose a `custom_class` / `section_unique_class` schema setting and scope by that.
+- **Keep content dynamic** through section/block schema settings whenever possible; avoid hardcoded copy beyond temporary placeholders, and keep storefront text in `locales/`.
+- **Do not hardcode Figma images.** Expose image-picker settings in the schema; the store owner uploads/selects images in the theme editor.
+- **Hero is first:** `sections/slideshow.liquid` → duplicated as `sections/slideshow-n.liquid` (scope class `hdt-slideshow-n`). It shares the `_slide-item` block.
+- **Do not edit `templates/index.json`** until a new section is actually being wired in; new sections are added *above* the existing default Kalles sections, and the old defaults are only removed once the new homepage is complete.
+
 ## Developing & deploying
 
 There is no local build/lint/test tooling checked in. Theme development uses the Shopify CLI against the live/dev store:
