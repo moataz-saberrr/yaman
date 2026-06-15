@@ -70,8 +70,10 @@
         "slide_3"
       ],
       "settings": {
-        "hero_min_height": 560,
-        "hero_image_height_mb": 340,
+        "image_height": "adapt_image",
+        "fixed_height": 560,
+        "image_height_mb": "adapt_image",
+        "fixed_height_mb": 340,
         "overlay_opacity": 40,
         "is_fade": false,
         "loop": false,
@@ -94,8 +96,8 @@
         "color_scheme": "",
         "background_opacity": 0,
         "full_width": true,
-        "mg": ",,50px,",
-        "mg_mb": ",,30px,",
+        "mg": ",,,",
+        "mg_mb": ",,,",
         "pd": "",
         "pd_mb": ""
       }
@@ -103,18 +105,76 @@
     "yaman_trust_badges": {
       "type": "shipping-n",
       "blocks": {
-        "badge_1": { "type": "badge", "settings": { "label": "SFDA Certified" } },
-        "badge_2": { "type": "badge", "settings": { "label": "ISO 13485 Medical-Grade" } },
-        "badge_3": { "type": "badge", "settings": { "label": "345+ Patents" } },
-        "badge_4": { "type": "badge", "settings": { "label": "Clinically Tested" } },
-        "badge_5": { "type": "badge", "settings": { "label": "Free Delivery GCC" } },
-        "badge_6": { "type": "badge", "settings": { "label": "30-Day Returns" } }
+        "badge_1": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/icon_section_01.png",
+            "label": "SFDA Certified",
+            "link": "",
+            "alt": ""
+          }
+        },
+        "badge_2": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/icon_section_02.png",
+            "label": "ISO 13485 Medical-Grade",
+            "link": "",
+            "alt": ""
+          }
+        },
+        "badge_3": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/icon_section_03.png",
+            "label": "345+ Patents",
+            "link": "",
+            "alt": ""
+          }
+        },
+        "badge_4": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/icon_section_04.png",
+            "label": "Clinically Tested",
+            "link": "",
+            "alt": ""
+          }
+        },
+        "badge_5": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/icon_section_05.png",
+            "label": "Free Delivery GCC",
+            "link": "",
+            "alt": ""
+          }
+        },
+        "badge_6": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/icon_section_06.png",
+            "label": "30-Day Returns",
+            "link": "",
+            "alt": ""
+          }
+        }
       },
-      "block_order": ["badge_1", "badge_2", "badge_3", "badge_4", "badge_5", "badge_6"],
+      "block_order": [
+        "badge_1",
+        "badge_2",
+        "badge_3",
+        "badge_4",
+        "badge_5",
+        "badge_6"
+      ],
       "settings": {
+        "autoplay": false,
+        "autoplay_speed": 4,
+        "loop": false,
         "container_max_width": 1360,
         "container_padding": 15,
-        "background_color": "#FAF7F0",
+        "background_color": "#faf7f0",
         "icon_size": 64,
         "icon_size_mb": 48,
         "gap": 24,
