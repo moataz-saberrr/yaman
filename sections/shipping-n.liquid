@@ -1,6 +1,9 @@
-<!-- section/shipping-n.liquid — YAMAN Trust Icons / Badges slider (custom; do NOT confuse with the original Kalles shipping.liquid) -->
+<!-- section/shipping-n.liquid — YAMAN Trust Badges slider (custom; do NOT confuse with the original Kalles shipping.liquid) -->
 <div
   class="hdt-yaman-trust-badges"
+  data-tb-autoplay="{{ section.settings.autoplay }}"
+  data-tb-autoplay-ms="{{ section.settings.autoplay_speed | times: 1000 }}"
+  data-tb-loop="{{ section.settings.loop }}"
   style="
     --tb-maxw: {{ section.settings.container_max_width }}px;
     --tb-pad-x: {{ section.settings.container_padding }}px;
@@ -17,43 +20,79 @@
 >
   <div class="hdt-yaman-trust-badges__container">
     <div class="hdt-yaman-trust-badges__slider">
-      <ul class="hdt-yaman-trust-badges__track" role="list">
-        {%- for block in section.blocks -%}
-          {%- liquid
-            assign label = block.settings.label
-            assign link = block.settings.link
-            assign icon = block.settings.icon
-            assign alt = block.settings.alt | default: block.settings.label
-          -%}
-          {%- capture badge_inner -%}
-            <span class="hdt-yaman-trust-badges__icon">
-              {%- if icon != blank -%}
-                {{ icon | image_url: width: 240 | image_tag: loading: 'lazy', class: 'hdt-yaman-trust-badges__img', alt: alt, widths: '48,64,96,128,160,200,240' }}
+      <button type="button" class="hdt-yaman-trust-badges__nav hdt-yaman-trust-badges__nav--prev" aria-label="{{ 'general.slider.previous_slide' | t | default: 'Previous' }}" data-tb-prev hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/></svg>
+      </button>
+      <div class="hdt-yaman-trust-badges__viewport" data-tb-viewport>
+        <ul class="hdt-yaman-trust-badges__track" data-tb-track role="list">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign label = block.settings.label
+              assign link = block.settings.link
+              assign icon = block.settings.icon
+              assign alt = block.settings.alt | default: block.settings.label
+            -%}
+            {%- capture badge_inner -%}
+              <span class="hdt-yaman-trust-badges__icon">
+                {%- if icon != blank -%}
+                  {{ icon | image_url: width: 240 | image_tag: loading: 'lazy', class: 'hdt-yaman-trust-badges__img', alt: alt, widths: '48,64,96,128,160,200,240' }}
+                {%- else -%}
+                  <span class="hdt-yaman-trust-badges__placeholder" aria-hidden="true"></span>
+                {%- endif -%}
+              </span>
+              {%- if label != blank -%}<span class="hdt-yaman-trust-badges__label">{{ label }}</span>{%- endif -%}
+            {%- endcapture -%}
+            <li class="hdt-yaman-trust-badges__item" {{ block.shopify_attributes }}>
+              {%- if link != blank -%}
+                <a class="hdt-yaman-trust-badges__inner" href="{{ link }}">{{ badge_inner }}</a>
               {%- else -%}
-                <span class="hdt-yaman-trust-badges__placeholder" aria-hidden="true"></span>
+                <div class="hdt-yaman-trust-badges__inner">{{ badge_inner }}</div>
               {%- endif -%}
-            </span>
-            {%- if label != blank -%}<span class="hdt-yaman-trust-badges__label">{{ label }}</span>{%- endif -%}
-          {%- endcapture -%}
-          <li class="hdt-yaman-trust-badges__item" {{ block.shopify_attributes }}>
-            {%- if link != blank -%}
-              <a class="hdt-yaman-trust-badges__inner" href="{{ link }}">{{ badge_inner }}</a>
-            {%- else -%}
-              <div class="hdt-yaman-trust-badges__inner">{{ badge_inner }}</div>
-            {%- endif -%}
-          </li>
-        {%- endfor -%}
-      </ul>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      <button type="button" class="hdt-yaman-trust-badges__nav hdt-yaman-trust-badges__nav--next" aria-label="{{ 'general.slider.next_slide' | t | default: 'Next' }}" data-tb-next hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/></svg>
+      </button>
     </div>
   </div>
 </div>
+<script src="{{ 'shipping-n.js' | asset_url }}" defer></script>
 {% schema %}
 {
-  "name": "YAMAN Trust Icons / Badges",
+  "name": "YAMAN Trust Badges",
   "tag": "section",
   "class": "hdt-yaman-trust-badges-section hdt-section",
   "max_blocks": 20,
   "settings": [
+    {
+      "type": "header",
+      "content": "Slider"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay speed",
+      "default": 4,
+      "visible_if": "{{ section.settings.autoplay }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop",
+      "default": false
+    },
     {
       "type": "header",
       "content": "Container"
@@ -206,7 +245,7 @@
   ],
   "presets": [
     {
-      "name": "YAMAN Trust Icons / Badges",
+      "name": "YAMAN Trust Badges",
       "category": "YAMAN",
       "blocks": [
         { "type": "badge", "settings": { "label": "SFDA Certified" } },

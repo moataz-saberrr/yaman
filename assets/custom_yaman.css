@@ -212,12 +212,12 @@
 
 
 /* ---------------------------------------------------------------------------
- * 2. TRUST ICONS / BADGES  ->  sections/shipping-n.liquid
+ * 2. TRUST ICONS / BADGES  ->  sections/shipping-n.liquid (+ assets/shipping-n.js)
  *    Scope class: .hdt-yaman-trust-badges-section  |  BEM: .hdt-yaman-trust-badges__*
- *    Full-bleed warm background; centered max-width container; one horizontal
- *    no-wrap row that scrolls (scroll-snap) on desktop AND mobile. Few items
- *    grow to fill evenly on desktop; many items keep a min-width and scroll.
- *    Per-instance values arrive as inline CSS vars (--tb-*) from section settings.
+ *    Full-bleed warm background; centered max-width container; one no-wrap row
+ *    driven as a real carousel by assets/shipping-n.js (transform + prev/next +
+ *    pointer drag, responsive items-per-view). Before JS runs, the viewport
+ *    falls back to native horizontal scroll. Per-instance values: inline --tb-*.
  * ------------------------------------------------------------------------- */
 .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges {
   background: var(--tb-bg, #FAF7F0);
@@ -228,13 +228,17 @@
   margin-inline: auto;
   padding-inline: var(--tb-pad-x, 15px);
 }
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__slider {
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__slider { position: relative; }
+
+/* viewport: native-scroll fallback before JS; JS adds .is-tb-ready → hidden + transform */
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__viewport {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  scroll-snap-type: x proximity;
 }
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__slider::-webkit-scrollbar { display: none; }
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__viewport::-webkit-scrollbar { display: none; }
+.hdt-yaman-trust-badges-section.is-tb-ready .hdt-yaman-trust-badges__viewport { overflow: hidden; }
+
 .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__track {
   display: flex;
   flex-wrap: nowrap;
@@ -243,12 +247,14 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  min-width: min-content;
+}
+.hdt-yaman-trust-badges-section.is-tb-ready .hdt-yaman-trust-badges__track {
+  transition: transform 0.4s ease;
+  will-change: transform;
 }
 .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__item {
   flex: 0 0 auto;
-  min-width: 110px;            /* mobile floor → ~3-4 visible on a ~485px screen */
-  scroll-snap-align: start;
+  min-width: 110px;            /* pre-JS fallback; shipping-n.js sets exact width inline */
 }
 .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__inner {
   display: flex;
@@ -267,38 +273,48 @@
   align-items: center;
   justify-content: center;
 }
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__img { width: 100%; height: 100%; object-fit: contain; }
 .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__placeholder {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   border: 1.5px solid rgba(7, 7, 7, 0.25);
 }
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__label {
-  font-size: 12px;
-  line-height: 1.3;
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__label { font-size: 12px; line-height: 1.3; color: #070707; }
+
+/* prev/next arrows — desktop only, revealed once JS is ready and content overflows */
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__nav {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(7, 7, 7, 0.18);
+  border-radius: 50%;
+  background: #fff;
   color: #070707;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background 0.2s ease;
 }
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__nav:hover { background: #f3efe7; }
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__nav:disabled { opacity: 0.3; cursor: default; }
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__nav--prev { inset-inline-start: -8px; }
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__nav--next { inset-inline-end: -8px; }
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__nav svg { width: 7px; height: 11px; }
 
 @media (min-width: 768px) {
-  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges {
-    padding-block: var(--tb-pt, 28px) var(--tb-pb, 28px);
-  }
+  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges { padding-block: var(--tb-pt, 28px) var(--tb-pb, 28px); }
   .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__track { gap: var(--tb-gap, 24px); }
-  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__item {
-    flex: 1 0 auto;            /* few items grow to fill the row evenly */
-    min-width: 160px;          /* many items keep this floor and the row scrolls */
-  }
+  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__item { min-width: 150px; }
   .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__inner { gap: 14px; }
-  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__icon {
-    width: var(--tb-icon, 64px);
-    height: var(--tb-icon, 64px);
-  }
+  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__icon { width: var(--tb-icon, 64px); height: var(--tb-icon, 64px); }
   .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__label { font-size: 15px; }
+  .hdt-yaman-trust-badges-section.is-tb-ready .hdt-yaman-trust-badges__nav:not([hidden]) { display: flex; }
 }
 
 

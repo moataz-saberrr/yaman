@@ -124,6 +124,13 @@ Each section follows the same loop: duplicate (or create) → add scoped markup 
 - Block settings exposed: desktop image, mobile image, heading, mobile-heading override, subheading (richtext), button label/link/new-tab, meta line, accent-last-line toggle, accent colour, panel colour.
 - **Manual steps in Shopify:** upload/select per-slide desktop + mobile images; set the CTA `button_link` (currently empty → renders as a disabled link until set).
 
+### Section 2 — Trust icons / badges (`shipping-n`) — DONE
+- **New section `sections/shipping-n.liquid`**, built custom (not a literal duplicate): the original `shipping.liquid` uses `<hdt-scrollsnap>` + a column grid and the heavy `_shipping` block (icon themes + nested heading/text). This design needed a simple icon-image + label + link strip, so the new file uses **section-local `badge` blocks** + a **CSS scroll-snap track** (no JS). Original `shipping.liquid` untouched.
+- **CSS** added to `assets/custom_yaman.css`, scoped under `.hdt-yaman-trust-badges-section`: full-bleed warm bg, centered max-width container, horizontal no-wrap scroll on desktop + mobile (few items grow to fill the row; many keep a min-width and scroll). Per-instance values via inline `--tb-*` vars from settings.
+- **`templates/index.json`**: added `yaman_trust_badges` directly after `yaman_hero` (before the old defaults), with 6 badge blocks in the desktop order.
+- ⚠️ **Schema name limit:** the section `name` was initially `YAMAN Trust Icons / Badges` (26 chars) and Shopify rejected it — `Invalid schema: name is too long (max 25 characters)`. Renamed to **`YAMAN Trust Badges`** (18). **Rule going forward: every schema `name` must be ≤ 25 characters** (also recorded in the `kalles-figma-to-shopify-section-workflow` skill).
+- 🔧 **Slider fix (follow-up):** the first version used CSS-only `overflow-x:auto` + `scroll-snap`, which didn't behave as a real slider on the storefront (desktop flex-grow left nothing to scroll; no arrows/affordance). Replaced with a scoped JS carousel **`assets/shipping-n.js`** (transform track + prev/next arrows + pointer drag + optional autoplay/loop), loaded via `<script defer>` at the end of `shipping-n.liquid`. The CSS scroll-snap rules were removed; the viewport keeps a **native-scroll fallback** until JS adds `.is-tb-ready`. Items-per-view is derived from a min item width (responsive, not hardcoded). New short settings: **Autoplay**, **Autoplay speed**, **Loop** (default off → backward compatible). JS is scoped to `.hdt-yaman-trust-badges-section`, supports multiple instances, and re-inits on `shopify:section:load`.
+
 ## 11. Merge log
 
 ### 2026-06-15 — merged `main` (dev2: general settings + header + brand fonts) into `dev1`

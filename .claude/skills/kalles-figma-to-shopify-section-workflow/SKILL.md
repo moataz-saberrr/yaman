@@ -142,6 +142,7 @@ Report:
 - Kalles has **many reusable snippets/blocks** and **many product-card variants**. Always confirm what is actually rendered before editing card/markup.
 - Kalles implements behavior as **native custom elements** (sliders/carousels, wishlist, compare, predictive search, etc.). When reusing one, **preserve its required DOM classes/attributes** — e.g. for the slideshow keep `<hdt-slideshow>` with its `config`/`autoheight`, and the `.hdt-slider__viewport` → `.hdt-slider__container` → `.hdt-slider__slide` structure plus `[hdt-slider-dots]`. A duplicated slide block should keep `"tag": null` so its own `.hdt-slider__slide` div is the slider's direct child (a non-null tag adds a wrapper and breaks the slider).
 - When duplicating a section, **update the schema `name` and `presets`** so it's clearly labeled and insertable in the theme editor (avoid leftover/invalid `t:` keys from the original).
+- **Schema `name` must be ≤ 25 characters** — Shopify hard limit; a longer value throws `Invalid schema: name is too long (max 25 characters)` and the section won't load. Keep section names short (e.g. `YAMAN Trust Badges`, not `YAMAN Trust Icons / Badges`), and keep block/preset names short too.
 - **Preserve/adapt useful original settings** instead of oversimplifying: height modes, spacing (margin/padding desktop+mobile), full-width, color scheme, navigation arrows, pagination.
 - For **slideshow/hero** sections, preserve the height modes when relevant:
   - `Adapt to first image`
