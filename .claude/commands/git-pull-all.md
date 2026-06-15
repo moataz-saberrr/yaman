@@ -1,0 +1,1 @@
+I need you to scan/check all the current branches on github and list them and then switch to them one by one, and for every one, after you switch to it, run the command git pull origin REPO_NAME to pull it's changes from origin to local and after you finish switch back to the current branch
