@@ -46,7 +46,49 @@ NOTE: most of the CSS variables used are defined in the "css-variables.liquid" s
   5.18. Zoom Image
 ------------------------------------------- */
 
+/* Regular Weight (English/Latin) */
+@font-face {
+  font-family: 'DIN Next LT';
+  src: url('{{ "DINNextLTW23-Regular.woff2" | asset_url }}') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
+/* Medium Weight (English/Latin) */
+@font-face {
+  font-family: 'DIN Next LT';
+  src: url('{{ "DINNextLTW23-Medium.woff2" | asset_url }}') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold Weight (Arabic) */
+@font-face {
+  font-family: 'DIN Next Arabic';
+  src: url('{{ "DINNextLTArabic-Bold.woff2" | asset_url }}') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+:root {
+  --font-body-family: 'DIN Next LT', sans-serif;
+  --font-heading-family: 'DIN Next Arabic', sans-serif;
+}
+
+/* Example Application */
+body {
+  font-family: var(--font-body-family);
+  font-weight: 400;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading-family);
+  font-weight: 700;
+}
 
 /* ==========================================================================
   1. RESET

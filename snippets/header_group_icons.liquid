@@ -182,7 +182,8 @@
 	<div class="hdt-site-nav_icon hdt-site-nav_cart hdt-inline-flex hdt-align-center">
 		<a class="hdt-inline-flex hdt-align-center" href="{{ routes.cart_url }}"{% if request.page_type != 'cart' %} aria-controls="CartDrawer"{% endif %}>
       <div class="hdt-inline-flex hdt-align-center hdt-relative hdt-has-count-box">
-        <svg width="24" height="24" aria-hidden="true" focusable="false" role="presentation"><use href="#icon-h-cart"></use></svg>
+        {% comment %} <svg width="24" height="24" aria-hidden="true" focusable="false" role="presentation"><use href="#icon-h-cart"></use></svg> {% endcomment %}
+                 {{'cart.svg' | inline_asset_content | replace: 'width="20"', 'width="22"' | replace: 'height="20"', 'height="23"' }}
         <hdt-cart-count class="hdt-count-box hdt-absolute">{{ cart.item_count | minus: has_protect_product }}</hdt-cart-count>
       </div>
       <hdt-cart-total class="hdt-cart-total hdt-hidden"><span class="hdt-money">{{ cart.total_price | money }}</span></hdt-cart-total>

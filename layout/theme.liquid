@@ -58,9 +58,19 @@
 
     {{ content_for_header }}
     {%- endunless -%}
+
+    <link rel="preload" as="font" href="{{ 'DINNextLTArabic-Bold.woff2' | asset_url }}" type="font/woff2" crossorigin="anonymous">
+
+    {{ 'custom-general.css' | asset_url | stylesheet_tag: preload: true }}
+    {% if template.name == "product" and template.suffix != blank %}
+      {{ 'custom-product.css' | asset_url | stylesheet_tag: preload: true }}
+    {% endif %}
+    {% if template.name == "collection" and template.suffix == blank %}
+      {{ 'custom-collection.css' | asset_url | stylesheet_tag: preload: true }}
+    {% endif %}
   </head>
 
-  <body class="hdt-page-type-{{ request.page_type }}">
+  <body class="hdt-page-type-{{ request.page_type }} {{ template.name }}">
     {% comment %} {%- section 'product-card-configs' -%} {% endcomment %}
     {%- unless template == 'product.only_config' and request.design_mode == false -%}
     {%- if request.page_type == "index" or request.page_type == "policy" -%}
