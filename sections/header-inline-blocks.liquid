@@ -181,9 +181,12 @@
     <div data-header-height class="hdt-flex hdt-align-center hdt-spacing-15 md:hdt-px-15 hdt-px-10">
       {%- if section.settings.header_layout == "logo_left" -%}
         <div class="lg:hdt-hidden md:hdt-custom-col-4 hdt-custom-col-3">
-          <button aria-controls="menu_mobile" class="hdt-push-menu-btn hdt-menu-bar hdt-flex hdt-justify-center hdt-align-center" aria-label="push-menu">
+          {% comment %} <button aria-controls="menu_mobile" class="hdt-push-menu-btn hdt-menu-bar hdt-flex hdt-justify-center hdt-align-center" aria-label="push-menu">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16" fill="currentColor"><rect width="30" height="1.5"></rect><rect y="7" width="20" height="1.5"></rect><rect y="14" width="30" height="1.5"></rect></svg>
-          </button>
+          </button> {% endcomment %}
+           <button aria-controls="menu_mobile" class="hdt-push-menu-btn hdt-menu-bar hdt-flex hdt-justify-center hdt-align-center" aria-label="push-menu">
+            {{'burger-menu.svg' | inline_asset_content  }}
+          </button> 
         </div>
         <div class="{% if section.settings.menu_position == "start" and section.settings.menu_type == "default" %}lg:hdt-custom-col-auto {% else %}lg:hdt-custom-col-2{% endif %} md:hdt-custom-col-4 hdt-custom-col-6 xs:hdt-text-center hdt-flex hdt-align-center hdt-justify-start hdt-col-logo">
           {%- if section.settings.menu_type == "sidebar" and section.settings.menu_position == "start" -%}
@@ -728,8 +731,7 @@
       "type": "checkbox",
       "id": "enabled_wishlist",
       "label": "t:sections.header.settings.group_icons.enabled_wishlist.label",
-      "default": true,
-      "visible_if": "{{ settings.wishlist_mode != '0' }}"
+      "default": false
     },
     {
       "type": "checkbox",
