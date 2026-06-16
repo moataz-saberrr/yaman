@@ -321,10 +321,13 @@
 /* ---------------------------------------------------------------------------
  * 10. BLOG / ARTICLES  ->  sections/blog-post-n.liquid
  *     Scope class: .hdt-yaman-blog-section  |  BEM: .hdt-yaman-blog__*
- *     Warm-beige section. Desktop: heading top-left, a CSS grid of cards,
- *     then a centered button (flex `order` reflows the button below the cards).
- *     Mobile: heading, button, then a CSS scroll-snap slider showing ~1 card +
- *     a peek of the next (no JS). Per-instance values via inline --blog-*.
+ *     Warm-beige section. Cards run inside the theme's native <hdt-slider>
+ *     (drag / arrows / dots / autoplay handled by global.min.js) — we only set
+ *     per-view widths via the theme's hdt-slides-* classes and add scoped style.
+ *     Desktop: heading top-left, N-up slider row, centered button below (flex
+ *     `order` reflows the button under the cards). Mobile: heading, button,
+ *     then a swipeable slider showing 1 card + a peek of the next (--blog-card-mb
+ *     overrides the slider's --slide-size). Per-instance values via inline --blog-*.
  * ------------------------------------------------------------------------- */
 .hdt-yaman-blog-section {
   background: var(--blog-bg, #F0E9DB);
@@ -337,11 +340,23 @@
   display: flex;
   flex-direction: column;
 }
+.hdt-yaman-blog-section .hdt-yaman-blog__cards { position: relative; }
 
-/* mobile reflow order: heading (1) -> button (2) -> cards (3) */
+/* Vertically center the prev/next arrows on the card IMAGE (not the whole card).
+   --gap-arrow is the theme's own arrow-position var (consumed as top:var(--gap-arrow)).
+   Image width is derived from the container width (viewport-based, no container
+   queries) so we don't put size-containment on the slider — that interferes with
+   the slider JS measuring its own width. image height = img width * 3/4 (4:3). */
+.hdt-yaman-blog-section .hdt-navigation {
+  --blog-track-w: calc(min(100vw, var(--blog-maxw, 1360px)) - 2 * var(--blog-pad-x, 15px));
+  --arrow-img-w: calc(var(--blog-track-w) * var(--blog-card-mb, 80) / 100 - var(--spacing-x, 15px));
+  --gap-arrow: calc(var(--arrow-img-w) * 3 / 4 / 2);
+}
+
+/* layout order (all breakpoints): heading (1) -> cards (2) -> button (3, centered) */
 .hdt-yaman-blog-section .hdt-yaman-blog__header { order: 1; margin: 0 0 16px; }
-.hdt-yaman-blog-section .hdt-yaman-blog__button { order: 2; }
-.hdt-yaman-blog-section .hdt-yaman-blog__cards  { order: 3; }
+.hdt-yaman-blog-section .hdt-yaman-blog__cards  { order: 2; }
+.hdt-yaman-blog-section .hdt-yaman-blog__button { order: 3; }
 
 .hdt-yaman-blog-section .hdt-yaman-blog__heading {
   margin: 0;
@@ -350,13 +365,13 @@
   color: #0d0d0d;
 }
 
-/* Button — black pill, light uppercase text, compact */
+/* Button — black pill, light uppercase text, compact. Centered below the cards. */
 .hdt-yaman-blog-section .hdt-yaman-blog__button {
-  align-self: flex-start;
+  align-self: center;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 0 0 24px;
+  margin: 32px 0 0;
   padding: 12px 26px;
   background: #0d0d0d;
   color: #f5ebdd;
@@ -369,29 +384,12 @@
 }
 .hdt-yaman-blog-section .hdt-yaman-blog__button:hover { opacity: 0.9; transform: translateY(-1px); }
 
-/* Cards: mobile = horizontal scroll-snap slider (~1 card + peek) */
-.hdt-yaman-blog-section .hdt-yaman-blog__track {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  margin-inline: calc(-1 * var(--blog-pad-x, 15px));
-  padding-inline: var(--blog-pad-x, 15px);
-  scroll-padding-inline: var(--blog-pad-x, 15px);
-}
-.hdt-yaman-blog-section .hdt-yaman-blog__track::-webkit-scrollbar { display: none; }
-
 .hdt-yaman-blog-section .hdt-yaman-blog__card {
-  flex: 0 0 var(--blog-card-mb, 80%);
-  scroll-snap-align: start;
-  display: block;
   text-decoration: none;
   color: inherit;
 }
-
 .hdt-yaman-blog-section .hdt-yaman-blog__image {
+  display: block;
   position: relative;
   overflow: hidden;
   border-radius: var(--blog-radius, 16px);
@@ -403,7 +401,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
+.hdt-yaman-blog-section .hdt-yaman-blog__card:hover .hdt-yaman-blog__img { transform: scale(1.04); }
 .hdt-yaman-blog-section .hdt-yaman-blog__placeholder { background: #ece6da; }
 
 .hdt-yaman-blog-section .hdt-yaman-blog__meta { padding-top: 14px; }
@@ -421,38 +421,53 @@
   line-height: 1.4;
   font-weight: 600;
   color: #0d0d0d;
+}
+.hdt-yaman-blog-section .hdt-yaman-blog__title a {
+  color: inherit;
+  text-decoration: none;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.hdt-yaman-blog-section .hdt-yaman-blog__card:hover .hdt-yaman-blog__title { opacity: 0.75; }
+.hdt-yaman-blog-section .hdt-yaman-blog__card:hover .hdt-yaman-blog__title a { opacity: 0.75; }
 .hdt-yaman-blog-section .hdt-yaman-blog__notice {
   margin: 16px 0 0;
   font-size: 13px;
   color: #8a8275;
 }
 
+/* Dots — scoped pill style (overrides the var-driven theme dots) */
+.hdt-yaman-blog-section .hdt-yaman-blog__dots {
+  --pag-w: 8px;
+  --pag-h: 8px;
+  --pag-w-active: 24px;
+  --pag-h-active: 8px;
+  --pag-bg: rgba(13, 13, 13, 0.2);
+  --pag-bg-active: #0d0d0d;
+  --pag-border: transparent;
+  --pag-radius: 999px;
+}
+
+/* Mobile only: 1 card + a peek of the next. The theme's hdt-slides-1 sets
+   --slide-size:100% at base; this scoped rule narrows it. Kept inside a
+   max-width query so the desktop md:/lg:hdt-slides-* widths stay untouched. */
+@media (max-width: 767px) {
+  .hdt-yaman-blog-section .hdt-yaman-blog__slider { --slide-size: calc(var(--blog-card-mb, 80) * 1%); }
+}
+
 @media (min-width: 768px) {
   .hdt-yaman-blog-section { padding-block: var(--blog-pt, 80px) var(--blog-pb, 80px); }
 
-  /* desktop reflow order: heading (1) -> cards (2) -> button (3, centered) */
-  .hdt-yaman-blog-section .hdt-yaman-blog__header { order: 1; margin-bottom: 28px; }
-  .hdt-yaman-blog-section .hdt-yaman-blog__cards  { order: 2; }
-  .hdt-yaman-blog-section .hdt-yaman-blog__button { order: 3; align-self: center; margin: 40px 0 0; }
-
+  .hdt-yaman-blog-section .hdt-yaman-blog__header { margin-bottom: 28px; }
+  .hdt-yaman-blog-section .hdt-yaman-blog__button { margin-top: 40px; }
   .hdt-yaman-blog-section .hdt-yaman-blog__heading { font-size: clamp(28px, 2.4vw, 36px); }
 
-  /* desktop grid — no scroll, exactly N columns */
-  .hdt-yaman-blog-section .hdt-yaman-blog__track {
-    display: grid;
-    grid-template-columns: repeat(var(--blog-cols, 3), 1fr);
-    gap: 28px;
-    overflow: visible;
-    margin-inline: 0;
-    padding-inline: 0;
+  /* desktop per-view width comes entirely from the theme's lg:/md:hdt-slides-* classes */
+  /* arrows: one image width = (track / columns) - the inter-slide spacing */
+  .hdt-yaman-blog-section .hdt-navigation {
+    --arrow-img-w: calc(var(--blog-track-w) / var(--blog-cols, 3) - var(--spacing-x, 30px));
   }
-  .hdt-yaman-blog-section .hdt-yaman-blog__card { flex: initial; }
   .hdt-yaman-blog-section .hdt-yaman-blog__meta { padding-top: 18px; }
   .hdt-yaman-blog-section .hdt-yaman-blog__title { font-size: 18px; }
 }

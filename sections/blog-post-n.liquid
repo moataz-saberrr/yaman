@@ -28,7 +28,7 @@
     --blog-pb-mb: {{ section.settings.padding_bottom_mb }}px;
     --blog-cols: {{ section.settings.columns }};
     --blog-radius: {{ section.settings.image_radius }}px;
-    --blog-card-mb: {{ section.settings.card_width_mb }}%;
+    --blog-card-mb: {{ section.settings.card_width_mb }};
   "
 >
   <div class="hdt-yaman-blog">
@@ -49,47 +49,72 @@
       {%- endif -%}
 
       <div class="hdt-yaman-blog__cards">
-        <div class="hdt-yaman-blog__track">
-          {%- if has_articles -%}
-            {%- for article in sel_blog.articles limit: limit -%}
-              <a class="hdt-yaman-blog__card" href="{{ article.url }}">
-                <div class="hdt-yaman-blog__image">
-                  {%- if article.image != blank -%}
-                    {{
-                      article.image
-                      | image_url: width: 800
-                      | image_tag:
-                        loading: 'lazy',
-                        widths: '300, 400, 500, 600, 800',
-                        sizes: '(min-width: 768px) 33vw, 80vw',
-                        class: 'hdt-yaman-blog__img',
-                        alt: article.title | escape
-                    }}
-                  {%- else -%}
-                    {{ 'image' | placeholder_svg_tag: 'hdt-yaman-blog__img hdt-yaman-blog__placeholder' }}
-                  {%- endif -%}
-                </div>
-                <div class="hdt-yaman-blog__meta">
-                  <span class="hdt-yaman-blog__date">{{ article.published_at | date: section.settings.date_format }}</span>
-                  <h3 class="hdt-yaman-blog__title">{{ article.title }}</h3>
-                </div>
-              </a>
-            {%- endfor -%}
-          {%- elsif request.design_mode -%}
-            {%- comment -%} Theme-editor preview when no blog is selected / blog is empty {%- endcomment -%}
-            {%- for i in (1..limit) -%}
-              <div class="hdt-yaman-blog__card hdt-yaman-blog__card--placeholder">
-                <div class="hdt-yaman-blog__image">
-                  {{ 'image' | placeholder_svg_tag: 'hdt-yaman-blog__img hdt-yaman-blog__placeholder' }}
-                </div>
-                <div class="hdt-yaman-blog__meta">
-                  <span class="hdt-yaman-blog__date">{{ 'now' | date: section.settings.date_format }}</span>
-                  <h3 class="hdt-yaman-blog__title">{{ 'sections.feature-blog.name' | t }}</h3>
-                </div>
-              </div>
-            {%- endfor -%}
+        <hdt-slider
+          id="Slider-{{ section.id }}"
+          class="hdt-yaman-blog__slider hdt-slider hdt-relative hdt-slide-spacing-x lg:hdt-slides-{{ section.settings.columns }} md:hdt-slides-{{ section.settings.col_tb }} hdt-slides-1"
+          config='{ "id": "Slider-{{ section.id }}", "navUI": {{ section.settings.nav_ui }}, "dotUI": {{ section.settings.dot_ui }}, "loop": {{ section.settings.loop }}, "autoPlay": {{ section.settings.autoplay | times: 1000 }}, "pauseOnHover": {{ section.settings.pause_on_hover }}, "navUICenter": true }'
+        >
+          <div class="hdt-slider__viewport hdt-relative">
+            <div class="hdt-slider__container">
+              {%- if has_articles -%}
+                {%- for article in sel_blog.articles limit: limit -%}
+                  <div class="hdt-slider__slide hdt-yaman-blog__card">
+                    <a class="hdt-yaman-blog__image" href="{{ article.url }}" aria-label="{{ article.title | escape }}">
+                      {%- if article.image != blank -%}
+                        {{
+                          article.image
+                          | image_url: width: 800
+                          | image_tag:
+                            loading: 'lazy',
+                            widths: '300, 400, 500, 600, 800',
+                            sizes: '(min-width: 768px) 33vw, 80vw',
+                            class: 'hdt-yaman-blog__img',
+                            alt: article.title | escape
+                        }}
+                      {%- else -%}
+                        {{ 'image' | placeholder_svg_tag: 'hdt-yaman-blog__img hdt-yaman-blog__placeholder' }}
+                      {%- endif -%}
+                    </a>
+                    <div class="hdt-yaman-blog__meta">
+                      <span class="hdt-yaman-blog__date">{{ article.published_at | date: section.settings.date_format }}</span>
+                      <h3 class="hdt-yaman-blog__title">
+                        <a href="{{ article.url }}">{{ article.title }}</a>
+                      </h3>
+                    </div>
+                  </div>
+                {%- endfor -%}
+              {%- elsif request.design_mode -%}
+                {%- comment -%} Theme-editor preview when no blog is selected / blog is empty {%- endcomment -%}
+                {%- for i in (1..limit) -%}
+                  <div class="hdt-slider__slide hdt-yaman-blog__card hdt-yaman-blog__card--placeholder">
+                    <div class="hdt-yaman-blog__image">
+                      {{ 'image' | placeholder_svg_tag: 'hdt-yaman-blog__img hdt-yaman-blog__placeholder' }}
+                    </div>
+                    <div class="hdt-yaman-blog__meta">
+                      <span class="hdt-yaman-blog__date">{{ 'now' | date: section.settings.date_format }}</span>
+                      <h3 class="hdt-yaman-blog__title">{{ 'onboarding.blog_title' | t }}</h3>
+                    </div>
+                  </div>
+                {%- endfor -%}
+              {%- endif -%}
+            </div>
+          </div>
+
+          {%- if section.settings.nav_ui -%}
+            <div class="hdt-navigation hdt-position-default hdt-visible-hover hdt-style-default hdt-shape-rounded hdt-size-small hdt-hide-mobile-false">
+              <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--prev" type="button" disabled name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/></svg>
+              </button>
+              <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--next" type="button" disabled name="next" aria-label="{{ 'general.slider.next_slide' | t }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/></svg>
+              </button>
+            </div>
           {%- endif -%}
-        </div>
+
+          {%- if section.settings.dot_ui -%}
+            <div hdt-slider-dots aria-controls="Slider-{{ section.id }}" class="hdt-yaman-blog__dots hdt-slider__dots hdt-pagination hdt-style-default hdt-radius-true hdt-hide-mobile-false" style="--space-between: 8px; --margin-top: 24px;" hdt-reveal="slide-in" timeline></div>
+          {%- endif -%}
+        </hdt-slider>
 
         {%- if has_articles == false and request.design_mode -%}
           <p class="hdt-yaman-blog__notice">Select a blog in this section's settings to display its latest articles.</p>
@@ -140,11 +165,66 @@
       "default": 3
     },
     {
+      "type": "select",
+      "id": "col_tb",
+      "label": "Columns (tablet)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" }
+      ],
+      "default": "2"
+    },
+    {
       "type": "text",
       "id": "date_format",
       "label": "Date format",
       "info": "Liquid date format. e.g. %B %d, %Y → April 17, 2026 (displayed uppercase).",
       "default": "%B %d, %Y"
+    },
+    {
+      "type": "header",
+      "content": "Carousel"
+    },
+    {
+      "type": "paragraph",
+      "content": "On mobile the cards become a swipeable slider (1 card + a peek of the next). Set the mobile card width under Layout & style."
+    },
+    {
+      "type": "checkbox",
+      "id": "nav_ui",
+      "label": "Show arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "dot_ui",
+      "label": "Show dots",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop",
+      "info": "Keeps the arrows active even when there are only a few articles.",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay",
+      "min": 0,
+      "max": 7,
+      "step": 0.5,
+      "unit": "s",
+      "label": "Autoplay speed",
+      "info": "0 = off.",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
     },
     {
       "type": "header",
