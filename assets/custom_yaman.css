@@ -463,13 +463,21 @@
   .hdt-yaman-blog-section .hdt-yaman-blog__button { margin-top: 40px; }
   .hdt-yaman-blog-section .hdt-yaman-blog__heading { font-size: clamp(28px, 2.4vw, 36px); }
 
-  /* desktop per-view width comes entirely from the theme's lg:/md:hdt-slides-* classes */
-  /* arrows: one image width = (track / columns) - the inter-slide spacing */
+  /* per-view width comes from the theme's md:/lg:hdt-slides-* classes.
+     Arrows centre on the image: image width = (track / columns-at-this-breakpoint)
+     minus the inter-slide spacing. Tablet (768–1149) shows col_tb columns. */
   .hdt-yaman-blog-section .hdt-navigation {
-    --arrow-img-w: calc(var(--blog-track-w) / var(--blog-cols, 3) - var(--spacing-x, 30px));
+    --arrow-img-w: calc(var(--blog-track-w) / var(--blog-cols-tb, 2) - var(--spacing-x, 30px));
   }
   .hdt-yaman-blog-section .hdt-yaman-blog__meta { padding-top: 18px; }
   .hdt-yaman-blog-section .hdt-yaman-blog__title { font-size: 18px; }
+}
+
+/* Desktop (theme's lg breakpoint) shows the full `columns` count. */
+@media (min-width: 1150px) {
+  .hdt-yaman-blog-section .hdt-navigation {
+    --arrow-img-w: calc(var(--blog-track-w) / var(--blog-cols, 3) - var(--spacing-x, 30px));
+  }
 }
 
 
