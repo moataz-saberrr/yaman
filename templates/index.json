@@ -185,6 +185,76 @@
         "padding_bottom_mb": 20
       }
     },
+    "yaman_product": {
+      "type": "featured-product-n",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "text": "Smooth Wrinkles & Fine Lines",
+            "alt": ""
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "text": "Oil control & minimize pores",
+            "alt": ""
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "text": "Reduce acne, redness & spots",
+            "alt": ""
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "text": "Reduce inflammation, brighten skin",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "settings": {
+        "product": "medi-lift-plus",
+        "pill_label_1": "Best Seller",
+        "pill_label_2": "1.5M+ Sold",
+        "eyebrow": "EMS Facial Lifting Mask",
+        "title_override": "Medi Lift Plus",
+        "description_override": "Wearable EMS mask. Hands-free. Just 10 minutes a day lifts the jawline, firms cheeks, and visibly sculpts your face in 6–12 weeks.",
+        "price_override": "",
+        "vat_text": "excl. VAT",
+        "installment_text": "or SAR 425/month × 4 with Tabby",
+        "rating_stars": 5,
+        "rating_value": "4.8",
+        "reviews_count": "347 reviews",
+        "review_text": "",
+        "button_label": "SHOP NOW",
+        "button_link": "",
+        "button_target": false,
+        "card_background": "#f7eee1",
+        "button_bg": "#16233f",
+        "button_text": "#ffffff",
+        "pill_bg": "#16233f",
+        "pill_text": "#ffffff",
+        "star_color": "#0d0d0d",
+        "container_max_width": 1360,
+        "container_padding": 15,
+        "card_radius": 28,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mb": 24,
+        "padding_bottom_mb": 24
+      }
+    },
     "yaman_reviews": {
       "type": "testimonial_section-n",
       "blocks": {
@@ -2036,6 +2106,7 @@
   "order": [
     "yaman_hero",
     "yaman_trust_badges",
+    "yaman_product",
     "yaman_reviews",
     "slideshow_EVrUzi",
     "collections_list_manual_eErqxt",

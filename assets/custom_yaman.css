@@ -696,11 +696,200 @@
   }
 }
 
+
+/* ===========================================================================
+ * SECTION 4 — YAMAN Product  (sections/featured-product-n.liquid)
+ * Scope class: .hdt-yaman-product-section   |   markup BEM: .hdt-yaman-product__*
+ * Large cream marketing card: left content + right product image (desktop),
+ * stacked content-then-image (mobile). Pure CSS, no JS.
+ * ========================================================================= */
+.hdt-yaman-product-section .hdt-yaman-product {
+  background: #ffffff;
+  padding-block: var(--yp-pt-mb, 24px) var(--yp-pb-mb, 24px);
+}
+.hdt-yaman-product-section .hdt-yaman-product__container {
+  max-width: var(--yp-maxw, 1360px);
+  margin-inline: auto;
+  padding-inline: var(--yp-pad-x, 15px);
+}
+.hdt-yaman-product-section .hdt-yaman-product__card {
+  background: var(--yp-card-bg, #f7eee1);
+  border-radius: var(--yp-radius, 28px);
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* Content */
+.hdt-yaman-product-section .hdt-yaman-product__content { min-width: 0; }
+.hdt-yaman-product-section .hdt-yaman-product__badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--yp-pill-bg, #16233f);
+  color: var(--yp-pill-tx, #fff);
+  border-radius: 999px;
+  padding: 7px 16px;
+  margin-bottom: 16px;
+}
+.hdt-yaman-product-section .hdt-yaman-product__badge { font-size: 12.5px; font-weight: 600; letter-spacing: 0.01em; }
+.hdt-yaman-product-section .hdt-yaman-product__badge--alt { font-weight: 400; opacity: 0.85; }
+.hdt-yaman-product-section .hdt-yaman-product__eyebrow {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1c1c1c;
+}
+.hdt-yaman-product-section .hdt-yaman-product__title {
+  margin: 0 0 10px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #0d0d0d;
+}
+.hdt-yaman-product-section .hdt-yaman-product__description {
+  margin: 0 0 16px;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #8b8b8b;
+  max-width: 46ch;
+}
+.hdt-yaman-product-section .hdt-yaman-product__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.hdt-yaman-product-section .hdt-yaman-product__price {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0d0d0d;
+}
+.hdt-yaman-product-section .hdt-yaman-product__vat { font-size: 13px; font-weight: 400; color: #9a9a9a; }
+.hdt-yaman-product-section .hdt-yaman-product__installment {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: #9a9a9a;
+}
+
+/* Rating */
+.hdt-yaman-product-section .hdt-yaman-product__rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0 0;
+}
+.hdt-yaman-product-section .hdt-yaman-product__stars { display: inline-flex; gap: 1px; }
+.hdt-yaman-product-section .hdt-yaman-product__star {
+  position: relative;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  line-height: 0;
+}
+.hdt-yaman-product-section .hdt-yaman-product__star-base svg,
+.hdt-yaman-product-section .hdt-yaman-product__star-fill svg { width: 15px; height: 15px; display: block; }
+.hdt-yaman-product-section .hdt-yaman-product__star-base svg { fill: #d3d3d3; }
+.hdt-yaman-product-section .hdt-yaman-product__star-fill {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.hdt-yaman-product-section .hdt-yaman-product__star-fill svg { fill: var(--yp-star, #0d0d0d); }
+.hdt-yaman-product-section .hdt-yaman-product__rating-text { font-size: 13px; font-weight: 400; color: #4a4a4a; }
+
+/* Features (1 col mobile, 2 cols desktop) */
+.hdt-yaman-product-section .hdt-yaman-product__features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px 24px;
+  margin: 22px 0 0;
+}
+.hdt-yaman-product-section .hdt-yaman-product__feature { display: flex; align-items: center; gap: 12px; }
+.hdt-yaman-product-section .hdt-yaman-product__feature-icon {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.hdt-yaman-product-section .hdt-yaman-product__feature-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.hdt-yaman-product-section .hdt-yaman-product__feature-placeholder {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #c9bfaf;
+}
+.hdt-yaman-product-section .hdt-yaman-product__feature-text { font-size: 14px; font-weight: 500; color: #1c1c1c; }
+
+/* Button */
+.hdt-yaman-product-section .hdt-yaman-product__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 26px 0 0;
+  padding: 16px 28px;
+  background: var(--yp-btn-bg, #16233f);
+  color: var(--yp-btn-tx, #fff);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.hdt-yaman-product-section .hdt-yaman-product__button:hover { opacity: 0.92; transform: translateY(-1px); }
+
+/* Media */
+.hdt-yaman-product-section .hdt-yaman-product__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hdt-yaman-product-section .hdt-yaman-product__image,
+.hdt-yaman-product-section .hdt-yaman-product__placeholder {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin-inline: auto;
+}
+.hdt-yaman-product-section .hdt-yaman-product__image--mb { display: block; }
+.hdt-yaman-product-section .hdt-yaman-product__image--dk { display: none; }
+
+@media (min-width: 768px) {
+  .hdt-yaman-product-section .hdt-yaman-product { padding-block: var(--yp-pt, 40px) var(--yp-pb, 40px); }
+  .hdt-yaman-product-section .hdt-yaman-product__card {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    padding: 48px 56px;
+  }
+  .hdt-yaman-product-section .hdt-yaman-product__content { flex: 1 1 56%; max-width: 56%; }
+  .hdt-yaman-product-section .hdt-yaman-product__media { flex: 1 1 44%; max-width: 44%; }
+  .hdt-yaman-product-section .hdt-yaman-product__title { font-size: 38px; }
+  .hdt-yaman-product-section .hdt-yaman-product__price { font-size: 26px; }
+  .hdt-yaman-product-section .hdt-yaman-product__features { grid-template-columns: 1fr 1fr; }
+  .hdt-yaman-product-section .hdt-yaman-product__button { width: auto; min-width: 260px; }
+  .hdt-yaman-product-section .hdt-yaman-product__image,
+  .hdt-yaman-product-section .hdt-yaman-product__placeholder { max-width: 460px; }
+  /* desktop image swap when a separate mobile image is set */
+  .hdt-yaman-product-section .hdt-yaman-product__image--mb { display: none; }
+  .hdt-yaman-product-section .hdt-yaman-product__image--dk { display: block; }
+}
+
 /* ---------------------------------------------------------------------------
  * Planned section scopes (added as each section is implemented):
  *   2. Trust badges        -> .hdt-yaman-trust-badges-section  (DONE — see block above)
  *   3. YAMAN Reviews        -> .hdt-yaman-reviews-section       (DONE — see block above)
- *   3b. Featured product    -> .hdt-yaman-featured-product
+ *   4. YAMAN Product        -> .hdt-yaman-product-section       (DONE — see block above)
  *   4. Real results + stats -> .hdt-yaman-real-results
  *   5. The 4 YAMAN sets      -> .hdt-yaman-sets
  *   6. Complete your routine -> .hdt-yaman-routine
