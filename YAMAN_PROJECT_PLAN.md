@@ -131,6 +131,27 @@ Each section follows the same loop: duplicate (or create) → add scoped markup 
 - ⚠️ **Schema name limit:** the section `name` was initially `YAMAN Trust Icons / Badges` (26 chars) and Shopify rejected it — `Invalid schema: name is too long (max 25 characters)`. Renamed to **`YAMAN Trust Badges`** (18). **Rule going forward: every schema `name` must be ≤ 25 characters** (also recorded in the `kalles-figma-to-shopify-section-workflow` skill).
 - 🔧 **Slider fix (follow-up):** the first version used CSS-only `overflow-x:auto` + `scroll-snap`, which didn't behave as a real slider on the storefront (desktop flex-grow left nothing to scroll; no arrows/affordance). Replaced with a scoped JS carousel **`assets/shipping-n.js`** (transform track + prev/next arrows + pointer drag + optional autoplay/loop), loaded via `<script defer>` at the end of `shipping-n.liquid`. The CSS scroll-snap rules were removed; the viewport keeps a **native-scroll fallback** until JS adds `.is-tb-ready`. Items-per-view is derived from a min item width (responsive, not hardcoded). New short settings: **Autoplay**, **Autoplay speed**, **Loop** (default off → backward compatible). JS is scoped to `.hdt-yaman-trust-badges-section`, supports multiple instances, and re-inits on `shopify:section:load`.
 
+### Section 11 — FAQ (`accordion-n`) — MANUAL DUPLICATE READY
+> **Correction (supersedes the earlier "Design 3 inside original `accordion.liquid`" note).** The previous plan to add an `accordion_des` **Design 3** option directly inside the original Kalles `sections/accordion.liquid` is **cancelled**. We are back to the standard **duplicate-first** workflow: original Kalles sections stay untouched, and all FAQ work happens in a duplicated/custom file.
+
+- **Base/original (do NOT modify):** `sections/accordion.liquid` — the stock Kalles Accordion. Leave its markup, schema, settings, and presets exactly as Kalles ships them.
+- **Custom duplicate (the only file to build the FAQ in):** `sections/accordion-n.liquid` — manually created as a duplicate/custom copy of `accordion.liquid`. **All YAMAN FAQ implementation must target this file**, not the original.
+- **No Design 3 on the original.** Do not add new design options (e.g. `accordion_des: 3`) or any YAMAN-specific class/CSS hooks to `sections/accordion.liquid`. Any earlier "Design 3 / `hdt-yaman-faq-section` injected into the original" approach is void.
+- **Target design (unchanged), per Figma — desktop `2226:1035`, mobile `2226:2141`:**
+  - Heading: **"Clarity before commitment."**
+  - Desktop FAQ container **max-width ~776px**, centered; **mobile width 100%** with the screenshot's side padding.
+  - **7 FAQ items**, all **collapsed by default**; the plus icon flips to a **minus/open** state when expanded.
+  - Clean minimal list (dark-navy text, thin separators between items).
+- **Scoping:** style the duplicate under a single custom parent class in `assets/custom_yaman.css` (e.g. `.hdt-yaman-faq-section` / `.hdt-yaman-faq`), so nothing leaks into the original accordion or other sections.
+- **Status:** documentation only — `sections/accordion-n.liquid` exists as a manual duplicate and is **ready for implementation**; the FAQ section itself is **not yet implemented/verified in code**. (`templates/index.json` already references `accordion-n` for the `yaman_faq` slot.)
+- **Next step:** implement the FAQ inside `sections/accordion-n.liquid` + scoped CSS in `custom_yaman.css`, then verify on the storefront.
+
+> **Project rule — custom YAMAN sections are always duplicate-first (reaffirmed):**
+> - For any custom YAMAN homepage section, **always create a duplicated/new section file**; never customize an original Kalles section in place.
+> - **Do not add new design options or YAMAN markup/CSS hooks to original Kalles sections** unless the user explicitly approves that exact exception in writing.
+> - Default duplicate naming uses the **`-n`** suffix (e.g. `accordion-n.liquid`, `slideshow-n.liquid`, `shipping-n.liquid`) or a `yaman-*` name when building from scratch.
+> - The original Kalles file (e.g. `sections/accordion.liquid`) must remain byte-for-byte untouched.
+
 ## 11. Merge log
 
 ### 2026-06-15 — merged `main` (dev2: general settings + header + brand fonts) into `dev1`

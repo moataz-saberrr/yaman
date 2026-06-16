@@ -185,6 +185,133 @@
         "padding_bottom_mb": 20
       }
     },
+    "yaman_faq": {
+      "type": "accordion-n",
+      "blocks": {
+        "accordion-heading": {
+          "type": "section-heading",
+          "static": true,
+          "settings": {
+            "design_heading": "1",
+            "horizontal": false,
+            "alignment": "left",
+            "heading_gap": 0,
+            "margin_bottom": 24
+          },
+          "blocks": {
+            "faq_heading": {
+              "type": "_heading_section",
+              "settings": {
+                "heading": "Clarity before commitment.",
+                "line_height": "",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 48,
+                "font_size_heading": 32,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "faq_heading"
+          ]
+        },
+        "faq_1": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "How does the Medi Lift Plus work?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "faq_2": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "How soon will I see results?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "faq_3": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "Is it safe for all skin types?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "faq_4": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "How often should I use it?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "faq_5": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "Do I need to use it with the YĀMAN app?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "faq_6": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "Is there a warranty?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "faq_7": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "Can I pay in instalments?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7"
+      ],
+      "settings": {
+        "accordion_des": "3",
+        "faq_max_width": 776,
+        "section_layout": "container",
+        "section_background": "",
+        "hdt_background_parallax": false,
+        "colors_by_section": false,
+        "color_scheme": "scheme-1",
+        "background_opacity": 0,
+        "mg": "",
+        "mg_mb": "",
+        "pd": "100px,,100px,",
+        "pd_mb": "50px,,50px,"
+      }
+    },
     "slideshow_EVrUzi": {
       "type": "slideshow",
       "blocks": {
@@ -1934,6 +2061,7 @@
   "order": [
     "yaman_hero",
     "yaman_trust_badges",
+    "yaman_faq",
     "slideshow_EVrUzi",
     "collections_list_manual_eErqxt",
     "featured_collection_PTq36A",

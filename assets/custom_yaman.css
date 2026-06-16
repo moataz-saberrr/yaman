@@ -329,6 +329,95 @@
  *   8. Discover your glow (video + reviews) -> .hdt-yaman-discover
  *   9. How to choose         -> .hdt-yaman-how-to-choose
  *  10. Discover articles      -> .hdt-yaman-articles
- *  11. FAQ                    -> .hdt-yaman-faq
+ *  11. FAQ                    -> .hdt-yaman-faq-section  (DONE — see block below)
  *  12. Newsletter             -> .hdt-yaman-newsletter
  * ------------------------------------------------------------------------- */
+
+
+/* ===========================================================================
+ * 11. YAMAN FAQ — Accordion "Design 3"
+ * Renders only when the original Kalles Accordion section has
+ * "Accordion design" = 3 (the section then gets `.hdt-yaman-faq-section`).
+ * Everything below is scoped under `.hdt-yaman-faq-section` so designs 1 & 2
+ * are never affected. Figma: node 2226:1035 (desktop) / 2226:2141 (mobile).
+ * Tokens: navy #1d2847, separators rgba(29,40,71,.1), 776px column.
+ * ------------------------------------------------------------------------- */
+
+/* Centered, max-width column wrapping both heading + list (desktop) */
+.hdt-yaman-faq-section > div {
+  max-width: var(--faq-max-w, 776px);
+  margin-inline: auto !important;
+  width: 100%;
+  padding: 0;
+  text-wrap: nowrap;
+}
+
+/* Heading — "Clarity before commitment." (plain, left, bold navy) */
+.hdt-yaman-faq-section .hdt-section-heading_block { text-align: left; }
+.hdt-yaman-faq-section .hdt-heading-block {
+  /* font-family: 'Inter'; */
+  display: block;
+  color: #1d2847;
+  font-weight: 700;
+  line-height: 1.2;
+}
+/* Strip Kalles heading-design decoration lines for the clean FAQ look */
+.hdt-yaman-faq-section .hdt-heading-block::before,
+.hdt-yaman-faq-section .hdt-heading-block::after { content: none; display: none; }
+
+/* List — top separator on every item (no inter-item gap) */
+.hdt-yaman-faq-section .hdt-row-accordion { gap: 0; }
+.hdt-yaman-faq-section .hdt-row-accordion > hdt-accordion {
+  border-top: 1px solid rgba(29, 40, 71, 0.1);
+  border-bottom: none;
+}
+
+/* Question row */
+.hdt-yaman-faq-section .hdt-accordion-item summary {
+  padding: 0;
+  background-color: transparent;
+  align-items: center;
+  /* font-family: Inter; */
+}
+.hdt-yaman-faq-section .hdt-accordion-item .hdt-accordion-title {
+  padding: 24px 0;
+  color: #1d2847;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.hdt-yaman-faq-section .hdt-accordion-item summary:hover .hdt-accordion-title {
+  color: #1d2847;
+  opacity: 0.7;
+}
+
+/* Plus / minus icon (24px, transparent, navy) — open/close toggle is the
+   theme's existing aria-expanded behavior; nothing extra needed */
+.hdt-yaman-faq-section .hdt-accordion-item .hdt-accordion-icon {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  color: #1d2847;
+}
+
+/* Answer */
+.hdt-yaman-faq-section .hdt-accordion-item .hdt-accordion-content {
+  padding: 0 0 20px 20px;
+  border: none;
+  margin-top: 0;
+  color: rgba(29, 40, 71, 0.8);
+  @media (max-width: 767px) {
+    padding: 0 0 15px 15px;
+  }
+}
+
+/* Mobile — full width column, slightly smaller question text */
+@media (max-width: 767px) {
+  .hdt-yaman-faq-section > div { max-width: 100%; }
+  .hdt-yaman-faq-section .hdt-accordion-item .hdt-accordion-title {
+    padding: 20px 0;
+    font-size: 16px;
+  }
+}
