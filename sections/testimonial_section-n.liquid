@@ -1,0 +1,427 @@
+<!-- sections/testimonial_section-n.liquid — YAMAN Reviews (custom; do NOT edit the original Kalles sections/testimonial_section.liquid) -->
+{%- liquid
+  assign s = section.settings
+-%}
+{%- capture star_full -%}<svg class="hdt-yaman-reviews__star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.8 6.2 20.8l1.1-6.4-4.7-4.6 6.5-.9z"/></svg>{%- endcapture -%}
+{%- capture star_empty -%}<svg class="hdt-yaman-reviews__star hdt-yaman-reviews__star--empty" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.8 6.2 20.8l1.1-6.4-4.7-4.6 6.5-.9z"/></svg>{%- endcapture -%}
+<div
+  class="hdt-yaman-reviews"
+  data-rv-autoplay="{{ s.autoplay }}"
+  data-rv-autoplay-ms="{{ s.autoplay_speed | times: 1000 }}"
+  data-rv-loop="{{ s.loop }}"
+  data-rv-peek="{{ s.mobile_peek }}"
+  data-rv-min="{{ s.card_min_width }}"
+  style="
+    --rv-maxw: {{ s.container_max_width }}px;
+    --rv-pad-x: {{ s.container_padding }}px;
+    --rv-bg: {{ s.background_color }};
+    --rv-card-bg: {{ s.card_background }};
+    --rv-star: {{ s.star_color }};
+    --rv-radius: {{ s.card_radius }}px;
+    --rv-gap: {{ s.gap }}px;
+    --rv-gap-mb: {{ s.gap_mb }}px;
+    --rv-pt: {{ s.padding_top }}px;
+    --rv-pb: {{ s.padding_bottom }}px;
+    --rv-pt-mb: {{ s.padding_top_mb }}px;
+    --rv-pb-mb: {{ s.padding_bottom_mb }}px;
+  "
+>
+  <div class="hdt-yaman-reviews__container">
+    {%- if s.show_summary -%}
+      <div class="hdt-yaman-reviews__summary">
+        <span class="hdt-yaman-reviews__summary-star" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.8 6.2 20.8l1.1-6.4-4.7-4.6 6.5-.9z"/></svg>
+        </span>
+        {%- if s.rating_value != blank -%}
+          <span class="hdt-yaman-reviews__rating-value">{{ s.rating_value }}</span>
+        {%- endif -%}
+        <span class="hdt-yaman-reviews__summary-meta">
+          <span class="hdt-yaman-reviews__stars" role="img" aria-label="{{ s.summary_stars }} / 5">
+            {%- for i in (1..5) -%}{%- if i <= s.summary_stars -%}{{ star_full }}{%- else -%}{{ star_empty }}{%- endif -%}{%- endfor -%}
+          </span>
+          {%- if s.review_count != blank -%}
+            <span class="hdt-yaman-reviews__count">{{ s.review_count }}</span>
+          {%- endif -%}
+        </span>
+      </div>
+    {%- endif -%}
+
+    <div class="hdt-yaman-reviews__slider">
+      <div class="hdt-yaman-reviews__viewport" data-rv-viewport>
+        <div class="hdt-yaman-reviews__track" data-rv-track>
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign b = block.settings
+              assign meta = ''
+              if b.reviewer != blank
+                assign meta = b.reviewer
+              endif
+              if b.location != blank
+                if meta != blank
+                  assign meta = meta | append: ' · ' | append: b.location
+                else
+                  assign meta = b.location
+                endif
+              endif
+              if b.usage != blank
+                if meta != blank
+                  assign meta = meta | append: ' · ' | append: b.usage
+                else
+                  assign meta = b.usage
+                endif
+              endif
+              assign img_alt = b.alt | default: b.product_title
+            -%}
+            <article class="hdt-yaman-reviews__card" {{ block.shopify_attributes }}>
+              <div class="hdt-yaman-reviews__product">
+                <span class="hdt-yaman-reviews__product-image">
+                  {%- if b.product_image != blank -%}
+                    {{ b.product_image | image_url: width: 120 | image_tag: loading: 'lazy', class: 'hdt-yaman-reviews__product-img', alt: img_alt, widths: '40,60,80,120' }}
+                  {%- else -%}
+                    <span class="hdt-yaman-reviews__product-placeholder" aria-hidden="true"></span>
+                  {%- endif -%}
+                </span>
+                {%- if b.product_title != blank -%}
+                  {%- if b.product_link != blank -%}
+                    <a class="hdt-yaman-reviews__product-title" href="{{ b.product_link }}">{{ b.product_title }}</a>
+                  {%- else -%}
+                    <span class="hdt-yaman-reviews__product-title">{{ b.product_title }}</span>
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+
+              <span class="hdt-yaman-reviews__stars hdt-yaman-reviews__stars--card" role="img" aria-label="{{ b.stars }} / 5">
+                {%- for i in (1..5) -%}{%- if i <= b.stars -%}{{ star_full }}{%- else -%}{{ star_empty }}{%- endif -%}{%- endfor -%}
+              </span>
+
+              <img class="hdt-yaman-reviews__quote" src="{{ 'quotationImg.png' | asset_url }}" alt="" aria-hidden="true" width="34" height="26" loading="lazy">
+
+
+              {%- if b.title != blank -%}
+                <h3 class="hdt-yaman-reviews__title">{{ b.title }}</h3>
+              {%- endif -%}
+
+              {%- if b.body != blank -%}
+                <p class="hdt-yaman-reviews__body">{{ b.body }}</p>
+              {%- endif -%}
+
+              {%- if meta != blank -%}
+                <p class="hdt-yaman-reviews__meta">{{ meta }}</p>
+              {%- endif -%}
+
+              {%- if b.button_label != blank -%}
+                {%- if b.button_link != blank -%}
+                  <a class="hdt-yaman-reviews__button" href="{{ b.button_link }}">{{ b.button_label }}</a>
+                {%- else -%}
+                  <span class="hdt-yaman-reviews__button hdt-yaman-reviews__button--static">{{ b.button_label }}</span>
+                {%- endif -%}
+              {%- endif -%}
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{{ 'testimonial_section-n.js' | asset_url }}" defer></script>
+{% schema %}
+{
+  "name": "YAMAN Reviews",
+  "tag": "section",
+  "class": "hdt-yaman-reviews-section hdt-section",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Rating summary"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_summary",
+      "label": "Show rating summary",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "rating_value",
+      "label": "Rating value",
+      "default": "4.8"
+    },
+    {
+      "type": "range",
+      "id": "summary_stars",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "label": "Summary stars",
+      "default": 5
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review count text",
+      "default": "347 verified reviews"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#FBF5E9"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star color",
+      "default": "#F5B301"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 960,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1360
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Card corner radius",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_min_width",
+      "min": 240,
+      "max": 520,
+      "step": 10,
+      "unit": "px",
+      "label": "Card min width (desktop)",
+      "info": "Drives how many cards fit per row on desktop.",
+      "default": 360
+    },
+    {
+      "type": "range",
+      "id": "mobile_peek",
+      "min": 60,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Card width (mobile)",
+      "info": "Below 100% the next card peeks in.",
+      "default": 85
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap between cards (desktop)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "gap_mb",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap between cards (mobile)",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Slider"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay speed",
+      "default": 5,
+      "visible_if": "{{ section.settings.autoplay }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product image / icon"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product name",
+          "default": "Medi Lift Plus"
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "label": "Star rating",
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Review title",
+          "default": "\"This is by far the best one!\""
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Review body",
+          "default": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall."
+        },
+        {
+          "type": "text",
+          "id": "reviewer",
+          "label": "Reviewer name",
+          "default": "Sitora"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location",
+          "default": "Riyadh"
+        },
+        {
+          "type": "text",
+          "id": "usage",
+          "label": "Usage / time",
+          "default": "8 weeks of use"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Medi Lift Plus →"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "url",
+          "id": "product_link",
+          "label": "Product link (optional)"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Image alt text (optional)",
+          "info": "Defaults to the product name."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Reviews",
+      "category": "YAMAN",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}

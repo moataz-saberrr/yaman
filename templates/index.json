@@ -185,6 +185,108 @@
         "padding_bottom_mb": 20
       }
     },
+    "yaman_reviews": {
+      "type": "testimonial_section-n",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "product_image": "shopify://shop_images/hearicon.png",
+            "product_title": "Medi Lift Plus",
+            "stars": 5,
+            "title": "\"This is by far the best one!\"",
+            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
+            "reviewer": "Sitora",
+            "location": "Riyadh",
+            "usage": "8 weeks of use",
+            "button_label": "Medi Lift Plus →",
+            "button_link": "",
+            "product_link": "",
+            "alt": ""
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "product_image": "shopify://shop_images/hearicon.png",
+            "product_title": "Medi Lift Plus",
+            "stars": 5,
+            "title": "\"This is by far the best one!\"",
+            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
+            "reviewer": "Sitora",
+            "location": "Riyadh",
+            "usage": "8 weeks of use",
+            "button_label": "Medi Lift Plus →",
+            "button_link": "",
+            "product_link": "",
+            "alt": ""
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "product_image": "shopify://shop_images/hearicon.png",
+            "product_title": "Medi Lift Plus",
+            "stars": 5,
+            "title": "\"This is by far the best one!\"",
+            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
+            "reviewer": "Sitora",
+            "location": "Riyadh",
+            "usage": "8 weeks of use",
+            "button_label": "Medi Lift Plus →",
+            "button_link": "",
+            "product_link": "",
+            "alt": ""
+          }
+        },
+        "review_GQyjxc": {
+          "type": "review",
+          "settings": {
+            "product_image": "shopify://shop_images/hearicon.png",
+            "product_title": "Medi Lift Plus",
+            "stars": 5,
+            "title": "\"This is by far the best one!\"",
+            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
+            "reviewer": "Sitora",
+            "location": "Riyadh",
+            "usage": "8 weeks of use",
+            "button_label": "Medi Lift Plus →",
+            "button_link": "",
+            "product_link": "",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_GQyjxc"
+      ],
+      "settings": {
+        "show_summary": true,
+        "rating_value": "4.8",
+        "summary_stars": 5,
+        "review_count": "347 verified reviews",
+        "background_color": "#ffffff",
+        "card_background": "#fbf5e9",
+        "star_color": "#f5b301",
+        "container_max_width": 1360,
+        "container_padding": 15,
+        "card_radius": 16,
+        "card_min_width": 360,
+        "mobile_peek": 85,
+        "gap": 24,
+        "gap_mb": 16,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "loop": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mb": 36,
+        "padding_bottom_mb": 36
+      }
+    },
     "slideshow_EVrUzi": {
       "type": "slideshow",
       "blocks": {
@@ -1934,6 +2036,7 @@
   "order": [
     "yaman_hero",
     "yaman_trust_badges",
+    "yaman_reviews",
     "slideshow_EVrUzi",
     "collections_list_manual_eErqxt",
     "featured_collection_PTq36A",
