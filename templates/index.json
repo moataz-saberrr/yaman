@@ -214,6 +214,42 @@
         "padding_bottom_mb": 48
       }
     },
+    "yaman_routine": {
+      "type": "featured-collection-n",
+      "settings": {
+        "badge_text": "SKINCARE",
+        "heading": "Complete Your Routine",
+        "subheading": "Treatment serums formulated to work in perfect synergy with YAMAN devices — amplifying every session for visible results.",
+        "collection": "",
+        "limit": 3,
+        "show_vendor": true,
+        "image_ratio": "square",
+        "col_dk": "3",
+        "col_tb": "2",
+        "card_width_mb": 80,
+        "nav_ui": true,
+        "dot_ui": true,
+        "loop": true,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "button_label": "VIEW ALL DEVICES",
+        "button_link": "",
+        "button_target": false,
+        "bg_color": "#faf7f0",
+        "badge_bg": "#e3efe7",
+        "badge_color": "#2f6b4f",
+        "card_bg": "#ffffff",
+        "card_border": "#ece7dc",
+        "image_radius": 16,
+        "container_max_width": 1200,
+        "container_padding": 15,
+        "custom_class": "",
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 56
+      }
+    },
     "slideshow_EVrUzi": {
       "type": "slideshow",
       "blocks": {
@@ -1964,6 +2000,7 @@
     "yaman_hero",
     "yaman_trust_badges",
     "yaman_blog",
+    "yaman_routine",
     "slideshow_EVrUzi",
     "collections_list_manual_eErqxt",
     "featured_collection_PTq36A",
