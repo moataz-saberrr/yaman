@@ -1,0 +1,280 @@
+<!-- sections/blog-post-n.liquid — YAMAN Blog / Articles ("Discover Your Glow with YAMAN") -->
+{%- liquid
+  assign sec_class = section.settings.custom_class
+  assign sel_blog  = blogs[section.settings.blog]
+  assign limit     = section.settings.limit | at_most: 12 | at_least: 1
+
+  # Button link: use the custom link if set, otherwise fall back to the selected blog URL.
+  assign btn_link = section.settings.button_link
+  if btn_link == blank and sel_blog != blank
+    assign btn_link = sel_blog.url
+  endif
+
+  assign has_articles = false
+  if sel_blog != blank and sel_blog.articles_count > 0
+    assign has_articles = true
+  endif
+-%}
+
+<div
+  class="hdt-yaman-blog-section{% if sec_class != blank %} {{ sec_class }}{% endif %}"
+  style="
+    --blog-bg: {{ section.settings.bg_color }};
+    --blog-maxw: {{ section.settings.container_max_width }}px;
+    --blog-pad-x: {{ section.settings.container_padding }}px;
+    --blog-pt: {{ section.settings.padding_top }}px;
+    --blog-pb: {{ section.settings.padding_bottom }}px;
+    --blog-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --blog-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+    --blog-cols: {{ section.settings.columns }};
+    --blog-radius: {{ section.settings.image_radius }}px;
+    --blog-card-mb: {{ section.settings.card_width_mb }}%;
+  "
+>
+  <div class="hdt-yaman-blog">
+    <div class="hdt-yaman-blog__container">
+
+      {%- if section.settings.heading != blank -%}
+        <div class="hdt-yaman-blog__header">
+          <h2 class="hdt-yaman-blog__heading">{{ section.settings.heading | escape }}</h2>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a
+          class="hdt-yaman-blog__button"
+          href="{{ btn_link | default: '#' }}"
+          {% if section.settings.button_target %}target="_blank" rel="noopener"{% endif %}
+        >{{ section.settings.button_label | escape }}</a>
+      {%- endif -%}
+
+      <div class="hdt-yaman-blog__cards">
+        <div class="hdt-yaman-blog__track">
+          {%- if has_articles -%}
+            {%- for article in sel_blog.articles limit: limit -%}
+              <a class="hdt-yaman-blog__card" href="{{ article.url }}">
+                <div class="hdt-yaman-blog__image">
+                  {%- if article.image != blank -%}
+                    {{
+                      article.image
+                      | image_url: width: 800
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '300, 400, 500, 600, 800',
+                        sizes: '(min-width: 768px) 33vw, 80vw',
+                        class: 'hdt-yaman-blog__img',
+                        alt: article.title | escape
+                    }}
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'hdt-yaman-blog__img hdt-yaman-blog__placeholder' }}
+                  {%- endif -%}
+                </div>
+                <div class="hdt-yaman-blog__meta">
+                  <span class="hdt-yaman-blog__date">{{ article.published_at | date: section.settings.date_format }}</span>
+                  <h3 class="hdt-yaman-blog__title">{{ article.title }}</h3>
+                </div>
+              </a>
+            {%- endfor -%}
+          {%- elsif request.design_mode -%}
+            {%- comment -%} Theme-editor preview when no blog is selected / blog is empty {%- endcomment -%}
+            {%- for i in (1..limit) -%}
+              <div class="hdt-yaman-blog__card hdt-yaman-blog__card--placeholder">
+                <div class="hdt-yaman-blog__image">
+                  {{ 'image' | placeholder_svg_tag: 'hdt-yaman-blog__img hdt-yaman-blog__placeholder' }}
+                </div>
+                <div class="hdt-yaman-blog__meta">
+                  <span class="hdt-yaman-blog__date">{{ 'now' | date: section.settings.date_format }}</span>
+                  <h3 class="hdt-yaman-blog__title">{{ 'sections.feature-blog.name' | t }}</h3>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+
+        {%- if has_articles == false and request.design_mode -%}
+          <p class="hdt-yaman-blog__notice">Select a blog in this section's settings to display its latest articles.</p>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YAMAN Blog",
+  "tag": "section",
+  "class": "hdt-section hdt-yaman-blog-wrap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Discover Your Glow with YAMAN"
+    },
+    {
+      "type": "header",
+      "content": "Blog source"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "label": "Articles to show",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Columns (desktop)",
+      "default": 3
+    },
+    {
+      "type": "text",
+      "id": "date_format",
+      "label": "Date format",
+      "info": "Liquid date format. e.g. %B %d, %Y → April 17, 2026 (displayed uppercase).",
+      "default": "%B %d, %Y"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "EXPLORE ALL ARTICLES"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "Leave empty to link to the selected blog."
+    },
+    {
+      "type": "checkbox",
+      "id": "button_target",
+      "label": "Open button in new tab",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Layout & style"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#F0E9DB"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Image corner radius",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_width_mb",
+      "min": 60,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Mobile card width",
+      "info": "Lower = more of the next card peeks in the slider.",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 800,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1360
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Container side padding",
+      "default": 15
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom section class",
+      "info": "Optional extra class for per-instance styling."
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Blog",
+      "category": "YAMAN"
+    }
+  ]
+}
+{% endschema %}

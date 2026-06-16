@@ -319,6 +319,146 @@
 
 
 /* ---------------------------------------------------------------------------
+ * 10. BLOG / ARTICLES  ->  sections/blog-post-n.liquid
+ *     Scope class: .hdt-yaman-blog-section  |  BEM: .hdt-yaman-blog__*
+ *     Warm-beige section. Desktop: heading top-left, a CSS grid of cards,
+ *     then a centered button (flex `order` reflows the button below the cards).
+ *     Mobile: heading, button, then a CSS scroll-snap slider showing ~1 card +
+ *     a peek of the next (no JS). Per-instance values via inline --blog-*.
+ * ------------------------------------------------------------------------- */
+.hdt-yaman-blog-section {
+  background: var(--blog-bg, #F0E9DB);
+  padding-block: var(--blog-pt-mb, 48px) var(--blog-pb-mb, 48px);
+}
+.hdt-yaman-blog-section .hdt-yaman-blog__container {
+  max-width: var(--blog-maxw, 1360px);
+  margin-inline: auto;
+  padding-inline: var(--blog-pad-x, 15px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* mobile reflow order: heading (1) -> button (2) -> cards (3) */
+.hdt-yaman-blog-section .hdt-yaman-blog__header { order: 1; margin: 0 0 16px; }
+.hdt-yaman-blog-section .hdt-yaman-blog__button { order: 2; }
+.hdt-yaman-blog-section .hdt-yaman-blog__cards  { order: 3; }
+
+.hdt-yaman-blog-section .hdt-yaman-blog__heading {
+  margin: 0;
+  font-size: clamp(24px, 6vw, 30px);
+  line-height: 1.2;
+  color: #0d0d0d;
+}
+
+/* Button — black pill, light uppercase text, compact */
+.hdt-yaman-blog-section .hdt-yaman-blog__button {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 24px;
+  padding: 12px 26px;
+  background: #0d0d0d;
+  color: #f5ebdd;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.hdt-yaman-blog-section .hdt-yaman-blog__button:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* Cards: mobile = horizontal scroll-snap slider (~1 card + peek) */
+.hdt-yaman-blog-section .hdt-yaman-blog__track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin-inline: calc(-1 * var(--blog-pad-x, 15px));
+  padding-inline: var(--blog-pad-x, 15px);
+  scroll-padding-inline: var(--blog-pad-x, 15px);
+}
+.hdt-yaman-blog-section .hdt-yaman-blog__track::-webkit-scrollbar { display: none; }
+
+.hdt-yaman-blog-section .hdt-yaman-blog__card {
+  flex: 0 0 var(--blog-card-mb, 80%);
+  scroll-snap-align: start;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.hdt-yaman-blog-section .hdt-yaman-blog__image {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--blog-radius, 16px);
+  aspect-ratio: 4 / 3;
+  background: #ece6da;
+}
+.hdt-yaman-blog-section .hdt-yaman-blog__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hdt-yaman-blog-section .hdt-yaman-blog__placeholder { background: #ece6da; }
+
+.hdt-yaman-blog-section .hdt-yaman-blog__meta { padding-top: 14px; }
+.hdt-yaman-blog-section .hdt-yaman-blog__date {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a8275;
+  margin-bottom: 8px;
+}
+.hdt-yaman-blog-section .hdt-yaman-blog__title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #0d0d0d;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hdt-yaman-blog-section .hdt-yaman-blog__card:hover .hdt-yaman-blog__title { opacity: 0.75; }
+.hdt-yaman-blog-section .hdt-yaman-blog__notice {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: #8a8275;
+}
+
+@media (min-width: 768px) {
+  .hdt-yaman-blog-section { padding-block: var(--blog-pt, 80px) var(--blog-pb, 80px); }
+
+  /* desktop reflow order: heading (1) -> cards (2) -> button (3, centered) */
+  .hdt-yaman-blog-section .hdt-yaman-blog__header { order: 1; margin-bottom: 28px; }
+  .hdt-yaman-blog-section .hdt-yaman-blog__cards  { order: 2; }
+  .hdt-yaman-blog-section .hdt-yaman-blog__button { order: 3; align-self: center; margin: 40px 0 0; }
+
+  .hdt-yaman-blog-section .hdt-yaman-blog__heading { font-size: clamp(28px, 2.4vw, 36px); }
+
+  /* desktop grid — no scroll, exactly N columns */
+  .hdt-yaman-blog-section .hdt-yaman-blog__track {
+    display: grid;
+    grid-template-columns: repeat(var(--blog-cols, 3), 1fr);
+    gap: 28px;
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+  .hdt-yaman-blog-section .hdt-yaman-blog__card { flex: initial; }
+  .hdt-yaman-blog-section .hdt-yaman-blog__meta { padding-top: 18px; }
+  .hdt-yaman-blog-section .hdt-yaman-blog__title { font-size: 18px; }
+}
+
+
+/* ---------------------------------------------------------------------------
  * Planned section scopes (added as each section is implemented):
  *   2. Trust badges        -> .hdt-yaman-trust-badges-section  (DONE — see block above)
  *   3. Featured product     -> .hdt-yaman-featured-product
@@ -328,7 +468,7 @@
  *   7. Science behind the glow -> .hdt-yaman-science
  *   8. Discover your glow (video + reviews) -> .hdt-yaman-discover
  *   9. How to choose         -> .hdt-yaman-how-to-choose
- *  10. Discover articles      -> .hdt-yaman-articles
+ *  10. Discover articles      -> .hdt-yaman-blog-section  (DONE — see block above)
  *  11. FAQ                    -> .hdt-yaman-faq
  *  12. Newsletter             -> .hdt-yaman-newsletter
  * ------------------------------------------------------------------------- */
