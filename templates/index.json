@@ -188,35 +188,6 @@
     "yaman_faq": {
       "type": "accordion-n",
       "blocks": {
-        "accordion-heading": {
-          "type": "section-heading",
-          "static": true,
-          "settings": {
-            "design_heading": "1",
-            "horizontal": false,
-            "alignment": "left",
-            "heading_gap": 0,
-            "margin_bottom": 24
-          },
-          "blocks": {
-            "faq_heading": {
-              "type": "_heading_section",
-              "settings": {
-                "heading": "Clarity before commitment.",
-                "line_height": "",
-                "heading_size": "h_custom",
-                "text_color": "hdt-s-text",
-                "font_size_heading_lg": 48,
-                "font_size_heading": 32,
-                "letter_spacing_heading": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "faq_heading"
-          ]
-        },
         "faq_1": {
           "type": "_accordion-item",
           "settings": {
@@ -286,6 +257,35 @@
             "content": "<p>Add your answer here in the theme editor.</p>"
           },
           "blocks": {}
+        },
+        "accordion-heading": {
+          "type": "section-heading",
+          "static": true,
+          "settings": {
+            "design_heading": "1",
+            "horizontal": false,
+            "alignment": "left",
+            "heading_gap": 0,
+            "margin_bottom": 24
+          },
+          "blocks": {
+            "faq_heading": {
+              "type": "_heading_section",
+              "settings": {
+                "heading": "Clarity before commitment.",
+                "line_height": "",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 48,
+                "font_size_heading": 28,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "faq_heading"
+          ]
         }
       },
       "block_order": [
@@ -301,7 +301,6 @@
         "accordion_des": "3",
         "faq_max_width": 776,
         "section_layout": "container",
-        "section_background": "",
         "hdt_background_parallax": false,
         "colors_by_section": false,
         "color_scheme": "scheme-1",
