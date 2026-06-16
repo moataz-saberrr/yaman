@@ -109,15 +109,15 @@
     "enable_confetti": false,
     "gift_wrap_pr": "gift-wrap",
     "animations_reveal_on_scroll": true,
-    "social_facebook_link": "https://www.facebook.com/yamanarabia0",
-    "social_x_link": "https://x.com/yaman_arabia",
+    "social_facebook_link": "",
+    "social_x_link": "",
     "social_instagram_link": "https://www.instagram.com/yaman_arabia",
     "social_youtube_link": "https://www.youtube.com/@YAMAN_ARABIA",
     "social_tiktok_link": "https://www.tiktok.com/@yaman_arabia",
     "social_pinterest_link": "",
     "social_tumblr_link": "",
     "social_vimeo_link": "",
-    "social_snapchat_link": "https://www.snapchat.com/@yaman_arabia",
+    "social_snapchat_link": "",
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": true,
     "predictive_search_show_price": true,
@@ -183,7 +183,7 @@
         "settings": {
           "text": "#1d2847",
           "text2": "#878787",
-          "background": "#FFFCF5",
+          "background": "#fffcf5",
           "background_gradient": "",
           "background2": "#f5f5f5",
           "button": "#222222",
@@ -282,6 +282,27 @@
           "sale_price": "#ec0101",
           "input_primary": "#ffffff",
           "input_secondary": "#686868"
+        }
+      },
+      "scheme-6ae32a5d-33e2-4960-a1ac-30698d7b093d": {
+        "settings": {
+          "text": "#ffffff",
+          "text2": "#838383",
+          "background": "#070707",
+          "background_gradient": "",
+          "background2": "#f2f2f2",
+          "button": "#070707",
+          "button_label": "#ffffff",
+          "button_border": "#070707",
+          "secondary_button_label": "#070707",
+          "accent_color": "#FFFFFF",
+          "line_border": "#dddddd",
+          "overlay": "#000000",
+          "pr_text": "#070707",
+          "price": "#070707",
+          "sale_price": "#b80000",
+          "input_primary": "#ffffff",
+          "input_secondary": "#878787"
         }
       }
     }

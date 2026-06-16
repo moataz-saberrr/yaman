@@ -125,6 +125,7 @@
         "account_KBmadz",
         "search_wxK4Le"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "background_opacity": 1,
@@ -504,6 +505,7 @@
         "spacer_kbECBj",
         "text_kmfX9D"
       ],
+      "disabled": true,
       "name": "t:sections.newsletter_popup.name",
       "settings": {
         "colors_by_section": false,
