@@ -66,13 +66,18 @@
       }
     {% endif %}
   }
+    {% if block.settings.border_top %}
+    .hdt-group-block--{{ block.id }} {
+      border-top: 0.96px solid #FFFFFF0F;
+    }
+  {% endif %}
 {% endstyle %}
 {%- capture visible -%}
 {%- if block.settings.width == 0 %} hdt-hidden{% endif -%}
 {%- if block.settings.width_md == 0 %} md:hdt-hidden{% else %} md:hdt-flex{% endif -%}
 {%- if block.settings.width_lg == 0 %} lg:hdt-hidden{% else %} lg:hdt-flex{% endif -%}
 {%- endcapture -%}
-<div {%- if block.settings.colors_by_section %} color-scheme="{{ block.settings.color_scheme }}" style="--background-opacity: {{ block.settings.background_opacity }};" {%- endif %} class="hdt-group-block--{{ block.id }} hdt-footer-col-block {%- if block.settings.colors_by_section %} hdt-s-gradient {% endif %} {{ visible }} hdt-text-{{ block.settings.alignment_mb }} md:hdt-text-{{ block.settings.alignment }}" {{ block.shopify_attributes }}>
+<div {%- if block.settings.colors_by_section %} color-scheme="{{ block.settings.color_scheme }}" style="--background-opacity: {{ block.settings.background_opacity }};" {%- endif %} {% if block.settings.custom_id !=blank %} id="{{ block.settings.custom_id }}" {%- endif %} class="hdt-group-block--{{ block.id }} hdt-footer-col-block {%- if block.settings.colors_by_section %} hdt-s-gradient {% endif %} {{ visible }} hdt-text-{{ block.settings.alignment_mb }} md:hdt-text-{{ block.settings.alignment }}" {{ block.shopify_attributes }}>
   <div class="hdt-section-spacing hdt-section-spacing-{{ block.id }}">
   {%- if block.settings.col_heading != blank -%}
     <div class="hdt-footer-heading hdt-text-{{ block.settings.sec_heading_size }} hdt-font-{{ block.settings.font_weight_text }} collapsible hdt-flex md:hdt-block hdt-align-center hdt-justify-between hdt-s-text">
@@ -151,6 +156,12 @@
     }
   ],
   "settings": [
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID to target for css",
+      "info": "Add your custom id here. Ex: custom-block-id"
+    },
     {
       "type": "text",
       "id": "col_heading",
@@ -309,6 +320,12 @@
       "type": "checkbox",
       "id": "colors_by_section",
       "label": "t:sections.all.colors.display_colors_by_block"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "label": "Border Top",
+      "default": false
     },
     {
       "type": "color_scheme",
