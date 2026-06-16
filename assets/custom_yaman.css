@@ -421,3 +421,148 @@
     font-size: 16px;
   }
 }
+
+
+/* ===========================================================================
+ * 12. YAMAN NEWSLETTER BANNER — sections/custom-section-n.liquid
+ * Scope class: .hdt-yaman-newsletter-banner   (duplicate of custom-section)
+ * Two-column warm banner: text (left) + Shopify customer form & WhatsApp (right).
+ * Figma: node 2226:1082 (desktop) / 2226:2187 (mobile).
+ * Tokens: bg #f8f7f0, ink #070707, heading 48px bold, sub rgba(0,0,0,.65),
+ *         outlined 12px-radius input + button, WhatsApp green #40ae73,
+ *         content col 447 + gap 158 + form col 404 ≈ 1009px.
+ * Driven by inline vars: --nl-bg --nl-maxw --nl-pt/-pb (+ -mb).
+ * ------------------------------------------------------------------------- */
+.hdt-yaman-newsletter-banner {
+  background-color: var(--nl-bg, #f8f7f0);
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter {
+  padding-block: var(--nl-pt, 65px) var(--nl-pb, 65px);
+  padding-inline: 20px;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__container {
+  max-width: var(--nl-maxw, 1009px);
+  margin-inline: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+/* ---- Left: text content ---- */
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: start;
+  min-width: 0;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__eyebrow {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #070707;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__heading {
+  margin: 0;
+  font-size: clamp(30px, 4.4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  color: #070707;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__subheading {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+/* ---- Right: form + WhatsApp ---- */
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__form-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 0 1 404px;
+  min-width: 0;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__form { width: 100%; margin: 0; }
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__field {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 10px 13px;
+  border: 1px solid #070707;
+  border-radius: 12px;
+  background: transparent;
+  font-size: 14px;
+  color: #070707;
+  line-height: 1.4;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__input::placeholder { color: rgba(0, 0, 0, 0.6); }
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__button {
+  flex: 0 0 auto;
+  padding: 8px 15px;
+  border: 1px solid #070707;
+  border-radius: 12px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #070707;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__button:hover {
+  background: #070707;
+  color: #fff;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__response { font-size: 13px; }
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__response p { margin: 6px 0 0; }
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__success { color: #40ae73; }
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__error { color: #c0392b; }
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__whatsapp {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #40ae73;
+  text-decoration: none;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__whatsapp:hover { text-decoration: underline; }
+
+/* ---- Desktop alignment modifier ---- */
+.hdt-yaman-newsletter-banner.is-al-center .hdt-yaman-newsletter__content {
+  align-items: center;
+  text-align: center;
+}
+
+/* ---- Mobile: stack, centered, no horizontal overflow ---- */
+@media (max-width: 767px) {
+  .hdt-yaman-newsletter-banner .hdt-yaman-newsletter {
+    padding-block: var(--nl-pt-mb, 44px) var(--nl-pb-mb, 44px);
+    padding-inline: 16px;
+  }
+  .hdt-yaman-newsletter-banner .hdt-yaman-newsletter__container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    max-width: 100%;
+  }
+  .hdt-yaman-newsletter-banner .hdt-yaman-newsletter__form-wrap { flex-basis: auto; }
+
+  /* mobile text alignment (default centered per Figma) */
+  .hdt-yaman-newsletter-banner.is-almb-center .hdt-yaman-newsletter__content {
+    align-items: center;
+    text-align: center;
+  }
+  .hdt-yaman-newsletter-banner.is-almb-center .hdt-yaman-newsletter__whatsapp { text-align: center; }
+  .hdt-yaman-newsletter-banner.is-almb-start .hdt-yaman-newsletter__content {
+    align-items: flex-start;
+    text-align: start;
+  }
+}

@@ -311,6 +311,28 @@
         "pd_mb": "50px,,50px,"
       }
     },
+    "yaman_newsletter": {
+      "type": "custom-section-n",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "eyebrow": "JOIN THE COMMUNITY",
+        "heading": "Join the YAMAN Edit",
+        "subheading": "Get 10% off · Exclusive tutorials · Member-only access",
+        "email_placeholder": "Enter your email",
+        "button_label": "Subscribe",
+        "whatsapp_text": "OR OPT IN VIA WHATSAPP",
+        "whatsapp_url": "",
+        "background_color": "#f8f7f0",
+        "container_max_width": 1009,
+        "content_align": "start",
+        "content_align_mb": "center",
+        "padding_top": 65,
+        "padding_bottom": 65,
+        "padding_top_mb": 44,
+        "padding_bottom_mb": 44
+      }
+    },
     "slideshow_EVrUzi": {
       "type": "slideshow",
       "blocks": {
@@ -2061,6 +2083,7 @@
     "yaman_hero",
     "yaman_trust_badges",
     "yaman_faq",
+    "yaman_newsletter",
     "slideshow_EVrUzi",
     "collections_list_manual_eErqxt",
     "featured_collection_PTq36A",
