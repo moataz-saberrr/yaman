@@ -331,12 +331,97 @@
         "padding_top_mb": 45,
         "padding_bottom_mb": 45
       }
+    },
+    "yaman_science": {
+      "type": "science-slideshow-n",
+      "blocks": {
+        "slide_1": {
+          "type": "_science-slide-item-n",
+          "settings": {
+            "title": "DYHP — Dynamic Hydro-Pressure",
+            "description": "Gentle suction and micro-vibration deeply cleanse pores, remove dead skin cells, and infuse active ingredients directly into the skin — leaving a visibly brighter, smoother complexion after every use.",
+            "tag_1": "DEEP CLEANSE",
+            "tag_2": "PORE REFINEMENT",
+            "tag_3": "INSTANT GLOW",
+            "used_in": "Used in: Hydra Bright Skin Set"
+          },
+          "blocks": {}
+        },
+        "slide_2": {
+          "type": "_science-slide-item-n",
+          "settings": {
+            "title": "EMS — Electrical Muscle Stimulation",
+            "description": "Low-frequency electrical pulses gently activate facial muscles, helping to lift, firm and tone — for a more sculpted, defined contour with continued use.",
+            "tag_1": "MUSCLE LIFTING",
+            "tag_2": "ZERO UV",
+            "tag_3": "HANDS-FREE",
+            "used_in": "Used in: Medi Lift Plus / Liftology SP"
+          },
+          "blocks": {}
+        },
+        "slide_3": {
+          "type": "_science-slide-item-n",
+          "settings": {
+            "title": "Radio Frequency (RF)",
+            "description": "RF energy penetrates deep into the dermis, generating controlled heat that triggers collagen and elastin production — for visibly firmer, lifted skin that improves with each session.",
+            "tag_1": "ALL SKIN LAYERS",
+            "tag_2": "COLLAGEN BOOST",
+            "tag_3": "DEEP DERMIS",
+            "used_in": "Used in: Photo Plus S+ / Liftology SP"
+          },
+          "blocks": {}
+        },
+        "slide_4": {
+          "type": "_science-slide-item-n",
+          "settings": {
+            "title": "Photon LED Light Therapy",
+            "description": "Multi-wavelength LED targets different skin concerns at the cellular level — red light boosts collagen, blue light targets blemish-causing bacteria, yellow light soothes — with zero UV and zero downtime.",
+            "tag_1": "MULTI-WAVELENGTH",
+            "tag_2": "ZERO UV",
+            "tag_3": "CELLULAR RENEWAL",
+            "used_in": "Used in: Photo Plus Prestige SP"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "slide_2",
+        "slide_3",
+        "slide_4"
+      ],
+      "settings": {
+        "heading": "Science Behind the Glow",
+        "subheading": "46 years of Japanese R&D — engineered into every device.",
+        "card_radius": 24,
+        "overlay_opacity": 45,
+        "slide_width_dk": 88,
+        "slide_width_tb": 72,
+        "slide_width_mb": 86,
+        "gap": 24,
+        "gap_mb": 14,
+        "loop": false,
+        "autoplay": 0,
+        "pauseOnHover": true,
+        "navUI": false,
+        "nav_visible": "hover",
+        "dotUI": false,
+        "pag_position": "center",
+        "pag_rounded": true,
+        "pag_space": 10,
+        "pag_mgt": 16,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
     }
   },
   "order": [
     "yaman_hero",
     "yaman_trust_badges",
     "yaman_faq",
-    "custom_section_n_nnAQQB"
+    "custom_section_n_nnAQQB",
+    "yaman_science"
   ]
 }

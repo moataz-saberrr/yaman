@@ -565,3 +565,205 @@
     text-align: start;
   }
 }
+
+
+/* ===========================================================================
+ * 13. YAMAN SCIENCE — "Science Behind the Glow" carousel
+ * Section: sections/science-slideshow-n.liquid + blocks/_science-slide-item-n.liquid
+ * Scope class: .hdt-yaman-science-section
+ * Reuses the Kalles <hdt-slideshow> slider (drag/swipe, no custom JS). The
+ * "peek" of the next card is created purely by overriding the slider's own
+ * --slide-size / --slide-spacing custom props (scoped) — one big card + a slice
+ * of the next. The viewport keeps overflow:hidden, so the peek is clipped at the
+ * container edge and never causes body-level horizontal scroll.
+ * Driven by inline vars: --sci-radius --sci-ov --sci-w-dk/-tb/-mb --sci-gap(-mb)
+ *                        --sci-pt/-pb (+ -mb).
+ * ------------------------------------------------------------------------- */
+.hdt-yaman-science-section {
+  padding-block: var(--sci-pt, 80px) var(--sci-pb, 80px);
+}
+
+/* ---- Header ---- */
+.hdt-yaman-science-section .hdt-yaman-science__header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.hdt-yaman-science-section .hdt-yaman-science__heading {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.1;
+  font-size: clamp(28px, 4.5vw, 48px);
+  color: #0b1020;
+}
+.hdt-yaman-science-section .hdt-yaman-science__subheading {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(11, 16, 32, 0.6);
+}
+
+/* ---- Slider peek: override the Kalles slide sizing (scoped) ---- */
+.hdt-yaman-science-section .hdt-slider__container {
+  --slide-size: var(--sci-w-dk, 88%);
+  --slide-spacing: var(--sci-gap, 24px);
+}
+/* the reused slider keeps overflow hidden — peek clips here, no body scroll */
+.hdt-yaman-science-section .hdt-slider__viewport { overflow: hidden; }
+.hdt-yaman-science-section .hdt-slider__slide { height: auto; }
+
+/* ---- Card ---- */
+.hdt-yaman-science-section .hdt-yaman-science__card {
+  position: relative;
+  width: 100%;
+  /* ratio = (width ÷ height × 100) from the editor; e.g. 215 -> 2.15 */
+  aspect-ratio: var(--sci-ar-dk, 215) / 100;
+  border-radius: var(--sci-radius, 24px);
+  overflow: hidden;
+  background: #0a1426;
+  isolation: isolate;
+}
+.hdt-yaman-science-section .hdt-yaman-science__media,
+.hdt-yaman-science-section .hdt-yaman-science__placeholder,
+.hdt-yaman-science-section .hdt-yaman-science__overlay,
+.hdt-yaman-science-section .hdt-yaman-science__link {
+  position: absolute;
+  inset: 0;
+}
+.hdt-yaman-science-section .hdt-yaman-science__media { z-index: 0; }
+.hdt-yaman-science-section .hdt-yaman-science__picture { display: block; width: 100%; height: 100%; }
+.hdt-yaman-science-section .hdt-yaman-science__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hdt-yaman-science-section .hdt-yaman-science__placeholder {
+  background: radial-gradient(120% 100% at 78% 50%, #16335c 0%, #0a1730 55%, #060e1d 100%);
+}
+
+/* readability overlay (left → right fade), opacity from setting */
+.hdt-yaman-science-section .hdt-yaman-science__overlay {
+  z-index: 1;
+  pointer-events: none;
+  opacity: var(--sci-ov, 0.45);
+  background: linear-gradient(90deg, rgba(4, 9, 20, 0.95) 0%, rgba(4, 9, 20, 0.6) 42%, rgba(4, 9, 20, 0.15) 72%, rgba(4, 9, 20, 0) 100%);
+}
+
+.hdt-yaman-science-section .hdt-yaman-science__link { z-index: 3; }
+
+/* ---- Content ---- */
+.hdt-yaman-science-section .hdt-yaman-science__content {
+  position: relative;
+  z-index: 2;
+  pointer-events: none; /* let the slider receive drag over the text */
+  height: 100%;
+  width: min(60%, 610px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: clamp(28px, 4vw, 56px);
+  color: #fff;
+}
+.hdt-yaman-science-section .hdt-yaman-science__title {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.12;
+  font-size: clamp(22px, 2.6vw, 38px);
+  color: #fff;
+}
+.hdt-yaman-science-section .hdt-yaman-science__description {
+  margin: 0;
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+}
+.hdt-yaman-science-section .hdt-yaman-science__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  @media (max-width: 767px) {
+    justify-content: start;
+    gap: 8px !important;
+    flex-wrap: nowrap;
+  }
+  @media (max-width: 470px) {
+    justify-content: center;
+  }
+  @media (max-width: 375px) {
+    flex-wrap: wrap !important;
+     justify-content: start;
+  }
+}
+.hdt-yaman-science-section .hdt-yaman-science__tag {
+  padding: 10px 20px ;
+  border-radius: 999px;
+  background: #1F3156;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+  align-items: center;
+  @media (max-width: 767px) {
+    padding: 6px;
+    font-size: 9px;
+  }
+}
+.hdt-yaman-science-section .hdt-yaman-science__used {
+  margin: 6px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+@media (max-width: 1150px) {
+  .hdt-yaman-science-section .hdt-slider__slide:first-child  .hdt-yaman-science__card{
+        margin-inline-start: 8px;
+  }
+  .hdt-yaman-science-section .hdt-slideshow {
+    padding-inline: 0;
+  }
+}
+
+/* ---- Tablet ---- */
+@media (min-width: 768px) and (max-width: 1150px) {
+  .hdt-yaman-science-section .hdt-slider__container { --slide-size: var(--sci-w-tb, 72%); }
+  .hdt-yaman-science-section .hdt-yaman-science__card { aspect-ratio: var(--sci-ar-tb, 155) / 100; }
+  .hdt-yaman-science-section .hdt-yaman-science__content { width: min(85%, 580px); }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 767px) {
+  .hdt-yaman-science-section {
+    padding-block: var(--sci-pt-mb, 48px) var(--sci-pb-mb, 48px);
+  }
+  .hdt-yaman-science-section .hdt-yaman-science__header {
+    text-align: start;
+    margin-bottom: 22px;
+  }
+  .hdt-yaman-science-section .hdt-slider__container {
+    --slide-size: var(--sci-w-mb, 86%);
+    --slide-spacing: var(--sci-gap-mb, 14px);
+  }
+  /* large phones / small tablets (471–767px) use their own ratio */
+  .hdt-yaman-science-section .hdt-yaman-science__card { aspect-ratio: var(--sci-ar-mb-lg, 130) / 100; }
+  .hdt-yaman-science-section .hdt-yaman-science__content {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+    padding: 26px 22px 28px;
+  }
+  /* darken more on mobile so stacked text stays readable over the image */
+  .hdt-yaman-science-section .hdt-yaman-science__overlay {
+    background: linear-gradient(180deg, rgba(4, 9, 20, 0.15) 0%, rgba(4, 9, 20, 0.35) 45%, rgba(4, 9, 20, 0.9) 100%);
+  }
+}
+
+/* small phones (≤470px) use the taller mobile ratio */
+@media (max-width: 470px) {
+  .hdt-yaman-science-section .hdt-yaman-science__card { aspect-ratio: var(--sci-ar-mb, 70) / 100; }
+}
