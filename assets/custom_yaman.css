@@ -422,7 +422,6 @@
   }
 }
 
-
 /* ===========================================================================
  * 12. YAMAN NEWSLETTER BANNER — sections/custom-section-n.liquid
  * Scope class: .hdt-yaman-newsletter-banner   (duplicate of custom-section)
@@ -444,7 +443,7 @@
   max-width: var(--nl-maxw, 1009px);
   margin-inline: auto;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 48px;
 }
