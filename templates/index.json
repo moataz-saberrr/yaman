@@ -434,56 +434,87 @@
         "padding_bottom_mb": 30
       }
     },
-    "yaman_results": {
+    "real_results_n_NKxbg9": {
       "type": "real-results-n",
       "blocks": {
-        "card_1": {
+        "real_result_card_n_UndzrR": {
           "type": "_real-result-card-n",
           "settings": {
+            "product": "مجموعة-التقشير-المثالي-hydra-bright-skin-device-lotion",
+            "before_image": "shopify://shop_images/292e10651c4f2edf235077aac0feff7cffa92600.png",
+            "after_image": "shopify://shop_images/7e583662b627d738c3535838bf897fdc23d04aa0.png",
+            "before_label": "Before",
+            "after_label": "After",
+            "before_alt": "",
+            "after_alt": "",
             "title": "93% Firmer Skin",
             "meta": "Reem, 42 · Dubai · 8 weeks",
             "product_text": "Medi Lift Plus",
             "button_label": "Shop Medi Lift Plus",
-            "button_url": ""
-          }
+            "button_url": "",
+            "open_new_tab": false
+          },
+          "blocks": {}
         },
-        "card_2": {
+        "real_result_card_n_HMFwp9": {
           "type": "_real-result-card-n",
           "settings": {
+            "product": "",
+            "before_label": "Before",
+            "after_label": "After",
+            "before_alt": "",
+            "after_alt": "",
             "title": "89% Reduced Sagging",
             "meta": "Noura, 38 · Riyadh · 10 weeks",
             "product_text": "LIFTOLOGY SP",
             "button_label": "Shop LIFTOLOGY SP",
-            "button_url": ""
-          }
+            "button_url": "",
+            "open_new_tab": false
+          },
+          "blocks": {}
         },
-        "card_3": {
+        "real_result_card_n_kDCWCh": {
           "type": "_real-result-card-n",
           "settings": {
+            "product": "",
+            "before_label": "Before",
+            "after_label": "After",
+            "before_alt": "",
+            "after_alt": "",
             "title": "89% Reduced Sagging",
             "meta": "Sara, 45 · Abu Dhabi · 12 weeks",
             "product_text": "Photo Plus Prestige SP",
             "button_label": "Shop Photo Plus SP",
-            "button_url": ""
-          }
+            "button_url": "",
+            "open_new_tab": false
+          },
+          "blocks": {}
         },
-        "card_4": {
+        "real_result_card_n_aqyWj6": {
           "type": "_real-result-card-n",
           "settings": {
+            "product": "",
+            "before_label": "Before",
+            "after_label": "After",
+            "before_alt": "",
+            "after_alt": "",
             "title": "89% Reduced Sagging",
             "meta": "Hessa, 36 · Kuwait · 6 weeks",
             "product_text": "Hydra Bright Skin Set",
             "button_label": "Shop Hydra Bright",
-            "button_url": ""
-          }
+            "button_url": "",
+            "open_new_tab": false
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "card_1",
-        "card_2",
-        "card_3",
-        "card_4"
+        "real_result_card_n_UndzrR",
+        "real_result_card_n_HMFwp9",
+        "real_result_card_n_kDCWCh",
+        "real_result_card_n_aqyWj6"
       ],
+      "name": "YAMAN Results",
       "settings": {
         "heading": "Real Results. Clinically Proven.",
         "subheading": "GCC women. Real devices. Zero filters.",
@@ -492,8 +523,8 @@
         "card_radius": 20,
         "cards_dk": 4,
         "cards_tb": 3,
-        "mobile_card_width": 44,
-        "gap": 18,
+        "mobile_card_width": 45,
+        "gap": 20,
         "gap_tb": 16,
         "gap_mb": 12,
         "default_position": 50,
@@ -502,10 +533,10 @@
         "pauseOnHover": true,
         "navUI": false,
         "dotUI": false,
-        "padding_top": 55,
+        "padding_top": 60,
         "padding_bottom": 30,
-        "padding_top_mb": 44,
-        "padding_bottom_mb": 28
+        "padding_top_mb": 50,
+        "padding_bottom_mb": 30
       }
     }
   },
@@ -515,6 +546,6 @@
     "yaman_faq",
     "custom_section_n_nnAQQB",
     "science_slideshow_n_mKkryb",
-    "yaman_results"
+    "real_results_n_NKxbg9"
   ]
 }
