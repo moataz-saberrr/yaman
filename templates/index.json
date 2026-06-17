@@ -433,6 +433,80 @@
         "padding_top_mb": 30,
         "padding_bottom_mb": 30
       }
+    },
+    "yaman_results": {
+      "type": "real-results-n",
+      "blocks": {
+        "card_1": {
+          "type": "_real-result-card-n",
+          "settings": {
+            "title": "93% Firmer Skin",
+            "meta": "Reem, 42 · Dubai · 8 weeks",
+            "product_text": "Medi Lift Plus",
+            "button_label": "Shop Medi Lift Plus",
+            "button_url": ""
+          }
+        },
+        "card_2": {
+          "type": "_real-result-card-n",
+          "settings": {
+            "title": "89% Reduced Sagging",
+            "meta": "Noura, 38 · Riyadh · 10 weeks",
+            "product_text": "LIFTOLOGY SP",
+            "button_label": "Shop LIFTOLOGY SP",
+            "button_url": ""
+          }
+        },
+        "card_3": {
+          "type": "_real-result-card-n",
+          "settings": {
+            "title": "89% Reduced Sagging",
+            "meta": "Sara, 45 · Abu Dhabi · 12 weeks",
+            "product_text": "Photo Plus Prestige SP",
+            "button_label": "Shop Photo Plus SP",
+            "button_url": ""
+          }
+        },
+        "card_4": {
+          "type": "_real-result-card-n",
+          "settings": {
+            "title": "89% Reduced Sagging",
+            "meta": "Hessa, 36 · Kuwait · 6 weeks",
+            "product_text": "Hydra Bright Skin Set",
+            "button_label": "Shop Hydra Bright",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4"
+      ],
+      "settings": {
+        "heading": "Real Results. Clinically Proven.",
+        "subheading": "GCC women. Real devices. Zero filters.",
+        "background_color": "#f8f7f0",
+        "container_max_width": 1310,
+        "card_radius": 20,
+        "cards_dk": 4,
+        "cards_tb": 3,
+        "mobile_card_width": 44,
+        "gap": 18,
+        "gap_tb": 16,
+        "gap_mb": 12,
+        "default_position": 50,
+        "loop": false,
+        "autoplay": 0,
+        "pauseOnHover": true,
+        "navUI": false,
+        "dotUI": false,
+        "padding_top": 55,
+        "padding_bottom": 30,
+        "padding_top_mb": 44,
+        "padding_bottom_mb": 28
+      }
     }
   },
   "order": [
@@ -440,6 +514,7 @@
     "yaman_trust_badges",
     "yaman_faq",
     "custom_section_n_nnAQQB",
-    "science_slideshow_n_mKkryb"
+    "science_slideshow_n_mKkryb",
+    "yaman_results"
   ]
 }

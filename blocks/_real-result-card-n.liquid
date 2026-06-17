@@ -1,0 +1,170 @@
+<!-- blocks/_real-result-card-n.liquid — YAMAN before/after result card (custom slide for real-results-n.liquid) -->
+{%- liquid
+  assign before_img = block.settings.before_image
+  assign after_img = block.settings.after_image
+  assign pos = section.settings.default_position | default: 50
+  assign product = block.settings.product
+  assign product_url = product.url
+  assign cta_url = block.settings.button_url | default: product_url
+  assign before_alt = block.settings.before_alt | default: 'Before'
+  assign after_alt = block.settings.after_alt | default: 'After'
+-%}
+<div class="hdt-slider__slide hdt-yaman-results__slide" {{ block.shopify_attributes }}>
+  <div class="hdt-yaman-results__card">
+    <div class="hdt-yaman-results__before-after" data-rr-ba style="--rr-pos: {{ pos }}%;">
+      <div class="hdt-yaman-results__image hdt-yaman-results__after">
+        {%- if after_img != blank -%}
+          {{ after_img | image_url: width: 720 | image_tag: loading: 'lazy', class: 'hdt-yaman-results__img', alt: after_alt, widths: '300,400,500,600,720,900' }}
+        {%- else -%}
+          <div class="hdt-yaman-results__placeholder hdt-yaman-results__placeholder--after" aria-hidden="true"></div>
+        {%- endif -%}
+      </div>
+      <div class="hdt-yaman-results__image hdt-yaman-results__before" aria-hidden="true">
+        {%- if before_img != blank -%}
+          {{ before_img | image_url: width: 720 | image_tag: loading: 'lazy', class: 'hdt-yaman-results__img', alt: before_alt, widths: '300,400,500,600,720,900' }}
+        {%- else -%}
+          <div class="hdt-yaman-results__placeholder hdt-yaman-results__placeholder--before"></div>
+        {%- endif -%}
+      </div>
+
+      <span class="hdt-yaman-results__label hdt-yaman-results__label--before">{{ block.settings.before_label | default: 'Before' }}</span>
+      <span class="hdt-yaman-results__label hdt-yaman-results__label--after">{{ block.settings.after_label | default: 'After' }}</span>
+
+      <span class="hdt-yaman-results__divider" aria-hidden="true"></span>
+      <div
+        class="hdt-yaman-results__handle"
+        data-rr-handle
+        role="slider"
+        tabindex="0"
+        aria-label="Drag to compare before and after"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="{{ pos }}"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <div class="hdt-yaman-results__content">
+      {%- if block.settings.title != blank -%}
+        <p class="hdt-yaman-results__title">{{ block.settings.title }}</p>
+      {%- endif -%}
+      {%- if block.settings.meta != blank -%}
+        <p class="hdt-yaman-results__meta">{{ block.settings.meta }}</p>
+      {%- endif -%}
+      {%- if block.settings.product_text != blank -%}
+        {%- if product_url != blank -%}
+          <a class="hdt-yaman-results__product" href="{{ product_url }}">{{ block.settings.product_text }}</a>
+        {%- else -%}
+          <span class="hdt-yaman-results__product">{{ block.settings.product_text }}</span>
+        {%- endif -%}
+      {%- endif -%}
+      {%- if block.settings.button_label != blank -%}
+        <a
+          class="hdt-yaman-results__button"
+          {% if cta_url != blank %}href="{{ cta_url }}"{% else %}href="#" aria-disabled="true"{% endif %}
+          {% if block.settings.open_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+        >{{ block.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Result card",
+  "tag": null,
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Optional. Used for the product-link URL; the CTA still uses its own URL below."
+    },
+    {
+      "type": "header",
+      "content": "Before / after images"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After image"
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Before label",
+      "default": "Before"
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "After label",
+      "default": "After"
+    },
+    {
+      "type": "text",
+      "id": "before_alt",
+      "label": "Before image alt (optional)"
+    },
+    {
+      "type": "text",
+      "id": "after_alt",
+      "label": "After image alt (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Result title",
+      "default": "93% Firmer Skin"
+    },
+    {
+      "type": "text",
+      "id": "meta",
+      "label": "Customer info",
+      "default": "Reem, 42 · Dubai · 8 weeks"
+    },
+    {
+      "type": "text",
+      "id": "product_text",
+      "label": "Product / used-in text",
+      "default": "Medi Lift Plus"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Medi Lift Plus"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL",
+      "info": "Custom link for the CTA. Falls back to the product URL if left blank."
+    },
+    {
+      "type": "checkbox",
+      "id": "open_new_tab",
+      "label": "Open link in new tab",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Result card"
+    }
+  ]
+}
+{% endschema %}
