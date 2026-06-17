@@ -532,7 +532,7 @@
 /* ---- Product cards: white rounded card, subtle border + padding, left-aligned
    info (rating row → vendor/category → title → price). Scoped overrides on the
    theme's card-product1 markup (hdt-pr-border_none → we add our own border). ---- */
-.hdt-yaman-routine-section .hdt-yaman-routine__slider-wrap { position: relative; }
+.hdt-yaman-routine-section .hdt-yaman-routine__slider-wrap { position: relative; padding-bottom: 30px; }
 
 /* the slide IS the card; stretch so all cards in a row are equal height */
 .hdt-yaman-routine-section .hdt-yaman-routine__card { height: auto; display: flex; }
@@ -554,7 +554,7 @@
 .hdt-yaman-routine-section .hdt-card-product__media {
   border-radius: calc(var(--routine-radius, 16px) - 6px);
   overflow: hidden;
-  background: #f3efe7;
+  /* background: #f3efe7; */
 }
 
 /* info block — left aligned, even vertical rhythm */
@@ -584,7 +584,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #9a9486;
+  color: #828282;
   text-decoration: none;
 }
 
@@ -606,8 +606,48 @@
   gap: 8px;
 }
 .hdt-yaman-routine-section .hdt-price__list { display: flex; align-items: baseline; gap: 8px; }
-.hdt-yaman-routine-section .hdt-price { font-size: 17px; font-weight: 600; color: #0d0d0d; }
+.hdt-yaman-routine-section .hdt-price { font-size: 16px; font-weight: 600; color: #828282 ; }
 .hdt-yaman-routine-section .hdt-compare-at-price { font-size: 14px; color: #b3a89a; text-decoration: line-through; }
+
+/* ---- Card footer add-to-cart: full-width black pill (below the price) ----
+   Reuses the theme's btn-ultra (AJAX add-to-cart / quick-add / choose-options).
+   We make its parent/form full width and restyle the button as a SHOP-NOW pill. */
+.hdt-yaman-routine-section .hdt-card-product__footer { margin-top: auto; padding-top: 14px; }
+.hdt-yaman-routine-section .hdt-card-product__footer .hdt-ultra_btn_parent,
+.hdt-yaman-routine-section .hdt-card-product__footer wrapp-hdt-pr-frm,
+.hdt-yaman-routine-section .hdt-card-product__footer wrapp-hdt-open-modal-btn,
+.hdt-yaman-routine-section .hdt-card-product__footer .hdt-product-form { display: block; width: 100%; }
+.hdt-yaman-routine-section .hdt-card-product__btn-ultra {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 0;
+  padding: 14px 20px;
+  background: #0d0d0d;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.hdt-yaman-routine-section .hdt-card-product__btn-ultra:hover { opacity: 0.92; transform: translateY(-1px); background-color: black;}
+/* hide the cart icon to match the plain SHOP-NOW pill; reveal the label text */
+.hdt-yaman-routine-section .hdt-card-product__footer .hdt-pr-card-icon { display: none; }
+.hdt-yaman-routine-section .hdt-card-product__footer .hdt-truncate {
+  position: static;
+  width: auto;
+  height: auto;
+  clip: auto;
+  overflow: visible;
+  white-space: normal;
+}
 
 .hdt-yaman-routine-section .hdt-yaman-routine__notice {
   margin: 16px 0 0;
@@ -616,8 +656,15 @@
   color: #8a8275;
 }
 
-/* Dots — scoped pill style (overrides the var-driven theme dots) */
+/* Dots — scoped pill style (overrides the var-driven theme dots).
+   Pulled OUT of the slider's flow (absolute) so the slider's in-flow height equals
+   the card row — which lets the arrows center on the cards exactly (see --gap-arrow). */
 .hdt-yaman-routine-section .hdt-yaman-routine__dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin-top: 14px !important;
   --pag-w: 8px;
   --pag-h: 8px;
   --pag-w-active: 24px;
@@ -636,7 +683,7 @@
   justify-content: center;
   padding: 13px 30px;
   background: #0d0d0d;
-  color: #f5ebdd;
+  color: #ffffff;
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -646,13 +693,11 @@
 }
 .hdt-yaman-routine-section .hdt-yaman-routine__button:hover { opacity: 0.9; transform: translateY(-1px); }
 
-/* Arrows centered on the card IMAGE (square ratio → height = width). Derived from
-   the container width so no container-query containment is put on the slider. */
-.hdt-yaman-routine-section .hdt-navigation {
-  --routine-track-w: calc(min(100vw, var(--routine-maxw, 1200px)) - 2 * var(--routine-pad-x, 15px));
-  --routine-img-w: calc(var(--routine-track-w) * var(--routine-card-mb, 80) / 100 - var(--spacing-x, 15px));
-  --gap-arrow: calc(var(--routine-img-w) / 2);
-}
+/* Arrows centered vertically on the CARD ROW, on every screen. Because the dots
+   are taken out of the slider's flow (above), the slider's height == the card row,
+   so the theme's top:var(--gap-arrow) at 50% is the exact vertical middle of the
+   cards — independent of card content height (image, info, add-to-cart button). */
+.hdt-yaman-routine-section .hdt-navigation { --gap-arrow: 50%; }
 
 /* Mobile: 1 card + a peek of the next; hide quick-add (+) / wishlist (heart). */
 @media (max-width: 767px) {
@@ -665,18 +710,6 @@
   .hdt-yaman-routine-section { padding-block: var(--routine-pt, 90px) var(--routine-pb, 90px); }
   .hdt-yaman-routine-section .hdt-yaman-routine__header { margin-bottom: 44px; }
   .hdt-yaman-routine-section .hdt-yaman-routine__heading { font-size: clamp(30px, 2.6vw, 38px); }
-
-  /* arrows: image width = (track / tablet columns) - inter-slide spacing */
-  .hdt-yaman-routine-section .hdt-navigation {
-    --routine-img-w: calc(var(--routine-track-w) / var(--routine-cols-tb, 2) - var(--spacing-x, 30px));
-  }
-}
-
-/* Desktop (theme's lg breakpoint) shows the full desktop column count. */
-@media (min-width: 1150px) {
-  .hdt-yaman-routine-section .hdt-navigation {
-    --routine-img-w: calc(var(--routine-track-w) / var(--routine-cols, 3) - var(--spacing-x, 30px));
-  }
 }
 
 

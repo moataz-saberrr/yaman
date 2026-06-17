@@ -73,7 +73,7 @@
             <div class="hdt-slider__container">
               {%- if has_products -%}
                 {%- for product in sel_collection.products limit: limit -%}
-                  {%- render 'card-product1',
+                  {%- render 'card-product-routine',
                     card_product: product,
                     class: 'hdt-slider__slide hdt-pr-style1 hdt-yaman-routine__card',
                     section_id: section.id,
