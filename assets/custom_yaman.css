@@ -454,6 +454,9 @@
    max-width query so the desktop md:/lg:hdt-slides-* widths stay untouched. */
 @media (max-width: 767px) {
   .hdt-yaman-blog-section .hdt-yaman-blog__slider { --slide-size: calc(var(--blog-card-mb, 80) * 1%); }
+  /* optional: hide arrows + dots on mobile (toggle "Hide arrows & dots on mobile") */
+  .hdt-yaman-blog-section.is-hide-controls-mb .hdt-navigation,
+  .hdt-yaman-blog-section.is-hide-controls-mb .hdt-yaman-blog__dots { display: none !important; }
 }
 
 @media (min-width: 768px) {
@@ -754,12 +757,238 @@
   .hdt-yaman-routine-section .hdt-yaman-routine__slider { --slide-size: calc(var(--routine-card-mb, 80) * 1%); }
   .hdt-yaman-routine-section .hdt-product-btns,
   .hdt-yaman-routine-section .hdt-card-product__btn-wishlist { display: none !important; }
+  /* optional: hide arrows + dots on mobile (toggle "Hide arrows & dots on mobile") */
+  .hdt-yaman-routine-section.is-hide-controls-mb .hdt-navigation,
+  .hdt-yaman-routine-section.is-hide-controls-mb .hdt-yaman-routine__dots { display: none !important; }
+  /* reclaim the space reserved below the slider for the (now hidden) dots */
+  .hdt-yaman-routine-section.is-hide-controls-mb .hdt-yaman-routine__slider-wrap { padding-bottom: 0; }
 }
 
 @media (min-width: 768px) {
   .hdt-yaman-routine-section { padding-block: var(--routine-pt, 90px) var(--routine-pb, 90px); }
   .hdt-yaman-routine-section .hdt-yaman-routine__header { margin-bottom: 44px; }
   .hdt-yaman-routine-section .hdt-yaman-routine__heading { font-size: clamp(30px, 2.6vw, 38px); }
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 9. HOW TO CHOOSE  ->  sections/featured-collection-choose-n.liquid
+ *    Scope class: .hdt-yaman-choose-section  |  BEM: .hdt-yaman-choose__*
+ *    Comparison carousel of manual product cards in the theme's native
+ *    <hdt-slider> (drag/arrows/dots/loop). Desktop: N-up (default 4). Mobile:
+ *    1 card + a peek; arrows & dots hide via the native hdt-hide-mobile-* class
+ *    (toggles). Arrows centered on the card row (dots pulled out of flow).
+ *    Per-instance values via inline --choose-*.
+ * ------------------------------------------------------------------------- */
+.hdt-yaman-choose-section {
+  background: var(--choose-bg, #fff);
+  padding-block: var(--choose-pt-mb, 56px) var(--choose-pb-mb, 56px);
+  /* clip (not hidden) → no horizontal page scroll, but the hover-scale bleed and
+     the outside arrows still paint within the viewport */
+  overflow: clip;
+}
+.hdt-yaman-choose-section .hdt-yaman-choose__container {
+  max-width: var(--choose-maxw, 1280px);
+  margin-inline: auto;
+  padding-inline: var(--choose-pad-x, 15px);
+}
+
+/* header */
+.hdt-yaman-choose-section .hdt-yaman-choose__header { text-align: center; margin-bottom: 36px; }
+.hdt-yaman-choose-section .hdt-yaman-choose__heading {
+  margin: 0 0 14px;
+  font-size: clamp(28px, 6vw, 38px);
+  line-height: 1.15;
+  font-weight: 700;
+  color: #0d0d0d;
+}
+.hdt-yaman-choose-section .hdt-yaman-choose__text {
+  max-width: 560px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6f6a60;
+}
+
+/* slider: card gap + mobile peek */
+.hdt-yaman-choose-section .hdt-yaman-choose__slider-wrap { position: relative; padding-bottom: 30px; }
+.hdt-yaman-choose-section .hdt-yaman-choose__slider { --slide-spacing: var(--choose-gap, 24px); }
+
+/* card — warm off-white, rounded, subtle border + shadow, equal height */
+.hdt-yaman-choose-section .hdt-yaman-choose__card { height: auto; display: flex; position: relative; }
+.hdt-yaman-choose-section .hdt-yaman-choose__card-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #faf7f1;
+  border: 1px solid #ece7dc;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 1px 2px rgba(13, 13, 13, 0.04);
+  transform-origin: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+/* hover: scale the whole card (and everything inside) + lift above neighbours */
+.hdt-yaman-choose-section .hdt-yaman-choose__card:hover { z-index: 3; }
+.hdt-yaman-choose-section .hdt-yaman-choose__card:hover .hdt-yaman-choose__card-inner {
+  transform: scale(1.06);
+  box-shadow: 0px 4.08px 12.25px 0px #00000012;
+}
+
+.hdt-yaman-choose-section .hdt-yaman-choose__pill {
+  align-self: flex-start;
+  margin-bottom: 12px;
+  padding: 5px 12px;
+  background: #efe7d8;
+  color: #6b5b3e;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 999px;
+}
+/* product image — transparent PNGs, no background fill, shown whole (contain).
+   Slightly landscape box so wide cards don't get excessively tall. */
+.hdt-yaman-choose-section .hdt-yaman-choose__image {
+  display: block;
+  aspect-ratio: 4 / 3;
+}
+.hdt-yaman-choose-section .hdt-yaman-choose__img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+.hdt-yaman-choose-section .hdt-yaman-choose__title {
+  margin: 16px 0 0;
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #0d0d0d;
+}
+.hdt-yaman-choose-section .hdt-yaman-choose__title a { color: inherit; text-decoration: none; }
+.hdt-yaman-choose-section .hdt-yaman-choose__card:hover .hdt-yaman-choose__title a { opacity: 0.78; }
+.hdt-yaman-choose-section .hdt-yaman-choose__description {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #6f6a60;
+}
+.hdt-yaman-choose-section .hdt-yaman-choose__divider { height: 1px; background: #e7e1d5; margin: 16px 0; }
+
+/* detail rows: icon on the left, label-over-value column (label bold above value) */
+.hdt-yaman-choose-section .hdt-yaman-choose__details { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+.hdt-yaman-choose-section .hdt-yaman-choose__detail { display: flex; align-items: flex-start; gap: 14px; }
+.hdt-yaman-choose-section .hdt-yaman-choose__detail-icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  margin-top: 1px;
+  color: #0d0d0d;
+}
+.hdt-yaman-choose-section .hdt-yaman-choose__detail-icon svg { width: 100%; height: 100%; }
+.hdt-yaman-choose-section .hdt-yaman-choose__detail-text { display: flex; flex-direction: column; gap: 2px; }
+.hdt-yaman-choose-section .hdt-yaman-choose__detail-label { font-size: 15px; font-weight: 700; line-height: 1.2; color: #0d0d0d; }
+.hdt-yaman-choose-section .hdt-yaman-choose__detail-value { font-size: 14px; line-height: 1.3; color: #6f6a60; }
+
+/* button — outlined, rounded, uppercase, centered, pushed to the card bottom */
+.hdt-yaman-choose-section .hdt-yaman-choose__button {
+  margin: 20px auto 0 auto;
+  width: fit-content;
+  align-self: stretch;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border: 1.5px solid #0d0d0d;
+  border-radius: 12px;
+  background: transparent;
+  color: #0d0d0d;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.hdt-yaman-choose-section .hdt-yaman-choose__button:hover { background: #0d0d0d; color: #f5ebdd; }
+
+.hdt-yaman-choose-section .hdt-yaman-choose__notice { margin: 16px 0 0; text-align: center; font-size: 13px; color: #8a8275; }
+
+/* Dots — flat grey pills, dark active (matches the reference). Pulled out of the
+   slider's flow so the arrows can centre on the card row (see --gap-arrow). */
+.hdt-yaman-choose-section .hdt-yaman-choose__dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin-top: 18px !important;
+  --pag-w: 22px;
+  --pag-h: 5px;
+  --pag-w-active: 22px;
+  --pag-h-active: 5px;
+  --pag-bg: #d8d2c6;
+  --pag-bg-active: #0d0d0d;
+  --pag-border: transparent;
+  --pag-radius: 999px;
+}
+
+/* arrows centred vertically on the card row (dots are out of flow) */
+.hdt-yaman-choose-section .hdt-navigation { --gap-arrow: 50%; }
+
+/* thin grey outline circle buttons (high specificity to beat the theme's
+   filled-dark nav style). */
+.hdt-yaman-choose-section .hdt-navigation .hdt-slider__button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #1D2847;
+  color: #1D2847;
+  box-shadow: 0 2px 12px rgba(13, 13, 13, 0.06);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.hdt-yaman-choose-section .hdt-slider__viewport{
+  padding: 25px 15px !important;
+}
+.hdt-yaman-choose-section .hdt-slider .hdt-navigation{
+    left: -78px;
+    width: calc(var(--nav-width) + 10%);
+}
+.hdt-yaman-choose-section .hdt-navigation .hdt-slider__button svg { width: 8px; height: 12px; }
+.hdt-yaman-choose-section .hdt-navigation .hdt-slider__button:not([disabled="disabled"]):hover {
+  background: #0d0d0d;
+  border-color: #0d0d0d;
+  color: #fff;
+}
+
+/* Vertical room only, so the hover-scale isn't clipped top/bottom. (No horizontal
+   padding/negative-margin here — that changes the slider's measured content width
+   and breaks the 4-per-view sizing.) */
+.hdt-yaman-choose-section .hdt-slider__viewport { padding-block: 16px; }
+
+/* Mobile: 1 card + a peek; tighter gap. (Arrows/dots hide via the native
+   hdt-hide-mobile-* class, driven by the section's mobile-hide toggles.) */
+@media (max-width: 767px) {
+  .hdt-yaman-choose-section .hdt-yaman-choose__slider {
+    --slide-size: calc(var(--choose-card-mb, 82) * 1%);
+    --slide-spacing: var(--choose-gap-mb, 12px);
+  }
+}
+
+/* hide arrows / dots on mobile AND tablet (≤1149px, below the desktop 4-up
+   breakpoint) when the "Hide … on mobile" toggles are on. Scoped + !important so
+   it wins regardless of the theme's native hdt-hide-mobile-* (which is ≤767px). */
+@media (max-width: 1149px) {
+  .hdt-yaman-choose-section.is-hide-nav-mb .hdt-navigation { display: none !important; }
+  .hdt-yaman-choose-section.is-hide-dots-mb .hdt-yaman-choose__dots { display: none !important; }
+}
+
+@media (min-width: 768px) {
+  .hdt-yaman-choose-section { padding-block: var(--choose-pt, 90px) var(--choose-pb, 90px); }
+  .hdt-yaman-choose-section .hdt-yaman-choose__header { margin-bottom: 48px; }
+  .hdt-yaman-choose-section .hdt-yaman-choose__heading { font-size: clamp(32px, 2.8vw, 40px); }
+
+  /* arrows OUTSIDE the cards, in the page gutter — the track keeps full width
+     (no inset), so the cards stay wide; section overflow:clip stops page scroll. */
+  .hdt-yaman-choose-section .hdt-navigation { --sl-btn-prev-l: -60px; --sl-btn-next-r: -60px; }
 }
 
 
@@ -772,7 +1001,7 @@
  *   6. Complete your routine -> .hdt-yaman-routine-section  (DONE — see block above)
  *   7. Science behind the glow -> .hdt-yaman-science
  *   8. Discover your glow (video + reviews) -> .hdt-yaman-discover
- *   9. How to choose         -> .hdt-yaman-how-to-choose
+ *   9. How to choose         -> .hdt-yaman-choose-section  (DONE — see block above)
  *  10. Discover articles      -> .hdt-yaman-blog-section  (DONE — see block above)
  *  11. FAQ                    -> .hdt-yaman-faq
  *  12. Newsletter             -> .hdt-yaman-newsletter
