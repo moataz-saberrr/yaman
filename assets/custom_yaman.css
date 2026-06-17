@@ -601,7 +601,7 @@
   --slide-spacing: var(--sci-gap, 24px);
 }
 /* the reused slider keeps overflow hidden — peek clips here, no body scroll */
-.hdt-yaman-science-section .hdt-slider__viewport { overflow: hidden; }
+.hdt-yaman-science-section .hdt-slider__viewport { overflow: hidden; padding: 1px }
 .hdt-yaman-science-section .hdt-slider__slide { height: auto; }
 
 /* ---- Card ---- */
@@ -713,14 +713,14 @@
   color: rgba(255, 255, 255, 0.62);
 }
 
-@media (max-width: 1150px) {
+/* @media (max-width: 1150px) { */
   .hdt-yaman-science-section .hdt-slider__slide:first-child  .hdt-yaman-science__card{
         margin-inline-start: 8px;
   }
   .hdt-yaman-science-section .hdt-slideshow {
     padding-inline: 0;
   }
-}
+/* } */
 
 /* ---- Tablet ---- */
 @media (min-width: 768px) and (max-width: 1150px) {
