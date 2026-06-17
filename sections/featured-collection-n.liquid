@@ -24,7 +24,6 @@
     --ys-popular-border: {{ s.popular_border }};
     --ys-btn-bg: {{ s.button_bg }};
     --ys-btn-tx: {{ s.button_text }};
-    --ys-star: {{ s.star_color }};
     --ys-saving-bg: {{ s.saving_bg }};
     --ys-saving-tx: {{ s.saving_text }};
     --ys-gap: {{ s.gap }}px;
@@ -65,9 +64,9 @@
                 image_ratio: s.image_ratio,
                 is_popular: is_popular,
                 popular_badge: s.popular_badge,
-                rating_default: s.rating_default,
-                star_color: s.star_color,
-                installment_default: s.installment_text,
+                tag_prefix: s.tag_prefix,
+                installment_prefix: s.installment_prefix,
+                installment_suffix: s.installment_suffix,
                 show_saving: s.show_saving,
                 saving_prefix: s.saving_prefix,
                 button_label: s.button_label
@@ -93,7 +92,7 @@
 {
   "name": "YAMAN Sets",
   "tag": "section",
-  "class": "hdt-yaman-sets-section hdt-section",
+  "class": "hdt-yaman-sets-section hdt-section custom-featured-selector",
   "settings": [
     {
       "type": "header",
@@ -151,23 +150,28 @@
     },
     {
       "type": "header",
-      "content": "Card data fallbacks",
-      "info": "Per-product values can be set via metafields (custom.yaman_set_label, custom.yaman_rating, custom.yaman_reviews, custom.yaman_installment); these are the fallbacks."
-    },
-    {
-      "type": "range",
-      "id": "rating_default",
-      "min": 0,
-      "max": 5,
-      "step": 0.5,
-      "label": "Default star rating",
-      "default": 5
+      "content": "Card data",
+      "info": "Eyebrow reads a product tag starting with the prefix below (prefix stripped); falls back to the first plain tag, then metafield custom.yaman_set_label, then product type. Star rating comes from your reviews app via the theme's card-rating hook. The Tabby amount is calculated automatically as product price ÷ 4."
     },
     {
       "type": "text",
-      "id": "installment_text",
-      "label": "Default installment text",
-      "default": "or SAR 425/mo × 4 with Tabby"
+      "id": "tag_prefix",
+      "label": "Eyebrow tag prefix",
+      "info": "Example product tag: set_label:ANTI-AGING & LIFTING",
+      "default": "set_label:"
+    },
+    {
+      "type": "text",
+      "id": "installment_prefix",
+      "label": "Installment prefix",
+      "default": "or"
+    },
+    {
+      "type": "text",
+      "id": "installment_suffix",
+      "label": "Installment suffix",
+      "info": "Shown after the calculated amount (price ÷ 4).",
+      "default": "/mo × 4 with Tabby"
     },
     {
       "type": "checkbox",
@@ -239,12 +243,6 @@
     },
     {
       "type": "color",
-      "id": "star_color",
-      "label": "Star color",
-      "default": "#F5B301"
-    },
-    {
-      "type": "color",
       "id": "saving_bg",
       "label": "Savings badge background",
       "default": "#D6F0DC"
@@ -288,7 +286,7 @@
       "unit": "%",
       "label": "Card width (mobile)",
       "info": "Below 100% the next card peeks in.",
-      "default": 80
+      "default": 88
     },
     {
       "type": "range",
