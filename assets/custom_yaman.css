@@ -660,8 +660,11 @@
 }
 .hdt-yaman-routine-section .hdt-price__list { display: flex; align-items: baseline; gap: 8px; }
 .hdt-yaman-routine-section .hdt-price { font-size: 16px; font-weight: 500; color: #828282 ; }
-.hdt-yaman-routine-section .hdt-compare-at-price { font-size: 14px; color: #b3a89a; text-decoration: line-through; }
+.hdt-yaman-routine-section .hdt-compare-at-price { font-size: 14px; color: #828282; text-decoration: line-through; }
 
+.hdt-compare-at-price:not([hidden])+.hdt-price:not(.hdt-price-item--range){
+  color: #070707 !important;
+}
 /* ---- Card footer add-to-cart: full-width black pill (below the price) ----
    Reuses the theme's btn-ultra (AJAX add-to-cart / quick-add / choose-options).
    We make its parent/form full width and restyle the button as a SHOP-NOW pill. */
