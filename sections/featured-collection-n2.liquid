@@ -1,0 +1,390 @@
+<!-- sections/featured-collection-n.liquid — YAMAN Sets (custom; do NOT edit the original Kalles sections/featured-collection.liquid) -->
+{%- liquid
+  assign s = section.settings
+  assign collection = s.collection
+  assign limit = s.products_count | default: 4
+
+  assign autoplay_ms = 0
+  if s.autoplay
+    assign autoplay_ms = s.autoplay_speed | times: 1000
+  endif
+
+  # "none" -> 0 (never matches a 1-based forloop.index); "1".."4" -> the number
+  assign popular_index = s.most_popular | plus: 0
+
+  assign sizes = '(min-width: 1150px) 320px, (min-width: 768px) 45vw, 80vw'
+-%}
+<div
+  class="hdt-yaman-sets"
+  style="
+    --ys-maxw: {{ s.container_max_width }}px;
+    --ys-pad-x: {{ s.container_padding }}px;
+    --ys-card-bg: {{ s.card_background }};
+    --ys-popular-bg: {{ s.popular_background }};
+    --ys-popular-border: {{ s.popular_border }};
+    --ys-btn-bg: {{ s.button_bg }};
+    --ys-btn-tx: {{ s.button_text }};
+    --ys-saving-bg: {{ s.saving_bg }};
+    --ys-saving-tx: {{ s.saving_text }};
+    --ys-gap: {{ s.gap }}px;
+    --ys-gap-mb: {{ s.gap_mb }}px;
+    --ys-peek: {{ s.mobile_peek }}%;
+    --ys-pt: {{ s.padding_top }}px;
+    --ys-pb: {{ s.padding_bottom }}px;
+    --ys-pt-mb: {{ s.padding_top_mb }}px;
+    --ys-pb-mb: {{ s.padding_bottom_mb }}px;
+  "
+>
+  <div class="hdt-yaman-sets__container">
+    {%- if s.heading != blank or s.subtitle != blank -%}
+      <div class="hdt-yaman-sets__head">
+        {%- if s.heading != blank -%}<h2 class="hdt-yaman-sets__heading">{{ s.heading }}</h2>{%- endif -%}
+        {%- if s.subtitle != blank -%}<p class="hdt-yaman-sets__subtitle">{{ s.subtitle }}</p>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if collection != blank and collection.products_count > 0 -%}
+      {%- comment -%} Reuses the Kalles <hdt-slider> custom element — no custom JS. {%- endcomment -%}
+      <hdt-slider
+        id="Slider-{{ section.id }}"
+        class="hdt-slider hdt-relative hdt-slide-spacing-x lg:hdt-slides-4 md:hdt-slides-2 hdt-slides-1 hdt-yaman-sets__slider"
+        config='{ "id": "Slider-{{ section.id }}", "navUI": false, "dotUI": false, "loop": {{ s.loop }}, "autoPlay": {{ autoplay_ms }}, "pauseOnHover": true }'
+      >
+        <div class="hdt-slider__viewport hdt-relative">
+          <div class="hdt-slider__container">
+            {%- for product in collection.products limit: limit -%}
+              {%- assign is_popular = false -%}
+              {%- if popular_index == forloop.index -%}
+                {%- assign is_popular = true -%}
+              {%- endif -%}
+              {%- render 'card-product-yaman-set',
+                card_product: product,
+                section_id: section.id,
+                sizes: sizes,
+                image_ratio: s.image_ratio,
+                is_popular: is_popular,
+                popular_badge: s.popular_badge,
+                tag_prefix: s.tag_prefix,
+                installment_prefix: s.installment_prefix,
+                installment_suffix: s.installment_suffix,
+                show_saving: s.show_saving,
+                saving_prefix: s.saving_prefix,
+                button_label: s.button_label
+              -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </hdt-slider>
+    {%- else -%}
+      <div class="hdt-yaman-sets__empty">
+        {{ 'onboarding.no_content' | t | default: 'Select a collection in the theme editor to display the YAMAN Sets.' }}
+      </div>
+    {%- endif -%}
+
+    {%- if s.view_all_label != blank -%}
+      <div class="hdt-yaman-sets__view-all-wrap">
+        <a class="hdt-yaman-sets__view-all" href="{{ s.view_all_link | default: collection.url | default: '#' }}">{{ s.view_all_label }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "YAMAN Sets",
+  "tag": "section",
+  "class": "hdt-yaman-sets-section hdt-section custom-featured-selector",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The 4 YAMAN Sets"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Each package is built around a device already paired with the right serum for your concern."
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "label": "Products to show",
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "most_popular",
+      "label": "Most popular card",
+      "info": "Highlights one of the first visible products.",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "1", "label": "Product 1" },
+        { "value": "2", "label": "Product 2" },
+        { "value": "3", "label": "Product 3" },
+        { "value": "4", "label": "Product 4" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "text",
+      "id": "popular_badge",
+      "label": "Most popular badge text",
+      "default": "★ MOST POPULAR"
+    },
+    {
+      "type": "header",
+      "content": "Card data",
+      "info": "Eyebrow reads a product tag starting with the prefix below (prefix stripped); falls back to the first plain tag, then metafield custom.yaman_set_label, then product type. Star rating comes from your reviews app via the theme's card-rating hook. The Tabby amount is calculated automatically as product price ÷ 4."
+    },
+    {
+      "type": "text",
+      "id": "tag_prefix",
+      "label": "Eyebrow tag prefix",
+      "info": "Example product tag: set_label:ANTI-AGING & LIFTING",
+      "default": "set_label:"
+    },
+    {
+      "type": "text",
+      "id": "installment_prefix",
+      "label": "Installment prefix",
+      "default": "or"
+    },
+    {
+      "type": "text",
+      "id": "installment_suffix",
+      "label": "Installment suffix",
+      "info": "Shown after the calculated amount (price ÷ 4).",
+      "default": "/mo × 4 with Tabby"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_saving",
+      "label": "Show savings badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "saving_prefix",
+      "label": "Savings badge prefix",
+      "default": "Save"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Card button label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "header",
+      "content": "View all button"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all button label",
+      "default": "VIEW ALL DEVICES"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View all button link",
+      "info": "Defaults to the selected collection."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "popular_background",
+      "label": "Highlighted card background",
+      "default": "#F7EEE1"
+    },
+    {
+      "type": "color",
+      "id": "popular_border",
+      "label": "Highlighted card border",
+      "default": "#C9A86A"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#0D0D0D"
+    },
+    {
+      "type": "color",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "saving_bg",
+      "label": "Savings badge background",
+      "default": "#D6F0DC"
+    },
+    {
+      "type": "color",
+      "id": "saving_text",
+      "label": "Savings badge text",
+      "default": "#1B7A3D"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 960,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1360
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_peek",
+      "min": 60,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Card width (mobile)",
+      "info": "Below 100% the next card peeks in.",
+      "default": 88
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap between cards (desktop)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "gap_mb",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap between cards (mobile)",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Slider"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay speed",
+      "default": 5,
+      "visible_if": "{{ section.settings.autoplay }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Sets",
+      "category": "YAMAN"
+    }
+  ]
+}
+{% endschema %}

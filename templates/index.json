@@ -718,6 +718,219 @@
         "padding_bottom": 90,
         "padding_top_mb": 56,
         "padding_bottom_mb": 56
+    "yaman_product": {
+      "type": "featured-product-n",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/i4f.svg",
+            "text": "Smooth Wrinkles & Fine Lines",
+            "alt": ""
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/i3ff.png",
+            "text": "Oil control & minimize pores",
+            "alt": ""
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/i2ff.png",
+            "text": "Reduce acne, redness & spots",
+            "alt": ""
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/i1ff.png",
+            "text": "Reduce inflammation, brighten skin",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "settings": {
+        "product": "medi-lift-plus",
+        "pill_label_1": "Best Seller",
+        "pill_label_2": "1.5M+ Sold",
+        "eyebrow": "EMS Facial Lifting Mask",
+        "title_override": "Medi Lift Plus",
+        "description_override": "Wearable EMS mask. Hands-free. Just 10 minutes a day lifts the jawline, firms cheeks, and visibly sculpts your face in 6–12 weeks.",
+        "price_override": "",
+        "vat_text": "excl. VAT",
+        "installment_text": "or SAR 425/month × 4 with Tabby",
+        "rating_stars": 5,
+        "rating_value": "4.8",
+        "reviews_count": "347 reviews",
+        "review_text": "",
+        "button_label": "SHOP NOW",
+        "button_link": "",
+        "button_target": false,
+        "card_background": "#f7eee1",
+        "button_bg": "#16233f",
+        "button_text": "#ffffff",
+        "pill_bg": "#16233f",
+        "pill_text": "#ffffff",
+        "star_color": "#0d0d0d",
+        "container_max_width": 1360,
+        "container_padding": 15,
+        "card_radius": 28,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mb": 24,
+        "padding_bottom_mb": 24
+      }
+    },
+    "yaman_reviews": {
+      "type": "testimonial_section-n",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "product_image": "shopify://shop_images/hearicon.png",
+            "product_title": "Medi Lift Plus",
+            "stars": 5,
+            "title": "\"This is by far the best one!\"",
+            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
+            "reviewer": "Sitora",
+            "location": "Riyadh",
+            "usage": "8 weeks of use",
+            "button_label": "Medi Lift Plus →",
+            "button_link": "",
+            "product_link": "",
+            "alt": ""
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "product_image": "shopify://shop_images/hearicon.png",
+            "product_title": "Medi Lift Plus",
+            "stars": 5,
+            "title": "\"This is by far the best one!\"",
+            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
+            "reviewer": "Sitora",
+            "location": "Riyadh",
+            "usage": "8 weeks of use",
+            "button_label": "Medi Lift Plus →",
+            "button_link": "",
+            "product_link": "",
+            "alt": ""
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "product_image": "shopify://shop_images/hearicon.png",
+            "product_title": "Medi Lift Plus",
+            "stars": 5,
+            "title": "\"This is by far the best one!\"",
+            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
+            "reviewer": "Sitora",
+            "location": "Riyadh",
+            "usage": "8 weeks of use",
+            "button_label": "Medi Lift Plus →",
+            "button_link": "",
+            "product_link": "",
+            "alt": ""
+          }
+        },
+        "review_GQyjxc": {
+          "type": "review",
+          "settings": {
+            "product_image": "shopify://shop_images/hearicon.png",
+            "product_title": "Medi Lift Plus",
+            "stars": 5,
+            "title": "\"This is by far the best one!\"",
+            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
+            "reviewer": "Sitora",
+            "location": "Riyadh",
+            "usage": "8 weeks of use",
+            "button_label": "Medi Lift Plus →",
+            "button_link": "",
+            "product_link": "",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_GQyjxc"
+      ],
+      "settings": {
+        "show_summary": true,
+        "rating_value": "4.8",
+        "summary_stars": 5,
+        "review_count": "347 verified reviews",
+        "background_color": "#ffffff",
+        "card_background": "#fbf5e9",
+        "star_color": "#f5b301",
+        "container_max_width": 1360,
+        "container_padding": 15,
+        "card_radius": 16,
+        "card_min_width": 360,
+        "mobile_peek": 85,
+        "gap": 24,
+        "gap_mb": 16,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "loop": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mb": 36,
+        "padding_bottom_mb": 36
+      }
+    },
+    "featured_collection_n_XtP7LF": {
+      "type": "featured-collection-n",
+      "name": "YAMAN Sets",
+      "settings": {
+        "heading": "The 4 YAMAN Sets",
+        "subtitle": "Each package is built around a device already paired with the right serum for your concern.",
+        "collection": "اجهزة-يامان",
+        "products_count": 4,
+        "most_popular": "2",
+        "popular_badge": "★ MOST POPULAR",
+        "tag_prefix": "set_label:",
+        "installment_prefix": "or",
+        "installment_suffix": "/mo × 4 with Tabby",
+        "show_saving": true,
+        "saving_prefix": "Save",
+        "button_label": "SHOP NOW",
+        "view_all_label": "VIEW ALL DEVICES",
+        "view_all_link": "",
+        "card_background": "#ffffff",
+        "popular_background": "#f7eee1",
+        "popular_border": "#c9a86a",
+        "button_bg": "#0d0d0d",
+        "button_text": "#ffffff",
+        "saving_bg": "#d6f0dc",
+        "saving_text": "#1b7a3d",
+        "container_max_width": 1360,
+        "container_padding": 15,
+        "mobile_peek": 80,
+        "gap": 20,
+        "gap_mb": 14,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "loop": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mb": 36,
+        "padding_bottom_mb": 36
       }
     }
   },
@@ -731,5 +944,8 @@
     "yaman_blog",
     "yaman_routine",
     "yaman_choose"
+    "yaman_product",
+    "yaman_reviews",
+    "featured_collection_n_XtP7LF"
   ]
 }

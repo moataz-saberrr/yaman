@@ -1,0 +1,449 @@
+<!-- sections/featured-product-n.liquid — YAMAN Product (custom; do NOT edit the original Kalles sections/featured-product.liquid) -->
+{%- liquid
+  assign s = section.settings
+  assign product = s.product
+
+  # Product-data binding with overrides taking priority, product as fallback
+  assign p_title = s.title_override | default: product.title
+  assign p_url = s.button_link
+  if p_url == blank
+    assign p_url = product.url
+  endif
+  if p_url == blank
+    assign p_url = '#'
+  endif
+
+  assign p_price = s.price_override
+  if p_price == blank and product != blank
+    assign p_price = product.price | money
+  endif
+
+  assign p_desc = s.description_override
+  if p_desc == blank and product != blank
+    assign p_desc = product.description | strip_html | truncatewords: 45
+  endif
+
+  assign img = s.product_image | default: product.featured_image
+  assign has_mb = false
+  if s.product_image_mb != blank
+    assign has_mb = true
+  endif
+  assign img_mb = s.product_image_mb | default: img
+
+  # Star rating (supports halves)
+  assign rating = s.rating_stars
+  assign full = rating | floor
+  assign frac = rating | minus: full
+  assign has_half = false
+  if frac >= 0.5
+    assign has_half = true
+  endif
+  assign half_index = full | plus: 1
+
+  # Review line: built from rating + count unless an explicit override is set
+  assign review_line = s.review_text
+  if review_line == blank
+    assign review_line = '(' | append: s.rating_value | append: ' · ' | append: s.reviews_count | append: ')'
+  endif
+-%}
+{%- capture star_icon -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.8 6.2 20.8l1.1-6.4-4.7-4.6 6.5-.9z"/></svg>{%- endcapture -%}
+<div
+  class="hdt-yaman-product"
+  style="
+    --yp-maxw: {{ s.container_max_width }}px;
+    --yp-pad-x: {{ s.container_padding }}px;
+    --yp-card-bg: {{ s.card_background }};
+    --yp-btn-bg: {{ s.button_bg }};
+    --yp-btn-tx: {{ s.button_text }};
+    --yp-pill-bg: {{ s.pill_bg }};
+    --yp-pill-tx: {{ s.pill_text }};
+    --yp-star: {{ s.star_color }};
+    --yp-radius: {{ s.card_radius }}px;
+    --yp-pt: {{ s.padding_top }}px;
+    --yp-pb: {{ s.padding_bottom }}px;
+    --yp-pt-mb: {{ s.padding_top_mb }}px;
+    --yp-pb-mb: {{ s.padding_bottom_mb }}px;
+  "
+>
+  <div class="hdt-yaman-product__container">
+    <div class="hdt-yaman-product__card">
+      <div class="hdt-yaman-product__content">
+        {%- if s.pill_label_1 != blank or s.pill_label_2 != blank -%}
+          <div class="hdt-yaman-product__badges">
+            {%- if s.pill_label_1 != blank -%}<span class="hdt-yaman-product__badge">{{ s.pill_label_1 }}</span>{%- endif -%}
+            {%- if s.pill_label_2 != blank -%}<span class="hdt-yaman-product__badge hdt-yaman-product__badge--alt">{{ s.pill_label_2 }}</span>{%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if s.eyebrow != blank -%}
+          <p class="hdt-yaman-product__eyebrow">{{ s.eyebrow }}</p>
+        {%- endif -%}
+
+        {%- if p_title != blank -%}
+          <h2 class="hdt-yaman-product__title">{{ p_title }}</h2>
+        {%- endif -%}
+
+        {%- if p_desc != blank -%}
+          <p class="hdt-yaman-product__description">{{ p_desc }}</p>
+        {%- endif -%}
+
+        {%- if p_price != blank -%}
+          <div class="hdt-yaman-product__price-row">
+            <span class="hdt-yaman-product__price">{{ p_price }}</span>
+            {%- if s.vat_text != blank -%}<span class="hdt-yaman-product__vat">{{ s.vat_text }}</span>{%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if s.installment_text != blank -%}
+          <p class="hdt-yaman-product__installment">{{ s.installment_text }}</p>
+        {%- endif -%}
+
+        <div class="hdt-yaman-product__rating">
+          <span class="hdt-yaman-product__stars" role="img" aria-label="{{ s.rating_value }} / 5">
+            {%- for i in (1..5) -%}
+              {%- assign fillpct = 0 -%}
+              {%- if i <= full -%}
+                {%- assign fillpct = 100 -%}
+              {%- elsif i == half_index and has_half -%}
+                {%- assign fillpct = 50 -%}
+              {%- endif -%}
+              <span class="hdt-yaman-product__star">
+                <span class="hdt-yaman-product__star-base">{{ star_icon }}</span>
+                <span class="hdt-yaman-product__star-fill" style="width: {{ fillpct }}%;">{{ star_icon }}</span>
+              </span>
+            {%- endfor -%}
+          </span>
+          {%- if review_line != blank -%}<span class="hdt-yaman-product__rating-text">{{ review_line }}</span>{%- endif -%}
+        </div>
+
+        {%- if section.blocks.size > 0 -%}
+          <div class="hdt-yaman-product__features">
+            {%- for block in section.blocks -%}
+              {%- assign f_alt = block.settings.alt | default: block.settings.text -%}
+              <div class="hdt-yaman-product__feature" {{ block.shopify_attributes }}>
+                <span class="hdt-yaman-product__feature-icon">
+                  {%- if block.settings.icon != blank -%}
+                    {{ block.settings.icon | image_url: width: 96 | image_tag: loading: 'lazy', class: 'hdt-yaman-product__feature-img', alt: f_alt, widths: '32,48,64,96' }}
+                  {%- else -%}
+                    <span class="hdt-yaman-product__feature-placeholder" aria-hidden="true"></span>
+                  {%- endif -%}
+                </span>
+                {%- if block.settings.text != blank -%}<span class="hdt-yaman-product__feature-text">{{ block.settings.text }}</span>{%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if s.button_label != blank -%}
+          <a class="hdt-yaman-product__button" href="{{ p_url }}"{% if s.button_target %} target="_blank" rel="noopener"{% endif %}>{{ s.button_label }}</a>
+        {%- endif -%}
+      </div>
+
+      <div class="hdt-yaman-product__media">
+        {%- if img != blank -%}
+          {%- if has_mb -%}
+            {{ img | image_url: width: 1000 | image_tag: class: 'hdt-yaman-product__image hdt-yaman-product__image--dk', alt: p_title, widths: '400,600,800,1000', loading: 'lazy' }}
+            {{ img_mb | image_url: width: 800 | image_tag: class: 'hdt-yaman-product__image hdt-yaman-product__image--mb', alt: p_title, widths: '300,450,600,800', loading: 'lazy' }}
+          {%- else -%}
+            {{ img | image_url: width: 1000 | image_tag: class: 'hdt-yaman-product__image', alt: p_title, widths: '400,600,800,1000', loading: 'lazy' }}
+          {%- endif -%}
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag: 'hdt-yaman-product__placeholder' }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "YAMAN Product",
+  "tag": "section",
+  "class": "hdt-yaman-product-section hdt-section",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Product"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Used as fallback for title, price, link and image when the overrides below are empty."
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product image override"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_mb",
+      "label": "Product image override (mobile)"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "pill_label_1",
+      "label": "Pill label 1",
+      "default": "Best Seller"
+    },
+    {
+      "type": "text",
+      "id": "pill_label_2",
+      "label": "Pill label 2",
+      "default": "1.5M+ Sold"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow / subtitle",
+      "default": "EMS Facial Lifting Mask"
+    },
+    {
+      "type": "text",
+      "id": "title_override",
+      "label": "Title override",
+      "info": "Leave empty to use the selected product's title.",
+      "default": "Medi Lift Plus"
+    },
+    {
+      "type": "textarea",
+      "id": "description_override",
+      "label": "Description override",
+      "info": "Leave empty to use the product description.",
+      "default": "Wearable EMS mask. Hands-free. Just 10 minutes a day lifts the jawline, firms cheeks, and visibly sculpts your face in 6–12 weeks."
+    },
+    {
+      "type": "text",
+      "id": "price_override",
+      "label": "Price override",
+      "info": "Leave empty to use the product price.",
+      "default": "SAR 1,700"
+    },
+    {
+      "type": "text",
+      "id": "vat_text",
+      "label": "VAT / price helper text",
+      "default": "excl. VAT"
+    },
+    {
+      "type": "text",
+      "id": "installment_text",
+      "label": "Installment / helper text",
+      "default": "or SAR 425/month × 4 with Tabby"
+    },
+    {
+      "type": "header",
+      "content": "Rating"
+    },
+    {
+      "type": "range",
+      "id": "rating_stars",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "label": "Star rating",
+      "default": 4.5
+    },
+    {
+      "type": "text",
+      "id": "rating_value",
+      "label": "Rating value",
+      "default": "4.8"
+    },
+    {
+      "type": "text",
+      "id": "reviews_count",
+      "label": "Reviews count text",
+      "default": "347 reviews"
+    },
+    {
+      "type": "text",
+      "id": "review_text",
+      "label": "Review line override",
+      "info": "Leave empty to auto-build as “(rating · reviews)”."
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "Leave empty to use the selected product's URL."
+    },
+    {
+      "type": "checkbox",
+      "id": "button_target",
+      "label": "Open button in new tab",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#F7EEE1"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#16233F"
+    },
+    {
+      "type": "color",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "pill_bg",
+      "label": "Pill background",
+      "default": "#16233F"
+    },
+    {
+      "type": "color",
+      "id": "pill_text",
+      "label": "Pill text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star color",
+      "default": "#0D0D0D"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 960,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1360
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Card corner radius",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature text",
+          "default": "Feature benefit"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Icon alt text (optional)",
+          "info": "Defaults to the feature text."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Product",
+      "category": "YAMAN",
+      "blocks": [
+        { "type": "feature", "settings": { "text": "Smooth Wrinkles & Fine Lines" } },
+        { "type": "feature", "settings": { "text": "Oil control & minimize pores" } },
+        { "type": "feature", "settings": { "text": "Reduce acne, redness & spots" } },
+        { "type": "feature", "settings": { "text": "Reduce inflammation, brighten skin" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,110 @@
+{%- comment -%}
+  YAMAN Sets product card  (a new "design 12-style" card, modelled on the
+  card-product6 param contract but purpose-built for the YAMAN Sets Figma design).
+  This is a NEW snippet — the original Kalles card-product1..12 are NOT modified.
+
+  Accepts:
+  - card_product: {Object} Product (required)
+  - section_id:   {String} owning section id
+  - sizes:        {String} image sizes attr
+  - image_ratio:  {String} image ratio token (optional)
+  - class:        {String} extra classes for the slide wrapper
+  - is_popular:   {Boolean} render the highlighted / most-popular style
+  - popular_badge:{String} badge text for the popular card
+  - installment_prefix:{String} text before the dynamic Tabby amount (e.g. "or")
+  - installment_suffix:{String} text after the amount (e.g. "/mo × 4 with Tabby")
+  - show_saving:  {Boolean} show the green savings pill
+  - saving_prefix:{String} text before the saving amount (e.g. "Save")
+  - button_label: {String} CTA label
+
+  Star rating is rendered via the theme's standard card-rating hook
+  (`hdt-pr-card-rating`) so it stays in sync with the store's reviews app
+  (Judge.me). No manual/default stars are rendered here.
+
+  Per-product eyebrow via metafield (optional, graceful fallback):
+  - custom.yaman_set_label -> eyebrow / category  (falls back to product type)
+{%- endcomment -%}
+{%- liquid
+  assign p = card_product
+  assign url = p.url
+
+  # Eyebrow from product tags. Prefer a prefixed tag (e.g. "set_label:ANTI-AGING")
+  # and strip the prefix; otherwise fall back to the first "public" tag (one with
+  # no "namespace:" colon), then the metafield, then product type.
+  assign eyebrow = ''
+  assign tag_prefix = tag_prefix | default: 'set_label:'
+  for tag in p.tags
+    if tag_prefix != blank and tag contains tag_prefix
+      assign eyebrow = tag | remove_first: tag_prefix | strip
+      break
+    endif
+  endfor
+  if eyebrow == blank
+    for tag in p.tags
+      unless tag contains ':'
+        assign eyebrow = tag
+        break
+      endunless
+    endfor
+  endif
+  if eyebrow == blank
+    assign eyebrow = p.metafields.custom.yaman_set_label.value | default: p.type
+  endif
+
+  # Dynamic Tabby installment = product price / 4, in the theme's money format
+  assign tabby_amount = p.price | divided_by: 4 | money_without_trailing_zeros
+
+  assign has_compare = false
+  if p.compare_at_price and p.compare_at_price > p.price
+    assign has_compare = true
+    assign saving_amount = p.compare_at_price | minus: p.price
+  endif
+
+  assign featured_media = p.featured_media | default: settings.placeholder_img
+-%}
+<div class="hdt-slider__slide hdt-yaman-sets__slide {{ class }}">
+  <article class="hdt-yaman-sets__card{% if is_popular %} hdt-yaman-sets__card--popular{% endif %}">
+    {%- if is_popular and popular_badge != blank -%}
+      <span class="hdt-yaman-sets__popular-badge">{{ popular_badge }}</span>
+    {%- endif -%}
+
+    <div class="hdt-yaman-sets__card-head">
+      {%- if eyebrow != blank -%}
+        <p class="hdt-yaman-sets__eyebrow">{{ eyebrow }}</p>
+      {%- endif -%}
+      {%- if p.title != blank -%}
+        <h3 class="hdt-yaman-sets__title"><a href="{{ url }}">{{ p.title }}</a></h3>
+      {%- endif -%}
+      {%- comment -%} Theme's standard card-rating hook — Judge.me renders here when connected. {%- endcomment -%}
+      <div class="hdt-yaman-sets__rating">
+        {%- render 'hdt-pr-card-rating', product: p -%}
+      </div>
+    </div>
+
+    <a class="hdt-yaman-sets__image" href="{{ url }}">
+      {%- if featured_media != blank -%}
+        {{ featured_media | image_url: width: 600 | image_tag: loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600', class: 'hdt-yaman-sets__img', alt: p.title }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'hdt-yaman-sets__placeholder' }}
+      {%- endif -%}
+    </a>
+
+    <div class="hdt-yaman-sets__foot">
+      <div class="hdt-yaman-sets__price-row">
+        <div class="hdt-yaman-sets__prices">
+          {%- if has_compare -%}<s class="hdt-yaman-sets__compare">{{ p.compare_at_price | money }}</s>{%- endif -%}
+          <span class="hdt-yaman-sets__price">{{ p.price | money }}</span>
+        </div>
+        {%- if show_saving and has_compare -%}
+          <span class="hdt-yaman-sets__saving">{{ saving_prefix }} {{ saving_amount | money_without_trailing_zeros }}</span>
+        {%- endif -%}
+      </div>
+      {%- if installment_prefix != blank or installment_suffix != blank -%}
+        <p class="hdt-yaman-sets__installment">{{ installment_prefix }} {{ tabby_amount }}{{ installment_suffix }}</p>
+      {%- endif -%}
+      {%- if button_label != blank -%}
+        <a class="hdt-yaman-sets__button" href="{{ url }}">{{ button_label }}</a>
+      {%- endif -%}
+    </div>
+  </article>
+</div>

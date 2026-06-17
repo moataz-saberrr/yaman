@@ -11,7 +11,6 @@
   {% render 'hdt-pr-card-rating', product: product, vendor: 'stamped' %}
 {% endcomment %}
 
-
 {%- liquid
   assign rating = 0
   assign reviews_count = 0
@@ -34,7 +33,6 @@
       assign reviews_count = product.metafields.reviews.rating_count
     endif
   endif
-
 
   assign scale_max = 5
   assign full_stars = rating | floor
