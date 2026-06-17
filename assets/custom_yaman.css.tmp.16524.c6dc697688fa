@@ -1,0 +1,762 @@
+/* ============================================================================
+ * custom_yaman.css
+ * ----------------------------------------------------------------------------
+ * GLOBAL custom stylesheet for the YAMAN homepage rebuild (Figma -> Kalles).
+ *
+ * This is the SINGLE file for ALL custom YAMAN styles. Do NOT add custom YAMAN
+ * CSS to any original Kalles file (base.css, theme.css, slideshow.css, etc.)
+ * and do NOT edit any *.min.css file.
+ *
+ * Loaded globally from layout/theme.liquid (in the <head>, immediately after
+ * the `css-variables` snippet) so it cascades AFTER the theme's own CSS and our
+ * scoped overrides win without needing !important.
+ *
+ * SCOPING RULE (important):
+ *   Every rule MUST be nested under a unique, section-specific parent class so
+ *   it can never leak into other Kalles sections or other instances of the same
+ *   section. Use the duplicated section's parent class as the scope, e.g.:
+ *
+ *     .hdt-slideshow-n { ... }
+ *     .hdt-slideshow-n .hdt-content-inner { ... }
+ *
+ *   When a section can be placed more than once on a page, prefer scoping with
+ *   the per-instance custom class exposed via a schema setting (e.g. a
+ *   `custom_class` / `section_unique_class` text setting) instead of the shared
+ *   section class.
+ *
+ * Keep each section's styles grouped in its own clearly labelled block below.
+ * ============================================================================ */
+
+
+/* ---------------------------------------------------------------------------
+ * 1. HERO / SLIDESHOW  ->  sections/slideshow-n.liquid + blocks/_slide-item-n.liquid
+ *    Scope class: .hdt-slideshow-n   |   markup BEM: .hdt-yaman-hero__*
+ *    Desktop/tablet: image sizes the slide, content overlays (left) + gradient.
+ *    Mobile (<768px): black content panel stacked ABOVE the image (one slide).
+ *    Height modes (like the Kalles slideshow) come from classes on <hdt-slideshow>:
+ *      .hdt-yh-md--{adapt_image|adapt_image_first|full|fixed}  (desktop image)
+ *      .hdt-yh-mb--{ ... same options ... }                    (mobile image)
+ *    Driven by CSS vars:
+ *      --yh-ratio-md / --yh-ratio          per-slide desktop/mobile image ratios
+ *      --yh-ratio-md-first / --yh-ratio-first   first slide (for adapt_image_first)
+ *      --yh-fixed-md / --yh-fixed-mb       fixed px heights
+ *      --yaman-hero-ov (overlay), --yaman-accent, --yaman-panel
+ * ------------------------------------------------------------------------- */
+.hdt-slideshow-n { --yaman-hero-ink: #0d0d0d; }
+
+/* keep the reused Kalles slider track sane regardless of autoHeight timing */
+.hdt-slideshow-n .hdt-slider__viewport { overflow: hidden; }
+.hdt-slideshow-n .hdt-slider__slide { height: auto; }
+
+/* ---- media (image) — common ---- */
+.hdt-slideshow-n .hdt-yaman-hero__media { position: relative; line-height: 0; }
+.hdt-slideshow-n .hdt-yaman-hero__picture { display: block; }
+.hdt-slideshow-n .hdt-yaman-hero__media img,
+.hdt-slideshow-n .hdt-yaman-hero__placeholder { display: block; width: 100%; object-fit: cover; }
+.hdt-slideshow-n .hdt-yaman-hero__placeholder { background: #100f0e; }
+.hdt-slideshow-n .hdt-yaman-hero__placeholder svg { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---- content typography (breakpoint-agnostic) ---- */
+.hdt-slideshow-n .hdt-yaman-hero__content-inner { max-width: 560px; }
+.hdt-slideshow-n .hdt-yaman-hero__heading {
+  margin: 0;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  font-size: clamp(34px, 9vw, 46px);
+  color: #fff;
+}
+.hdt-slideshow-n .hdt-yaman-hero__line { display: block; }
+.hdt-slideshow-n .hdt-yaman-hero__heading-group--mb { display: none; }
+.hdt-slideshow-n .hdt-yaman-hero__slide.is-accent .hdt-yaman-hero__heading-group .hdt-yaman-hero__line:last-child {
+  color: var(--yaman-accent, #f5ebdd);
+}
+.hdt-slideshow-n .hdt-yaman-hero__text {
+  margin-top: 16px;
+  max-width: 42ch;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+}
+.hdt-slideshow-n .hdt-yaman-hero__text p { margin: 0; }
+.hdt-slideshow-n .hdt-yaman-hero__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 15px 26px;
+  background: var(--yaman-accent, #f5ebdd);
+  color: var(--yaman-hero-ink, #0d0d0d);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.hdt-slideshow-n .hdt-yaman-hero__button:hover { opacity: 0.9; transform: translateY(-1px); }
+.hdt-slideshow-n .hdt-yaman-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 0;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.hdt-slideshow-n .hdt-yaman-hero__meta-item {
+  position: relative;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+.hdt-slideshow-n .hdt-yaman-hero__meta-item + .hdt-yaman-hero__meta-item { padding-inline-start: 14px; margin-inline-start: 14px; }
+.hdt-slideshow-n .hdt-yaman-hero__meta-item + .hdt-yaman-hero__meta-item::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 13px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* ---- MOBILE (<768px): black content panel stacked above the image ---- */
+@media (max-width: 767px) {
+  .hdt-slideshow-n .hdt-yaman-hero__inner { display: flex; flex-direction: column; }
+  .hdt-slideshow-n .hdt-yaman-hero__content {
+    order: 0;
+    position: static;
+    background: var(--yaman-panel, #070707);
+    color: #fff;
+    padding: 34px 22px 40px;
+    text-align: start;
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__media { order: 1; }
+  .hdt-slideshow-n .hdt-yaman-hero__overlay { display: none; }
+  .hdt-slideshow-n .hdt-yaman-hero__button { width: 100%; }
+
+  /* show the mobile heading override when present */
+  .hdt-slideshow-n .hdt-yaman-hero__heading--has-mb .hdt-yaman-hero__heading-group--dk { display: none; }
+  .hdt-slideshow-n .hdt-yaman-hero__heading--has-mb .hdt-yaman-hero__heading-group--mb { display: block; }
+
+  /* mobile image height modes */
+  .hdt-slideshow-n .hdt-yh-mb--adapt_image .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-mb--adapt_image .hdt-yaman-hero__placeholder { aspect-ratio: var(--yh-ratio, 1.5); height: auto; }
+  .hdt-slideshow-n .hdt-yh-mb--adapt_image_first .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-mb--adapt_image_first .hdt-yaman-hero__placeholder { aspect-ratio: var(--yh-ratio-first, 1.5); height: auto; }
+  .hdt-slideshow-n .hdt-yh-mb--fixed .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-mb--fixed .hdt-yaman-hero__placeholder { height: var(--yh-fixed-mb, 340px); aspect-ratio: auto; }
+  .hdt-slideshow-n .hdt-yh-mb--full .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-mb--full .hdt-yaman-hero__placeholder { height: 100vh; height: 100svh; aspect-ratio: auto; }
+}
+
+/* ---- DESKTOP / TABLET (>=768px): image sizes the slide, content overlays ---- */
+@media (min-width: 768px) {
+  .hdt-slideshow-n .hdt-yaman-hero__inner { display: block; position: relative; }
+  .hdt-slideshow-n .hdt-yaman-hero__media { width: 100%; }
+
+  .hdt-slideshow-n .hdt-yaman-hero__overlay {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--yaman-hero-ov, 0.4);
+    background: linear-gradient(90deg, rgba(7, 7, 7, 0.92) 0%, rgba(7, 7, 7, 0.55) 42%, rgba(7, 7, 7, 0.12) 78%, rgba(7, 7, 7, 0) 100%);
+  }
+
+  .hdt-slideshow-n .hdt-yaman-hero__content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 48px;
+    padding-inline: clamp(28px, 6vw, 90px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__content-inner { max-width: 620px; }
+  .hdt-slideshow-n .hdt-yaman-hero__heading { font-size: clamp(44px, 5.2vw, 68px); }
+  .hdt-slideshow-n .hdt-yaman-hero__text { font-size: 16px; }
+  .hdt-slideshow-n .hdt-yaman-hero__meta { margin-top: clamp(28px, 6vh, 60px); }
+
+  /* desktop image height modes */
+  .hdt-slideshow-n .hdt-yh-md--adapt_image .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-md--adapt_image .hdt-yaman-hero__placeholder { aspect-ratio: var(--yh-ratio-md, 2); height: auto; }
+  .hdt-slideshow-n .hdt-yh-md--adapt_image_first .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-md--adapt_image_first .hdt-yaman-hero__placeholder { aspect-ratio: var(--yh-ratio-md-first, 2); height: auto; }
+  .hdt-slideshow-n .hdt-yh-md--fixed .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-md--fixed .hdt-yaman-hero__placeholder { height: var(--yh-fixed-md, 560px); aspect-ratio: auto; }
+  .hdt-slideshow-n .hdt-yh-md--full .hdt-yaman-hero__media img,
+  .hdt-slideshow-n .hdt-yh-md--full .hdt-yaman-hero__placeholder { height: 100vh; height: 100svh; aspect-ratio: auto; }
+}
+
+/* ---- pagination dots: scoped pill style (overrides the var-driven theme dots) ---- */
+.hdt-slideshow-n .hdt-yaman-hero__dots {
+  z-index: 3;
+  --pag-w: 18px;
+  --pag-h: 4px;
+  --pag-w-active: 32px;
+  --pag-h-active: 4px;
+  --pag-bg: rgba(255, 255, 255, 0.55);
+  --pag-bg-active: #f5ebdd;
+  --pag-border: transparent;
+  --pag-radius: 999px;
+}
+.hdt-slideshow-n .hdt-yaman-hero__dots button { border: none; }
+
+
+/* ---------------------------------------------------------------------------
+ * 2. TRUST ICONS / BADGES  ->  sections/shipping-n.liquid (+ assets/shipping-n.js)
+ *    Scope class: .hdt-yaman-trust-badges-section  |  BEM: .hdt-yaman-trust-badges__*
+ *    Full-bleed warm background; centered max-width container; one no-wrap row
+ *    driven by Flickity (loaded only by shipping-n.liquid: flickity.pkgd.min.js
+ *    + flickity.min.css). shipping-n.js inits Flickity scoped to this section
+ *    (draggable/flickable, no arrows/dots). Per-instance values: inline --tb-*.
+ *    Cell gap is set via margin-inline-end on __item (Flickity counts margins).
+ * ------------------------------------------------------------------------- */
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges {
+  background: var(--tb-bg, #FAF7F0);
+  padding-block: var(--tb-pt-mb, 20px) var(--tb-pb-mb, 20px);
+}
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__container {
+  max-width: var(--tb-maxw, 1360px);
+  margin-inline: auto;
+  padding-inline: var(--tb-pad-x, 15px);
+}
+/* viewport: Flickity builds its own .flickity-viewport inside the track; this
+   wrapper just clips any pre-init overflow so the page never scrolls sideways */
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__viewport { overflow: hidden; }
+
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__track {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__item {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 110px;
+  margin-inline-end: var(--tb-gap-mb, 14px); /* gap between Flickity cells (margin is counted by Flickity) */
+}
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__item:last-child { margin-inline-end: 0; }
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__icon {
+  width: var(--tb-icon-mb, 48px);
+  height: var(--tb-icon-mb, 48px);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__img { width: 100%; height: 100%; object-fit: contain; }
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1.5px solid rgba(7, 7, 7, 0.25);
+}
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__label { font-size: 12px; line-height: 1.3; color: #070707; }
+
+/* Flickity (scoped to this section only) — no arrows/dots, just a drag affordance */
+.hdt-yaman-trust-badges-section .flickity-enabled { position: relative; outline: none; }
+/* the track is a flex row only as a pre-init fallback; once Flickity builds its
+   own viewport the track must be block again so that viewport can fill the width */
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__track.flickity-enabled { display: block; }
+.hdt-yaman-trust-badges-section .flickity-viewport { width: 100%; overflow: hidden; }
+.hdt-yaman-trust-badges-section .flickity-button { display: none; } /* safety: never show arrows */
+.hdt-yaman-trust-badges-section .flickity-page-dots { display: none; } /* safety: never show dots */
+.hdt-yaman-trust-badges-section .flickity-enabled.is-draggable { cursor: grab; }
+.hdt-yaman-trust-badges-section .flickity-enabled.is-draggable.is-pointer-down { cursor: grabbing; }
+
+/* From tablet up, cells become an even FRACTION of the row so the badges spread
+   edge-to-edge instead of clustering at content width. The gap lives as inside
+   padding (box-sizing: border-box) so N cells === exactly 100% (no overflow, no
+   body scroll); Flickity still drives drag/swipe if there are more than N badges. */
+@media (min-width: 768px) {
+  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges { padding-block: var(--tb-pt, 28px) var(--tb-pb, 28px); }
+  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__item {
+    width: calc(100% / var(--tb-cols-tb, 4));
+    min-width: 0;
+    margin-inline-end: 0;
+    padding-inline: calc(var(--tb-gap, 24px) / 2);
+    box-sizing: border-box;
+  }
+  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__inner { gap: 14px; }
+  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__icon { width: var(--tb-icon, 64px); height: var(--tb-icon, 64px); }
+  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__label { font-size: 15px; }
+}
+
+@media (min-width: 1024px) {
+  /* desktop: spread up to 6 badges across the full container (Figma layout) */
+  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__item {
+    width: calc(100% / var(--tb-cols-dk, 6));
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+ * Planned section scopes (added as each section is implemented):
+ *   2. Trust badges        -> .hdt-yaman-trust-badges-section  (DONE — see block above)
+ *   3. Featured product     -> .hdt-yaman-featured-product
+ *   4. Real results + stats -> .hdt-yaman-real-results
+ *   5. The 4 YAMAN sets      -> .hdt-yaman-sets
+ *   6. Complete your routine -> .hdt-yaman-routine
+ *   7. Science behind the glow -> .hdt-yaman-science
+ *   8. Discover your glow (video + reviews) -> .hdt-yaman-discover
+ *   9. How to choose         -> .hdt-yaman-how-to-choose
+ *  10. Discover articles      -> .hdt-yaman-articles
+ *  11. FAQ                    -> .hdt-yaman-faq-section  (DONE — see block below)
+ *  12. Newsletter             -> .hdt-yaman-newsletter
+ * ------------------------------------------------------------------------- */
+
+
+/* ===========================================================================
+ * 11. YAMAN FAQ — Accordion "Design 3"
+ * Renders only when the original Kalles Accordion section has
+ * "Accordion design" = 3 (the section then gets `.hdt-yaman-faq-section`).
+ * Everything below is scoped under `.hdt-yaman-faq-section` so designs 1 & 2
+ * are never affected. Figma: node 2226:1035 (desktop) / 2226:2141 (mobile).
+ * Tokens: navy #1d2847, separators rgba(29,40,71,.1), 776px column.
+ * ------------------------------------------------------------------------- */
+
+/* Centered, max-width column wrapping both heading + list (desktop) */
+.hdt-yaman-faq-section > div {
+  max-width: var(--faq-max-w, 776px);
+  margin-inline: auto !important;
+  width: 100%;
+  padding: 0;
+  text-wrap: nowrap;
+}
+
+/* Heading — "Clarity before commitment." (plain, left, bold navy) */
+.hdt-yaman-faq-section .hdt-section-heading_block { text-align: left; }
+.hdt-yaman-faq-section .hdt-heading-block {
+  /* font-family: 'Inter'; */
+  display: block;
+  color: #1d2847;
+  font-weight: 700;
+  line-height: 1.2;
+}
+/* Strip Kalles heading-design decoration lines for the clean FAQ look */
+.hdt-yaman-faq-section .hdt-heading-block::before,
+.hdt-yaman-faq-section .hdt-heading-block::after { content: none; display: none; }
+
+/* List — top separator on every item (no inter-item gap) */
+.hdt-yaman-faq-section .hdt-row-accordion { gap: 0; }
+.hdt-yaman-faq-section .hdt-row-accordion > hdt-accordion {
+  border-top: 1px solid rgba(29, 40, 71, 0.1);
+  border-bottom: none;
+}
+
+/* Question row */
+.hdt-yaman-faq-section .hdt-accordion-item summary {
+  padding: 0;
+  background-color: transparent;
+  align-items: center;
+  /* font-family: Inter; */
+}
+.hdt-yaman-faq-section .hdt-accordion-item .hdt-accordion-title {
+  padding: 24px 0;
+  color: #1d2847;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.hdt-yaman-faq-section .hdt-accordion-item summary:hover .hdt-accordion-title {
+  color: #1d2847;
+  opacity: 0.7;
+}
+
+/* Plus / minus icon (24px, transparent, navy) — open/close toggle is the
+   theme's existing aria-expanded behavior; nothing extra needed */
+.hdt-yaman-faq-section .hdt-accordion-item .hdt-accordion-icon {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  color: #1d2847;
+}
+
+/* Answer */
+.hdt-yaman-faq-section .hdt-accordion-item .hdt-accordion-content {
+  padding: 0 0 20px 20px;
+  border: none;
+  margin-top: 0;
+  color: rgba(29, 40, 71, 0.8);
+  @media (max-width: 767px) {
+    padding: 0 0 15px 15px;
+  }
+}
+
+/* Mobile — full width column, slightly smaller question text */
+@media (max-width: 767px) {
+  .hdt-yaman-faq-section > div { max-width: 100%; }
+  .hdt-yaman-faq-section .hdt-accordion-item .hdt-accordion-title {
+    padding: 20px 0;
+    font-size: 16px;
+  }
+}
+
+/* ===========================================================================
+ * 12. YAMAN NEWSLETTER BANNER — sections/custom-section-n.liquid
+ * Scope class: .hdt-yaman-newsletter-banner   (duplicate of custom-section)
+ * Two-column warm banner: text (left) + Shopify customer form & WhatsApp (right).
+ * Figma: node 2226:1082 (desktop) / 2226:2187 (mobile).
+ * Tokens: bg #f8f7f0, ink #070707, heading 48px bold, sub rgba(0,0,0,.65),
+ *         outlined 12px-radius input + button, WhatsApp green #40ae73,
+ *         content col 447 + gap 158 + form col 404 ≈ 1009px.
+ * Driven by inline vars: --nl-bg --nl-maxw --nl-pt/-pb (+ -mb).
+ * ------------------------------------------------------------------------- */
+.hdt-yaman-newsletter-banner {
+  background-color: var(--nl-bg, #f8f7f0);
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter {
+  padding-block: var(--nl-pt, 65px) var(--nl-pb, 65px);
+  padding-inline: 20px;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__container {
+  max-width: var(--nl-maxw, 1009px);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+/* ---- Left: text content ---- */
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: start;
+  min-width: 0;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__eyebrow {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #070707;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__heading {
+  margin: 0;
+  font-size: clamp(30px, 4.4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  color: #070707;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__subheading {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+/* ---- Right: form + WhatsApp ---- */
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__form-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 0 1 404px;
+  min-width: 0;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__form { width: 100%; margin: 0; }
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__field {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 10px 13px;
+  border: 1px solid #070707;
+  border-radius: 12px;
+  background: transparent;
+  font-size: 14px;
+  color: #070707;
+  line-height: 1.4;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__input::placeholder { color: rgba(0, 0, 0, 0.6); }
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__button {
+  flex: 0 0 auto;
+  padding: 8px 15px;
+  border: 1px solid #070707;
+  border-radius: 12px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: #070707;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__button:hover {
+  background: #070707;
+  color: #fff;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__response { font-size: 13px; }
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__response p { margin: 6px 0 0; }
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__success { color: #40ae73; }
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__error { color: #c0392b; }
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__whatsapp {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #40ae73;
+  text-decoration: none;
+}
+.hdt-yaman-newsletter-banner .hdt-yaman-newsletter__whatsapp:hover { text-decoration: underline; }
+
+/* ---- Desktop alignment modifier ---- */
+.hdt-yaman-newsletter-banner.is-al-center .hdt-yaman-newsletter__content {
+  align-items: center;
+  text-align: center;
+}
+
+/* ---- Mobile: stack, centered, no horizontal overflow ---- */
+@media (max-width: 767px) {
+  .hdt-yaman-newsletter-banner .hdt-yaman-newsletter {
+    padding-block: var(--nl-pt-mb, 44px) var(--nl-pb-mb, 44px);
+    padding-inline: 16px;
+  }
+  .hdt-yaman-newsletter-banner .hdt-yaman-newsletter__container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    max-width: 100%;
+  }
+  .hdt-yaman-newsletter-banner .hdt-yaman-newsletter__form-wrap { flex-basis: auto; }
+
+  /* mobile text alignment (default centered per Figma) */
+  .hdt-yaman-newsletter-banner.is-almb-center .hdt-yaman-newsletter__content {
+    align-items: center;
+    text-align: center;
+  }
+  .hdt-yaman-newsletter-banner.is-almb-center .hdt-yaman-newsletter__whatsapp { text-align: center; }
+  .hdt-yaman-newsletter-banner.is-almb-start .hdt-yaman-newsletter__content {
+    align-items: flex-start;
+    text-align: start;
+  }
+}
+
+
+/* ===========================================================================
+ * 13. YAMAN SCIENCE — "Science Behind the Glow" carousel
+ * Section: sections/science-slideshow-n.liquid + blocks/_science-slide-item-n.liquid
+ * Scope class: .hdt-yaman-science-section
+ * Reuses the Kalles <hdt-slideshow> slider (drag/swipe, no custom JS). The
+ * "peek" of the next card is created purely by overriding the slider's own
+ * --slide-size / --slide-spacing custom props (scoped) — one big card + a slice
+ * of the next. The viewport keeps overflow:hidden, so the peek is clipped at the
+ * container edge and never causes body-level horizontal scroll.
+ * Driven by inline vars: --sci-radius --sci-ov --sci-w-dk/-tb/-mb --sci-gap(-mb)
+ *                        --sci-pt/-pb (+ -mb).
+ * ------------------------------------------------------------------------- */
+.hdt-yaman-science-section {
+  padding-block: var(--sci-pt, 80px) var(--sci-pb, 80px);
+}
+
+/* ---- Header ---- */
+.hdt-yaman-science-section .hdt-yaman-science__header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.hdt-yaman-science-section .hdt-yaman-science__heading {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.1;
+  font-size: clamp(28px, 4.5vw, 48px);
+  color: #0b1020;
+}
+.hdt-yaman-science-section .hdt-yaman-science__subheading {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(11, 16, 32, 0.6);
+}
+
+/* ---- Slider peek: override the Kalles slide sizing (scoped) ---- */
+.hdt-yaman-science-section .hdt-slider__container {
+  --slide-size: var(--sci-w-dk, 88%);
+  --slide-spacing: var(--sci-gap, 24px);
+}
+/* the reused slider keeps overflow hidden — peek clips here, no body scroll */
+.hdt-yaman-science-section .hdt-slider__viewport { overflow: hidden; }
+.hdt-yaman-science-section .hdt-slider__slide { height: auto; }
+
+/* ---- Card ---- */
+.hdt-yaman-science-section .hdt-yaman-science__card {
+  position: relative;
+  width: 100%;
+  /* ratio = (width ÷ height × 100) from the editor; e.g. 215 -> 2.15 */
+  aspect-ratio: var(--sci-ar-dk, 215) / 100;
+  border-radius: var(--sci-radius, 24px);
+  overflow: hidden;
+  background: #0a1426;
+  isolation: isolate;
+}
+.hdt-yaman-science-section .hdt-yaman-science__media,
+.hdt-yaman-science-section .hdt-yaman-science__placeholder,
+.hdt-yaman-science-section .hdt-yaman-science__overlay,
+.hdt-yaman-science-section .hdt-yaman-science__link {
+  position: absolute;
+  inset: 0;
+}
+.hdt-yaman-science-section .hdt-yaman-science__media { z-index: 0; }
+.hdt-yaman-science-section .hdt-yaman-science__picture { display: block; width: 100%; height: 100%; }
+.hdt-yaman-science-section .hdt-yaman-science__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hdt-yaman-science-section .hdt-yaman-science__placeholder {
+  background: radial-gradient(120% 100% at 78% 50%, #16335c 0%, #0a1730 55%, #060e1d 100%);
+}
+
+/* readability overlay (left → right fade), opacity from setting */
+.hdt-yaman-science-section .hdt-yaman-science__overlay {
+  z-index: 1;
+  pointer-events: none;
+  opacity: var(--sci-ov, 0.45);
+  background: linear-gradient(90deg, rgba(4, 9, 20, 0.95) 0%, rgba(4, 9, 20, 0.6) 42%, rgba(4, 9, 20, 0.15) 72%, rgba(4, 9, 20, 0) 100%);
+}
+
+.hdt-yaman-science-section .hdt-yaman-science__link { z-index: 3; }
+
+/* ---- Content ---- */
+.hdt-yaman-science-section .hdt-yaman-science__content {
+  position: relative;
+  z-index: 2;
+  pointer-events: none; /* let the slider receive drag over the text */
+  height: 100%;
+  width: min(60%, 610px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: clamp(28px, 4vw, 56px);
+  color: #fff;
+}
+.hdt-yaman-science-section .hdt-yaman-science__title {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.12;
+  font-size: clamp(22px, 2.6vw, 38px);
+  color: #fff;
+}
+.hdt-yaman-science-section .hdt-yaman-science__description {
+  margin: 0;
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+}
+.hdt-yaman-science-section .hdt-yaman-science__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  @media (max-width: 767px) {
+    justify-content: start;
+    gap: 8px !important;
+    flex-wrap: nowrap;
+  }
+  @media (max-width: 470px) {
+    justify-content: center;
+  }
+  @media (max-width: 375px) {
+    flex-wrap: wrap !important;
+     justify-content: start;
+  }
+}
+.hdt-yaman-science-section .hdt-yaman-science__tag {
+  padding: 10px 20px ;
+  border-radius: 999px;
+  background: #1F3156;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+  align-items: center;
+  @media (max-width: 767px) {
+    padding: 6px;
+    font-size: 9px;
+  }
+}
+.hdt-yaman-science-section .hdt-yaman-science__used {
+  margin: 6px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+@media (max-width: 1150px) {
+  .hdt-yaman-science-section .hdt-slider__slide:first-child  .hdt-yaman-science__card{
+        margin-inline-start: 8px;
+  }
+  .hdt-yaman-science-section .hdt-slideshow {
+    padding-inline: 0;
+  }
+}
+
+/* ---- Tablet ---- */
+@media (min-width: 768px) and (max-width: 1150px) {
+  .hdt-yaman-science-section .hdt-slider__container { --slide-size: var(--sci-w-tb, 72%); }
+  .hdt-yaman-science-section .hdt-yaman-science__card { aspect-ratio: var(--sci-ar-tb, 155) / 100; }
+  .hdt-yaman-science-section .hdt-yaman-science__content { width: min(85%, 580px); }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 767px) {
+  .hdt-yaman-science-section {
+    padding-block: var(--sci-pt-mb, 48px) var(--sci-pb-mb, 48px);
+  }
+  .hdt-yaman-science-section .hdt-yaman-science__header {
+    text-align: start;
+    margin-bottom: 22px;
+  }
+  .hdt-yaman-science-section .hdt-slider__container {
+    --slide-size: var(--sci-w-mb, 86%);
+    --slide-spacing: var(--sci-gap-mb, 14px);
+  }
+  /* large phones / small tablets (471–767px) use their own ratio */
+  .hdt-yaman-science-section .hdt-yaman-science__card { aspect-ratio: var(--sci-ar-mb-lg, 130) / 100; }
+  .hdt-yaman-science-section .hdt-yaman-science__content {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+    padding: 26px 22px 28px;
+  }
+  /* darken more on mobile so stacked text stays readable over the image */
+  .hdt-yaman-science-section .hdt-yaman-science__overlay {
+    background: linear-gradient(180deg, rgba(4, 9, 20, 0.15) 0%, rgba(4, 9, 20, 0.35) 45%, rgba(4, 9, 20, 0.9) 100%);
+  }
+}
+
+/* small phones (≤470px) use the taller mobile ratio */
+@media (max-width: 470px) {
+  .hdt-yaman-science-section .hdt-yaman-science__card { aspect-ratio: var(--sci-ar-mb, 70) / 100; }
+}
