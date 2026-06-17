@@ -48,9 +48,8 @@
 /* keep the reused Kalles slider track sane regardless of autoHeight timing */
 
 .custom-reviews-selector {
-  .hdt-slider__viewport {
-    margin-inline-start: 12px !important;
-    margin-inline-end: 12px !important;
+  .hdt-slider__container > :first-child {
+    margin-inline-start: 15px !important;
   }
 }
 
@@ -331,7 +330,6 @@
       margin-inline-end: 0px !important;
     }
     .md\:hdt-slides-2 {
-      --slide-size: 44% !important;
     }
   }
 }
@@ -351,7 +349,7 @@
 @media (max-width: 500px) {
   .custom-reviews-selector {
     .md\:hdt-slides-2 {
-      --slide-size: 82% !important;
+      --slide-size: 56% !important;
     }
   }
 }
@@ -530,7 +528,7 @@
   gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 20px;
-  margin-inline-start: 12px;
+  margin-inline-start: 15px;
 }
 /* Yellow stars stacked above the review-count text */
 .hdt-yaman-reviews-section .hdt-yaman-reviews__summary-meta {
@@ -1002,6 +1000,8 @@
 .custom-featured-selector {
   .hdt-slider__viewport {
     overflow: visible;
+    max-width: 100%;
+    overflow-x: clip;
   }
 }
 .hdt-yaman-sets-section .hdt-yaman-sets__head {
@@ -1239,6 +1239,15 @@
 @media (max-width: 767px) {
   .hdt-yaman-sets-section .hdt-yaman-sets__slider.hdt-slides-1 {
     --slide-size: var(--ys-peek, 88%);
+  }
+  .hdt-yaman-reviews-section .hdt-yaman-reviews__body {
+    font-size: 12px;
+  }
+  .hdt-yaman-reviews-section .hdt-yaman-reviews__button {
+    padding: 3px 14px;
+  }
+  .hdt-yaman-reviews-section .hdt-yaman-reviews__meta {
+    font-size: 11px;
   }
 }
 
