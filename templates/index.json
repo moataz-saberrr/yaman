@@ -311,9 +311,9 @@
         "pd_mb": "50px,,50px,"
       }
     },
-    "custom_section_n_MR3JXD": {
+    "custom_section_n_nnAQQB": {
       "type": "custom-section-n",
-      "name": "Custom section-n",
+      "name": "Newsletter section",
       "settings": {
         "eyebrow": "JOIN THE COMMUNITY",
         "heading": "Join the YAMAN Edit",
@@ -337,6 +337,6 @@
     "yaman_hero",
     "yaman_trust_badges",
     "yaman_faq",
-    "custom_section_n_MR3JXD"
+    "custom_section_n_nnAQQB"
   ]
 }

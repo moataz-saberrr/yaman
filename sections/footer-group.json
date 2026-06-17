@@ -36,7 +36,7 @@
             "background_opacity": 0,
             "width_lg": 30,
             "width_md": 50,
-            "width": 53,
+            "width": 50,
             "mg": "",
             "mg_mb": ",,30px,",
             "pd": "",
@@ -144,7 +144,7 @@
             "background_opacity": 1,
             "width_lg": 17,
             "width_md": 50,
-            "width": 47,
+            "width": 50,
             "mg": "",
             "mg_mb": ",,30px,",
             "pd": "",
@@ -339,6 +339,25 @@
                   },
                   "blocks": {}
                 },
+                "liquid_nqH3i9": {
+                  "type": "_liquid",
+                  "name": "t:blocks.liquid.name",
+                  "settings": {
+                    "option_type": "liquid",
+                    "page": "",
+                    "text": "<div class=\"custom-footer-payments\" style=\"display: flex; flex-wrap: wrap; gap: 8px; align-items: center;\">\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">Mada</span>\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">Visa</span>\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">Mastercard</span>\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">Apple Pay</span>\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">Tabby</span>\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">STC Pay</span>\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">Tamara</span>\n\n</div>",
+                    "hidden_br_mobile": false,
+                    "hidden_on_mobile": false,
+                    "ffamily": "",
+                    "text_size": "base",
+                    "font_weight": "normal",
+                    "text_color": "hdt-s-text",
+                    "font_size_text_lg": 16,
+                    "font_size_text": 14,
+                    "letter_spacing_text": 0
+                  },
+                  "blocks": {}
+                },
                 "liquid_4dd4AQ": {
                   "type": "_liquid",
                   "settings": {
@@ -360,6 +379,7 @@
               },
               "block_order": [
                 "liquid_XLYhhg",
+                "liquid_nqH3i9",
                 "liquid_4dd4AQ"
               ]
             }
@@ -383,7 +403,7 @@
         "mg": "",
         "mg_mb": "",
         "pd": "78px,105px,35px,105px",
-        "pd_mb": "78px,24px,60px,24px",
+        "pd_mb": "78px,9px,27px,9px",
         "colors_by_section": true,
         "color_scheme": "scheme-6ae32a5d-33e2-4960-a1ac-30698d7b093d",
         "background_opacity": 1
