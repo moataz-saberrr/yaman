@@ -46,6 +46,11 @@
 }
 
 /* keep the reused Kalles slider track sane regardless of autoHeight timing */
+
+.hdt-slider__viewport {
+  margin-inline-start: 12px !important;
+  margin-inline-end: 12px !important;
+}
 .hdt-slideshow-n .hdt-slider__viewport {
   overflow: hidden;
 }
@@ -315,6 +320,36 @@
 .hdt-slideshow-n .hdt-yaman-hero__dots button {
   border: none;
 }
+@media (max-width: 1150px) {
+  .custom-reviews-selector {
+    .hdt-slider__viewport {
+      margin-inline-end: 0px !important;
+    }
+    .md\:hdt-slides-2 {
+      --slide-size: 44% !important;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .custom-reviews-selector {
+    .md\:hdt-slides-2 {
+      --slide-size: 75% !important;
+    }
+  }
+  .hdt-yaman-reviews-section .hdt-yaman-reviews__card {
+    gap: 8px;
+  }
+  .hdt-yaman-reviews-section .hdt-yaman-reviews__button {
+    padding: 3px 14px;
+  }
+}
+@media (max-width: 500px) {
+  .custom-reviews-selector {
+    .md\:hdt-slides-2 {
+      --slide-size: 82% !important;
+    }
+  }
+}
 
 /* ---------------------------------------------------------------------------
  * 2. TRUST ICONS / BADGES  ->  sections/shipping-n.liquid (+ assets/shipping-n.js)
@@ -470,7 +505,8 @@
 /* ===========================================================================
  * SECTION 3 — YAMAN Reviews  (sections/testimonial_section-n.liquid)
  * Scope class: .hdt-yaman-reviews-section   |   markup BEM: .hdt-yaman-reviews__*
- * Card-per-view + mobile peek driven by JS (assets/testimonial_section-n.js).
+ * Carousel reuses the Kalles <hdt-slider> custom element (no custom JS). We only
+ * override --slide-size (mobile peek) and --slide-spacing (gutter) per scope.
  * Mobile-first; desktop overrides in the @media block at the end.
  * ========================================================================= */
 .hdt-yaman-reviews-section .hdt-yaman-reviews {
@@ -480,7 +516,6 @@
 .hdt-yaman-reviews-section .hdt-yaman-reviews__container {
   max-width: var(--rv-maxw, 1360px);
   margin-inline: auto;
-  padding-inline: var(--rv-pad-x, 15px);
 }
 
 /* Rating summary (single horizontal row, left-aligned) */
@@ -490,6 +525,7 @@
   gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 20px;
+  margin-inline-start: 12px;
 }
 /* Yellow stars stacked above the review-count text */
 .hdt-yaman-reviews-section .hdt-yaman-reviews__summary-meta {
@@ -532,40 +568,25 @@
   color: #9a9a9a;
 }
 
-/* Slider shell */
+/* Slider — reuses the Kalles <hdt-slider> custom element (viewport/container/slide
+ * DOM contract). We only drive the per-view slide size + gutter via CSS vars:
+ *   --slide-size    : slide width (mobile peek override below)
+ *   --slide-spacing : gutter between cards (Kalles applies it as slide padding) */
 .hdt-yaman-reviews-section .hdt-yaman-reviews__slider {
-  position: relative;
+  --slide-spacing: var(--rv-gap-mb, 16px);
 }
-.hdt-yaman-reviews-section .hdt-yaman-reviews__viewport {
-  overflow: hidden;
-}
-/* Native-scroll fallback until JS marks the section ready */
-.hdt-yaman-reviews-section:not(.is-rv-ready) .hdt-yaman-reviews__viewport {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.hdt-yaman-reviews-section:not(.is-rv-ready)
-  .hdt-yaman-reviews__viewport::-webkit-scrollbar {
-  display: none;
-}
-.hdt-yaman-reviews-section .hdt-yaman-reviews__track {
+/* Mobile: one card + a peek of the next (overrides Kalles' .hdt-slides-1 100%) */
+/* .hdt-yaman-reviews-section .hdt-yaman-reviews__slider.hdt-slides-1 {
+  --slide-size: var(--rv-peek, 50%);
+} */
+/* Each slide stretches so cards share equal height */
+.hdt-yaman-reviews-section .hdt-yaman-reviews__slide {
   display: flex;
-  gap: var(--rv-gap-mb, 16px);
-  will-change: transform;
-}
-.hdt-yaman-reviews-section.is-rv-ready .hdt-yaman-reviews__track {
-  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-/* Fallback card width before JS sets inline flex-basis */
-.hdt-yaman-reviews-section:not(.is-rv-ready) .hdt-yaman-reviews__card {
-  flex: 0 0 82%;
-  max-width: 82%;
 }
 
 /* Card */
 .hdt-yaman-reviews-section .hdt-yaman-reviews__card {
-  flex: 0 0 auto;
+  width: 100%;
   box-sizing: border-box;
   background: var(--rv-card-bg, #fbf5e9);
   border-radius: var(--rv-radius, 16px);
@@ -663,8 +684,8 @@
   .hdt-yaman-reviews-section .hdt-yaman-reviews {
     padding-block: var(--rv-pt, 60px) var(--rv-pb, 60px);
   }
-  .hdt-yaman-reviews-section .hdt-yaman-reviews__track {
-    gap: var(--rv-gap, 24px);
+  .hdt-yaman-reviews-section .hdt-yaman-reviews__slider {
+    --slide-spacing: var(--rv-gap, 24px);
   }
   .hdt-yaman-reviews-section .hdt-yaman-reviews__summary {
     margin-bottom: 26px;
@@ -689,13 +710,7 @@
   .hdt-yaman-reviews-section .hdt-yaman-reviews__title {
     font-size: 22px;
   }
-  /* Desktop fallback: 3-up before JS measures */
-  .hdt-yaman-reviews-section:not(.is-rv-ready) .hdt-yaman-reviews__card {
-    flex: 0 0 calc((100% - 2 * var(--rv-gap, 24px)) / 3);
-    max-width: calc((100% - 2 * var(--rv-gap, 24px)) / 3);
-  }
 }
-
 
 /* ===========================================================================
  * SECTION 4 — YAMAN Product  (sections/featured-product-n.liquid)
@@ -722,39 +737,50 @@
 }
 
 /* Content */
-.hdt-yaman-product-section .hdt-yaman-product__content { min-width: 0; }
+.hdt-yaman-product-section .hdt-yaman-product__content {
+  min-width: 0;
+}
 .hdt-yaman-product-section .hdt-yaman-product__badges {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   background: var(--yp-pill-bg, #16233f);
-  color: var(--yp-pill-tx, #fff);
+  color: #f6eee2;
   border-radius: 999px;
-  padding: 7px 16px;
+  padding: 4px 20px;
   margin-bottom: 16px;
 }
-.hdt-yaman-product-section .hdt-yaman-product__badge { font-size: 12.5px; font-weight: 600; letter-spacing: 0.01em; }
-.hdt-yaman-product-section .hdt-yaman-product__badge--alt { font-weight: 400; opacity: 0.85; }
+.hdt-yaman-product-section .hdt-yaman-product__badge {
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+.hdt-yaman-product-section .hdt-yaman-product__badge--alt {
+  font-weight: 400;
+  opacity: 0.85;
+}
 .hdt-yaman-product-section .hdt-yaman-product__eyebrow {
   margin: 0 0 6px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 300;
   color: #1c1c1c;
 }
 .hdt-yaman-product-section .hdt-yaman-product__title {
   margin: 0 0 10px;
   font-size: 30px;
-  font-weight: 600;
+  font-family: DIN Next LT !important;
+  font-weight: 400;
   line-height: 1.1;
   color: #0d0d0d;
 }
 .hdt-yaman-product-section .hdt-yaman-product__description {
   margin: 0 0 16px;
-  font-size: 14.5px;
+  font-family: DIN Next LT !important;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
   color: #8b8b8b;
-  max-width: 46ch;
+  max-width: 72ch;
 }
 .hdt-yaman-product-section .hdt-yaman-product__price-row {
   display: flex;
@@ -763,10 +789,14 @@
 }
 .hdt-yaman-product-section .hdt-yaman-product__price {
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 400;
   color: #0d0d0d;
 }
-.hdt-yaman-product-section .hdt-yaman-product__vat { font-size: 13px; font-weight: 400; color: #9a9a9a; }
+.hdt-yaman-product-section .hdt-yaman-product__vat {
+  font-size: 13px;
+  font-weight: 400;
+  color: #9a9a9a;
+}
 .hdt-yaman-product-section .hdt-yaman-product__installment {
   margin: 4px 0 0;
   font-size: 13px;
@@ -781,7 +811,10 @@
   gap: 8px;
   margin: 14px 0 0;
 }
-.hdt-yaman-product-section .hdt-yaman-product__stars { display: inline-flex; gap: 1px; }
+.hdt-yaman-product-section .hdt-yaman-product__stars {
+  display: inline-flex;
+  gap: 1px;
+}
 .hdt-yaman-product-section .hdt-yaman-product__star {
   position: relative;
   display: inline-block;
@@ -790,8 +823,14 @@
   line-height: 0;
 }
 .hdt-yaman-product-section .hdt-yaman-product__star-base svg,
-.hdt-yaman-product-section .hdt-yaman-product__star-fill svg { width: 15px; height: 15px; display: block; }
-.hdt-yaman-product-section .hdt-yaman-product__star-base svg { fill: #d3d3d3; }
+.hdt-yaman-product-section .hdt-yaman-product__star-fill svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+.hdt-yaman-product-section .hdt-yaman-product__star-base svg {
+  fill: #d3d3d3;
+}
 .hdt-yaman-product-section .hdt-yaman-product__star-fill {
   position: absolute;
   inset-block-start: 0;
@@ -799,8 +838,14 @@
   height: 100%;
   overflow: hidden;
 }
-.hdt-yaman-product-section .hdt-yaman-product__star-fill svg { fill: var(--yp-star, #0d0d0d); }
-.hdt-yaman-product-section .hdt-yaman-product__rating-text { font-size: 13px; font-weight: 400; color: #4a4a4a; }
+.hdt-yaman-product-section .hdt-yaman-product__star-fill svg {
+  fill: var(--yp-star, #0d0d0d);
+}
+.hdt-yaman-product-section .hdt-yaman-product__rating-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: #4a4a4a;
+}
 
 /* Features (1 col mobile, 2 cols desktop) */
 .hdt-yaman-product-section .hdt-yaman-product__features {
@@ -809,7 +854,11 @@
   gap: 14px 24px;
   margin: 22px 0 0;
 }
-.hdt-yaman-product-section .hdt-yaman-product__feature { display: flex; align-items: center; gap: 12px; }
+.hdt-yaman-product-section .hdt-yaman-product__feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 .hdt-yaman-product-section .hdt-yaman-product__feature-icon {
   flex: 0 0 auto;
   width: 26px;
@@ -818,14 +867,22 @@
   align-items: center;
   justify-content: center;
 }
-.hdt-yaman-product-section .hdt-yaman-product__feature-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.hdt-yaman-product-section .hdt-yaman-product__feature-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
 .hdt-yaman-product-section .hdt-yaman-product__feature-placeholder {
   width: 22px;
   height: 22px;
   border-radius: 50%;
   border: 1px solid #c9bfaf;
 }
-.hdt-yaman-product-section .hdt-yaman-product__feature-text { font-size: 14px; font-weight: 500; color: #1c1c1c; }
+.hdt-yaman-product-section .hdt-yaman-product__feature-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #1c1c1c;
+}
 
 /* Button */
 .hdt-yaman-product-section .hdt-yaman-product__button {
@@ -834,18 +891,23 @@
   justify-content: center;
   width: 100%;
   margin: 26px 0 0;
-  padding: 16px 28px;
+  padding: 15px 28px;
   background: var(--yp-btn-bg, #16233f);
   color: var(--yp-btn-tx, #fff);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 12px;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
-.hdt-yaman-product-section .hdt-yaman-product__button:hover { opacity: 0.92; transform: translateY(-1px); }
+.hdt-yaman-product-section .hdt-yaman-product__button:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
 
 /* Media */
 .hdt-yaman-product-section .hdt-yaman-product__media {
@@ -861,28 +923,329 @@
   height: auto;
   margin-inline: auto;
 }
-.hdt-yaman-product-section .hdt-yaman-product__image--mb { display: block; }
-.hdt-yaman-product-section .hdt-yaman-product__image--dk { display: none; }
+.hdt-yaman-product-section .hdt-yaman-product__image--mb {
+  display: block;
+}
+.hdt-yaman-product-section .hdt-yaman-product__image--dk {
+  display: none;
+}
 
 @media (min-width: 768px) {
-  .hdt-yaman-product-section .hdt-yaman-product { padding-block: var(--yp-pt, 40px) var(--yp-pb, 40px); }
+  .hdt-yaman-product-section .hdt-yaman-product {
+    padding-block: var(--yp-pt, 40px) var(--yp-pb, 40px);
+  }
   .hdt-yaman-product-section .hdt-yaman-product__card {
     flex-direction: row;
     align-items: center;
     gap: 40px;
     padding: 48px 56px;
   }
-  .hdt-yaman-product-section .hdt-yaman-product__content { flex: 1 1 56%; max-width: 56%; }
-  .hdt-yaman-product-section .hdt-yaman-product__media { flex: 1 1 44%; max-width: 44%; }
-  .hdt-yaman-product-section .hdt-yaman-product__title { font-size: 38px; }
-  .hdt-yaman-product-section .hdt-yaman-product__price { font-size: 26px; }
-  .hdt-yaman-product-section .hdt-yaman-product__features { grid-template-columns: 1fr 1fr; }
-  .hdt-yaman-product-section .hdt-yaman-product__button { width: auto; min-width: 260px; }
+  .hdt-yaman-product-section .hdt-yaman-product__content {
+    flex: 1 1 56%;
+    max-width: 56%;
+  }
+  .hdt-yaman-product-section .hdt-yaman-product__media {
+    flex: 1 1 44%;
+    max-width: 44%;
+  }
+  .hdt-yaman-product-section .hdt-yaman-product__title {
+    font-size: 38px;
+  }
+  .hdt-yaman-product-section .hdt-yaman-product__price {
+    font-size: 26px;
+  }
+  .hdt-yaman-product-section .hdt-yaman-product__features {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hdt-yaman-product-section .hdt-yaman-product__button {
+    width: auto;
+    min-width: 260px;
+  }
   .hdt-yaman-product-section .hdt-yaman-product__image,
-  .hdt-yaman-product-section .hdt-yaman-product__placeholder { max-width: 460px; }
+  .hdt-yaman-product-section .hdt-yaman-product__placeholder {
+    max-width: 460px;
+  }
   /* desktop image swap when a separate mobile image is set */
-  .hdt-yaman-product-section .hdt-yaman-product__image--mb { display: none; }
-  .hdt-yaman-product-section .hdt-yaman-product__image--dk { display: block; }
+  .hdt-yaman-product-section .hdt-yaman-product__image--mb {
+    display: none;
+  }
+  .hdt-yaman-product-section .hdt-yaman-product__image--dk {
+    display: block;
+  }
+}
+
+/* ===========================================================================
+ * SECTION 5 — YAMAN Sets  (sections/featured-collection-n.liquid
+ *                          + snippets/card-product-yaman-set.liquid)
+ * Scope class: .hdt-yaman-sets-section   |   markup BEM: .hdt-yaman-sets__*
+ * Collection-driven cards inside the Kalles <hdt-slider> (no custom JS). Desktop
+ * 4-up; mobile one card + peek via --slide-size override. The "most popular" card
+ * gets a cream bg + gold border + an inside-top badge (kept inside the card so the
+ * slider viewport's overflow:hidden never clips it).
+ * ========================================================================= */
+.hdt-yaman-sets-section .hdt-yaman-sets {
+  background: #ffffff;
+  padding-block: var(--ys-pt-mb, 36px) var(--ys-pb-mb, 36px);
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__container {
+  max-width: var(--ys-maxw, 1360px);
+  margin-inline: auto;
+  padding-inline: var(--ys-pad-x, 15px);
+}
+
+/* Heading */
+.hdt-yaman-sets-section .hdt-yaman-sets__head {
+  text-align: center;
+  margin-bottom: 26px;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__heading {
+  margin: 0 0 10px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0d0d0d;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__subtitle {
+  margin: 0 auto;
+  max-width: 60ch;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #8b8b8b;
+}
+
+/* Slider (reuses Kalles <hdt-slider>; only the per-view size + gutter are ours) */
+.hdt-yaman-sets-section .hdt-yaman-sets__slider {
+  --slide-spacing: var(--ys-gap-mb, 14px);
+  display: block;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__slider.hdt-slides-1 {
+  --slide-size: var(--ys-peek, 80%);
+}
+/* Stretch slides so cards share equal height; pad top so the popular badge fits */
+.hdt-yaman-sets-section .hdt-yaman-sets__slide {
+  display: flex;
+  padding-top: 14px;
+}
+
+/* Card */
+.hdt-yaman-sets-section .hdt-yaman-sets__card {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: var(--ys-card-bg, #ffffff);
+  border: 1px solid #ececec;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(20, 20, 20, 0.06);
+  padding: 22px 20px;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__card--popular {
+  background: var(--ys-popular-bg, #f7eee1);
+  border: 1.5px solid var(--ys-popular-border, #c9a86a);
+  padding-top: 40px;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__popular-badge {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: var(--ys-popular-border, #c9a86a);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+/* Card head */
+.hdt-yaman-sets-section .hdt-yaman-sets__eyebrow {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6f6f6f;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__title {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__title a {
+  color: #0d0d0d;
+  text-decoration: none;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__title a:hover {
+  text-decoration: underline;
+}
+
+/* Rating */
+.hdt-yaman-sets-section .hdt-yaman-sets__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__stars {
+  display: inline-flex;
+  gap: 1px;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__star {
+  position: relative;
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  line-height: 0;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__star-base svg,
+.hdt-yaman-sets-section .hdt-yaman-sets__star-fill svg {
+  width: 13px;
+  height: 13px;
+  display: block;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__star-base svg {
+  fill: #d3d3d3;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__star-fill {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__star-fill svg {
+  fill: var(--ys-star, #f5b301);
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__reviews {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7a7a7a;
+}
+
+/* Image */
+.hdt-yaman-sets-section .hdt-yaman-sets__image {
+  display: block;
+  margin: 16px 0;
+  aspect-ratio: 1 / 1;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__img,
+.hdt-yaman-sets-section .hdt-yaman-sets__placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Foot — pushes prices/button to the bottom for equal-height cards */
+.hdt-yaman-sets-section .hdt-yaman-sets__foot {
+  margin-top: auto;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__price-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__prices {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__compare {
+  font-size: 12.5px;
+  color: #9a9a9a;
+  text-decoration: line-through;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0d0d0d;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__saving {
+  flex: 0 0 auto;
+  background: var(--ys-saving-bg, #d6f0dc);
+  color: var(--ys-saving-tx, #1b7a3d);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__installment {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #9a9a9a;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  padding: 13px 18px;
+  background: var(--ys-btn-bg, #0d0d0d);
+  color: var(--ys-btn-tx, #fff);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: opacity 0.2s ease;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__button:hover {
+  opacity: 0.9;
+}
+
+/* View all */
+.hdt-yaman-sets-section .hdt-yaman-sets__view-all-wrap {
+  text-align: center;
+  margin-top: 30px;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__view-all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: var(--ys-btn-bg, #0d0d0d);
+  color: var(--ys-btn-tx, #fff);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: opacity 0.2s ease;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__view-all:hover {
+  opacity: 0.9;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__empty {
+  text-align: center;
+  color: #8b8b8b;
+  padding: 30px 0;
+}
+
+@media (min-width: 768px) {
+  .hdt-yaman-sets-section .hdt-yaman-sets {
+    padding-block: var(--ys-pt, 60px) var(--ys-pb, 60px);
+  }
+  .hdt-yaman-sets-section .hdt-yaman-sets__slider {
+    --slide-spacing: var(--ys-gap, 20px);
+  }
+  .hdt-yaman-sets-section .hdt-yaman-sets__head {
+    margin-bottom: 36px;
+  }
+  .hdt-yaman-sets-section .hdt-yaman-sets__heading {
+    font-size: 38px;
+  }
+  .hdt-yaman-sets-section .hdt-yaman-sets__subtitle {
+    font-size: 15px;
+  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -890,8 +1253,8 @@
  *   2. Trust badges        -> .hdt-yaman-trust-badges-section  (DONE — see block above)
  *   3. YAMAN Reviews        -> .hdt-yaman-reviews-section       (DONE — see block above)
  *   4. YAMAN Product        -> .hdt-yaman-product-section       (DONE — see block above)
- *   4. Real results + stats -> .hdt-yaman-real-results
- *   5. The 4 YAMAN sets      -> .hdt-yaman-sets
+ *   5. YAMAN Sets           -> .hdt-yaman-sets-section          (DONE — see block above)
+ *   4b. Real results + stats -> .hdt-yaman-real-results
  *   6. Complete your routine -> .hdt-yaman-routine
  *   7. Science behind the glow -> .hdt-yaman-science
  *   8. Discover your glow (video + reviews) -> .hdt-yaman-discover

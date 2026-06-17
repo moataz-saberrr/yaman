@@ -1,16 +1,15 @@
 <!-- sections/testimonial_section-n.liquid — YAMAN Reviews (custom; do NOT edit the original Kalles sections/testimonial_section.liquid) -->
 {%- liquid
   assign s = section.settings
+  assign autoplay_ms = 0
+  if s.autoplay
+    assign autoplay_ms = s.autoplay_speed | times: 1000
+  endif
 -%}
 {%- capture star_full -%}<svg class="hdt-yaman-reviews__star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.8 6.2 20.8l1.1-6.4-4.7-4.6 6.5-.9z"/></svg>{%- endcapture -%}
 {%- capture star_empty -%}<svg class="hdt-yaman-reviews__star hdt-yaman-reviews__star--empty" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.8 6.2 20.8l1.1-6.4-4.7-4.6 6.5-.9z"/></svg>{%- endcapture -%}
 <div
   class="hdt-yaman-reviews"
-  data-rv-autoplay="{{ s.autoplay }}"
-  data-rv-autoplay-ms="{{ s.autoplay_speed | times: 1000 }}"
-  data-rv-loop="{{ s.loop }}"
-  data-rv-peek="{{ s.mobile_peek }}"
-  data-rv-min="{{ s.card_min_width }}"
   style="
     --rv-maxw: {{ s.container_max_width }}px;
     --rv-pad-x: {{ s.container_padding }}px;
@@ -20,6 +19,7 @@
     --rv-radius: {{ s.card_radius }}px;
     --rv-gap: {{ s.gap }}px;
     --rv-gap-mb: {{ s.gap_mb }}px;
+    --rv-peek: {{ s.mobile_peek }}%;
     --rv-pt: {{ s.padding_top }}px;
     --rv-pb: {{ s.padding_bottom }}px;
     --rv-pt-mb: {{ s.padding_top_mb }}px;
@@ -46,9 +46,14 @@
       </div>
     {%- endif -%}
 
-    <div class="hdt-yaman-reviews__slider">
-      <div class="hdt-yaman-reviews__viewport" data-rv-viewport>
-        <div class="hdt-yaman-reviews__track" data-rv-track>
+    {%- comment -%} Reuses the Kalles slider custom element (<hdt-slider>) — same DOM contract as the original testimonial_section.liquid. No custom JS. {%- endcomment -%}
+    <hdt-slider
+      id="Slider-{{ section.id }}"
+      class="hdt-slider hdt-relative hdt-slide-spacing-x lg:hdt-slides-3 md:hdt-slides-2 hdt-slides-1 hdt-yaman-reviews__slider"
+      config='{ "id": "Slider-{{ section.id }}", "navUI": false, "dotUI": false, "loop": {{ s.loop }}, "autoPlay": {{ autoplay_ms }}, "pauseOnHover": true }'
+    >
+      <div class="hdt-slider__viewport hdt-relative">
+        <div class="hdt-slider__container">
           {%- for block in section.blocks -%}
             {%- liquid
               assign b = block.settings
@@ -72,7 +77,8 @@
               endif
               assign img_alt = b.alt | default: b.product_title
             -%}
-            <article class="hdt-yaman-reviews__card" {{ block.shopify_attributes }}>
+            <div class="hdt-slider__slide hdt-yaman-reviews__slide" {{ block.shopify_attributes }}>
+            <article class="hdt-yaman-reviews__card">
               <div class="hdt-yaman-reviews__product">
                 <span class="hdt-yaman-reviews__product-image">
                   {%- if b.product_image != blank -%}
@@ -117,18 +123,18 @@
                 {%- endif -%}
               {%- endif -%}
             </article>
+            </div>
           {%- endfor -%}
         </div>
       </div>
-    </div>
+    </hdt-slider>
   </div>
 </div>
-<script src="{{ 'testimonial_section-n.js' | asset_url }}" defer></script>
 {% schema %}
 {
   "name": "YAMAN Reviews",
   "tag": "section",
-  "class": "hdt-yaman-reviews-section hdt-section",
+  "class": "hdt-yaman-reviews-section hdt-section custom-reviews-selector",
   "max_blocks": 20,
   "settings": [
     {

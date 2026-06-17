@@ -191,6 +191,7 @@
         "feature_1": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/i4f.svg",
             "text": "Smooth Wrinkles & Fine Lines",
             "alt": ""
           }
@@ -198,6 +199,7 @@
         "feature_2": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/i3ff.png",
             "text": "Oil control & minimize pores",
             "alt": ""
           }
@@ -205,6 +207,7 @@
         "feature_3": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/i2ff.png",
             "text": "Reduce acne, redness & spots",
             "alt": ""
           }
@@ -212,6 +215,7 @@
         "feature_4": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/i1ff.png",
             "text": "Reduce inflammation, brighten skin",
             "alt": ""
           }

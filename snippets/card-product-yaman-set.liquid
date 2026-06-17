@@ -1,0 +1,107 @@
+{%- comment -%}
+  YAMAN Sets product card  (a new "design 12-style" card, modelled on the
+  card-product6 param contract but purpose-built for the YAMAN Sets Figma design).
+  This is a NEW snippet — the original Kalles card-product1..12 are NOT modified.
+
+  Accepts:
+  - card_product: {Object} Product (required)
+  - section_id:   {String} owning section id
+  - sizes:        {String} image sizes attr
+  - image_ratio:  {String} image ratio token (optional)
+  - class:        {String} extra classes for the slide wrapper
+  - is_popular:   {Boolean} render the highlighted / most-popular style
+  - popular_badge:{String} badge text for the popular card
+  - rating_default:{Number} 0–5 star fallback when no product metafield
+  - star_color:   {String} (only used by CSS var on the section)
+  - installment_default:{String} helper text fallback
+  - show_saving:  {Boolean} show the green savings pill
+  - saving_prefix:{String} text before the saving amount (e.g. "Save")
+  - button_label: {String} CTA label
+
+  Per-product overrides via metafields (all optional, graceful fallback):
+  - custom.yaman_set_label   -> eyebrow / category
+  - custom.yaman_rating      -> star rating (0–5)
+  - custom.yaman_reviews     -> reviews count text (e.g. "347 reviews")
+  - custom.yaman_installment -> installment helper text
+{%- endcomment -%}
+{%- liquid
+  assign p = card_product
+  assign url = p.url
+
+  assign eyebrow = p.metafields.custom.yaman_set_label.value | default: p.type
+  assign reviews_count = p.metafields.custom.yaman_reviews.value
+  assign installment = p.metafields.custom.yaman_installment.value | default: installment_default
+
+  assign rating = p.metafields.custom.yaman_rating.value | default: rating_default | default: 5
+  assign full = rating | floor
+  assign frac = rating | minus: full
+  assign has_half = false
+  if frac >= 0.5
+    assign has_half = true
+  endif
+  assign half_index = full | plus: 1
+
+  assign has_compare = false
+  if p.compare_at_price and p.compare_at_price > p.price
+    assign has_compare = true
+    assign saving_amount = p.compare_at_price | minus: p.price
+  endif
+
+  assign featured_media = p.featured_media | default: settings.placeholder_img
+-%}
+{%- capture star_icon -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.8 6.2 20.8l1.1-6.4-4.7-4.6 6.5-.9z"/></svg>{%- endcapture -%}
+<div class="hdt-slider__slide hdt-yaman-sets__slide {{ class }}">
+  <article class="hdt-yaman-sets__card{% if is_popular %} hdt-yaman-sets__card--popular{% endif %}">
+    {%- if is_popular and popular_badge != blank -%}
+      <span class="hdt-yaman-sets__popular-badge">{{ popular_badge }}</span>
+    {%- endif -%}
+
+    <div class="hdt-yaman-sets__card-head">
+      {%- if eyebrow != blank -%}
+        <p class="hdt-yaman-sets__eyebrow">{{ eyebrow }}</p>
+      {%- endif -%}
+      {%- if p.title != blank -%}
+        <h3 class="hdt-yaman-sets__title"><a href="{{ url }}">{{ p.title }}</a></h3>
+      {%- endif -%}
+      <div class="hdt-yaman-sets__rating">
+        <span class="hdt-yaman-sets__stars" role="img" aria-label="{{ rating }} / 5">
+          {%- for i in (1..5) -%}
+            {%- assign fillpct = 0 -%}
+            {%- if i <= full -%}{%- assign fillpct = 100 -%}{%- elsif i == half_index and has_half -%}{%- assign fillpct = 50 -%}{%- endif -%}
+            <span class="hdt-yaman-sets__star">
+              <span class="hdt-yaman-sets__star-base">{{ star_icon }}</span>
+              <span class="hdt-yaman-sets__star-fill" style="width: {{ fillpct }}%;">{{ star_icon }}</span>
+            </span>
+          {%- endfor -%}
+        </span>
+        {%- if reviews_count != blank -%}<span class="hdt-yaman-sets__reviews">{{ reviews_count }}</span>{%- endif -%}
+      </div>
+    </div>
+
+    <a class="hdt-yaman-sets__image" href="{{ url }}">
+      {%- if featured_media != blank -%}
+        {{ featured_media | image_url: width: 600 | image_tag: loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600', class: 'hdt-yaman-sets__img', alt: p.title }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'hdt-yaman-sets__placeholder' }}
+      {%- endif -%}
+    </a>
+
+    <div class="hdt-yaman-sets__foot">
+      <div class="hdt-yaman-sets__price-row">
+        <div class="hdt-yaman-sets__prices">
+          {%- if has_compare -%}<s class="hdt-yaman-sets__compare">{{ p.compare_at_price | money }}</s>{%- endif -%}
+          <span class="hdt-yaman-sets__price">{{ p.price | money }}</span>
+        </div>
+        {%- if show_saving and has_compare -%}
+          <span class="hdt-yaman-sets__saving">{{ saving_prefix }} {{ saving_amount | money_without_trailing_zeros }}</span>
+        {%- endif -%}
+      </div>
+      {%- if installment != blank -%}
+        <p class="hdt-yaman-sets__installment">{{ installment }}</p>
+      {%- endif -%}
+      {%- if button_label != blank -%}
+        <a class="hdt-yaman-sets__button" href="{{ url }}">{{ button_label }}</a>
+      {%- endif -%}
+    </div>
+  </article>
+</div>
