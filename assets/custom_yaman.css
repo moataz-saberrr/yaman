@@ -557,25 +557,75 @@
   /* background: #f3efe7; */
 }
 
-/* info block — left aligned, even vertical rhythm */
+/* info block — left aligned, spacing tuned to the Figma card */
 .hdt-yaman-routine-section .hdt-card-product__info {
   text-align: start;
-  padding-top: 14px;
+  padding-top: 16px;
   display: flex;
   flex-direction: column;
   gap: 7px;
 }
+.star-rating__stars{
+  gap: 4px !important;
+    img{
+    width: 20px !important;
+    height: 20px !important;
+    color: #828282;
+  }
+}
+.star-rating__count{
+  color: #828282 !important;
+  font-size: 15px !important;
+}
 .hdt-yaman-routine-section .hdt-card-product__info > * { margin: 0; }
+/* a touch more air under the rating, and before the price (matches the reference) */
+.hdt-yaman-routine-section .hdt-card-product__info .jdgm-prev-badge { margin-bottom: 5px; }
+.hdt-yaman-routine-section .hdt-card-product__info .hdt-price-wrapp { margin-top: 3px; }
 
-/* rating row (when a reviews app/theme rating renders it): stars left, label right */
+/* ---- Judge.me preview badge (app-injected): grey stars on the left, the
+   review-count label pushed to the right — styled to the YAMAN/Figma card.
+   Also covers the theme/Shopify rating fallbacks. ---- */
+.hdt-yaman-routine-section .hdt-card-product__info .jdgm-prev-badge,
 .hdt-yaman-routine-section .hdt-card-product__info .hdt-pr-card-rating,
-.hdt-yaman-routine-section .hdt-card-product__info > .spr-badge,
-.hdt-yaman-routine-section .hdt-card-product__info > .jdgm-prev-badge {
+.hdt-yaman-routine-section .hdt-card-product__info > .spr-badge {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  line-height: 1;
+}
+.hdt-yaman-routine-section .jdgm-prev-badge__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;                 /* flex gap between the stars */
+  font-size: 0;             /* kill any star-font glyph / whitespace */
+}
+/* Replace Judge.me's stars with our own star SVG. Each .jdgm-star becomes a fixed
+   box whose background is the star; empty = thin grey outline, filled = solid,
+   half = left-half solid. Whatever Judge.me draws inside is hidden. */
+.hdt-yaman-routine-section .jdgm-prev-badge__stars .jdgm-star {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  color: transparent;
+  background: center / contain no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23b9b3a8'%20stroke-width='1.6'%20stroke-linejoin='round'%3E%3Cpath%20d='M12%20.587l3.668%207.431%208.2%201.192-5.934%205.782%201.401%208.168L12%2018.896l-7.335%203.864%201.401-8.168L.132%209.21l8.2-1.192z'/%3E%3C/svg%3E");
+}
+.hdt-yaman-routine-section .jdgm-prev-badge__stars .jdgm-star::before { display: none; }
+.hdt-yaman-routine-section .jdgm-prev-badge__stars .jdgm-star svg,
+.hdt-yaman-routine-section .jdgm-prev-badge__stars .jdgm-star img { display: none; }
+.hdt-yaman-routine-section .jdgm-prev-badge__stars .jdgm--on {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='%230d0d0d'%3E%3Cpath%20d='M12%20.587l3.668%207.431%208.2%201.192-5.934%205.782%201.401%208.168L12%2018.896l-7.335%203.864%201.401-8.168L.132%209.21l8.2-1.192z'/%3E%3C/svg%3E");
+}
+.hdt-yaman-routine-section .jdgm-prev-badge__stars .jdgm--half {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cdefs%3E%3ClinearGradient%20id='h'%3E%3Cstop%20offset='50%25'%20stop-color='%230d0d0d'/%3E%3Cstop%20offset='50%25'%20stop-color='%230d0d0d'%20stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d='M12%20.587l3.668%207.431%208.2%201.192-5.934%205.782%201.401%208.168L12%2018.896l-7.335%203.864%201.401-8.168L.132%209.21l8.2-1.192z'%20fill='url(%23h)'%20stroke='%23b9b3a8'%20stroke-width='1.6'%20stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.hdt-yaman-routine-section .jdgm-prev-badge__text {
+  margin: 0;
   font-size: 12px;
+  color: #9a9486;
+  white-space: nowrap;
 }
 
 /* vendor / category (the "SERUM" line) */
@@ -606,7 +656,7 @@
   gap: 8px;
 }
 .hdt-yaman-routine-section .hdt-price__list { display: flex; align-items: baseline; gap: 8px; }
-.hdt-yaman-routine-section .hdt-price { font-size: 16px; font-weight: 600; color: #828282 ; }
+.hdt-yaman-routine-section .hdt-price { font-size: 16px; font-weight: 500; color: #828282 ; }
 .hdt-yaman-routine-section .hdt-compare-at-price { font-size: 14px; color: #b3a89a; text-decoration: line-through; }
 
 /* ---- Card footer add-to-cart: full-width black pill (below the price) ----
@@ -629,8 +679,8 @@
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   line-height: 1;
