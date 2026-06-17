@@ -215,9 +215,10 @@
  * 2. TRUST ICONS / BADGES  ->  sections/shipping-n.liquid (+ assets/shipping-n.js)
  *    Scope class: .hdt-yaman-trust-badges-section  |  BEM: .hdt-yaman-trust-badges__*
  *    Full-bleed warm background; centered max-width container; one no-wrap row
- *    driven as a real carousel by assets/shipping-n.js (transform + prev/next +
- *    pointer drag, responsive items-per-view). Before JS runs, the viewport
- *    falls back to native horizontal scroll. Per-instance values: inline --tb-*.
+ *    driven by Flickity (loaded only by shipping-n.liquid: flickity.pkgd.min.js
+ *    + flickity.min.css). shipping-n.js inits Flickity scoped to this section
+ *    (draggable/flickable, no arrows/dots). Per-instance values: inline --tb-*.
+ *    Cell gap is set via margin-inline-end on __item (Flickity counts margins).
  * ------------------------------------------------------------------------- */
 .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges {
   background: var(--tb-bg, #FAF7F0);
@@ -228,34 +229,25 @@
   margin-inline: auto;
   padding-inline: var(--tb-pad-x, 15px);
 }
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__slider { position: relative; }
-
-/* viewport: native-scroll fallback before JS; JS adds .is-tb-ready → hidden + transform */
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__viewport {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__viewport::-webkit-scrollbar { display: none; }
-.hdt-yaman-trust-badges-section.is-tb-ready .hdt-yaman-trust-badges__viewport { overflow: hidden; }
+/* viewport: Flickity builds its own .flickity-viewport inside the track; this
+   wrapper just clips any pre-init overflow so the page never scrolls sideways */
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__viewport { overflow: hidden; }
 
 .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__track {
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
-  gap: var(--tb-gap-mb, 14px);
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.hdt-yaman-trust-badges-section.is-tb-ready .hdt-yaman-trust-badges__track {
-  transition: transform 0.4s ease;
-  will-change: transform;
-}
 .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__item {
   flex: 0 0 auto;
-  min-width: 110px;            /* pre-JS fallback; shipping-n.js sets exact width inline */
+  width: auto;
+  min-width: 110px;
+  margin-inline-end: var(--tb-gap-mb, 14px); /* gap between Flickity cells (margin is counted by Flickity) */
 }
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__item:last-child { margin-inline-end: 0; }
 .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__inner {
   display: flex;
   flex-direction: column;
@@ -282,39 +274,40 @@
 }
 .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__label { font-size: 12px; line-height: 1.3; color: #070707; }
 
-/* prev/next arrows — desktop only, revealed once JS is ready and content overflows */
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__nav {
-  display: none;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  width: 36px;
-  height: 36px;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: 1px solid rgba(7, 7, 7, 0.18);
-  border-radius: 50%;
-  background: #fff;
-  color: #070707;
-  cursor: pointer;
-  transition: opacity 0.2s ease, background 0.2s ease;
-}
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__nav:hover { background: #f3efe7; }
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__nav:disabled { opacity: 0.3; cursor: default; }
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__nav--prev { inset-inline-start: -8px; }
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__nav--next { inset-inline-end: -8px; }
-.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__nav svg { width: 7px; height: 11px; }
+/* Flickity (scoped to this section only) — no arrows/dots, just a drag affordance */
+.hdt-yaman-trust-badges-section .flickity-enabled { position: relative; outline: none; }
+/* the track is a flex row only as a pre-init fallback; once Flickity builds its
+   own viewport the track must be block again so that viewport can fill the width */
+.hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__track.flickity-enabled { display: block; }
+.hdt-yaman-trust-badges-section .flickity-viewport { width: 100%; overflow: hidden; }
+.hdt-yaman-trust-badges-section .flickity-button { display: none; } /* safety: never show arrows */
+.hdt-yaman-trust-badges-section .flickity-page-dots { display: none; } /* safety: never show dots */
+.hdt-yaman-trust-badges-section .flickity-enabled.is-draggable { cursor: grab; }
+.hdt-yaman-trust-badges-section .flickity-enabled.is-draggable.is-pointer-down { cursor: grabbing; }
 
+/* From tablet up, cells become an even FRACTION of the row so the badges spread
+   edge-to-edge instead of clustering at content width. The gap lives as inside
+   padding (box-sizing: border-box) so N cells === exactly 100% (no overflow, no
+   body scroll); Flickity still drives drag/swipe if there are more than N badges. */
 @media (min-width: 768px) {
   .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges { padding-block: var(--tb-pt, 28px) var(--tb-pb, 28px); }
-  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__track { gap: var(--tb-gap, 24px); }
-  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__item { min-width: 150px; }
+  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__item {
+    width: calc(100% / var(--tb-cols-tb, 4));
+    min-width: 0;
+    margin-inline-end: 0;
+    padding-inline: calc(var(--tb-gap, 24px) / 2);
+    box-sizing: border-box;
+  }
   .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__inner { gap: 14px; }
   .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__icon { width: var(--tb-icon, 64px); height: var(--tb-icon, 64px); }
   .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__label { font-size: 15px; }
-  .hdt-yaman-trust-badges-section.is-tb-ready .hdt-yaman-trust-badges__nav:not([hidden]) { display: flex; }
+}
+
+@media (min-width: 1024px) {
+  /* desktop: spread up to 6 badges across the full container (Figma layout) */
+  .hdt-yaman-trust-badges-section .hdt-yaman-trust-badges__item {
+    width: calc(100% / var(--tb-cols-dk, 6));
+  }
 }
 
 

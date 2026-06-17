@@ -1,10 +1,30 @@
 <!-- section/shipping-n.liquid — YAMAN Trust Badges slider (custom; do NOT confuse with the original Kalles shipping.liquid) -->
+{%- liquid
+  # Desktop spreads up to 6 badges evenly across the row; tablet up to 4.
+  assign tb_count = section.blocks.size
+  assign cols_dk = tb_count
+  if cols_dk > 6
+    assign cols_dk = 6
+  endif
+  if cols_dk < 1
+    assign cols_dk = 1
+  endif
+  assign cols_tb = tb_count
+  if cols_tb > 4
+    assign cols_tb = 4
+  endif
+  if cols_tb < 1
+    assign cols_tb = 1
+  endif
+-%}
 <div
   class="hdt-yaman-trust-badges"
   data-tb-autoplay="{{ section.settings.autoplay }}"
   data-tb-autoplay-ms="{{ section.settings.autoplay_speed | times: 1000 }}"
   data-tb-loop="{{ section.settings.loop }}"
   style="
+    --tb-cols-dk: {{ cols_dk }};
+    --tb-cols-tb: {{ cols_tb }};
     --tb-maxw: {{ section.settings.container_max_width }}px;
     --tb-pad-x: {{ section.settings.container_padding }}px;
     --tb-bg: {{ section.settings.background_color }};
@@ -19,45 +39,39 @@
   "
 >
   <div class="hdt-yaman-trust-badges__container">
-    <div class="hdt-yaman-trust-badges__slider">
-      <button type="button" class="hdt-yaman-trust-badges__nav hdt-yaman-trust-badges__nav--prev" aria-label="{{ 'general.slider.previous_slide' | t | default: 'Previous' }}" data-tb-prev hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/></svg>
-      </button>
-      <div class="hdt-yaman-trust-badges__viewport" data-tb-viewport>
-        <ul class="hdt-yaman-trust-badges__track" data-tb-track role="list">
-          {%- for block in section.blocks -%}
-            {%- liquid
-              assign label = block.settings.label
-              assign link = block.settings.link
-              assign icon = block.settings.icon
-              assign alt = block.settings.alt | default: block.settings.label
-            -%}
-            {%- capture badge_inner -%}
-              <span class="hdt-yaman-trust-badges__icon">
-                {%- if icon != blank -%}
-                  {{ icon | image_url: width: 240 | image_tag: loading: 'lazy', class: 'hdt-yaman-trust-badges__img', alt: alt, widths: '48,64,96,128,160,200,240' }}
-                {%- else -%}
-                  <span class="hdt-yaman-trust-badges__placeholder" aria-hidden="true"></span>
-                {%- endif -%}
-              </span>
-              {%- if label != blank -%}<span class="hdt-yaman-trust-badges__label">{{ label }}</span>{%- endif -%}
-            {%- endcapture -%}
-            <li class="hdt-yaman-trust-badges__item" {{ block.shopify_attributes }}>
-              {%- if link != blank -%}
-                <a class="hdt-yaman-trust-badges__inner" href="{{ link }}">{{ badge_inner }}</a>
+    <div class="hdt-yaman-trust-badges__viewport" data-tb-viewport>
+      <ul class="hdt-yaman-trust-badges__track" data-tb-track role="list">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign label = block.settings.label
+            assign link = block.settings.link
+            assign icon = block.settings.icon
+            assign alt = block.settings.alt | default: block.settings.label
+          -%}
+          {%- capture badge_inner -%}
+            <span class="hdt-yaman-trust-badges__icon">
+              {%- if icon != blank -%}
+                {{ icon | image_url: width: 240 | image_tag: loading: 'lazy', class: 'hdt-yaman-trust-badges__img', alt: alt, widths: '48,64,96,128,160,200,240' }}
               {%- else -%}
-                <div class="hdt-yaman-trust-badges__inner">{{ badge_inner }}</div>
+                <span class="hdt-yaman-trust-badges__placeholder" aria-hidden="true"></span>
               {%- endif -%}
-            </li>
-          {%- endfor -%}
-        </ul>
-      </div>
-      <button type="button" class="hdt-yaman-trust-badges__nav hdt-yaman-trust-badges__nav--next" aria-label="{{ 'general.slider.next_slide' | t | default: 'Next' }}" data-tb-next hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/></svg>
-      </button>
+            </span>
+            {%- if label != blank -%}<span class="hdt-yaman-trust-badges__label">{{ label }}</span>{%- endif -%}
+          {%- endcapture -%}
+          <li class="hdt-yaman-trust-badges__item" {{ block.shopify_attributes }}>
+            {%- if link != blank -%}
+              <a class="hdt-yaman-trust-badges__inner" href="{{ link }}">{{ badge_inner }}</a>
+            {%- else -%}
+              <div class="hdt-yaman-trust-badges__inner">{{ badge_inner }}</div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
     </div>
   </div>
 </div>
+{{ 'flickity.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'flickity.pkgd.min.js' | asset_url }}" defer></script>
 <script src="{{ 'shipping-n.js' | asset_url }}" defer></script>
 {% schema %}
 {
