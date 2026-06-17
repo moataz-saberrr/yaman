@@ -1,0 +1,503 @@
+<!-- sections/featured-collection-choose-n.liquid — YAMAN Choose ("How to Choose") -->
+{%- liquid
+  assign sec_class = section.settings.custom_class
+
+  capture icon_benefits
+    echo '<svg class="icon icon-face-cream" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.9 2.2c1.1 0 2 .8 2 1.8v.55a6.2 6.2 0 00-4 0V4c0-1 .9-1.8 2-1.8z"/><path d="M9.9 5.3c-2.9 0-5.2 2.5-5.2 5.6 0 2.3.9 4.6 2.3 6v1.25c0 .35-.22.66-.55.78l-1.5.55c-.9.34-1.5 1.18-1.5 2.14v.18h8.8a4.4 4.4 0 01-.25-.95l-.18-1.25a5.2 5.2 0 01-1.9.35 5 5 0 01-3.8-2.05c-1.75-2.05-2.65-5.4-1.9-8.4.68-2.72 2.9-4.2 5.68-4.2z"/><path d="M14.7 10.6c-.35-2.6-2.25-4.3-4.8-4.3-2.35 0-4.1 1.35-4.65 3.55.55.25 1.45.55 2.65.4 1.7-.2 3.45-1.25 5.2-3.1.9.85 1.42 2.1 1.6 3.45z"/><path d="M5.4 11.4c-.05 2.15.75 4.2 1.95 5.6.78.92 1.65 1.38 2.55 1.38 1.05 0 2.1-.65 2.95-1.75.78-1 1.36-2.3 1.62-3.65-1.1-.45-2.05-1.6-2.55-3.05-1.55 1.2-3.1 1.88-4.62 2.05a6.1 6.1 0 01-1.9-.58z"/><path d="M18.5 10.65l.45.95 1.02.43-1.02.42-.45.95-.43-.95-1.02-.42 1.02-.43.43-.95z"/><path d="M4.05 12.2l.42.9.95.4-.95.4-.42.9-.42-.9-.95-.4.95-.4.42-.9z"/><path d="M16.05 16.55h5.2c.5 0 .88.45.8.95l-.48 3.12c-.16 1.05-1.05 1.78-2.12 1.78h-1.6c-1.07 0-1.96-.73-2.12-1.78l-.48-3.12c-.08-.5.3-.95.8-.95z"/><path d="M16.2 14.75c.75.22 1.55.33 2.45.33.88 0 1.7-.11 2.45-.33.38-.12.77.16.77.56 0 .32-.2.52-.48.62-.85.28-1.75.42-2.74.42-.98 0-1.9-.14-2.73-.42-.3-.1-.5-.3-.5-.62 0-.4.39-.68.78-.56z"/><path d="M18.95 12.65c.4.1.65.5.55.9l-.15.6h-1.4l-.15-.6c-.1-.4.15-.8.55-.9.2-.05.4-.05.6 0z"/></svg>'
+  endcapture
+  capture icon_time
+    echo '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.3 5.8 6.2 3.1l1.4 1.5-2.9 2.7z"/><path d="M20.7 5.8 17.8 3.1l-1.4 1.5 2.9 2.7z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4.7a7.7 7.7 0 100 15.4 7.7 7.7 0 000-15.4zm-1.4 11.1L7.5 12.7l1.45-1.45 1.65 1.65 4.05-4.05 1.45 1.45-5.5 5.5z"/></svg>'
+  endcapture
+  capture icon_ideal
+    echo '<svg class="icon icon-age-group" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="18.2" cy="4.2" r="1.6"/><path d="M15.6 8.2c0-1.9 1.5-3.4 3.4-3.4s3.4 1.5 3.4 3.4v4.7c0 1-.5 1.9-1.2 2.5v4.4c0 .5-.4.9-.9.9h-3.1c-.5 0-.9-.4-.9-.9v-4.4c-.8-.6-1.2-1.5-1.2-2.5V8.2z"/><circle cx="11.4" cy="6.8" r="1.45"/><path d="M8.6 10.5c0-1.9 1.5-3.4 3.4-3.4s3.4 1.5 3.4 3.4v3.5c0 .9-.4 1.7-1 2.3v3.5c0 .5-.4.9-.9.9h-3c-.5 0-.9-.4-.9-.9v-3.5c-.6-.6-1-1.4-1-2.3v-3.5z"/><circle cx="5.5" cy="9.4" r="1.35"/><path d="M2.9 12.7c0-1.8 1.4-3.2 3.2-3.2s3.2 1.4 3.2 3.2v2.2c0 .8-.3 1.5-.9 2v2.8c0 .5-.4.9-.9.9H4.7c-.5 0-.9-.4-.9-.9v-2.8c-.6-.5-.9-1.2-.9-2v-2.2z"/></svg>'
+  endcapture
+-%}
+
+<div
+  class="hdt-yaman-choose-section{% if sec_class != blank %} {{ sec_class }}{% endif %}{% if section.settings.hide_nav_mobile %} is-hide-nav-mb{% endif %}{% if section.settings.hide_dots_mobile %} is-hide-dots-mb{% endif %}"
+  style="
+    --choose-bg: {{ section.settings.bg_color }};
+    --choose-maxw: {{ section.settings.container_max_width }}px;
+    --choose-pad-x: {{ section.settings.container_padding }}px;
+    --choose-pt: {{ section.settings.padding_top }}px;
+    --choose-pb: {{ section.settings.padding_bottom }}px;
+    --choose-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --choose-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+    --choose-cols: {{ section.settings.col_dk }};
+    --choose-cols-tb: {{ section.settings.col_tb }};
+    --choose-card-mb: {{ section.settings.card_width_mb }};
+    --choose-gap: {{ section.settings.card_gap }}px;
+    --choose-gap-mb: {{ section.settings.card_gap_mb }}px;
+  "
+>
+  <div class="hdt-yaman-choose">
+    <div class="hdt-yaman-choose__container">
+
+      <div class="hdt-yaman-choose__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="hdt-yaman-choose__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="hdt-yaman-choose__text">{{ section.settings.subheading | escape }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="hdt-yaman-choose__slider-wrap">
+        <hdt-slider
+          id="Slider-{{ section.id }}"
+          class="hdt-yaman-choose__slider hdt-slider hdt-slider-parent hdt-slide-spacing-x hdt-relative lg:hdt-slides-{{ section.settings.col_dk }} md:hdt-slides-{{ section.settings.col_tb }} hdt-slides-1"
+          config='{ "id": "Slider-{{ section.id }}", "navUI": {{ section.settings.nav_ui }}, "dotUI": {{ section.settings.dot_ui }}, "loop": {{ section.settings.loop }}, "autoPlay": {{ section.settings.autoplay | times: 1000 }}, "pauseOnHover": {{ section.settings.pause_on_hover }}, "navUICenter": true }'
+        >
+          <div class="hdt-slider__viewport hdt-relative">
+            <div class="hdt-slider__container">
+              {%- for block in section.blocks -%}
+                {%- liquid
+                  assign product   = block.settings.product
+                  assign card_title = block.settings.title | default: product.title
+                  assign card_url   = block.settings.button_link
+                  if card_url == blank
+                    assign card_url = product.url
+                  endif
+                  assign card_img = block.settings.image | default: product.featured_image
+                  assign card_alt = block.settings.image_alt | default: card_title
+                -%}
+                <div class="hdt-slider__slide hdt-yaman-choose__card" {{ block.shopify_attributes }}>
+                  <div class="hdt-yaman-choose__card-inner">
+                    {%- if block.settings.pill != blank -%}
+                      <span class="hdt-yaman-choose__pill">{{ block.settings.pill | escape }}</span>
+                    {%- endif -%}
+
+                    <a class="hdt-yaman-choose__image" href="{{ card_url | default: '#' }}" aria-label="{{ card_title | escape }}">
+                      {%- if card_img != blank -%}
+                        {{ card_img | image_url: width: 600 | image_tag: loading: 'lazy', widths: '240, 320, 420, 600', sizes: '(min-width: 768px) 25vw, 80vw', class: 'hdt-yaman-choose__img', alt: card_alt | escape }}
+                      {%- else -%}
+                        {{ 'product-1' | placeholder_svg_tag: 'hdt-yaman-choose__img hdt-yaman-choose__placeholder' }}
+                      {%- endif -%}
+                    </a>
+
+                    {%- if card_title != blank -%}
+                      <h3 class="hdt-yaman-choose__title"><a href="{{ card_url | default: '#' }}">{{ card_title | escape }}</a></h3>
+                    {%- endif -%}
+                    {%- if block.settings.description != blank -%}
+                      <p class="hdt-yaman-choose__description">{{ block.settings.description | escape }}</p>
+                    {%- endif -%}
+
+                    <div class="hdt-yaman-choose__divider"></div>
+
+                    <ul class="hdt-yaman-choose__details">
+                      {%- if block.settings.benefits_value != blank -%}
+                        <li class="hdt-yaman-choose__detail">
+                          <span class="hdt-yaman-choose__detail-icon">{{ icon_benefits }}</span>
+                          <span class="hdt-yaman-choose__detail-text">
+                            <span class="hdt-yaman-choose__detail-label">{{ section.settings.benefits_label | escape }}</span>
+                            <span class="hdt-yaman-choose__detail-value">{{ block.settings.benefits_value | escape }}</span>
+                          </span>
+                        </li>
+                      {%- endif -%}
+                      {%- if block.settings.time_value != blank -%}
+                        <li class="hdt-yaman-choose__detail">
+                          <span class="hdt-yaman-choose__detail-icon">{{ icon_time }}</span>
+                          <span class="hdt-yaman-choose__detail-text">
+                            <span class="hdt-yaman-choose__detail-label">{{ section.settings.time_label | escape }}</span>
+                            <span class="hdt-yaman-choose__detail-value">{{ block.settings.time_value | escape }}</span>
+                          </span>
+                        </li>
+                      {%- endif -%}
+                      {%- if block.settings.ideal_value != blank -%}
+                        <li class="hdt-yaman-choose__detail">
+                          <span class="hdt-yaman-choose__detail-icon">{{ icon_ideal }}</span>
+                          <span class="hdt-yaman-choose__detail-text">
+                            <span class="hdt-yaman-choose__detail-label">{{ section.settings.ideal_label | escape }}</span>
+                            <span class="hdt-yaman-choose__detail-value">{{ block.settings.ideal_value | escape }}</span>
+                          </span>
+                        </li>
+                      {%- endif -%}
+                    </ul>
+
+                    {%- if block.settings.button_label != blank -%}
+                      <a class="hdt-yaman-choose__button" href="{{ card_url | default: '#' }}">{{ block.settings.button_label | escape }}</a>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+
+          {%- if section.settings.nav_ui -%}
+            <div class="hdt-navigation hdt-position-default hdt-visible-always hdt-style-default hdt-shape-rounded hdt-size-small hdt-hide-mobile-{{ section.settings.hide_nav_mobile }}">
+              <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--prev" type="button" disabled name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/></svg>
+              </button>
+              <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--next" type="button" disabled name="next" aria-label="{{ 'general.slider.next_slide' | t }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/></svg>
+              </button>
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.dot_ui -%}
+            <div hdt-slider-dots aria-controls="Slider-{{ section.id }}" class="hdt-yaman-choose__dots hdt-slider__dots hdt-pagination hdt-style-default hdt-radius-true hdt-hide-mobile-{{ section.settings.hide_dots_mobile }}" style="--space-between: 8px; --margin-top: 24px;" hdt-reveal="slide-in" timeline></div>
+          {%- endif -%}
+        </hdt-slider>
+
+        {%- if section.blocks.size == 0 and request.design_mode -%}
+          <p class="hdt-yaman-choose__notice">Add product cards to this section to build the comparison carousel.</p>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YAMAN Choose",
+  "tag": "section",
+  "class": "hdt-section hdt-yaman-choose-wrap",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How to Choose"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subtitle",
+      "default": "Each device is designed for a specific concern — find what your skin needs."
+    },
+    {
+      "type": "header",
+      "content": "Detail row labels"
+    },
+    {
+      "type": "text",
+      "id": "benefits_label",
+      "label": "Benefits label",
+      "default": "Benefits"
+    },
+    {
+      "type": "text",
+      "id": "time_label",
+      "label": "Time label",
+      "default": "Time"
+    },
+    {
+      "type": "text",
+      "id": "ideal_label",
+      "label": "Ideal For label",
+      "default": "Ideal For"
+    },
+    {
+      "type": "header",
+      "content": "Carousel"
+    },
+    {
+      "type": "select",
+      "id": "col_dk",
+      "label": "Cards per view (desktop)",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "col_tb",
+      "label": "Cards per view (tablet)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "card_width_mb",
+      "min": 60,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Mobile card width",
+      "info": "Lower = more of the next card peeks.",
+      "default": 82
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Card gap (desktop)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "card_gap_mb",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Card gap (mobile)",
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "nav_ui",
+      "label": "Show arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "dot_ui",
+      "label": "Show dots",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_nav_mobile",
+      "label": "Hide arrows on mobile",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_dots_mobile",
+      "label": "Hide dots on mobile",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay",
+      "min": 0,
+      "max": 7,
+      "step": 0.5,
+      "unit": "s",
+      "label": "Autoplay speed",
+      "info": "0 = off.",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Layout & style"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 900,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1280
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Container side padding",
+      "default": 15
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom section class",
+      "info": "Optional extra class for per-instance styling."
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "Used for title / image / link fallback."
+        },
+        {
+          "type": "text",
+          "id": "pill",
+          "label": "Category pill",
+          "default": "LIFT & FIRM"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image override"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title override",
+          "info": "Falls back to the product title."
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Short description"
+        },
+        {
+          "type": "text",
+          "id": "benefits_value",
+          "label": "Benefits value"
+        },
+        {
+          "type": "text",
+          "id": "time_value",
+          "label": "Time value"
+        },
+        {
+          "type": "text",
+          "id": "ideal_value",
+          "label": "Ideal For value"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "VIEW DETAILS"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link",
+          "info": "Falls back to the product URL."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Choose",
+      "category": "YAMAN",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "pill": "LIFT & FIRM",
+            "title": "Medi Lift Plus",
+            "description": "Hands-free EMS device that lifts and firms the lower face.",
+            "benefits_value": "Firming & contouring",
+            "time_value": "10 min / day",
+            "ideal_value": "Sagging & loss of definition",
+            "button_label": "VIEW DETAILS"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "pill": "FIRMING & SCULPTING",
+            "title": "LIFTOLOGY SP",
+            "description": "Multi-function sculpting device for a defined, lifted look.",
+            "benefits_value": "Sculpting & toning",
+            "time_value": "5 min / day",
+            "ideal_value": "Loss of facial definition",
+            "button_label": "VIEW DETAILS"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "pill": "TONE & GLOW",
+            "title": "Photo Plus Prestige SP",
+            "description": "Multi-care device for tone, texture and radiance.",
+            "benefits_value": "Brightening & smoothing",
+            "time_value": "10 min / day",
+            "ideal_value": "Dullness & uneven tone",
+            "button_label": "VIEW DETAILS"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "pill": "HYDRATE & BRIGHTEN",
+            "title": "Hydra Bright Skin Set",
+            "description": "Daily hydrating routine for a fresh, luminous complexion.",
+            "benefits_value": "Deep hydration",
+            "time_value": "2 min / day",
+            "ideal_value": "Dry, tired-looking skin",
+            "button_label": "VIEW DETAILS"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

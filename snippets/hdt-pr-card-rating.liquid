@@ -1,0 +1,131 @@
+{% comment %}
+  Renders product rating
+
+
+  Accepts:
+  - product: {Object} product object.
+  - vendor: {String} vendor name (from our selected vendors list).
+
+
+  Usage:
+  {% render 'hdt-pr-card-rating', product: product, vendor: 'stamped' %}
+{% endcomment %}
+
+
+{%- liquid
+  assign rating = 0
+  assign reviews_count = 0
+
+
+  if vendor == "stamped" or vendor == "ali" or vendor == "yotpo"
+    assign custom_widget = vendor
+  elsif vendor == "rapid"
+    assign rating = product.metafields.rapid_reviews.counts.value.r.rating.avg
+    assign reviews_count = product.metafields.rapid_reviews.counts.value.r.counts.core.total
+  elsif vendor == "loox"
+    assign rating = product.metafields.loox.avg_rating
+    assign reviews_count = product.metafields.loox.num_reviews
+  elsif vendor == "air"
+    assign rating = product.metafields.air_reviews_product.review_avg
+    assign reviews_count = product.metafields.air_reviews_product.review_count
+  else
+    if product.metafields.reviews.rating.value != blank
+      assign rating = product.metafields.reviews.rating.value.rating
+      assign reviews_count = product.metafields.reviews.rating_count
+    endif
+  endif
+
+
+  assign scale_max = 5
+  assign full_stars = rating | floor
+  assign has_half_star = false
+  assign decimal = rating | modulo: 1
+  if decimal >= 0.3 and decimal <= 0.7
+    assign has_half_star = true
+  elsif decimal > 0.7
+    assign full_stars = full_stars | plus: 1
+  endif
+  assign full_stars_plus_one = full_stars | plus: 1
+-%}
+
+
+{%- if custom_widget == blank -%}
+  <div class="star-rating hdt-flex hdt-items-center hdt-justify-between hdt-gap-1" aria-label="{{ rating }} out of {{ scale_max }} stars">
+    <div class="star-rating__stars hdt-flex hdt-items-center hdt-gap-0.5">
+      {%- for i in (1..scale_max) -%}
+        {%- if i <= full_stars -%}
+          {%- comment -%} Filled star {%- endcomment -%}
+          <img src="{{ 'fill_star_rating.svg' | asset_url }}" alt="" class="star-rating__star star-rating__star--filled" width="24" height="24" loading="lazy">
+        {%- elsif i == full_stars_plus_one and has_half_star -%}
+          {%- comment -%} Half star (show as filled for simplicity, or you can add half star SVG) {%- endcomment -%}
+          <img src="{{ 'fill_star_rating.svg' | asset_url }}" alt="" class="star-rating__star star-rating__star--filled" width="24" height="24" loading="lazy">
+        {%- else -%}
+          {%- comment -%} Unfilled star {%- endcomment -%}
+          <img src="{{ 'unfill-star-rating-figma.svg' | asset_url }}" alt="" class="star-rating__star star-rating__star--unfilled" width="24" height="24" loading="lazy">
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {%- if reviews_count > 0 -%}
+      <span class="star-rating__count">({{ reviews_count }})</span>
+    {%- else -%}
+      <span class="star-rating__count">No reviews</span>
+    {%- endif -%}
+  </div>
+
+
+{%- else -%}
+  {%- if custom_widget == "stamped" -%}
+    <span
+      class="stamped-product-reviews-badge"
+      data-id="{{ product.id }}"
+      data-product-sku="{{ product.handle }}"
+      data-product-type="{{ product.type }}"
+      data-product-title="{{ product.title }}"
+      style="display:block;"></span>
+  {%- elsif custom_widget == "ali" -%}
+    <div
+      product-id="{{ product.id }}"
+      product-handle="{{ product.handle }}"
+      class="alireviews-review-star-rating"></div>
+  {%- elsif custom_widget == "yotpo" -%}
+    <div class="yotpo bottomLine" data-product-id="{{ product.id }}"></div>
+  {%- endif -%}
+{%- endif -%}
+
+
+<style>
+  .star-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .star-rating__stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .star-rating__star {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  .star-rating__count {
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #353535;
+  }
+  @media (min-width: 768px) {
+    .star-rating {
+      gap: 8px;
+    }
+    .star-rating__star {
+      width: 24px;
+      height: 24px;
+    }
+    .star-rating__count {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+</style>

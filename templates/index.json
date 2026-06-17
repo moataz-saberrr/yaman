@@ -402,6 +402,162 @@
         "science_slide_item_n_GNJriA",
         "science_slide_item_n_nn8azb",
         "science_slide_item_n_qEYQiW"
+    "yaman_blog": {
+      "type": "blog-post-n",
+      "settings": {
+        "heading": "Discover Your Glow with YAMAN",
+        "blog": "news",
+        "limit": 6,
+        "columns": 3,
+        "col_tb": "2",
+        "date_format": "%B %d, %Y",
+        "nav_ui": true,
+        "dot_ui": false,
+        "loop": true,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "hide_controls_mobile": true,
+        "button_label": "EXPLORE ALL ARTICLES",
+        "button_link": "",
+        "button_target": false,
+        "bg_color": "#f0e9db",
+        "image_radius": 16,
+        "card_width_mb": 80,
+        "container_max_width": 1360,
+        "container_padding": 15,
+        "custom_class": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    },
+    "yaman_routine": {
+      "type": "featured-collection-n",
+      "settings": {
+        "badge_text": "SKINCARE",
+        "heading": "Complete Your Routine",
+        "subheading": "Treatment serums formulated to work in perfect synergy with YAMAN devices — amplifying every session for visible results.",
+        "collection": "اجهزة-يامان",
+        "limit": 12,
+        "show_vendor": true,
+        "image_ratio": "square",
+        "col_dk": "3",
+        "col_tb": "2",
+        "card_width_mb": 80,
+        "nav_ui": true,
+        "dot_ui": false,
+        "loop": true,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "hide_controls_mobile": true,
+        "button_label": "VIEW ALL DEVICES",
+        "button_link": "",
+        "button_target": false,
+        "bg_color": "#faf7f0",
+        "badge_bg": "#e3efe7",
+        "badge_color": "#2f6b4f",
+        "card_bg": "#ffffff",
+        "card_border": "#ece7dc",
+        "image_radius": 16,
+        "container_max_width": 1200,
+        "container_padding": 15,
+        "custom_class": "",
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 56
+      }
+    },
+    "yaman_choose": {
+      "type": "featured-collection-choose-n",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "product": "medi-lift-plus",
+            "pill": "LIFT & FIRM",
+            "image": "shopify://shop_images/Medi_Lift_Plus.png",
+            "image_alt": "",
+            "title": "Medi Lift Plus",
+            "description": "Hands-free EMS device that lifts and firms the lower face.",
+            "benefits_value": "Lifting & jawline definition",
+            "time_value": "10 min / day",
+            "ideal_value": "Ages 25-35",
+            "button_label": "VIEW DETAILS",
+            "button_link": "shopify://products/medi-lift-plus"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "product": "liftlogy-sp-the-new-technology-مجموعة-شد-الوجه-الرقبة-و-أجزاء-الجسم",
+            "pill": "CONTOUR & SCULPT",
+            "image": "shopify://shop_images/Image_LIFTOLOGY_SP.png",
+            "image_alt": "",
+            "title": "LIFTOLOGY SP",
+            "description": "EMS + microcurrent for firmer, contoured skin.",
+            "benefits_value": "Firming & contouring",
+            "time_value": "1 min / side",
+            "ideal_value": "Ages 30–40",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "product": "",
+            "pill": "FULL FACIAL CARE",
+            "image": "shopify://shop_images/Image_Photo_Plus_Prestige_SP.png",
+            "image_alt": "",
+            "title": "Photo Plus Prestige SP",
+            "description": "RF + EMS + Photon for complete facial care.",
+            "benefits_value": "Full facial rejuvenation",
+            "time_value": "15 min / day",
+            "ideal_value": "All ages",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "product": "",
+            "pill": "BRIGHTEN & PORES",
+            "image": "shopify://shop_images/Image_Hydra_Bright_Skin_Set.png",
+            "image_alt": "",
+            "title": "Hydra Bright Skin Set",
+            "description": "Hydra cleanse + infusion for brighter, refined skin.",
+            "benefits_value": "Brightens & refines pores",
+            "time_value": "10 min / day",
+            "ideal_value": "All ages",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        },
+        "card_9iVVHf": {
+          "type": "card",
+          "settings": {
+            "product": "",
+            "pill": "LIFT & FIRM",
+            "image_alt": "",
+            "title": "",
+            "description": "",
+            "benefits_value": "",
+            "time_value": "",
+            "ideal_value": "",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4",
+        "card_9iVVHf"
       ],
       "name": "YAMAN Science",
       "settings": {
@@ -537,6 +693,31 @@
         "padding_bottom": 30,
         "padding_top_mb": 50,
         "padding_bottom_mb": 30
+        "heading": "How to Choose",
+        "subheading": "Each device is designed for a specific concern — find what your skin needs.",
+        "benefits_label": "Benefits",
+        "time_label": "Time",
+        "ideal_label": "Ideal For",
+        "col_dk": "4",
+        "col_tb": "2",
+        "card_width_mb": 82,
+        "card_gap": 24,
+        "card_gap_mb": 12,
+        "nav_ui": true,
+        "dot_ui": true,
+        "hide_nav_mobile": true,
+        "hide_dots_mobile": true,
+        "loop": false,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "bg_color": "#ffffff",
+        "container_max_width": 1280,
+        "container_padding": 15,
+        "custom_class": "",
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 56
       }
     }
   },
@@ -547,5 +728,8 @@
     "custom_section_n_nnAQQB",
     "science_slideshow_n_mKkryb",
     "real_results_n_NKxbg9"
+    "yaman_blog",
+    "yaman_routine",
+    "yaman_choose"
   ]
 }
