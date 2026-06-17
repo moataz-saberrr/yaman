@@ -47,12 +47,6 @@
 
 /* keep the reused Kalles slider track sane regardless of autoHeight timing */
 
-.custom-reviews-selector {
-  .hdt-slider__container > :first-child {
-    margin-inline-start: 15px !important;
-  }
-}
-
 .hdt-slideshow-n .hdt-slider__viewport {
   overflow: hidden;
   max-width: 100%;
@@ -324,12 +318,26 @@
 .hdt-slideshow-n .hdt-yaman-hero__dots button {
   border: none;
 }
+@media (min-width: 1150px) {
+  .custom-reviews-selector {
+    .hdt-slider {
+      margin-inline-end: 15px;
+    }
+    .custom-reviews-selector .hdt-slider__container > :first-child {
+      margin-inline-start: 15px !important;
+    }
+  }
+}
 @media (max-width: 1150px) {
   .custom-reviews-selector {
-    .hdt-slider__viewport {
-      margin-inline-end: 0px !important;
-    }
     .md\:hdt-slides-2 {
+      --slide-size: 45% !important;
+    }
+    .hdt-slider__viewport {
+      padding-inline: 6px;
+    }
+    .hdt-slider__container > :first-child {
+      margin-inline-start: 15px !important;
     }
   }
 }
@@ -338,18 +346,18 @@
     .md\:hdt-slides-2 {
       --slide-size: 75% !important;
     }
-  }
-  .hdt-yaman-reviews-section .hdt-yaman-reviews__card {
-    gap: 8px;
-  }
-  .hdt-yaman-reviews-section .hdt-yaman-reviews__button {
-    padding: 3px 14px;
+    .hdt-yaman-reviews-section .hdt-yaman-reviews__card {
+      gap: 8px;
+    }
+    .hdt-yaman-reviews-section .hdt-yaman-reviews__button {
+      padding: 3px 14px;
+    }
   }
 }
 @media (max-width: 500px) {
   .custom-reviews-selector {
     .md\:hdt-slides-2 {
-      --slide-size: 56% !important;
+      --slide-size: 74% !important;
     }
   }
 }
@@ -667,12 +675,12 @@
 .hdt-yaman-reviews-section .hdt-yaman-reviews__button {
   align-self: flex-start;
   margin-top: 4px;
-  padding: 6px 14px;
+  padding: 3px 22px;
   border-radius: 999px;
   background-color: #deebff;
   color: #0e567a;
   font-size: 12.5px;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: none;
   transition: background 0.2s ease;
 }
@@ -995,6 +1003,16 @@
   margin-inline: auto;
   padding-inline: var(--ys-pad-x, 15px);
 }
+@media (max-width: 1150px) {
+  .custom-featured-selector {
+    .hdt-yaman-sets__container {
+      padding-inline: 0 !important;
+    }
+    .hdt-slider__viewport {
+      padding: 1px;
+    }
+  }
+}
 
 /* Heading */
 .custom-featured-selector {
@@ -1030,6 +1048,28 @@
 .hdt-yaman-sets-section .hdt-yaman-sets__slider {
   --slide-spacing: var(--ys-gap-mb, 14px);
   display: block;
+}
+/* The Kalles slider viewport is `overflow: hidden`, which clips every card's
+ * box-shadow (top/bottom) — so only some cards looked like they had a shadow.
+ * Fix: clip ONLY the horizontal axis (this still hides the off-screen slides so
+ * the carousel/peek is unchanged, AND contains the wide slider track so the page
+ * never gains horizontal width) while leaving the vertical axis visible so the
+ * card top/bottom shadows render on every card. Scoped to this section only.
+ * NOTE: `overflow-x: clip` + `overflow-y: visible` is a valid pair (unlike
+ * hidden+visible, which would force the visible axis to `auto`/scroll).
+ *
+ * Horizontal shadow room: the first/last card's box-shadow (-4px offset + 20px
+ * blur ≈ 24px reach) was being clipped right at the track edge. `overflow-x: clip`
+ * clips at the PADDING-box edge, so giving the viewport `padding-inline` opens up
+ * breathing room INSIDE the clip region for those side shadows. Because the
+ * padding lives inside the viewport's own width (box-sizing: border-box) and there
+ * is NO negative margin / no outward expansion, the page can never gain width — the
+ * track just sits slightly inset and the off-screen slides still clip at the edge. */
+.hdt-yaman-sets-section .hdt-yaman-sets__slider .hdt-slider__viewport {
+  overflow-x: clip;
+  overflow-y: visible;
+  box-sizing: border-box;
+  padding-inline: 6px;
 }
 /* Stretch slides so cards share equal height; pad top so the popular badge fits */
 .hdt-yaman-sets-section .hdt-yaman-sets__slide {
@@ -1081,7 +1121,7 @@
   color: #1a1a1a;
 }
 .hdt-yaman-sets-section .hdt-yaman-sets__title {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-size: 20px;
   font-weight: 700;
   line-height: 1.15;
@@ -1236,18 +1276,52 @@
 
 /* Mobile only: one card + a peek of the next. Scoped to <768px so it does NOT
  * override the desktop `lg:hdt-slides-4` / tablet `md:hdt-slides-2` sizes. */
+.custom-reviews-selector {
+  @media (max-width: 767px) {
+    .hdt-yaman-sets-section .hdt-yaman-sets__slider.hdt-slides-1 {
+      --slide-size: var(--ys-peek, 88%);
+    }
+    .hdt-yaman-reviews-section .hdt-yaman-reviews__body {
+      font-size: 12px;
+    }
+    .hdt-yaman-reviews-section .hdt-yaman-reviews__button {
+      padding: 3px 14px;
+    }
+    .hdt-yaman-reviews-section .hdt-yaman-reviews__meta {
+      font-size: 11px;
+    }
+  }
+}
+
+/* YAMAN Sets — responsive cards-per-view + peek.
+ * We drive the slide width directly with --slide-size at our own breakpoints so the
+ * carousel scales smoothly (instead of Kalles' fixed 2-up <1150 / 4-up >=1150 jump,
+ * which only ever showed 2 cards across the whole tablet range). The
+ * `.hdt-yaman-sets__slider.hdt-slides-1` selector outranks the theme's
+ * `md:hdt-slides-*` / `lg:hdt-slides-*` classes, and these rules are flat (NOT
+ * nested) so they actually match the Sets section. Scoped to this section only.
+ *   >=1200px : 4 cards               (25%)
+ *   1024–1199: 3 cards + peek        (31%)
+ *   768–1023 : 2 cards + peek        (45%)
+ *   <=767px  : 1 card + peek         (var --ys-peek, 88%) */
+@media (min-width: 1200px) {
+  .hdt-yaman-sets-section .hdt-yaman-sets__slider.hdt-slides-1 {
+    --slide-size: 25%;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .hdt-yaman-sets-section .hdt-yaman-sets__slider.hdt-slides-1 {
+    --slide-size: 31%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hdt-yaman-sets-section .hdt-yaman-sets__slider.hdt-slides-1 {
+    --slide-size: 45%;
+  }
+}
 @media (max-width: 767px) {
   .hdt-yaman-sets-section .hdt-yaman-sets__slider.hdt-slides-1 {
     --slide-size: var(--ys-peek, 88%);
-  }
-  .hdt-yaman-reviews-section .hdt-yaman-reviews__body {
-    font-size: 12px;
-  }
-  .hdt-yaman-reviews-section .hdt-yaman-reviews__button {
-    padding: 3px 14px;
-  }
-  .hdt-yaman-reviews-section .hdt-yaman-reviews__meta {
-    font-size: 11px;
   }
 }
 
@@ -1266,3 +1340,15 @@
  *  11. FAQ                    -> .hdt-yaman-faq
  *  12. Newsletter             -> .hdt-yaman-newsletter
  * ------------------------------------------------------------------------- */
+
+/* (Removed an old <=1200px patch that zeroed the container padding, set a 1px
+ * viewport padding, and added a 15px first-slide margin. The base viewport rule
+ * now provides symmetric horizontal shadow room at every breakpoint, so that patch
+ * is no longer needed and would only make the first/last card insets uneven.) */
+
+@media (max-width: 768px) {
+  .hdt-yaman-product-section .hdt-yaman-product__button {
+    width: 70%;
+    padding: 6px 20px;
+  }
+}
