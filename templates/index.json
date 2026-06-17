@@ -258,53 +258,90 @@
         "card_1": {
           "type": "card",
           "settings": {
+            "product": "medi-lift-plus",
             "pill": "LIFT & FIRM",
+            "image": "shopify://shop_images/Medi_Lift_Plus.png",
+            "image_alt": "",
             "title": "Medi Lift Plus",
             "description": "Hands-free EMS device that lifts and firms the lower face.",
-            "benefits_value": "Firming & contouring",
+            "benefits_value": "Lifting & jawline definition",
             "time_value": "10 min / day",
-            "ideal_value": "Sagging & loss of definition",
-            "button_label": "VIEW DETAILS"
+            "ideal_value": "Ages 25-35",
+            "button_label": "VIEW DETAILS",
+            "button_link": "shopify://products/medi-lift-plus"
           }
         },
         "card_2": {
           "type": "card",
           "settings": {
+            "product": "liftlogy-sp-the-new-technology-مجموعة-شد-الوجه-الرقبة-و-أجزاء-الجسم",
             "pill": "FIRMING & SCULPTING",
+            "image": "shopify://shop_images/Image_LIFTOLOGY_SP.png",
+            "image_alt": "",
             "title": "LIFTOLOGY SP",
-            "description": "Multi-function sculpting device for a defined, lifted look.",
-            "benefits_value": "Sculpting & toning",
-            "time_value": "5 min / day",
-            "ideal_value": "Loss of facial definition",
-            "button_label": "VIEW DETAILS"
+            "description": "EMS + microcurrent for firmer, contoured skin.",
+            "benefits_value": "Firming & contouring",
+            "time_value": "1 min / side",
+            "ideal_value": "Ages 30–40",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
           }
         },
         "card_3": {
           "type": "card",
           "settings": {
+            "product": "",
             "pill": "TONE & GLOW",
+            "image": "shopify://shop_images/Image_Photo_Plus_Prestige_SP.png",
+            "image_alt": "",
             "title": "Photo Plus Prestige SP",
-            "description": "Multi-care device for tone, texture and radiance.",
-            "benefits_value": "Brightening & smoothing",
-            "time_value": "10 min / day",
-            "ideal_value": "Dullness & uneven tone",
-            "button_label": "VIEW DETAILS"
+            "description": "RF + EMS + Photon for complete facial care.",
+            "benefits_value": "Full facial rejuvenation",
+            "time_value": "15 min / day",
+            "ideal_value": "All ages",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
           }
         },
         "card_4": {
           "type": "card",
           "settings": {
+            "product": "",
             "pill": "HYDRATE & BRIGHTEN",
+            "image": "shopify://shop_images/Image_Hydra_Bright_Skin_Set.png",
+            "image_alt": "",
             "title": "Hydra Bright Skin Set",
-            "description": "Daily hydrating routine for a fresh, luminous complexion.",
-            "benefits_value": "Deep hydration",
-            "time_value": "2 min / day",
-            "ideal_value": "Dry, tired-looking skin",
-            "button_label": "VIEW DETAILS"
+            "description": "Hydra cleanse + infusion for brighter, refined skin.",
+            "benefits_value": "Brightens & refines pores",
+            "time_value": "10 min / day",
+            "ideal_value": "All ages",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        },
+        "card_9iVVHf": {
+          "type": "card",
+          "settings": {
+            "product": "",
+            "pill": "LIFT & FIRM",
+            "image_alt": "",
+            "title": "",
+            "description": "",
+            "benefits_value": "",
+            "time_value": "",
+            "ideal_value": "",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
           }
         }
       },
-      "block_order": ["card_1", "card_2", "card_3", "card_4"],
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4",
+        "card_9iVVHf"
+      ],
       "settings": {
         "heading": "How to Choose",
         "subheading": "Each device is designed for a specific concern — find what your skin needs.",
@@ -320,7 +357,7 @@
         "dot_ui": true,
         "hide_nav_mobile": true,
         "hide_dots_mobile": true,
-        "loop": true,
+        "loop": false,
         "autoplay": 0,
         "pause_on_hover": true,
         "bg_color": "#ffffff",
