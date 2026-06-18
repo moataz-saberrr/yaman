@@ -49,6 +49,7 @@
       render 'css-variables', is_rtl: is_rtl
       # YAMAN: global custom styles. Loaded after theme CSS so section-scoped overrides win. See assets/custom_yaman.css
       echo 'custom_yaman.css' | asset_url | stylesheet_tag
+      echo 'custom_yaman_dev4.css' | asset_url | stylesheet_tag
       render 'js-variables'
       render 'scripts'
       if settings.custom_html_head != blank

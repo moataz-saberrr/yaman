@@ -938,6 +938,72 @@
         "padding_top_mb": 56,
         "padding_bottom_mb": 56
       }
+    },
+    "yaman_videos": {
+      "type": "shoppable-video-n",
+      "blocks": {
+        "video_1": {
+          "type": "video",
+          "settings": {
+            "handle": "@gcc_creator_1",
+            "product_label": "Medi Lift Plus"
+          }
+        },
+        "video_2": {
+          "type": "video",
+          "settings": {
+            "handle": "@gcc_creator_2",
+            "product_label": "Medi Lift Plus"
+          }
+        },
+        "video_3": {
+          "type": "video",
+          "settings": {
+            "handle": "@gcc_creator_3",
+            "product_label": "Medi Lift Plus"
+          }
+        },
+        "video_4": {
+          "type": "video",
+          "settings": {
+            "handle": "@gcc_creator_4",
+            "product_label": "Medi Lift Plus"
+          }
+        }
+      },
+      "block_order": [
+        "video_1",
+        "video_2",
+        "video_3",
+        "video_4"
+      ],
+      "name": "YAMAN Videos",
+      "settings": {
+        "heading": "Discover Your Glow with YAMAN",
+        "button_label": "SHOP THEIR ROUTINE →",
+        "button_link": "",
+        "background_color": "#ffffff",
+        "container_max_width": 1310,
+        "container_padding": 20,
+        "cols_dk": "4",
+        "cols_tb": "2",
+        "card_width_mb": 82,
+        "card_radius": 20,
+        "gap": 20,
+        "gap_mb": 14,
+        "enable_arrows": false,
+        "hide_arrows_mobile": true,
+        "enable_dots": false,
+        "hide_dots_mobile": true,
+        "loop": false,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "video_loop": true,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mb": 36,
+        "padding_bottom_mb": 36
+      }
     }
   },
   "order": [
@@ -952,6 +1018,7 @@
     "yaman_choose",
     "yaman_blog",
     "yaman_faq",
+    "yaman_videos",
     "custom_section_n_nnAQQB"
   ]
 }
