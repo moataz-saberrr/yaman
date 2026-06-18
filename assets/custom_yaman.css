@@ -916,7 +916,7 @@
 .hdt-yaman-results-section .hdt-yaman-results {
   max-width: var(--rr-maxw, 1310px);
   margin-inline: auto;
-  padding-inline: 10px;
+  /* padding-inline: 10px; */
 }
 
 /* ---- Header ---- */
@@ -940,7 +940,12 @@
 }
 
 /* ---- Carousel per-view (override Kalles slide sizing, scoped) ---- */
-.hdt-yaman-results-section .hdt-slider__viewport { overflow: hidden; }
+.hdt-yaman-results-section .hdt-slider__viewport { 
+  overflow: hidden;
+  @media (max-width: 1150px) {
+    padding: 1px;     
+  }
+}
 .hdt-yaman-results-section .hdt-slider__slide { height: auto; }
 .hdt-yaman-results-section .hdt-slider__container {
   --slide-size: var(--rr-w-mb, 44%);
@@ -949,7 +954,7 @@
 }
 @media (min-width: 768px) {
   .hdt-yaman-results-section .hdt-slider__container {
-    --slide-size: calc(100% / var(--rr-cols-tb, 3));
+    --slide-size: calc(100% / var(--rr-cols-tb, 3) - 3%);
     --slide-spacing: var(--rr-gap-tb, 16px);
   }
 }
@@ -961,7 +966,14 @@
 }
 
 /* ---- Card ---- */
-.hdt-yaman-results-section .hdt-yaman-results__slide { height: auto; }
+.hdt-yaman-results-section .hdt-yaman-results__slide { 
+  height: auto; 
+@media (max-width: 1150px) {
+  &:first-child{
+    margin-inline-start: 12px;
+  }
+}
+}
 .hdt-yaman-results-section .hdt-yaman-results__card {
   display: flex;
   flex-direction: column;
@@ -1007,14 +1019,15 @@
   position: absolute;
   top: 12px;
   z-index: 3;
-  padding: 3px 11px;
+  padding: 5px 11px;
   background: #fff;
   color: #000;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   border-radius: 9px;
   box-shadow: 0 1.8px 1.8px rgba(0, 0, 0, 0.1);
   pointer-events: none;
+  line-height: 1;
 }
 .hdt-yaman-results-section .hdt-yaman-results__label--before { inset-inline-start: 12px; }
 .hdt-yaman-results-section .hdt-yaman-results__label--after { inset-inline-end: 12px; }
@@ -1067,7 +1080,10 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 1.35;
-  color: #1d2847;
+  color: #000000A6;
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
 }
 .hdt-yaman-results-section .hdt-yaman-results__meta {
   margin: 0;
@@ -1098,6 +1114,7 @@
   font-weight: 700;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  width: fit-content;
 }
 .hdt-yaman-results-section .hdt-yaman-results__button:hover { opacity: 0.92; }
 .hdt-yaman-results-section .hdt-yaman-results__button[aria-disabled="true"] { pointer-events: none; opacity: 0.55; }
