@@ -1,0 +1,477 @@
+<!-- product-visible-lift-n.liquid — YAMAN product-page "Visible Lift" section
+  2-col: dynamic left content + interactive before/after gallery (up to 5 pairs).
+  CSS: assets/custom_yaman_dev2.css (scoped .product .hdt-product-visible-lift-section)
+  JS: assets/product-visible-lift-n.js (scoped, native pointer drag, no library) -->
+{%- liquid
+  assign pos = section.settings.default_position | default: 50
+
+  # collect indices of pairs that have at least one image, so an empty pair never breaks the gallery
+  assign valid = ''
+  for i in (1..5)
+    assign bkey = 'pair_' | append: i | append: '_before'
+    assign akey = 'pair_' | append: i | append: '_after'
+    if section.settings[bkey] != blank or section.settings[akey] != blank
+      assign valid = valid | append: i | append: ','
+    endif
+  endfor
+  assign valid = valid | split: ','
+-%}
+<div
+  class="hdt-product-visible-lift"
+  id="hdt-product-visible-lift-{{ section.id }}"
+  style="--vl-bg: {{ section.settings.background_color }}; --vl-stats-bg: {{ section.settings.stats_bg }}; --vl-accent: {{ section.settings.accent_color }}; --vl-maxw: {{ section.settings.container_max_width }}px; --vl-radius: {{ section.settings.main_radius }}px; --vl-pt: {{ section.settings.padding_top }}px; --vl-pb: {{ section.settings.padding_bottom }}px; --vl-pt-mb: {{ section.settings.padding_top_mb }}px; --vl-pb-mb: {{ section.settings.padding_bottom_mb }}px;">
+  <div class="hdt-product-visible-lift__container">
+
+    <!-- LEFT: dynamic content -->
+    <div class="hdt-product-visible-lift__content">
+      <div class="hdt-product-visible-lift__text-content">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="hdt-product-visible-lift__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="hdt-product-visible-lift__heading">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- endif -%}
+        {%- if section.settings.study != blank -%}
+          <p class="hdt-product-visible-lift__study">{{ section.settings.study }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="hdt-product-visible-lift__stats">
+        {%- for i in (1..4) -%}
+          {%- assign nkey = 'stat_' | append: i | append: '_number' -%}
+          {%- assign tkey = 'stat_' | append: i | append: '_text' -%}
+          <div class="hdt-product-visible-lift__stat">
+            <span class="hdt-product-visible-lift__stat-value">{{ section.settings[nkey] }}</span>
+            {%- if section.settings[tkey] != blank -%}
+              <span class="hdt-product-visible-lift__stat-text">{{ section.settings[tkey] }}</span>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.note != blank -%}
+        <p class="hdt-product-visible-lift__note">{{ section.settings.note | escape | newline_to_br }}</p>
+      {%- endif -%}
+    </div>
+
+    <!-- RIGHT: before/after gallery -->
+    <div class="hdt-product-visible-lift__gallery">
+      <div class="hdt-product-visible-lift__main" data-vl-main>
+        {%- if valid.size > 0 -%}
+          {%- for idx in valid -%}
+            {%- liquid
+              assign bkey = 'pair_' | append: idx | append: '_before'
+              assign akey = 'pair_' | append: idx | append: '_after'
+              assign balt = 'pair_' | append: idx | append: '_before_alt'
+              assign aalt = 'pair_' | append: idx | append: '_after_alt'
+              assign bimg = section.settings[bkey]
+              assign aimg = section.settings[akey]
+              assign before_alt = section.settings[balt] | default: 'Before'
+              assign after_alt = section.settings[aalt] | default: 'After'
+            -%}
+            <div class="hdt-product-visible-lift__ba-slide{% if forloop.first %} is-active{% endif %}" data-vl-slide="{{ idx }}">
+              <div
+                class="hdt-product-visible-lift__before-after"
+                data-vl-ba
+                style="--vl-pos: {{ pos }}%;">
+                <div class="hdt-product-visible-lift__image hdt-product-visible-lift__after">
+                  {%- if aimg != blank -%}
+                    {{ aimg | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'hdt-product-visible-lift__img', alt: after_alt, widths: '300,500,700,900,1116', sizes: '(max-width: 991px) 90vw, 558px' }}
+                  {%- else -%}
+                    <div class="hdt-product-visible-lift__placeholder hdt-product-visible-lift__placeholder--after" aria-hidden="true"></div>
+                  {%- endif -%}
+                </div>
+                <div class="hdt-product-visible-lift__image hdt-product-visible-lift__before" aria-hidden="true">
+                  {%- if bimg != blank -%}
+                    {{ bimg | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'hdt-product-visible-lift__img', alt: before_alt, widths: '300,500,700,900,1116', sizes: '(max-width: 991px) 90vw, 558px' }}
+                  {%- else -%}
+                    <div class="hdt-product-visible-lift__placeholder hdt-product-visible-lift__placeholder--before"></div>
+                  {%- endif -%}
+                </div>
+
+                <span class="hdt-product-visible-lift__label hdt-product-visible-lift__label--before">{{ section.settings.before_label | default: 'Before' }}</span>
+                <span class="hdt-product-visible-lift__label hdt-product-visible-lift__label--after">{{ section.settings.after_label | default: 'After' }}</span>
+
+                <span class="hdt-product-visible-lift__divider" aria-hidden="true"></span>
+                <div
+                  class="hdt-product-visible-lift__handle"
+                  data-vl-handle
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Drag to compare before and after"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow="{{ pos }}">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"><path
+                      d="M9 7l-5 5 5 5M15 7l5 5-5 5"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" /></svg>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="hdt-product-visible-lift__ba-slide is-active" data-vl-slide="0">
+            <div
+              class="hdt-product-visible-lift__before-after"
+              data-vl-ba
+              style="--vl-pos: {{ pos }}%;">
+              <div class="hdt-product-visible-lift__image hdt-product-visible-lift__after">
+                <div class="hdt-product-visible-lift__placeholder hdt-product-visible-lift__placeholder--after" aria-hidden="true"></div>
+              </div>
+              <div class="hdt-product-visible-lift__image hdt-product-visible-lift__before" aria-hidden="true">
+                <div class="hdt-product-visible-lift__placeholder hdt-product-visible-lift__placeholder--before"></div>
+              </div>
+              <span class="hdt-product-visible-lift__label hdt-product-visible-lift__label--before">{{ section.settings.before_label | default: 'Before' }}</span>
+              <span class="hdt-product-visible-lift__label hdt-product-visible-lift__label--after">{{ section.settings.after_label | default: 'After' }}</span>
+              <span class="hdt-product-visible-lift__divider" aria-hidden="true"></span>
+              <div
+                class="hdt-product-visible-lift__handle"
+                data-vl-handle
+                role="slider"
+                tabindex="0"
+                aria-label="Drag to compare before and after"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="{{ pos }}">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"><path
+                    d="M9 7l-5 5 5 5M15 7l5 5-5 5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if valid.size > 1 -%}
+        <div class="hdt-product-visible-lift__thumbs" data-vl-thumbs>
+          {%- for idx in valid -%}
+            {%- liquid
+              assign bkey = 'pair_' | append: idx | append: '_before'
+              assign akey = 'pair_' | append: idx | append: '_after'
+              assign bimg = section.settings[bkey]
+              assign aimg = section.settings[akey]
+            -%}
+            <button
+              type="button"
+              class="hdt-product-visible-lift__thumb{% if forloop.first %} is-hidden{% endif %}"
+              data-vl-thumb="{{ idx }}"
+              aria-label="Show result {{ forloop.index }}">
+              <span class="hdt-product-visible-lift__thumb-ba">
+                <span class="hdt-product-visible-lift__image hdt-product-visible-lift__after">
+                  {%- if aimg != blank -%}
+                    {{ aimg | image_url: width: 280 | image_tag: loading: 'lazy', class: 'hdt-product-visible-lift__img', alt: '', widths: '120,180,240,320' }}
+                  {%- else -%}
+                    <span class="hdt-product-visible-lift__placeholder hdt-product-visible-lift__placeholder--after"></span>
+                  {%- endif -%}
+                </span>
+                <span class="hdt-product-visible-lift__image hdt-product-visible-lift__before" aria-hidden="true">
+                  {%- if bimg != blank -%}
+                    {{ bimg | image_url: width: 280 | image_tag: loading: 'lazy', class: 'hdt-product-visible-lift__img', alt: '', widths: '120,180,240,320' }}
+                  {%- else -%}
+                    <span class="hdt-product-visible-lift__placeholder hdt-product-visible-lift__placeholder--before"></span>
+                  {%- endif -%}
+                </span>
+                <span class="hdt-product-visible-lift__thumb-divider" aria-hidden="true"></span>
+              </span>
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+<script src="{{ 'product-visible-lift-n.js' | asset_url }}" defer></script>
+
+{% schema %}
+  {
+    "name": "Visible Lift",
+    "tag": "section",
+    "class": "hdt-section hdt-product-visible-lift-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Left content"
+      },
+      {
+        "type": "text",
+        "id": "eyebrow",
+        "label": "Eyebrow",
+        "default": "REAL RESULTS. CLINICALLY PROVEN"
+      },
+      {
+        "type": "textarea",
+        "id": "heading",
+        "label": "Heading",
+        "info": "One line per row.",
+        "default": "Visible Lift.\nReal Transformation."
+      },
+      {
+        "type": "text",
+        "id": "study",
+        "label": "Study text",
+        "default": "Independent Clinical Study, 200 participants."
+      }, {
+        "type": "textarea",
+        "id": "note",
+        "label": "Bottom note",
+        "default": "Clinical Study Conducted Over 12 Weeks, with 200 participants using the full YAMAN regime"
+      }, {
+        "type": "header",
+        "content": "Stats"
+      }, {
+        "type": "text",
+        "id": "stat_1_number",
+        "label": "Stat 1 number",
+        "default": "93%"
+      }, {
+        "type": "text",
+        "id": "stat_1_text",
+        "label": "Stat 1 text",
+        "default": "saw firmer skin after 4 weeks of daily use"
+      }, {
+        "type": "text",
+        "id": "stat_2_number",
+        "label": "Stat 2 number",
+        "default": "89%"
+      }, {
+        "type": "text",
+        "id": "stat_2_text",
+        "label": "Stat 2 text",
+        "default": "saw lifted contours — visible lift in jaw + cheek"
+      }, {
+        "type": "text",
+        "id": "stat_3_number",
+        "label": "Stat 3 number",
+        "default": "86%"
+      }, {
+        "type": "text",
+        "id": "stat_3_text",
+        "label": "Stat 3 text",
+        "default": "reported brighter skin after Photon LED protocol"
+      }, {
+        "type": "text",
+        "id": "stat_4_number",
+        "label": "Stat 4 number",
+        "default": "97%"
+      }, {
+        "type": "text",
+        "id": "stat_4_text",
+        "label": "Stat 4 text",
+        "default": "said it felt spa-grade — texture, glide, comfort score"
+      }, {
+        "type": "header",
+        "content": "Gallery labels"
+      }, {
+        "type": "text",
+        "id": "before_label",
+        "label": "Before label",
+        "default": "Before"
+      }, {
+        "type": "text",
+        "id": "after_label",
+        "label": "After label",
+        "default": "After"
+      }, {
+        "type": "header",
+        "content": "Before / after pair 1",
+        "info": "Pair 1 is the active (main) image by default. Pairs with no images are skipped."
+      }, {
+        "type": "image_picker",
+        "id": "pair_1_before",
+        "label": "Pair 1 — before"
+      }, {
+        "type": "image_picker",
+        "id": "pair_1_after",
+        "label": "Pair 1 — after"
+      }, {
+        "type": "text",
+        "id": "pair_1_before_alt",
+        "label": "Pair 1 — before alt"
+      }, {
+        "type": "text",
+        "id": "pair_1_after_alt",
+        "label": "Pair 1 — after alt"
+      }, {
+        "type": "header",
+        "content": "Before / after pair 2"
+      }, {
+        "type": "image_picker",
+        "id": "pair_2_before",
+        "label": "Pair 2 — before"
+      }, {
+        "type": "image_picker",
+        "id": "pair_2_after",
+        "label": "Pair 2 — after"
+      }, {
+        "type": "text",
+        "id": "pair_2_before_alt",
+        "label": "Pair 2 — before alt"
+      }, {
+        "type": "text",
+        "id": "pair_2_after_alt",
+        "label": "Pair 2 — after alt"
+      }, {
+        "type": "header",
+        "content": "Before / after pair 3"
+      }, {
+        "type": "image_picker",
+        "id": "pair_3_before",
+        "label": "Pair 3 — before"
+      }, {
+        "type": "image_picker",
+        "id": "pair_3_after",
+        "label": "Pair 3 — after"
+      }, {
+        "type": "text",
+        "id": "pair_3_before_alt",
+        "label": "Pair 3 — before alt"
+      }, {
+        "type": "text",
+        "id": "pair_3_after_alt",
+        "label": "Pair 3 — after alt"
+      }, {
+        "type": "header",
+        "content": "Before / after pair 4"
+      }, {
+        "type": "image_picker",
+        "id": "pair_4_before",
+        "label": "Pair 4 — before"
+      }, {
+        "type": "image_picker",
+        "id": "pair_4_after",
+        "label": "Pair 4 — after"
+      }, {
+        "type": "text",
+        "id": "pair_4_before_alt",
+        "label": "Pair 4 — before alt"
+      }, {
+        "type": "text",
+        "id": "pair_4_after_alt",
+        "label": "Pair 4 — after alt"
+      }, {
+        "type": "header",
+        "content": "Before / after pair 5"
+      }, {
+        "type": "image_picker",
+        "id": "pair_5_before",
+        "label": "Pair 5 — before"
+      }, {
+        "type": "image_picker",
+        "id": "pair_5_after",
+        "label": "Pair 5 — after"
+      }, {
+        "type": "text",
+        "id": "pair_5_before_alt",
+        "label": "Pair 5 — before alt"
+      }, {
+        "type": "text",
+        "id": "pair_5_after_alt",
+        "label": "Pair 5 — after alt"
+      }, {
+        "type": "header",
+        "content": "Style"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#000000"
+      }, {
+        "type": "color",
+        "id": "stats_bg",
+        "label": "Stats box background",
+        "default": "#f8f7f0"
+      }, {
+        "type": "color",
+        "id": "accent_color",
+        "label": "Accent color (stat numbers + study)",
+        "default": "#d4b87a"
+      }, {
+        "type": "range",
+        "id": "container_max_width",
+        "min": 800,
+        "max": 1500,
+        "step": 10,
+        "unit": "px",
+        "label": "Container max width",
+        "default": 1310
+      }, {
+        "type": "range",
+        "id": "main_radius",
+        "min": 0,
+        "max": 60,
+        "step": 1,
+        "unit": "px",
+        "label": "Main image radius",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "default_position",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Default before/after position",
+        "default": 50
+      }, {
+        "type": "header",
+        "content": "Section padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 200,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 200,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_top_mb",
+        "min": 0,
+        "max": 120,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding top (mobile)",
+        "default": 40
+      }, {
+        "type": "range",
+        "id": "padding_bottom_mb",
+        "min": 0,
+        "max": 120,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding bottom (mobile)",
+        "default": 40
+      }
+    ],
+    "presets": [
+      {
+        "name": "Visible Lift",
+        "category": "t:sections_categories.05_section.name"
+      }
+    ]
+  }
+{% endschema %}
