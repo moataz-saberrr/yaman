@@ -543,6 +543,10 @@
   width: 100%;
   padding: 0;
   text-wrap: nowrap;
+  @media (max-width: 1150px) {
+    padding: 0 1.5rem;
+    
+  }
 }
 
 /* Heading — "Clarity before commitment." (plain, left, bold navy) */
@@ -552,7 +556,7 @@
   display: block;
   color: #1d2847;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1;
 }
 /* Strip Kalles heading-design decoration lines for the clean FAQ look */
 .hdt-yaman-faq-section .hdt-heading-block::before,
@@ -613,6 +617,34 @@
     padding: 20px 0;
     font-size: 16px;
   }
+}
+
+/* FAQ Footer Link */
+.hdt-yaman-faq-footer {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
+.hdt-yaman-faq-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1d2847;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  svg{
+    width: 10px;
+    height: 10px;
+  }
+}
+.hdt-yaman-faq-link:hover {
+  opacity: 0.7;
+}
+.hdt-yaman-faq-link-text {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 /* ===========================================================================
