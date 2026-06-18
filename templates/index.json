@@ -354,8 +354,9 @@
         "padding_bottom_mb": 50
       }
     },
-    "yaman_stats": {
+    "stats_n_c3nDNx": {
       "type": "stats-n",
+      "name": "YAMAN Stats",
       "settings": {
         "stat_1_number": "93",
         "stat_1_suffix": "%",
@@ -378,8 +379,8 @@
         "label_size": 16,
         "padding_top": 40,
         "padding_bottom": 55,
-        "padding_top_mb": 38,
-        "padding_bottom_mb": 38
+        "padding_top_mb": 35,
+        "padding_bottom_mb": 40
       }
     },
     "featured_collection_n_XtP7LF": {
@@ -963,7 +964,7 @@
     "yaman_trust_badges",
     "yaman_product",
     "real_results_n_NKxbg9",
-    "yaman_stats",
+    "stats_n_c3nDNx",
     "featured_collection_n_XtP7LF",
     "yaman_routine",
     "science_slideshow_n_mKkryb",
