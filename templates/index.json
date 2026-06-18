@@ -354,6 +354,34 @@
         "padding_bottom_mb": 50
       }
     },
+    "yaman_stats": {
+      "type": "stats-n",
+      "settings": {
+        "stat_1_number": "93",
+        "stat_1_suffix": "%",
+        "stat_1_label": "Firmer Skin",
+        "stat_2_number": "89",
+        "stat_2_suffix": "%",
+        "stat_2_label": "Less Sagging",
+        "stat_3_number": "97",
+        "stat_3_suffix": "%",
+        "stat_3_label": "Visible Lift",
+        "stat_4_number": "85",
+        "stat_4_suffix": "%",
+        "stat_4_label": "Better Texture",
+        "background_color": "#f8f7f0",
+        "text_color": "#404962",
+        "divider_color": "#c6c9d0",
+        "container_max_width": 1310,
+        "value_size": 46,
+        "value_size_mb": 40,
+        "label_size": 16,
+        "padding_top": 40,
+        "padding_bottom": 55,
+        "padding_top_mb": 38,
+        "padding_bottom_mb": 38
+      }
+    },
     "featured_collection_n_XtP7LF": {
       "type": "featured-collection-n2",
       "name": "YAMAN Sets",
@@ -935,6 +963,7 @@
     "yaman_trust_badges",
     "yaman_product",
     "real_results_n_NKxbg9",
+    "yaman_stats",
     "featured_collection_n_XtP7LF",
     "yaman_routine",
     "science_slideshow_n_mKkryb",
