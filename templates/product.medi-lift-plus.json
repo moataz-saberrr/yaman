@@ -16,7 +16,7 @@
         "colors_by_section": true,
         "color_scheme": "scheme-23cf8966-8e57-4acd-9bb3-bb85f222fbb9",
         "background_opacity": 1,
-        "section_layout": "wrapper_container",
+        "section_layout": "container",
         "hdt_background_parallax": false,
         "mg": "",
         "mg_mb": "",
@@ -209,8 +209,8 @@
         "product_list_fbt": [],
         "sticky_atc": true,
         "hdt_layout_atc_mob": "hdt_layout_atc_mob_default",
-        "hdt_show_sticky_atc": "hdt_show_always",
-        "ani": "hdt-ani-shake is--infinite",
+        "hdt_show_sticky_atc": "hdt_show_scrolls_outside_the_scope_of_the_form",
+        "ani": "none",
         "time": 6,
         "btn_transform": "hdt-uppercase",
         "btn_style": "hdt-btn-accent",
@@ -220,8 +220,8 @@
         "fullwidth": false,
         "mg": "",
         "mg_mb": "",
-        "pd": "30px,,60px,",
-        "pd_mb": "22px,,45px,"
+        "pd": "46px,,62px,",
+        "pd_mb": "20px,,50px,"
       }
     },
     "tabs": {
