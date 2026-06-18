@@ -259,6 +259,625 @@
         "padding_bottom_mb": 24
       }
     },
+    "real_results_n_NKxbg9": {
+      "type": "real-results-n",
+      "blocks": {
+        "real_result_card_n_UndzrR": {
+          "type": "_real-result-card-n",
+          "settings": {
+            "product": "مجموعة-التقشير-المثالي-hydra-bright-skin-device-lotion",
+            "before_image": "shopify://shop_images/292e10651c4f2edf235077aac0feff7cffa92600.png",
+            "after_image": "shopify://shop_images/7e583662b627d738c3535838bf897fdc23d04aa0.png",
+            "before_label": "Before",
+            "after_label": "After",
+            "before_alt": "",
+            "after_alt": "",
+            "title": "93% Firmer Skin",
+            "meta": "Reem, 42 · Dubai · 8 weeks",
+            "product_text": "Medi Lift Plus",
+            "button_label": "Shop Medi Lift Plus",
+            "button_url": "",
+            "open_new_tab": false
+          },
+          "blocks": {}
+        },
+        "real_result_card_n_HMFwp9": {
+          "type": "_real-result-card-n",
+          "settings": {
+            "product": "",
+            "before_label": "Before",
+            "after_label": "After",
+            "before_alt": "",
+            "after_alt": "",
+            "title": "89% Reduced Sagging",
+            "meta": "Noura, 38 · Riyadh · 10 weeks",
+            "product_text": "LIFTOLOGY SP",
+            "button_label": "Shop LIFTOLOGY SP",
+            "button_url": "",
+            "open_new_tab": false
+          },
+          "blocks": {}
+        },
+        "real_result_card_n_kDCWCh": {
+          "type": "_real-result-card-n",
+          "settings": {
+            "product": "",
+            "before_label": "Before",
+            "after_label": "After",
+            "before_alt": "",
+            "after_alt": "",
+            "title": "89% Reduced Sagging",
+            "meta": "Sara, 45 · Abu Dhabi · 12 weeks",
+            "product_text": "Photo Plus Prestige SP",
+            "button_label": "Shop Photo Plus SP",
+            "button_url": "",
+            "open_new_tab": false
+          },
+          "blocks": {}
+        },
+        "real_result_card_n_aqyWj6": {
+          "type": "_real-result-card-n",
+          "settings": {
+            "product": "",
+            "before_label": "Before",
+            "after_label": "After",
+            "before_alt": "",
+            "after_alt": "",
+            "title": "89% Reduced Sagging",
+            "meta": "Hessa, 36 · Kuwait · 6 weeks",
+            "product_text": "Hydra Bright Skin Set",
+            "button_label": "Shop Hydra Bright",
+            "button_url": "",
+            "open_new_tab": false
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "real_result_card_n_UndzrR",
+        "real_result_card_n_HMFwp9",
+        "real_result_card_n_kDCWCh",
+        "real_result_card_n_aqyWj6"
+      ],
+      "name": "YAMAN Results",
+      "settings": {
+        "heading": "Real Results. Clinically Proven.",
+        "subheading": "GCC women. Real devices. Zero filters.",
+        "background_color": "#f8f7f0",
+        "container_max_width": 1310,
+        "card_radius": 20,
+        "cards_dk": 4,
+        "cards_tb": 3,
+        "mobile_card_width": 45,
+        "gap": 20,
+        "gap_tb": 16,
+        "gap_mb": 12,
+        "default_position": 50,
+        "loop": false,
+        "autoplay": 0,
+        "pauseOnHover": true,
+        "navUI": false,
+        "dotUI": false,
+        "padding_top": 60,
+        "padding_bottom": 30,
+        "padding_top_mb": 50,
+        "padding_bottom_mb": 30
+      }
+    },
+    "featured_collection_n_XtP7LF": {
+      "type": "featured-collection-n2",
+      "name": "YAMAN Sets",
+      "settings": {
+        "heading": "The 4 YAMAN Sets",
+        "subtitle": "Each package is built around a device already paired with the right serum for your concern.",
+        "collection": "اجهزة-يامان",
+        "products_count": 4,
+        "most_popular": "2",
+        "popular_badge": "★ MOST POPULAR",
+        "tag_prefix": "set_label:",
+        "installment_prefix": "or",
+        "installment_suffix": "/mo × 4 with Tabby",
+        "show_saving": true,
+        "saving_prefix": "Save",
+        "button_label": "SHOP NOW",
+        "view_all_label": "VIEW ALL DEVICES",
+        "view_all_link": "",
+        "card_background": "#ffffff",
+        "popular_background": "#f7eee1",
+        "popular_border": "#c9a86a",
+        "button_bg": "#0d0d0d",
+        "button_text": "#ffffff",
+        "saving_bg": "#d6f0dc",
+        "saving_text": "#1b7a3d",
+        "container_max_width": 1360,
+        "container_padding": 15,
+        "mobile_peek": 80,
+        "gap": 20,
+        "gap_mb": 14,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "loop": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mb": 36,
+        "padding_bottom_mb": 36
+      }
+    },
+    "yaman_routine": {
+      "type": "featured-collection-n",
+      "settings": {
+        "badge_text": "SKINCARE",
+        "heading": "Complete Your Routine",
+        "subheading": "Treatment serums formulated to work in perfect synergy with YAMAN devices — amplifying every session for visible results.",
+        "collection": "اجهزة-يامان",
+        "limit": 12,
+        "show_vendor": true,
+        "image_ratio": "square",
+        "col_dk": "3",
+        "col_tb": "2",
+        "card_width_mb": 80,
+        "nav_ui": true,
+        "dot_ui": false,
+        "loop": true,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "hide_controls_mobile": true,
+        "button_label": "VIEW ALL DEVICES",
+        "button_link": "",
+        "button_target": false,
+        "bg_color": "#faf7f0",
+        "badge_bg": "#e3efe7",
+        "badge_color": "#2f6b4f",
+        "card_bg": "#ffffff",
+        "card_border": "#ece7dc",
+        "image_radius": 16,
+        "container_max_width": 1200,
+        "container_padding": 15,
+        "custom_class": "",
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 56
+      }
+    },
+    "science_slideshow_n_mKkryb": {
+      "type": "science-slideshow-n",
+      "blocks": {
+        "science_slide_item_n_g3mjjP": {
+          "type": "_science-slide-item-n",
+          "settings": {
+            "image": "shopify://shop_images/2058bec3c1006934ca350ea6c47f107c94f31115.png",
+            "image_mb": "shopify://shop_images/Frame_1984079447.png",
+            "url": "",
+            "banner_target": false,
+            "title": "DYHP — Dynamic Hydro-Pressure",
+            "description": "Gentle suction and micro-vibration deeply cleanse pores, remove dead skin cells, and infuse active ingredients directly into the skin — leaving a visibly brighter, smoother complexion after every use.",
+            "tag_1": "DEEP CLEANSE",
+            "tag_2": "PORE REFINEMENT",
+            "tag_3": "INSTANT GLOW",
+            "used_in": "Used in: Hydra Bright Skin Set"
+          },
+          "blocks": {}
+        },
+        "science_slide_item_n_GNJriA": {
+          "type": "_science-slide-item-n",
+          "settings": {
+            "image": "shopify://shop_images/Product_Image_Container_2.png",
+            "url": "",
+            "banner_target": false,
+            "title": "EMS — Electrical Muscle Stimulation",
+            "description": "Low-frequency electrical pulses gently activate facial muscles, helping to lift, firm and tone — for a more sculpted, defined contour with continued use.",
+            "tag_1": "MUSCLE LIFTING",
+            "tag_2": "ZERO UV",
+            "tag_3": "HANDS-FREE",
+            "used_in": "Used in: Medi Lift Plus / Liftology SP"
+          },
+          "blocks": {}
+        },
+        "science_slide_item_n_nn8azb": {
+          "type": "_science-slide-item-n",
+          "settings": {
+            "image": "shopify://shop_images/Product_Image_Container_6.png",
+            "url": "",
+            "banner_target": false,
+            "title": "Radio Frequency (RF)",
+            "description": "RF energy penetrates deep into the dermis, generating controlled heat that triggers collagen and elastin production — for visibly firmer, lifted skin that improves with each session.",
+            "tag_1": "ALL SKIN LAYERS",
+            "tag_2": "COLLAGEN BOOST",
+            "tag_3": "DEEP DERMIS",
+            "used_in": "Used in: Photo Plus S+ / Liftology SP"
+          },
+          "blocks": {}
+        },
+        "science_slide_item_n_qEYQiW": {
+          "type": "_science-slide-item-n",
+          "settings": {
+            "image": "shopify://shop_images/Product_Image_Container_7.png",
+            "url": "",
+            "banner_target": false,
+            "title": "Photon LED Light Therapy",
+            "description": "Multi-wavelength LED targets different skin concerns at the cellular level — red light boosts collagen, blue light targets blemish-causing bacteria, yellow light soothes — with zero UV and zero downtime.",
+            "tag_1": "MULTI-WAVELENGTH",
+            "tag_2": "ZERO UV",
+            "tag_3": "CELLULAR RENEWAL",
+            "used_in": "Used in: Photo Plus Prestige SP"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "science_slide_item_n_g3mjjP",
+        "science_slide_item_n_GNJriA",
+        "science_slide_item_n_nn8azb",
+        "science_slide_item_n_qEYQiW"
+      ],
+      "name": "YAMAN Science",
+      "settings": {
+        "heading": "Science Behind the Glow",
+        "subheading": "46 years of Japanese R&D — engineered into every device.",
+        "card_radius": 24,
+        "overlay_opacity": 45,
+        "card_ratio_dk": 225,
+        "card_ratio_tb": 110,
+        "card_ratio_mb_lg": 100,
+        "card_ratio_mb": 65,
+        "slide_width_dk": 88,
+        "slide_width_tb": 72,
+        "slide_width_mb": 85,
+        "gap": 24,
+        "gap_mb": 28,
+        "loop": false,
+        "autoplay": 0,
+        "pauseOnHover": true,
+        "navUI": false,
+        "nav_visible": "hover",
+        "dotUI": false,
+        "pag_position": "center",
+        "pag_rounded": true,
+        "pag_space": 10,
+        "pag_mgt": 16,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mb": 30,
+        "padding_bottom_mb": 30
+      }
+    },
+    "yaman_videos": {
+      "type": "shoppable-video-n",
+      "blocks": {
+        "video_1": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/e1569ac562be17901277391660b53ed37aa6371c.jpg",
+            "handle": "@gcc_creator_1",
+            "product": "",
+            "product_label": "Medi Lift Plus",
+            "custom_link": "",
+            "alt": ""
+          }
+        },
+        "video_QHdKic": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/e1569ac562be17901277391660b53ed37aa6371c.jpg",
+            "handle": "@gcc_creator_1",
+            "product": "",
+            "product_label": "Medi Lift Plus",
+            "custom_link": "",
+            "alt": ""
+          }
+        },
+        "video_i8RDce": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/e1569ac562be17901277391660b53ed37aa6371c.jpg",
+            "handle": "@gcc_creator_1",
+            "product": "",
+            "product_label": "Medi Lift Plus",
+            "custom_link": "",
+            "alt": ""
+          }
+        },
+        "video_Cc7WMx": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/e1569ac562be17901277391660b53ed37aa6371c.jpg",
+            "handle": "@gcc_creator_1",
+            "product": "",
+            "product_label": "Medi Lift Plus",
+            "custom_link": "",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_1",
+        "video_QHdKic",
+        "video_i8RDce",
+        "video_Cc7WMx"
+      ],
+      "name": "YAMAN Videos",
+      "settings": {
+        "heading": "Discover Your Glow with YAMAN",
+        "button_label": "SHOP THEIR ROUTINE →",
+        "button_link": "",
+        "background_color": "#ffffff",
+        "container_max_width": 1310,
+        "container_padding": 20,
+        "cols_dk": "4",
+        "cols_tb": "2",
+        "card_width_mb": 82,
+        "card_radius": 20,
+        "gap": 20,
+        "gap_mb": 14,
+        "enable_arrows": false,
+        "hide_arrows_mobile": true,
+        "enable_dots": false,
+        "hide_dots_mobile": true,
+        "loop": false,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "video_loop": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mb": 30,
+        "padding_bottom_mb": 30
+      }
+    },
+    "yaman_reviews": {
+      "type": "testimonial_section-n",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "product_image": "shopify://shop_images/hearicon.png",
+            "product_title": "Medi Lift Plus",
+            "stars": 5,
+            "title": "\"This is by far the best one!\"",
+            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
+            "reviewer": "Sitora",
+            "location": "Riyadh",
+            "usage": "8 weeks of use",
+            "button_label": "Medi Lift Plus →",
+            "button_link": "",
+            "product_link": "",
+            "alt": ""
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "product_image": "shopify://shop_images/hearicon.png",
+            "product_title": "Medi Lift Plus",
+            "stars": 5,
+            "title": "\"This is by far the best one!\"",
+            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
+            "reviewer": "Sitora",
+            "location": "Riyadh",
+            "usage": "8 weeks of use",
+            "button_label": "Medi Lift Plus →",
+            "button_link": "",
+            "product_link": "",
+            "alt": ""
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "product_image": "shopify://shop_images/hearicon.png",
+            "product_title": "Medi Lift Plus",
+            "stars": 5,
+            "title": "\"This is by far the best one!\"",
+            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
+            "reviewer": "Sitora",
+            "location": "Riyadh",
+            "usage": "8 weeks of use",
+            "button_label": "Medi Lift Plus →",
+            "button_link": "",
+            "product_link": "",
+            "alt": ""
+          }
+        },
+        "review_GQyjxc": {
+          "type": "review",
+          "settings": {
+            "product_image": "shopify://shop_images/hearicon.png",
+            "product_title": "Medi Lift Plus",
+            "stars": 5,
+            "title": "\"This is by far the best one!\"",
+            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
+            "reviewer": "Sitora",
+            "location": "Riyadh",
+            "usage": "8 weeks of use",
+            "button_label": "Medi Lift Plus →",
+            "button_link": "",
+            "product_link": "",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_GQyjxc"
+      ],
+      "settings": {
+        "show_summary": true,
+        "rating_value": "4.8",
+        "summary_stars": 5,
+        "review_count": "347 verified reviews",
+        "background_color": "#ffffff",
+        "card_background": "#fbf5e9",
+        "star_color": "#f5b301",
+        "container_max_width": 1360,
+        "container_padding": 15,
+        "card_radius": 16,
+        "card_min_width": 360,
+        "mobile_peek": 85,
+        "gap": 24,
+        "gap_mb": 16,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "loop": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mb": 36,
+        "padding_bottom_mb": 36
+      }
+    },
+    "yaman_choose": {
+      "type": "featured-collection-choose-n",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "product": "medi-lift-plus",
+            "pill": "LIFT & FIRM",
+            "image": "shopify://shop_images/Medi_Lift_Plus.png",
+            "image_alt": "",
+            "title": "Medi Lift Plus",
+            "description": "Hands-free EMS device that lifts and firms the lower face.",
+            "benefits_value": "Lifting & jawline definition",
+            "time_value": "10 min / day",
+            "ideal_value": "Ages 25-35",
+            "button_label": "VIEW DETAILS",
+            "button_link": "shopify://products/medi-lift-plus"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "product": "liftlogy-sp-the-new-technology-مجموعة-شد-الوجه-الرقبة-و-أجزاء-الجسم",
+            "pill": "CONTOUR & SCULPT",
+            "image": "shopify://shop_images/Image_LIFTOLOGY_SP.png",
+            "image_alt": "",
+            "title": "LIFTOLOGY SP",
+            "description": "EMS + microcurrent for firmer, contoured skin.",
+            "benefits_value": "Firming & contouring",
+            "time_value": "1 min / side",
+            "ideal_value": "Ages 30–40",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "product": "",
+            "pill": "FULL FACIAL CARE",
+            "image": "shopify://shop_images/Image_Photo_Plus_Prestige_SP.png",
+            "image_alt": "",
+            "title": "Photo Plus Prestige SP",
+            "description": "RF + EMS + Photon for complete facial care.",
+            "benefits_value": "Full facial rejuvenation",
+            "time_value": "15 min / day",
+            "ideal_value": "All ages",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "product": "",
+            "pill": "BRIGHTEN & PORES",
+            "image": "shopify://shop_images/Image_Hydra_Bright_Skin_Set.png",
+            "image_alt": "",
+            "title": "Hydra Bright Skin Set",
+            "description": "Hydra cleanse + infusion for brighter, refined skin.",
+            "benefits_value": "Brightens & refines pores",
+            "time_value": "10 min / day",
+            "ideal_value": "All ages",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        },
+        "card_9iVVHf": {
+          "type": "card",
+          "settings": {
+            "product": "",
+            "pill": "LIFT & FIRM",
+            "image_alt": "",
+            "title": "",
+            "description": "",
+            "benefits_value": "",
+            "time_value": "",
+            "ideal_value": "",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4",
+        "card_9iVVHf"
+      ],
+      "settings": {
+        "heading": "How to Choose",
+        "subheading": "Each device is designed for a specific concern — find what your skin needs.",
+        "benefits_label": "Benefits",
+        "time_label": "Time",
+        "ideal_label": "Ideal For",
+        "col_dk": "4",
+        "col_tb": "2",
+        "card_width_mb": 82,
+        "card_gap": 24,
+        "card_gap_mb": 12,
+        "nav_ui": true,
+        "dot_ui": true,
+        "hide_nav_mobile": true,
+        "hide_dots_mobile": true,
+        "loop": false,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "bg_color": "#ffffff",
+        "container_max_width": 1280,
+        "container_padding": 15,
+        "custom_class": "",
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 56
+      }
+    },
+    "yaman_blog": {
+      "type": "blog-post-n",
+      "settings": {
+        "heading": "Discover Your Glow with YAMAN",
+        "blog": "news",
+        "limit": 6,
+        "columns": 3,
+        "col_tb": "2",
+        "date_format": "%B %d, %Y",
+        "nav_ui": true,
+        "dot_ui": false,
+        "loop": true,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "hide_controls_mobile": true,
+        "button_label": "EXPLORE ALL ARTICLES",
+        "button_link": "",
+        "button_target": false,
+        "bg_color": "#f0e9db",
+        "image_radius": 16,
+        "card_width_mb": 80,
+        "container_max_width": 1360,
+        "container_padding": 15,
+        "custom_class": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    },
     "yaman_faq": {
       "type": "accordion-n",
       "blocks": {
@@ -405,605 +1024,6 @@
         "padding_top_mb": 45,
         "padding_bottom_mb": 45
       }
-    },
-    "science_slideshow_n_mKkryb": {
-      "type": "science-slideshow-n",
-      "blocks": {
-        "science_slide_item_n_g3mjjP": {
-          "type": "_science-slide-item-n",
-          "settings": {
-            "image": "shopify://shop_images/2058bec3c1006934ca350ea6c47f107c94f31115.png",
-            "image_mb": "shopify://shop_images/Frame_1984079447.png",
-            "url": "",
-            "banner_target": false,
-            "title": "DYHP — Dynamic Hydro-Pressure",
-            "description": "Gentle suction and micro-vibration deeply cleanse pores, remove dead skin cells, and infuse active ingredients directly into the skin — leaving a visibly brighter, smoother complexion after every use.",
-            "tag_1": "DEEP CLEANSE",
-            "tag_2": "PORE REFINEMENT",
-            "tag_3": "INSTANT GLOW",
-            "used_in": "Used in: Hydra Bright Skin Set"
-          },
-          "blocks": {}
-        },
-        "science_slide_item_n_GNJriA": {
-          "type": "_science-slide-item-n",
-          "settings": {
-            "image": "shopify://shop_images/Product_Image_Container_2.png",
-            "url": "",
-            "banner_target": false,
-            "title": "EMS — Electrical Muscle Stimulation",
-            "description": "Low-frequency electrical pulses gently activate facial muscles, helping to lift, firm and tone — for a more sculpted, defined contour with continued use.",
-            "tag_1": "MUSCLE LIFTING",
-            "tag_2": "ZERO UV",
-            "tag_3": "HANDS-FREE",
-            "used_in": "Used in: Medi Lift Plus / Liftology SP"
-          },
-          "blocks": {}
-        },
-        "science_slide_item_n_nn8azb": {
-          "type": "_science-slide-item-n",
-          "settings": {
-            "image": "shopify://shop_images/Product_Image_Container_6.png",
-            "url": "",
-            "banner_target": false,
-            "title": "Radio Frequency (RF)",
-            "description": "RF energy penetrates deep into the dermis, generating controlled heat that triggers collagen and elastin production — for visibly firmer, lifted skin that improves with each session.",
-            "tag_1": "ALL SKIN LAYERS",
-            "tag_2": "COLLAGEN BOOST",
-            "tag_3": "DEEP DERMIS",
-            "used_in": "Used in: Photo Plus S+ / Liftology SP"
-          },
-          "blocks": {}
-        },
-        "science_slide_item_n_qEYQiW": {
-          "type": "_science-slide-item-n",
-          "settings": {
-            "image": "shopify://shop_images/Product_Image_Container_7.png",
-            "url": "",
-            "banner_target": false,
-            "title": "Photon LED Light Therapy",
-            "description": "Multi-wavelength LED targets different skin concerns at the cellular level — red light boosts collagen, blue light targets blemish-causing bacteria, yellow light soothes — with zero UV and zero downtime.",
-            "tag_1": "MULTI-WAVELENGTH",
-            "tag_2": "ZERO UV",
-            "tag_3": "CELLULAR RENEWAL",
-            "used_in": "Used in: Photo Plus Prestige SP"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "science_slide_item_n_g3mjjP",
-        "science_slide_item_n_GNJriA",
-        "science_slide_item_n_nn8azb",
-        "science_slide_item_n_qEYQiW"
-      ],
-      "name": "YAMAN Science",
-      "settings": {
-        "heading": "Science Behind the Glow",
-        "subheading": "46 years of Japanese R&D — engineered into every device.",
-        "card_radius": 24,
-        "overlay_opacity": 45,
-        "card_ratio_dk": 225,
-        "card_ratio_tb": 110,
-        "card_ratio_mb_lg": 100,
-        "card_ratio_mb": 65,
-        "slide_width_dk": 88,
-        "slide_width_tb": 72,
-        "slide_width_mb": 85,
-        "gap": 24,
-        "gap_mb": 28,
-        "loop": false,
-        "autoplay": 0,
-        "pauseOnHover": true,
-        "navUI": false,
-        "nav_visible": "hover",
-        "dotUI": false,
-        "pag_position": "center",
-        "pag_rounded": true,
-        "pag_space": 10,
-        "pag_mgt": 16,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mb": 30,
-        "padding_bottom_mb": 30
-      }
-    },
-    "real_results_n_NKxbg9": {
-      "type": "real-results-n",
-      "blocks": {
-        "real_result_card_n_UndzrR": {
-          "type": "_real-result-card-n",
-          "settings": {
-            "product": "مجموعة-التقشير-المثالي-hydra-bright-skin-device-lotion",
-            "before_image": "shopify://shop_images/292e10651c4f2edf235077aac0feff7cffa92600.png",
-            "after_image": "shopify://shop_images/7e583662b627d738c3535838bf897fdc23d04aa0.png",
-            "before_label": "Before",
-            "after_label": "After",
-            "before_alt": "",
-            "after_alt": "",
-            "title": "93% Firmer Skin",
-            "meta": "Reem, 42 · Dubai · 8 weeks",
-            "product_text": "Medi Lift Plus",
-            "button_label": "Shop Medi Lift Plus",
-            "button_url": "",
-            "open_new_tab": false
-          },
-          "blocks": {}
-        },
-        "real_result_card_n_HMFwp9": {
-          "type": "_real-result-card-n",
-          "settings": {
-            "product": "",
-            "before_label": "Before",
-            "after_label": "After",
-            "before_alt": "",
-            "after_alt": "",
-            "title": "89% Reduced Sagging",
-            "meta": "Noura, 38 · Riyadh · 10 weeks",
-            "product_text": "LIFTOLOGY SP",
-            "button_label": "Shop LIFTOLOGY SP",
-            "button_url": "",
-            "open_new_tab": false
-          },
-          "blocks": {}
-        },
-        "real_result_card_n_kDCWCh": {
-          "type": "_real-result-card-n",
-          "settings": {
-            "product": "",
-            "before_label": "Before",
-            "after_label": "After",
-            "before_alt": "",
-            "after_alt": "",
-            "title": "89% Reduced Sagging",
-            "meta": "Sara, 45 · Abu Dhabi · 12 weeks",
-            "product_text": "Photo Plus Prestige SP",
-            "button_label": "Shop Photo Plus SP",
-            "button_url": "",
-            "open_new_tab": false
-          },
-          "blocks": {}
-        },
-        "real_result_card_n_aqyWj6": {
-          "type": "_real-result-card-n",
-          "settings": {
-            "product": "",
-            "before_label": "Before",
-            "after_label": "After",
-            "before_alt": "",
-            "after_alt": "",
-            "title": "89% Reduced Sagging",
-            "meta": "Hessa, 36 · Kuwait · 6 weeks",
-            "product_text": "Hydra Bright Skin Set",
-            "button_label": "Shop Hydra Bright",
-            "button_url": "",
-            "open_new_tab": false
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "real_result_card_n_UndzrR",
-        "real_result_card_n_HMFwp9",
-        "real_result_card_n_kDCWCh",
-        "real_result_card_n_aqyWj6"
-      ],
-      "name": "YAMAN Results",
-      "settings": {
-        "heading": "Real Results. Clinically Proven.",
-        "subheading": "GCC women. Real devices. Zero filters.",
-        "background_color": "#f8f7f0",
-        "container_max_width": 1310,
-        "card_radius": 20,
-        "cards_dk": 4,
-        "cards_tb": 3,
-        "mobile_card_width": 45,
-        "gap": 20,
-        "gap_tb": 16,
-        "gap_mb": 12,
-        "default_position": 50,
-        "loop": false,
-        "autoplay": 0,
-        "pauseOnHover": true,
-        "navUI": false,
-        "dotUI": false,
-        "padding_top": 60,
-        "padding_bottom": 30,
-        "padding_top_mb": 50,
-        "padding_bottom_mb": 30
-      }
-    },
-    "yaman_reviews": {
-      "type": "testimonial_section-n",
-      "blocks": {
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "product_image": "shopify://shop_images/hearicon.png",
-            "product_title": "Medi Lift Plus",
-            "stars": 5,
-            "title": "\"This is by far the best one!\"",
-            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
-            "reviewer": "Sitora",
-            "location": "Riyadh",
-            "usage": "8 weeks of use",
-            "button_label": "Medi Lift Plus →",
-            "button_link": "",
-            "product_link": "",
-            "alt": ""
-          }
-        },
-        "review_2": {
-          "type": "review",
-          "settings": {
-            "product_image": "shopify://shop_images/hearicon.png",
-            "product_title": "Medi Lift Plus",
-            "stars": 5,
-            "title": "\"This is by far the best one!\"",
-            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
-            "reviewer": "Sitora",
-            "location": "Riyadh",
-            "usage": "8 weeks of use",
-            "button_label": "Medi Lift Plus →",
-            "button_link": "",
-            "product_link": "",
-            "alt": ""
-          }
-        },
-        "review_3": {
-          "type": "review",
-          "settings": {
-            "product_image": "shopify://shop_images/hearicon.png",
-            "product_title": "Medi Lift Plus",
-            "stars": 5,
-            "title": "\"This is by far the best one!\"",
-            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
-            "reviewer": "Sitora",
-            "location": "Riyadh",
-            "usage": "8 weeks of use",
-            "button_label": "Medi Lift Plus →",
-            "button_link": "",
-            "product_link": "",
-            "alt": ""
-          }
-        },
-        "review_GQyjxc": {
-          "type": "review",
-          "settings": {
-            "product_image": "shopify://shop_images/hearicon.png",
-            "product_title": "Medi Lift Plus",
-            "stars": 5,
-            "title": "\"This is by far the best one!\"",
-            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
-            "reviewer": "Sitora",
-            "location": "Riyadh",
-            "usage": "8 weeks of use",
-            "button_label": "Medi Lift Plus →",
-            "button_link": "",
-            "product_link": "",
-            "alt": ""
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2",
-        "review_3",
-        "review_GQyjxc"
-      ],
-      "settings": {
-        "show_summary": true,
-        "rating_value": "4.8",
-        "summary_stars": 5,
-        "review_count": "347 verified reviews",
-        "background_color": "#ffffff",
-        "card_background": "#fbf5e9",
-        "star_color": "#f5b301",
-        "container_max_width": 1360,
-        "container_padding": 15,
-        "card_radius": 16,
-        "card_min_width": 360,
-        "mobile_peek": 85,
-        "gap": 24,
-        "gap_mb": 16,
-        "autoplay": false,
-        "autoplay_speed": 5,
-        "loop": false,
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "padding_top_mb": 36,
-        "padding_bottom_mb": 36
-      }
-    },
-    "featured_collection_n_XtP7LF": {
-      "type": "featured-collection-n2",
-      "name": "YAMAN Sets",
-      "settings": {
-        "heading": "The 4 YAMAN Sets",
-        "subtitle": "Each package is built around a device already paired with the right serum for your concern.",
-        "collection": "اجهزة-يامان",
-        "products_count": 4,
-        "most_popular": "2",
-        "popular_badge": "★ MOST POPULAR",
-        "tag_prefix": "set_label:",
-        "installment_prefix": "or",
-        "installment_suffix": "/mo × 4 with Tabby",
-        "show_saving": true,
-        "saving_prefix": "Save",
-        "button_label": "SHOP NOW",
-        "view_all_label": "VIEW ALL DEVICES",
-        "view_all_link": "",
-        "card_background": "#ffffff",
-        "popular_background": "#f7eee1",
-        "popular_border": "#c9a86a",
-        "button_bg": "#0d0d0d",
-        "button_text": "#ffffff",
-        "saving_bg": "#d6f0dc",
-        "saving_text": "#1b7a3d",
-        "container_max_width": 1360,
-        "container_padding": 15,
-        "mobile_peek": 80,
-        "gap": 20,
-        "gap_mb": 14,
-        "autoplay": false,
-        "autoplay_speed": 5,
-        "loop": false,
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "padding_top_mb": 36,
-        "padding_bottom_mb": 36
-      }
-    },
-    "yaman_blog": {
-      "type": "blog-post-n",
-      "settings": {
-        "heading": "Discover Your Glow with YAMAN",
-        "blog": "news",
-        "limit": 6,
-        "columns": 3,
-        "col_tb": "2",
-        "date_format": "%B %d, %Y",
-        "nav_ui": true,
-        "dot_ui": false,
-        "loop": true,
-        "autoplay": 0,
-        "pause_on_hover": true,
-        "hide_controls_mobile": true,
-        "button_label": "EXPLORE ALL ARTICLES",
-        "button_link": "",
-        "button_target": false,
-        "bg_color": "#f0e9db",
-        "image_radius": 16,
-        "card_width_mb": 80,
-        "container_max_width": 1360,
-        "container_padding": 15,
-        "custom_class": "",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "padding_top_mb": 48,
-        "padding_bottom_mb": 48
-      }
-    },
-    "yaman_routine": {
-      "type": "featured-collection-n",
-      "settings": {
-        "badge_text": "SKINCARE",
-        "heading": "Complete Your Routine",
-        "subheading": "Treatment serums formulated to work in perfect synergy with YAMAN devices — amplifying every session for visible results.",
-        "collection": "اجهزة-يامان",
-        "limit": 12,
-        "show_vendor": true,
-        "image_ratio": "square",
-        "col_dk": "3",
-        "col_tb": "2",
-        "card_width_mb": 80,
-        "nav_ui": true,
-        "dot_ui": false,
-        "loop": true,
-        "autoplay": 0,
-        "pause_on_hover": true,
-        "hide_controls_mobile": true,
-        "button_label": "VIEW ALL DEVICES",
-        "button_link": "",
-        "button_target": false,
-        "bg_color": "#faf7f0",
-        "badge_bg": "#e3efe7",
-        "badge_color": "#2f6b4f",
-        "card_bg": "#ffffff",
-        "card_border": "#ece7dc",
-        "image_radius": 16,
-        "container_max_width": 1200,
-        "container_padding": 15,
-        "custom_class": "",
-        "padding_top": 90,
-        "padding_bottom": 90,
-        "padding_top_mb": 56,
-        "padding_bottom_mb": 56
-      }
-    },
-    "yaman_choose": {
-      "type": "featured-collection-choose-n",
-      "blocks": {
-        "card_1": {
-          "type": "card",
-          "settings": {
-            "product": "medi-lift-plus",
-            "pill": "LIFT & FIRM",
-            "image": "shopify://shop_images/Medi_Lift_Plus.png",
-            "image_alt": "",
-            "title": "Medi Lift Plus",
-            "description": "Hands-free EMS device that lifts and firms the lower face.",
-            "benefits_value": "Lifting & jawline definition",
-            "time_value": "10 min / day",
-            "ideal_value": "Ages 25-35",
-            "button_label": "VIEW DETAILS",
-            "button_link": "shopify://products/medi-lift-plus"
-          }
-        },
-        "card_2": {
-          "type": "card",
-          "settings": {
-            "product": "liftlogy-sp-the-new-technology-مجموعة-شد-الوجه-الرقبة-و-أجزاء-الجسم",
-            "pill": "CONTOUR & SCULPT",
-            "image": "shopify://shop_images/Image_LIFTOLOGY_SP.png",
-            "image_alt": "",
-            "title": "LIFTOLOGY SP",
-            "description": "EMS + microcurrent for firmer, contoured skin.",
-            "benefits_value": "Firming & contouring",
-            "time_value": "1 min / side",
-            "ideal_value": "Ages 30–40",
-            "button_label": "VIEW DETAILS",
-            "button_link": ""
-          }
-        },
-        "card_3": {
-          "type": "card",
-          "settings": {
-            "product": "",
-            "pill": "FULL FACIAL CARE",
-            "image": "shopify://shop_images/Image_Photo_Plus_Prestige_SP.png",
-            "image_alt": "",
-            "title": "Photo Plus Prestige SP",
-            "description": "RF + EMS + Photon for complete facial care.",
-            "benefits_value": "Full facial rejuvenation",
-            "time_value": "15 min / day",
-            "ideal_value": "All ages",
-            "button_label": "VIEW DETAILS",
-            "button_link": ""
-          }
-        },
-        "card_4": {
-          "type": "card",
-          "settings": {
-            "product": "",
-            "pill": "BRIGHTEN & PORES",
-            "image": "shopify://shop_images/Image_Hydra_Bright_Skin_Set.png",
-            "image_alt": "",
-            "title": "Hydra Bright Skin Set",
-            "description": "Hydra cleanse + infusion for brighter, refined skin.",
-            "benefits_value": "Brightens & refines pores",
-            "time_value": "10 min / day",
-            "ideal_value": "All ages",
-            "button_label": "VIEW DETAILS",
-            "button_link": ""
-          }
-        },
-        "card_9iVVHf": {
-          "type": "card",
-          "settings": {
-            "product": "",
-            "pill": "LIFT & FIRM",
-            "image_alt": "",
-            "title": "",
-            "description": "",
-            "benefits_value": "",
-            "time_value": "",
-            "ideal_value": "",
-            "button_label": "VIEW DETAILS",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "card_1",
-        "card_2",
-        "card_3",
-        "card_4",
-        "card_9iVVHf"
-      ],
-      "settings": {
-        "heading": "How to Choose",
-        "subheading": "Each device is designed for a specific concern — find what your skin needs.",
-        "benefits_label": "Benefits",
-        "time_label": "Time",
-        "ideal_label": "Ideal For",
-        "col_dk": "4",
-        "col_tb": "2",
-        "card_width_mb": 82,
-        "card_gap": 24,
-        "card_gap_mb": 12,
-        "nav_ui": true,
-        "dot_ui": true,
-        "hide_nav_mobile": true,
-        "hide_dots_mobile": true,
-        "loop": false,
-        "autoplay": 0,
-        "pause_on_hover": true,
-        "bg_color": "#ffffff",
-        "container_max_width": 1280,
-        "container_padding": 15,
-        "custom_class": "",
-        "padding_top": 90,
-        "padding_bottom": 90,
-        "padding_top_mb": 56,
-        "padding_bottom_mb": 56
-      }
-    },
-    "yaman_videos": {
-      "type": "shoppable-video-n",
-      "blocks": {
-        "video_1": {
-          "type": "video",
-          "settings": {
-            "handle": "@gcc_creator_1",
-            "product_label": "Medi Lift Plus"
-          }
-        },
-        "video_2": {
-          "type": "video",
-          "settings": {
-            "handle": "@gcc_creator_2",
-            "product_label": "Medi Lift Plus"
-          }
-        },
-        "video_3": {
-          "type": "video",
-          "settings": {
-            "handle": "@gcc_creator_3",
-            "product_label": "Medi Lift Plus"
-          }
-        },
-        "video_4": {
-          "type": "video",
-          "settings": {
-            "handle": "@gcc_creator_4",
-            "product_label": "Medi Lift Plus"
-          }
-        }
-      },
-      "block_order": [
-        "video_1",
-        "video_2",
-        "video_3",
-        "video_4"
-      ],
-      "name": "YAMAN Videos",
-      "settings": {
-        "heading": "Discover Your Glow with YAMAN",
-        "button_label": "SHOP THEIR ROUTINE →",
-        "button_link": "",
-        "background_color": "#ffffff",
-        "container_max_width": 1310,
-        "container_padding": 20,
-        "cols_dk": "4",
-        "cols_tb": "2",
-        "card_width_mb": 82,
-        "card_radius": 20,
-        "gap": 20,
-        "gap_mb": 14,
-        "enable_arrows": false,
-        "hide_arrows_mobile": true,
-        "enable_dots": false,
-        "hide_dots_mobile": true,
-        "loop": false,
-        "autoplay": 0,
-        "pause_on_hover": true,
-        "video_loop": true,
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "padding_top_mb": 36,
-        "padding_bottom_mb": 36
-      }
     }
   },
   "order": [
@@ -1014,11 +1034,11 @@
     "featured_collection_n_XtP7LF",
     "yaman_routine",
     "science_slideshow_n_mKkryb",
+    "yaman_videos",
     "yaman_reviews",
     "yaman_choose",
     "yaman_blog",
     "yaman_faq",
-    "yaman_videos",
     "custom_section_n_nnAQQB"
   ]
 }
