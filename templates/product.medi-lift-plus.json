@@ -653,10 +653,45 @@
         "autoplay": 0,
         "pause_on_hover": true,
         "video_loop": true,
-        "padding_top": 65,
+        "padding_top": 64,
         "padding_bottom": 46,
         "padding_top_mb": 40,
         "padding_bottom_mb": 32
+      }
+    },
+    "yaman_steps": {
+      "type": "yaman-routine-steps-n",
+      "blocks": {
+        "step_1": { "type": "step", "settings": { "number": "01", "title": "Cleanse", "time": "2 MIN", "description": "Start with a clean, dry face. Skin contact ensures optimal conductivity for every session." } },
+        "step_2": { "type": "step", "settings": { "number": "02", "title": "Lift", "time": "6 MIN", "description": "Apply a generous layer of YĀMAN Lifting Gel. Glide the device upward along jaw, cheek, and brow — RF + EMS active." } },
+        "step_3": { "type": "step", "settings": { "number": "03", "title": "Sculpt", "time": "3 MIN", "description": "Switch to sculpt mode for under-eye and forehead detail work. Target fine lines and hollows." } },
+        "step_4": { "type": "step", "settings": { "number": "04", "title": "Glow", "time": "1 MIN", "description": "Finish with Photon LED to support cellular renewal and skin radiance overnight." } }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4"
+      ],
+      "name": "YAMAN Steps",
+      "settings": {
+        "eyebrow": "YOUR 12-MINUTE ROUTINE",
+        "heading": "Four steps to lifted, sculpted skin.",
+        "subtitle": "Designed to fit your morning without interruption.",
+        "background_color": "#faf6f0",
+        "heading_color": "#1d2847",
+        "accent_color": "#d4b87a",
+        "overlay_opacity": 60,
+        "container_max_width": 1310,
+        "container_padding": 20,
+        "cols_dk": "4",
+        "card_radius": 12,
+        "gap": 24,
+        "gap_mb": 14,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
       }
     }
   },
@@ -664,6 +699,7 @@
     "breadcrumb",
     "main-product",
     "yaman_ugc",
+    "yaman_steps",
     "tabs",
     "sidebar",
     "featured_collection_choose_n_Npyxxm",

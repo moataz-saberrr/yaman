@@ -419,6 +419,9 @@
   .hdt-yaman-ugc-section .hdt-yaman-ugc__slider {
     --slide-size: min(calc(100% / var(--ug-cols-tb, 2)), 340px);
   }
+  .hdt-yaman-ugc__container{
+    padding-inline-end: 0 !important;
+  }
 }
 
 /* Mobile --------------------------------------------------------------------*/
@@ -442,5 +445,192 @@
   .hdt-yaman-ugc-section .hdt-yaman-ugc__slider {
     --slide-spacing: var(--ug-gap-mb, 14px);
     --slide-size: min(var(--ug-card-mb, 82%), 320px);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+ * YAMAN Steps — "Four steps to lifted, sculpted skin." (product page)
+ * Section: sections/yaman-routine-steps-n.liquid   (scope: .hdt-yaman-steps-section)
+ * Centred header + responsive grid (4-across desktop, 2x2 mobile). No carousel.
+ * -------------------------------------------------------------------------- */
+
+.hdt-yaman-steps-section .hdt-yaman-steps {
+  background: var(--st-bg, #faf6f0);
+  padding-top: var(--st-pt, 80px);
+  padding-bottom: var(--st-pb, 80px);
+}
+
+.hdt-yaman-steps-section .hdt-yaman-steps__container {
+  max-width: var(--st-maxw, 1310px);
+  margin: 0 auto;
+  padding-left: var(--st-pad-x, 20px);
+  padding-right: var(--st-pad-x, 20px);
+}
+
+/* Header (centred) ----------------------------------------------------------*/
+.hdt-yaman-steps-section .hdt-yaman-steps__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--st-heading, #1d2847);
+  margin-bottom: 10px;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__icon img,
+.hdt-yaman-steps-section .hdt-yaman-steps__icon svg {
+  display: block;
+  height: auto;
+  max-height: 30px;
+  width: auto;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__eyebrow {
+  margin: 0 0 8px;
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--st-heading, #1d2847);
+  opacity: 0.85;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__heading {
+  margin: 0 0 8px;
+  font-size: 44px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--st-heading, #1d2847);
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__text {
+  margin: 0;
+  max-width: 520px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--st-heading, #1d2847);
+}
+
+/* Grid ----------------------------------------------------------------------*/
+.hdt-yaman-steps-section .hdt-yaman-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--st-cols, 4), minmax(0, 1fr));
+  gap: var(--st-gap, 24px);
+}
+
+/* Card ----------------------------------------------------------------------*/
+.hdt-yaman-steps-section .hdt-yaman-steps__card {
+  position: relative;
+  display: flex;
+  min-height: 320px;
+  border-radius: var(--st-radius, 12px);
+  overflow: hidden;
+  border: 0.5px solid rgba(126, 126, 126, 0.6);
+  box-shadow: 0 1px 11px rgba(0, 0, 0, 0.12);
+  isolation: isolate;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__image,
+.hdt-yaman-steps-section .hdt-yaman-steps__image img,
+.hdt-yaman-steps-section .hdt-yaman-steps__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__placeholder {
+  background: linear-gradient(135deg, #2a2f3a 0%, #4a4036 100%);
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top,
+    rgba(0, 0, 0, var(--st-ov, 0.6)) 30%,
+    rgba(0, 0, 0, calc(var(--st-ov, 0.6) * 0.35)) 70%,
+    rgba(0, 0, 0, 0.04) 100%);
+}
+
+/* Card content --------------------------------------------------------------*/
+.hdt-yaman-steps-section .hdt-yaman-steps__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 28px;
+  color: #fff;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__number {
+  font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  font-size: 58px;
+  line-height: 1;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__body {
+  margin-top: auto;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__title {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #fff;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__description {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__time {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 1.32px;
+  text-transform: uppercase;
+  color: var(--st-accent, #d4b87a);
+}
+
+/* Tablet & mobile: 2 x 2 grid ----------------------------------------------*/
+@media (max-width: 1149px) {
+  .hdt-yaman-steps-section .hdt-yaman-steps__heading {
+    font-size: 34px;
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .hdt-yaman-steps-section .hdt-yaman-steps {
+    padding-top: var(--st-pt-mb, 48px);
+    padding-bottom: var(--st-pb-mb, 48px);
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__heading {
+    font-size: 26px;
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__grid {
+    gap: var(--st-gap-mb, 14px);
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__card {
+    min-height: 260px;
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__content {
+    padding: 18px;
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__number {
+    font-size: 46px;
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__title {
+    font-size: 20px;
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__description {
+    font-size: 12px;
   }
 }
