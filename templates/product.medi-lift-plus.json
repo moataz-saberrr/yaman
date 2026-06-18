@@ -422,6 +422,28 @@
         "pd_mb": "40px,,50px,"
       }
     },
+    "final_cta": {
+      "type": "product-final-cta-n",
+      "settings": {
+        "eyebrow": "STILL DECIDING?",
+        "heading": "Try Real Lift Plus risk-free\nfor 60 days",
+        "subheading": "Free express shipping · Free returns · 2-year warranty · Klarna available.",
+        "atc_label": "ADD TO BAG",
+        "select_label": "SELECT OPTIONS",
+        "soldout_label": "SOLD OUT",
+        "consult_label": "BOOK A 1-ON-1 CONSULT",
+        "consult_url": "shopify://pages/contact",
+        "background_color": "#070707",
+        "text_color": "#ffffff",
+        "cart_bg": "#ffffff",
+        "cart_text": "#070707",
+        "container_max_width": 640,
+        "padding_top": 65,
+        "padding_bottom": 65,
+        "padding_top_mb": 50,
+        "padding_bottom_mb": 50
+      }
+    },
     "tabs": {
       "type": "main-product-tabs",
       "blocks": {
@@ -621,28 +643,6 @@
         "pd": ",,50px,",
         "pd_mb": ",,40px,"
       }
-    },
-    "final_cta": {
-      "type": "product-final-cta-n",
-      "settings": {
-        "eyebrow": "STILL DECIDING?",
-        "heading": "Try Real Lift Plus risk-free\nfor 60 days",
-        "subheading": "Free express shipping · Free returns · 2-year warranty · Klarna available.",
-        "atc_label": "ADD TO BAG",
-        "select_label": "SELECT OPTIONS",
-        "soldout_label": "SOLD OUT",
-        "consult_label": "BOOK A 1-ON-1 CONSULT",
-        "consult_url": "",
-        "background_color": "#070707",
-        "text_color": "#ffffff",
-        "cart_bg": "#ffffff",
-        "cart_text": "#070707",
-        "container_max_width": 640,
-        "padding_top": 65,
-        "padding_bottom": 65,
-        "padding_top_mb": 50,
-        "padding_bottom_mb": 50
-      }
     }
   },
   "order": [
@@ -650,10 +650,10 @@
     "main-product",
     "visible_lift",
     "accordion_n_LCGQQD",
+    "final_cta",
     "tabs",
     "sidebar",
     "related-products",
-    "recently-products",
-    "final_cta"
+    "recently-products"
   ]
 }
