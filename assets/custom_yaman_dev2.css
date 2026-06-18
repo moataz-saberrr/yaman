@@ -106,6 +106,22 @@
 
 /* Product css  */
 .product{
+  .hdt-section-brc-nav-product .hdt-section-spacing{
+    border-bottom: 1px solid #0D1B2A1A;
+    padding-inline-start: 120px !important;
+    @media (max-width: 767px) {
+      padding-inline-start: 0px !important;
+      .hdt-breadcrumb__list{
+        justify-content: center;
+      }
+    }
+  }
+  .hdt-sticky-atc__product-monney{
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+  }
   .hdt-section--feature-product{
     [class^="hdt-secion-main-product"]{
       @media (max-width: 767px) {
@@ -121,7 +137,7 @@
         align-items: stretch;
       }
     }
-    .hdt-compare-at-price:not([hidden])+.hdt-price:not(.hdt-price-item--range){
+    .hdt-price{
       font-family: var(--font-secondary);
       font-weight: 400;
       font-size: 32px;
