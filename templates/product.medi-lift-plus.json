@@ -779,12 +779,95 @@
         "pd": ",,50px,",
         "pd_mb": ",,40px,"
       }
+    },
+    "yaman_modes": {
+      "type": "yaman-device-modes-n",
+      "blocks": {
+        "mode_1": { "type": "mode", "settings": { "title": "CLEAN", "description": "Deep ION Cleaning", "accent_color": "#3b82f6" } },
+        "mode_2": { "type": "mode", "settings": { "title": "NEB", "description": "Deep Skin Care", "accent_color": "#f5a623" } },
+        "mode_3": { "type": "mode", "settings": { "title": "EMS UP", "description": "Facial Muscle Care", "accent_color": "#ef4444" } },
+        "mode_4": { "type": "mode", "settings": { "title": "COOL", "description": "Cooling & Firming skin care", "accent_color": "#cfe8ff" } },
+        "mode_5": { "type": "mode", "settings": { "title": "EYE CARE", "description": "Eye Area Care", "accent_color": "#ffffff" } }
+      },
+      "block_order": [
+        "mode_1",
+        "mode_2",
+        "mode_3",
+        "mode_4",
+        "mode_5"
+      ],
+      "name": "YAMAN Modes",
+      "settings": {
+        "top_icon_text": "MODE",
+        "eyebrow": "SOLUTION FOR EVERY PROBLEM",
+        "heading": "Different Mode. One Device.",
+        "subtitle": "Designed to solve all your skin problems.",
+        "background_color": "#faf6f0",
+        "panel_color": "#1d2847",
+        "heading_color": "#1d2847",
+        "container_max_width": 1310,
+        "panel_max_width": 1190,
+        "container_padding": 20,
+        "panel_padding": 36,
+        "panel_padding_mb": 24,
+        "gap": 28,
+        "gap_mb": 24,
+        "padding_top": 86,
+        "padding_bottom": 80,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    },
+    "yaman_compare": {
+      "type": "yaman-comparison-table-n",
+      "blocks": {
+        "row_1": { "type": "row", "settings": { "left_text": "One-time investment", "right_text": "180$ - 400$ per session" } },
+        "row_2": { "type": "row", "settings": { "left_text": "12-minutes daily ritual", "right_text": "Travel & appointment time" } },
+        "row_3": { "type": "row", "settings": { "left_text": "use at home, anytime", "right_text": "Recurring monthly cost" } },
+        "row_4": { "type": "row", "settings": { "left_text": "No downtime", "right_text": "Possible downtime" } },
+        "row_5": { "type": "row", "settings": { "left_text": "Visible results in weeks", "right_text": "Results fade over time" } }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5"
+      ],
+      "name": "YAMAN Compare",
+      "settings": {
+        "overlay_color": "#1d2847",
+        "overlay_opacity": 57,
+        "eyebrow": "CLINIC RESULTS AT HOME",
+        "heading": "Professional lifting results, without the monthly appointments",
+        "left_title": "REAL LIFT PLUS",
+        "right_title": "CLINIC TREATMENTS",
+        "vs_label": "VS",
+        "panel_color": "#d9d9d9",
+        "panel_right_color": "#1d2847",
+        "panel_border_color": "#ffffff",
+        "left_text_color": "#1d2847",
+        "right_text_color": "#d4b87a",
+        "vs_bg": "#d4b87a",
+        "vs_text": "#ffffff",
+        "mobile_layout": "auto",
+        "container_max_width": 1310,
+        "table_max_width": 707,
+        "text_max_width": 420,
+        "container_padding": 40,
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "padding_top_mb": 44,
+        "padding_bottom_mb": 44
+      }
     }
   },
   "order": [
     "breadcrumb",
     "main-product",
     "yaman_steps",
+    "yaman_modes",
+    "yaman_compare",
     "yaman_ugc",
     "tabs",
     "sidebar",

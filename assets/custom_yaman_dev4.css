@@ -634,3 +634,512 @@
     font-size: 12px;
   }
 }
+
+/* ----------------------------------------------------------------------------
+ * YAMAN Modes — "Different Mode. One Device." (product page)
+ * Section: sections/yaman-device-modes-n.liquid   (scope: .hdt-yaman-modes-section)
+ * Centred header + dark navy rounded panel with a responsive grid of mode items
+ * (5-across desktop, 3 tablet, 2 mobile). No carousel.
+ * -------------------------------------------------------------------------- */
+
+.hdt-yaman-modes-section .hdt-yaman-modes {
+  background: var(--md-bg, #faf6f0);
+  padding-top: var(--md-pt, 86px);
+  padding-bottom: var(--md-pb, 80px);
+}
+
+.hdt-yaman-modes-section .hdt-yaman-modes__container {
+  max-width: var(--md-maxw, 1310px);
+  margin: 0 auto;
+  padding-left: var(--md-pad-x, 20px);
+  padding-right: var(--md-pad-x, 20px);
+}
+
+/* Header (centred) ----------------------------------------------------------*/
+.hdt-yaman-modes-section .hdt-yaman-modes__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 28px;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__top-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  color: var(--md-heading, #1d2847);
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__top-icon img {
+  display: block;
+  height: auto;
+  max-height: 26px;
+  width: auto;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__eyebrow {
+  margin: 0 0 8px;
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--md-heading, #1d2847);
+  opacity: 0.85;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__heading {
+  margin: 0 0 8px;
+  font-size: 44px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--md-heading, #1d2847);
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__text {
+  margin: 0;
+  max-width: 520px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--md-heading, #1d2847);
+}
+
+/* Dark navy panel -----------------------------------------------------------*/
+.hdt-yaman-modes-section .hdt-yaman-modes__panel {
+  max-width: var(--md-panel-maxw, 1190px);
+  margin: 0 auto;
+  background: var(--md-panel, #1d2847);
+  border-radius: 15px;
+  padding: var(--md-panel-pad, 36px);
+}
+
+/* Grid: one row on desktop (capped at 5 columns) ---------------------------*/
+.hdt-yaman-modes-section .hdt-yaman-modes__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--md-cols, 5), minmax(0, 1fr));
+  gap: var(--md-gap, 28px);
+  align-items: start;
+}
+
+/* Item: improved icon + (title/description) flex layout --------------------*/
+.hdt-yaman-modes-section .hdt-yaman-modes__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  text-decoration: none;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__item--link {
+  transition: transform 0.2s ease;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__item--link:hover {
+  transform: translateY(-2px);
+}
+
+/* Glowing circular icon -----------------------------------------------------*/
+.hdt-yaman-modes-section .hdt-yaman-modes__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(255, 255, 255, 0.20) 0%,
+      rgba(255, 255, 255, 0.07) 48%,
+      rgba(255, 255, 255, 0) 72%);
+}
+/* Soft outer halo ring. */
+.hdt-yaman-modes-section .hdt-yaman-modes__icon::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.25);
+}
+/* Fallback colored core dot (when no icon image). */
+.hdt-yaman-modes-section .hdt-yaman-modes__icon-core {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--md-accent, #7fb2ff);
+  box-shadow: 0 0 10px 2px var(--md-accent, #7fb2ff), 0 0 18px rgba(255, 255, 255, 0.3);
+}
+/* Uploaded icon image (centered inside the glow). */
+.hdt-yaman-modes-section .hdt-yaman-modes__icon-img {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* Text content --------------------------------------------------------------*/
+.hdt-yaman-modes-section .hdt-yaman-modes__content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__title {
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__description {
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Tablet: 3 columns ---------------------------------------------------------*/
+@media (max-width: 1149px) {
+  .hdt-yaman-modes-section .hdt-yaman-modes__heading {
+    font-size: 34px;
+  }
+  .hdt-yaman-modes-section .hdt-yaman-modes__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--md-gap-mb, 24px);
+  }
+}
+
+/* Mobile: 2 columns ---------------------------------------------------------*/
+@media (max-width: 767px) {
+  .hdt-yaman-modes-section .hdt-yaman-modes {
+    padding-top: var(--md-pt-mb, 48px);
+    padding-bottom: var(--md-pb-mb, 48px);
+  }
+  .hdt-yaman-modes-section .hdt-yaman-modes__heading {
+    font-size: 26px;
+  }
+  .hdt-yaman-modes-section .hdt-yaman-modes__panel {
+    padding: var(--md-panel-pad-mb, 24px);
+  }
+  .hdt-yaman-modes-section .hdt-yaman-modes__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Very narrow: 1 column -----------------------------------------------------*/
+@media (max-width: 380px) {
+  .hdt-yaman-modes-section .hdt-yaman-modes__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+ * YAMAN Compare — text + glass comparison table (product page)
+ * Section: sections/yaman-comparison-table-n.liquid  (scope: .hdt-yaman-compare-section)
+ * Full-width bg image + dark overlay, left text, right glass 2-column table + VS badge.
+ * Mobile modes: auto (compact 2-col), stacked (row cards), scroll (horizontal).
+ * -------------------------------------------------------------------------- */
+
+.hdt-yaman-compare-section .hdt-yaman-compare {
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--cmp-pt, 70px);
+  padding-bottom: var(--cmp-pb, 70px);
+  background: #1d2847; /* fallback if no image */
+}
+
+/* Background image + overlay -------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__bg,
+.hdt-yaman-compare-section .hdt-yaman-compare__bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--cmp-overlay, #1d2847);
+  opacity: var(--cmp-overlay-op, 0.57);
+}
+
+/* Container ------------------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__container {
+  position: relative;
+  z-index: 1;
+  max-width: var(--cmp-maxw, 1310px);
+  margin: 0 auto;
+  padding-left: var(--cmp-pad-x, 40px);
+  padding-right: var(--cmp-pad-x, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  min-height: 420px;
+}
+
+/* Left text block -----------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__content {
+  flex: 1 1 auto;
+  max-width: var(--cmp-textw, 420px);
+  color: #fff;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__eyebrow {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 4.5px;
+  text-transform: uppercase;
+  color: var(--cmp-right, #d4b87a);
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__heading {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.05;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Glass table ---------------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__table-wrap {
+  position: relative;
+  flex: 0 1 var(--cmp-tablew, 707px);
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-color: color-mix(in srgb, var(--cmp-border, #fff) 60%, transparent);
+  background: rgba(217, 217, 217, 0.5);
+  background: color-mix(in srgb, var(--cmp-panel, #d9d9d9) 50%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__panel-right { display: none; }
+
+.hdt-yaman-compare-section .hdt-yaman-compare__head,
+.hdt-yaman-compare-section .hdt-yaman-compare__row {
+  display: flex;
+  align-items: stretch;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header,
+.hdt-yaman-compare-section .hdt-yaman-compare__cell {
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+/* Column headers (icon above title, centred) -------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 22px 20px 16px;
+  text-align: center;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__col-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__col-icon img {
+  width: 61px;
+  height: 61px;
+  object-fit: contain;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__col-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Right column dark strip (header + cells) ---------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header--right,
+.hdt-yaman-compare-section .hdt-yaman-compare__cell--right {
+  background: rgba(29, 40, 71, 0.41);
+  background: color-mix(in srgb, var(--cmp-panel-right, #1d2847) 41%, transparent);
+}
+
+/* Left column colors --------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header--left .hdt-yaman-compare__col-title,
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header--left .hdt-yaman-compare__col-icon {
+  color: #fff;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__cell--left .hdt-yaman-compare__text {
+  color: var(--cmp-left, #1d2847);
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__cell--left .hdt-yaman-compare__icon {
+  color: #fff;
+}
+
+/* Right column colors -------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header--right .hdt-yaman-compare__col-title,
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header--right .hdt-yaman-compare__col-icon,
+.hdt-yaman-compare-section .hdt-yaman-compare__cell--right .hdt-yaman-compare__text
+ {
+  color: var(--cmp-right, #d4b87a);
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__cell--right .hdt-yaman-compare__icon{
+   color: #fff;
+}
+
+/* Rows / cells --------------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 46px;
+  min-height: 52px;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__row.is-highlight .hdt-yaman-compare__cell {
+  background: rgba(212, 184, 122, 0.14);
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__text {
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__cell-label {
+  display: none; /* shown only in stacked mobile mode */
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  width: 100%;
+}
+
+/* VS badge ------------------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__vs {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--cmp-vs-bg, #d4b87a);
+  color: var(--cmp-vs-text, #fff);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Tablet: stack text above table -------------------------------------------*/
+@media (max-width: 1149px) {
+  .hdt-yaman-compare-section .hdt-yaman-compare__container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__content {
+    max-width: none;
+    text-align: center;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__table-wrap {
+    flex: none;
+    max-width: var(--cmp-tablew, 707px);
+    margin: 0 auto;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__heading {
+    font-size: 32px;
+  }
+}
+
+/* Mobile base ---------------------------------------------------------------*/
+@media (max-width: 767px) {
+  .hdt-yaman-compare-section .hdt-yaman-compare {
+    padding-top: var(--cmp-pt-mb, 44px);
+    padding-bottom: var(--cmp-pb-mb, 44px);
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__container {
+    padding-left: 16px;
+    padding-right: 16px;
+    min-height: 0;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__heading {
+    font-size: 26px;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__eyebrow {
+    letter-spacing: 3px;
+    font-size: 13px;
+  }
+
+  /* AUTO: compact two-column (default) */
+  .hdt-yaman-compare-section .hdt-yaman-compare__col-title { font-size: 14px; }
+  .hdt-yaman-compare-section .hdt-yaman-compare__text { font-size: 13px; }
+  .hdt-yaman-compare-section .hdt-yaman-compare__cell { padding: 11px 12px; gap: 8px; }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-auto .hdt-yaman-compare__vs,
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-scroll .hdt-yaman-compare__vs {
+    width: 46px;
+    height: 46px;
+    font-size: 15px;
+  }
+
+  /* SCROLL: keep desktop proportions, scroll horizontally */
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-scroll .hdt-yaman-compare__table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-scroll .hdt-yaman-compare__table {
+    min-width: 540px;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-scroll .hdt-yaman-compare__cell { font-size: 14px; }
+
+  /* STACKED: each row becomes a card (left option vs right option) */
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__head { display: none; }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__vs { display: none; }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__table-wrap {
+    background: transparent;
+    border: 0;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    overflow: visible;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__row {
+    flex-direction: column;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    margin-bottom: 14px;
+    background: rgba(217, 217, 217, 0.5);
+    background: color-mix(in srgb, var(--cmp-panel, #d9d9d9) 50%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__cell {
+    flex: none;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 14px 16px;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__cell-label {
+    display: block;
+    margin-bottom: 4px;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__cell--left .hdt-yaman-compare__cell-label { color: var(--cmp-left, #1d2847); }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__cell--right .hdt-yaman-compare__cell-label { color: var(--cmp-right, #d4b87a); }
+}
