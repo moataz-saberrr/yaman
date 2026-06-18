@@ -307,7 +307,7 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/5af78915b57748225d7189371b4ae4ef258280bd.png",
+            "image": "shopify://shop_images/601db66e6c5db46ecf7aed34ef7e0df3c755fe53.png",
             "number": "01",
             "title": "Cleanse",
             "description": "Start with a clean, dry face. Skin contact ensures optimal conductivity for every session.",
@@ -318,7 +318,7 @@
         "step_2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/5af78915b57748225d7189371b4ae4ef258280bd.png",
+            "image": "shopify://shop_images/a641b8f6f62ff1062dc2fc00c8b63470abddf5ca.png",
             "number": "02",
             "title": "Lift",
             "description": "Apply a generous layer of YĀMAN Lifting Gel. Glide the device upward along jaw, cheek, and brow — RF + EMS active.",
@@ -329,7 +329,7 @@
         "step_3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/5af78915b57748225d7189371b4ae4ef258280bd.png",
+            "image": "shopify://shop_images/96149ca60d749735fe624416cf47cbef8e3b60aa.png",
             "number": "03",
             "title": "Sculpt",
             "description": "Switch to sculpt mode for under-eye and forehead detail work. Target fine lines and hollows.",
@@ -526,7 +526,7 @@
       "name": "YAMAN Compare",
       "settings": {
         "bg_image": "shopify://shop_images/9909fe3684d54238b03f3b9fb1f074df384291e4_1.jpg",
-        "overlay_color": "#1D2847",
+        "overlay_color": "#1d2847",
         "overlay_opacity": 57,
         "eyebrow": "CLINIC RESULTS AT HOME",
         "heading": "Professional lifting results, without the monthly appointments",
@@ -535,13 +535,13 @@
         "left_icon": "shopify://shop_images/Group.png",
         "right_icon": "shopify://shop_images/Layer_2.png",
         "vs_label": "VS",
-        "panel_color": "#D9D9D9",
-        "panel_right_color": "#1D2847",
-        "panel_border_color": "#FFFFFF",
-        "left_text_color": "#1D2847",
-        "right_text_color": "#D4B87A",
-        "vs_bg": "#D4B87A",
-        "vs_text": "#FFFFFF",
+        "panel_color": "#d9d9d9",
+        "panel_right_color": "#1d2847",
+        "panel_border_color": "#ffffff",
+        "left_text_color": "#1d2847",
+        "right_text_color": "#d4b87a",
+        "vs_bg": "#d4b87a",
+        "vs_text": "#ffffff",
         "mobile_layout": "auto",
         "container_max_width": 1310,
         "table_max_width": 800,
