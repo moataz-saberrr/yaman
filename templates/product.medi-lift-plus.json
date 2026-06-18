@@ -261,7 +261,7 @@
         "pair_5_after": "shopify://shop_images/7e583662b627d738c3535838bf897fdc23d04aa0.png",
         "pair_5_before_alt": "",
         "pair_5_after_alt": "",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "stats_bg": "#f8f7f0",
         "accent_color": "#d4b87a",
         "container_max_width": 1310,
@@ -271,6 +271,155 @@
         "padding_bottom": 60,
         "padding_top_mb": 40,
         "padding_bottom_mb": 40
+      }
+    },
+    "accordion_n_LCGQQD": {
+      "type": "accordion-n",
+      "blocks": {
+        "accordion_item_9pxm34": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "How does the Medi Lift Plus work?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "accordion_item_ERrfed": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "How soon will I see results?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "accordion_item_Ezzepr": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "Is it safe for all skin types?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "accordion_item_MPCXG9": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "How often should I use it?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "accordion_item_e9xTDy": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "Do I need to use it with the YĀMAN app?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "accordion_item_Umtbaw": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "Is there a warranty?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "accordion_item_G4EVDT": {
+          "type": "_accordion-item",
+          "settings": {
+            "open": false,
+            "icon": "none",
+            "title": "Can I pay in instalments?",
+            "content": "<p>Add your answer here in the theme editor.</p>"
+          },
+          "blocks": {}
+        },
+        "accordion-heading": {
+          "type": "section-heading",
+          "static": true,
+          "settings": {
+            "design_heading": "1",
+            "horizontal": false,
+            "alignment": "left",
+            "heading_gap": 0,
+            "margin_bottom": 24
+          },
+          "blocks": {
+            "heading_icon_jJMejF": {
+              "type": "_heading_icon",
+              "name": "t:blocks.icon.name",
+              "settings": {
+                "image": "shopify://shop_images/Asset_10_1.svg",
+                "svg": "",
+                "text_color": "hdt-s-text",
+                "line": false,
+                "width": "custom",
+                "width_dk": 37,
+                "width_tb": 37,
+                "width_mb": 37,
+                "mg": "",
+                "mg_mb": "",
+                "pd": "",
+                "pd_mb": ""
+              },
+              "blocks": {}
+            },
+            "heading_section_X4YpJt": {
+              "type": "_heading_section",
+              "settings": {
+                "heading": "Clarity before commitment.",
+                "line_height": "",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 48,
+                "font_size_heading": 28,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_icon_jJMejF",
+            "heading_section_X4YpJt"
+          ]
+        }
+      },
+      "block_order": [
+        "accordion_item_9pxm34",
+        "accordion_item_ERrfed",
+        "accordion_item_Ezzepr",
+        "accordion_item_MPCXG9",
+        "accordion_item_e9xTDy",
+        "accordion_item_Umtbaw",
+        "accordion_item_G4EVDT"
+      ],
+      "settings": {
+        "accordion_des": "3",
+        "faq_max_width": 784,
+        "faq_link_text": "View all FAQs",
+        "faq_link_url": "shopify://pages/contact",
+        "section_layout": "wrapper_container",
+        "section_background": "shopify://shop_images/Section.png",
+        "hdt_background_parallax": false,
+        "colors_by_section": false,
+        "color_scheme": "scheme-1",
+        "background_opacity": 0,
+        "mg": "",
+        "mg_mb": "",
+        "pd": "60px,,100px,",
+        "pd_mb": "40px,,50px,"
       }
     },
     "tabs": {
@@ -302,6 +451,7 @@
         "tab_add_HXf3yk",
         "tab_html_7dKb7L"
       ],
+      "disabled": true,
       "settings": {
         "tabs_design": "tab",
         "enable_first_tab": false,
@@ -356,6 +506,7 @@
           ]
         }
       },
+      "disabled": true,
       "settings": {
         "product_des": "1",
         "image_ratio": "portrait",
@@ -429,6 +580,7 @@
           ]
         }
       },
+      "disabled": true,
       "settings": {
         "product_des": "1",
         "image_ratio": "portrait",
@@ -475,6 +627,7 @@
     "breadcrumb",
     "main-product",
     "visible_lift",
+    "accordion_n_LCGQQD",
     "tabs",
     "sidebar",
     "related-products",
