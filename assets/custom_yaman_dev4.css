@@ -228,3 +228,219 @@
     --slide-size: min(var(--yv-card-mb, 82%), 320px);
   }
 }
+
+/* ----------------------------------------------------------------------------
+ * YAMAN UGC — "Real People. Real Glow." video carousel (product page)
+ * Section: sections/shoppable-video-ugc-n.liquid   (scope: .hdt-yaman-ugc-section)
+ * JS:      assets/shoppable-video-ugc-n.js          (video play/pause only)
+ * Carousel: native Kalles <hdt-slider>. Same card/video behaviour as YAMAN Videos,
+ * restyled: centred header, off-white background, white padded card frames.
+ * -------------------------------------------------------------------------- */
+
+.hdt-yaman-ugc-section .hdt-yaman-ugc {
+  background: var(--ug-bg, #f8f7f0);
+  padding-top: var(--ug-pt, 65px);
+  padding-bottom: var(--ug-pb, 46px);
+}
+
+.hdt-yaman-ugc-section .hdt-yaman-ugc__container {
+  max-width: var(--ug-maxw, 1310px);
+  margin: 0 auto;
+  padding-left: var(--ug-pad-x, 20px);
+  padding-right: var(--ug-pad-x, 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Header (centred): icon -> eyebrow -> heading -----------------------------*/
+.hdt-yaman-ugc-section .hdt-yaman-ugc__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  width: 100%;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d2847;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__icon img,
+.hdt-yaman-ugc-section .hdt-yaman-ugc__icon svg {
+  display: block;
+  height: auto;
+  max-height: 32px;
+  width: auto;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__eyebrow {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: 3.36px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.65);
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__heading {
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #1d2847;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* Native <hdt-slider> sizing (matches the YAMAN Videos carousel) ------------*/
+.hdt-yaman-ugc-section .hdt-yaman-ugc__slider {
+  display: block;
+  width: 100%;
+  --slide-spacing: var(--ug-gap, 20px);
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__slide {
+  min-width: 0;
+}
+
+/* White padded card frame around each video (Figma) ------------------------*/
+.hdt-yaman-ugc-section .hdt-yaman-ugc__card {
+  background: var(--ug-card-bg, #fff);
+  padding: 12px;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.09);
+}
+
+/* Media -----------------------------------------------------------------------
+ * Portrait ratio matches Figma video tile (~217 x 257 ≈ 84%). Height comes from
+ * an in-flow ::before padding spacer so the slide always has a real height. */
+.hdt-yaman-ugc-section .hdt-yaman-ugc__media {
+  position: relative;
+  width: 100%;
+  border-radius: var(--ug-radius, 12px);
+  overflow: hidden;
+  cursor: pointer;
+  background: #e9e4dc;
+  outline: none;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__media::before {
+  content: "";
+  display: block;
+  padding-top: calc(257 / 217 * 100%);
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__video,
+.hdt-yaman-ugc-section .hdt-yaman-ugc__poster,
+.hdt-yaman-ugc-section .hdt-yaman-ugc__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__placeholder {
+  background: linear-gradient(135deg, #e9e4dc 0%, #d8d0c4 100%);
+}
+
+/* Centre play / pause overlay (same behaviour as YAMAN Videos) -------------*/
+.hdt-yaman-ugc-section .hdt-yaman-ugc__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__play-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(1px);
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__play-icon,
+.hdt-yaman-ugc-section .hdt-yaman-ugc__pause-icon {
+  position: relative;
+  z-index: 1;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__pause-icon { display: none; }
+.hdt-yaman-ugc-section .hdt-yaman-ugc__slide.is-playing .hdt-yaman-ugc__play-icon { display: none; }
+.hdt-yaman-ugc-section .hdt-yaman-ugc__slide.is-playing .hdt-yaman-ugc__pause-icon { display: block; }
+.hdt-yaman-ugc-section .hdt-yaman-ugc__slide.is-playing .hdt-yaman-ugc__play { opacity: 0; }
+.hdt-yaman-ugc-section .hdt-yaman-ugc__slide.is-playing .hdt-yaman-ugc__media:hover .hdt-yaman-ugc__play { opacity: 1; }
+
+/* Creator handle pill (top-left, optional) ---------------------------------*/
+.hdt-yaman-ugc-section .hdt-yaman-ugc__handle {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.38);
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Product label (bottom-left, optional) ------------------------------------*/
+.hdt-yaman-ugc-section .hdt-yaman-ugc__product {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 2;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+.hdt-yaman-ugc-section a.hdt-yaman-ugc__product:hover {
+  text-decoration: underline;
+}
+
+/* Tablet & below ------------------------------------------------------------*/
+@media (max-width: 1149px) {
+  .hdt-yaman-ugc-section .hdt-yaman-ugc__heading {
+    font-size: 36px;
+  }
+  /* Keep the chosen tablet column count, but cap card width so it can't blow up. */
+  .hdt-yaman-ugc-section .hdt-yaman-ugc__slider {
+    --slide-size: min(calc(100% / var(--ug-cols-tb, 2)), 340px);
+  }
+}
+
+/* Mobile --------------------------------------------------------------------*/
+@media (max-width: 767px) {
+  .hdt-yaman-ugc-section .hdt-yaman-ugc {
+    padding-top: var(--ug-pt-mb, 40px);
+    padding-bottom: var(--ug-pb-mb, 32px);
+  }
+  .hdt-yaman-ugc-section .hdt-yaman-ugc__container {
+    gap: 24px;
+  }
+  .hdt-yaman-ugc-section .hdt-yaman-ugc__heading {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+  .hdt-yaman-ugc-section .hdt-yaman-ugc__eyebrow {
+    font-size: 12px;
+    letter-spacing: 2.6px;
+  }
+  /* One full card + a peek of the next. */
+  .hdt-yaman-ugc-section .hdt-yaman-ugc__slider {
+    --slide-spacing: var(--ug-gap-mb, 14px);
+    --slide-size: min(var(--ug-card-mb, 82%), 320px);
+  }
+}
