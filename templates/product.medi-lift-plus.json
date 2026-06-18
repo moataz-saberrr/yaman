@@ -616,54 +616,11 @@
         "pd": ",,50px,",
         "pd_mb": ",,40px,"
       }
-    },
-    "yaman_ugc": {
-      "type": "shoppable-video-ugc-n",
-      "blocks": {
-        "video_1": { "type": "video", "settings": {} },
-        "video_2": { "type": "video", "settings": {} },
-        "video_3": { "type": "video", "settings": {} },
-        "video_4": { "type": "video", "settings": {} }
-      },
-      "block_order": [
-        "video_1",
-        "video_2",
-        "video_3",
-        "video_4"
-      ],
-      "name": "YAMAN UGC",
-      "settings": {
-        "eyebrow": "TRUST THE PRODUCT",
-        "heading": "Real People. Real Glow.",
-        "background_color": "#f8f7f0",
-        "card_background": "#ffffff",
-        "container_max_width": 1310,
-        "container_padding": 20,
-        "cols_dk": "4",
-        "cols_tb": "2",
-        "card_width_mb": 82,
-        "card_radius": 12,
-        "gap": 20,
-        "gap_mb": 14,
-        "enable_arrows": false,
-        "hide_arrows_mobile": true,
-        "enable_dots": false,
-        "hide_dots_mobile": true,
-        "loop": false,
-        "autoplay": 0,
-        "pause_on_hover": true,
-        "video_loop": true,
-        "padding_top": 65,
-        "padding_bottom": 46,
-        "padding_top_mb": 40,
-        "padding_bottom_mb": 32
-      }
     }
   },
   "order": [
     "breadcrumb",
     "main-product",
-    "yaman_ugc",
     "tabs",
     "sidebar",
     "featured_collection_choose_n_Npyxxm",
