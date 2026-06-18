@@ -475,3 +475,121 @@
     width: clamp(74px, 23vw, 110px);
   }
 }
+
+/* ============================================================
+   YAMAN Product — Final CTA  (sections/product-final-cta-n.liquid)
+   Scope: .product .hdt-product-final-cta-section
+   Centered dark closing banner: eyebrow + heading + subheading +
+   two buttons (white "add to bag" / outlined consult). Buttons sit
+   side by side (not full-width) on desktop, stack on mobile.
+   JS: assets/product-final-cta-n.js (scoped scroll-to-options)
+   ============================================================ */
+.product .hdt-product-final-cta-section .hdt-product-final-cta {
+  background-color: var(--fcta-bg, #070707);
+  padding: var(--fcta-pt, 65px) 20px var(--fcta-pb, 65px);
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__container {
+  max-width: var(--fcta-maxw, 640px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 22px;
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__eyebrow {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--fcta-text, #fff);
+  opacity: 0.7;
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__heading {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.48px;
+  color: var(--fcta-text, #fff);
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__subheading {
+  margin: 0;
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.7;
+  color: var(--fcta-text, #fff);
+  opacity: 0.65;
+}
+
+/* actions row */
+.product .hdt-product-final-cta-section .hdt-product-final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+/* keep the theme's product-form wrappers transparent to the flex layout so the
+   add-to-bag submit button sits in the row exactly like the consult link */
+.product .hdt-product-final-cta-section .hdt-product-final-cta__actions wrapp-hdt-pr-frm,
+.product .hdt-product-final-cta-section .hdt-product-final-cta__form,
+.product .hdt-product-final-cta-section .hdt-product-final-cta__buybtns {
+  display: contents;
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__button {
+  flex: 1 1 200px;
+  max-width: 320px;
+  min-width: 0;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  border: 1px solid var(--fcta-text, #fff);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.95px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__button--cart {
+  background: var(--fcta-cart-bg, #fff);
+  color: var(--fcta-cart-text, #070707);
+  border-color: var(--fcta-cart-bg, #fff);
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__button--consult {
+  background: transparent;
+  color: var(--fcta-text, #fff);
+  border-color: var(--fcta-text, #fff);
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__button:hover { opacity: 0.85; }
+.product .hdt-product-final-cta-section .hdt-product-final-cta__button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---- Mobile: stack the buttons full-width; smaller padding/tracking ---- */
+@media (max-width: 767px) {
+  .product .hdt-product-final-cta-section .hdt-product-final-cta {
+    padding-top: var(--fcta-pt-mb, 50px);
+    padding-bottom: var(--fcta-pb-mb, 50px);
+  }
+  .product .hdt-product-final-cta-section .hdt-product-final-cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .product .hdt-product-final-cta-section .hdt-product-final-cta__button {
+    flex: 1 1 auto;
+    max-width: none;
+    width: 100%;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+}
