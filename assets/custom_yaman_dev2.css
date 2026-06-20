@@ -593,3 +593,113 @@
     letter-spacing: 1px;
   }
 }
+
+/* ============================================================
+   YAMAN Product — Modes Ticker  (sections/product-modes-ticker-n.liquid)
+   Scope: .product .hdt-product-modes-ticker-section
+   Simple horizontal strip of image items on a warm bg, vertically
+   centred. One row on desktop/tablet; the track scrolls horizontally
+   if items don't fit (no body-level scroll). No JS.
+   ============================================================ */
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker {
+  background-color: var(--mt-bg, #f8f7f0);
+  padding-top: var(--mt-pt, 32px);
+  padding-bottom: var(--mt-pb, 32px);
+}
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__container {
+  max-width: var(--mt-maxw, 1500px);
+  margin-inline: auto;
+  padding-inline: 15px;
+  box-sizing: border-box;
+}
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker.is-full .hdt-product-modes-ticker__container {
+  max-width: none;
+}
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__track {
+  display: flex;
+  align-items: center;
+  justify-content: var(--mt-justify, safe center);
+  gap: var(--mt-gap, 80px);
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__track::-webkit-scrollbar { display: none; }
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__item {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+}
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__link {
+  display: inline-flex;
+  align-items: center;
+}
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__image {
+  display: block;
+  height: var(--mt-h, 56px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+/* editor placeholder until a real image is selected */
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 84px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  border: 1px dashed rgba(29, 40, 71, 0.25);
+  border-radius: 8px;
+  color: #1d2847;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+/* Tablet: slightly smaller images + gap, still one row */
+@media (max-width: 1150px) {
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__track {
+    gap: var(--mt-gap-tb, 48px);
+  }
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__image {
+    height: var(--mt-h-tb, 48px);
+  }
+}
+
+/* Mobile: keep ALL modes on ONE row (no slider/scroll). Items share the row
+   and shrink so any count (5, 6, …) always fits; images stay proportional. */
+@media (max-width: 767px) {
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker {
+    padding-top: var(--mt-pt-mb, 24px);
+    padding-bottom: var(--mt-pb-mb, 24px);
+  }
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__track {
+    gap: var(--mt-gap-mb, 10px);
+    overflow: visible;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+  /* allow each item/link to shrink below its natural width */
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__item {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__link {
+    min-width: 0;
+    max-width: 100%;
+  }
+  /* height:auto + max-height cap → shrinking by width never distorts the image */
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__image {
+    height: auto;
+    max-height: var(--mt-h-mb, 40px);
+  }
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__placeholder {
+    min-width: 0;
+    height: var(--mt-h-mb, 40px);
+    padding: 0 4px;
+    font-size: 12px;
+  }
+}

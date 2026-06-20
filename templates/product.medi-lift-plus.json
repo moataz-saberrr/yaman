@@ -643,11 +643,39 @@
         "pd": ",,50px,",
         "pd_mb": ",,40px,"
       }
+    },
+    "modes_ticker": {
+      "type": "product-modes-ticker-n",
+      "blocks": {
+        "mode_1": { "type": "mode", "settings": { "alt": "EMS" } },
+        "mode_2": { "type": "mode", "settings": { "alt": "LED" } },
+        "mode_3": { "type": "mode", "settings": { "alt": "RF" } },
+        "mode_4": { "type": "mode", "settings": { "alt": "EMS" } },
+        "mode_5": { "type": "mode", "settings": { "alt": "LED" } }
+      },
+      "block_order": ["mode_1", "mode_2", "mode_3", "mode_4", "mode_5"],
+      "settings": {
+        "background_color": "#f8f7f0",
+        "full_width": true,
+        "container_max_width": 1500,
+        "alignment": "center",
+        "gap": 80,
+        "gap_tablet": 48,
+        "gap_mobile": 10,
+        "image_height": 56,
+        "image_height_tablet": 48,
+        "image_height_mobile": 40,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "padding_top_mb": 24,
+        "padding_bottom_mb": 24
+      }
     }
   },
   "order": [
     "breadcrumb",
     "main-product",
+    "modes_ticker",
     "visible_lift",
     "accordion_n_LCGQQD",
     "final_cta",

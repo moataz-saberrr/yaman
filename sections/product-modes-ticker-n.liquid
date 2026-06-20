@@ -1,0 +1,245 @@
+<!-- product-modes-ticker-n.liquid — YAMAN product-page Modes Ticker.
+  A simple horizontal strip of merchant-uploaded image items (EMS / LED / RF …)
+  on a warm background. Block-based, no JS, no library.
+  CSS: assets/custom_yaman_dev2.css (.product .hdt-product-modes-ticker-section) -->
+{%- liquid
+  assign justify = 'safe center'
+  case section.settings.alignment
+    when 'start'
+      assign justify = 'flex-start'
+    when 'space-between'
+      assign justify = 'space-between'
+  endcase
+-%}
+<div
+  class="hdt-product-modes-ticker{% if section.settings.full_width %} is-full{% endif %}"
+  id="hdt-product-modes-ticker-{{ section.id }}"
+  style="--mt-bg: {{ section.settings.background_color }}; --mt-maxw: {{ section.settings.container_max_width }}px; --mt-justify: {{ justify }}; --mt-gap: {{ section.settings.gap }}px; --mt-gap-tb: {{ section.settings.gap_tablet }}px; --mt-gap-mb: {{ section.settings.gap_mobile }}px; --mt-h: {{ section.settings.image_height }}px; --mt-h-tb: {{ section.settings.image_height_tablet }}px; --mt-h-mb: {{ section.settings.image_height_mobile }}px; --mt-pt: {{ section.settings.padding_top }}px; --mt-pb: {{ section.settings.padding_bottom }}px; --mt-pt-mb: {{ section.settings.padding_top_mb }}px; --mt-pb-mb: {{ section.settings.padding_bottom_mb }}px;">
+  <div class="hdt-product-modes-ticker__container">
+    <div class="hdt-product-modes-ticker__track">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign img = block.settings.image
+          assign alt = 'Product mode image'
+          assign link = block.settings.link
+        -%}
+        <div class="hdt-product-modes-ticker__item" {{ block.shopify_attributes }}>
+          {%- if link != blank -%}
+            <a
+              class="hdt-product-modes-ticker__link"
+              href="{{ link }}"
+              {% if block.settings.open_new_tab %}
+              target="_blank"
+              rel="noopener noreferrer"
+              {% endif %}>
+          {%- endif -%}
+          {%- if img != blank -%}
+            {{ img | image_url: width: 480 | image_tag: class: 'hdt-product-modes-ticker__image', alt: alt, loading: 'lazy', widths: '120,180,240,320,480' }}
+          {%- else -%}
+            <span class="hdt-product-modes-ticker__image hdt-product-modes-ticker__placeholder">{{ alt | default: 'Image' }}</span>
+          {%- endif -%}
+          {%- if link != blank -%}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Modes Ticker",
+    "tag": "section",
+    "class": "hdt-section hdt-product-modes-ticker-section",
+    "max_blocks": 20,
+    "blocks": [
+      {
+        "type": "mode",
+        "name": "Mode",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }, {
+            "type": "url",
+            "id": "link",
+            "label": "Link (optional)"
+          }, {
+            "type": "checkbox",
+            "id": "open_new_tab",
+            "label": "Open link in new tab",
+            "default": false
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#f8f7f0"
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Full width",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "container_max_width",
+        "min": 600,
+        "max": 1600,
+        "step": 10,
+        "unit": "px",
+        "label": "Container max width",
+        "info": "Used when “Full width” is off.",
+        "default": 1500
+      }, {
+        "type": "select",
+        "id": "alignment",
+        "label": "Horizontal alignment",
+        "options": [
+          {
+            "value": "start",
+            "label": "Start"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "space-between",
+            "label": "Space between"
+          }
+        ],
+        "default": "center"
+      }, {
+        "type": "header",
+        "content": "Gap between images"
+      }, {
+        "type": "range",
+        "id": "gap",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Gap (desktop)",
+        "default": 80
+      }, {
+        "type": "range",
+        "id": "gap_tablet",
+        "min": 0,
+        "max": 160,
+        "step": 2,
+        "unit": "px",
+        "label": "Gap (tablet)",
+        "default": 48
+      }, {
+        "type": "range",
+        "id": "gap_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 2,
+        "unit": "px",
+        "label": "Gap (mobile)",
+        "default": 10
+      }, {
+        "type": "header",
+        "content": "Image height"
+      }, {
+        "type": "range",
+        "id": "image_height",
+        "min": 16,
+        "max": 160,
+        "step": 2,
+        "unit": "px",
+        "label": "Image max height (desktop)",
+        "default": 56
+      }, {
+        "type": "range",
+        "id": "image_height_tablet",
+        "min": 16,
+        "max": 140,
+        "step": 2,
+        "unit": "px",
+        "label": "Image max height (tablet)",
+        "default": 48
+      }, {
+        "type": "range",
+        "id": "image_height_mobile",
+        "min": 16,
+        "max": 120,
+        "step": 2,
+        "unit": "px",
+        "label": "Image max height (mobile)",
+        "default": 40
+      }, {
+        "type": "header",
+        "content": "Section padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 160,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 32
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 160,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 32
+      }, {
+        "type": "range",
+        "id": "padding_top_mb",
+        "min": 0,
+        "max": 120,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top (mobile)",
+        "default": 24
+      }, {
+        "type": "range",
+        "id": "padding_bottom_mb",
+        "min": 0,
+        "max": 120,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom (mobile)",
+        "default": 24
+      }
+    ],
+    "presets": [
+      {
+        "name": "Modes Ticker",
+        "category": "t:sections_categories.05_section.name",
+        "blocks": [
+          {
+            "type": "mode"
+          },
+          {
+            "type": "mode"
+          },
+          {
+            "type": "mode"
+          },
+          {
+            "type": "mode"
+          }, {
+            "type": "mode"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
