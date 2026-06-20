@@ -6,6 +6,19 @@
  * cannot leak into other Kalles sections.
  * ============================================================================ */
 
+ /* ============================================================================
+ * to be add it to yaman-choose-section in ddevice page.
+ * ============================================================================ */
+
+ .hdt-yaman-choose-section .hdt-yaman-choose__header{
+    display: flex;
+    flex-direction: column-reverse;
+ }
+ .hdt-yaman-choose-section .hdt-yaman-choose__text{
+    margin-bottom: 10px;
+    color: #000000a6;
+ }
+
 /* ----------------------------------------------------------------------------
  * YAMAN Videos — shoppable video carousel
  * Section: sections/shoppable-video-n.liquid   (scope: .hdt-yaman-video-section)
@@ -71,7 +84,9 @@
 .hdt-yaman-video-section .hdt-yaman-video__media::before {
   content: "";
   display: block;
-  padding-top: calc(51 / 31 * 100%);
+  /* Instagram Reels aspect ratio (9:16) so portrait reels fill the card
+     without being cropped by their length. */
+  padding-top: calc(16 / 9 * 100%);
 }
 
 .hdt-yaman-video-section .hdt-yaman-video__video,
@@ -193,9 +208,9 @@
   .hdt-yaman-video-section .hdt-yaman-video__heading {
     font-size: 40px;
   }
-  /* Shorter portrait ratio (matches Figma mobile 308 x 459). */
+  /* Keep the Instagram Reels 9:16 ratio on tablet/mobile too. */
   .hdt-yaman-video-section .hdt-yaman-video__media::before {
-    padding-top: calc(459 / 308 * 100%);
+    padding-top: calc(16 / 9 * 100%);
   }
   /* Keep the chosen tablet column count, but never let a card exceed ~340px so
      its height stays controlled. */
@@ -327,7 +342,9 @@
 .hdt-yaman-ugc-section .hdt-yaman-ugc__media::before {
   content: "";
   display: block;
-  padding-top: calc(257 / 217 * 100%);
+  /* Instagram Reels aspect ratio (9:16) so portrait reels fill the card
+     without being cropped by their length. Applies desktop + mobile. */
+  padding-top: calc(16 / 9 * 100%);
 }
 .hdt-yaman-ugc-section .hdt-yaman-ugc__video,
 .hdt-yaman-ugc-section .hdt-yaman-ugc__poster,
@@ -1086,6 +1103,9 @@
   .hdt-yaman-compare-section .hdt-yaman-compare__eyebrow {
     letter-spacing: 3px;
     font-size: 13px;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__vs{
+    top: 20%;
   }
 
   /* AUTO: compact two-column (default) */
