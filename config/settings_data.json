@@ -134,7 +134,7 @@
     "currency_code_enabled": false,
     "flag_currency": true,
     "round_currency": true,
-    "favicon": "shopify://shop_images/k-fav.jpg",
+    "favicon": "shopify://shop_images/logo.svg",
     "home_keywords": "Yaman",
     "content_for_index": [],
     "blocks": {
