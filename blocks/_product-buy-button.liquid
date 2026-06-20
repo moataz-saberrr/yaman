@@ -91,8 +91,8 @@
                     {%- elsif selected_variant.available == false or quantity_rule_soldout -%}
                       {{- 'products.product.sold_out' | t -}}
                     {%- else -%}
-                      {% comment %} {{- 'products.product.add_to_cart' | t -}} {% endcomment %}
-                       Add to Bag — {{ selected_variant.price | money_with_currency}}
+                      {{- 'products.product.add_to_cart' | t -}}
+                       {% comment %} Add to Bag — {{ selected_variant.price | money_with_currency}} {% endcomment %}
                     {%- endif -%}
                   </span> 
                   <span class="hdt-loading__spinner hdt-absolute" hidden>

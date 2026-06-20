@@ -27,6 +27,16 @@
     <span>/month × 4 with </span>
     <span class="hdt-tabby-brand">Tabby</span>
   </p>
+  {%- if product.variants.size > 1 -%}
+    {%- comment -%} per-variant installment values for the JS to swap on variant change {%- endcomment -%}
+    <script type="application/json" data-tabby-installments>
+      {
+        {%- for v in product.variants -%}
+          "{{ v.id }}": {{ v.price | divided_by: 4 | money_without_currency | strip_html | json }}{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      }
+    </script>
+  {%- endif -%}
 </div>
 
 <style>
@@ -40,6 +50,9 @@
     line-height: 27px;
   }
 </style>
+{%- if product.variants.size > 1 -%}
+  <script src="{{ 'tabby-installment.js' | asset_url }}" defer></script>
+{%- endif -%}
 {% schema %}
 {
   "name": "Tabby Installment",

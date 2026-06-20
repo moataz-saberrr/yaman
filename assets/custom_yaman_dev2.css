@@ -679,7 +679,7 @@
   .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__track {
     gap: var(--mt-gap-mb, 10px);
     overflow: visible;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: nowrap;
   }
   /* allow each item/link to shrink below its natural width */
