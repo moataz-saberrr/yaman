@@ -341,6 +341,35 @@
         "padding_bottom_mb": 24
       }
     },
+    "product_pairs_n_ECgMwJ": {
+      "type": "product-pairs-n",
+      "name": "Pairs Product",
+      "settings": {
+        "main_image": "shopify://shop_images/d25e9975ca71cba9b21ab0b1d811d8f734406b9d.jpg",
+        "main_image_alt": "",
+        "badge_alt": "",
+        "eyebrow": "Pairs Perfectly with",
+        "heading": "Medilift Moisture Serum",
+        "description": "Containing 36 different beauty ingredients, giving your skin resilience",
+        "view_more_label": "View More",
+        "view_more_url": "shopify://pages/contact",
+        "product": "مجموعة-شد-البشرة-والترطيب-العميق-medi-lift-plus-serum-set",
+        "product_label": "Real Lift Plus · Complete Set ·  Device + Serum",
+        "atc_label": "ADD TO BAG",
+        "soldout_label": "SOLD OUT",
+        "background_color": "#f8f7f0",
+        "card_bg": "#ffffff",
+        "heading_color": "#070707",
+        "text_color": "#5e5e5e",
+        "card_radius": 24,
+        "container_max_width": 1290,
+        "media_min_height": 440,
+        "padding_top": 46,
+        "padding_bottom": 46,
+        "padding_top_mb": 32,
+        "padding_bottom_mb": 32
+      }
+    },
     "accordion_n_LCGQQD": {
       "type": "accordion-n",
       "blocks": {
@@ -711,30 +740,6 @@
         "pd": ",,50px,",
         "pd_mb": ",,40px,"
       }
-    },
-    "pairs_product": {
-      "type": "product-pairs-n",
-      "settings": {
-        "eyebrow": "Pairs Perfectly with",
-        "heading": "Medilift Moisture Serum",
-        "description": "Containing 36 different beauty ingredients, giving your skin resilience",
-        "view_more_label": "View More",
-        "view_more_url": "",
-        "product_label": "",
-        "atc_label": "ADD TO BAG",
-        "soldout_label": "SOLD OUT",
-        "background_color": "#f8f7f0",
-        "card_bg": "#ffffff",
-        "heading_color": "#070707",
-        "text_color": "#5e5e5e",
-        "card_radius": 24,
-        "container_max_width": 1290,
-        "media_min_height": 434,
-        "padding_top": 46,
-        "padding_bottom": 46,
-        "padding_top_mb": 32,
-        "padding_bottom_mb": 32
-      }
     }
   },
   "order": [
@@ -742,8 +747,8 @@
     "main-product",
     "visible_lift",
     "modes_ticker",
+    "product_pairs_n_ECgMwJ",
     "accordion_n_LCGQQD",
-    "pairs_product",
     "final_cta",
     "tabs",
     "sidebar",
