@@ -739,6 +739,463 @@
         "pd": ",,50px,",
         "pd_mb": ",,40px,"
       }
+    },
+    "yaman_steps": {
+      "type": "yaman-routine-steps-n",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/601db66e6c5db46ecf7aed34ef7e0df3c755fe53.png",
+            "number": "01",
+            "title": "Cleanse",
+            "description": "Start with a clean, dry face. Skin contact ensures optimal conductivity for every session.",
+            "time": "2 MIN",
+            "alt": ""
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/a641b8f6f62ff1062dc2fc00c8b63470abddf5ca.png",
+            "number": "02",
+            "title": "Lift",
+            "description": "Apply a generous layer of YĀMAN Lifting Gel. Glide the device upward along jaw, cheek, and brow — RF + EMS active.",
+            "time": "6 MIN",
+            "alt": ""
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/96149ca60d749735fe624416cf47cbef8e3b60aa.png",
+            "number": "03",
+            "title": "Sculpt",
+            "description": "Switch to sculpt mode for under-eye and forehead detail work. Target fine lines and hollows.",
+            "time": "3 MIN",
+            "alt": ""
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/5af78915b57748225d7189371b4ae4ef258280bd.png",
+            "number": "04",
+            "title": "Glow",
+            "description": "Finish with Photon LED to support cellular renewal and skin radiance overnight.",
+            "time": "1 MIN",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4"
+      ],
+      "name": "YAMAN Steps",
+      "settings": {
+        "icon": "shopify://shop_images/Asset_7_1.png",
+        "eyebrow": "YOUR 12-MINUTE ROUTINE",
+        "heading": "Four steps to lifted, sculpted skin.",
+        "subtitle": "Designed to fit your morning without interruption.",
+        "background_color": "#faf6f0",
+        "heading_color": "#1d2847",
+        "accent_color": "#d4b87a",
+        "overlay_opacity": 60,
+        "container_max_width": 1310,
+        "container_padding": 20,
+        "cols_dk": "4",
+        "card_radius": 12,
+        "gap": 24,
+        "gap_mb": 14,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    },
+    "yaman_modes": {
+      "type": "yaman-device-modes-n",
+      "blocks": {
+        "mode_1": {
+          "type": "mode",
+          "settings": {
+            "icon_alt": "",
+            "accent_color": "#3b82f6",
+            "title": "CLEAN",
+            "description": "Deep ION Cleaning",
+            "link": ""
+          }
+        },
+        "mode_2": {
+          "type": "mode",
+          "settings": {
+            "icon_alt": "",
+            "accent_color": "#f5a623",
+            "title": "NEB",
+            "description": "Deep Skin Care",
+            "link": ""
+          }
+        },
+        "mode_3": {
+          "type": "mode",
+          "settings": {
+            "icon_alt": "",
+            "accent_color": "#ef4444",
+            "title": "EMS UP",
+            "description": "Facial Muscle Care",
+            "link": ""
+          }
+        },
+        "mode_4": {
+          "type": "mode",
+          "settings": {
+            "icon": "shopify://shop_images/Vector.png",
+            "icon_alt": "",
+            "accent_color": "#cfe8ff",
+            "title": "COOL",
+            "description": "Cooling & Firming skin care",
+            "link": ""
+          }
+        },
+        "mode_5": {
+          "type": "mode",
+          "settings": {
+            "icon_alt": "",
+            "accent_color": "#ffffff",
+            "title": "EYE CARE",
+            "description": "Eye Area Care",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "mode_1",
+        "mode_2",
+        "mode_3",
+        "mode_4",
+        "mode_5"
+      ],
+      "name": "YAMAN Modes",
+      "settings": {
+        "top_icon": "shopify://shop_images/Layer_1.png",
+        "top_icon_text": "MODE",
+        "eyebrow": "SOLUTION FOR EVERY PROBLEM",
+        "heading": "Different Mode. One Device.",
+        "subtitle": "Designed to solve all your skin problems.",
+        "background_color": "#faf6f0",
+        "panel_color": "#1d2847",
+        "heading_color": "#1d2847",
+        "container_max_width": 1310,
+        "panel_max_width": 1190,
+        "container_padding": 20,
+        "panel_padding": 36,
+        "panel_padding_mb": 24,
+        "gap": 28,
+        "gap_mb": 24,
+        "padding_top": 86,
+        "padding_bottom": 80,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    },
+    "yaman_comparison_table_n_KWdTeM": {
+      "type": "yaman-comparison-table-n",
+      "blocks": {
+        "row_CYimTc": {
+          "type": "row",
+          "settings": {
+            "left_text": "One-time investment",
+            "right_text": "180$ - 400$ per session",
+            "left_icon_type": "check",
+            "right_icon_type": "x",
+            "highlight": false
+          }
+        },
+        "row_6zHBGU": {
+          "type": "row",
+          "settings": {
+            "left_text": "12-minutes daily ritual",
+            "right_text": "Travel & appointment time",
+            "left_icon_type": "check",
+            "right_icon_type": "x",
+            "highlight": false
+          }
+        },
+        "row_iRagqz": {
+          "type": "row",
+          "settings": {
+            "left_text": "use at home, anytime",
+            "right_text": "Recurring monthly cost",
+            "left_icon_type": "check",
+            "right_icon_type": "x",
+            "highlight": false
+          }
+        },
+        "row_wqFB8V": {
+          "type": "row",
+          "settings": {
+            "left_text": "No downtime",
+            "right_text": "Possible downtime",
+            "left_icon_type": "check",
+            "right_icon_type": "x",
+            "highlight": false
+          }
+        },
+        "row_NQxDGa": {
+          "type": "row",
+          "settings": {
+            "left_text": "Visible results in weeks",
+            "right_text": "Results fade over time",
+            "left_icon_type": "check",
+            "right_icon_type": "x",
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "row_CYimTc",
+        "row_6zHBGU",
+        "row_iRagqz",
+        "row_wqFB8V",
+        "row_NQxDGa"
+      ],
+      "name": "YAMAN Compare",
+      "settings": {
+        "bg_image": "shopify://shop_images/9909fe3684d54238b03f3b9fb1f074df384291e4_1.jpg",
+        "overlay_color": "#1d2847",
+        "overlay_opacity": 57,
+        "eyebrow": "CLINIC RESULTS AT HOME",
+        "heading": "Professional lifting results, without the monthly appointments",
+        "left_title": "REAL LIFT PLUS",
+        "right_title": "CLINIC TREATMENTS",
+        "left_icon": "shopify://shop_images/Group.png",
+        "right_icon": "shopify://shop_images/Layer_2.png",
+        "vs_label": "VS",
+        "panel_color": "#d9d9d9",
+        "panel_right_color": "#1d2847",
+        "panel_border_color": "#ffffff",
+        "left_text_color": "#1d2847",
+        "right_text_color": "#d4b87a",
+        "vs_bg": "#d4b87a",
+        "vs_text": "#ffffff",
+        "mobile_layout": "auto",
+        "container_max_width": 1310,
+        "table_max_width": 800,
+        "text_max_width": 420,
+        "container_padding": 40,
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "padding_top_mb": 44,
+        "padding_bottom_mb": 44
+      }
+    },
+    "yaman_ugc": {
+      "type": "shoppable-video-ugc-n",
+      "blocks": {
+        "video_1": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/37a71092160198ed6849336c7c3bc36409f6a47d.png",
+            "handle": "",
+            "product": "",
+            "product_label": "",
+            "custom_link": "",
+            "alt": ""
+          }
+        },
+        "video_Nh7YFr": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/bd23e4c8f0c496d73f15f887d9fe868401a18ba6.jpg",
+            "handle": "",
+            "product": "",
+            "product_label": "",
+            "custom_link": "",
+            "alt": ""
+          }
+        },
+        "video_grhpVc": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/ebfa51cd44b5215e62b8be02e84925da8fe31c39.jpg",
+            "handle": "",
+            "product": "",
+            "product_label": "",
+            "custom_link": "",
+            "alt": ""
+          }
+        },
+        "video_bUCi6X": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/9909fe3684d54238b03f3b9fb1f074df384291e4.jpg",
+            "handle": "",
+            "product": "",
+            "product_label": "",
+            "custom_link": "",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_1",
+        "video_Nh7YFr",
+        "video_grhpVc",
+        "video_bUCi6X"
+      ],
+      "name": "YAMAN UGC",
+      "settings": {
+        "icon": "shopify://shop_images/sherlock_age_signAsset_14_1_1.png",
+        "eyebrow": "TRUST THE PRODUCT",
+        "heading": "Real People. Real Glow.",
+        "background_color": "#f8f7f0",
+        "card_background": "#ffffff",
+        "container_max_width": 1310,
+        "container_padding": 20,
+        "cols_dk": "4",
+        "cols_tb": "2",
+        "card_width_mb": 82,
+        "card_radius": 12,
+        "gap": 20,
+        "gap_mb": 14,
+        "enable_arrows": false,
+        "hide_arrows_mobile": true,
+        "enable_dots": false,
+        "hide_dots_mobile": true,
+        "loop": false,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "video_loop": true,
+        "padding_top": 64,
+        "padding_bottom": 46,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 32
+      }
+    },
+    "featured_collection_choose_n_Npyxxm": {
+      "type": "featured-collection-choose-n",
+      "blocks": {
+        "card_tw46qn": {
+          "type": "card",
+          "settings": {
+            "product": "medi-lift-plus",
+            "pill": "LIFT & FIRM",
+            "image": "shopify://shop_images/Medi_Lift_Plus.png",
+            "image_alt": "",
+            "title": "Medi Lift Plus",
+            "description": "Hands-free EMS device that lifts and firms the lower face.",
+            "benefits_value": "Lifting & jawline definition",
+            "time_value": "10 min / day",
+            "ideal_value": "Ages 25-35",
+            "button_label": "VIEW DETAILS",
+            "button_link": "shopify://products/medi-lift-plus"
+          }
+        },
+        "card_wBLf8H": {
+          "type": "card",
+          "settings": {
+            "product": "liftlogy-sp-the-new-technology-مجموعة-شد-الوجه-الرقبة-و-أجزاء-الجسم",
+            "pill": "CONTOUR & SCULPT",
+            "image": "shopify://shop_images/Image_LIFTOLOGY_SP.png",
+            "image_alt": "",
+            "title": "LIFTOLOGY SP",
+            "description": "EMS + microcurrent for firmer, contoured skin.",
+            "benefits_value": "Firming & contouring",
+            "time_value": "1 min / side",
+            "ideal_value": "Ages 30–40",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        },
+        "card_YkL33f": {
+          "type": "card",
+          "settings": {
+            "product": "",
+            "pill": "FULL FACIAL CARE",
+            "image": "shopify://shop_images/Image_Photo_Plus_Prestige_SP.png",
+            "image_alt": "",
+            "title": "Photo Plus Prestige SP",
+            "description": "RF + EMS + Photon for complete facial care.",
+            "benefits_value": "Full facial rejuvenation",
+            "time_value": "15 min / day",
+            "ideal_value": "All ages",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        },
+        "card_WQarym": {
+          "type": "card",
+          "settings": {
+            "product": "",
+            "pill": "BRIGHTEN & PORES",
+            "image": "shopify://shop_images/Image_Hydra_Bright_Skin_Set.png",
+            "image_alt": "",
+            "title": "Hydra Bright Skin Set",
+            "description": "Hydra cleanse + infusion for brighter, refined skin.",
+            "benefits_value": "Brightens & refines pores",
+            "time_value": "10 min / day",
+            "ideal_value": "All ages",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        },
+        "card_fBdi89": {
+          "type": "card",
+          "settings": {
+            "product": "",
+            "pill": "LIFT & FIRM",
+            "image_alt": "",
+            "title": "",
+            "description": "",
+            "benefits_value": "",
+            "time_value": "",
+            "ideal_value": "",
+            "button_label": "VIEW DETAILS",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_tw46qn",
+        "card_wBLf8H",
+        "card_YkL33f",
+        "card_WQarym",
+        "card_fBdi89"
+      ],
+      "settings": {
+        "heading": "Compare YĀMAN devices",
+        "subheading": "N O T  S U R E  W H I C H  O N E ?",
+        "benefits_label": "Benefits",
+        "time_label": "Time",
+        "ideal_label": "Ideal For",
+        "col_dk": "4",
+        "col_tb": "2",
+        "card_width_mb": 82,
+        "card_gap": 24,
+        "card_gap_mb": 12,
+        "nav_ui": true,
+        "dot_ui": true,
+        "hide_nav_mobile": true,
+        "hide_dots_mobile": true,
+        "loop": false,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "bg_color": "#ffffff",
+        "container_max_width": 1280,
+        "container_padding": 15,
+        "custom_class": "",
+        "padding_top": 60,
+        "padding_bottom": 30,
+        "padding_top_mb": 60,
+        "padding_bottom_mb": 30
+      }
     }
   },
   "order": [
@@ -752,6 +1209,11 @@
     "tabs",
     "sidebar",
     "related-products",
-    "recently-products"
+    "recently-products",
+    "yaman_steps",
+    "yaman_modes",
+    "yaman_comparison_table_n_KWdTeM",
+    "yaman_ugc",
+    "featured_collection_choose_n_Npyxxm"
   ]
 }
