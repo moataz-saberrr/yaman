@@ -1,0 +1,1165 @@
+/* ============================================================================
+ * custom_yaman_dev4.css
+ * YAMAN homepage — section-scoped custom styles (dev4).
+ * Loaded globally from layout/theme.liquid (after custom_yaman.css).
+ * Every rule here MUST stay scoped under a unique section parent class so it
+ * cannot leak into other Kalles sections.
+ * ============================================================================ */
+
+ /* ============================================================================
+ * to be add it to yaman-choose-section in ddevice page.
+ * ============================================================================ */
+
+ .hdt-yaman-choose-section .hdt-yaman-choose__header{
+    display: flex;
+    flex-direction: column-reverse;
+ }
+ .hdt-yaman-choose-section .hdt-yaman-choose__text{
+    margin-bottom: 10px;
+    color: #000000a6;
+ }
+
+/* ----------------------------------------------------------------------------
+ * YAMAN Videos — shoppable video carousel
+ * Section: sections/shoppable-video-n.liquid   (scope: .hdt-yaman-video-section)
+ * Block:   blocks/_yaman-video-n.liquid         (one .hdt-slider__slide each)
+ * JS:      assets/shoppable-video-n.js          (video play/pause only)
+ * Carousel: native Kalles <hdt-slider>
+ * -------------------------------------------------------------------------- */
+
+.hdt-yaman-video-section .hdt-yaman-video {
+  background: var(--yv-bg, #fff);
+  padding-top: var(--yv-pt, 60px);
+  padding-bottom: var(--yv-pb, 60px);
+}
+
+.hdt-yaman-video-section .hdt-yaman-video__container {
+  max-width: var(--yv-maxw, 1310px);
+  margin: 0 auto;
+  padding-left: var(--yv-pad-x, 20px);
+  padding-right: var(--yv-pad-x, 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Heading -------------------------------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__heading {
+  margin: 0;
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 700;
+  text-align: left;
+  color: #070707;
+  word-break: break-word;
+}
+
+/* Native <hdt-slider> sizing -------------------------------------------------
+ * Override the theme's --slide-size / --slide-spacing (set by the hdt-slides-*
+ * classes) so the gap follows our settings and the mobile slide shows a peek of
+ * the next card. Desktop/tablet widths come from lg:/md:hdt-slides-* natively. */
+.hdt-yaman-video-section .hdt-yaman-video__slider {
+  display: block;
+  width: 100%;
+  --slide-spacing: var(--yv-gap, 20px);
+}
+
+/* Card / slide --------------------------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__slide {
+  min-width: 0;
+}
+
+/* Media -----------------------------------------------------------------------
+ * Portrait ratio matches Figma (~308 x 508 ≈ 31 / 51). Height comes from an
+ * in-flow ::before padding spacer so the slide always has a real height. */
+.hdt-yaman-video-section .hdt-yaman-video__media {
+  position: relative;
+  width: 100%;
+  border-radius: var(--yv-radius, 20px);
+  overflow: hidden;
+  cursor: pointer;
+  background: #e9e4dc;
+  outline: none;
+}
+.hdt-yaman-video-section .hdt-yaman-video__media::before {
+  content: "";
+  display: block;
+  /* Instagram Reels aspect ratio (9:16) so portrait reels fill the card
+     without being cropped by their length. */
+  padding-top: calc(16 / 9 * 100%);
+}
+
+.hdt-yaman-video-section .hdt-yaman-video__video,
+.hdt-yaman-video-section .hdt-yaman-video__poster,
+.hdt-yaman-video-section .hdt-yaman-video__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hdt-yaman-video-section .hdt-yaman-video__placeholder {
+  background: linear-gradient(135deg, #e9e4dc 0%, #d8d0c4 100%);
+}
+
+/* Centre play / pause overlay ----------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  pointer-events: none; /* never blocks the click-to-toggle on the media */
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+.hdt-yaman-video-section .hdt-yaman-video__play-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(1px);
+}
+.hdt-yaman-video-section .hdt-yaman-video__play-icon,
+.hdt-yaman-video-section .hdt-yaman-video__pause-icon {
+  position: relative;
+  z-index: 1;
+}
+/* Default (paused): show play triangle, hide pause bars. */
+.hdt-yaman-video-section .hdt-yaman-video__pause-icon { display: none; }
+.hdt-yaman-video-section .hdt-yaman-video__slide.is-playing .hdt-yaman-video__play-icon { display: none; }
+.hdt-yaman-video-section .hdt-yaman-video__slide.is-playing .hdt-yaman-video__pause-icon { display: block; }
+/* While playing, fade the overlay so it doesn't cover the video; show on hover. */
+.hdt-yaman-video-section .hdt-yaman-video__slide.is-playing .hdt-yaman-video__play { opacity: 0; }
+.hdt-yaman-video-section .hdt-yaman-video__slide.is-playing .hdt-yaman-video__media:hover .hdt-yaman-video__play { opacity: 1; }
+
+/* Creator handle pill (top-left) -------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__handle {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.38);
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Product label (bottom-left) ----------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__product {
+  position: absolute;
+  bottom: 30px;
+  left: 12px;
+  z-index: 2;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+.hdt-yaman-video-section a.hdt-yaman-video__product:hover {
+  text-decoration: underline;
+}
+
+/* CTA button ----------------------------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__button-wrap {
+  display: flex;
+  justify-content: center;
+}
+.hdt-yaman-video-section .hdt-yaman-video__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 18px;
+  border: 1px solid #070707;
+  border-radius: 12px;
+  background: transparent;
+  color: #070707;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.hdt-yaman-video-section .hdt-yaman-video__button:hover {
+  background: #070707;
+  color: #fff;
+}
+
+/* Tablet & below ------------------------------------------------------------
+ * Figma's cards are a fixed ~308px wide (mobile 308 x 459 ≈ 149%). On a % width
+ * a wide tablet/large-phone viewport would make the card huge and very tall, so
+ * we cap the card width and use the shorter Figma mobile ratio below 1150px. */
+@media (max-width: 1149px) {
+  .hdt-yaman-video-section .hdt-yaman-video__heading {
+    font-size: 40px;
+  }
+  /* Keep the Instagram Reels 9:16 ratio on tablet/mobile too. */
+  .hdt-yaman-video-section .hdt-yaman-video__media::before {
+    padding-top: calc(16 / 9 * 100%);
+  }
+  /* Keep the chosen tablet column count, but never let a card exceed ~340px so
+     its height stays controlled. */
+  .hdt-yaman-video-section .hdt-yaman-video__slider {
+    --slide-size: min(calc(100% / var(--yv-cols-tb, 2)), 340px);
+  }
+  .hdt-yaman-video-section .hdt-yaman-video__container {
+    padding-inline-end: 0;
+  }
+}
+
+/* Mobile --------------------------------------------------------------------*/
+@media (max-width: 767px) {
+  .hdt-yaman-video-section .hdt-yaman-video {
+    padding-top: var(--yv-pt-mb, 36px);
+    padding-bottom: var(--yv-pb-mb, 36px);
+  }
+  .hdt-yaman-video-section .hdt-yaman-video__container {
+    gap: 24px;
+    padding-inline-end: 0;
+  }
+  .hdt-yaman-video-section .hdt-yaman-video__heading {
+    font-size: 30px;
+    line-height: 1.15;
+  }
+  /* One full card + a peek of the next — capped at ~320px so the card stays the
+     Figma size (and a sensible height) on larger phones. */
+  .hdt-yaman-video-section .hdt-yaman-video__slider {
+    --slide-spacing: var(--yv-gap-mb, 14px);
+    --slide-size: min(var(--yv-card-mb, 82%), 320px);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+ * YAMAN UGC — "Real People. Real Glow." video carousel (product page)
+ * Section: sections/shoppable-video-ugc-n.liquid   (scope: .hdt-yaman-ugc-section)
+ * JS:      assets/shoppable-video-ugc-n.js          (video play/pause only)
+ * Carousel: native Kalles <hdt-slider>. Same card/video behaviour as YAMAN Videos,
+ * restyled: centred header, off-white background, white padded card frames.
+ * -------------------------------------------------------------------------- */
+
+.hdt-yaman-ugc-section .hdt-yaman-ugc {
+  background: var(--ug-bg, #f8f7f0);
+  padding-top: var(--ug-pt, 65px);
+  padding-bottom: var(--ug-pb, 46px);
+}
+
+.hdt-yaman-ugc-section .hdt-yaman-ugc__container {
+  max-width: var(--ug-maxw, 1310px);
+  margin: 0 auto;
+  padding-left: var(--ug-pad-x, 20px);
+  padding-right: var(--ug-pad-x, 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Header (centred): icon -> eyebrow -> heading -----------------------------*/
+.hdt-yaman-ugc-section .hdt-yaman-ugc__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  width: 100%;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d2847;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__icon img,
+.hdt-yaman-ugc-section .hdt-yaman-ugc__icon svg {
+  display: block;
+  height: auto;
+  max-height: 32px;
+  width: auto;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__eyebrow {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: 3.36px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.65);
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__heading {
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #1d2847;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* Native <hdt-slider> sizing (matches the YAMAN Videos carousel) ------------*/
+.hdt-yaman-ugc-section .hdt-yaman-ugc__slider {
+  display: block;
+  width: 100%;
+  --slide-spacing: var(--ug-gap, 20px);
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__slide {
+  min-width: 0;
+}
+
+/* White padded card frame around each video (Figma) ------------------------*/
+.hdt-yaman-ugc-section .hdt-yaman-ugc__card {
+  background: var(--ug-card-bg, #fff);
+  padding: 12px;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.09);
+}
+
+/* Media -----------------------------------------------------------------------
+ * Portrait ratio matches Figma video tile (~217 x 257 ≈ 84%). Height comes from
+ * an in-flow ::before padding spacer so the slide always has a real height. */
+.hdt-yaman-ugc-section .hdt-yaman-ugc__media {
+  position: relative;
+  width: 100%;
+  border-radius: var(--ug-radius, 12px);
+  overflow: hidden;
+  cursor: pointer;
+  background: #e9e4dc;
+  outline: none;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__media::before {
+  content: "";
+  display: block;
+  /* Instagram Reels aspect ratio (9:16) so portrait reels fill the card
+     without being cropped by their length. Applies desktop + mobile. */
+  padding-top: calc(16 / 9 * 100%);
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__video,
+.hdt-yaman-ugc-section .hdt-yaman-ugc__poster,
+.hdt-yaman-ugc-section .hdt-yaman-ugc__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__placeholder {
+  background: linear-gradient(135deg, #e9e4dc 0%, #d8d0c4 100%);
+}
+
+/* Centre play / pause overlay (same behaviour as YAMAN Videos) -------------*/
+.hdt-yaman-ugc-section .hdt-yaman-ugc__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__play-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(1px);
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__play-icon,
+.hdt-yaman-ugc-section .hdt-yaman-ugc__pause-icon {
+  position: relative;
+  z-index: 1;
+}
+.hdt-yaman-ugc-section .hdt-yaman-ugc__pause-icon { display: none; }
+.hdt-yaman-ugc-section .hdt-yaman-ugc__slide.is-playing .hdt-yaman-ugc__play-icon { display: none; }
+.hdt-yaman-ugc-section .hdt-yaman-ugc__slide.is-playing .hdt-yaman-ugc__pause-icon { display: block; }
+.hdt-yaman-ugc-section .hdt-yaman-ugc__slide.is-playing .hdt-yaman-ugc__play { opacity: 0; }
+.hdt-yaman-ugc-section .hdt-yaman-ugc__slide.is-playing .hdt-yaman-ugc__media:hover .hdt-yaman-ugc__play { opacity: 1; }
+
+/* Creator handle pill (top-left, optional) ---------------------------------*/
+.hdt-yaman-ugc-section .hdt-yaman-ugc__handle {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.38);
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Product label (bottom-left, optional) ------------------------------------*/
+.hdt-yaman-ugc-section .hdt-yaman-ugc__product {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 2;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+.hdt-yaman-ugc-section a.hdt-yaman-ugc__product:hover {
+  text-decoration: underline;
+}
+
+/* Tablet & below ------------------------------------------------------------*/
+@media (max-width: 1149px) {
+  .hdt-yaman-ugc-section .hdt-yaman-ugc__heading {
+    font-size: 36px;
+  }
+  /* Keep the chosen tablet column count, but cap card width so it can't blow up. */
+  .hdt-yaman-ugc-section .hdt-yaman-ugc__slider {
+    --slide-size: min(calc(100% / var(--ug-cols-tb, 2)), 340px);
+  }
+  .hdt-yaman-ugc__container{
+    padding-inline-end: 0 !important;
+  }
+}
+
+/* Mobile --------------------------------------------------------------------*/
+@media (max-width: 767px) {
+  .hdt-yaman-ugc-section .hdt-yaman-ugc {
+    padding-top: var(--ug-pt-mb, 40px);
+    padding-bottom: var(--ug-pb-mb, 32px);
+  }
+  .hdt-yaman-ugc-section .hdt-yaman-ugc__container {
+    gap: 24px;
+  }
+  .hdt-yaman-ugc-section .hdt-yaman-ugc__heading {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+  .hdt-yaman-ugc-section .hdt-yaman-ugc__eyebrow {
+    font-size: 12px;
+    letter-spacing: 2.6px;
+  }
+  /* One full card + a peek of the next. */
+  .hdt-yaman-ugc-section .hdt-yaman-ugc__slider {
+    --slide-spacing: var(--ug-gap-mb, 14px);
+    --slide-size: min(var(--ug-card-mb, 82%), 320px);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+ * YAMAN Steps — "Four steps to lifted, sculpted skin." (product page)
+ * Section: sections/yaman-routine-steps-n.liquid   (scope: .hdt-yaman-steps-section)
+ * Centred header + responsive grid (4-across desktop, 2x2 mobile). No carousel.
+ * -------------------------------------------------------------------------- */
+
+.hdt-yaman-steps-section .hdt-yaman-steps {
+  background: var(--st-bg, #faf6f0);
+  padding-top: var(--st-pt, 80px);
+  padding-bottom: var(--st-pb, 80px);
+}
+
+.hdt-yaman-steps-section .hdt-yaman-steps__container {
+  max-width: var(--st-maxw, 1310px);
+  margin: 0 auto;
+  padding-left: var(--st-pad-x, 20px);
+  padding-right: var(--st-pad-x, 20px);
+}
+
+/* Header (centred) ----------------------------------------------------------*/
+.hdt-yaman-steps-section .hdt-yaman-steps__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--st-heading, #1d2847);
+  margin-bottom: 10px;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__icon img,
+.hdt-yaman-steps-section .hdt-yaman-steps__icon svg {
+  display: block;
+  height: auto;
+  max-height: 30px;
+  width: auto;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__eyebrow {
+  margin: 0 0 8px;
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--st-heading, #1d2847);
+  opacity: 0.85;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__heading {
+  margin: 0 0 8px;
+  font-size: 44px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--st-heading, #1d2847);
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__text {
+  margin: 0;
+  max-width: 520px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--st-heading, #1d2847);
+}
+
+/* Grid ----------------------------------------------------------------------*/
+.hdt-yaman-steps-section .hdt-yaman-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--st-cols, 4), minmax(0, 1fr));
+  gap: var(--st-gap, 24px);
+}
+
+/* Card ----------------------------------------------------------------------*/
+.hdt-yaman-steps-section .hdt-yaman-steps__card {
+  position: relative;
+  display: flex;
+  min-height: 320px;
+  border-radius: var(--st-radius, 12px);
+  overflow: hidden;
+  border: 0.5px solid rgba(126, 126, 126, 0.6);
+  box-shadow: 0 1px 11px rgba(0, 0, 0, 0.12);
+  isolation: isolate;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__image,
+.hdt-yaman-steps-section .hdt-yaman-steps__image img,
+.hdt-yaman-steps-section .hdt-yaman-steps__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__placeholder {
+  background: linear-gradient(135deg, #2a2f3a 0%, #4a4036 100%);
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top,
+    rgba(0, 0, 0, var(--st-ov, 0.6)) 30%,
+    rgba(0, 0, 0, calc(var(--st-ov, 0.6) * 0.35)) 70%,
+    rgba(0, 0, 0, 0.04) 100%);
+}
+
+/* Card content --------------------------------------------------------------*/
+.hdt-yaman-steps-section .hdt-yaman-steps__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 28px;
+  color: #fff;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__number {
+  font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  font-size: 58px;
+  line-height: 1;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__body {
+  margin-top: auto;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__title {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #fff;
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__description {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+}
+.hdt-yaman-steps-section .hdt-yaman-steps__time {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 1.32px;
+  text-transform: uppercase;
+  color: var(--st-accent, #d4b87a);
+}
+
+/* Tablet & mobile: 2 x 2 grid ----------------------------------------------*/
+@media (max-width: 1149px) {
+  .hdt-yaman-steps-section .hdt-yaman-steps__heading {
+    font-size: 34px;
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .hdt-yaman-steps-section .hdt-yaman-steps {
+    padding-top: var(--st-pt-mb, 48px);
+    padding-bottom: var(--st-pb-mb, 48px);
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__heading {
+    font-size: 26px;
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__grid {
+    gap: var(--st-gap-mb, 14px);
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__card {
+    min-height: 260px;
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__content {
+    padding: 18px;
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__number {
+    font-size: 46px;
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__title {
+    font-size: 20px;
+  }
+  .hdt-yaman-steps-section .hdt-yaman-steps__description {
+    font-size: 12px;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+ * YAMAN Modes — "Different Mode. One Device." (product page)
+ * Section: sections/yaman-device-modes-n.liquid   (scope: .hdt-yaman-modes-section)
+ * Centred header + dark navy rounded panel with a responsive grid of mode items
+ * (5-across desktop, 3 tablet, 2 mobile). No carousel.
+ * -------------------------------------------------------------------------- */
+
+.hdt-yaman-modes-section .hdt-yaman-modes {
+  background: var(--md-bg, #faf6f0);
+  padding-top: var(--md-pt, 86px);
+  padding-bottom: var(--md-pb, 80px);
+}
+
+.hdt-yaman-modes-section .hdt-yaman-modes__container {
+  max-width: var(--md-maxw, 1310px);
+  margin: 0 auto;
+  padding-left: var(--md-pad-x, 20px);
+  padding-right: var(--md-pad-x, 20px);
+}
+
+/* Header (centred) ----------------------------------------------------------*/
+.hdt-yaman-modes-section .hdt-yaman-modes__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 28px;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__top-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  color: var(--md-heading, #1d2847);
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__top-icon img {
+  display: block;
+  height: auto;
+  max-height: 26px;
+  width: auto;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__eyebrow {
+  margin: 0 0 8px;
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--md-heading, #1d2847);
+  opacity: 0.85;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__heading {
+  margin: 0 0 8px;
+  font-size: 44px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--md-heading, #1d2847);
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__text {
+  margin: 0;
+  max-width: 520px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--md-heading, #1d2847);
+}
+
+/* Dark navy panel -----------------------------------------------------------*/
+.hdt-yaman-modes-section .hdt-yaman-modes__panel {
+  max-width: var(--md-panel-maxw, 1190px);
+  margin: 0 auto;
+  background: var(--md-panel, #1d2847);
+  border-radius: 15px;
+  padding: var(--md-panel-pad, 36px);
+}
+
+/* Grid: one row on desktop (capped at 5 columns) ---------------------------*/
+.hdt-yaman-modes-section .hdt-yaman-modes__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--md-cols, 5), minmax(0, 1fr));
+  gap: var(--md-gap, 28px);
+  align-items: start;
+}
+
+/* Item: improved icon + (title/description) flex layout --------------------*/
+.hdt-yaman-modes-section .hdt-yaman-modes__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  text-decoration: none;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__item--link {
+  transition: transform 0.2s ease;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__item--link:hover {
+  transform: translateY(-2px);
+}
+
+/* Glowing circular icon -----------------------------------------------------*/
+.hdt-yaman-modes-section .hdt-yaman-modes__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(255, 255, 255, 0.20) 0%,
+      rgba(255, 255, 255, 0.07) 48%,
+      rgba(255, 255, 255, 0) 72%);
+}
+/* Soft outer halo ring. */
+.hdt-yaman-modes-section .hdt-yaman-modes__icon::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.25);
+}
+/* Fallback colored core dot (when no icon image). */
+.hdt-yaman-modes-section .hdt-yaman-modes__icon-core {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--md-accent, #7fb2ff);
+  box-shadow: 0 0 10px 2px var(--md-accent, #7fb2ff), 0 0 18px rgba(255, 255, 255, 0.3);
+}
+/* Uploaded icon image (centered inside the glow). */
+.hdt-yaman-modes-section .hdt-yaman-modes__icon-img {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* Text content --------------------------------------------------------------*/
+.hdt-yaman-modes-section .hdt-yaman-modes__content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__title {
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.hdt-yaman-modes-section .hdt-yaman-modes__description {
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Tablet: 3 columns ---------------------------------------------------------*/
+@media (max-width: 1149px) {
+  .hdt-yaman-modes-section .hdt-yaman-modes__heading {
+    font-size: 34px;
+  }
+  .hdt-yaman-modes-section .hdt-yaman-modes__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--md-gap-mb, 24px);
+  }
+}
+
+/* Mobile: 2 columns ---------------------------------------------------------*/
+@media (max-width: 767px) {
+  .hdt-yaman-modes-section .hdt-yaman-modes {
+    padding-top: var(--md-pt-mb, 48px);
+    padding-bottom: var(--md-pb-mb, 48px);
+  }
+  .hdt-yaman-modes-section .hdt-yaman-modes__heading {
+    font-size: 26px;
+  }
+  .hdt-yaman-modes-section .hdt-yaman-modes__panel {
+    padding: var(--md-panel-pad-mb, 24px);
+  }
+  .hdt-yaman-modes-section .hdt-yaman-modes__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Very narrow: 1 column -----------------------------------------------------*/
+@media (max-width: 380px) {
+  .hdt-yaman-modes-section .hdt-yaman-modes__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+ * YAMAN Compare — text + glass comparison table (product page)
+ * Section: sections/yaman-comparison-table-n.liquid  (scope: .hdt-yaman-compare-section)
+ * Full-width bg image + dark overlay, left text, right glass 2-column table + VS badge.
+ * Mobile modes: auto (compact 2-col), stacked (row cards), scroll (horizontal).
+ * -------------------------------------------------------------------------- */
+
+.hdt-yaman-compare-section .hdt-yaman-compare {
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--cmp-pt, 70px);
+  padding-bottom: var(--cmp-pb, 70px);
+  background: #1d2847; /* fallback if no image */
+}
+
+/* Background image + overlay -------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__bg,
+.hdt-yaman-compare-section .hdt-yaman-compare__bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--cmp-overlay, #1d2847);
+  opacity: var(--cmp-overlay-op, 0.57);
+}
+
+/* Container ------------------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__container {
+  position: relative;
+  z-index: 1;
+  max-width: var(--cmp-maxw, 1310px);
+  margin: 0 auto;
+  padding-left: var(--cmp-pad-x, 40px);
+  padding-right: var(--cmp-pad-x, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  min-height: 420px;
+}
+
+/* Left text block -----------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__content {
+  flex: 1 1 auto;
+  max-width: var(--cmp-textw, 420px);
+  color: #fff;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__eyebrow {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 4.5px;
+  text-transform: uppercase;
+  color: var(--cmp-right, #d4b87a);
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__heading {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.05;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Glass table ---------------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__table-wrap {
+  position: relative;
+  flex: 0 1 var(--cmp-tablew, 707px);
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-color: color-mix(in srgb, var(--cmp-border, #fff) 60%, transparent);
+  background: rgba(217, 217, 217, 0.5);
+  background: color-mix(in srgb, var(--cmp-panel, #d9d9d9) 50%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__panel-right { display: none; }
+
+.hdt-yaman-compare-section .hdt-yaman-compare__head,
+.hdt-yaman-compare-section .hdt-yaman-compare__row {
+  display: flex;
+  align-items: stretch;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header,
+.hdt-yaman-compare-section .hdt-yaman-compare__cell {
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+/* Column headers (icon above title, centred) -------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 22px 20px 16px;
+  text-align: center;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__col-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__col-icon img {
+  width: 61px;
+  height: 61px;
+  object-fit: contain;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__col-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Right column dark strip (header + cells) ---------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header--right,
+.hdt-yaman-compare-section .hdt-yaman-compare__cell--right {
+  background: rgba(29, 40, 71, 0.41);
+  background: color-mix(in srgb, var(--cmp-panel-right, #1d2847) 41%, transparent);
+}
+
+/* Left column colors --------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header--left .hdt-yaman-compare__col-title,
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header--left .hdt-yaman-compare__col-icon {
+  color: #fff;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__cell--left .hdt-yaman-compare__text {
+  color: var(--cmp-left, #1d2847);
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__cell--left .hdt-yaman-compare__icon {
+  color: #fff;
+}
+
+/* Right column colors -------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header--right .hdt-yaman-compare__col-title,
+.hdt-yaman-compare-section .hdt-yaman-compare__col-header--right .hdt-yaman-compare__col-icon,
+.hdt-yaman-compare-section .hdt-yaman-compare__cell--right .hdt-yaman-compare__text
+ {
+  color: var(--cmp-right, #d4b87a);
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__cell--right .hdt-yaman-compare__icon{
+   color: #fff;
+}
+
+/* Rows / cells --------------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 46px;
+  min-height: 52px;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__row.is-highlight .hdt-yaman-compare__cell {
+  background: rgba(212, 184, 122, 0.14);
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__text {
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+.hdt-yaman-compare-section .hdt-yaman-compare__cell-label {
+  display: none; /* shown only in stacked mobile mode */
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  width: 100%;
+}
+
+/* VS badge ------------------------------------------------------------------*/
+.hdt-yaman-compare-section .hdt-yaman-compare__vs {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--cmp-vs-bg, #d4b87a);
+  color: var(--cmp-vs-text, #fff);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Tablet: stack text above table -------------------------------------------*/
+@media (max-width: 1149px) {
+  .hdt-yaman-compare-section .hdt-yaman-compare__container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__content {
+    max-width: none;
+    text-align: center;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__table-wrap {
+    flex: none;
+    max-width: var(--cmp-tablew, 707px);
+    margin: 0 auto;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__heading {
+    font-size: 32px;
+  }
+}
+
+/* Mobile base ---------------------------------------------------------------*/
+@media (max-width: 767px) {
+  .hdt-yaman-compare-section .hdt-yaman-compare {
+    padding-top: var(--cmp-pt-mb, 44px);
+    padding-bottom: var(--cmp-pb-mb, 44px);
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__container {
+    padding-left: 16px;
+    padding-right: 16px;
+    min-height: 0;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__heading {
+    font-size: 26px;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__eyebrow {
+    letter-spacing: 3px;
+    font-size: 13px;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare__vs{
+    top: 20%;
+  }
+
+  /* AUTO: compact two-column (default) */
+  .hdt-yaman-compare-section .hdt-yaman-compare__col-title { font-size: 14px; }
+  .hdt-yaman-compare-section .hdt-yaman-compare__text { font-size: 13px; }
+  .hdt-yaman-compare-section .hdt-yaman-compare__cell { padding: 11px 12px; gap: 8px; }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-auto .hdt-yaman-compare__vs,
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-scroll .hdt-yaman-compare__vs {
+    width: 46px;
+    height: 46px;
+    font-size: 15px;
+  }
+
+  /* SCROLL: keep desktop proportions, scroll horizontally */
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-scroll .hdt-yaman-compare__table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-scroll .hdt-yaman-compare__table {
+    min-width: 540px;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-scroll .hdt-yaman-compare__cell { font-size: 14px; }
+
+  /* STACKED: each row becomes a card (left option vs right option) */
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__head { display: none; }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__vs { display: none; }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__table-wrap {
+    background: transparent;
+    border: 0;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    overflow: visible;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__row {
+    flex-direction: column;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    margin-bottom: 14px;
+    background: rgba(217, 217, 217, 0.5);
+    background: color-mix(in srgb, var(--cmp-panel, #d9d9d9) 50%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__cell {
+    flex: none;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 14px 16px;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__cell-label {
+    display: block;
+    margin-bottom: 4px;
+  }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__cell--left .hdt-yaman-compare__cell-label { color: var(--cmp-left, #1d2847); }
+  .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__cell--right .hdt-yaman-compare__cell-label { color: var(--cmp-right, #d4b87a); }
+}

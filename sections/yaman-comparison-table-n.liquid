@@ -1,0 +1,435 @@
+<!-- section/yaman-comparison-table-n.liquid — YAMAN Compare: text + glass comparison table.
+     Product-page "Professional lifting results…" comparison. Built from scratch.
+     Full-width background image + dark overlay, left text block, right glassmorphism table
+     comparing two columns with a VS badge. Section-local "row" blocks.
+     CSS: assets/custom_yaman_dev4.css (loaded globally from layout/theme.liquid). -->
+{%- liquid
+  assign bg = section.settings.bg_image
+  assign bg_mb = section.settings.bg_image_mb | default: section.settings.bg_image
+  assign left_title = section.settings.left_title
+  assign right_title = section.settings.right_title
+-%}
+<div
+  class="hdt-yaman-compare hdt-yaman-compare--mb-{{ section.settings.mobile_layout }}"
+  style="
+    --cmp-overlay: {{ section.settings.overlay_color }};
+    --cmp-overlay-op: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --cmp-panel: {{ section.settings.panel_color }};
+    --cmp-panel-right: {{ section.settings.panel_right_color }};
+    --cmp-border: {{ section.settings.panel_border_color }};
+    --cmp-left: {{ section.settings.left_text_color }};
+    --cmp-right: {{ section.settings.right_text_color }};
+    --cmp-vs-bg: {{ section.settings.vs_bg }};
+    --cmp-vs-text: {{ section.settings.vs_text }};
+    --cmp-maxw: {{ section.settings.container_max_width }}px;
+    --cmp-tablew: {{ section.settings.table_max_width }}px;
+    --cmp-textw: {{ section.settings.text_max_width }}px;
+    --cmp-pad-x: {{ section.settings.container_padding }}px;
+    --cmp-pt: {{ section.settings.padding_top }}px;
+    --cmp-pb: {{ section.settings.padding_bottom }}px;
+    --cmp-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --cmp-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+  "
+>
+  <div class="hdt-yaman-compare__bg">
+    {%- if bg != blank or bg_mb != blank -%}
+      <picture>
+        {%- if bg_mb != blank -%}
+          <source media="(max-width: 767px)" srcset="{{ bg_mb | image_url: width: 1000 }}">
+        {%- endif -%}
+        <img
+          src="{{ bg | default: bg_mb | image_url: width: 1920 }}"
+          alt="{{ section.settings.heading | escape }}"
+          loading="lazy"
+          width="1920"
+          height="800"
+        >
+      </picture>
+    {%- endif -%}
+  </div>
+  <span class="hdt-yaman-compare__overlay" aria-hidden="true"></span>
+
+  <div class="hdt-yaman-compare__container">
+    <div class="hdt-yaman-compare__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="hdt-yaman-compare__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="hdt-yaman-compare__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="hdt-yaman-compare__table-wrap">
+      <span class="hdt-yaman-compare__panel-right" aria-hidden="true"></span>
+      <div class="hdt-yaman-compare__table">
+        <div class="hdt-yaman-compare__head">
+          <div class="hdt-yaman-compare__col-header hdt-yaman-compare__col-header--left">
+            <span class="hdt-yaman-compare__col-icon">
+              {%- if section.settings.left_icon != blank -%}
+                {{ section.settings.left_icon | image_url: width: 96 | image_tag: loading: 'lazy', widths: '32,64,96', alt: left_title }}
+              {%- else -%}
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l2 5 5 1-3.5 3.7L16.5 18 12 15.4 7.5 18l1-5.3L5 9l5-1 2-5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+              {%- endif -%}
+            </span>
+            {%- if left_title != blank -%}<span class="hdt-yaman-compare__col-title">{{ left_title }}</span>{%- endif -%}
+          </div>
+          <div class="hdt-yaman-compare__col-header hdt-yaman-compare__col-header--right">
+            <span class="hdt-yaman-compare__col-icon">
+              {%- if section.settings.right_icon != blank -%}
+                {{ section.settings.right_icon | image_url: width: 96 | image_tag: loading: 'lazy', widths: '32,64,96', alt: right_title }}
+              {%- else -%}
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.4"/><path d="M9 10h.01M15 10h.01M9 15c.8.8 1.9 1.2 3 1.2s2.2-.4 3-1.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              {%- endif -%}
+            </span>
+            {%- if right_title != blank -%}<span class="hdt-yaman-compare__col-title">{{ right_title }}</span>{%- endif -%}
+          </div>
+        </div>
+
+        {%- for block in section.blocks -%}
+          <div class="hdt-yaman-compare__row{% if block.settings.highlight %} is-highlight{% endif %}" {{ block.shopify_attributes }}>
+            <div class="hdt-yaman-compare__cell hdt-yaman-compare__cell--left">
+              {%- if left_title != blank -%}<span class="hdt-yaman-compare__cell-label">{{ left_title }}</span>{%- endif -%}
+              <span class="hdt-yaman-compare__icon">
+                {%- if block.settings.left_icon_image != blank -%}
+                  {{ block.settings.left_icon_image | image_url: width: 48 | image_tag: loading: 'lazy', widths: '16,24,48', alt: '' }}
+                {%- elsif block.settings.left_icon_type == 'check' -%}
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {%- elsif block.settings.left_icon_type == 'x' -%}
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+                {%- endif -%}
+              </span>
+              {%- if block.settings.left_text != blank -%}<span class="hdt-yaman-compare__text">{{ block.settings.left_text }}</span>{%- endif -%}
+            </div>
+            <div class="hdt-yaman-compare__cell hdt-yaman-compare__cell--right">
+              {%- if right_title != blank -%}<span class="hdt-yaman-compare__cell-label">{{ right_title }}</span>{%- endif -%}
+              <span class="hdt-yaman-compare__icon">
+                {%- if block.settings.right_icon_image != blank -%}
+                  {{ block.settings.right_icon_image | image_url: width: 48 | image_tag: loading: 'lazy', widths: '16,24,48', alt: '' }}
+                {%- elsif block.settings.right_icon_type == 'check' -%}
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {%- elsif block.settings.right_icon_type == 'x' -%}
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+                {%- endif -%}
+              </span>
+              {%- if block.settings.right_text != blank -%}<span class="hdt-yaman-compare__text">{{ block.settings.right_text }}</span>{%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.vs_label != blank -%}
+        <span class="hdt-yaman-compare__vs">{{ section.settings.vs_label }}</span>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{%- comment -%} custom_yaman_dev4.css is loaded globally from layout/theme.liquid — nothing to load here. {%- endcomment -%}
+
+{% schema %}
+{
+  "name": "YAMAN Compare",
+  "tag": "section",
+  "class": "hdt-yaman-compare-section hdt-section",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image (desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mb",
+      "label": "Background image (mobile)",
+      "info": "Optional. Falls back to the desktop image."
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#1D2847"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Overlay opacity",
+      "default": 57
+    },
+    {
+      "type": "header",
+      "content": "Text content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "CLINIC RESULTS AT HOME"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Professional lifting results, without the monthly appointments"
+    },
+    {
+      "type": "header",
+      "content": "Table columns"
+    },
+    {
+      "type": "text",
+      "id": "left_title",
+      "label": "Left column heading",
+      "default": "REAL LIFT PLUS"
+    },
+    {
+      "type": "text",
+      "id": "right_title",
+      "label": "Right column heading",
+      "default": "CLINIC TREATMENTS"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_icon",
+      "label": "Left column icon",
+      "info": "Optional. A built-in icon is shown if empty."
+    },
+    {
+      "type": "image_picker",
+      "id": "right_icon",
+      "label": "Right column icon",
+      "info": "Optional. A built-in icon is shown if empty."
+    },
+    {
+      "type": "text",
+      "id": "vs_label",
+      "label": "VS label",
+      "default": "VS"
+    },
+    {
+      "type": "header",
+      "content": "Glass panel colors"
+    },
+    {
+      "type": "color",
+      "id": "panel_color",
+      "label": "Left glass color",
+      "default": "#D9D9D9"
+    },
+    {
+      "type": "color",
+      "id": "panel_right_color",
+      "label": "Right panel color",
+      "default": "#1D2847"
+    },
+    {
+      "type": "color",
+      "id": "panel_border_color",
+      "label": "Panel border color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "left_text_color",
+      "label": "Left column text color",
+      "default": "#1D2847"
+    },
+    {
+      "type": "color",
+      "id": "right_text_color",
+      "label": "Right column accent color",
+      "default": "#D4B87A"
+    },
+    {
+      "type": "color",
+      "id": "vs_bg",
+      "label": "VS badge background",
+      "default": "#D4B87A"
+    },
+    {
+      "type": "color",
+      "id": "vs_text",
+      "label": "VS badge text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout",
+      "options": [
+        { "value": "auto", "label": "Auto (compact two-column)" },
+        { "value": "stacked", "label": "Stacked row cards" },
+        { "value": "scroll", "label": "Horizontal scroll" }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 960,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1310
+    },
+    {
+      "type": "range",
+      "id": "table_max_width",
+      "min": 480,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Table max width",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "text_max_width",
+      "min": 280,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "label": "Text max width",
+      "default": 420
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 44
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "left_text",
+          "label": "Left text",
+          "default": "One-time investment"
+        },
+        {
+          "type": "text",
+          "id": "right_text",
+          "label": "Right text",
+          "default": "180$ - 400$ per session"
+        },
+        {
+          "type": "select",
+          "id": "left_icon_type",
+          "label": "Left icon",
+          "options": [
+            { "value": "check", "label": "Check" },
+            { "value": "x", "label": "X" },
+            { "value": "none", "label": "None" }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "select",
+          "id": "right_icon_type",
+          "label": "Right icon",
+          "options": [
+            { "value": "check", "label": "Check" },
+            { "value": "x", "label": "X" },
+            { "value": "none", "label": "None" }
+          ],
+          "default": "x"
+        },
+        {
+          "type": "image_picker",
+          "id": "left_icon_image",
+          "label": "Left custom icon (optional)"
+        },
+        {
+          "type": "image_picker",
+          "id": "right_icon_image",
+          "label": "Right custom icon (optional)"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlight this row",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Compare",
+      "category": "YAMAN",
+      "blocks": [
+        { "type": "row", "settings": { "left_text": "One-time investment", "right_text": "180$ - 400$ per session" } },
+        { "type": "row", "settings": { "left_text": "12-minutes daily ritual", "right_text": "Travel & appointment time" } },
+        { "type": "row", "settings": { "left_text": "use at home, anytime", "right_text": "Recurring monthly cost" } },
+        { "type": "row", "settings": { "left_text": "No downtime", "right_text": "Possible downtime" } },
+        { "type": "row", "settings": { "left_text": "Visible results in weeks", "right_text": "Results fade over time" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

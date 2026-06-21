@@ -1,0 +1,469 @@
+<!-- section/shoppable-video-ugc-n.liquid — YAMAN UGC: "Real People. Real Glow." video carousel.
+     Duplicated from sections/shoppable-video-n.liquid — SAME video card / play-pause behaviour and
+     SAME native Kalles <hdt-slider> carousel (NOT Flickity, NOT a custom carousel). Only the
+     surrounding layout differs: centred UGC icon + eyebrow + heading, off-white background, white
+     padded card frames, no CTA button. Used on the product page (not the homepage).
+     CSS: assets/custom_yaman_dev4.css (loaded globally from layout/theme.liquid).
+     JS: assets/shoppable-video-ugc-n.js handles only video play/pause (not the carousel). -->
+{%- liquid
+  assign cols_dk = section.settings.cols_dk | default: 4
+  assign cols_tb = section.settings.cols_tb | default: 2
+-%}
+<div
+  class="hdt-yaman-ugc"
+  style="
+    --ug-cols-dk: {{ cols_dk }};
+    --ug-cols-tb: {{ cols_tb }};
+    --ug-card-mb: {{ section.settings.card_width_mb }}%;
+    --ug-maxw: {{ section.settings.container_max_width }}px;
+    --ug-pad-x: {{ section.settings.container_padding }}px;
+    --ug-bg: {{ section.settings.background_color }};
+    --ug-card-bg: {{ section.settings.card_background }};
+    --ug-gap: {{ section.settings.gap }}px;
+    --ug-gap-mb: {{ section.settings.gap_mb }}px;
+    --ug-radius: {{ section.settings.card_radius }}px;
+    --ug-pt: {{ section.settings.padding_top }}px;
+    --ug-pb: {{ section.settings.padding_bottom }}px;
+    --ug-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --ug-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+  "
+>
+  <div class="hdt-yaman-ugc__container">
+    <div class="hdt-yaman-ugc__header">
+      {%- if section.settings.icon != blank -%}
+        <div class="hdt-yaman-ugc__icon">
+          {{ section.settings.icon | image_url: width: 120 | image_tag: loading: 'lazy', widths: '40,80,120', alt: section.settings.eyebrow }}
+        </div>
+      {%- else -%}
+        <div class="hdt-yaman-ugc__icon" aria-hidden="true">
+          <svg width="40" height="31" viewBox="0 0 40 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="38" height="23" rx="5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M14 24l3 5 3-5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <text x="20" y="16.5" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor" font-family="sans-serif">UGC</text>
+          </svg>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="hdt-yaman-ugc__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="hdt-yaman-ugc__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+    </div>
+
+    <hdt-slider
+      id="Slider-{{ section.id }}"
+      class="hdt-slider hdt-relative hdt-yaman-ugc__slider lg:hdt-slides-{{ cols_dk }} md:hdt-slides-{{ cols_tb }} hdt-slides-1"
+      config='{ "id": "Slider-{{ section.id }}", "navUI": {{ section.settings.enable_arrows }}, "dotUI": {{ section.settings.enable_dots }}, "loop": {{ section.settings.loop }}, "autoPlay": {{ section.settings.autoplay | times: 1000 }}, "pauseOnHover": {{ section.settings.pause_on_hover }} }'
+    >
+      <div class="hdt-slider__viewport hdt-relative">
+        <div class="hdt-slider__container">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign yv_video = block.settings.video
+              assign yv_poster = block.settings.poster
+              assign yv_product = block.settings.product
+              assign yv_handle = block.settings.handle
+
+              # Product label: override first, else product title.
+              assign yv_label = block.settings.product_label
+              if yv_label == blank and yv_product != blank
+                assign yv_label = yv_product.title
+              endif
+
+              # Link: custom override first, else product url.
+              assign yv_link = block.settings.custom_link
+              if yv_link == blank and yv_product != blank
+                assign yv_link = yv_product.url
+              endif
+
+              assign yv_alt = block.settings.alt | default: yv_label | default: yv_handle
+            -%}
+            <div class="hdt-slider__slide hdt-yaman-ugc__slide" data-yv-card {{ block.shopify_attributes }}>
+              <div class="hdt-yaman-ugc__card">
+                <div
+                  class="hdt-yaman-ugc__media"
+                  data-yv-media
+                  role="button"
+                  tabindex="0"
+                  aria-label="{{ 'Play video' | escape }}"
+                >
+                  {%- if yv_video != blank -%}
+                    <video
+                      class="hdt-yaman-ugc__video"
+                      data-yv-video
+                      playsinline
+                      muted
+                      preload="metadata"
+                      {% if section.settings.video_loop %}loop{% endif %}
+                      {% if yv_poster != blank %}poster="{{ yv_poster | image_url: width: 800 }}"{% endif %}
+                    >
+                      {%- for source in yv_video.sources -%}
+                        <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                      {%- endfor -%}
+                    </video>
+                  {%- elsif yv_poster != blank -%}
+                    {{ yv_poster | image_url: width: 800 | image_tag: loading: 'lazy', class: 'hdt-yaman-ugc__poster', alt: yv_alt, widths: '300,400,600,800' }}
+                  {%- else -%}
+                    <span class="hdt-yaman-ugc__placeholder" aria-hidden="true"></span>
+                  {%- endif -%}
+
+                  <span class="hdt-yaman-ugc__play" data-yv-play aria-hidden="true">
+                    <span class="hdt-yaman-ugc__play-bg"></span>
+                    <svg class="hdt-yaman-ugc__play-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 5.5v13l11-6.5L8 5.5z" fill="currentColor"/>
+                    </svg>
+                    <svg class="hdt-yaman-ugc__pause-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="7" y="5" width="3.6" height="14" rx="1.2" fill="currentColor"/>
+                      <rect x="13.4" y="5" width="3.6" height="14" rx="1.2" fill="currentColor"/>
+                    </svg>
+                  </span>
+
+                  {%- if yv_handle != blank -%}
+                    <span class="hdt-yaman-ugc__handle">{{ yv_handle }}</span>
+                  {%- endif -%}
+
+                  {%- if yv_label != blank -%}
+                    {%- if yv_link != blank -%}
+                      <a class="hdt-yaman-ugc__product" href="{{ yv_link }}" data-yv-link>{{ yv_label }}</a>
+                    {%- else -%}
+                      <span class="hdt-yaman-ugc__product">{{ yv_label }}</span>
+                    {%- endif -%}
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      {%- if section.settings.enable_arrows -%}
+        <div class="hdt-navigation hdt-position-default hdt-visible-always hdt-style-outline hdt-shape-rounded hdt-size-small hdt-hide-mobile-{{ section.settings.hide_arrows_mobile }}">
+          <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--prev" type="button" disabled name="previous" aria-label="previous">
+            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/></svg>
+          </button>
+          <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--next" type="button" disabled name="next" aria-label="next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/></svg>
+          </button>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.enable_dots -%}
+        <div hdt-slider-dots aria-controls="Slider-{{ section.id }}" class="hdt-slider__dots hdt-pagination hdt-position-center hdt-style-default hdt-radius-true hdt-hide-mobile-{{ section.settings.hide_dots_mobile }}" style="--space-between: 10px; --margin-top: 18px;" hdt-reveal="slide-in" timeline></div>
+      {%- endif -%}
+    </hdt-slider>
+  </div>
+</div>
+
+{%- comment -%} custom_yaman_dev4.css is loaded globally from layout/theme.liquid. <hdt-slider> is a
+   theme-wide custom element (already defined in the theme's global JS) — nothing to load for it here.
+   Only the small video play/pause script is section-specific. {%- endcomment -%}
+<script src="{{ 'shoppable-video-ugc-n.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "YAMAN UGC",
+  "tag": "section",
+  "class": "hdt-yaman-ugc-section hdt-section",
+  "max_blocks": 16,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "Top icon",
+      "info": "Small icon shown above the eyebrow. Leave empty to use a built-in UGC icon."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "TRUST THE PRODUCT"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real People. Real Glow."
+    },
+    {
+      "type": "header",
+      "content": "Container"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#F8F7F0"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 960,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1310
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "select",
+      "id": "cols_dk",
+      "label": "Cards per view (desktop)",
+      "default": "4",
+      "options": [
+        { "label": "2", "value": "2" },
+        { "label": "3", "value": "3" },
+        { "label": "4", "value": "4" },
+        { "label": "5", "value": "5" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "cols_tb",
+      "label": "Cards per view (tablet)",
+      "default": "2",
+      "options": [
+        { "label": "1", "value": "1" },
+        { "label": "2", "value": "2" },
+        { "label": "3", "value": "3" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "card_width_mb",
+      "min": 60,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Mobile card width",
+      "info": "Width of one card on mobile. Below 90% shows a peek of the next card.",
+      "default": 82
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Video corner radius",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Card gap (desktop)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "gap_mb",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Card gap (mobile)",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_arrows",
+      "label": "Show arrows",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_arrows_mobile",
+      "label": "Hide arrows on mobile",
+      "default": true,
+      "visible_if": "{{ section.settings.enable_arrows }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_dots",
+      "label": "Show pagination dots",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_dots_mobile",
+      "label": "Hide dots on mobile",
+      "default": true,
+      "visible_if": "{{ section.settings.enable_dots }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop carousel",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay",
+      "min": 0,
+      "max": 7,
+      "step": 0.5,
+      "unit": "s",
+      "label": "Carousel autoplay",
+      "info": "0 = off.",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause autoplay on hover",
+      "default": true,
+      "visible_if": "{{ section.settings.autoplay != 0 }}"
+    },
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_loop",
+      "label": "Loop videos",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 32
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Shopify-hosted video. Leave empty to show the poster image only."
+        },
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "Poster image",
+          "info": "Shown before the video plays, or as a fallback when no video is set."
+        },
+        {
+          "type": "text",
+          "id": "handle",
+          "label": "Creator handle",
+          "info": "Optional. Shown as a small pill (top-left)."
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "product_label",
+          "label": "Product label override",
+          "info": "If empty, the selected product's title is used."
+        },
+        {
+          "type": "url",
+          "id": "custom_link",
+          "label": "Custom link override",
+          "info": "If empty, the selected product's URL is used."
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Accessibility label",
+          "info": "Describes the video/poster for screen readers."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN UGC",
+      "category": "YAMAN",
+      "blocks": [
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" }
+      ]
+    }
+  ]
+}
+{% endschema %}

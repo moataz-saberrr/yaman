@@ -1,0 +1,335 @@
+<!-- section/yaman-device-modes-n.liquid — YAMAN Modes: "Different Mode. One Device."
+     Product-page device modes. Built from scratch (conceptually close to Kalles shipping/icon
+     sections, used only as a reference — sections/shipping.liquid is NOT modified). Centred header +
+     dark navy rounded panel containing a responsive grid of mode items. No carousel.
+     CSS: assets/custom_yaman_dev4.css (loaded globally from layout/theme.liquid). -->
+{%- liquid
+  assign md_cols = section.blocks.size
+  if md_cols > 5
+    assign md_cols = 5
+  endif
+  if md_cols < 1
+    assign md_cols = 1
+  endif
+-%}
+<div
+  class="hdt-yaman-modes"
+  style="
+    --md-bg: {{ section.settings.background_color }};
+    --md-panel: {{ section.settings.panel_color }};
+    --md-heading: {{ section.settings.heading_color }};
+    --md-maxw: {{ section.settings.container_max_width }}px;
+    --md-panel-maxw: {{ section.settings.panel_max_width }}px;
+    --md-pad-x: {{ section.settings.container_padding }}px;
+    --md-panel-pad: {{ section.settings.panel_padding }}px;
+    --md-panel-pad-mb: {{ section.settings.panel_padding_mb }}px;
+    --md-gap: {{ section.settings.gap }}px;
+    --md-gap-mb: {{ section.settings.gap_mb }}px;
+    --md-cols: {{ md_cols }};
+    --md-pt: {{ section.settings.padding_top }}px;
+    --md-pb: {{ section.settings.padding_bottom }}px;
+    --md-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --md-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+  "
+>
+  <div class="hdt-yaman-modes__container">
+    <div class="hdt-yaman-modes__header">
+      <div class="hdt-yaman-modes__top-icon">
+        {%- if section.settings.top_icon != blank -%}
+          {{ section.settings.top_icon | image_url: width: 160 | image_tag: loading: 'lazy', widths: '50,100,160', alt: section.settings.top_icon_text }}
+        {%- elsif section.settings.top_icon_text != blank -%}
+          <span class="hdt-yaman-modes__badge">{{ section.settings.top_icon_text }}</span>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="hdt-yaman-modes__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="hdt-yaman-modes__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.subtitle != blank -%}
+        <p class="hdt-yaman-modes__text">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="hdt-yaman-modes__panel">
+      <div class="hdt-yaman-modes__grid">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign md_icon = block.settings.icon
+            assign md_accent = block.settings.accent_color | default: '#7fb2ff'
+            assign md_alt = block.settings.icon_alt | default: block.settings.title
+          -%}
+          {%- capture md_item -%}
+            <span class="hdt-yaman-modes__icon" style="--md-accent: {{ md_accent }};">
+              {%- if md_icon != blank -%}
+                {{ md_icon | image_url: width: 120 | image_tag: loading: 'lazy', class: 'hdt-yaman-modes__icon-img', alt: md_alt, widths: '40,64,96,120' }}
+              {%- else -%}
+                <span class="hdt-yaman-modes__icon-core" aria-hidden="true"></span>
+              {%- endif -%}
+            </span>
+            <span class="hdt-yaman-modes__content">
+              {%- if block.settings.title != blank -%}
+                <span class="hdt-yaman-modes__title">{{ block.settings.title }}</span>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <span class="hdt-yaman-modes__description">{{ block.settings.description }}</span>
+              {%- endif -%}
+            </span>
+          {%- endcapture -%}
+
+          {%- if block.settings.link != blank -%}
+            <a class="hdt-yaman-modes__item hdt-yaman-modes__item--link" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{{ md_item }}</a>
+          {%- else -%}
+            <div class="hdt-yaman-modes__item" {{ block.shopify_attributes }}>{{ md_item }}</div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- comment -%} custom_yaman_dev4.css is loaded globally from layout/theme.liquid — nothing to load here. {%- endcomment -%}
+
+{% schema %}
+{
+  "name": "YAMAN Modes",
+  "tag": "section",
+  "class": "hdt-yaman-modes-section hdt-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_icon",
+      "label": "Top icon",
+      "info": "Small centered icon/badge. Leave empty to use the text badge below."
+    },
+    {
+      "type": "text",
+      "id": "top_icon_text",
+      "label": "Top icon text fallback",
+      "default": "MODE"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "SOLUTION FOR EVERY PROBLEM"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Different Mode. One Device."
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Designed to solve all your skin problems."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FAF6F0"
+    },
+    {
+      "type": "color",
+      "id": "panel_color",
+      "label": "Panel background color",
+      "default": "#1D2847"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading & text color",
+      "default": "#1D2847"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 960,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1310
+    },
+    {
+      "type": "range",
+      "id": "panel_max_width",
+      "min": 800,
+      "max": 1400,
+      "step": 10,
+      "unit": "px",
+      "label": "Panel max width",
+      "default": 1190
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "panel_padding",
+      "min": 12,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Panel padding (desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "panel_padding_mb",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Panel padding (mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 8,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Item gap (desktop)",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "gap_mb",
+      "min": 8,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Item gap (mobile)",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 86
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mode",
+      "name": "Mode",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image",
+          "info": "Optional. If empty, a glowing circle using the accent color is shown."
+        },
+        {
+          "type": "text",
+          "id": "icon_alt",
+          "label": "Icon alt text"
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Accent / glow color",
+          "default": "#7FB2FF"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "CLEAN"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Deep ION Cleaning"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Modes",
+      "category": "YAMAN",
+      "blocks": [
+        { "type": "mode", "settings": { "title": "CLEAN", "description": "Deep ION Cleaning", "accent_color": "#3B82F6" } },
+        { "type": "mode", "settings": { "title": "NEB", "description": "Deep Skin Care", "accent_color": "#F5A623" } },
+        { "type": "mode", "settings": { "title": "EMS UP", "description": "Facial Muscle Care", "accent_color": "#EF4444" } },
+        { "type": "mode", "settings": { "title": "COOL", "description": "Cooling & Firming skin care", "accent_color": "#CFE8FF" } },
+        { "type": "mode", "settings": { "title": "EYE CARE", "description": "Eye Area Care", "accent_color": "#FFFFFF" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
