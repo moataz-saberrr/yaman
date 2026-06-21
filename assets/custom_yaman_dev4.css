@@ -10,14 +10,14 @@
  * to be add it to yaman-choose-section in ddevice page.
  * ============================================================================ */
 
- .hdt-yaman-choose-section .hdt-yaman-choose__header{
+ /* .hdt-yaman-choose-section .hdt-yaman-choose__header{
     display: flex;
     flex-direction: column-reverse;
  }
  .hdt-yaman-choose-section .hdt-yaman-choose__text{
     margin-bottom: 10px;
     color: #000000a6;
- }
+ } */
 
 /* ----------------------------------------------------------------------------
  * YAMAN Videos — shoppable video carousel
@@ -1163,3 +1163,440 @@
   .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__cell--left .hdt-yaman-compare__cell-label { color: var(--cmp-left, #1d2847); }
   .hdt-yaman-compare-section .hdt-yaman-compare--mb-stacked .hdt-yaman-compare__cell--right .hdt-yaman-compare__cell-label { color: var(--cmp-right, #d4b87a); }
 }
+
+/* Judge me section */
+
+.shopify-section:has([id*="judge_me_reviews_review_widget"]) .hdt-icon-block>:where(svg,img){
+  width: 24px !important;
+  height: 24px !important;
+}
+.jdgm-write-review-modal__stars .jdgm-star {
+        color: #1D2847 !important;
+    }
+.jdgm-write-review-modal__navigation .jdgm-write-review-modal__nav-btn-next{
+  background-color: #1D2847 !important;
+}
+
+.shopify-section:has([id*="judge_me_reviews_review_widget"]) {
+    /* padding: 40px 15px;
+    background-color: #F4F0EA;
+
+    @media (max-width:1150px) {
+      padding: 24px 15px;
+    }
+
+    @media (max-width:767px) {
+      padding: 16px 15px;
+    } */
+
+    /* Beige background matching the design */
+    .hdt-group-block .hdt-group-content .hdt-text-warry{
+        @media (max-width: 767px) {
+            text-align: center;
+        }
+    }
+}
+
+.shopify-section:has([id*="judge_me_reviews_review_widget"]) #template--19442729549891__custom_section_rpewzT {
+    padding-inline-end: 0 !important;
+}
+
+.shopify-section:has([id*="judge_me_reviews_review_widget"]) .jdgm-widget,
+.shopify-section:has([id*="judge_me_reviews_review_widget"]) .jm-review-widget {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width:1150px) {
+        padding-bottom: 16px;
+    }
+
+    @media (max-width:767px) {
+        padding-bottom: 0px;
+    }
+
+}
+
+/* Header Box */
+.shopify-section:has([id*="judge_me_reviews_review_widget"]) {
+
+    .jm-review-widget__header,
+    .jdgm-rev-widg__header {
+        background-color: #f8f3e9 !important;
+        border-radius: 12px !important;
+        padding: 30px !important;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.03) !important;
+        margin-bottom: 24px !important;
+        border: 1px solid #E8E4DE !important;
+    }
+
+    /* Review Box */
+    .jm-review,
+    .jdgm-rev {
+        background-color: #f8f3e9 !important;
+        border-radius: 12px !important;
+        padding: 24px !important;
+        margin-bottom: 16px !important;
+        border: 1px solid #E8E4DE !important;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.02) !important;
+    }
+
+    /* Write Review Button */
+    .jm-action-buttons__button,
+    .jdgm-write-rev-link {
+        background-color: transparent !important;
+        border: 1.5px solid #1D2847 !important;
+        /* Green border */
+        color: #1D2847 !important;
+        border-radius: 30px !important;
+        padding: 10px 35px !important;
+        font-weight: 600 !important;
+        font-size: 16px !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .jm-action-buttons__button:hover,
+    .jdgm-write-rev-link:hover {
+        background-color: #1D2847 !important;
+        color: #FFFFFF !important;
+    }
+
+    /* Verified Badge */
+    .jdgm-rev__buyer-badge,
+    .jm-badge {
+        background-color: #EAF2EC !important;
+        color: #386D43 !important;
+        border-radius: 20px !important;
+        padding: 4px 12px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+    }
+
+    /* Histogram Bars */
+    .jdgm-histogram__bar-content,
+    .jm-bar-chart__bar {
+        background-color: #F5A623 !important;
+        /* Dark green filled bars */
+    }
+
+    .jdgm-histogram__bar,
+    .jm-bar-chart__background {
+        background-color: #E8E4DE !important;
+        /* Light background for bars */
+        border-radius: 4px !important;
+    }
+
+    .jm-sort-filter--compact .jm-sort-filter__icon--sort[data-v-2bbaaaa5] {
+        display: block;
+        inset-inline-start: 0;
+    }
+
+    /* Figma Design Summary Section */
+    .jm-review-widget-header__summary-section {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .jm-review-widget-header__title {
+        display: none !important;
+    }
+
+    .jm-review-widget-header__title-and-rating {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .jm-review-widget-header__main-content {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+    }
+
+    .jm-action-buttons {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        border-inline-start: 1px solid #E8E4DE !important;
+        padding-inline-start: 20px !important;
+        margin-inline-start: 20px !important;
+    }
+
+    .jm-progress-bar {
+        height: 6px !important;
+        border-radius: 10px !important;
+        background-color: #E8E4DE !important;
+    }
+
+    .jm-progress-bar__fill {
+        background-color: #F5A623 !important;
+        border-radius: 10px !important;
+    }
+
+    .jm-histogram-row {
+        gap: 12px !important;
+        margin-bottom: 6px !important;
+    }
+
+    @media (max-width: 768px) {
+        .jm-review-widget-header__summary-section {
+            flex-direction: column !important;
+            gap: 20px !important;
+        }
+
+        .jm-action-buttons {
+            border-inline-start: none !important;
+            padding-inline-start: 0 !important;
+            margin-inline-start: 0 !important;
+            border-top: 1px solid #E8E4DE !important;
+            padding-top: 20px !important;
+            width: 100%;
+        }
+    }
+
+    .jm-button.jm-button--secondary,
+    .jdgm-sort-dropdown.jm-sort-filter__select {
+        background-color: transparent !important;
+        border: 1.5px solid #1D2847 !important;
+        color: #1D2847 !important;
+    }
+
+    .jm-loading-overlay.jm-review-widget__body>.jm-stack {
+        box-shadow: 0px 2px 20px 0px #00000017;
+        background-color: #f8f3e9;
+        border-radius: 12px;
+        padding: 28px 32px;
+
+        @media (max-width: 767px) {
+            box-shadow: none;
+            background-color: transparent;
+            border-radius: 12px;
+            padding: 0;
+        }
+
+        .jm-box.jm-review-item {
+            border: 1px solid #EDE7E0;
+            border-radius: 12px;
+            padding: 20px 24px;
+
+            @media (max-width: 767px) {
+                background-color: #fff !important;
+                box-shadow: 0px 2px 20px 0px #00000017;
+            }
+
+            .jm-star-rating__font-icon {
+                font-size: 1.4rem !important;
+            }
+        }
+    }
+
+}
+
+/* judge me star rating */
+.jdgm-widget.jdgm-preview-badge .jdgm-prev-badge {
+    display: flex !important;
+    gap: 7px !important;
+}
+
+/* end judge me section */
+
+/* image with text */
+.hdt-container:has(.swiper-wrapper) .hdt-text-warry{
+    text-wrap-style: balance;
+}
+@media (max-width: 1150px) {
+    .hdt-container:has(.swiper-wrapper) {
+        padding-inline: 0px !important;
+        .ims-carousel-btn{
+            display:none;
+        }
+    }
+}
+
+.hdt-image-text.hdt-image-with_text .hdt-row-grid {
+    display: flex;
+    padding-inline: 76px;
+    gap: 40px;
+
+    @media (max-width: 1150px) {
+        gap: 16px;
+    }
+
+    .hdt-image_text_column {
+        flex-basis: 28%;
+
+        /* @media (max-width: 1150px) {
+            width: 290px;
+            margin: 0 auto;
+        } */
+    }
+
+    .hdt-oh {
+        flex-basis: 75%;
+    }
+
+    @media (max-width: 1150px) {
+        flex-direction: column;
+        padding-inline: 0 !important;
+    }
+}
+
+/* end image with text */
+
+/* ═══════════════════════════════════════════════════════════
+   VIDEO CAROUSEL + PLAY BUTTON – Image with text section
+   Scoped to .hdt-image-text.hdt-image-with_text
+═══════════════════════════════════════════════════════════ */
+
+/* Let .hdt-image-wrapper flow normally so the flex carousel isn't broken by the grid */
+.hdt-image-text.hdt-image-with_text .hdt-image-wrapper {
+    display: block !important;
+}
+
+/* Group block: constrain to full width so the scroll container can overflow */
+.hdt-image-text.hdt-image-with_text .hdt-group-block {
+    position: relative;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* ── Swiper carousel (markup is rebuilt by JS into .swiper > .swiper-wrapper > .swiper-slide) ── */
+.hdt-image-text.hdt-image-with_text .ims-swiper {
+    width: 100%;
+    overflow: hidden;
+    padding-block: 2px;
+    /* keep slide box-shadows / overlays from being clipped */
+}
+
+.hdt-image-text.hdt-image-with_text .ims-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+
+.hdt-image-text.hdt-image-with_text .ims-swiper .swiper-slide {
+    position: relative;
+    height: fit-content;
+}
+
+/* ── Carousel arrow buttons ────────────────────────────── */
+.ims-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1 !important;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+    transition: background 0.2s, transform 0.2s;
+    padding: 0;
+}
+
+.ims-carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.32);
+    transform: translateY(-50%) scale(1.06);
+}
+
+.ims-carousel-btn.ims-prev {
+    left: 14px;
+}
+
+.ims-carousel-btn.ims-next {
+    right: 14px;
+}
+
+.ims-carousel-btn svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+/* ── Remove native video controls (webkit + JS fallback) ── */
+.hdt-image-text.hdt-image-with_text video::-webkit-media-controls,
+.hdt-image-text.hdt-image-with_text video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+/* ── Play / pause overlay ──────────────────────────────── */
+.ims-play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity 0.25s;
+    pointer-events: all;
+    height: fit-content;
+    align-self: center;
+}
+
+.ims-play-icon {
+    /* width: 64px;
+    height: 64px; */
+    /* background: rgba(255, 255, 255, 0.92); */
+    /* border-radius: 50%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35); */
+    transition: transform 0.2s, background 0.2s;
+}
+
+/* .ims-play-overlay:hover .ims-play-icon {
+    transform: scale(1.1);
+    background: #fff;
+} */
+/* .ims-play-icon svg { width: 26px; height: 26px; fill: #1a3d2b; } */
+.ims-icon-play {
+    display: block;
+    margin-inline-start: 3px;
+}
+
+.ims-icon-pause {
+    display: none;
+    margin-inline-start: 0;
+}
+
+/* Playing state: fade overlay, hover reveals pause button */
+.ims-play-overlay.is-playing {
+    opacity: 0;
+}
+
+@media (min-width: 1150px) {
+    .ims-play-overlay.is-playing:hover {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1149px) {
+    .ims-play-overlay.is-playing {
+        opacity: 0;
+    }
+}
+
+.ims-play-overlay.is-playing .ims-icon-play {
+    display: none;
+}
+
+.ims-play-overlay.is-playing .ims-icon-pause {
+    display: block;
+}
+
