@@ -273,6 +273,82 @@
         "padding_bottom_mb": 40
       }
     },
+    "yaman_steps": {
+      "type": "yaman-routine-steps-n",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/601db66e6c5db46ecf7aed34ef7e0df3c755fe53.png",
+            "number": "01",
+            "title": "Cleanse",
+            "description": "Start with a clean, dry face. Skin contact ensures optimal conductivity for every session.",
+            "time": "2 MIN",
+            "alt": ""
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/a641b8f6f62ff1062dc2fc00c8b63470abddf5ca.png",
+            "number": "02",
+            "title": "Lift",
+            "description": "Apply a generous layer of YĀMAN Lifting Gel. Glide the device upward along jaw, cheek, and brow — RF + EMS active.",
+            "time": "6 MIN",
+            "alt": ""
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/96149ca60d749735fe624416cf47cbef8e3b60aa.png",
+            "number": "03",
+            "title": "Sculpt",
+            "description": "Switch to sculpt mode for under-eye and forehead detail work. Target fine lines and hollows.",
+            "time": "3 MIN",
+            "alt": ""
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/5af78915b57748225d7189371b4ae4ef258280bd.png",
+            "number": "04",
+            "title": "Glow",
+            "description": "Finish with Photon LED to support cellular renewal and skin radiance overnight.",
+            "time": "1 MIN",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4"
+      ],
+      "name": "YAMAN Steps",
+      "settings": {
+        "icon": "shopify://shop_images/Asset_7_1.png",
+        "eyebrow": "YOUR 12-MINUTE ROUTINE",
+        "heading": "Four steps to lifted, sculpted skin.",
+        "subtitle": "Designed to fit your morning without interruption.",
+        "background_color": "#faf6f0",
+        "heading_color": "#1d2847",
+        "accent_color": "#d4b87a",
+        "overlay_opacity": 60,
+        "container_max_width": 1310,
+        "container_padding": 20,
+        "cols_dk": "4",
+        "card_radius": 12,
+        "gap": 24,
+        "gap_mb": 14,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    },
     "modes_ticker": {
       "type": "product-modes-ticker-n",
       "blocks": {
@@ -339,6 +415,91 @@
         "padding_bottom": 32,
         "padding_top_mb": 24,
         "padding_bottom_mb": 24
+      }
+    },
+    "yaman_modes": {
+      "type": "yaman-device-modes-n",
+      "blocks": {
+        "mode_1": {
+          "type": "mode",
+          "settings": {
+            "icon_alt": "",
+            "accent_color": "#3b82f6",
+            "title": "CLEAN",
+            "description": "Deep ION Cleaning",
+            "link": ""
+          }
+        },
+        "mode_2": {
+          "type": "mode",
+          "settings": {
+            "icon_alt": "",
+            "accent_color": "#f5a623",
+            "title": "NEB",
+            "description": "Deep Skin Care",
+            "link": ""
+          }
+        },
+        "mode_3": {
+          "type": "mode",
+          "settings": {
+            "icon_alt": "",
+            "accent_color": "#ef4444",
+            "title": "EMS UP",
+            "description": "Facial Muscle Care",
+            "link": ""
+          }
+        },
+        "mode_4": {
+          "type": "mode",
+          "settings": {
+            "icon": "shopify://shop_images/Vector.png",
+            "icon_alt": "",
+            "accent_color": "#cfe8ff",
+            "title": "COOL",
+            "description": "Cooling & Firming skin care",
+            "link": ""
+          }
+        },
+        "mode_5": {
+          "type": "mode",
+          "settings": {
+            "icon_alt": "",
+            "accent_color": "#ffffff",
+            "title": "EYE CARE",
+            "description": "Eye Area Care",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "mode_1",
+        "mode_2",
+        "mode_3",
+        "mode_4",
+        "mode_5"
+      ],
+      "name": "YAMAN Modes",
+      "settings": {
+        "top_icon": "shopify://shop_images/Layer_1.png",
+        "top_icon_text": "MODE",
+        "eyebrow": "SOLUTION FOR EVERY PROBLEM",
+        "heading": "Different Mode. One Device.",
+        "subtitle": "Designed to solve all your skin problems.",
+        "background_color": "#faf6f0",
+        "panel_color": "#1d2847",
+        "heading_color": "#1d2847",
+        "container_max_width": 1310,
+        "panel_max_width": 1190,
+        "container_padding": 20,
+        "panel_padding": 36,
+        "panel_padding_mb": 24,
+        "gap": 28,
+        "gap_mb": 24,
+        "padding_top": 86,
+        "padding_bottom": 80,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
       }
     },
     "product_pairs_n_ECgMwJ": {
@@ -589,167 +750,6 @@
       "settings": {
         "color_scheme": "",
         "space": 50
-      }
-    },
-    "yaman_steps": {
-      "type": "yaman-routine-steps-n",
-      "blocks": {
-        "step_1": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/601db66e6c5db46ecf7aed34ef7e0df3c755fe53.png",
-            "number": "01",
-            "title": "Cleanse",
-            "description": "Start with a clean, dry face. Skin contact ensures optimal conductivity for every session.",
-            "time": "2 MIN",
-            "alt": ""
-          }
-        },
-        "step_2": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/a641b8f6f62ff1062dc2fc00c8b63470abddf5ca.png",
-            "number": "02",
-            "title": "Lift",
-            "description": "Apply a generous layer of YĀMAN Lifting Gel. Glide the device upward along jaw, cheek, and brow — RF + EMS active.",
-            "time": "6 MIN",
-            "alt": ""
-          }
-        },
-        "step_3": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/96149ca60d749735fe624416cf47cbef8e3b60aa.png",
-            "number": "03",
-            "title": "Sculpt",
-            "description": "Switch to sculpt mode for under-eye and forehead detail work. Target fine lines and hollows.",
-            "time": "3 MIN",
-            "alt": ""
-          }
-        },
-        "step_4": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/5af78915b57748225d7189371b4ae4ef258280bd.png",
-            "number": "04",
-            "title": "Glow",
-            "description": "Finish with Photon LED to support cellular renewal and skin radiance overnight.",
-            "time": "1 MIN",
-            "alt": ""
-          }
-        }
-      },
-      "block_order": [
-        "step_1",
-        "step_2",
-        "step_3",
-        "step_4"
-      ],
-      "name": "YAMAN Steps",
-      "settings": {
-        "icon": "shopify://shop_images/Asset_7_1.png",
-        "eyebrow": "YOUR 12-MINUTE ROUTINE",
-        "heading": "Four steps to lifted, sculpted skin.",
-        "subtitle": "Designed to fit your morning without interruption.",
-        "background_color": "#faf6f0",
-        "heading_color": "#1d2847",
-        "accent_color": "#d4b87a",
-        "overlay_opacity": 60,
-        "container_max_width": 1310,
-        "container_padding": 20,
-        "cols_dk": "4",
-        "card_radius": 12,
-        "gap": 24,
-        "gap_mb": 14,
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "padding_top_mb": 48,
-        "padding_bottom_mb": 48
-      }
-    },
-    "yaman_modes": {
-      "type": "yaman-device-modes-n",
-      "blocks": {
-        "mode_1": {
-          "type": "mode",
-          "settings": {
-            "icon_alt": "",
-            "accent_color": "#3b82f6",
-            "title": "CLEAN",
-            "description": "Deep ION Cleaning",
-            "link": ""
-          }
-        },
-        "mode_2": {
-          "type": "mode",
-          "settings": {
-            "icon_alt": "",
-            "accent_color": "#f5a623",
-            "title": "NEB",
-            "description": "Deep Skin Care",
-            "link": ""
-          }
-        },
-        "mode_3": {
-          "type": "mode",
-          "settings": {
-            "icon_alt": "",
-            "accent_color": "#ef4444",
-            "title": "EMS UP",
-            "description": "Facial Muscle Care",
-            "link": ""
-          }
-        },
-        "mode_4": {
-          "type": "mode",
-          "settings": {
-            "icon": "shopify://shop_images/Vector.png",
-            "icon_alt": "",
-            "accent_color": "#cfe8ff",
-            "title": "COOL",
-            "description": "Cooling & Firming skin care",
-            "link": ""
-          }
-        },
-        "mode_5": {
-          "type": "mode",
-          "settings": {
-            "icon_alt": "",
-            "accent_color": "#ffffff",
-            "title": "EYE CARE",
-            "description": "Eye Area Care",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "mode_1",
-        "mode_2",
-        "mode_3",
-        "mode_4",
-        "mode_5"
-      ],
-      "name": "YAMAN Modes",
-      "settings": {
-        "top_icon": "shopify://shop_images/Layer_1.png",
-        "top_icon_text": "MODE",
-        "eyebrow": "SOLUTION FOR EVERY PROBLEM",
-        "heading": "Different Mode. One Device.",
-        "subtitle": "Designed to solve all your skin problems.",
-        "background_color": "#faf6f0",
-        "panel_color": "#1d2847",
-        "heading_color": "#1d2847",
-        "container_max_width": 1310,
-        "panel_max_width": 1190,
-        "container_padding": 20,
-        "panel_padding": 36,
-        "panel_padding_mb": 24,
-        "gap": 28,
-        "gap_mb": 24,
-        "padding_top": 86,
-        "padding_bottom": 80,
-        "padding_top_mb": 48,
-        "padding_bottom_mb": 48
       }
     },
     "yaman_comparison_table_n_KWdTeM": {
@@ -1055,14 +1055,14 @@
     "visible_lift",
     "yaman_steps",
     "modes_ticker",
-    "product_pairs_n_ECgMwJ",
-    "accordion_n_LCGQQD",
-    "final_cta",
-    "tabs",
-    "sidebar",
     "yaman_modes",
     "yaman_comparison_table_n_KWdTeM",
+    "product_pairs_n_ECgMwJ",
     "yaman_ugc",
-    "featured_collection_choose_n_Npyxxm"
+    "accordion_n_LCGQQD",
+    "featured_collection_choose_n_Npyxxm",
+    "final_cta",
+    "tabs",
+    "sidebar"
   ]
 }
