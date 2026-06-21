@@ -502,6 +502,97 @@
         "padding_bottom_mb": 48
       }
     },
+    "yaman_comparison_table_n_KWdTeM": {
+      "type": "yaman-comparison-table-n",
+      "blocks": {
+        "row_CYimTc": {
+          "type": "row",
+          "settings": {
+            "left_text": "One-time investment",
+            "right_text": "180$ - 400$ per session",
+            "left_icon_type": "check",
+            "right_icon_type": "x",
+            "highlight": false
+          }
+        },
+        "row_6zHBGU": {
+          "type": "row",
+          "settings": {
+            "left_text": "12-minutes daily ritual",
+            "right_text": "Travel & appointment time",
+            "left_icon_type": "check",
+            "right_icon_type": "x",
+            "highlight": false
+          }
+        },
+        "row_iRagqz": {
+          "type": "row",
+          "settings": {
+            "left_text": "use at home, anytime",
+            "right_text": "Recurring monthly cost",
+            "left_icon_type": "check",
+            "right_icon_type": "x",
+            "highlight": false
+          }
+        },
+        "row_wqFB8V": {
+          "type": "row",
+          "settings": {
+            "left_text": "No downtime",
+            "right_text": "Possible downtime",
+            "left_icon_type": "check",
+            "right_icon_type": "x",
+            "highlight": false
+          }
+        },
+        "row_NQxDGa": {
+          "type": "row",
+          "settings": {
+            "left_text": "Visible results in weeks",
+            "right_text": "Results fade over time",
+            "left_icon_type": "check",
+            "right_icon_type": "x",
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "row_CYimTc",
+        "row_6zHBGU",
+        "row_iRagqz",
+        "row_wqFB8V",
+        "row_NQxDGa"
+      ],
+      "name": "YAMAN Compare",
+      "settings": {
+        "bg_image": "shopify://shop_images/9909fe3684d54238b03f3b9fb1f074df384291e4_1.jpg",
+        "overlay_color": "#1d2847",
+        "overlay_opacity": 57,
+        "eyebrow": "CLINIC RESULTS AT HOME",
+        "heading": "Professional lifting results, without the monthly appointments",
+        "left_title": "REAL LIFT PLUS",
+        "right_title": "CLINIC TREATMENTS",
+        "left_icon": "shopify://shop_images/Group.png",
+        "right_icon": "shopify://shop_images/Layer_2.png",
+        "vs_label": "VS",
+        "panel_color": "#d9d9d9",
+        "panel_right_color": "#1d2847",
+        "panel_border_color": "#ffffff",
+        "left_text_color": "#1d2847",
+        "right_text_color": "#d4b87a",
+        "vs_bg": "#d4b87a",
+        "vs_text": "#ffffff",
+        "mobile_layout": "auto",
+        "container_max_width": 1310,
+        "table_max_width": 800,
+        "text_max_width": 420,
+        "container_padding": 40,
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "padding_top_mb": 44,
+        "padding_bottom_mb": 44
+      }
+    },
     "product_pairs_n_ECgMwJ": {
       "type": "product-pairs-n",
       "name": "Pairs Product",
@@ -527,6 +618,93 @@
         "padding_top": 46,
         "padding_bottom": 46,
         "padding_top_mb": 32,
+        "padding_bottom_mb": 32
+      }
+    },
+    "yaman_ugc": {
+      "type": "shoppable-video-ugc-n",
+      "blocks": {
+        "video_1": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/37a71092160198ed6849336c7c3bc36409f6a47d.png",
+            "handle": "",
+            "product": "",
+            "product_label": "",
+            "custom_link": "",
+            "alt": ""
+          }
+        },
+        "video_Nh7YFr": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/bd23e4c8f0c496d73f15f887d9fe868401a18ba6.jpg",
+            "handle": "",
+            "product": "",
+            "product_label": "",
+            "custom_link": "",
+            "alt": ""
+          }
+        },
+        "video_grhpVc": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/ebfa51cd44b5215e62b8be02e84925da8fe31c39.jpg",
+            "handle": "",
+            "product": "",
+            "product_label": "",
+            "custom_link": "",
+            "alt": ""
+          }
+        },
+        "video_bUCi6X": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/9909fe3684d54238b03f3b9fb1f074df384291e4.jpg",
+            "handle": "",
+            "product": "",
+            "product_label": "",
+            "custom_link": "",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_1",
+        "video_Nh7YFr",
+        "video_grhpVc",
+        "video_bUCi6X"
+      ],
+      "name": "YAMAN UGC",
+      "settings": {
+        "icon": "shopify://shop_images/sherlock_age_signAsset_14_1_1.png",
+        "eyebrow": "TRUST THE PRODUCT",
+        "heading": "Real People. Real Glow.",
+        "background_color": "#f8f7f0",
+        "card_background": "#ffffff",
+        "container_max_width": 1310,
+        "container_padding": 20,
+        "cols_dk": "4",
+        "cols_tb": "2",
+        "card_width_mb": 82,
+        "card_radius": 12,
+        "gap": 20,
+        "gap_mb": 14,
+        "enable_arrows": false,
+        "hide_arrows_mobile": true,
+        "enable_dots": false,
+        "hide_dots_mobile": true,
+        "loop": false,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "video_loop": true,
+        "padding_top": 64,
+        "padding_bottom": 46,
+        "padding_top_mb": 40,
         "padding_bottom_mb": 32
       }
     },
@@ -679,257 +857,6 @@
         "pd_mb": "40px,,50px,"
       }
     },
-    "final_cta": {
-      "type": "product-final-cta-n",
-      "settings": {
-        "eyebrow": "STILL DECIDING?",
-        "heading": "Try Real Lift Plus risk-free\nfor 60 days",
-        "subheading": "Free express shipping · Free returns · 2-year warranty · Klarna available.",
-        "atc_label": "ADD TO BAG",
-        "select_label": "SELECT OPTIONS",
-        "soldout_label": "SOLD OUT",
-        "consult_label": "BOOK A 1-ON-1 CONSULT",
-        "consult_url": "shopify://pages/contact",
-        "background_color": "#070707",
-        "text_color": "#ffffff",
-        "cart_bg": "#ffffff",
-        "cart_text": "#070707",
-        "container_max_width": 640,
-        "padding_top": 65,
-        "padding_bottom": 65,
-        "padding_top_mb": 50,
-        "padding_bottom_mb": 50
-      }
-    },
-    "tabs": {
-      "type": "main-product-tabs",
-      "blocks": {
-        "tab_des_tKqkJj": {
-          "type": "tab_des",
-          "settings": {
-            "title": "Description"
-          }
-        },
-        "tab_add_HXf3yk": {
-          "type": "tab_add",
-          "settings": {
-            "title": "Additional Information"
-          }
-        },
-        "tab_html_7dKb7L": {
-          "type": "tab_html",
-          "settings": {
-            "title": "Custom tab",
-            "content": "",
-            "page": "wash-care"
-          }
-        }
-      },
-      "block_order": [
-        "tab_des_tKqkJj",
-        "tab_add_HXf3yk",
-        "tab_html_7dKb7L"
-      ],
-      "disabled": true,
-      "settings": {
-        "tabs_design": "tab",
-        "enable_first_tab": false,
-        "full_width": false,
-        "colors_by_section": true,
-        "color_scheme": "scheme-c9476b69-abc7-454f-a946-2d5a9f5f3a37",
-        "background_opacity": 1,
-        "mg": "",
-        "mg_mb": "",
-        "pd": "60px,,60px,",
-        "pd_mb": "30px,,30px,"
-      }
-    },
-    "sidebar": {
-      "type": "sidebar-product",
-      "disabled": true,
-      "settings": {
-        "color_scheme": "",
-        "space": 50
-      }
-    },
-    "yaman_comparison_table_n_KWdTeM": {
-      "type": "yaman-comparison-table-n",
-      "blocks": {
-        "row_CYimTc": {
-          "type": "row",
-          "settings": {
-            "left_text": "One-time investment",
-            "right_text": "180$ - 400$ per session",
-            "left_icon_type": "check",
-            "right_icon_type": "x",
-            "highlight": false
-          }
-        },
-        "row_6zHBGU": {
-          "type": "row",
-          "settings": {
-            "left_text": "12-minutes daily ritual",
-            "right_text": "Travel & appointment time",
-            "left_icon_type": "check",
-            "right_icon_type": "x",
-            "highlight": false
-          }
-        },
-        "row_iRagqz": {
-          "type": "row",
-          "settings": {
-            "left_text": "use at home, anytime",
-            "right_text": "Recurring monthly cost",
-            "left_icon_type": "check",
-            "right_icon_type": "x",
-            "highlight": false
-          }
-        },
-        "row_wqFB8V": {
-          "type": "row",
-          "settings": {
-            "left_text": "No downtime",
-            "right_text": "Possible downtime",
-            "left_icon_type": "check",
-            "right_icon_type": "x",
-            "highlight": false
-          }
-        },
-        "row_NQxDGa": {
-          "type": "row",
-          "settings": {
-            "left_text": "Visible results in weeks",
-            "right_text": "Results fade over time",
-            "left_icon_type": "check",
-            "right_icon_type": "x",
-            "highlight": false
-          }
-        }
-      },
-      "block_order": [
-        "row_CYimTc",
-        "row_6zHBGU",
-        "row_iRagqz",
-        "row_wqFB8V",
-        "row_NQxDGa"
-      ],
-      "name": "YAMAN Compare",
-      "settings": {
-        "bg_image": "shopify://shop_images/9909fe3684d54238b03f3b9fb1f074df384291e4_1.jpg",
-        "overlay_color": "#1d2847",
-        "overlay_opacity": 57,
-        "eyebrow": "CLINIC RESULTS AT HOME",
-        "heading": "Professional lifting results, without the monthly appointments",
-        "left_title": "REAL LIFT PLUS",
-        "right_title": "CLINIC TREATMENTS",
-        "left_icon": "shopify://shop_images/Group.png",
-        "right_icon": "shopify://shop_images/Layer_2.png",
-        "vs_label": "VS",
-        "panel_color": "#d9d9d9",
-        "panel_right_color": "#1d2847",
-        "panel_border_color": "#ffffff",
-        "left_text_color": "#1d2847",
-        "right_text_color": "#d4b87a",
-        "vs_bg": "#d4b87a",
-        "vs_text": "#ffffff",
-        "mobile_layout": "auto",
-        "container_max_width": 1310,
-        "table_max_width": 800,
-        "text_max_width": 420,
-        "container_padding": 40,
-        "padding_top": 70,
-        "padding_bottom": 70,
-        "padding_top_mb": 44,
-        "padding_bottom_mb": 44
-      }
-    },
-    "yaman_ugc": {
-      "type": "shoppable-video-ugc-n",
-      "blocks": {
-        "video_1": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/37a71092160198ed6849336c7c3bc36409f6a47d.png",
-            "handle": "",
-            "product": "",
-            "product_label": "",
-            "custom_link": "",
-            "alt": ""
-          }
-        },
-        "video_Nh7YFr": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/bd23e4c8f0c496d73f15f887d9fe868401a18ba6.jpg",
-            "handle": "",
-            "product": "",
-            "product_label": "",
-            "custom_link": "",
-            "alt": ""
-          }
-        },
-        "video_grhpVc": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/ebfa51cd44b5215e62b8be02e84925da8fe31c39.jpg",
-            "handle": "",
-            "product": "",
-            "product_label": "",
-            "custom_link": "",
-            "alt": ""
-          }
-        },
-        "video_bUCi6X": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/9909fe3684d54238b03f3b9fb1f074df384291e4.jpg",
-            "handle": "",
-            "product": "",
-            "product_label": "",
-            "custom_link": "",
-            "alt": ""
-          }
-        }
-      },
-      "block_order": [
-        "video_1",
-        "video_Nh7YFr",
-        "video_grhpVc",
-        "video_bUCi6X"
-      ],
-      "name": "YAMAN UGC",
-      "settings": {
-        "icon": "shopify://shop_images/sherlock_age_signAsset_14_1_1.png",
-        "eyebrow": "TRUST THE PRODUCT",
-        "heading": "Real People. Real Glow.",
-        "background_color": "#f8f7f0",
-        "card_background": "#ffffff",
-        "container_max_width": 1310,
-        "container_padding": 20,
-        "cols_dk": "4",
-        "cols_tb": "2",
-        "card_width_mb": 82,
-        "card_radius": 12,
-        "gap": 20,
-        "gap_mb": 14,
-        "enable_arrows": false,
-        "hide_arrows_mobile": true,
-        "enable_dots": false,
-        "hide_dots_mobile": true,
-        "loop": false,
-        "autoplay": 0,
-        "pause_on_hover": true,
-        "video_loop": true,
-        "padding_top": 64,
-        "padding_bottom": 46,
-        "padding_top_mb": 40,
-        "padding_bottom_mb": 32
-      }
-    },
     "featured_collection_choose_n_Npyxxm": {
       "type": "featured-collection-choose-n",
       "blocks": {
@@ -1046,6 +973,79 @@
         "padding_bottom": 30,
         "padding_top_mb": 60,
         "padding_bottom_mb": 30
+      }
+    },
+    "final_cta": {
+      "type": "product-final-cta-n",
+      "settings": {
+        "eyebrow": "STILL DECIDING?",
+        "heading": "Try Real Lift Plus risk-free\nfor 60 days",
+        "subheading": "Free express shipping · Free returns · 2-year warranty · Klarna available.",
+        "atc_label": "ADD TO BAG",
+        "select_label": "SELECT OPTIONS",
+        "soldout_label": "SOLD OUT",
+        "consult_label": "BOOK A 1-ON-1 CONSULT",
+        "consult_url": "shopify://pages/contact",
+        "background_color": "#070707",
+        "text_color": "#ffffff",
+        "cart_bg": "#ffffff",
+        "cart_text": "#070707",
+        "container_max_width": 640,
+        "padding_top": 65,
+        "padding_bottom": 65,
+        "padding_top_mb": 50,
+        "padding_bottom_mb": 50
+      }
+    },
+    "tabs": {
+      "type": "main-product-tabs",
+      "blocks": {
+        "tab_des_tKqkJj": {
+          "type": "tab_des",
+          "settings": {
+            "title": "Description"
+          }
+        },
+        "tab_add_HXf3yk": {
+          "type": "tab_add",
+          "settings": {
+            "title": "Additional Information"
+          }
+        },
+        "tab_html_7dKb7L": {
+          "type": "tab_html",
+          "settings": {
+            "title": "Custom tab",
+            "content": "",
+            "page": "wash-care"
+          }
+        }
+      },
+      "block_order": [
+        "tab_des_tKqkJj",
+        "tab_add_HXf3yk",
+        "tab_html_7dKb7L"
+      ],
+      "disabled": true,
+      "settings": {
+        "tabs_design": "tab",
+        "enable_first_tab": false,
+        "full_width": false,
+        "colors_by_section": true,
+        "color_scheme": "scheme-c9476b69-abc7-454f-a946-2d5a9f5f3a37",
+        "background_opacity": 1,
+        "mg": "",
+        "mg_mb": "",
+        "pd": "60px,,60px,",
+        "pd_mb": "30px,,30px,"
+      }
+    },
+    "sidebar": {
+      "type": "sidebar-product",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "space": 50
       }
     }
   },
