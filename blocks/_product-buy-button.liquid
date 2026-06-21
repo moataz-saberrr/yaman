@@ -92,6 +92,7 @@
                       {{- 'products.product.sold_out' | t -}}
                     {%- else -%}
                       {{- 'products.product.add_to_cart' | t -}}
+                       {% comment %} Add to Bag — {{ selected_variant.price | money_with_currency}} {% endcomment %}
                     {%- endif -%}
                   </span> 
                   <span class="hdt-loading__spinner hdt-absolute" hidden>

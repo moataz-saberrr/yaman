@@ -20,18 +20,21 @@
         },
         "tax_rkEdFK": {
           "type": "tax",
+          "disabled": true,
           "settings": {
             "url": ""
           }
         },
         "agree_y3A6EM": {
           "type": "agree",
+          "disabled": true,
           "settings": {
             "content": "I agree with the terms and conditions"
           }
         },
         "btn_cart_74AGUK": {
           "type": "btn_cart",
+          "disabled": true,
           "settings": {
             "style_class": "",
             "icon": "none",
@@ -52,6 +55,7 @@
         },
         "img_trust_zatTgB": {
           "type": "img_trust",
+          "disabled": true,
           "settings": {
             "wimg": 350,
             "svg": "visa,paypal,master,american_express,amazon",
@@ -70,13 +74,13 @@
       "settings": {
         "colors_by_section": true,
         "color_scheme": "scheme-e0b73555-c767-4eda-aa6d-4e44e10aefce",
-        "show_free_shipping_bar": true,
-        "show_cart_note": true,
-        "show_gift_wrap": true,
-        "show_shipping_estimator": true,
+        "show_free_shipping_bar": false,
+        "show_cart_note": false,
+        "show_gift_wrap": false,
+        "show_shipping_estimator": false,
         "show_cart_discount": true,
         "discount_error_message": "Enter a valid discount code",
-        "show_cart_complementary": true,
+        "show_cart_complementary": false,
         "heading": "Customers also bought",
         "product_list": [],
         "replaces_products_selected": true,

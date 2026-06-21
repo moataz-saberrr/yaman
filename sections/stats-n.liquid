@@ -1,0 +1,225 @@
+<!-- stats-n.liquid — YAMAN Stats row (settings-only; adapted from custom-section.liquid pattern) -->
+{%- liquid
+  assign st_bg = section.settings.background_color
+  assign st_text = section.settings.text_color
+  assign st_divider = section.settings.divider_color
+-%}
+<div
+  class="hdt-yaman-stats"
+  id="hdt-yaman-stats-{{ section.id }}"
+  hdt-reveal="fade-in"
+  style="--st-bg: {{ st_bg }}; --st-text: {{ st_text }}; --st-divider: {{ st_divider }}; --st-maxw: {{ section.settings.container_max_width }}px; --st-value: {{ section.settings.value_size }}px; --st-value-mb: {{ section.settings.value_size_mb }}px; --st-label: {{ section.settings.label_size }}px; --st-pt: {{ section.settings.padding_top }}px; --st-pb: {{ section.settings.padding_bottom }}px; --st-pt-mb: {{ section.settings.padding_top_mb }}px; --st-pb-mb: {{ section.settings.padding_bottom_mb }}px;">
+  <div class="hdt-yaman-stats__container">
+    <div class="hdt-yaman-stats__grid">
+      {%- for i in (1..4) -%}
+        {%- liquid
+          assign num_key = 'stat_' | append: i | append: '_number'
+          assign suf_key = 'stat_' | append: i | append: '_suffix'
+          assign lbl_key = 'stat_' | append: i | append: '_label'
+          assign s_num = section.settings[num_key]
+          assign s_suf = section.settings[suf_key]
+          assign s_lbl = section.settings[lbl_key]
+        -%}
+        <div class="hdt-yaman-stats__item">
+          <div class="hdt-yaman-stats__value">{{ s_num }}{%- if s_suf != blank -%}
+              <span class="hdt-yaman-stats__suffix">{{ s_suf }}</span>
+            {%- endif -%}
+          </div>
+          {%- if s_lbl != blank -%}
+            <div class="hdt-yaman-stats__label">{{ s_lbl }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "YAMAN Stats",
+    "tag": "section",
+    "class": "hdt-section hdt-yaman-stats-section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": "Stat 1"
+      },
+      {
+        "type": "text",
+        "id": "stat_1_number",
+        "label": "Number",
+        "default": "93"
+      },
+      {
+        "type": "text",
+        "id": "stat_1_suffix",
+        "label": "Suffix",
+        "default": "%"
+      },
+      {
+        "type": "text",
+        "id": "stat_1_label",
+        "label": "Label",
+        "default": "Firmer Skin"
+      }, {
+        "type": "header",
+        "content": "Stat 2"
+      }, {
+        "type": "text",
+        "id": "stat_2_number",
+        "label": "Number",
+        "default": "89"
+      }, {
+        "type": "text",
+        "id": "stat_2_suffix",
+        "label": "Suffix",
+        "default": "%"
+      }, {
+        "type": "text",
+        "id": "stat_2_label",
+        "label": "Label",
+        "default": "Less Sagging"
+      }, {
+        "type": "header",
+        "content": "Stat 3"
+      }, {
+        "type": "text",
+        "id": "stat_3_number",
+        "label": "Number",
+        "default": "97"
+      }, {
+        "type": "text",
+        "id": "stat_3_suffix",
+        "label": "Suffix",
+        "default": "%"
+      }, {
+        "type": "text",
+        "id": "stat_3_label",
+        "label": "Label",
+        "default": "Visible Lift"
+      }, {
+        "type": "header",
+        "content": "Stat 4"
+      }, {
+        "type": "text",
+        "id": "stat_4_number",
+        "label": "Number",
+        "default": "85"
+      }, {
+        "type": "text",
+        "id": "stat_4_suffix",
+        "label": "Suffix",
+        "default": "%"
+      }, {
+        "type": "text",
+        "id": "stat_4_label",
+        "label": "Label",
+        "default": "Better Texture"
+      }, {
+        "type": "header",
+        "content": "Colors"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#f8f7f0"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#404962"
+      }, {
+        "type": "color",
+        "id": "divider_color",
+        "label": "Divider color",
+        "default": "#c6c9d0"
+      }, {
+        "type": "header",
+        "content": "Layout"
+      }, {
+        "type": "range",
+        "id": "container_max_width",
+        "min": 800,
+        "max": 1500,
+        "step": 10,
+        "unit": "px",
+        "label": "Container max width",
+        "default": 1310
+      }, {
+        "type": "range",
+        "id": "value_size",
+        "min": 24,
+        "max": 80,
+        "step": 2,
+        "unit": "px",
+        "label": "Number size (desktop)",
+        "default": 46
+      }, {
+        "type": "range",
+        "id": "value_size_mb",
+        "min": 20,
+        "max": 64,
+        "step": 2,
+        "unit": "px",
+        "label": "Number size (mobile)",
+        "default": 40
+      }, {
+        "type": "range",
+        "id": "label_size",
+        "min": 10,
+        "max": 28,
+        "step": 2,
+        "unit": "px",
+        "label": "Label size",
+        "default": 16
+      }, {
+        "type": "header",
+        "content": "Section padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 160,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 40
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 160,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 55
+      }, {
+        "type": "range",
+        "id": "padding_top_mb",
+        "min": 0,
+        "max": 120,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding top (mobile)",
+        "default": 40
+      }, {
+        "type": "range",
+        "id": "padding_bottom_mb",
+        "min": 0,
+        "max": 120,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding bottom (mobile)",
+        "default": 40
+      }
+    ],
+    "presets": [
+      {
+        "name": "YAMAN Stats",
+        "category": "t:sections_categories.05_section.name"
+      }
+    ]
+  }
+{% endschema %}

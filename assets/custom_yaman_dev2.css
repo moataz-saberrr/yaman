@@ -1,0 +1,899 @@
+
+/* ============================================================
+   YAMAN Stats — sections/stats-n.liquid
+   Scope: .hdt-yaman-stats-section
+   Desktop + tablet: 4 stats in one centred row with vertical
+   dividers between items (NO horizontal divider). Mobile (<=767px):
+   2x2 grid with a vertical divider between the columns AND a
+   horizontal divider between the two rows (horizontal = mobile only).
+   Static numbers — no JS, no count-up.
+   ============================================================ */
+.hdt-yaman-stats-section .hdt-yaman-stats {
+  background-color: var(--st-bg, #f8f7f0);
+  padding-top: var(--st-pt, 40px);
+  padding-bottom: var(--st-pb, 55px);
+}
+.hdt-yaman-stats-section .hdt-yaman-stats__container {
+  max-width: var(--st-maxw, 1310px);
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 15px;
+  box-sizing: border-box;
+}
+/* Centred horizontal cluster (NOT full-bleed): 4 fixed-width columns with
+   the divider sitting in the inline padding between them. */
+.hdt-yaman-stats-section .hdt-yaman-stats__grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.hdt-yaman-stats-section .hdt-yaman-stats__item {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: 200px; /* ~124px text column + ~38px inline padding each side (Figma) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 38px;
+  text-align: center;
+  color: var(--st-text, #404962);
+  overflow-wrap: anywhere;
+}
+/* Vertical dividers between the 4 items, centred in the inter-column space
+   (desktop + tablet). No horizontal divider at these widths. */
+.hdt-yaman-stats-section .hdt-yaman-stats__item:not(:first-child) {
+  border-inline-start: 1px solid var(--st-divider, #c6c9d0);
+}
+.hdt-yaman-stats-section .hdt-yaman-stats__value {
+  font-weight: 700;
+  font-size: var(--st-value, 46px);
+  line-height: 1.05;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.hdt-yaman-stats-section .hdt-yaman-stats__label {
+  font-weight: 400;
+  font-size: var(--st-label, 16px);
+  line-height: 1.3;
+}
+
+/* Tablet: keep the centred 4-across cluster, just smaller columns + number. */
+@media (min-width: 768px) and (max-width: 1150px) {
+  .hdt-yaman-stats-section .hdt-yaman-stats__item {
+    width: 172px;
+    padding-inline: 24px;
+  }
+  .hdt-yaman-stats-section .hdt-yaman-stats__value {
+    font-size: clamp(32px, 4.2vw, var(--st-value, 46px));
+  }
+}
+
+/* Mobile: 2x2 grid + centre dividers (vertical between columns,
+   horizontal between rows — the horizontal one is mobile only). */
+@media (max-width: 767px) {
+  .hdt-yaman-stats-section .hdt-yaman-stats {
+    padding-top: var(--st-pt-mb, 38px);
+    padding-bottom: var(--st-pb-mb, 38px);
+  }
+  .hdt-yaman-stats-section .hdt-yaman-stats__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .hdt-yaman-stats-section .hdt-yaman-stats__item {
+    width: auto;
+    padding: 22px 14px;
+  }
+  /* reset the desktop "every item except first" vertical rule */
+  .hdt-yaman-stats-section .hdt-yaman-stats__item:not(:first-child) {
+    border-inline-start: 0;
+  }
+  /* vertical divider down the centre = start edge of the right column (items 2 & 4) */
+  .hdt-yaman-stats-section .hdt-yaman-stats__item:nth-child(even) {
+    border-inline-start: 1px solid var(--st-divider, #c6c9d0);
+  }
+  /* horizontal divider across the centre = top edge of the 2nd row (items 3 & 4) */
+  .hdt-yaman-stats-section .hdt-yaman-stats__item:nth-child(n + 3) {
+    border-block-start: 1px solid var(--st-divider, #c6c9d0);
+  }
+  .hdt-yaman-stats-section .hdt-yaman-stats__value {
+    font-size: var(--st-value-mb, 40px);
+  }
+}
+
+
+/* Product css  */
+.product{
+  .hdt-section-brc-nav-product .hdt-section-spacing{
+    border-bottom: 1px solid #0D1B2A1A;
+    padding-inline-start: 120px !important;
+    @media (max-width: 767px) {
+      padding-inline-start: 0px !important;
+      .hdt-breadcrumb__list{
+        justify-content: center;
+      }
+    }
+  }
+  .hdt-sticky-atc__product-monney{
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .hdt-section--feature-product{
+    [class^="hdt-secion-main-product"]{
+      @media (max-width: 767px) {
+        row-gap: 32px;
+      }
+    }
+    .hdt-group-product-block {
+      .hdt-product-info__list .hdt-text-warry {
+        margin-block-end: 0;
+      }
+      .hdt-price__list{
+        flex-direction: row-reverse;
+        align-items: stretch;
+      }
+    }
+    .hdt-price{
+      font-family: var(--font-secondary);
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 27.6px;
+    }
+    .hdt-product__price hdt-compare-at-price{
+      text-decoration: none;
+      margin-top: -5px;
+      .hdt-money {
+        color: #07070780;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 27.6px;
+        text-decoration: line-through;
+      }
+    } 
+    .hdt-product__price hdt-badge.hdt-badge{
+      color: #F6EEE2;
+      line-height: 1;
+      max-height: 20px;
+      padding: 3px 6px;
+      font-family: DIN Next LT W23;
+    }
+
+.hdt-quantity-wrapp {
+    border-color: #0D1B2A1A !important;
+}
+
+.hdt-product-form__quantity input[type=number] {
+    width: 4rem !important;
+    height: 100%;
+    border-left: 1px solid #0D1B2A1A !important;
+    border-right: 1px solid #0D1B2A1A !important;
+        font-size: 14px;
+        font-weight: 500;
+}
+.hdt-product-form__quantity button{
+    height: 100%;
+}
+  }
+
+  /* margin bottom 0 if tabby installment is exist */
+   .hdt-product-info__list:has(.hdt-product__tabby-installment) .hdt-product-info__item.hdt-product__price{
+    margin-block-end: 0;
+  }
+}
+
+/* ============================================================
+   YAMAN Product — Visible Lift  (sections/product-visible-lift-n.liquid)
+   Scope: .product .hdt-product-visible-lift-section
+   Dark 2-col section: left dynamic content + cream stats box,
+   right interactive before/after gallery + thumbnails.
+   JS: assets/product-visible-lift-n.js (scoped, native pointer, no library)
+   ============================================================ */
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift {
+  background-color: var(--vl-bg, #000);
+  padding-top: var(--vl-pt, 60px);
+  padding-bottom: var(--vl-pb, 60px);
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__container {
+  max-width: var(--vl-maxw, 1310px);
+  margin-inline: auto;
+  padding-inline: 15px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+}
+
+/* ---- LEFT: dynamic content ---- */
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(22px, 3vw, 40px);
+  max-width: 590px;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__eyebrow {
+  margin: 0;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  color: #1d2847;
+  font-family: "DIN Next LT Arabic";
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 100%;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__heading {
+  margin: 8px 0 0;
+  font-weight: 800;
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 0.95;
+  color: #1d2847;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__study {
+  font-family: DIN Next LT W23;
+  margin: 10px 0 0;
+  font-weight: 500;
+  font-size: clamp(13px, 1.1vw, 15px);
+  color: var(--vl-accent, #d4b87a);
+}
+/* note (Figma renders it near-black on black; lifted to a faint light tone so it stays legible) */
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__note {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(17px, 1.7vw, 24px);
+  line-height: 1.08;
+  color: #070707CC;
+}
+
+/* ---- stats box (cream, 2x2, per-row vertical divider, no horizontal divider) ---- */
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__stats {
+  background-color: var(--vl-stats-bg, #f8f7f0);
+  border-radius: 14px;
+  padding: clamp(24px, 3vw, 40px) clamp(14px, 2.4vw, 30px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: clamp(26px, 4vw, 48px);
+  column-gap: 0;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding-inline: clamp(8px, 2vw, 28px);
+  box-sizing: border-box;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__stat:nth-child(even) {
+  border-inline-start: 1px solid rgba(29, 40, 71, 0.16);
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__stat-value {
+  font-weight: 700;
+  font-size: clamp(26px, 3vw, 32px);
+  line-height: 1;
+  color: var(--vl-accent, #d4b87a);
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__stat-text {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #1d2847;
+  max-width: 160px;
+}
+
+/* ---- RIGHT: gallery ---- */
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 2vw, 28px);
+  width: 100%;
+  min-width: 0;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__main {
+  position: relative;
+  width: 100%;
+  max-width: 558px;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__ba-slide { display: none; }
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__ba-slide.is-active { display: block; }
+
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__before-after {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--vl-radius, 36px);
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__image { position: absolute; inset: 0; }
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__img,
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__after { z-index: 0; }
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__before {
+  z-index: 1;
+  /* reveal the "before" image from the left up to --vl-pos */
+  clip-path: inset(0 calc(100% - var(--vl-pos, 50%)) 0 0);
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__placeholder--after {
+  background: linear-gradient(135deg, #2b2b2b 0%, #121212 100%);
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__placeholder--before {
+  background: linear-gradient(135deg, #3c3c3c 0%, #1d1d1d 100%);
+}
+
+/* labels */
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__label {
+  position: absolute;
+  top: clamp(14px, 2vw, 28px);
+  z-index: 3;
+  padding: 5px 16px;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(12px, 1.1vw, 15px);
+  letter-spacing: 0.02em;
+  background: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__label--before { inset-inline-start: clamp(14px, 2vw, 26px); }
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__label--after { inset-inline-end: clamp(14px, 2vw, 26px); }
+
+/* divider + handle follow --vl-pos */
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  inset-inline-start: var(--vl-pos, 50%);
+  width: 3px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
+  z-index: 2;
+  pointer-events: none;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__handle {
+  position: absolute;
+  top: 50%;
+  inset-inline-start: var(--vl-pos, 50%);
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  width: clamp(40px, 5vw, 52px);
+  height: clamp(40px, 5vw, 52px);
+  border-radius: 50%;
+  background: #fff;
+  color: #1d2847;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  cursor: ew-resize;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__handle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__handle svg { width: 18px; height: 18px; }
+
+/* thumbnails (clickable; show a static centred split; NOT draggable) */
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__thumbs {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 558px;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__thumb {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+  aspect-ratio: 1;
+  position: relative;
+  transition: border-color 0.15s ease;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__thumb.is-hidden { display: none; }
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__thumb:hover { border-color: rgba(212, 184, 122, 0.7); }
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__thumb-ba {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__thumb-ba .hdt-product-visible-lift__before {
+  clip-path: inset(0 50% 0 0);
+}
+.product .hdt-product-visible-lift-section .hdt-product-visible-lift__thumb-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1.5px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+}
+
+/* ---- Tablet & below: stack content over gallery (content first) ---- */
+@media (max-width: 1150px) {
+  .product .hdt-product-visible-lift-section .hdt-product-visible-lift__container {
+    /* grid-template-columns: 1fr; */
+    gap: clamp(32px, 6vw, 56px);
+  }
+  .product .hdt-product-visible-lift-section .hdt-product-visible-lift__content {
+    max-width: 640px;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+
+/* ---- Mobile: smaller type + horizontally-scrollable thumbs (no body scroll) ---- */
+@media (max-width: 767px) {
+  .product .hdt-product-visible-lift-section .hdt-product-visible-lift__container{
+     grid-template-columns: 1fr;
+  }
+  .product .hdt-product-visible-lift-section .hdt-product-visible-lift {
+    padding-top: var(--vl-pt-mb, 40px);
+    padding-bottom: var(--vl-pb-mb, 40px);
+  }
+  .product .hdt-product-visible-lift-section .hdt-product-visible-lift__heading {
+    font-size: clamp(26px, 8vw, 34px);
+  }
+  .product .hdt-product-visible-lift-section .hdt-product-visible-lift__note {
+    font-size: clamp(16px, 5vw, 20px);
+  }
+  .product .hdt-product-visible-lift-section .hdt-product-visible-lift__stat-value {
+    font-size: clamp(22px, 7vw, 28px);
+  }
+  .product .hdt-product-visible-lift-section .hdt-product-visible-lift__stat-text {
+    font-size: 12px;
+  }
+  .product .hdt-product-visible-lift-section .hdt-product-visible-lift__thumbs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .product .hdt-product-visible-lift-section .hdt-product-visible-lift__thumbs::-webkit-scrollbar { display: none; }
+  .product .hdt-product-visible-lift-section .hdt-product-visible-lift__thumb {
+    flex: 0 0 auto;
+    width: clamp(74px, 23vw, 110px);
+  }
+}
+
+/* ============================================================
+   YAMAN Product — Final CTA  (sections/product-final-cta-n.liquid)
+   Scope: .product .hdt-product-final-cta-section
+   Centered dark closing banner: eyebrow + heading + subheading +
+   two buttons (white "add to bag" / outlined consult). Buttons sit
+   side by side (not full-width) on desktop, stack on mobile.
+   JS: assets/product-final-cta-n.js (scoped scroll-to-options)
+   ============================================================ */
+.product .hdt-product-final-cta-section .hdt-product-final-cta {
+  background-color: var(--fcta-bg, #070707);
+  padding: var(--fcta-pt, 65px) 20px var(--fcta-pb, 65px);
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__container {
+  max-width: var(--fcta-maxw, 640px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 22px;
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__eyebrow {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--fcta-text, #fff);
+  opacity: 0.7;
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__heading {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.48px;
+  color: var(--fcta-text, #fff);
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__subheading {
+  margin: 0;
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.7;
+  color: var(--fcta-text, #fff);
+  opacity: 0.65;
+}
+
+/* actions row */
+.product .hdt-product-final-cta-section .hdt-product-final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+/* keep the theme's product-form wrappers transparent to the flex layout so the
+   add-to-bag submit button sits in the row exactly like the consult link */
+.product .hdt-product-final-cta-section .hdt-product-final-cta__actions wrapp-hdt-pr-frm,
+.product .hdt-product-final-cta-section .hdt-product-final-cta__form,
+.product .hdt-product-final-cta-section .hdt-product-final-cta__buybtns {
+  display: contents;
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__button {
+  flex: 1 1 200px;
+  max-width: 320px;
+  min-width: 0;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  border: 1px solid var(--fcta-text, #fff);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.95px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__button--cart {
+  background: var(--fcta-cart-bg, #fff);
+  color: var(--fcta-cart-text, #070707);
+  border-color: var(--fcta-cart-bg, #fff);
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__button--consult {
+  background: transparent;
+  color: var(--fcta-text, #fff);
+  border-color: var(--fcta-text, #fff);
+}
+.product .hdt-product-final-cta-section .hdt-product-final-cta__button:hover { opacity: 0.85; }
+.product .hdt-product-final-cta-section .hdt-product-final-cta__button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---- Mobile: stack the buttons full-width; smaller padding/tracking ---- */
+@media (max-width: 767px) {
+  .product .hdt-product-final-cta-section .hdt-product-final-cta {
+    padding-top: var(--fcta-pt-mb, 50px);
+    padding-bottom: var(--fcta-pb-mb, 50px);
+  }
+  .product .hdt-product-final-cta-section .hdt-product-final-cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .product .hdt-product-final-cta-section .hdt-product-final-cta__button {
+    flex: 1 1 auto;
+    max-width: none;
+    width: 100%;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+}
+
+/* ============================================================
+   YAMAN Product — Modes Ticker  (sections/product-modes-ticker-n.liquid)
+   Scope: .product .hdt-product-modes-ticker-section
+   Simple horizontal strip of image items on a warm bg, vertically
+   centred. One row on desktop/tablet; the track scrolls horizontally
+   if items don't fit (no body-level scroll). No JS.
+   ============================================================ */
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker {
+  background-color: var(--mt-bg, #f8f7f0);
+  padding-top: var(--mt-pt, 32px);
+  padding-bottom: var(--mt-pb, 32px);
+}
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__container {
+  max-width: var(--mt-maxw, 1500px);
+  margin-inline: auto;
+  padding-inline: 15px;
+  box-sizing: border-box;
+}
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker.is-full .hdt-product-modes-ticker__container {
+  max-width: none;
+}
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__track {
+  display: flex;
+  align-items: center;
+  justify-content: var(--mt-justify, safe center);
+  gap: var(--mt-gap, 80px);
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__track::-webkit-scrollbar { display: none; }
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__item {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+}
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__link {
+  display: inline-flex;
+  align-items: center;
+}
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__image {
+  display: block;
+  height: var(--mt-h, 56px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+/* editor placeholder until a real image is selected */
+.product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 84px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  border: 1px dashed rgba(29, 40, 71, 0.25);
+  border-radius: 8px;
+  color: #1d2847;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+/* Tablet: slightly smaller images + gap, still one row */
+@media (max-width: 1150px) {
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__track {
+    gap: var(--mt-gap-tb, 48px);
+  }
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__image {
+    height: var(--mt-h-tb, 48px);
+  }
+}
+
+/* Mobile: keep ALL modes on ONE row (no slider/scroll). Items share the row
+   and shrink so any count (5, 6, …) always fits; images stay proportional. */
+@media (max-width: 767px) {
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker {
+    padding-top: var(--mt-pt-mb, 24px);
+    padding-bottom: var(--mt-pb-mb, 24px);
+  }
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__track {
+    gap: var(--mt-gap-mb, 10px);
+    overflow: visible;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+  /* allow each item/link to shrink below its natural width */
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__item {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__link {
+    min-width: 0;
+    max-width: 100%;
+  }
+  /* height:auto + max-height cap → shrinking by width never distorts the image */
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__image {
+    height: auto;
+    max-height: var(--mt-h-mb, 40px);
+  }
+  .product .hdt-product-modes-ticker-section .hdt-product-modes-ticker__placeholder {
+    min-width: 0;
+    height: var(--mt-h-mb, 40px);
+    padding: 0 4px;
+    font-size: 12px;
+  }
+}
+
+/* ============================================================
+   YAMAN Product — Pairs Perfectly  (sections/product-pairs-n.liquid)
+   Scope: .product .hdt-product-pairs-section
+   White rounded card on a warm bg: left media + decorative badge,
+   right centred content + buy row. Desktop 2-col; mobile stacks
+   (media first, content second, no broken overlap). No JS.
+   ============================================================ */
+.product .hdt-product-pairs-section .hdt-product-pairs {
+  background-color: var(--pr-bg, #f8f7f0);
+  padding-top: var(--pr-pt, 46px);
+  padding-bottom: var(--pr-pb, 46px);
+  padding-inline: 10px;
+}
+.product .hdt-product-pairs-section .hdt-product-pairs__card {
+  max-width: var(--pr-maxw, 1290px);
+  margin-inline: auto;
+  background-color: var(--pr-card-bg, #fff);
+  border-radius: var(--pr-radius, 24px);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+/* ---- media (image + decorative badge) ---- */
+.product .hdt-product-pairs-section .hdt-product-pairs__media {
+  position: relative;
+  flex: 1 1 340px;
+  min-width: 300px;
+  min-height: var(--pr-media-h, 434px);
+}
+.product .hdt-product-pairs-section .hdt-product-pairs__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.product .hdt-product-pairs-section .hdt-product-pairs__placeholder {
+  background: linear-gradient(135deg, #efeae0 0%, #e2dccf 100%);
+}
+/* badge sits over the media/content seam (desktop: centred on the media's right edge) */
+.product .hdt-product-pairs-section .hdt-product-pairs__badge {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: 0;
+  width: clamp(110px, 12vw, 156px);
+  height: auto;
+  transform: translate(50%, -50%) rotate(18deg);
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.08));
+}
+
+/* ---- content ---- */
+.product .hdt-product-pairs-section .hdt-product-pairs__content {
+  flex: 1 1 340px;
+  min-width: 300px;
+  max-width: 560px;
+  box-sizing: border-box;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+.product .hdt-product-pairs-section .hdt-product-pairs__eyebrow {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 3px;
+  line-height: 1.7;
+  color: var(--pr-text, #5e5e5e);
+}
+.product .hdt-product-pairs-section .hdt-product-pairs__heading {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(28px, 3.4vw, 48px);
+  line-height: 0.92;
+  letter-spacing: -0.48px;
+  color: var(--pr-heading, #070707);
+}
+.product .hdt-product-pairs-section .hdt-product-pairs__description {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 3px;
+  line-height: 1.7;
+  color: var(--pr-text, #5e5e5e);
+}
+.product .hdt-product-pairs-section .hdt-product-pairs__view {
+  font-weight: 700;
+  font-size: 15px;
+  color: #0d1b2a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- buy row (title left, add-to-bag right) ---- */
+.product .hdt-product-pairs-section .hdt-product-pairs__bottom {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: left;
+  padding-top: 8px;
+}
+.product .hdt-product-pairs-section .hdt-product-pairs__product-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #282828;
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
+}
+/* keep the theme's product-form wrappers transparent to the flex row */
+.product .hdt-product-pairs-section .hdt-product-pairs__bottom wrapp-hdt-pr-frm,
+.product .hdt-product-pairs-section .hdt-product-pairs__form,
+.product .hdt-product-pairs-section .hdt-product-pairs__buybtns {
+  display: contents;
+}
+.product .hdt-product-pairs-section .hdt-product-pairs__cart {
+  flex: 0 0 auto;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1.92px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.product .hdt-product-pairs-section .hdt-product-pairs__cart:hover { opacity: 0.85; }
+.product .hdt-product-pairs-section .hdt-product-pairs__cart[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+/* Tablet: tighten content padding a touch */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .product .hdt-product-pairs-section .hdt-product-pairs__content { padding: 32px 20px; }
+}
+
+/* Mobile (<=767): stack — media first, content second, clean separation */
+@media (max-width: 767px) {
+  .product .hdt-product-pairs-section .hdt-product-pairs {
+    padding-top: var(--pr-pt-mb, 32px);
+    padding-bottom: var(--pr-pb-mb, 32px);
+  }
+  .product .hdt-product-pairs-section .hdt-product-pairs__card {
+    flex-direction: column;
+  }
+  .product .hdt-product-pairs-section .hdt-product-pairs__media {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+  }
+  /* badge to the media's bottom-left, sitting on the seam (decorative, not broken) */
+  .product .hdt-product-pairs-section .hdt-product-pairs__badge {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 20px;
+    width: clamp(84px, 26vw, 120px);
+    transform: translate(0, 45%) rotate(18deg);
+  }
+  .product .hdt-product-pairs-section .hdt-product-pairs__content {
+    max-width: none;
+    width: 100%;
+    padding: 36px 20px 28px;
+  }
+  .product .hdt-product-pairs-section .hdt-product-pairs__eyebrow,
+  .product .hdt-product-pairs-section .hdt-product-pairs__description {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+  .product .hdt-product-pairs-section .hdt-product-pairs__heading {
+    font-size: clamp(26px, 8vw, 34px);
+  }
+}

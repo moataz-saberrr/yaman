@@ -303,6 +303,71 @@
   }
 }
 
+/* ---- OVERLAY RESPONSIVE FIX (768px–1375px) ----------------------------------
+   In this range the slide height is driven by the image aspect-ratio, so it
+   shrinks as the viewport narrows. The overlay content kept ~desktop font
+   sizes + 48px block padding + fixed gaps, so its intrinsic height exceeded the
+   (shrinking) slide; being position:absolute + vertically centred inside an
+   overflow:hidden viewport, the top (heading) overflowed and got clipped.
+   Fix: scale the heading + vertical rhythm down with the viewport (clamp/vw) in
+   stepped bands so the content always fits. Every band is min-width:768px, so
+   the <768px black-panel mobile layout stays exactly as-is. */
+@media (min-width: 768px) and (max-width: 1375px) {
+  .hdt-slideshow-n .hdt-yaman-hero__content {
+    padding-block: clamp(18px, 2.6vw, 44px);
+    padding-inline: clamp(24px, 5vw, 80px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__heading {
+    font-size: clamp(28px, 4.2vw, 58px);
+    line-height: 1.02;
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__text {
+    margin-top: clamp(8px, 1.2vw, 16px);
+    font-size: clamp(13px, 1.15vw, 16px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__button {
+    margin-top: clamp(12px, 1.7vw, 24px);
+    padding: clamp(10px, 1vw, 15px) clamp(16px, 1.8vw, 26px);
+    font-size: clamp(12px, 0.95vw, 14px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__meta {
+    margin-top: clamp(12px, 1.9vw, 30px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__meta-item {
+    font-size: clamp(10px, 0.85vw, 12px);
+  }
+}
+/* tablet / small-desktop: tighten heading + spacing further */
+@media (min-width: 768px) and (max-width: 1150px) {
+  .hdt-slideshow-n .hdt-yaman-hero__content {
+    padding-block: clamp(16px, 2.3vw, 32px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__heading {
+    font-size: clamp(26px, 3.7vw, 46px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__button {
+    margin-top: clamp(12px, 1.5vw, 18px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__meta {
+    margin-top: clamp(12px, 1.6vw, 20px);
+  }
+}
+/* small tablet: tightest, guarantees the 3-line heading clears short slides */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hdt-slideshow-n .hdt-yaman-hero__content {
+    padding-block: clamp(14px, 2vw, 22px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__heading {
+    font-size: clamp(24px, 3.3vw, 36px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__text {
+    margin-top: 8px;
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__meta {
+    margin-top: 12px;
+  }
+}
+
 /* ---- pagination dots: scoped pill style (overrides the var-driven theme dots) ---- */
 .hdt-slideshow-n .hdt-yaman-hero__dots {
   z-index: 3;
@@ -478,6 +543,10 @@
   width: 100%;
   padding: 0;
   text-wrap: nowrap;
+  @media (max-width: 1150px) {
+    padding: 0 1.5rem;
+    
+  }
 }
 
 /* Heading — "Clarity before commitment." (plain, left, bold navy) */
@@ -487,7 +556,7 @@
   display: block;
   color: #1d2847;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1;
 }
 /* Strip Kalles heading-design decoration lines for the clean FAQ look */
 .hdt-yaman-faq-section .hdt-heading-block::before,
@@ -548,6 +617,34 @@
     padding: 20px 0;
     font-size: 16px;
   }
+}
+
+/* FAQ Footer Link */
+.hdt-yaman-faq-footer {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
+.hdt-yaman-faq-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1d2847;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  svg{
+    width: 10px;
+    height: 10px;
+  }
+}
+.hdt-yaman-faq-link:hover {
+  opacity: 0.7;
+}
+.hdt-yaman-faq-link-text {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 /* ===========================================================================
@@ -916,7 +1013,7 @@
 .hdt-yaman-results-section .hdt-yaman-results {
   max-width: var(--rr-maxw, 1310px);
   margin-inline: auto;
-  padding-inline: 10px;
+  /* padding-inline: 10px; */
 }
 
 /* ---- Header ---- */
@@ -940,7 +1037,12 @@
 }
 
 /* ---- Carousel per-view (override Kalles slide sizing, scoped) ---- */
-.hdt-yaman-results-section .hdt-slider__viewport { overflow: hidden; }
+.hdt-yaman-results-section .hdt-slider__viewport { 
+  overflow: hidden;
+  @media (max-width: 1150px) {
+    padding: 1px;     
+  }
+}
 .hdt-yaman-results-section .hdt-slider__slide { height: auto; }
 .hdt-yaman-results-section .hdt-slider__container {
   --slide-size: var(--rr-w-mb, 44%);
@@ -949,7 +1051,7 @@
 }
 @media (min-width: 768px) {
   .hdt-yaman-results-section .hdt-slider__container {
-    --slide-size: calc(100% / var(--rr-cols-tb, 3));
+    --slide-size: calc(100% / var(--rr-cols-tb, 3) - 3%);
     --slide-spacing: var(--rr-gap-tb, 16px);
   }
 }
@@ -961,7 +1063,14 @@
 }
 
 /* ---- Card ---- */
-.hdt-yaman-results-section .hdt-yaman-results__slide { height: auto; }
+.hdt-yaman-results-section .hdt-yaman-results__slide { 
+  height: auto; 
+@media (max-width: 1150px) {
+  &:first-child{
+    margin-inline-start: 12px;
+  }
+}
+}
 .hdt-yaman-results-section .hdt-yaman-results__card {
   display: flex;
   flex-direction: column;
@@ -1007,14 +1116,15 @@
   position: absolute;
   top: 12px;
   z-index: 3;
-  padding: 3px 11px;
+  padding: 5px 11px;
   background: #fff;
   color: #000;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   border-radius: 9px;
   box-shadow: 0 1.8px 1.8px rgba(0, 0, 0, 0.1);
   pointer-events: none;
+  line-height: 1;
 }
 .hdt-yaman-results-section .hdt-yaman-results__label--before { inset-inline-start: 12px; }
 .hdt-yaman-results-section .hdt-yaman-results__label--after { inset-inline-end: 12px; }
@@ -1067,7 +1177,10 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 1.35;
-  color: #1d2847;
+  color: #000000A6;
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
 }
 .hdt-yaman-results-section .hdt-yaman-results__meta {
   margin: 0;
@@ -1098,6 +1211,7 @@
   font-weight: 700;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  width: fit-content;
 }
 .hdt-yaman-results-section .hdt-yaman-results__button:hover { opacity: 0.92; }
 .hdt-yaman-results-section .hdt-yaman-results__button[aria-disabled="true"] { pointer-events: none; opacity: 0.55; }

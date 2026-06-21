@@ -1,0 +1,262 @@
+<!-- product-pairs-n.liquid — YAMAN product-page "Pairs Perfectly with" card.
+  White rounded card: left media (image + decorative badge) + right content
+  (eyebrow / heading / description / View More / buy row). The buy row adds the
+  SELECTED product (its own product picker — NOT the page product) to cart via
+  the theme's product-form mechanism. No library.
+  CSS: assets/custom_yaman_dev2.css (.product .hdt-product-pairs-section) -->
+{%- liquid
+  assign sel = section.settings.product
+  assign main_alt = section.settings.main_image_alt | default: section.settings.heading
+  assign atc_label = section.settings.atc_label | default: 'ADD TO BAG'
+  assign soldout_label = section.settings.soldout_label | default: 'SOLD OUT'
+  assign pairs_form_id = 'pairs-form-' | append: section.id
+  if sel != blank
+    assign variant = sel.selected_or_first_available_variant
+  endif
+-%}
+<div
+  class="hdt-product-pairs"
+  id="hdt-product-pairs-{{ section.id }}"
+  style="--pr-bg: {{ section.settings.background_color }}; --pr-card-bg: {{ section.settings.card_bg }}; --pr-heading: {{ section.settings.heading_color }}; --pr-text: {{ section.settings.text_color }}; --pr-radius: {{ section.settings.card_radius }}px; --pr-maxw: {{ section.settings.container_max_width }}px; --pr-media-h: {{ section.settings.media_min_height }}px; --pr-pt: {{ section.settings.padding_top }}px; --pr-pb: {{ section.settings.padding_bottom }}px; --pr-pt-mb: {{ section.settings.padding_top_mb }}px; --pr-pb-mb: {{ section.settings.padding_bottom_mb }}px;">
+  <div class="hdt-product-pairs__card">
+
+    <div class="hdt-product-pairs__media">
+      {%- if section.settings.main_image != blank -%}
+        {{
+          section.settings.main_image | image_url: width: 1200 | image_tag: class: 'hdt-product-pairs__image', alt: main_alt, loading: 'lazy', widths: '400,600,800,1000,1200', sizes: '(max-width: 767px) 100vw, 50vw'
+        }}
+      {%- else -%}
+        <div class="hdt-product-pairs__image hdt-product-pairs__placeholder" aria-hidden="true"></div>
+      {%- endif -%}
+
+    </div>
+
+    <div class="hdt-product-pairs__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="hdt-product-pairs__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="hdt-product-pairs__heading">{{ section.settings.heading | escape | newline_to_br }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="hdt-product-pairs__description">{{ section.settings.description | escape | newline_to_br }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.view_more_url != blank -%}
+        <a class="hdt-product-pairs__view" href="{{ section.settings.view_more_url }}">{{ section.settings.view_more_label | default: 'View More' }}</a>
+      {%- endif -%}
+
+      {%- if sel != blank -%}
+        <div class="hdt-product-pairs__bottom">
+          <span class="hdt-product-pairs__product-title">{{ section.settings.product_label | default: sel.title }}</span>
+
+          {%- if variant == blank or sel.available == false -%}
+            <button
+              type="button"
+              class="hdt-product-pairs__cart"
+              disabled>{{ soldout_label }}</button>
+          {%- else -%}
+            <wrapp-hdt-pr-frm class="hdt-contents">
+              {%- form 'product'
+                , sel
+                , id: pairs_form_id
+                , class: 'hdt-main-product-form hdt-product-pairs__form' -%}
+                <input
+                  type="hidden"
+                  name="id"
+                  value="{{ variant.id }}">
+                <div
+                  class="hdt-form__message-wrapper hdt-form-message--error"
+                  role="alert"
+                  ref="addToCartTextError"
+                  hidden>
+                  <span class="hdt-error-message"></span>
+                </div>
+                <hdt-buy-buttons class="hdt-product-pairs__buybtns" form="{{ pairs_form_id }}">
+                  <button
+                    type="submit"
+                    name="add"
+                    class="hdt-product-pairs__cart">{{- 'products.product.add_to_cart' | t -}}</button>
+                </hdt-buy-buttons>
+              {%- endform -%}
+            </wrapp-hdt-pr-frm>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Pairs Product",
+    "tag": "section",
+    "class": "hdt-section hdt-product-pairs-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Media"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_image",
+        "label": "Main image"
+      },
+      {
+        "type": "text",
+        "id": "main_image_alt",
+        "label": "Main image alt"
+      },
+      {
+        "type": "header",
+        "content": "Content"
+      }, {
+        "type": "text",
+        "id": "eyebrow",
+        "label": "Eyebrow",
+        "default": "Pairs Perfectly with"
+      }, {
+        "type": "textarea",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Medilift Moisture Serum"
+      }, {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "Containing 36 different beauty ingredients, giving your skin resilience"
+      }, {
+        "type": "text",
+        "id": "view_more_label",
+        "label": "View More label",
+        "default": "View More"
+      }, {
+        "type": "url",
+        "id": "view_more_url",
+        "label": "View More URL",
+        "info": "Leave blank to hide the View More link."
+      }, {
+        "type": "header",
+        "content": "Buy row (selected product)"
+      }, {
+        "type": "product",
+        "id": "product",
+        "label": "Product",
+        "info": "The product added by this card's button — independent of the page product. Leave blank to hide the whole buy row."
+      }, {
+        "type": "text",
+        "id": "product_label",
+        "label": "Product label override",
+        "info": "Optional. Defaults to the selected product's title."
+      }, {
+        "type": "text",
+        "id": "atc_label",
+        "label": "Add-to-bag prefix",
+        "default": "ADD TO BAG"
+      }, {
+        "type": "text",
+        "id": "soldout_label",
+        "label": "Sold-out text",
+        "default": "SOLD OUT"
+      }, {
+        "type": "header",
+        "content": "Colors"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "Section background",
+        "default": "#f8f7f0"
+      }, {
+        "type": "color",
+        "id": "card_bg",
+        "label": "Card background",
+        "default": "#ffffff"
+      }, {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading color",
+        "default": "#070707"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Eyebrow / description color",
+        "default": "#5e5e5e"
+      }, {
+        "type": "header",
+        "content": "Layout"
+      }, {
+        "type": "range",
+        "id": "card_radius",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "Card radius",
+        "default": 24
+      }, {
+        "type": "range",
+        "id": "container_max_width",
+        "min": 800,
+        "max": 1500,
+        "step": 10,
+        "unit": "px",
+        "label": "Container max width",
+        "default": 1290
+      }, {
+        "type": "range",
+        "id": "media_min_height",
+        "min": 200,
+        "max": 600,
+        "step": 10,
+        "unit": "px",
+        "label": "Media min height (desktop)",
+        "default": 440
+      }, {
+        "type": "header",
+        "content": "Section padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 160,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 46
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 160,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 46
+      }, {
+        "type": "range",
+        "id": "padding_top_mb",
+        "min": 0,
+        "max": 120,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top (mobile)",
+        "default": 32
+      }, {
+        "type": "range",
+        "id": "padding_bottom_mb",
+        "min": 0,
+        "max": 120,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom (mobile)",
+        "default": 32
+      }
+    ],
+    "presets": [
+      {
+        "name": "Pairs Product",
+        "category": "t:sections_categories.05_section.name"
+      }
+    ]
+  }
+{% endschema %}

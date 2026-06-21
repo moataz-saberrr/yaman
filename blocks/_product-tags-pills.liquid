@@ -1,0 +1,90 @@
+<div class="hdt-product-info__item hdt-product__tags-pills" {{ block.shopify_attributes }}>
+  <div class="hdt-tags-pills-container">
+    {% for i in (1..10) %}
+      {% capture setting_key %}text_{{ i }}{% endcapture %}
+      {% assign pill_text = block.settings[setting_key] %}
+      {% if pill_text != blank %}
+        <span class="hdt-tag-pill">{{ pill_text }}</span>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+
+  .hdt-tags-pills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .hdt-tag-pill {
+    background: #1D2847;
+    color: #FFFFFF;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-family: 'DIN Next LT W23', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Tags Pills",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Text 1"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Text 2"
+    },
+    {
+      "type": "text",
+      "id": "text_3",
+      "label": "Text 3"
+    },
+    {
+      "type": "text",
+      "id": "text_4",
+      "label": "Text 4"
+    },
+    {
+      "type": "text",
+      "id": "text_5",
+      "label": "Text 5"
+    },
+    {
+      "type": "text",
+      "id": "text_6",
+      "label": "Text 6"
+    },
+    {
+      "type": "text",
+      "id": "text_7",
+      "label": "Text 7"
+    },
+    {
+      "type": "text",
+      "id": "text_8",
+      "label": "Text 8"
+    },
+    {
+      "type": "text",
+      "id": "text_9",
+      "label": "Text 9"
+    },
+    {
+      "type": "text",
+      "id": "text_10",
+      "label": "Text 10"
+    }
+  ],
+  "presets": [{ "name": "Tags Pills" }]
+}
+{% endschema %}
