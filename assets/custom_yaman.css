@@ -2511,6 +2511,11 @@
   .hdt-yaman-routine-section .hdt-yaman-routine__heading { font-size: clamp(30px, 2.6vw, 38px); }
 }
 
+.hdt-yaman-routine-section .star-rating__stars img{
+  width: 17px;
+  height: 17px;
+}
+
 /* ---------------------------------------------------------------------------
  * 6b. ROUTINE CARD — collection grid  ->  snippets/card-product-routine-grid.liquid
  *     Scope class: .hdt-yaman-pr-routine (sits on the <hdt-card-product> root).
@@ -2670,6 +2675,7 @@
   color:#000;
 }
 
+.hdt-yaman-routine_card
 
 /* ---------------------------------------------------------------------------
  * 9. HOW TO CHOOSE  ->  sections/featured-collection-choose-n.liquid
