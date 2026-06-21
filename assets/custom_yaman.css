@@ -1739,6 +1739,10 @@
   text-align: center;
   margin-bottom: 26px;
 }
+.hdt-yaman-sets-section .star-rating__stars img{
+  width: 16px !important;
+  height: 16px !important;
+}
 .hdt-yaman-sets-section .hdt-yaman-sets__heading {
   margin: 0 0 10px;
   font-size: 28px;
@@ -2511,10 +2515,6 @@
   .hdt-yaman-routine-section .hdt-yaman-routine__heading { font-size: clamp(30px, 2.6vw, 38px); }
 }
 
-.hdt-yaman-routine-section .star-rating__stars img{
-  width: 17px;
-  height: 17px;
-}
 
 /* ---------------------------------------------------------------------------
  * 6b. ROUTINE CARD — collection grid  ->  snippets/card-product-routine-grid.liquid

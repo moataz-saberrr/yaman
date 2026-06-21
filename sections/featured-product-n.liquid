@@ -45,6 +45,8 @@
   if review_line == blank
     assign review_line = '(' | append: s.rating_value | append: ' · ' | append: s.reviews_count | append: ')'
   endif
+
+  assign tabby_price = product.price | divided_by: 4 | money
 -%}
 {%- capture star_icon -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.8 6.2 20.8l1.1-6.4-4.7-4.6 6.5-.9z"/></svg>{%- endcapture -%}
 <div
@@ -94,9 +96,9 @@
           </div>
         {%- endif -%}
 
-        {%- if s.installment_text != blank -%}
-          <p class="hdt-yaman-product__installment">{{ s.installment_text }}</p>
-        {%- endif -%}
+        {% comment %} {%- if s.installment_text != blank -%} {% endcomment %}
+          <p class="hdt-yaman-product__installment">or {{ tabby_price }}/month × 4 with Tabby</p>
+        {% comment %} {%- endif -%} {% endcomment %}
 
         <div class="hdt-yaman-product__rating">
           <span class="hdt-yaman-product__stars" role="img" aria-label="{{ s.rating_value }} / 5">
@@ -229,12 +231,6 @@
       "id": "vat_text",
       "label": "VAT / price helper text",
       "default": "excl. VAT"
-    },
-    {
-      "type": "text",
-      "id": "installment_text",
-      "label": "Installment / helper text",
-      "default": "or SAR 425/month × 4 with Tabby"
     },
     {
       "type": "header",
