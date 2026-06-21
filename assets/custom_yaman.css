@@ -2900,3 +2900,382 @@
      (no inset), so the cards stay wide; section overflow:clip stops page scroll. */
   .hdt-yaman-choose-section .hdt-navigation { --sl-btn-prev-l: -60px; --sl-btn-next-r: -60px; }
 }
+
+/* ----------------------------------------------------------------------------
+ * YAMAN Videos — shoppable video carousel
+ * Section: sections/shoppable-video-n.liquid   (scope: .hdt-yaman-video-section)
+ * Block:   blocks/_yaman-video-n.liquid         (one .hdt-slider__slide each)
+ * JS:      assets/shoppable-video-n.js          (video play/pause only)
+ * Carousel: native Kalles <hdt-slider>
+ * -------------------------------------------------------------------------- */
+
+.hdt-yaman-video-section .hdt-yaman-video {
+  background: var(--yv-bg, #fff);
+  padding-top: var(--yv-pt, 60px);
+  padding-bottom: var(--yv-pb, 60px);
+}
+
+.hdt-yaman-video-section .hdt-yaman-video__container {
+  max-width: var(--yv-maxw, 1310px);
+  margin: 0 auto;
+  padding-left: var(--yv-pad-x, 20px);
+  padding-right: var(--yv-pad-x, 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Heading -------------------------------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__heading {
+  margin: 0;
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 700;
+  text-align: left;
+  color: #070707;
+  word-break: break-word;
+}
+
+/* Native <hdt-slider> sizing -------------------------------------------------
+ * Override the theme's --slide-size / --slide-spacing (set by the hdt-slides-*
+ * classes) so the gap follows our settings and the mobile slide shows a peek of
+ * the next card. Desktop/tablet widths come from lg:/md:hdt-slides-* natively. */
+.hdt-yaman-video-section .hdt-yaman-video__slider {
+  display: block;
+  width: 100%;
+  --slide-spacing: var(--yv-gap, 20px);
+}
+
+/* Card / slide --------------------------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__slide {
+  min-width: 0;
+}
+
+/* Media -----------------------------------------------------------------------
+ * Portrait ratio matches Figma (~308 x 508 ≈ 31 / 51). Height comes from an
+ * in-flow ::before padding spacer so the slide always has a real height. */
+.hdt-yaman-video-section .hdt-yaman-video__media {
+  position: relative;
+  width: 100%;
+  border-radius: var(--yv-radius, 20px);
+  overflow: hidden;
+  cursor: pointer;
+  background: #e9e4dc;
+  outline: none;
+}
+.hdt-yaman-video-section .hdt-yaman-video__media::before {
+  content: "";
+  display: block;
+  /* Instagram Reels aspect ratio (9:16) so portrait reels fill the card
+     without being cropped by their length. */
+  padding-top: calc(16 / 9 * 100%);
+}
+
+.hdt-yaman-video-section .hdt-yaman-video__video,
+.hdt-yaman-video-section .hdt-yaman-video__poster,
+.hdt-yaman-video-section .hdt-yaman-video__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hdt-yaman-video-section .hdt-yaman-video__placeholder {
+  background: linear-gradient(135deg, #e9e4dc 0%, #d8d0c4 100%);
+}
+
+/* Centre play / pause overlay ----------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  pointer-events: none; /* never blocks the click-to-toggle on the media */
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+.hdt-yaman-video-section .hdt-yaman-video__play-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(1px);
+}
+.hdt-yaman-video-section .hdt-yaman-video__play-icon,
+.hdt-yaman-video-section .hdt-yaman-video__pause-icon {
+  position: relative;
+  z-index: 1;
+}
+/* Default (paused): show play triangle, hide pause bars. */
+.hdt-yaman-video-section .hdt-yaman-video__pause-icon { display: none; }
+.hdt-yaman-video-section .hdt-yaman-video__slide.is-playing .hdt-yaman-video__play-icon { display: none; }
+.hdt-yaman-video-section .hdt-yaman-video__slide.is-playing .hdt-yaman-video__pause-icon { display: block; }
+/* While playing, fade the overlay so it doesn't cover the video; show on hover. */
+.hdt-yaman-video-section .hdt-yaman-video__slide.is-playing .hdt-yaman-video__play { opacity: 0; }
+.hdt-yaman-video-section .hdt-yaman-video__slide.is-playing .hdt-yaman-video__media:hover .hdt-yaman-video__play { opacity: 1; }
+
+/* Creator handle pill (top-left) -------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__handle {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.38);
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Product label (bottom-left) ----------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__product {
+  position: absolute;
+  bottom: 30px;
+  left: 12px;
+  z-index: 2;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+.hdt-yaman-video-section a.hdt-yaman-video__product:hover {
+  text-decoration: underline;
+}
+
+/* CTA button ----------------------------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__button-wrap {
+  display: flex;
+  justify-content: center;
+}
+.hdt-yaman-video-section .hdt-yaman-video__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 18px;
+  border: 1px solid #070707;
+  border-radius: 12px;
+  background: transparent;
+  color: #070707;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.hdt-yaman-video-section .hdt-yaman-video__button:hover {
+  background: #070707;
+  color: #fff;
+}
+
+/* Tablet & below ------------------------------------------------------------
+ * Figma's cards are a fixed ~308px wide (mobile 308 x 459 ≈ 149%). On a % width
+ * a wide tablet/large-phone viewport would make the card huge and very tall, so
+ * we cap the card width and use the shorter Figma mobile ratio below 1150px. */
+@media (max-width: 1149px) {
+  .hdt-yaman-video-section .hdt-yaman-video__heading {
+    font-size: 40px;
+  }
+  /* Keep the Instagram Reels 9:16 ratio on tablet/mobile too. */
+  .hdt-yaman-video-section .hdt-yaman-video__media::before {
+    padding-top: calc(16 / 9 * 100%);
+  }
+  /* Keep the chosen tablet column count, but never let a card exceed ~340px so
+     its height stays controlled. */
+  .hdt-yaman-video-section .hdt-yaman-video__slider {
+    --slide-size: min(calc(100% / var(--yv-cols-tb, 2)), 340px);
+  }
+  .hdt-yaman-video-section .hdt-yaman-video__container {
+    padding-inline-end: 0;
+  }
+}
+
+/* Mobile --------------------------------------------------------------------*/
+@media (max-width: 767px) {
+  .hdt-yaman-video-section .hdt-yaman-video {
+    padding-top: var(--yv-pt-mb, 36px);
+    padding-bottom: var(--yv-pb-mb, 36px);
+  }
+  .hdt-yaman-video-section .hdt-yaman-video__container {
+    gap: 24px;
+    padding-inline-end: 0;
+  }
+  .hdt-yaman-video-section .hdt-yaman-video__heading {
+    font-size: 30px;
+    line-height: 1.15;
+  }
+  /* One full card + a peek of the next — capped at ~320px so the card stays the
+     Figma size (and a sensible height) on larger phones. */
+  .hdt-yaman-video-section .hdt-yaman-video__slider {
+    --slide-spacing: var(--yv-gap-mb, 14px);
+    --slide-size: min(var(--yv-card-mb, 82%), 320px);
+  }
+}
+
+
+
+/* ============================================================
+   YAMAN Stats — sections/stats-n.liquid
+   Scope: .hdt-yaman-stats-section
+   Desktop + tablet: 4 stats in one centred row with vertical
+   dividers between items (NO horizontal divider). Mobile (<=767px):
+   2x2 grid with a vertical divider between the columns AND a
+   horizontal divider between the two rows (horizontal = mobile only).
+   Static numbers — no JS, no count-up.
+   ============================================================ */
+.hdt-yaman-stats-section .hdt-yaman-stats {
+  background-color: var(--st-bg, #f8f7f0);
+  padding-top: var(--st-pt, 40px);
+  padding-bottom: var(--st-pb, 55px);
+}
+.hdt-yaman-stats-section .hdt-yaman-stats__container {
+  max-width: var(--st-maxw, 1310px);
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 15px;
+  box-sizing: border-box;
+}
+/* Centred horizontal cluster (NOT full-bleed): 4 fixed-width columns with
+   the divider sitting in the inline padding between them. */
+.hdt-yaman-stats-section .hdt-yaman-stats__grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.hdt-yaman-stats-section .hdt-yaman-stats__item {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: 200px; /* ~124px text column + ~38px inline padding each side (Figma) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 38px;
+  text-align: center;
+  color: var(--st-text, #404962);
+  overflow-wrap: anywhere;
+}
+/* Vertical dividers between the 4 items, centred in the inter-column space
+   (desktop + tablet). No horizontal divider at these widths. */
+.hdt-yaman-stats-section .hdt-yaman-stats__item:not(:first-child) {
+  border-inline-start: 1px solid var(--st-divider, #c6c9d0);
+}
+.hdt-yaman-stats-section .hdt-yaman-stats__value {
+  font-weight: 700;
+  font-size: var(--st-value, 46px);
+  line-height: 1.05;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.hdt-yaman-stats-section .hdt-yaman-stats__label {
+  font-weight: 400;
+  font-size: var(--st-label, 16px);
+  line-height: 1.3;
+}
+
+/* Tablet: keep the centred 4-across cluster, just smaller columns + number. */
+@media (min-width: 768px) and (max-width: 1150px) {
+  .hdt-yaman-stats-section .hdt-yaman-stats__item {
+    width: 172px;
+    padding-inline: 24px;
+  }
+  .hdt-yaman-stats-section .hdt-yaman-stats__value {
+    font-size: clamp(32px, 4.2vw, var(--st-value, 46px));
+  }
+}
+
+/* Mobile: 2x2 grid + centre dividers (vertical between columns,
+   horizontal between rows — the horizontal one is mobile only). */
+@media (max-width: 767px) {
+  .hdt-yaman-stats-section .hdt-yaman-stats {
+    padding-top: var(--st-pt-mb, 38px);
+    padding-bottom: var(--st-pb-mb, 38px);
+  }
+  .hdt-yaman-stats-section .hdt-yaman-stats__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .hdt-yaman-stats-section .hdt-yaman-stats__item {
+    width: auto;
+    padding: 22px 14px;
+  }
+  /* reset the desktop "every item except first" vertical rule */
+  .hdt-yaman-stats-section .hdt-yaman-stats__item:not(:first-child) {
+    border-inline-start: 0;
+  }
+  /* vertical divider down the centre = start edge of the right column (items 2 & 4) */
+  .hdt-yaman-stats-section .hdt-yaman-stats__item:nth-child(even) {
+    border-inline-start: 1px solid var(--st-divider, #c6c9d0);
+  }
+  /* horizontal divider across the centre = top edge of the 2nd row (items 3 & 4) */
+  .hdt-yaman-stats-section .hdt-yaman-stats__item:nth-child(n + 3) {
+    border-block-start: 1px solid var(--st-divider, #c6c9d0);
+  }
+  .hdt-yaman-stats-section .hdt-yaman-stats__value {
+    font-size: var(--st-value-mb, 40px);
+  }
+}
+
+
+
+
+/* footer */
+footer {
+  .hdt-section-inner{
+    @media (min-width: 768px) and (max-width: 1149px) {
+      padding-block-start: calc(var(--pd-block-start) * .60) !important;
+      padding-block-end: calc(var(--pd-block-end) * .60) !important;
+      padding-inline-start: calc(var(--pd-inline-start) * .45) !important;
+      padding-inline-end: calc(var(--pd-inline-end) * .45) !important;
+    }
+
+  }
+  .hdt-row{
+    justify-content: space-between;
+  }
+  .hdt-socials__style-outline-background li a{
+        border: .1rem solid #F5EBDD33;
+  }
+  .shopify-section-group-footer-group:nth-child(2) {
+border-top: 0.96px solid #FFFFFF0F ;
+ }
+#main_footer_copyright{
+  margin-top: 32px;
+.hdt-col-content{
+  width: 100%;
+}
+  .hdt-group-content {
+    text-align: center;
+    .hdt-text-warry:has(.custom-footer-payments) {
+      @media (max-width: 767px) {
+        order: -1;
+      }
+      @media (max-width: 1149px) {
+        .custom-footer-payments{
+            justify-content:center !important;
+          }
+      }
+    }
+    span,
+    p {
+      font-size: var(--text-sm) !important;
+    }
+  }
+}
+}
