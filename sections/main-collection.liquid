@@ -351,6 +351,18 @@
                             endunless
                             render 'card-product10', card_product: product, section_id: section.id, class: "hdt-pr-style10", sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
                           endfor
+                        when '11'
+                          capture btn_wishlist_code
+                            if settings.wishlist_mode != '0'
+                              render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'right'
+                            endif
+                          endcapture
+                          for product in collection.products
+                            unless settings.remove_collection_url
+                              assign product_url = product.url | within: collection
+                            endunless
+                            render 'card-product-routine-grid', card_product: product, section_id: section.id, class: "hdt-pr-style1 hdt-yaman-pr-routine", sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                          endfor
                       endcase
                     endif
                   -%}
@@ -491,6 +503,10 @@
         {
           "value": "10",
           "label": "10"
+        },
+        {
+          "value": "11",
+          "label": "11"
         }
       ],
       "default": "1"

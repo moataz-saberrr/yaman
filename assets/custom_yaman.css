@@ -2511,6 +2511,165 @@
   .hdt-yaman-routine-section .hdt-yaman-routine__heading { font-size: clamp(30px, 2.6vw, 38px); }
 }
 
+/* ---------------------------------------------------------------------------
+ * 6b. ROUTINE CARD — collection grid  ->  snippets/card-product-routine-grid.liquid
+ *     Scope class: .hdt-yaman-pr-routine (sits on the <hdt-card-product> root).
+ *     Self-contained visual twin of the "Complete Your Routine" card (section 6),
+ *     so it renders correctly inside the stock collection grid
+ *     (sections/main-collection.liquid, product_des "11"): white rounded card with
+ *     border + padding, left-aligned info, and a full-width black SHOP NOW pill in
+ *     the footer that links to the product page. No dependency on
+ *     .hdt-yaman-routine-section, so it can't leak into other cards/sections.
+ * ------------------------------------------------------------------------- */
+.hdt-yaman-pr-routine { display: flex; height: 100%; }
+.hdt-yaman-pr-routine .hdt-card-product__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ece7dc;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 1px 2px rgba(13, 13, 13, 0.04);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.hdt-yaman-pr-routine:hover .hdt-card-product__wrapper {
+  box-shadow: 0 10px 26px rgba(13, 13, 13, 0.08);
+  transform: translateY(-2px);
+}
+.hdt-yaman-pr-routine .hdt-card-product__media {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* info block — left aligned, spacing tuned to the Figma card */
+.hdt-yaman-pr-routine .hdt-card-product__info {
+  text-align: start;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.hdt-yaman-pr-routine .hdt-card-product__info > * { margin: 0; }
+.hdt-yaman-pr-routine .hdt-card-product__info .jdgm-prev-badge { margin-bottom: 5px; }
+.hdt-yaman-pr-routine .hdt-card-product__info .hdt-price-wrapp { margin-top: 3px; }
+
+/* Judge.me / rating badge — grey stars left, count right (mirrors section 6) */
+.hdt-yaman-pr-routine .hdt-card-product__info .jdgm-prev-badge,
+.hdt-yaman-pr-routine .hdt-card-product__info .hdt-pr-card-rating,
+.hdt-yaman-pr-routine .hdt-card-product__info > .spr-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  line-height: 1;
+}
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0;
+}
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars .jdgm-star {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  color: transparent;
+  background: center / contain no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23b9b3a8'%20stroke-width='1.6'%20stroke-linejoin='round'%3E%3Cpath%20d='M12%20.587l3.668%207.431%208.2%201.192-5.934%205.782%201.401%208.168L12%2018.896l-7.335%203.864%201.401-8.168L.132%209.21l8.2-1.192z'/%3E%3C/svg%3E");
+}
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars .jdgm-star::before { display: none; }
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars .jdgm-star svg,
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars .jdgm-star img { display: none; }
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars .jdgm--on {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='%230d0d0d'%3E%3Cpath%20d='M12%20.587l3.668%207.431%208.2%201.192-5.934%205.782%201.401%208.168L12%2018.896l-7.335%203.864%201.401-8.168L.132%209.21l8.2-1.192z'/%3E%3C/svg%3E");
+}
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars .jdgm--half {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cdefs%3E%3ClinearGradient%20id='h'%3E%3Cstop%20offset='50%25'%20stop-color='%230d0d0d'/%3E%3Cstop%20offset='50%25'%20stop-color='%230d0d0d'%20stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d='M12%20.587l3.668%207.431%208.2%201.192-5.934%205.782%201.401%208.168L12%2018.896l-7.335%203.864%201.401-8.168L.132%209.21l8.2-1.192z'%20fill='url(%23h)'%20stroke='%23b9b3a8'%20stroke-width='1.6'%20stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.hdt-yaman-pr-routine .jdgm-prev-badge__text {
+  margin: 0;
+  font-size: 12px;
+  color: #9a9486;
+  white-space: nowrap;
+}
+
+/* vendor / category line */
+.hdt-yaman-pr-routine .hdt-card-product__vendor {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #828282;
+  text-decoration: none;
+}
+
+/* title */
+.hdt-yaman-pr-routine .hdt-card-product__title {
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #0d0d0d;
+}
+.hdt-yaman-pr-routine .hdt-card-product__title a { color: inherit; text-decoration: none; }
+.hdt-yaman-pr-routine:hover .hdt-card-product__title a { opacity: 0.78; }
+
+/* price */
+.hdt-yaman-pr-routine .hdt-price-wrapp {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hdt-yaman-pr-routine .hdt-price__list { display: flex; align-items: baseline; gap: 8px; }
+.hdt-yaman-pr-routine .hdt-price { font-size: 16px; font-weight: 500; color: #828282; }
+.hdt-yaman-pr-routine .hdt-compare-at-price { font-size: 14px; color: #828282; text-decoration: line-through; }
+.hdt-yaman-pr-routine .hdt-compare-at-price:not([hidden]) + .hdt-price:not(.hdt-price-item--range) { color: #070707 !important; }
+
+/* footer SHOP NOW — full-width black pill (links to the product page) */
+.hdt-yaman-pr-routine .hdt-card-product__footer { margin-top: auto; padding-top: 14px; }
+.hdt-yaman-pr-routine .hdt-card-product__btn-ultra {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 0;
+  padding: 14px 20px;
+  background: #0d0d0d;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.hdt-yaman-pr-routine .hdt-card-product__btn-ultra:hover { opacity: 0.92; transform: translateY(-1px); background-color: #000; }
+.hdt-yaman-pr-routine .hdt-card-product__footer .hdt-pr-card-icon { display: none; }
+.hdt-yaman-pr-routine .hdt-card-product__footer .hdt-truncate {
+  position: static;
+  width: auto;
+  height: auto;
+  clip: auto;
+  overflow: visible;
+  white-space: normal;
+}
+
+/* Mobile: hide the image-overlay quick buttons + wishlist (match section 6) */
+@media (max-width: 767px) {
+  .hdt-yaman-pr-routine .hdt-product-btns,
+  .hdt-yaman-pr-routine .hdt-card-product__btn-wishlist { display: none !important; }
+}
+.hdt-price__list:not(:has(.hdt-compare-at-price)) .hdt-money{
+  color:#000;
+}
+
 
 /* ---------------------------------------------------------------------------
  * 9. HOW TO CHOOSE  ->  sections/featured-collection-choose-n.liquid

@@ -1,0 +1,108 @@
+{%- comment -%}
+  YAMAN Routine product card — GRID variant for the collection page.
+  Visual twin of `card-product-routine.liquid` (the "Complete Your Routine"
+  card used by sections/featured-collection-n.liquid), but built to be rendered
+  by the stock collection grid (sections/main-collection.liquid, product_des
+  "11"). Differences from card-product-routine:
+    - carries a stand-alone scope class `hdt-yaman-pr-routine` on the card root
+      so its styling (in assets/custom_yaman.css) does NOT depend on the
+      `.hdt-yaman-routine-section` wrapper.
+    - drops the section-scoped helper classes on the footer.
+  Like the routine card: NO image-overlay quick-view / quick-add (ultra) group;
+  a full-width "SHOP NOW" button in the footer that links to the product's own
+  page (product_url). The original Kalles `card-product11.liquid` is untouched.
+
+  Accepts the same params as card-product1, plus:
+  - card_product, section_id, sizes, class, image_ratio, show_vendor,
+    color_list, size_list, btn_wishlist_code, product_url
+  - card_btn_label: {String} label for the footer button (optional, default "SHOP NOW")
+{%- endcomment -%}
+
+{%- liquid
+  if settings.color_maximum == 0
+    assign color_maximum = 2
+  else
+    assign color_maximum = settings.color_maximum
+  endif
+-%}
+{%- liquid
+  unless product_url
+    assign product_url = card_product.url
+  endunless
+  assign color_count = 0
+  assign size_count = 0
+
+  assign color_list = 'products.theme_settings.color' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+  assign size_list = 'products.theme_settings.size' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+
+  if card_product.has_only_default_variant == false and settings.color_mode != 'hide' or settings.size_mode != 'hide'
+     assign available_variants = card_product.variants | where: "available"
+     for option in card_product.options_with_values
+        assign name_downcase = option.name | downcase
+        if settings.color_mode != 'hide' and color_list contains name_downcase and color_count == 0
+          assign color_option_index = 'option' | append: forloop.index
+          assign color_variants = option.values
+          assign color_variants_avai = available_variants | map: color_option_index | uniq
+          if settings.color_type == 'all'
+            assign color_count = color_variants.size
+          else
+            assign color_count = color_variants_avai.size
+          endif
+        elsif settings.size_mode != 'hide' and size_list contains name_downcase and size_count == 0
+          assign size_option_index = 'option' | append: forloop.index
+          assign size_variants_avai = available_variants | map: size_option_index | uniq
+          assign size_variants = option.values
+          if settings.size_type == 'all'
+            assign size_count = size_variants.size
+          else
+            if card_product.options_with_values.size == 1
+              assign size_variants = size_variants_avai
+            endif
+            assign size_count = size_variants_avai.size
+          endif
+        endif
+     endfor
+  endif
+-%}
+
+<hdt-card-product class="hdt-card-product hdt-yaman-pr-routine {{ class }}{% if card_product.available == false %} hdt-pr-sold_out{% endif %}">
+  <div class="hdt-card-product__wrapper">
+    <div class="hdt-card-product__media hdt-oh{% if size_count > 0 and settings.size_position == '1' %} hdt-has-size-list{% endif %} {% if card_product.metafields.theme.countdown.value != blank %} hdt-has-countdown{% endif %}">
+      {%- render 'card-product-media', card_product: card_product, product_url: product_url, sizes: sizes, image_ratio: image_ratio -%}
+      <div class="hdt-card-product__widget">
+        {%- render 'badges', product: card_product, use_variant: false -%}
+        <div class="hdt-product-btns hdt-pr-btns-group2 hdt-absolute hdt-flex hdt-flex-col">
+          {%- liquid
+            echo btn_wishlist_code | replace_first: '19041994', card_product.id | replace_first: 'handle_nt_94', card_product.handle
+            if settings.compare_mode != "0"
+              render 'btn-compare', product_id: card_product.id, product_handle: card_product.handle, class: 'hdt-pr_btn hdt-card-product__btn-compare', placement: 'right', tooltip_inner: tooltip_inner
+            endif -%}
+        </div>
+        {%- if card_product.metafields.theme.countdown.value != blank %}{%- render 'countdown' with card_product.metafields.theme.countdown.value, class: "hdt-pr-countdown hdt-text-base hdt-font-semibold" -%}{%- endif -%}
+        {%- liquid
+          if settings.size_position == '1'
+            render 'size-list', product: card_product, product_url: product_url, class: ' hdt-size-list hdt-pe-none'
+          endif
+        -%}
+      </div>
+      {% render 'scrolling_badge', product: card_product %}
+    </div>
+    <div class="hdt-card-product__info hdt-card-align-{{ settings.pr_card_alignment }}">
+      {%- if settings.show_rating %}{% render 'hdt-pr-card-rating', product: card_product %}{% endif -%}
+      {%- liquid
+      if card_product.vendor.size > 0 and show_vendor
+        render 'vendor' with card_product.vendor, class: 'hdt-inline-block hdt-text-base hdt-font-normal'
+      endif -%}
+      <h3><a data-pr-url href="{{ product_url }}" class="hdt-card-product__title hdt-text-{{ settings.pr_title_size }} hdt-font-{{ settings.pr_title_weight }} hdt-line-clamp" data-instant>{{ card_product.title | default: "Product title" | escape }}</a></h3>
+      {%- liquid
+        render 'card-price', section_id: section_id, product: card_product, show_volume_note: true
+        render 'color-list', section_id: section_id, product: card_product, product_url: product_url, placement: 'top'
+      -%}
+    </div>
+    <div class="hdt-card-product__footer">
+      <a href="{{ product_url }}" class="hdt-card-product__btn-ultra" data-pr-url data-instant aria-label="{{ card_product.title | escape }}">
+        <span class="hdt-truncate">{{ card_btn_label | default: 'SHOP NOW' }}</span>
+      </a>
+    </div>
+  </div>
+</hdt-card-product>
