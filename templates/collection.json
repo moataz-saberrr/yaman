@@ -11,6 +11,7 @@
   "sections": {
     "collections_list_simple_4yRUED": {
       "type": "top-list-collections",
+      "disabled": true,
       "settings": {
         "show_type": "all",
         "menu": "footer",
@@ -85,18 +86,18 @@
         "use_read_more": false,
         "read_more_height": 300,
         "description_position": "before",
-        "product_des": "1",
+        "product_des": "11",
         "image_ratio": "square",
         "image_size": true,
         "show_vendor": false,
         "pr_border": "none",
-        "products_count": 24,
+        "products_count": 50,
         "col_dk": "4",
         "col_tb": "3",
         "col_mb": "2",
         "space_items": "x",
-        "pagination_type": "links",
-        "enable_progressbar": true,
+        "pagination_type": "load_more",
+        "enable_progressbar": false,
         "paginate_pos": "center",
         "dis_pagination": 40,
         "btn_label": "",
@@ -124,7 +125,7 @@
         "sidebar_position": "left",
         "sidebar_size": "small",
         "colors_by_section_sb": true,
-        "color_scheme_sb": "",
+        "color_scheme_sb": "scheme-c9476b69-abc7-454f-a946-2d5a9f5f3a37",
         "background_opacity_sb": 1
       }
     }
