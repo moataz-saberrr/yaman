@@ -591,155 +591,6 @@
         "space": 50
       }
     },
-    "related-products": {
-      "type": "related-products",
-      "blocks": {
-        "pr-heading": {
-          "type": "section-heading",
-          "static": true,
-          "settings": {
-            "design_heading": "1",
-            "horizontal": false,
-            "alignment": "center",
-            "heading_gap": 18,
-            "margin_bottom": 30
-          },
-          "blocks": {
-            "heading_section_nLFWkr": {
-              "type": "_heading_section",
-              "settings": {
-                "heading": "You may also like",
-                "line_height": "",
-                "heading_size": "h5",
-                "text_color": "hdt-s-text",
-                "font_size_heading_lg": 50,
-                "font_size_heading": 24,
-                "letter_spacing_heading": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_section_nLFWkr"
-          ]
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "product_des": "1",
-        "image_ratio": "portrait",
-        "image_size": true,
-        "show_vendor": false,
-        "display_type": "4",
-        "pr_border": "none",
-        "limit": 10,
-        "col_dk": "4",
-        "col_tb": "3",
-        "col_mb": "2",
-        "space_items": "x",
-        "loop": false,
-        "autoplay": 0,
-        "pauseOnHover": false,
-        "navUI": true,
-        "nav_position": "default",
-        "nav_visible": "hover",
-        "nav_style": "outline",
-        "nav_shape": "rounded",
-        "nav_size": "small",
-        "nav_hide_mobile": false,
-        "dotUI": false,
-        "pag_style": "default",
-        "pag_rounded": false,
-        "pag_space": 10,
-        "pag_mgt": 10,
-        "only_show_mobile": false,
-        "pag_hide_mobile": false,
-        "colors_by_section": false,
-        "color_scheme": "",
-        "background_opacity": 0,
-        "section_layout": "container",
-        "hdt_background_parallax": false,
-        "mg": "",
-        "mg_mb": "",
-        "pd": "75px,,75px,",
-        "pd_mb": "37px,,37px,"
-      }
-    },
-    "recently-products": {
-      "type": "recently-products",
-      "blocks": {
-        "pr-heading": {
-          "type": "section-heading",
-          "static": true,
-          "settings": {
-            "design_heading": "1",
-            "horizontal": false,
-            "alignment": "center",
-            "heading_gap": 18,
-            "margin_bottom": 30
-          },
-          "blocks": {
-            "heading_section_JdADpx": {
-              "type": "_heading_section",
-              "settings": {
-                "heading": "Recently viewed products",
-                "line_height": "",
-                "heading_size": "h5",
-                "text_color": "hdt-s-text",
-                "font_size_heading_lg": 50,
-                "font_size_heading": 24,
-                "letter_spacing_heading": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_section_JdADpx"
-          ]
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "product_des": "1",
-        "image_ratio": "portrait",
-        "image_size": true,
-        "show_vendor": false,
-        "pr_border": "none",
-        "sort_by": "new_to_old",
-        "availability": "show",
-        "limit": 10,
-        "col_dk": "4",
-        "col_tb": "3",
-        "col_mb": "2",
-        "space_items": "x",
-        "loop": false,
-        "autoplay": 0,
-        "pauseOnHover": false,
-        "navUI": true,
-        "nav_position": "default",
-        "nav_visible": "hover",
-        "nav_style": "outline",
-        "nav_shape": "rounded",
-        "nav_size": "small",
-        "nav_hide_mobile": false,
-        "dotUI": false,
-        "pag_style": "default",
-        "pag_rounded": false,
-        "pag_space": 10,
-        "pag_mgt": 10,
-        "only_show_mobile": false,
-        "pag_hide_mobile": false,
-        "colors_by_section": false,
-        "color_scheme": "",
-        "background_opacity": 0,
-        "section_layout": "container",
-        "hdt_background_parallax": false,
-        "mg": "",
-        "mg_mb": "",
-        "pd": ",,50px,",
-        "pd_mb": ",,40px,"
-      }
-    },
     "yaman_steps": {
       "type": "yaman-routine-steps-n",
       "blocks": {
@@ -1202,15 +1053,13 @@
     "breadcrumb",
     "main-product",
     "visible_lift",
+    "yaman_steps",
     "modes_ticker",
     "product_pairs_n_ECgMwJ",
     "accordion_n_LCGQQD",
     "final_cta",
     "tabs",
     "sidebar",
-    "related-products",
-    "recently-products",
-    "yaman_steps",
     "yaman_modes",
     "yaman_comparison_table_n_KWdTeM",
     "yaman_ugc",
