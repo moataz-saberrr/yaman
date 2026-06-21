@@ -38,12 +38,12 @@
             "text": "{{ collection.title }}",
             "line_height": "",
             "font_family": "hdt-font-1",
-            "text_size": "2xl",
+            "text_size": "custom",
             "text_color": "hdt-s-text",
             "italic": false,
             "uppercase": false,
-            "font_size_text_lg": 16,
-            "font_size_text": 14,
+            "font_size_text_lg": 38,
+            "font_size_text": 28,
             "letter_spacing_text": 0
           },
           "blocks": {}
