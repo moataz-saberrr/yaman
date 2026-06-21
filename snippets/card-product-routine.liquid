@@ -2,14 +2,15 @@
   YAMAN Routine product card — section-local copy of `card-product1` for
   sections/featured-collection-n.liquid only. Differences from card-product1:
     - removes the image-overlay quick-view / quick-add (ultra) group
-    - adds a full-width add-to-cart button in a card footer, BELOW the price,
-      reusing the theme's `btn-ultra` (real AJAX add-to-cart / quick-add modal /
-      choose-options, depending on the product).
+    - adds a full-width "Shop now" button in a card footer, BELOW the price,
+      linking to the product's own page (product_url). Label is set per-section
+      via `card_btn_label` (defaults to "SHOP NOW").
   The original `card-product1` is left untouched.
 
-  Accepts the same params as card-product1:
+  Accepts the same params as card-product1, plus:
   - card_product, section_id, sizes, class, image_ratio, show_vendor,
     color_list, size_list, btn_wishlist_code, product_url
+  - card_btn_label: {String} label for the footer "Shop now" button (optional)
 {%- endcomment -%}
 
 {%- liquid
@@ -94,7 +95,9 @@
       -%}
     </div>
     <div class="hdt-card-product__footer hdt-yaman-routine__footer">
-      {%- render 'btn-ultra', class: 'hdt-yaman-routine__atc-wrap', product: card_product, product_url: product_url, section_id: section_id, disable_sr_only: true, show_qty: false -%}
+      <a href="{{ product_url }}" class="hdt-card-product__btn-ultra hdt-yaman-routine__shop-now" data-pr-url data-instant aria-label="{{ card_product.title | escape }}">
+        <span class="hdt-truncate">{{ card_btn_label | default: 'SHOP NOW' }}</span>
+      </a>
     </div>
   </div>
 </hdt-card-product>

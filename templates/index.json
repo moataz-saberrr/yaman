@@ -431,6 +431,7 @@
         "collection": "اجهزة-يامان",
         "limit": 12,
         "show_vendor": true,
+        "card_button_label": "SHOP NOW",
         "image_ratio": "square",
         "col_dk": "3",
         "col_tb": "2",
