@@ -1,0 +1,403 @@
+<!--
+  sections/shipping-about-n.liquid — YAMAN Brands (About-page stats panel).
+  Duplicated/customized from the Kalles "Shipping" section (sections/shipping.liquid).
+  Preserves the useful section-level Kalles capabilities (section layout width modes,
+  color scheme + background image + parallax, section spacing, desktop/mobile column
+  counts via the original col_dk / col_mb IDs). The icon + nested-block system is
+  replaced with simple, dynamic `stat` blocks (value / label / optional link) to match
+  the Figma Brands design. Original Kalles files (incl. the homepage shipping-n.liquid)
+  are NOT modified.
+-->
+{{ 'custom_yaman_about.css' | asset_url | stylesheet_tag }}
+{% style %}
+  {% render 'spacing-vars', box: section %}
+  {%- if section.settings.background_color != blank and section.settings.background_color != 'rgba(0,0,0,0)' -%}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.background_color }};
+    }
+  {%- endif -%}
+{% endstyle %}
+{% liquid
+  assign sizes = '100vw'
+
+  case section.settings.section_layout
+    when 'container'
+      assign parent = 'hdt-container'
+      assign child = 'hdt-section-spacing hdt-s-gradient hdt-relative' | append: ' hdt-section-spacing-' | append: section.id
+    when 'wrapper_container'
+      assign parent = 'hdt-section-spacing hdt-s-gradient hdt-relative' | append: ' hdt-section-spacing-' | append: section.id
+      assign child = 'hdt-container'
+    when 'full_width'
+      assign parent = 'hdt-container-full hdt-section-spacing hdt-s-gradient hdt-relative' | append: ' hdt-section-spacing-' | append: section.id
+      assign child = ''
+  endcase
+%}
+<div
+  class="{{ parent }}{% if section.settings.hdt_background_parallax %} hdt-animate--parallax-bg{% endif %}"
+  {%- if section.settings.colors_by_section %}
+    color-scheme="{{ section.settings.color_scheme }}"
+    style="--background-opacity: {{ section.settings.background_opacity }};"
+  {%- endif %}
+>
+  <div class="{{ child }} custom-shipping-about">
+    {%- if section.settings.section_background != blank -%}
+      {{
+        section.settings.section_background
+        | image_url: width: section.settings.section_background.width
+        | image_tag:
+          width: section.settings.section_background.width,
+          height: section.settings.section_background.height,
+          sizes: sizes,
+          widths: '400,600,800,1000,1200,1400,1600,1800,2000',
+          loading: 'lazy',
+          class: 'hdt-section-background hdt-absolute hdt-top-0 hdt-left-0 hdt-w-full hdt-h-full hdt-pe-none hdt-object-cover hdt-object-center'
+      }}
+    {%- endif -%}
+
+    <div
+      class="hdt-yaman-brands"
+      style="
+        --yb-maxw: {{ section.settings.container_max_width }}px;
+        --yb-pad-x: {{ section.settings.container_padding_x }}px;
+        {%- if section.settings.panel_color != blank and section.settings.panel_color != 'rgba(0,0,0,0)' %}--yb-panel: {{ section.settings.panel_color.rgb }};{% endif -%}
+        --yb-radius: {{ section.settings.panel_radius }}px;
+        --yb-value: {{ section.settings.value_color.rgb }};
+        --yb-label: {{ section.settings.label_color.rgb }};
+        --yb-heading: {{ section.settings.heading_color.rgb }};
+        --yb-divider: {{ section.settings.divider_color.rgb }};
+        --yb-cols-dk: {{ section.settings.col_dk }};
+        --yb-cols-mb: {{ section.settings.col_mb }};
+        --yb-gap: {{ section.settings.gap }}px;
+        --yb-gap-mb: {{ section.settings.gap_mb }}px;
+      "
+    >
+      {%- if section.settings.heading != blank -%}
+        <h2 class="hdt-yaman-brands__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="hdt-yaman-brands__panel">
+          <div
+            class="hdt-yaman-brands__grid{% if section.settings.show_dividers %} hdt-yaman-brands__grid--dividers{% endif %}"
+            data-cols-dk="{{ section.settings.col_dk }}"
+            data-cols-mb="{{ section.settings.col_mb }}"
+          >
+            {%- for block in section.blocks -%}
+              {%- liquid
+                assign has_link = false
+                if block.settings.link != blank
+                  assign has_link = true
+                endif
+              -%}
+              <div class="hdt-yaman-brands__item" {{ block.shopify_attributes }}>
+                {%- if has_link -%}<a class="hdt-yaman-brands__link" href="{{ block.settings.link }}">{%- endif -%}
+                {%- if block.settings.value != blank -%}
+                  <span class="hdt-yaman-brands__value">{{ block.settings.value }}</span>
+                {%- endif -%}
+                {%- if block.settings.label != blank -%}
+                  <span class="hdt-yaman-brands__label">{{ block.settings.label }}</span>
+                {%- endif -%}
+                {%- if has_link -%}</a>{%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YAMAN Brands",
+  "class": "hdt-yaman-brands-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Brands"
+    },
+    {
+      "type": "header",
+      "content": "Panel"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "label": "Container max width",
+      "min": 700,
+      "max": 1400,
+      "step": 20,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "container_padding_x",
+      "label": "Container horizontal padding",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "panel_radius",
+      "label": "Panel border radius",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Item gap (Desktop)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "gap_mb",
+      "label": "Item gap (Mobile)",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Dividers"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dividers",
+      "label": "Show dividers between items",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#d9d5ca",
+      "visible_if": "{{ section.settings.show_dividers }}"
+    },
+    {
+      "type": "header",
+      "content": "Columns"
+    },
+    {
+      "type": "select",
+      "id": "col_dk",
+      "label": "t:sections.all.items_row.desktop",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" },
+        { "value": "6", "label": "6" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "col_mb",
+      "label": "t:sections.all.items_row.mobile",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "panel_color",
+      "label": "Panel background color",
+      "default": "#f6f3ea"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#0a0a0a"
+    },
+    {
+      "type": "color",
+      "id": "value_color",
+      "label": "Value color",
+      "default": "#c9a86a"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#14233b"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_layout.label"
+    },
+    {
+      "type": "select",
+      "id": "section_layout",
+      "label": "t:sections.all.section_layout.width.label",
+      "options": [
+        { "value": "container", "label": "t:sections.all.section_layout.width.container" },
+        { "value": "wrapper_container", "label": "t:sections.all.section_layout.width.wrapper_container" },
+        { "value": "full_width", "label": "t:sections.all.section_layout.width.full_width" }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "checkbox",
+      "id": "colors_by_section",
+      "label": "t:sections.all.colors.display_colors_by_section",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "visible_if": "{{ section.settings.colors_by_section }}"
+    },
+    {
+      "type": "range",
+      "id": "background_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "t:sections.all.background.opacity",
+      "default": 0,
+      "visible_if": "{{ section.settings.colors_by_section }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_background",
+      "label": "t:sections.all.background.image"
+    },
+    {
+      "type": "checkbox",
+      "id": "hdt_background_parallax",
+      "label": "Using parallax for background",
+      "visible_if": "{{ section.settings.section_background != blank }}",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_spacing"
+    },
+    {
+      "type": "text",
+      "id": "mg",
+      "label": "Margin",
+      "info": "Margin top, margin right, margin bottom, margin left. If you not use to blank",
+      "placeholder": ",,50px,"
+    },
+    {
+      "type": "text",
+      "id": "mg_mb",
+      "label": "Margin (Mobile)",
+      "placeholder": ",,30px,",
+      "visible_if": "{{ section.settings.mg != blank }}"
+    },
+    {
+      "type": "text",
+      "id": "pd",
+      "label": "Padding",
+      "info": "Padding top, padding right, padding bottom, padding left. If you not use to blank",
+      "default": "70px,,70px,",
+      "placeholder": "50px,,50px,"
+    },
+    {
+      "type": "text",
+      "id": "pd_mb",
+      "label": "Padding (Mobile)",
+      "default": "44px,,44px,",
+      "placeholder": ",,50px,",
+      "visible_if": "{{ section.settings.pd != blank }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "700,000+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Customers Worldwide"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Brands",
+      "category": "t:sections_categories.05_section.name",
+      "settings": {
+        "heading": "Brands",
+        "container_max_width": 1200,
+        "container_padding_x": 16,
+        "panel_radius": 24,
+        "gap": 24,
+        "gap_mb": 28,
+        "show_dividers": true,
+        "divider_color": "#d9d5ca",
+        "col_dk": "4",
+        "col_mb": "2",
+        "background_color": "#ffffff",
+        "panel_color": "#f6f3ea",
+        "heading_color": "#0a0a0a",
+        "value_color": "#c9a86a",
+        "label_color": "#14233b",
+        "section_layout": "container",
+        "pd": "70px,,70px,",
+        "pd_mb": "44px,,44px,"
+      },
+      "blocks": [
+        { "type": "stat", "settings": { "value": "700,000+", "label": "Customers Worldwide" } },
+        { "type": "stat", "settings": { "value": "4.8/5", "label": "Average Rating" } },
+        { "type": "stat", "settings": { "value": "#3", "label": "Fastest Growing Startup" } },
+        { "type": "stat", "settings": { "value": "7+", "label": "Clinical & User Studies" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,508 @@
+<!-- sections/image-with-text-n.liquid — YAMAN Story (Brand Story).
+     Duplicated/customized from the Kalles "Image with text" section (sections/image_text.liquid).
+     Preserves the useful section-level Kalles capabilities (section layout width modes, color
+     scheme + background image + parallax, section spacing) and reuses the same spacing-vars +
+     section_layout parent/child structure. Content is exposed as direct, dynamic settings to
+     match the Figma Brand Story design. Original Kalles files are NOT modified. -->
+{{ 'custom_yaman_about.css' | asset_url | stylesheet_tag }}
+{% style %}
+  {% render 'spacing-vars', box: section %}
+  {%- if section.settings.background_color != blank and section.settings.background_color != 'rgba(0,0,0,0)' -%}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.background_color }};
+    }
+  {%- endif -%}
+{% endstyle %}
+{% liquid
+  # Section layout (kept identical to the original Image with text)
+  assign sizes = '(min-width: 768px) 50vw, calc(100vw - 32px)'
+  assign img_widths = '375,480,600,750,900,1100,1300,1500,1700,1900'
+
+  case section.settings.section_layout
+    when 'container'
+      assign parent = 'hdt-container'
+      assign child = 'hdt-section-spacing hdt-s-gradient hdt-relative' | append: ' hdt-section-spacing-' | append: section.id
+    when 'wrapper_container'
+      assign parent = 'hdt-section-spacing hdt-s-gradient hdt-relative' | append: ' hdt-section-spacing-' | append: section.id
+      assign child = 'hdt-container'
+    when 'full_width'
+      assign parent = 'hdt-container-full hdt-section-spacing hdt-s-gradient hdt-relative' | append: ' hdt-section-spacing-' | append: section.id
+      assign child = ''
+      assign sizes = '100vw'
+  endcase
+
+  assign img = section.settings.image | default: section.settings.image_mb
+  assign img_mb = section.settings.image_mb | default: section.settings.image
+  assign alt = section.settings.image_alt | default: img.alt
+
+  case section.settings.image_ratio
+    when 'adapt'
+      assign ar = img.aspect_ratio | default: 1.333
+    when 'square'
+      assign ar = '1 / 1'
+    when 'portrait'
+      assign ar = '3 / 4'
+    when 'landscape'
+      assign ar = '4 / 3'
+    when 'wide'
+      assign ar = '16 / 9'
+  endcase
+%}
+<div
+  id="{{ section.id }}"
+  class="{{ parent }}{% if section.settings.hdt_background_parallax %} hdt-animate--parallax-bg{% endif %}"
+  {%- if section.settings.colors_by_section %} color-scheme="{{ section.settings.color_scheme }}" style="--background-opacity: {{ section.settings.background_opacity }};"{%- endif %}
+  hdt-reveal="fade-in"
+>
+  <div class="{{ child }}">
+    {%- if section.settings.section_background != blank -%}
+      {{
+        section.settings.section_background
+        | image_url: width: section.settings.section_background.width
+        | image_tag:
+          width: section.settings.section_background.width,
+          height: section.settings.section_background.height,
+          sizes: '100vw',
+          widths: '400,600,800,1000,1200,1400,1600,1800,2000',
+          loading: 'lazy',
+          class: 'hdt-section-background hdt-absolute hdt-top-0 hdt-left-0 hdt-w-full hdt-h-full hdt-pe-none hdt-object-cover hdt-object-center'
+      }}
+    {%- endif -%}
+
+    <div
+      class="hdt-yaman-story hdt-yaman-story--img-{{ section.settings.image_position }} hdt-yaman-story--imgmb-{{ section.settings.image_position_mb }} hdt-yaman-story--valign-{{ section.settings.content_valign }}"
+      style="
+        {%- if section.settings.background_color != blank and section.settings.background_color != 'rgba(0,0,0,0)' %}--ys-bg: {{ section.settings.background_color.rgb }};{% endif -%}
+        --ys-heading: {{ section.settings.heading_color.rgb }};
+        --ys-body: {{ section.settings.body_color.rgb }};
+        --ys-eyebrow: {{ section.settings.eyebrow_color.rgb }};
+        --ys-maxw: {{ section.settings.container_max_width }}px;
+        --ys-gap: {{ section.settings.gap }}px;
+        --ys-gap-mb: {{ section.settings.gap_mb }}px;
+        --ys-radius: {{ section.settings.image_radius }}px;
+        --ys-radius-mb: {{ section.settings.image_radius_mb }}px;
+        --ys-ar: {{ ar }};
+      "
+    >
+      <div class="hdt-yaman-story__container">
+        <div class="hdt-yaman-story__media">
+          {%- if img_mb != blank -%}
+            {{
+              img_mb
+              | image_url: width: img_mb.width
+              | image_tag:
+                width: img_mb.width,
+                height: img_mb.height,
+                sizes: sizes,
+                widths: img_widths,
+                loading: 'lazy',
+                alt: alt,
+                class: 'hdt-yaman-story__image hdt-yaman-story__image--mobile'
+            }}
+          {%- endif -%}
+          {%- if img != blank -%}
+            {{
+              img
+              | image_url: width: img.width
+              | image_tag:
+                width: img.width,
+                height: img.height,
+                sizes: sizes,
+                widths: img_widths,
+                loading: 'lazy',
+                alt: alt,
+                class: 'hdt-yaman-story__image hdt-yaman-story__image--desktop'
+            }}
+          {%- endif -%}
+          {%- if img == blank and img_mb == blank -%}
+            {{ 'image' | placeholder_svg_tag: 'hdt-yaman-story__image hdt-yaman-story__image--desktop hdt-placeholder' }}
+          {%- endif -%}
+        </div>
+
+        <div class="hdt-yaman-story__content hdt-yaman-story__content--align-{{ section.settings.text_align }} hdt-yaman-story__content--mb-{{ section.settings.text_align_mb }}">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="hdt-yaman-story__eyebrow">{{ section.settings.eyebrow }}</p>
+          {%- endif -%}
+
+          {%- if section.settings.heading != blank -%}
+            <h2 class="hdt-yaman-story__heading">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.paragraph_1 != blank -%}
+            <div class="hdt-yaman-story__text hdt-yaman-story__paragraph">{{ section.settings.paragraph_1 }}</div>
+          {%- endif -%}
+
+          {%- if section.settings.paragraph_2 != blank -%}
+            <div class="hdt-yaman-story__text hdt-yaman-story__paragraph">{{ section.settings.paragraph_2 }}</div>
+          {%- endif -%}
+
+          {%- if section.settings.button_label != blank -%}
+            <div class="hdt-yaman-story__cta">
+              <a
+                class="hdt-btn {{ section.settings.button_style }}"
+                {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}role="link" aria-disabled="true"{% endif %}
+                {% if section.settings.button_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+              >
+                <span>{{ section.settings.button_label }}</span>
+              </a>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YAMAN Story",
+  "class": "hdt-yaman-story-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mb",
+      "label": "Image (Mobile)",
+      "info": "Optional. Falls back to the desktop image if left empty."
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "info": "Optional. Falls back to the image's own alt text."
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "portrait", "label": "Portrait (3:4)" },
+        { "value": "landscape", "label": "Landscape (4:3)" },
+        { "value": "wide", "label": "Wide (16:9)" }
+      ],
+      "default": "landscape"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image corner radius (Desktop)",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "image_radius_mb",
+      "label": "Image corner radius (Mobile)",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "BRAND STORY"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The first name in beauty technology in Japan."
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph_1",
+      "label": "Paragraph 1",
+      "default": "<p>Based in Tokyo, YĀMAN is known throughout Japan – and now the world – for putting beauty devices on the map. Compatible solution-based product launches soon followed.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph_2",
+      "label": "Paragraph 2",
+      "default": "<p>Embracing technology and innovation, today the company thrives as a group of prestige beauty brands with devoted fan bases globally.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button (optional)"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "info": "Leave blank to hide the button."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_new_tab",
+      "label": "Open in new tab",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        { "value": "", "label": "Default" },
+        { "value": "hdt-btn-secondary", "label": "Secondary" },
+        { "value": "hdt-btn-outline", "label": "Outline" },
+        { "value": "hdt-btn-link", "label": "Link" }
+      ],
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position (Desktop)",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "image_position_mb",
+      "label": "Image position (Mobile)",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "select",
+      "id": "content_valign",
+      "label": "Vertical alignment (Desktop)",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text alignment (Desktop)",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "text_align_mb",
+      "label": "Text alignment (Mobile)",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "label": "Container max width",
+      "min": 800,
+      "max": 1500,
+      "step": 20,
+      "unit": "px",
+      "default": 1280
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap (Desktop)",
+      "min": 16,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "gap_mb",
+      "label": "Gap (Mobile)",
+      "min": 12,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f5f1e8"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "body_color",
+      "label": "Body text color",
+      "default": "#6f6f6f"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#9b9b9b"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_layout.label"
+    },
+    {
+      "type": "select",
+      "id": "section_layout",
+      "label": "t:sections.all.section_layout.width.label",
+      "options": [
+        { "value": "container", "label": "t:sections.all.section_layout.width.container" },
+        { "value": "wrapper_container", "label": "t:sections.all.section_layout.width.wrapper_container" },
+        { "value": "full_width", "label": "t:sections.all.section_layout.width.full_width" }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "checkbox",
+      "id": "colors_by_section",
+      "label": "t:sections.all.colors.display_colors_by_section",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "visible_if": "{{ section.settings.colors_by_section }}"
+    },
+    {
+      "type": "range",
+      "id": "background_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "t:sections.all.background.opacity",
+      "default": 0,
+      "visible_if": "{{ section.settings.colors_by_section }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_background",
+      "label": "t:sections.all.background.image"
+    },
+    {
+      "type": "checkbox",
+      "id": "hdt_background_parallax",
+      "label": "Using parallax for background",
+      "visible_if": "{{ section.settings.section_background != blank }}",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_spacing"
+    },
+    {
+      "type": "text",
+      "id": "mg",
+      "label": "Margin",
+      "info": "Margin top, margin right, margin bottom, margin left. If you not use to blank",
+      "placeholder": ",,50px,"
+    },
+    {
+      "type": "text",
+      "id": "mg_mb",
+      "label": "Margin (Mobile)",
+      "placeholder": ",,30px,",
+      "visible_if": "{{ section.settings.mg != blank }}"
+    },
+    {
+      "type": "text",
+      "id": "pd",
+      "label": "Padding",
+      "info": "Padding top, padding right, padding bottom, padding left. If you not use to blank",
+      "default": "80px,,80px,",
+      "placeholder": "50px,,50px,"
+    },
+    {
+      "type": "text",
+      "id": "pd_mb",
+      "label": "Padding (Mobile)",
+      "default": "48px,,48px,",
+      "placeholder": ",,50px,",
+      "visible_if": "{{ section.settings.pd != blank }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Story",
+      "category": "t:sections_categories.05_section.name",
+      "settings": {
+        "image_ratio": "landscape",
+        "image_radius": 24,
+        "image_radius_mb": 18,
+        "eyebrow": "BRAND STORY",
+        "heading": "The first name in beauty technology in Japan.",
+        "paragraph_1": "<p>Based in Tokyo, YĀMAN is known throughout Japan – and now the world – for putting beauty devices on the map. Compatible solution-based product launches soon followed.</p>",
+        "paragraph_2": "<p>Embracing technology and innovation, today the company thrives as a group of prestige beauty brands with devoted fan bases globally.</p>",
+        "image_position": "left",
+        "image_position_mb": "top",
+        "content_valign": "center",
+        "text_align": "left",
+        "text_align_mb": "left",
+        "container_max_width": 1280,
+        "gap": 72,
+        "gap_mb": 24,
+        "background_color": "#f5f1e8",
+        "heading_color": "#111111",
+        "body_color": "#6f6f6f",
+        "eyebrow_color": "#9b9b9b",
+        "section_layout": "container",
+        "pd": "80px,,80px,",
+        "pd_mb": "48px,,48px,"
+      }
+    }
+  ]
+}
+{% endschema %}
