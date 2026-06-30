@@ -29,7 +29,8 @@
   }
 {% endstyle %}
 <div
-  class="hdt-container{% if section.settings.full_width %}-full{% endif %} hdt-section-spacing hdt-section-spacing-{{ section.id }} hdt-yaman-about-video hdt-yaman-about-video--hd-{{ section.settings.height_des }} hdt-yaman-about-video--hm-{{ section.settings.height_mb }} hdt-relative"
+  class="hdt-container{% if section.settings.full_width %}-full{% endif %} hdt-section-spacing hdt-section-spacing-{{ section.id }}
+  hdt-yaman-about-video hdt-yaman-about-video--hd-{{ section.settings.height_des }} hdt-yaman-about-video--hm-{{ section.settings.height_mb }} hdt-relative {% if section.settings.custom_class != blank %} {{ section.settings.custom_class }} {% endif }}"
   color-scheme="{{ section.settings.color_scheme }}"
 >
   <div class="hdt-yaman-about-video__media">
@@ -96,7 +97,7 @@
 {
   "name": "YAMAN About Video",
   "tag": "section",
-  "class": "hdt-yaman-about-video-section",
+  "class": "hdt-yaman-about-video-section test-custom",
   "disabled_on": {
     "groups": ["header", "footer", "custom.system"]
   },
@@ -110,6 +111,13 @@
       "id": "image",
       "label": "Background image (Desktop)"
     },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Add custom class to the section to edit in styling"
+    }
+    ,
     {
       "type": "image_picker",
       "id": "image_mb",
