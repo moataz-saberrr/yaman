@@ -1,9 +1,9 @@
 <!-- sections/featured-collection-n.liquid — YAMAN Routine ("Complete Your Routine") -->
 {%- liquid
-  assign sec_class      = section.settings.custom_class
+  assign sec_class = section.settings.custom_class
   assign sel_collection = collections[section.settings.collection]
-  assign limit          = section.settings.limit | at_most: 24 | at_least: 1
-  assign image_ratio    = section.settings.image_ratio
+  assign limit = section.settings.limit | at_most: 24 | at_least: 1
+  assign image_ratio = section.settings.image_ratio
 
   # Button link: custom link if set, otherwise fall back to the selected collection.
   assign btn_link = section.settings.button_link
@@ -19,7 +19,7 @@
   assign sizes = '(min-width: 768px) 33vw, 80vw'
 
   assign color_list = 'products.theme_settings.color' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
-  assign size_list  = 'products.theme_settings.size'  | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+  assign size_list = 'products.theme_settings.size' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
 
   capture btn_wishlist_code
     if settings.wishlist_mode != '0'
@@ -29,7 +29,7 @@
 -%}
 
 <div
-  class="hdt-yaman-routine-section{% if sec_class != blank %} {{ sec_class }}{% endif %}{% if section.settings.hide_controls_mobile %} is-hide-controls-mb{% endif %}"
+  class="hdt-yaman-routine-section{% if sec_class != blank %} {{ sec_class }}{% endif %}{% if section.settings.hide_controls_mobile %} is-hide-controls-mb{% endif %} {%if section.settings.custom_class_featured != blank%} {{section.settings.custom_class_featured}} {%-endif-%}"
   style="
     --routine-bg: {{ section.settings.bg_color }};
     --routine-maxw: {{ section.settings.container_max_width }}px;
@@ -50,7 +50,6 @@
 >
   <div class="hdt-yaman-routine">
     <div class="hdt-yaman-routine__container">
-
       <div class="hdt-yaman-routine__header">
         {%- if section.settings.badge_text != blank -%}
           <span class="hdt-yaman-routine__badge">{{ section.settings.badge_text | escape }}</span>
@@ -102,22 +101,49 @@
 
           {%- if section.settings.nav_ui -%}
             <div class="hdt-navigation hdt-position-default hdt-visible-hover hdt-style-default hdt-shape-rounded hdt-size-small hdt-hide-mobile-{{ section.settings.hide_controls_mobile }}">
-              <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--prev" type="button" disabled name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">
-                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/></svg>
+              <button
+                aria-controls="Slider-{{ section.id }}"
+                class="hdt-slider__button hdt-slider__button--prev"
+                type="button"
+                disabled
+                name="previous"
+                aria-label="{{ 'general.slider.previous_slide' | t }}"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
+                  <path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/>
+                </svg>
               </button>
-              <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--next" type="button" disabled name="next" aria-label="{{ 'general.slider.next_slide' | t }}">
-                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/></svg>
+              <button
+                aria-controls="Slider-{{ section.id }}"
+                class="hdt-slider__button hdt-slider__button--next"
+                type="button"
+                disabled
+                name="next"
+                aria-label="{{ 'general.slider.next_slide' | t }}"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
+                  <path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/>
+                </svg>
               </button>
             </div>
           {%- endif -%}
 
           {%- if section.settings.dot_ui -%}
-            <div hdt-slider-dots aria-controls="Slider-{{ section.id }}" class="hdt-yaman-routine__dots hdt-slider__dots hdt-pagination hdt-style-default hdt-radius-true hdt-hide-mobile-{{ section.settings.hide_controls_mobile }}" style="--space-between: 8px; --margin-top: 24px;" hdt-reveal="slide-in" timeline></div>
+            <div
+              hdt-slider-dots
+              aria-controls="Slider-{{ section.id }}"
+              class="hdt-yaman-routine__dots hdt-slider__dots hdt-pagination hdt-style-default hdt-radius-true hdt-hide-mobile-{{ section.settings.hide_controls_mobile }}"
+              style="--space-between: 8px; --margin-top: 24px;"
+              hdt-reveal="slide-in"
+              timeline
+            ></div>
           {%- endif -%}
         </hdt-slider>
 
         {%- if has_products == false and request.design_mode -%}
-          <p class="hdt-yaman-routine__notice">Select a collection in this section's settings to display its products.</p>
+          <p class="hdt-yaman-routine__notice">
+            Select a collection in this section's settings to display its products.
+          </p>
         {%- endif -%}
       </div>
 
@@ -126,11 +152,14 @@
           <a
             class="hdt-yaman-routine__button"
             href="{{ btn_link | default: '#' }}"
-            {% if section.settings.button_target %}target="_blank" rel="noopener"{% endif %}
-          >{{ section.settings.button_label | escape }}</a>
+            {% if section.settings.button_target %}
+              target="_blank" rel="noopener"
+            {% endif %}
+          >
+            {{- section.settings.button_label | escape -}}
+          </a>
         </div>
       {%- endif -%}
-
     </div>
   </div>
 </div>
@@ -141,6 +170,12 @@
   "tag": "section",
   "class": "hdt-section hdt-yaman-routine-wrap",
   "settings": [
+    {
+      "type": "text",
+      "id": "custom_class_featured",
+      "label": "Custom Class",
+      "info": "Add custom class to the section to edit in styling"
+    },
     {
       "type": "text",
       "id": "badge_text",
@@ -209,7 +244,8 @@
       "options": [
         { "value": "2", "label": "2" },
         { "value": "3", "label": "3" },
-        { "value": "4", "label": "4" }
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" }
       ],
       "default": "3"
     },

@@ -1,8 +1,10 @@
-<!-- sections/banner-video-n.liquid — YAMAN About Video hero.
-     Duplicated/customized from the Kalles "About us" section (sections/about-us.liquid),
-     which is this theme's banner-video hero: a full-width background image + the
-     `_button_video` block (the <hdt-video-popup> custom element drives the play button
-     and the video modal — no custom JS needed). Original Kalles files are NOT modified. -->
+<!--
+  sections/banner-video-n.liquid — YAMAN About Video hero.
+  Duplicated/customized from the Kalles "About us" section (sections/about-us.liquid),
+  which is this theme's banner-video hero: a full-width background image + the
+  `_button_video` block (the <hdt-video-popup> custom element drives the play button
+  and the video modal — no custom JS needed). Original Kalles files are NOT modified.
+-->
 {{ 'custom_yaman_about.css' | asset_url | stylesheet_tag }}
 {%- liquid
   assign img_des = section.settings.image | default: section.settings.image_mb
@@ -29,7 +31,14 @@
   }
 {% endstyle %}
 <div
-  class="hdt-container{% if section.settings.full_width %}-full{% endif %} hdt-section-spacing hdt-section-spacing-{{ section.id }} hdt-yaman-about-video hdt-yaman-about-video--hd-{{ section.settings.height_des }} hdt-yaman-about-video--hm-{{ section.settings.height_mb }} hdt-relative"
+  class="
+    hdt-container{% if section.settings.full_width %}-full{% endif %}
+    hdt-section-spacing hdt-section-spacing-{{ section.id }} hdt-yaman-about-video
+    hdt-yaman-about-video--hd-{{ section.settings.height_des }}
+    hdt-yaman-about-video--hm-{{ section.settings.height_mb }}
+    hdt-relative {% if section.settings.custom_class != blank %}
+    {{ section.settings.custom_class }}{% endif%}
+  "
   color-scheme="{{ section.settings.color_scheme }}"
 >
   <div class="hdt-yaman-about-video__media">
@@ -62,7 +71,10 @@
       }}
     {%- endif -%}
     {%- if img_des == blank and img_mb == blank -%}
-      {{ 'lifestyle-1' | placeholder_svg_tag: 'hdt-yaman-about-video__img hdt-yaman-about-video__img--desktop hdt-placeholder' }}
+      {{
+        'lifestyle-1'
+        | placeholder_svg_tag: 'hdt-yaman-about-video__img hdt-yaman-about-video__img--desktop hdt-placeholder'
+      }}
     {%- endif -%}
     {%- if section.settings.show_overlay -%}
       <div class="hdt-yaman-about-video__overlay" aria-hidden="true"></div>
@@ -78,7 +90,7 @@
 
     {%- if section.settings.show_play -%}
       <div class="hdt-yaman-about-video__play">
-        {% content_for "block", type: "_button_video", id: 'about-video-btn' %}
+        {% content_for 'block', type: '_button_video', id: 'about-video-btn' %}
       </div>
     {%- endif -%}
 
@@ -115,6 +127,12 @@
       "id": "image_mb",
       "label": "Background image (Mobile)",
       "info": "Optional. Falls back to the desktop image if left empty."
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Add custom class to the section to edit in styling"
     },
     {
       "type": "checkbox",

@@ -425,9 +425,20 @@
     font-size: 16px;
   }
 }
+.custom_banner2{
 .hdt-yaman-about-video__heading{
   margin-top: 154px !important;
+  font-family: "DIN Next LT";
+  font-weight: 500;
+  font-size: 34px;
 }
+@media (max-width:1150px) {
+  .hdt-yaman-about-video__heading{
+  margin-top: 8px !important; 
+}
+}
+}
+
 /* ------------------------------------------------------------
    YAMAN Brands (stats panel)  —  sections/shipping-about-n.liquid
    Scope: .hdt-yaman-brands-section (section wrapper class)
@@ -842,4 +853,10 @@
   margin-top: 18px;
 }
 
+}
+
+
+
+.featured_aboutPage{
+  
 }
