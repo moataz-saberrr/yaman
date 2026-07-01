@@ -422,6 +422,46 @@
         "padding_bottom_mb": 44
       }
     },
+    "yaman_mode_banner": {
+      "type": "yaman-mode-banner-n",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "MEDI LIFT MODES",
+            "heading": "Training EMS Mode",
+            "text": "<p>Utilizes low-frequency EMS ranging from 2.5 to 17 Hz specifically engineered to target and stimulate the cheek muscles. This active workout supports a visibly elevated mid-face contour and restores symmetry and facial balance</p>",
+            "content_position": "flex-start",
+            "text_align_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_1"
+      ],
+      "settings": {
+        "background_color": "#0e1626",
+        "height": 520,
+        "height_mb": 600,
+        "container_max_width": 1290,
+        "content_max_width": 560,
+        "overlay_color": "#0b1220",
+        "overlay_opacity": 55,
+        "enable_arrows": true,
+        "hide_arrows_mobile": true,
+        "enable_dots": false,
+        "hide_dots_mobile": true,
+        "arrow_color": "#f3ecdf",
+        "arrow_bg": "rgba(0,0,0,0)",
+        "loop": true,
+        "autoplay": false,
+        "autoplay_speed": 6,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
     "yaman_product_proof_n_G4PnLR": {
       "type": "yaman-product-proof-n",
       "blocks": {
@@ -518,6 +558,73 @@
         "padding_bottom": 70,
         "padding_top_mb": 45,
         "padding_bottom_mb": 45
+      }
+    },
+    "yaman_howuse": {
+      "type": "yaman-how-to-use-n",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "APPLY GEL OR SERUM",
+            "description": "Prepare the lower face with a suitable gel or compatible serum before use."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "number": "02",
+            "title": "SECURE THE MASK PROPERLY",
+            "description": "Fit the mask comfortably and securely over the cheeks and jaw area."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "number": "03",
+            "title": "ADJUST EACH SIDE",
+            "description": "Set the intensity for the left and right sides independently to suit your needs."
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "number": "04",
+            "title": "WEAR FOR 10 MINUTES",
+            "description": "Enjoy a hands-free, 10-minute daily routine."
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4"
+      ],
+      "settings": {
+        "heading": "How to Use",
+        "subtitle": "Four simple steps designed to fit seamlessly into your routine.",
+        "header_max_width": 760,
+        "background_color": "#ffffff",
+        "show_glow": true,
+        "glow_color": "#d4b87a",
+        "container_max_width": 1040,
+        "columns": 4,
+        "gap": 32,
+        "gap_mb": 16,
+        "card_bg": "#f8f7f0",
+        "card_radius": 16,
+        "image_ratio": "223 / 200",
+        "accent_color": "#c9a844",
+        "title_color": "#1d2847",
+        "enable_carousel_mobile": true,
+        "full_bleed_mobile": true,
+        "mobile_card_width": 78,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
       }
     },
     "visible_lift": {
@@ -1476,6 +1583,8 @@
     "yaman_product_proof_n_G4PnLR",
     "yaman_marquee",
     "yaman_special",
+    "yaman_mode_banner",
+    "yaman_howuse",
     "visible_lift",
     "yaman_steps",
     "modes_ticker",
