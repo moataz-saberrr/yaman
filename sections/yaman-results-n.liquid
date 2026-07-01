@@ -1,0 +1,441 @@
+<!-- section/yaman-results-n.liquid — YAMAN Results: "Noticeable results within weeks of use"
+     Product-page proof section. Built from scratch (no close Kalles base), but the image
+     carousel reuses the native Kalles <hdt-slider> custom element (theme global JS) so no
+     custom carousel/JS is needed. The before/after image is STATIC per slide — this is a
+     plain image carousel, NOT an interactive before/after drag slider.
+     Desktop: centred header, then image carousel left + 2x2 stats grid right.
+     Mobile:  header, then 2x2 stats grid, then image carousel below.
+     CSS: assets/custom-productan.css (loaded via stylesheet_tag below). -->
+{%- liquid
+  assign image_blocks = section.blocks | where: 'type', 'image'
+  assign stat_blocks = section.blocks | where: 'type', 'stat'
+  assign show_dots = section.settings.enable_dots
+  if image_blocks.size <= 1
+    assign show_dots = false
+  endif
+  assign show_arrows = section.settings.enable_arrows
+  if image_blocks.size <= 1
+    assign show_arrows = false
+  endif
+-%}
+{{ 'custom-productan.css' | asset_url | stylesheet_tag }}
+
+<div
+  class="hdt-yaman-results"
+  style="
+    --yr-bg: {{ section.settings.background_color }};
+    --yr-maxw: {{ section.settings.container_max_width }}px;
+    --yr-pad-x: {{ section.settings.container_padding }}px;
+    --yr-heading-maxw: {{ section.settings.heading_max_width }}px;
+    --yr-gap: {{ section.settings.content_gap }}px;
+    --yr-gap-mb: {{ section.settings.content_gap_mb }}px;
+    --yr-img-radius: {{ section.settings.image_border_radius }}px;
+    --yr-card-bg: {{ section.settings.card_bg }};
+    --yr-card-border: {{ section.settings.card_border_color }};
+    --yr-accent: {{ section.settings.accent_color }};
+    --yr-pt: {{ section.settings.padding_top }}px;
+    --yr-pb: {{ section.settings.padding_bottom }}px;
+    --yr-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --yr-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+    {% if section.settings.card_shadow %}--yr-card-shadow: 0 8px 24px rgba(7,7,7,0.06);{% else %}--yr-card-shadow: none;{% endif %}
+  "
+>
+  <div class="hdt-yaman-results__container">
+    {%- if section.settings.heading != blank or section.settings.subtitle != blank -%}
+      <div class="hdt-yaman-results__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="hdt-yaman-results__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="hdt-yaman-results__subtitle">{{ section.settings.subtitle }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="hdt-yaman-results__content">
+      <div class="hdt-yaman-results__media">
+        <hdt-slider
+          id="Slider-{{ section.id }}"
+          class="hdt-slider hdt-relative hdt-yaman-results__slider hdt-slides-1"
+          config='{ "id": "Slider-{{ section.id }}", "navUI": {{ show_arrows }}, "dotUI": {{ show_dots }}, "loop": false, "autoPlay": 0, "pauseOnHover": true }'
+        >
+          <div class="hdt-slider__viewport hdt-relative">
+            <div class="hdt-slider__container">
+              {%- if image_blocks.size > 0 -%}
+                {%- for block in image_blocks -%}
+                  {%- liquid
+                    assign img = block.settings.image
+                    assign img_mb = block.settings.image_mobile | default: block.settings.image
+                    assign img_alt = block.settings.alt | default: section.settings.heading
+                  -%}
+                  <div class="hdt-slider__slide hdt-yaman-results__slide" data-yr-slide {{ block.shopify_attributes }}>
+                    <div class="hdt-yaman-results__image-wrap">
+                      {%- if img != blank -%}
+                        {%- if img_mb != img -%}
+                          {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'hdt-yaman-results__image hdt-yaman-results__image--dk', alt: img_alt, widths: '400,600,800,1000,1200', sizes: '(max-width: 767px) 92vw, 547px' }}
+                          {{ img_mb | image_url: width: 900 | image_tag: loading: 'lazy', class: 'hdt-yaman-results__image hdt-yaman-results__image--mb', alt: img_alt, widths: '400,600,800,900', sizes: '92vw' }}
+                        {%- else -%}
+                          {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'hdt-yaman-results__image', alt: img_alt, widths: '400,600,800,1000,1200', sizes: '(max-width: 767px) 92vw, 547px' }}
+                        {%- endif -%}
+                      {%- else -%}
+                        <span class="hdt-yaman-results__placeholder" aria-hidden="true">
+                          {{ 'image' | placeholder_svg_tag: 'hdt-yaman-results__placeholder-svg' }}
+                        </span>
+                      {%- endif -%}
+
+                      {%- if block.settings.label_left != blank or block.settings.label_right != blank -%}
+                        <div class="hdt-yaman-results__labels">
+                          {%- if block.settings.label_left != blank -%}
+                            <span class="hdt-yaman-results__label hdt-yaman-results__label--left">{{ block.settings.label_left }}</span>
+                          {%- endif -%}
+                          {%- if block.settings.label_right != blank -%}
+                            <span class="hdt-yaman-results__label hdt-yaman-results__label--right">{{ block.settings.label_right }}</span>
+                          {%- endif -%}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                    {%- if block.settings.caption != blank -%}
+                      <p class="hdt-yaman-results__caption">{{ block.settings.caption }}</p>
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+              {%- else -%}
+                <div class="hdt-slider__slide hdt-yaman-results__slide">
+                  <div class="hdt-yaman-results__image-wrap">
+                    <span class="hdt-yaman-results__placeholder" aria-hidden="true">
+                      {{ 'image' | placeholder_svg_tag: 'hdt-yaman-results__placeholder-svg' }}
+                    </span>
+                  </div>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+
+          {%- if show_arrows -%}
+            <div class="hdt-navigation hdt-position-default hdt-visible-always hdt-style-outline hdt-shape-rounded hdt-size-small hdt-hide-mobile-{{ section.settings.hide_arrows_mobile }}">
+              <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--prev" type="button" disabled name="previous" aria-label="previous">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/></svg>
+              </button>
+              <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--next" type="button" disabled name="next" aria-label="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/></svg>
+              </button>
+            </div>
+          {%- endif -%}
+
+          {%- if show_dots -%}
+            <div hdt-slider-dots aria-controls="Slider-{{ section.id }}" class="hdt-slider__dots hdt-yaman-results__dots hdt-pagination hdt-position-center hdt-style-default hdt-radius-true" style="--space-between: 10px; --margin-top: 18px;"></div>
+          {%- endif -%}
+        </hdt-slider>
+      </div>
+
+      {%- if stat_blocks.size > 0 -%}
+        <div class="hdt-yaman-results__stats">
+          {%- for block in stat_blocks -%}
+            {%- liquid
+              assign accent = block.settings.accent_color
+              if accent == blank
+                assign accent = section.settings.accent_color
+              endif
+            -%}
+            <div class="hdt-yaman-results__stat" style="--yr-stat-accent: {{ accent }};" {{ block.shopify_attributes }}>
+              {%- if block.settings.value != blank -%}
+                {%- assign val_sign = block.settings.value | slice: 0 -%}
+                <span class="hdt-yaman-results__value">
+                  {%- if val_sign == '+' or val_sign == '-' -%}
+                    <span class="hdt-yaman-results__value-sign">{{ val_sign }}</span>{{ block.settings.value | remove_first: val_sign }}
+                  {%- else -%}
+                    {{ block.settings.value }}
+                  {%- endif -%}
+                </span>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <span class="hdt-yaman-results__stat-text">{{ block.settings.description }}</span>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- elsif request.design_mode -%}
+        <div class="hdt-yaman-results__stats hdt-yaman-results__stats--empty">
+          <p class="hdt-yaman-results__editor-note">Add “Stat” blocks to display the results grid.</p>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{%- comment -%} All CSS lives in assets/custom-productan.css (loaded via stylesheet_tag above).
+   <hdt-slider> is a theme-wide custom element already defined in the theme's global JS,
+   so no section-specific JavaScript is required. {%- endcomment -%}
+
+{% schema %}
+{
+  "name": "YAMAN Results",
+  "tag": "section",
+  "class": "hdt-yaman-results-section hdt-section",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Noticeable results within weeks of use"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Gradual improvement in the appearance of the skin with consistent use."
+    },
+    {
+      "type": "header",
+      "content": "Carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_dots",
+      "label": "Show dots",
+      "info": "Dots hide automatically when there is only one image.",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_arrows",
+      "label": "Show arrows",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_arrows_mobile",
+      "label": "Hide arrows on mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Image corner radius",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Stat cards"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border color",
+      "default": "#E5E4DE"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_shadow",
+      "label": "Subtle card shadow",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Value sign accent color",
+      "info": "Used for the +/- sign. Can be overridden per stat block.",
+      "default": "#C9A844"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#F8F7F0"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 960,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1290
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "heading_max_width",
+      "min": 400,
+      "max": 1400,
+      "step": 10,
+      "unit": "px",
+      "label": "Heading max width",
+      "default": 900
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Content gap (desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_gap_mb",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Content gap (mobile)",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "info": "e.g. +36% or -31%",
+          "default": "+36%"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "More defined jawline"
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Sign accent color",
+          "info": "Optional. Overrides the section accent for the +/- sign."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Before/after image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile image",
+          "info": "Optional. Falls back to the main image."
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text"
+        },
+        {
+          "type": "text",
+          "id": "label_left",
+          "label": "Left label",
+          "info": "Optional pill, e.g. Before. Leave empty if the image already includes labels."
+        },
+        {
+          "type": "text",
+          "id": "label_right",
+          "label": "Right label",
+          "info": "Optional pill, e.g. Week 4."
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption",
+          "info": "Optional small text under the image."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Results",
+      "category": "YAMAN",
+      "blocks": [
+        { "type": "image", "settings": { "label_left": "Before", "label_right": "Week 4" } },
+        { "type": "stat", "settings": { "value": "+36%", "description": "More defined jawline" } },
+        { "type": "stat", "settings": { "value": "+42%", "description": "Improved skin firmness" } },
+        { "type": "stat", "settings": { "value": "+42%", "description": "More lifted-looking appearance" } },
+        { "type": "stat", "settings": { "value": "-31%", "description": "Less tense-looking appearance" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

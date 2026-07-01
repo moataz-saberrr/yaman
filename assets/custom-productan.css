@@ -1,0 +1,295 @@
+/* ==========================================================================
+   custom-productan.css
+   YAMAN product-page custom styles. Loaded from sections/yaman-results-n.liquid
+   via {{ 'custom-productan.css' | asset_url | stylesheet_tag }}.
+   Everything is scoped under .hdt-yaman-results-section so it cannot leak
+   into original Kalles sections or other YAMAN sections.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   YAMAN Results — "Noticeable results within weeks of use"
+   -------------------------------------------------------------------------- */
+.hdt-yaman-results-section .hdt-yaman-results {
+  background: var(--yr-bg, #f8f7f0);
+  padding-top: var(--yr-pt, 65px);
+  padding-bottom: var(--yr-pb, 65px);
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__container {
+  max-width: calc(var(--yr-maxw, 1290px) + (var(--yr-pad-x, 20px) * 2));
+  margin: 0 auto;
+  padding-inline: var(--yr-pad-x, 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--yr-gap, 40px);
+}
+
+/* Header --------------------------------------------------------------- */
+.hdt-yaman-results-section .hdt-yaman-results__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  max-width: var(--yr-heading-maxw, 900px);
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__heading {
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.48px;
+  color: #070707;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__subtitle {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.34;
+  color: rgba(7, 7, 7, 0.5);
+}
+
+/* Content: media left, stats right ------------------------------------- */
+.hdt-yaman-results-section .hdt-yaman-results__content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--yr-gap, 40px);
+}
+
+/* Media / carousel ------------------------------------------------------ */
+.hdt-yaman-results-section .hdt-yaman-results__media {
+  flex: 0 1 547px;
+  max-width: 547px;
+  min-width: 0;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__slider {
+  width: 100%;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__slide {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 547 / 444;
+  border-radius: var(--yr-img-radius, 16px);
+  overflow: hidden;
+  background: #ece9e1;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__image,
+.hdt-yaman-results-section .hdt-yaman-results__placeholder-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__placeholder {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: #ece9e1;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__placeholder-svg {
+  opacity: 0.35;
+}
+
+/* Show desktop image on wide screens, mobile image on narrow ----------- */
+.hdt-yaman-results-section .hdt-yaman-results__image--mb {
+  display: none;
+}
+
+/* Before/after label pills --------------------------------------------- */
+.hdt-yaman-results-section .hdt-yaman-results__labels {
+  position: absolute;
+  inset-inline: 14px;
+  bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__label {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #1d2847;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(7, 7, 7, 0.12);
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__caption {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(7, 7, 7, 0.45);
+  text-align: center;
+}
+
+/* Dots — pill / line style close to the Figma --------------------------- */
+.hdt-yaman-results-section .hdt-yaman-results__dots {
+  margin-top: 18px;
+  gap: 10px;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__dots .hdt-slider__dot {
+  width: 21px;
+  height: 4px;
+  border-radius: 48px;
+  background-color: #1d2847;
+  opacity: 0.47;
+  border: 0;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__dots .hdt-slider__dot.hdt-slider__dot--selected {
+  width: 21px;
+  opacity: 1;
+}
+
+/* Stats grid ------------------------------------------------------------ */
+.hdt-yaman-results-section .hdt-yaman-results__stats {
+  flex: 0 1 636px;
+  max-width: 636px;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  padding: 28px 20px;
+  border-radius: 14px;
+  background: var(--yr-card-bg, #ffffff);
+  border: 1px solid var(--yr-card-border, rgba(7, 7, 7, 0.1));
+  box-shadow: var(--yr-card-shadow, none);
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__value {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+  color: #1d2847;
+  letter-spacing: -0.5px;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__value-sign {
+  color: var(--yr-stat-accent, #c9a844);
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__stat-text {
+  font-size: 18px;
+  line-height: 1.34;
+  color: rgba(7, 7, 7, 0.45);
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__stats--empty {
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+.hdt-yaman-results-section .hdt-yaman-results__editor-note {
+  margin: 0;
+  padding: 24px;
+  font-size: 14px;
+  color: rgba(7, 7, 7, 0.5);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Tablet
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hdt-yaman-results-section .hdt-yaman-results__heading {
+    font-size: 36px;
+  }
+  .hdt-yaman-results-section .hdt-yaman-results__content {
+    gap: var(--yr-gap-mb, 24px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile — stats first, image carousel below
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .hdt-yaman-results-section .hdt-yaman-results {
+    padding-top: var(--yr-pt-mb, 40px);
+    padding-bottom: var(--yr-pb-mb, 40px);
+  }
+
+  .hdt-yaman-results-section .hdt-yaman-results__container {
+    gap: var(--yr-gap-mb, 24px);
+  }
+
+  .hdt-yaman-results-section .hdt-yaman-results__content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--yr-gap-mb, 24px);
+  }
+
+  /* Stats appear before the image carousel on mobile. */
+  .hdt-yaman-results-section .hdt-yaman-results__stats {
+    order: 1;
+    flex-basis: auto;
+    max-width: none;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hdt-yaman-results-section .hdt-yaman-results__media {
+    order: 2;
+    flex-basis: auto;
+    max-width: none;
+    width: 100%;
+  }
+
+  .hdt-yaman-results-section .hdt-yaman-results__heading {
+    font-size: 26px;
+  }
+
+  .hdt-yaman-results-section .hdt-yaman-results__subtitle {
+    font-size: 15px;
+  }
+
+  .hdt-yaman-results-section .hdt-yaman-results__stat {
+    padding: 20px 14px;
+    gap: 6px;
+  }
+
+  .hdt-yaman-results-section .hdt-yaman-results__value {
+    font-size: 30px;
+  }
+
+  .hdt-yaman-results-section .hdt-yaman-results__stat-text {
+    font-size: 14px;
+  }
+
+  /* Swap to the mobile image if one was provided. */
+  .hdt-yaman-results-section .hdt-yaman-results__image--dk {
+    display: none;
+  }
+  .hdt-yaman-results-section .hdt-yaman-results__image--mb {
+    display: block;
+  }
+}

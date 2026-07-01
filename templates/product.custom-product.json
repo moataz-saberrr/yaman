@@ -224,6 +224,58 @@
         "pd_mb": "20px,,50px,"
       }
     },
+    "yaman_results": {
+      "type": "yaman-results-n",
+      "blocks": {
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "label_left": "Before",
+            "label_right": "Week 4"
+          }
+        },
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "value": "+36%",
+            "description": "More defined jawline"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "value": "+42%",
+            "description": "Improved skin firmness"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "value": "+42%",
+            "description": "More lifted-looking appearance"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "value": "-31%",
+            "description": "Less tense-looking appearance"
+          }
+        }
+      },
+      "block_order": [
+        "image_1",
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
+      ],
+      "name": "YAMAN Results",
+      "settings": {
+        "heading": "Noticeable results within weeks of use",
+        "subtitle": "Gradual improvement in the appearance of the skin with consistent use."
+      }
+    },
     "visible_lift": {
       "type": "product-visible-lift-n",
       "disabled": true,
@@ -1177,6 +1229,7 @@
   "order": [
     "breadcrumb",
     "main-product",
+    "yaman_results",
     "visible_lift",
     "yaman_steps",
     "modes_ticker",
