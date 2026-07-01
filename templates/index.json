@@ -1012,6 +1012,8 @@
       "settings": {
         "accordion_des": "3",
         "faq_max_width": 776,
+        "faq_link_text": "View all FAQs",
+        "faq_link_url": "",
         "section_layout": "container",
         "hdt_background_parallax": false,
         "colors_by_section": false,
