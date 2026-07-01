@@ -79,8 +79,12 @@
       type="font/woff2"
       crossorigin="anonymous">
 
-    {% if template.name == 'product' and template.suffix != blank %}
+    {% if template.name == 'product' and template.suffix == "medi-lift-plus" %}
       {{ 'custom-product.css' | asset_url | stylesheet_tag: preload: true }}
+    {% endif %}
+    {% if template.name == 'product' and template.suffix != blank %}
+      {{ 'custom-productan.css' | asset_url | stylesheet_tag: preload: true }}
+      {{ 'custom-productza.css' | asset_url | stylesheet_tag: preload: true }}
     {% endif %}
 
   </head>
