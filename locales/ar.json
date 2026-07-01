@@ -2532,8 +2532,138 @@
         "twitch": "تويتش"
       },
       "follow": {
-        "follow_fb": "تابعنا على فيسبوك"
+        "follow_fb": "تابعنا على فيسبوك",
+        "follow_tw": "تابع على تويتر",
+        "follow_it": "تابعنا على انستغرام",
+        "follow_dr": "تابع على Dribbble",
+        "follow_ld": "تابع على لينكد إن",
+        "follow_pr": "تابع على بنترست",
+        "follow_tu": "تابعونا على تمبلر",
+        "follow_yt": "تابعنا على يوتيوب",
+        "follow_vm": "تابع على فيميو",
+        "follow_bh": "تابع على بيهانس",
+        "follow_sc": "تابعنا على ساوند كلاود",
+        "follow_tt": "تابعنا على تيك توك",
+        "follow_sp": "تابعنا على سناب شات",
+        "follow_sptify": "تابعنا على سبوتيفاي",
+        "follow_threads": "تابع على ثريدز"
       }
+    },
+    "continue_shopping": "مواصلة التسوق",
+    "pagination": {
+      "label": "ترقيم الصفحات",
+      "page": "اذهب إلى صفحة {{ number }}",
+      "view_all": "عرض الكل",
+      "next": "التالي",
+      "previous": "السابق",
+      "load_more_articles": "تحميل المزيد من المنشورات",
+      "load_more_items": "تحميل المزيد من العناصر",
+      "load_more_products": "تحميل المزيد من المنتجات",
+      "load_more_collections": "تحميل المزيد من المجموعات"
+    },
+    "search": {
+      "search": "بحث",
+      "search_text": "بحث",
+      "search_our_site": "ابحث في موقعنا",
+      "search_categories": "كل الفئات",
+      "search_content_site": "هل تحتاج إلى بعض الإلهام؟",
+      "search_results": "نتائج البحث",
+      "no_product_results": "لم يتم العثور على أي منتجات مطابقة لاختيارك.",
+      "placeholder_products": "البحث عن المنتجات",
+      "reset": "مسح مصطلح البحث",
+      "quicklink_title": "بحث سريع",
+      "pages_type": "صفحة",
+      "results_with_term": {
+        "zero": "0 نتائج بحث لـ: \"{{ terms }}\"",
+        "one": "1 نتيجة بحث عن: \"{{ terms }}\"",
+        "other": "{{ count }} نتائج البحث عن: \"{{ terms }}\""
+      },
+      "all_categories": "جميع الفئات",
+      "quick_search": "بحث سريع",
+      "suggestions": "اقتراحات",
+      "article": "مقالات",
+      "search_for": "بحث عن"
+    },
+    "cart": {
+      "view": "عرض سلة التسوق ({{ count }})",
+      "view_empty_cart": "عرض سلة التسوق",
+      "item_added": "تم إضافة العنصر إلى سلة التسوق الخاصة بك",
+      "error_message": "حدث خطأ أثناء إضافة المنتج إلى سلة التسوق",
+      "toast_title": "خطأ عند الإضافة إلى عربة التسوق"
+    },
+    "slider": {
+      "of": "من",
+      "next_slide": "اسحب لليمين",
+      "previous_slide": "اسحب لليسار",
+      "name": "شريط التمرير"
+    },
+    "wishlist": {
+      "wishlist_page": "قائمة أمنياتك",
+      "wishlist_text": "قائمة الأمنيات",
+      "login_to_use_wishlist": "سجل الدخول لاستخدام قائمة الأمنيات",
+      "add_to_wishlist": "أضف إلى قائمة الأمنيات",
+      "adding_to_wishlist": "الإضافة إلى قائمة الأمنيات",
+      "browse_wishlist": "تصفح قائمة الأمنيات",
+      "remove_wishlist": "إزالة قائمة الأمنيات",
+      "empty_wishlist": "قائمة الأمنيات فارغة.",
+      "empty_info_wishlist": "ليس لديك أي منتجات في قائمة الأمنيات بعد. ستجد الكثير من المنتجات الشيقة على \"صفحة المتجر\" الخاصة بنا."
+    },
+    "compare": {
+      "view": "عرض سلة التسوق ({{ count }})",
+      "view_empty_cart": "عرض سلة التسوق",
+      "item_added": "تم إضافة العنصر إلى سلة التسوق الخاصة بك",
+      "compare_text": "قارن",
+      "login_to_use_compare": "سجل الدخول لاستخدام ميزة المقارنة",
+      "add_to_compare": "أضف للمقارنة",
+      "browse_compare": "تصفح قارن"
+    },
+    "header": {
+      "menu": "قائمة الطعام",
+      "menu_categories": "التصنيفات"
+    },
+    "breadcrumb": {
+      "home": "الرئيسية"
+    },
+    "theme_settings": {
+      "badge_new": "جديد، جديد",
+      "badge_hot": "ساخن",
+      "badge_sale": "مبيعات"
+    },
+    "read_more": "اقرأ المزيد",
+    "read_less": "اقرأ أقل"
+  },
+  "newsletter": {
+    "label": "بريد إلكتروني",
+    "success": "شكرا لاشتراكك",
+    "button_label": "اشترك"
+  },
+  "accessibility": {
+    "skip_to_text": "تجاوز إلى المحتوى",
+    "skip_to_product_info": "تجاوز إلى معلومات المنتج",
+    "close": "إغلاق",
+    "unit_price_separator": "لكل",
+    "vendor": "البائع:",
+    "type": "النوع:",
+    "error": "خطأ",
+    "refresh_page": "يؤدي اختيار تحديد إلى تحديث الصفحة بالكامل.",
+    "link_messages": {
+      "new_window": "يفتح في نافذة جديدة.",
+      "external": "يفتح موقعاً إلكترونياً خارجياً.",
+      "new_window_and_external": "يفتح موقعًا خارجيًا في نافذة جديدة."
+    },
+    "loading": "جار التحميل...",
+    "star_reviews_info": "{{ rating_value }} من أصل {{ rating_max }} نجمة",
+    "collapsible_content_title": "محتوى قابل للطي",
+    "complementary_products": "منتجات مكملة",
+    "before_after": "النسبة المئوية للصورة اللاحقة المعروضة",
+    "go_to_slide": "انتقل إلى الشريحة {{ number }}",
+    "go_to_page": "اذهب إلى صفحة {{ number }}",
+    "go_to_item": "اذهب إلى العنصر {{ number }}"
+  },
+  "blogs": {
+    "article": {
+      "blog": "مدونة",
+      "read_more_title": "اقرأ المزيد: {{ title }}"
     }
   }
 }
