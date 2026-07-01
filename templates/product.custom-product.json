@@ -224,6 +224,104 @@
         "pd_mb": "20px,,50px,"
       }
     },
+    "yaman_product_proof_n_G4PnLR": {
+      "type": "yaman-product-proof-n",
+      "blocks": {
+        "image_dC7nGR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
+            "alt": "",
+            "label_left": "",
+            "label_right": "",
+            "caption": ""
+          }
+        },
+        "image_kakTai": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
+            "alt": "",
+            "label_left": "",
+            "label_right": "",
+            "caption": ""
+          }
+        },
+        "image_8HEEaf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
+            "alt": "",
+            "label_left": "",
+            "label_right": "",
+            "caption": ""
+          }
+        },
+        "stat_Ex8JXW": {
+          "type": "stat",
+          "settings": {
+            "value": "+36%",
+            "text": "More defined jawline",
+            "accent_color": ""
+          }
+        },
+        "stat_7RenzD": {
+          "type": "stat",
+          "settings": {
+            "value": "+42%",
+            "text": "Improved skin firmness",
+            "accent_color": ""
+          }
+        },
+        "stat_Jejtkn": {
+          "type": "stat",
+          "settings": {
+            "value": "+42%",
+            "text": "More lifted-looking appearance",
+            "accent_color": ""
+          }
+        },
+        "stat_xzEDEG": {
+          "type": "stat",
+          "settings": {
+            "value": "-31%",
+            "text": "Less tense-looking appearance",
+            "accent_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_dC7nGR",
+        "image_kakTai",
+        "image_8HEEaf",
+        "stat_Ex8JXW",
+        "stat_7RenzD",
+        "stat_Jejtkn",
+        "stat_xzEDEG"
+      ],
+      "name": "YAMAN Proof",
+      "settings": {
+        "heading": "Noticeable results within weeks of use",
+        "subtitle": "Gradual improvement in the appearance of the skin with consistent use.",
+        "background_color": "#f7f6f1",
+        "container_max_width": 1200,
+        "heading_max_width": 720,
+        "content_gap": 48,
+        "content_gap_mb": 24,
+        "enable_dots": true,
+        "enable_arrows": false,
+        "hide_arrows_mobile": true,
+        "image_radius": 16,
+        "accent_color": "#c79a4b",
+        "card_bg": "#ffffff",
+        "card_border": "#ecece6",
+        "card_shadow": true,
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "padding_top_mb": 45,
+        "padding_bottom_mb": 45
+      }
+    },
     "visible_lift": {
       "type": "product-visible-lift-n",
       "disabled": true,
@@ -1177,6 +1275,7 @@
   "order": [
     "breadcrumb",
     "main-product",
+    "yaman_product_proof_n_G4PnLR",
     "visible_lift",
     "yaman_steps",
     "modes_ticker",
