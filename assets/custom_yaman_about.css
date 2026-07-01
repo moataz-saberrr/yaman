@@ -858,5 +858,39 @@
 
 
 .featured_aboutPage{
+          padding-block: 65px !important;
+
+  .hdt-slide-spacing-x{
+        --slide-spacing: 14px;
+  }
+  .hdt-slider__slide {
+   
+    padding-inline-start: 14px;
+}
+.star-rating__count {
+    font-size: 10px !important;
+    color: #838383 !important;
+}
+.star-rating__stars img {
+    width: 13px !important;
+    height: 13px !important;
+    color: #838383 !important;
+}
+ .hdt-yaman-routine__container {
+    max-width: 1400px !important;
+}
+.hdt-yaman-routine-section .hdt-yaman-routine__button-wrap {
+    margin-top: 20px;
+}
+.hdt-yaman-routine__button {
+    padding: 13px 72px;
+    border-radius: 12px;
+}
+
+@media (max-width:767px) {
+  .hdt-yaman-routine__container{
+    padding-right: 0;
+  }
   
+}
 }

@@ -1,9 +1,11 @@
-<!-- sections/image-with-text-n.liquid — YAMAN Story (Brand Story).
-     Duplicated/customized from the Kalles "Image with text" section (sections/image_text.liquid).
-     Preserves the useful section-level Kalles capabilities (section layout width modes, color
-     scheme + background image + parallax, section spacing) and reuses the same spacing-vars +
-     section_layout parent/child structure. Content is exposed as direct, dynamic settings to
-     match the Figma Brand Story design. Original Kalles files are NOT modified. -->
+<!--
+  sections/image-with-text-n.liquid — YAMAN Story (Brand Story).
+  Duplicated/customized from the Kalles "Image with text" section (sections/image_text.liquid).
+  Preserves the useful section-level Kalles capabilities (section layout width modes, color
+  scheme + background image + parallax, section spacing) and reuses the same spacing-vars +
+  section_layout parent/child structure. Content is exposed as direct, dynamic settings to
+  match the Figma Brand Story design. Original Kalles files are NOT modified.
+-->
 {{ 'custom_yaman_about.css' | asset_url | stylesheet_tag }}
 {% style %}
   {% render 'spacing-vars', box: section %}
@@ -51,7 +53,10 @@
 <div
   id="{{ section.id }}"
   class="{{ parent }}{% if section.settings.hdt_background_parallax %} hdt-animate--parallax-bg{% endif %}"
-  {%- if section.settings.colors_by_section %} color-scheme="{{ section.settings.color_scheme }}" style="--background-opacity: {{ section.settings.background_opacity }};"{%- endif %}
+  {%- if section.settings.colors_by_section %}
+    color-scheme="{{ section.settings.color_scheme }}"
+    style="--background-opacity: {{ section.settings.background_opacity }};"
+  {%- endif %}
   hdt-reveal="fade-in"
 >
   <div class="{{ child }}">
@@ -115,7 +120,10 @@
             }}
           {%- endif -%}
           {%- if img == blank and img_mb == blank -%}
-            {{ 'image' | placeholder_svg_tag: 'hdt-yaman-story__image hdt-yaman-story__image--desktop hdt-placeholder' }}
+            {{
+              'image'
+              | placeholder_svg_tag: 'hdt-yaman-story__image hdt-yaman-story__image--desktop hdt-placeholder'
+            }}
           {%- endif -%}
         </div>
 
@@ -140,8 +148,14 @@
             <div class="hdt-yaman-story__cta">
               <a
                 class="hdt-btn {{ section.settings.button_style }}"
-                {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}role="link" aria-disabled="true"{% endif %}
-                {% if section.settings.button_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+                {% if section.settings.button_link != blank %}
+                  href="{{ section.settings.button_link }}"
+                {% else %}
+                  role="link" aria-disabled="true"
+                {% endif %}
+                {% if section.settings.button_new_tab %}
+                  target="_blank" rel="noopener noreferrer"
+                {% endif %}
               >
                 <span>{{ section.settings.button_label }}</span>
               </a>
