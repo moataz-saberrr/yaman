@@ -509,7 +509,115 @@
         "bank_picker_label": "البنك",
         "afterpay_label": "خدمة الدفع الآجل Afterpay",
         "cashapppay_label": "الدفع عبر Cash App",
-        "przelewy24_label": "برزيليوي 24"
+        "przelewy24_label": "برزيليوي 24",
+        "edit_credit_card_modal": {
+          "cancel": "إلغاء",
+          "description": "لا يمكنك تعديل سوى عنوان فواتير بطاقتك.",
+          "fields": {
+            "default": "تعيين كإعداد افتراضي",
+            "card_number": "رقم البطاقة",
+            "expiry": "تاريخ انتهاء الصلاحية",
+            "security_code": "الرمز الأمني",
+            "name": "الاسم على البطاقة",
+            "billing": "فاتورة إلى"
+          }
+        },
+        "expired_cards_info": {
+          "one": "توجد بطاقة منتهية الصلاحية (%{count}) يمكنك عرضها وتعديلها في حسابك.",
+          "other": "هناك %{count} بطاقة منتهية الصلاحية، يمكنك عرضها وتعديلها في حسابك."
+        },
+        "local_payment_method_receiver_notice": "<p dir=\"rtl\">بعد تقديم طلبك، ستتلقى تفاصيل الدفع. قم بالدفع في جهاز الصراف الآلي أو عبر الإنترنت خلال {{dueDays}} أيام.</p>",
+        "order_edit_banner_title": "يلزم دفع {{amount_owed}}",
+        "order_edit_banner_subtitle": "تم تحديث طلبك {{order_number}}. راجع هذه التغييرات، ثم ادفع لتأكيد طلبك.",
+        "order_edit_banner_items_added": {
+          "one": "تمت الإضافة",
+          "other": "تمت الإضافة %{count}"
+        },
+        "order_edit_banner_items_removed": {
+          "in_full": "تمت الإزالة",
+          "with_quantities": "أزيل {{delta}} من {{quantity}}"
+        },
+        "order_edit_banner_items_returned": {
+          "in_full": "تم إرجاع {{quantity}}",
+          "with_quantities": "تم إرجاع {{delta}} من {{quantity}}"
+        },
+        "order_edit_banner_items_return_line_item_removed": {
+          "in_full": "تمت إزالته من المرتجعات",
+          "with_quantities": "تمت إزالة {{delta}} من العائد"
+        },
+        "order_edit_banner_single_item_added": "تمت الإضافة",
+        "order_edit_banner_multiple_items_added": "تمت الإضافة {{amount}}",
+        "order_edit_banner_single_item_removed": "تمت الإزالة",
+        "order_edit_banner_multiple_items_removed": "تمت إزالة {{amount}}",
+        "order_edit_banner_single_item_returned": "تمت الإعادة",
+        "order_edit_banner_multiple_items_returned": "تم الإرجاع {{amount}}",
+        "order_edit_banner_single_item_return_line_item_removed": "تمت إزالته من المرتجعات",
+        "order_edit_banner_multiple_items_return_line_item_removed": "تمت إزالة {{amount}} من المرتجع",
+        "order_edit_banner_updated_order_label": "طلب محدث",
+        "gift_card_wrapper": {
+          "heading": "بطاقة هدية",
+          "apply_gift_card_label": "تطبيق بطاقة هدية",
+          "apply_another_gift_card_label": "تطبيق بطاقة هدية أخرى",
+          "gift_card_label": "بطاقة الهدايا %{identifier}",
+          "payment_tag": "بطاقة هدية",
+          "add_label": "أضف بطاقة هدية",
+          "manage_label": "إدارة بطاقات الهدايا"
+        },
+        "gift_card_store_credit": {
+          "add_label": "أضف بطاقة هدية أو رصيد متجر",
+          "manage_label": "إدارة بطاقات الهدايا أو رصيد المتجر"
+        },
+        "gift_card_checkbox_label": "تطبيق بطاقة الهدايا",
+        "custom_onsite_payment_method_modal": {
+          "title": "تأكيد الدفع المخصص في الموقع"
+        },
+        "markets_pro_disclaimer_label": "بتقديم طلبك، فإنك توافق على الشراء من Global-e بصفتها التاجر المسجّل، وفقاً لـ %{markets_pro_terms} و %{privacy_policy} الخاصة بـ Global-e، وتوافق على مشاركة معلوماتك مع %{shop_name}.",
+        "markets_pro_disclaimer_terms_and_conditions": "الشروط والأحكام",
+        "markets_pro_disclaimer_privacy_policy": "سياسة الخصوصية",
+        "markets_pro_disclaimer_terms_and_conditions_title": "شروط وأحكام التاجر المسجل",
+        "markets_pro_disclaimer_privacy_policy_title": "سياسة خصوصية التاجر المسجل",
+        "purchase_order_number": {
+          "title": "رقم أمر الشراء",
+          "label": "رقم طلب الشراء (اختياري)"
+        },
+        "alternative_payment_currency_total_notice": "ملاحظة: سيتم محاسبتك بمبلغ %{amount_due}.",
+        "alternative_payment_currency_total_manual_payment_notice": "ملاحظة: المبلغ الإجمالي المحوّل هو %{amount_due}.",
+        "waiting_on_taxes_message": "إذا لم يتم احتساب ضرائبك في غضون الثواني القليلة القادمة، فقم بتحديث الصفحة.",
+        "waiting_on_taxes_notice": "حساب الضرائب",
+        "payment_method": "طريقة الدفع",
+        "payment_method_rollup_accessibility_label": "خيارات طريقة الدفع",
+        "expired_payment_method": "وسيلة الدفع المختارة انتهت صلاحيتها",
+        "payment_method_update_failed": "فشل تحديث طريقة الدفع.",
+        "payment_method_incompatible_with_payment_terms": "طريقة الدفع غير متوافقة مع شروط الدفع.",
+        "proposed_gateway_unavailable": "بوابة الدفع المقترحة غير متاحة",
+        "pay_in_installments_split_pay_short": "4 دفعات بقيمة %{amount}",
+        "gift_cards_unavailable": "لا يمكن تطبيق بطاقة الهدية الخاصة بك على هذا الطلب وقد تمت إزالتها.",
+        "payment_flexibility_terms_id_mismatch": "عدم تطابق في معرّف شروط مرونة الدفع",
+        "payment_option": {
+          "accessibility_label": "اختر طريقة الدفع"
+        },
+        "bank_account_type": {
+          "checking": "جارٍ التحقق",
+          "savings": "المدخرات"
+        },
+        "new_bank_account_disclaimer": "بإكمالك للطلب، فإنك تفوّض %{shop_name} بخصم المبلغ والوقت الموضحين من الحساب أدناه عبر نظام غرفة المقاصة الآلية (ACH).",
+        "bank_account_disclaimer": "قد تستغرق دفعات غرفة المقاصة الآلية (ACH) ما يصل إلى 4 أيام عمل لإتمام معالجتها.",
+        "bank_account_choose": "اختر حسابًا لإتمام عملية الشراء بأمان",
+        "bank_account_connect_another": "ربط حساب مصرفي آخر",
+        "bank_account_connect": "ربط الحساب البنكي",
+        "bank_account_missing": "يجب ربط الحساب البنكي",
+        "bank_account_generic_error": "تعذرت إضافة الحساب البنكي. حاول مرة أخرى لاحقًا.",
+        "separate_payments_label": "منتجاتك من أكثر من متجر. ستتم محاسبتك في %{separate_payments_link}.",
+        "separate_payments_text": "مدفوعات منفصلة",
+        "payments": "المدفوعات",
+        "add_payment_method": "إضافة طريقة دفع",
+        "add_new_payment_method": "إضافة طريقة دفع جديدة",
+        "choose_new_payment_method": "اختر طريقة دفع جديدة",
+        "multiple_primary_payment_not_allowed": "طرق الدفع غير الصالحة",
+        "vault_for_payment_later": {
+          "pay_button_label": "تقديم طلب",
+          "notice": "لن يتم تحصيل الرسوم منك الآن. من خلال الاستمرار في الدفع، فإنك توافق على تحصيل الرسوم من طريقة الدفع الخاصة بك عند معالجة طلبك."
+        }
       },
       "stock": {
         "unpurchasable_product": {
@@ -1167,7 +1275,12 @@
         "single_shop_transition": "جارٍ إعادة توجيهك إلى %{advertiser} لإكمال عملية الشراء."
       },
       "payment_summary": {
-        "free_label": "مجاني"
+        "free_label": "مجاني",
+        "gift_card_current_balance_notice": "الرصيد الحالي %{amount}",
+        "credit_card_expires_on_notice": "تنتهي صلاحيته في %{month}/%{year}",
+        "express_payment_gateway_label": "عبر",
+        "manual_payment_gateway_label": "دليل",
+        "billing_address_title": "عنوان الفواتير"
       },
       "field_errors": {
         "handle_phone_invalid": "أدخل رقم هاتف صحيحًا",
@@ -1396,6 +1509,27 @@
         "draft_order_payment_due_on_fulfillment": "سيتم الدفع عند تأكيد طلبك وتنفيذه.",
         "draft_order_deposit_due_later": "{{depositAmount}} سيتم استحقاقها عند تأكيد طلبك. سيكون الرصيد على شروط {{translatedName}}.",
         "draft_order_deposit_due_on_fulfillment": "{{depositAmount}} سيكون مستحقًا عند تأكيد طلبك. أما الرصيد المتبقي فسيكون مستحقًا عند إنجاز طلبك."
+      },
+      "billing": {
+        "billing_address_title": "فاتورة إلى",
+        "billing_address_rollup_accessibility_label": "قائمة خيارات الفاتورة",
+        "same_as_shipping": "مطابق لعنوان الشحن",
+        "add_address": "استخدم عنواناً مختلفاً",
+        "edit": "تعديل",
+        "delete": "حذف",
+        "address_more": "إجراءات أخرى لهذا العنوان",
+        "address_edit": "تعديل العنوان",
+        "address_delete": "حذف العنوان",
+        "address_confirm": "هل أنت متأكد أنك تريد حذف هذا العنوان من حسابك؟",
+        "address_form": {
+          "add_address": "أضف العنوان",
+          "save": "حفظ",
+          "cancel": "إلغاء"
+        }
+      },
+      "company_location": {
+        "location_title": "موقع الشركة",
+        "location_rollup_accessibility_label": "خيارات موقع الشركة"
       }
     },
     "sentence": {
@@ -2135,7 +2269,54 @@
         "email": "البريد الإلكتروني*",
         "submit": "إرسال",
         "success": "سنبلغك عندما يتوفر المنتج"
-      }
+      },
+      "label": "المنتج",
+      "lightbox_icon_label": "انقر للتكبير",
+      "quick_add": "إضافة سريعة",
+      "quick_view": "نظرة سريعة",
+      "pre_order": "طلب مسبق",
+      "add_to_cart": "أضف إلى السلة",
+      "add_selected_to_cart": "أضف المحدد إلى سلة التسوق",
+      "choose_options": "اختر الخيارات",
+      "choose_product_options": "اختر خيارات لـ {{ product_name }}",
+      "choose_an_option": "اختر خيارًا",
+      "view_product": "عرض المنتج",
+      "description": "الوصف",
+      "inventory_in_stock": "متوفر بالمخزون",
+      "inventory_in_stock_show_count_html": "<span data-quantity>{{ quantity }}</span> متوفر في المخزون",
+      "inventory_low_stock": "مخزون قليل",
+      "inventory_low_stock_show_count_html": "الكمية منخفضة: <span data-quantity>{{ quantity }}</span> متبقية",
+      "inventory_out_of_stock": "نفد المخزون",
+      "inventory_out_of_stock_continue_selling": "طلب مسبق",
+      "will_not_ship_until_html": "لن يتم الشحن حتى <span data-incoming-date>{{ date }}</span>",
+      "will_be_in_stock_after_html": "سيكون متوفرًا في المخزون بعد <span data-incoming-date>{{ date }}</span>",
+      "sku": "رمز المنتج:",
+      "barcode": "الباركود:",
+      "on_sale": "مبيع",
+      "on_sale_single": "تخفيضات",
+      "save_percent_single": "{{ percent }}% خصم",
+      "save_percent_single_price": "وفّر {{ percent }}%",
+      "save_fix_amount_single_price": "وفر {{ amount }}",
+      "badge_new": "جديد",
+      "badge_pre_order": "الطلب المسبق",
+      "product_variants": "متغيرات المنتج",
+      "show_more_colors": "إظهار المزيد من الألوان",
+      "show_more_sizes": "عرض المزيد من الأحجام",
+      "show_more": "عرض المزيد",
+      "sold_out": "نفد المخزون",
+      "sold_out_message": "نفد المخزون",
+      "badge_sold_out": "نفد المخزون",
+      "unavailable": "غير متاح",
+      "available": "التوفر:",
+      "vendor": "البائع:",
+      "type": "النوع:",
+      "category": "الفئات:",
+      "tag": "العلامات:",
+      "variant_sold_out": "النسخة غير متوفرة",
+      "video_exit_message": "{{ title }} يفتح الفيديو بملء الشاشة في نفس النافذة.",
+      "view_full_details": "عرض التفاصيل كاملة",
+      "xr_button": "عرض في مساحتك",
+      "xr_button_label": "اعرضها في مساحتك، حمّل العنصر في نافذة الواقع المعزز"
     },
     "modal": {
       "label": "معرض الوسائط"
@@ -2190,6 +2371,15 @@
       "tt_price_2": "سعر الكل:",
       "add_tc": "أضف المحدد إلى سلة التسوق",
       "this_item": "هذا المنتج:"
+    },
+    "theme_settings": {
+      "color": "لون، ألوان",
+      "size": "الحجم، أحجام، المقاس",
+      "and": "و",
+      "color_white": "أبيض"
+    },
+    "sidebar": {
+      "label": "الشريط الجانبي"
     }
   },
   "customer_accounts": {
@@ -2908,7 +3098,69 @@
   "blogs": {
     "article": {
       "blog": "مدونة",
-      "read_more_title": "اقرأ المزيد: {{ title }}"
+      "read_more_title": "اقرأ المزيد: {{ title }}",
+      "comments_html": {
+        "one": "{{ count }} <span class=\"hdt-s-text2\">تعليق</span>",
+        "other": "{{ count }} <span class=\"hdt-s-text2\">تعليقات</span>"
+      },
+      "moderated": "يرجى ملاحظة أنه يجب الموافقة على التعليقات قبل نشرها.",
+      "comment_form_title": "اترك تعليقًا",
+      "name": "الاسم",
+      "email": "بريد إلكتروني",
+      "message": "تعليق",
+      "post": "انشر تعليقًا",
+      "back_to_blog": "العودة إلى المدونة",
+      "share": "مشاركة هذا المقال",
+      "success": "تم نشر تعليقك بنجاح! شكرًا لك!",
+      "success_moderated": "تم نشر تعليقك بنجاح. سنقوم بنشره بعد قليل، حيث أن مدونتنا تخضع للإشراف.",
+      "by": "بواسطة",
+      "on": "على",
+      "in": "في",
+      "read_more": "واصل القراءة",
+      "back_to": "العودة إلى {{ title }}",
+      "view_all": "عرض المزيد",
+      "by_author": "بواسطة {{ author }}"
+    },
+    "comments": {
+      "title": "اترك تعليقًا",
+      "comments_note_html": "لن يتم نشر عنوان بريدك الإلكتروني. الحقول المطلوبة محددة بـ <span class=\"hdt-required\">*</span>",
+      "name": "الاسم",
+      "email": "بريد إلكتروني",
+      "message": "تعليق",
+      "post": "نشر تعليق",
+      "moderated": "الرجاء ملاحظة أنه يجب الموافقة على التعليقات قبل نشرها.",
+      "success_moderated": "تم نشر تعليقك بنجاح. سنقوم بنشره بعد قليل، حيث أن مدونتنا تخضع للإشراف.",
+      "success": "تم نشر تعليقك بنجاح! شكرًا لك!",
+      "unapproved": "عنوان البريد الإلكتروني المُقدم غير معتمد لنشر التعليقات.",
+      "error_heading": "الرجاء تعديل ما يلي:",
+      "with_count": {
+        "one": "تعليق واحد",
+        "other": "{{ count }} تعليقات"
+      },
+      "comments_title_html": {
+        "other": "{{ count }} أفكار حول \"<span>{{ title }}</span>"
+      }
+    },
+    "portfolio": {
+      "category": "الفئة:",
+      "author": "المؤلف:",
+      "tags": "الوسوم:"
+    }
+  },
+  "onboarding": {
+    "product_title": "عنوان المنتج على سبيل المثال",
+    "product_excerpt": "تُستخدم هذه المساحة لوصف تفاصيل منتجك. أخبر العملاء عن مظهر منتجك وملمسه وتصميمه. أضف تفاصيل عن اللون والمواد المستخدمة والمقاسات ومكان الصنع.",
+    "collection_title": "اسم مجموعتك",
+    "blog_title": "عنوان منشورك",
+    "blog_excerpt": "لم تنشر مدونتك أي منشورات حتى الآن. يمكن استخدام المدونة للحديث عن إطلاق منتجات جديدة، أو تقديم نصائح، أو غيرها من الأخبار التي تريد مشاركتها مع عملائك. يمكنك الاطّلاع على مدونة التجارة الإلكترونية الخاصة بـ Shopify للحصول على الإلهام والمشورة لمتجرك ومدونتك.",
+    "blog_author": "اسم المؤلف",
+    "no_content": "هذا القسم لا يتضمن أي محتوى حاليًا. أضف محتوى إلى هذا القسم باستخدام الشريط الجانبي.",
+    "open_sidebar": "فتح الشريط الجانبي",
+    "header_sidebar": "الشريط الجانبي"
+  },
+  "collections": {
+    "pagination": {
+      "bar_with_count_html": "لقد شاهدت <span data-current-bar>{{ current_count }}</span> من أصل {{ total_count }} منتج"
     }
   }
 }
