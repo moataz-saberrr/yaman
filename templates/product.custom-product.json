@@ -231,35 +231,55 @@
           "type": "item",
           "settings": {
             "text": "1 Year Warranty",
-            "icon_preset": "shield"
+            "icon_preset": "shield",
+            "icon_text": "✦",
+            "icon_alt": "",
+            "link": "",
+            "accent_color": ""
           }
         },
         "item_2": {
           "type": "item",
           "settings": {
             "text": "60-Day Easy Return Policy",
-            "icon_preset": "sparkle"
+            "icon_preset": "sparkle",
+            "icon_text": "✦",
+            "icon_alt": "",
+            "link": "",
+            "accent_color": ""
           }
         },
         "item_3": {
           "type": "item",
           "settings": {
             "text": "Expert Approved Technology",
-            "icon_preset": "star"
+            "icon_preset": "star",
+            "icon_text": "✦",
+            "icon_alt": "",
+            "link": "",
+            "accent_color": ""
           }
         },
         "item_4": {
           "type": "item",
           "settings": {
             "text": "Medical-Grade Silicone",
-            "icon_preset": "lightning"
+            "icon_preset": "lightning",
+            "icon_text": "✦",
+            "icon_alt": "",
+            "link": "",
+            "accent_color": ""
           }
         },
         "item_5": {
           "type": "item",
           "settings": {
             "text": "Free Shipping",
-            "icon_preset": "truck"
+            "icon_preset": "truck",
+            "icon_text": "✦",
+            "icon_alt": "",
+            "link": "",
+            "accent_color": ""
           }
         }
       },
@@ -299,57 +319,81 @@
         "card_1": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/6e5da0bac9f281f845a885483126c3d2c27f185b.png",
+            "image_alt": "",
             "size": "tall",
             "number": "01",
+            "show_line": true,
             "title": "DUAL EMS TECHNOLOGY",
             "description": "Two targeted modes for a firmer-looking, more defined lower face.",
-            "show_line": true
+            "text_color": "",
+            "accent_color": "",
+            "scrim": "none",
+            "overlay_opacity": 40
           }
         },
         "card_2": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/840049a74556cbfe49512ca1dc6e356421fe633a.png",
+            "image_alt": "",
             "size": "normal",
             "number": "02",
+            "show_line": true,
             "title": "EMS TRAINING MODE",
             "description": "Stimulates the cheek muscles.",
-            "show_line": true
+            "text_color": "",
+            "accent_color": "",
+            "scrim": "none",
+            "overlay_opacity": 40
           }
         },
         "card_3": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/221b5bc62cac50f0cc54d01fab6b348b3c173505.png",
+            "image_alt": "",
             "size": "normal",
             "number": "03",
+            "show_line": true,
             "title": "EMS RELAXATION MODE",
             "description": "Helps relax the jaw area.",
-            "show_line": true
+            "text_color": "",
+            "accent_color": "",
+            "scrim": "none",
+            "overlay_opacity": 40
           }
         },
         "card_4": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/7252f0a1715c3e8cf05cffec9f4d3b24ab62f527.png",
+            "image_alt": "",
             "size": "wide",
             "number": "04",
+            "show_line": true,
             "title": "HANDS-FREE DESIGN",
             "description": "Wear it, start your session, and carry on with your day.",
-            "show_line": true,
             "text_color": "#070707",
             "accent_color": "#c9a844",
-            "scrim": "light"
+            "scrim": "light",
+            "overlay_opacity": 40
           }
         },
         "card_5": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/aa54b4a272076b731b538f6b8f8f9ac39bae3c8b.png",
+            "image_alt": "",
             "size": "wide",
             "number": "05",
+            "show_line": true,
             "title": "MINUTE ROUTINE-10",
             "description": "Easy to fit into your routine for consistent use.",
-            "show_line": true,
             "text_color": "#070707",
             "accent_color": "#c9a844",
-            "scrim": "light"
+            "scrim": "light",
+            "overlay_opacity": 40
           }
         }
       },
@@ -1429,9 +1473,9 @@
   "order": [
     "breadcrumb",
     "main-product",
+    "yaman_product_proof_n_G4PnLR",
     "yaman_marquee",
     "yaman_special",
-    "yaman_product_proof_n_G4PnLR",
     "visible_lift",
     "yaman_steps",
     "modes_ticker",
