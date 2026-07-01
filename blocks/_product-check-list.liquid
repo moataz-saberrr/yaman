@@ -1,0 +1,94 @@
+<div class="hdt-product-info__item hdt-product__check-list" {{ block.shopify_attributes }}>
+  <ul class="hdt-check-list">
+    {%- for i in (1..6) -%}
+      {%- capture text_key -%}text_{{ i }}{%- endcapture -%}
+      {%- assign text = block.settings[text_key] -%}
+
+      {%- if text != blank -%}
+        <li class="hdt-check-list-item">
+          <span class="hdt-check-icon">
+            ✓
+          </span>
+          <span class="hdt-check-text">{{ text }}</span>
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</div>
+
+<style>
+  .hdt-product__check-list {
+    margin: 20px 0;
+  }
+  .hdt-check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hdt-check-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: #4b5563; /* Dark gray similar to screenshot */
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+  }
+  .hdt-check-icon {
+ font-weight: 400;
+ font-size: 18px;
+ line-height: 24px;
+ color: #070707B2;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Check List",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Text 1",
+      "default": "Activates cheek muscles to support a more lifted appearance."
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Text 2",
+      "default": "Helps relax the jaw area and reduce the appearance of tension."
+    },
+    {
+      "type": "text",
+      "id": "text_3",
+      "label": "Text 3",
+      "default": "10 minutes daily, hands-free."
+    },
+    {
+      "type": "text",
+      "id": "text_4",
+      "label": "Text 4",
+      "default": "Adjustable intensity for each side independently."
+    },
+    {
+      "type": "text",
+      "id": "text_5",
+      "label": "Text 5"
+    },
+    {
+      "type": "text",
+      "id": "text_6",
+      "label": "Text 6"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Check List"
+    }
+  ]
+}
+{% endschema %}

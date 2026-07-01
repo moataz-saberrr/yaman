@@ -19,20 +19,34 @@
   assign currency_code = cart.currency.iso_code
 -%}
 <div class="hdt-product-info__item hdt-product__tabby-installment" {{ block.shopify_attributes }} >
-  <p class="hdt-tabby-installment-text" data-tabby-installment>
-    <span>or </span>
-    <span data-tabby-currency>{{ currency_code }}</span>
-    <span>&nbsp;</span>
-    <span data-tabby-price>{{ installment_price | money_without_currency | strip_html }}</span>
-    <span>/month × 4 with </span>
-    <span class="hdt-tabby-brand">Tabby</span>
-  </p>
+  <div class="hdt-tabby-installment-text" data-tabby-installment>
+    {%- if block.settings.text_before_price != blank -%}
+      <span>{{ block.settings.text_before_price }}</span>
+    {%- endif -%}
+    
+    <span class="hdt-tabby-price-wrap">
+      <span data-tabby-currency>{{ currency_code }}</span>
+      <span data-tabby-price>{{ installment_price | money_without_currency | replace: '.00', '' | strip_html }}</span>
+    </span>
+
+    {%- if block.settings.tamara_image != blank -%}
+      <img src="{{ block.settings.tamara_image | image_url: width: 150 }}" alt="Tamara" height="{{ block.settings.tamara_image.height }}" width="{{ block.settings.tamara_image.width }}" class="hdt-payment-logo" loading="lazy">
+    {%- endif -%}
+
+    {%- if block.settings.text_between_images != blank -%}
+      <span>{{ block.settings.text_between_images }}</span>
+    {%- endif -%}
+
+    {%- if block.settings.tabby_image != blank -%}
+      <img src="{{ block.settings.tabby_image | image_url: width: 150 }}" alt="Tabby" height="{{ block.settings.tabby_image.height }}" width="{{ block.settings.tabby_image.width }}" class="hdt-payment-logo" loading="lazy">
+    {%- endif -%}
+  </div>
   {%- if product.variants.size > 1 -%}
     {%- comment -%} per-variant installment values for the JS to swap on variant change {%- endcomment -%}
     <script type="application/json" data-tabby-installments>
       {
         {%- for v in product.variants -%}
-          "{{ v.id }}": {{ v.price | divided_by: 4 | money_without_currency | strip_html | json }}{% unless forloop.last %},{% endunless %}
+          "{{ v.id }}": {{ v.price | divided_by: 4 | money_without_currency | replace: '.00', '' | strip_html | json }}{% unless forloop.last %},{% endunless %}
         {%- endfor -%}
       }
     </script>
@@ -41,13 +55,32 @@
 
 <style>
   .hdt-product__tabby-installment {
-    margin: 0;
+        background-color: #F8F7F0;
+    border-bottom: 1px solid #E0E0E0;
+    padding-top: 14px;
+    padding-inline: 24px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    margin-bottom: 0 !important;
   }
   .hdt-tabby-installment-text {
     font-size: 14px;
-    color: #9b8e7e;
     margin: 0;
     line-height: 27px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-block: 8px
+  }
+  .hdt-tabby-price-wrap {
+    font-weight: 700;
+  }
+  .hdt-payment-logo {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+    display: inline-block;
   }
 </style>
 {%- if product.variants.size > 1 -%}
@@ -57,7 +90,30 @@
 {
   "name": "Tabby Installment",
   "tag": null,
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "text_before_price",
+      "label": "Text before price",
+      "default": "Split it into 4 installments of"
+    },
+    {
+      "type": "image_picker",
+      "id": "tamara_image",
+      "label": "Tamara Logo"
+    },
+    {
+      "type": "text",
+      "id": "text_between_images",
+      "label": "Text between logos",
+      "default": "or"
+    },
+    {
+      "type": "image_picker",
+      "id": "tabby_image",
+      "label": "Tabby Logo"
+    }
+  ],
   "presets": [{ "name": "Tabby Installment" }]
 }
 {% endschema %}

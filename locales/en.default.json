@@ -293,7 +293,7 @@
       "save_percent": "-{{ percent }}%",
       "on_sale_single": "SALE",
       "save_percent_single": "{{ percent }}% OFF",
-      "save_percent_single_price": "Save {{ percent }}%",
+      "save_percent_single_price": "-{{ percent }}%",
       "save_fix_amount_single_price": "Save {{ amount }}",
       "badge_new": "New",
       "badge_pre_order": "Pre order",

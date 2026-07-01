@@ -1,0 +1,177 @@
+<div class="hdt-product-info__item hdt-product__upsell" {{ block.shopify_attributes }}>
+  {%- assign upsell_product = block.settings.product -%}
+  {%- if upsell_product != blank and upsell_product.available -%}
+    {%- assign upsell_variant = upsell_product.selected_or_first_available_variant -%}
+    {%- assign upsell_form_id = 'product-form-upsell-' | append: block.id -%}
+    
+    <div class="hdt-upsell-wrapper">
+      {%- if block.settings.heading != blank -%}
+        <h4 class="hdt-upsell-heading">{{ block.settings.heading }}</h4>
+      {%- endif -%}
+      
+      <div class="hdt-upsell-box">
+        <div class="hdt-upsell-img-wrap">
+          {%- assign v_image = upsell_variant.image | default: upsell_product.featured_image -%}
+          {%- if v_image != blank -%}
+            {{ v_image | image_url: width: 120 | image_tag: loading: 'lazy', class: 'hdt-upsell-img' }}
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag: 'hdt-placeholder-svg hdt-upsell-img' }}
+          {%- endif -%}
+        </div>
+        
+        <div class="hdt-upsell-info">
+          <a href="{{ upsell_product.url }}" class="hdt-upsell-title">{{ upsell_product.title }}</a>
+          <div class="hdt-upsell-price-wrap">
+            <span class="hdt-upsell-price">{{ upsell_variant.price | money_without_trailing_zeros }}</span>
+            {%- if upsell_variant.compare_at_price > upsell_variant.price -%}
+              <span class="hdt-upsell-compare-price">{{ upsell_variant.compare_at_price | money_without_trailing_zeros }}</span>
+            {%- endif -%}
+          </div>
+        </div>
+        
+        <div class="hdt-upsell-action">
+          <wrapp-hdt-pr-frm class="hdt-contents">
+            {%- form 'product', upsell_product, id: upsell_form_id, class: 'hdt-upsell-form hdt-main-product-form' -%}
+              <input type="hidden" name="id" value="{{ upsell_variant.id }}">
+              <div class="hdt-form__message-wrapper hdt-form-message--error" role="alert" ref="addToCartTextError" hidden>{% render 'icon' with 'error' %} <span class="hdt-error-message"></span></div>
+              <button type="submit" name="add" class="hdt-product-form__submit hdt-upsell-btn hdt-btn-loading__svg" style="--duration-time: 1s">
+                <span class="hdt-btn-atc_text">{{ block.settings.btn_text | default: 'Yes, add it to my order' }}</span>
+                <span class="hdt-loading__spinner hdt-absolute" hidden>
+                  <svg width="16" height="16" class="hdt-svg-spinner" focusable="false" role="presentation" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><circle class="hdt-path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle></svg>
+                </span>
+              </button>
+            {%- endform -%}
+          </wrapp-hdt-pr-frm>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+<style>
+  .hdt-product__upsell {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .hdt-upsell-heading {
+    font-size: 16px;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 15px;
+    letter-spacing: 0;
+  }
+  .hdt-upsell-box {
+    background-color: #f9f8f2; /* Light beige matching screenshot */
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap; 
+  }
+  .hdt-upsell-img-wrap {
+    width: 65px;
+    height: 65px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .hdt-upsell-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .hdt-upsell-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 150px;
+  }
+  .hdt-upsell-title {
+    font-size: 15px;
+    color: #374151;
+    text-decoration: none;
+    line-height: 1.3;
+  }
+  .hdt-upsell-price-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hdt-upsell-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #737373; /* Match 70 SAR gray from screenshot */
+  }
+  .hdt-upsell-compare-price {
+    font-size: 13px;
+    color: #a3a3a3; /* Lighter gray for compare-at price */
+    text-decoration: line-through;
+  }
+  .hdt-upsell-action {
+    flex-shrink: 0;
+  }
+  .hdt-upsell-btn {
+    background-color: #202844; /* Dark navy from screenshot */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 42px;
+  }
+  .hdt-upsell-btn:hover {
+    background-color: #161c31;
+  }
+  @media (max-width: 480px) {
+    .hdt-upsell-action {
+      width: 100%;
+    }
+    .hdt-upsell-btn {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product Upsell Box",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Pairs beautifully with:"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Upsell Product"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "Yes, add it to my order"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Upsell Box"
+    }
+  ]
+}
+{% endschema %}

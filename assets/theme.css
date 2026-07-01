@@ -2660,7 +2660,7 @@ body:has(#menu_mobile[scroll-lock][open]) dialog#popover-languages {
 }
 
 .hdt-product-info__list{
-  --product-margin-end:1rem;
+  --product-margin-end: 1.6rem;
   &:has(.hdt-product__variant-picker input:checked){
     .hdt-product__inventory hdt-variant-inventory{
       display: block !important;
@@ -5263,7 +5263,7 @@ input[type=radio]:checked+.hdt-product-form_value.is-type-color hdt-tooltip,
     min-width: 44px;
   }
   .hdt-accordion-item .hdt-accordion-content {
-    padding: 20px;
+    padding: 14px 16px;
   }
   .hdt-accordion-style2 .hdt-accordion-item summary {
     padding: 10px 30px;
