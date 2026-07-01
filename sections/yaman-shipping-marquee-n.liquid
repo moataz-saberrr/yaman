@@ -1,0 +1,368 @@
+<!-- sections/yaman-shipping-marquee-n.liquid — YAMAN product-page shipping/benefits marquee
+  Dark navy full-width strip: each item = label + icon (image or text/emoji fallback) + optional divider.
+  Infinite loop is pure CSS (two identical groups, translateX -50%). No custom JS.
+  Pause-on-hover + prefers-reduced-motion handled in CSS.
+  CSS: assets/custom-productan.css (scoped under .hdt-yaman-marquee-section) -->
+{{ 'custom-productan.css' | asset_url | stylesheet_tag: media: 'all' }}
+{%- liquid
+  assign count = section.blocks.size
+  # repeat the block list inside each group so few items still fill the strip
+  assign reps = 2
+  if count > 0
+    assign reps = 8 | divided_by: count | plus: 1
+  endif
+  assign dir_reverse = false
+  if section.settings.direction == 'right'
+    assign dir_reverse = true
+  endif
+-%}
+<div
+  class="hdt-yaman-marquee{% if section.settings.full_width %} is-full{% endif %}{% if section.settings.pause_on_hover %} is-pausable{% endif %}{% if section.settings.show_dividers %} has-dividers{% endif %}{% if dir_reverse %} is-reverse{% endif %}"
+  id="yaman-marquee-{{ section.id }}"
+  style="
+    --mq-bg: {{ section.settings.background_color }};
+    --mq-text: {{ section.settings.text_color }};
+    --mq-accent: {{ section.settings.accent_color }};
+    --mq-divider: {{ section.settings.divider_color }};
+    --mq-maxw: {{ section.settings.container_max_width }}px;
+    --mq-duration: {{ section.settings.speed }}s;
+    --mq-gap: {{ section.settings.item_gap }}px;
+    --mq-gap-mb: {{ section.settings.item_gap_mb }}px;
+    --mq-fs: {{ section.settings.font_size }}px;
+    --mq-fs-mb: {{ section.settings.font_size_mb }}px;
+    --mq-icon: {{ section.settings.icon_size }}px;
+    --mq-icon-mb: {{ section.settings.icon_size_mb }}px;
+    --mq-pt: {{ section.settings.padding_top }}px;
+    --mq-pb: {{ section.settings.padding_bottom }}px;
+    --mq-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --mq-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+  "
+>
+  {%- if count > 0 -%}
+    <div class="hdt-yaman-marquee__viewport">
+      <div class="hdt-yaman-marquee__track">
+        {%- for group in (1..2) -%}
+          <div class="hdt-yaman-marquee__group"{% if group == 2 %} aria-hidden="true"{% endif %}>
+            {%- for r in (1..reps) -%}
+              {%- for block in section.blocks -%}
+                {%- liquid
+                  assign text = block.settings.text | strip
+                  assign icon_img = block.settings.icon
+                  assign icon_preset = block.settings.icon_preset
+                  assign icon_text = block.settings.icon_text | strip
+                  assign icon_alt = block.settings.icon_alt | default: text
+                  assign link = block.settings.link
+                  assign accent = block.settings.accent_color
+                -%}
+                {%- if text != blank or icon_img != blank or icon_preset != blank or icon_text != blank -%}
+                  {%- capture item_inner -%}
+                    {%- if text != blank -%}
+                      <span class="hdt-yaman-marquee__text">{{ text }}</span>
+                    {%- endif -%}
+                    {%- if icon_img != blank -%}
+                      <span class="hdt-yaman-marquee__icon">
+                        {{ icon_img | image_url: width: 96 | image_tag: class: 'hdt-yaman-marquee__icon-img', alt: icon_alt, loading: 'lazy', widths: '32,48,64,96' }}
+                      </span>
+                    {%- elsif icon_preset != blank and icon_preset != 'none' -%}
+                      <span class="hdt-yaman-marquee__icon hdt-yaman-marquee__icon--svg" aria-hidden="true">
+                        {%- render 'yaman-marquee-icon', name: icon_preset -%}
+                      </span>
+                    {%- elsif icon_text != blank -%}
+                      <span class="hdt-yaman-marquee__icon" aria-hidden="true">{{ icon_text }}</span>
+                    {%- endif -%}
+                  {%- endcapture -%}
+                  {%- if link != blank -%}
+                    <a class="hdt-yaman-marquee__item" href="{{ link }}"{% if accent != blank %} style="--mq-item-accent: {{ accent }};"{% endif %}{{ block.shopify_attributes }}>{{ item_inner }}</a>
+                  {%- else -%}
+                    <div class="hdt-yaman-marquee__item"{% if accent != blank %} style="--mq-item-accent: {{ accent }};"{% endif %}{{ block.shopify_attributes }}>{{ item_inner }}</div>
+                  {%- endif -%}
+                  <span class="hdt-yaman-marquee__divider" aria-hidden="true"></span>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endfor -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- elsif request.design_mode -%}
+    <div class="hdt-yaman-marquee__viewport">
+      <p class="hdt-yaman-marquee__empty">Add “Item” blocks in the theme editor to build the marquee strip.</p>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "YAMAN Marquee",
+  "tag": "section",
+  "class": "hdt-section hdt-yaman-marquee-section",
+  "max_blocks": 20,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Label",
+          "default": "Free Shipping"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image",
+          "info": "Optional. Overrides the preset icon and emoji below."
+        },
+        {
+          "type": "select",
+          "id": "icon_preset",
+          "label": "Preset icon (from Figma)",
+          "info": "Used when no icon image is selected. Adapts to the accent + background colors.",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "shield", "label": "Shield / warranty" },
+            { "value": "sparkle", "label": "Sparkle / return" },
+            { "value": "star", "label": "Star / approved" },
+            { "value": "lightning", "label": "Lightning" },
+            { "value": "truck", "label": "Truck / shipping" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "text",
+          "id": "icon_text",
+          "label": "Icon text / emoji",
+          "info": "Fallback used when no icon image or preset icon is set.",
+          "default": "✦"
+        },
+        {
+          "type": "text",
+          "id": "icon_alt",
+          "label": "Icon alt text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Icon accent (optional)",
+          "info": "Overrides the section accent color for this item's icon."
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#1d2847"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#e7e9f0"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Icon accent color",
+      "default": "#d4b87a"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#3b4667"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 600,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "info": "Used when “Full width” is off.",
+      "default": 1500
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dividers",
+      "label": "Show dividers",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "min": 8,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Item gap (desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "item_gap_mb",
+      "min": 6,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Item gap (mobile)",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Text & icon size"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size (desktop)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "font_size_mb",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size (mobile)",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Icon size (desktop)",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "icon_size_mb",
+      "min": 10,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Icon size (mobile)",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 10,
+      "max": 120,
+      "step": 2,
+      "unit": "s",
+      "label": "Loop duration",
+      "info": "Higher = slower scroll.",
+      "default": 40
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Direction",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 14
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Marquee",
+      "category": "t:sections_categories.05_section.name",
+      "blocks": [
+        { "type": "item", "settings": { "text": "1 Year Warranty", "icon_preset": "shield" } },
+        { "type": "item", "settings": { "text": "60-Day Easy Return Policy", "icon_preset": "sparkle" } },
+        { "type": "item", "settings": { "text": "Expert Approved Technology", "icon_preset": "star" } },
+        { "type": "item", "settings": { "text": "Medical-Grade Silicone", "icon_preset": "lightning" } },
+        { "type": "item", "settings": { "text": "Free Shipping", "icon_preset": "truck" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

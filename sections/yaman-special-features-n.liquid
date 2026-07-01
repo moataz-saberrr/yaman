@@ -1,0 +1,423 @@
+<!-- sections/yaman-special-features-n.liquid — YAMAN product-page "What Makes It Special"
+  Static responsive image feature grid (NOT a carousel). Section-local card blocks.
+  Desktop: 6-col grid — normal/tall cards span 2 (3 per row), wide cards span 3 (2 per row).
+  Mobile: 2-col grid — tall card spans 2 rows, wide cards go full width.
+  CSS: assets/custom-productan.css (scoped under .hdt-yaman-special-section) -->
+{{ 'custom-productan.css' | asset_url | stylesheet_tag: media: 'all' }}
+<div
+  class="hdt-yaman-special"
+  id="yaman-special-{{ section.id }}"
+  style="
+    --sp-bg: {{ section.settings.background_color }};
+    --sp-maxw: {{ section.settings.container_max_width }}px;
+    --sp-head-maxw: {{ section.settings.header_max_width }}px;
+    --sp-gap: {{ section.settings.grid_gap }}px;
+    --sp-gap-mb: {{ section.settings.grid_gap_mb }}px;
+    --sp-radius: {{ section.settings.card_radius }}px;
+    --sp-ov: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --sp-text: {{ section.settings.text_color }};
+    --sp-accent: {{ section.settings.accent_color }};
+    --sp-pt: {{ section.settings.padding_top }}px;
+    --sp-pb: {{ section.settings.padding_bottom }}px;
+    --sp-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --sp-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+  "
+>
+  <div class="hdt-yaman-special__container">
+
+    {%- if section.settings.heading != blank or section.settings.subtitle != blank -%}
+      <div class="hdt-yaman-special__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="hdt-yaman-special__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="hdt-yaman-special__subtitle">{{ section.settings.subtitle | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="hdt-yaman-special__grid">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign img = block.settings.image
+            assign img_mb = block.settings.image_mobile
+            assign alt = block.settings.image_alt | default: block.settings.title
+            assign size = block.settings.size | default: 'normal'
+            assign scrim = block.settings.scrim | default: 'none'
+
+            assign card_style = ''
+            if block.settings.text_color != blank
+              assign card_style = card_style | append: '--sp-card-text: ' | append: block.settings.text_color | append: ';'
+            endif
+            if block.settings.accent_color != blank
+              assign card_style = card_style | append: '--sp-card-accent: ' | append: block.settings.accent_color | append: ';'
+            endif
+            if scrim == 'dark'
+              assign ov = block.settings.overlay_opacity | divided_by: 100.0
+              assign card_style = card_style | append: '--sp-card-ov: ' | append: ov | append: ';'
+            endif
+          -%}
+          <div
+            class="hdt-yaman-special__card hdt-yaman-special__card--{{ size }} hdt-yaman-special__card--scrim-{{ scrim }}"
+            style="{{ card_style }}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if img != blank -%}
+              {%- if img_mb != blank -%}
+                <picture>
+                  <source media="(max-width: 767px)" srcset="{{ img_mb | image_url: width: 900 }}">
+                  {{ img | image_url: width: 1200 | image_tag: class: 'hdt-yaman-special__image', alt: alt, loading: 'lazy', widths: '400,600,800,1000,1200', sizes: '(max-width: 767px) 92vw, 640px' }}
+                </picture>
+              {%- else -%}
+                {{ img | image_url: width: 1200 | image_tag: class: 'hdt-yaman-special__image', alt: alt, loading: 'lazy', widths: '400,600,800,1000,1200', sizes: '(max-width: 767px) 92vw, 640px' }}
+              {%- endif -%}
+            {%- else -%}
+              <div class="hdt-yaman-special__image hdt-yaman-special__placeholder" aria-hidden="true">
+                {{ 'image' | placeholder_svg_tag: 'hdt-yaman-special__placeholder-svg' }}
+              </div>
+            {%- endif -%}
+
+            <div class="hdt-yaman-special__overlay" aria-hidden="true"></div>
+
+            <div class="hdt-yaman-special__content">
+              {%- if block.settings.number != blank -%}
+                <div class="hdt-yaman-special__top">
+                  <span class="hdt-yaman-special__number">{{ block.settings.number }}</span>
+                  {%- if block.settings.show_line -%}
+                    <span class="hdt-yaman-special__line" aria-hidden="true"></span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.title != blank or block.settings.description != blank -%}
+                <div class="hdt-yaman-special__text">
+                  {%- if block.settings.title != blank -%}
+                    <h3 class="hdt-yaman-special__title">{{ block.settings.title | escape }}</h3>
+                  {%- endif -%}
+                  {%- if block.settings.description != blank -%}
+                    <p class="hdt-yaman-special__description">{{ block.settings.description | escape }}</p>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- elsif request.design_mode -%}
+      <p class="hdt-yaman-special__empty">Add “Card” blocks in the theme editor to build the feature grid.</p>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YAMAN Special",
+  "tag": "section",
+  "class": "hdt-section hdt-yaman-special-section",
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile image (optional)"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text"
+        },
+        {
+          "type": "select",
+          "id": "size",
+          "label": "Card size",
+          "info": "Normal/Tall span 2 grid columns (3 per row); Wide spans 3 (2 per row). Tall also spans 2 rows on mobile.",
+          "options": [
+            { "value": "normal", "label": "Normal" },
+            { "value": "tall", "label": "Tall" },
+            { "value": "wide", "label": "Wide" }
+          ],
+          "default": "normal"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "01"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_line",
+          "label": "Show underline under number",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "FEATURE TITLE"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "header",
+          "content": "Overrides (optional)"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color override"
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Accent color override"
+        },
+        {
+          "type": "select",
+          "id": "scrim",
+          "label": "Scrim / overlay",
+          "info": "None = image only (use for dark images, like cards 1–3). Light start = white fade from the start edge (dark text, like cards 4–5). Dark bottom = readability scrim.",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "light", "label": "Light (from start)" },
+            { "value": "dark", "label": "Dark (from bottom)" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Dark scrim opacity",
+          "default": 40,
+          "visible_if": "{{ block.settings.scrim == 'dark' }}"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Makes It Special?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Two targeted modes to train the cheek muscles and relax the jaw area, using EMS technology in a 10-minute session."
+    },
+    {
+      "type": "range",
+      "id": "header_max_width",
+      "min": 400,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "Header max width",
+      "default": 900
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 800,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1290
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Grid gap (desktop)",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "grid_gap_mb",
+      "min": 6,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Grid gap (mobile)",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Card corner radius",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Text & overlay"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color (number / underline)",
+      "default": "#c9a844"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Default overlay opacity",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 44
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Special",
+      "category": "t:sections_categories.05_section.name",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "size": "tall",
+            "number": "01",
+            "title": "DUAL EMS TECHNOLOGY",
+            "description": "Two targeted modes for a firmer-looking, more defined lower face."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "size": "normal",
+            "number": "02",
+            "title": "EMS TRAINING MODE",
+            "description": "Stimulates the cheek muscles."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "size": "normal",
+            "number": "03",
+            "title": "EMS RELAXATION MODE",
+            "description": "Helps relax the jaw area."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "size": "wide",
+            "number": "04",
+            "title": "HANDS-FREE DESIGN",
+            "description": "Wear it, start your session, and carry on with your day.",
+            "text_color": "#070707",
+            "accent_color": "#c9a844",
+            "scrim": "light"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "size": "wide",
+            "number": "05",
+            "title": "MINUTE ROUTINE-10",
+            "description": "Easy to fit into your routine for consistent use.",
+            "text_color": "#070707",
+            "accent_color": "#c9a844",
+            "scrim": "light"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

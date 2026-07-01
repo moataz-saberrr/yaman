@@ -224,6 +224,160 @@
         "pd_mb": "20px,,50px,"
       }
     },
+    "yaman_marquee": {
+      "type": "yaman-shipping-marquee-n",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "text": "1 Year Warranty",
+            "icon_preset": "shield"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "text": "60-Day Easy Return Policy",
+            "icon_preset": "sparkle"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "text": "Expert Approved Technology",
+            "icon_preset": "star"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "text": "Medical-Grade Silicone",
+            "icon_preset": "lightning"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "text": "Free Shipping",
+            "icon_preset": "truck"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5"
+      ],
+      "settings": {
+        "background_color": "#1d2847",
+        "text_color": "#e7e9f0",
+        "accent_color": "#d4b87a",
+        "divider_color": "#3b4667",
+        "full_width": true,
+        "container_max_width": 1500,
+        "show_dividers": true,
+        "item_gap": 40,
+        "item_gap_mb": 24,
+        "font_size": 15,
+        "font_size_mb": 13,
+        "icon_size": 18,
+        "icon_size_mb": 16,
+        "speed": 40,
+        "direction": "left",
+        "pause_on_hover": true,
+        "padding_top": 18,
+        "padding_bottom": 18,
+        "padding_top_mb": 14,
+        "padding_bottom_mb": 14
+      }
+    },
+    "yaman_special": {
+      "type": "yaman-special-features-n",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "size": "tall",
+            "number": "01",
+            "title": "DUAL EMS TECHNOLOGY",
+            "description": "Two targeted modes for a firmer-looking, more defined lower face.",
+            "show_line": true
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "size": "normal",
+            "number": "02",
+            "title": "EMS TRAINING MODE",
+            "description": "Stimulates the cheek muscles.",
+            "show_line": true
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "size": "normal",
+            "number": "03",
+            "title": "EMS RELAXATION MODE",
+            "description": "Helps relax the jaw area.",
+            "show_line": true
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "size": "wide",
+            "number": "04",
+            "title": "HANDS-FREE DESIGN",
+            "description": "Wear it, start your session, and carry on with your day.",
+            "show_line": true,
+            "text_color": "#070707",
+            "accent_color": "#c9a844",
+            "scrim": "light"
+          }
+        },
+        "card_5": {
+          "type": "card",
+          "settings": {
+            "size": "wide",
+            "number": "05",
+            "title": "MINUTE ROUTINE-10",
+            "description": "Easy to fit into your routine for consistent use.",
+            "show_line": true,
+            "text_color": "#070707",
+            "accent_color": "#c9a844",
+            "scrim": "light"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4",
+        "card_5"
+      ],
+      "settings": {
+        "heading": "What Makes It Special?",
+        "subtitle": "Two targeted modes to train the cheek muscles and relax the jaw area, using EMS technology in a 10-minute session.",
+        "header_max_width": 900,
+        "background_color": "#ffffff",
+        "container_max_width": 1290,
+        "grid_gap": 16,
+        "grid_gap_mb": 12,
+        "card_radius": 18,
+        "text_color": "#ffffff",
+        "accent_color": "#c9a844",
+        "overlay_opacity": 40,
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "padding_top_mb": 44,
+        "padding_bottom_mb": 44
+      }
+    },
     "yaman_product_proof_n_G4PnLR": {
       "type": "yaman-product-proof-n",
       "blocks": {
@@ -1275,6 +1429,8 @@
   "order": [
     "breadcrumb",
     "main-product",
+    "yaman_marquee",
+    "yaman_special",
     "yaman_product_proof_n_G4PnLR",
     "visible_lift",
     "yaman_steps",
