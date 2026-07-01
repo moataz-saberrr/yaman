@@ -1771,7 +1771,291 @@
       "dismiss_toast": "رفض",
       "document_title": "{{sectionName}} - {{shopName}} - الحساب",
       "loading_message": "جاري التحميل",
-      "loading_policy_content_accessibility_label": "تحميل محتوى السياسة"
+      "loading_policy_content_accessibility_label": "تحميل محتوى السياسة",
+      "loading_section_accessibility_label": "جار التحميل {{sectionName}}",
+      "policy_load_error": "تعذر تحميل {{policyName}}",
+      "policy_try_again": "حاول مرة أخرى",
+      "log_out_link": "تسجيل الخروج",
+      "logout_overlay_label": "تسجيل الخروج...",
+      "nav_label_accessibility_label": "الملاحة الرئيسية",
+      "navigation_accessibility_message": "لقد انتقلت إلى {{sectionName}}",
+      "open_menu_accessibility_label": "فتح التنقل الرئيسي",
+      "shop_logo_accessibility_label": "شعار {{shopName}}",
+      "settings_link": "الإعدادات",
+      "country_switcher_toast_message": "البلد الذي تم التبديل إليه {{countryName}}",
+      "switch_country": "تغيير البلد",
+      "no_countries_found": "لا توجد بلدان مطابقة",
+      "location_switcher_toast_message": "تم تغيير الموقع إلى {{locationName}}",
+      "switch_location": "تغيير الموقع",
+      "no_locations_found": "لم يتم العثور على مواقع",
+      "try_new_search": "جرّب بحثًا جديدًا",
+      "view_details": "عرض التفاصيل",
+      "company_location": "موقع الشركة",
+      "search": "بحث",
+      "skip_to_content": "تجاوز إلى المحتوى"
+    },
+    "announcement_bar": {
+      "expand_label": "توسيع شريط الإعلانات",
+      "collapse_label": "طي شريط الإعلان",
+      "close_label": "إغلاق شريط الإعلانات"
+    },
+    "account_information": {
+      "loading_accessibility_message": "جارٍ تحميل معلومات الحساب",
+      "loading_finished_accessibility_message": "تم تحميل معلومات الحساب",
+      "profile_card": {
+        "cancel": "إلغاء",
+        "cancel_accessibility_label": "إلغاء تحرير الملف الشخصي",
+        "edit": "تعديل",
+        "edit_accessibility_label": "تعديل الملف الشخصي",
+        "email_help_text": "لا يمكن تعديل البريد الإلكتروني",
+        "editable_email_help_text": "يُستخدم هذا البريد الإلكتروني لتسجيل الدخول وتحديثات الطلبات.",
+        "first_name": "الاسم الأول",
+        "last_name": "اسم العائلة",
+        "email": "بريد إلكتروني",
+        "no_name_provided_accessibility_label": "لم يتم إضافة اسم",
+        "phone_number_help_text": "لا يمكن تعديل رقم الهاتف",
+        "save": "حفظ",
+        "save_accessibility_label": "حفظ الملف الشخصي",
+        "title": "الملف الشخصي",
+        "errors": {
+          "name_too_long": "{{fieldName}} طويل جدًا (الحد الأقصى هو 255 حرفًا)",
+          "name_cannot_contain_url": "{{fieldName}} لا يمكن أن يحتوي على رابط",
+          "name_cannot_contain_html_tags": "{{fieldName}} لا يمكن أن يحتوي على علامات HTML",
+          "email_cant_be_blank": "البريد الإلكتروني لا يمكن أن يكون فارغًا",
+          "invalid_email_format": "أدخل بريدًا إلكترونيًا صحيحًا"
+        }
+      },
+      "verify_current_email_modal": {
+        "cancel_button": "إلغاء",
+        "cancel_button_accessibility_label": "إلغاء تحرير الملف الشخصي",
+        "description": "أدخل الرمز المكون من 6 أرقام الذي أُرسل إلى بريدك الإلكتروني الأصلي:",
+        "email_resend_button_accessibility_label": "إعادة إرسال رمز التحقق",
+        "title": "تأكيد هويتك",
+        "verify_button": "التالي",
+        "verify_button_accessibility_label": "التحقق من بريدك الإلكتروني الحالي"
+      },
+      "verify_new_email_modal": {
+        "title": "تحقق من بريدك الإلكتروني الجديد",
+        "description": "الآن، أدخل الرمز المكون من 6 أرقام والذي أُرسِل إلى بريدك الإلكتروني الجديد:",
+        "one_time_password_label": "رمز مكون من 6 أرقام",
+        "email_resend_button": "إعادة إرسال الرمز",
+        "email_resend_button_accessibility_label": "إعادة إرسال رمز التحقق",
+        "verify_button": "تحقق",
+        "verify_button_accessibility_label": "التحقق من كلمة المرور لمرة واحدة",
+        "cancel_button": "إلغاء",
+        "cancel_button_accessibility_label": "إلغاء تحرير الملف الشخصي",
+        "email_resend_button_success_toast_message": "تم إرسال رمز التحقق",
+        "email_resend_button_failure_banner_message": "تعذّر إرسال رمز التحقق"
+      },
+      "marketing_preferences": {
+        "email_label": "بريد إلكتروني",
+        "pending_confirmation": "انقر على الرابط في بريدك الإلكتروني للتأكيد.",
+        "resend_email": "أعد إرسال البريد الإلكتروني",
+        "resend_email_success": "تم إرسال الرابط",
+        "title": "تفضيلات التسويق",
+        "unsubscribe_confirmation": {
+          "cancel": "إلغاء",
+          "description": "لن تتلقى بعد الآن رسائل تسويقية عبر البريد الإلكتروني من {{shopName}}",
+          "title": "إلغاء الاشتراك من رسائل البريد الإلكتروني؟",
+          "unsubscribe": "إلغاء الاشتراك"
+        },
+        "update_error": {
+          "description": "حدثت مشكلة أثناء تحديث تفضيلاتك التسويقية. حاول تحديث هذه الصفحة أو تحقق من اتصالك بالإنترنت."
+        },
+        "update_success": "تم تحديث تفضيلات التسويق"
+      },
+      "email_update_success_modal": {
+        "title": "التحقق من البريد الإلكتروني",
+        "description": "تم تحديث البريد الإلكتروني بنجاح. يتم إعادة التوجيه إلى صفحة تسجيل الدخول."
+      },
+      "profile_update_confirmation_message": "تم تحديث الملف الشخصي",
+      "email_update_confirmation_message": "تم تحديث البريد الإلكتروني إلى {{email}}",
+      "title": "الملف الشخصي",
+      "people": {
+        "pagination": {
+          "load_more": "تحميل المزيد",
+          "load_more_accessibility_label": "تحميل المزيد من الأشخاص",
+          "loading_accessibility_label": "جارٍ تحميل الأشخاص"
+        }
+      },
+      "add_button": "أضِف"
+    },
+    "orders": {
+      "list_layout_accessibility_label": "خيارات التخطيط",
+      "list_title": "الطلبات",
+      "list_title_with_pending_orders": "الطلبات:",
+      "list_title_confirmed_orders_accessibility_label": "الطلبات: مؤكدة",
+      "list_title_pending_orders_accessibility_label": "الطلبات: معلقة",
+      "switch_order_type_pending_orders_accessibility_label": "تبديل نوع الطلب، أنت تعرض حالياً الطلبات المعلّقة",
+      "switch_order_type_confirmed_orders_accessibility_label": "تغيير نوع الطلب، أنت تعرض الطلبات المؤكدة حالياً",
+      "order_list": {
+        "column_headers": {
+          "order": "أمر",
+          "total": "الإجمالي",
+          "actions_accessibility_label": "إجراءات",
+          "products_accessibility_label": "المنتجات"
+        },
+        "delivered": "تم التسليم {{date}}",
+        "empty_state_order_source_description": "الطلبات التي قدمها {{email}} فقط هي التي ستظهر هنا.",
+        "empty_state_redesign_cta": "تسوق الآن",
+        "empty_state_redesign_subtitle": "هل أنت مستعد للتسوق؟",
+        "empty_state_redesign_welcome": "أهلاً وسهلاً",
+        "empty_state_redesign_welcome_with_name": "أهلاً بك يا {{firstName}}"
+      }
+    }
+  },
+  "sections": {
+    "cart": {
+      "shipping_estimator": {
+        "province": "مقاطعة",
+        "zip_code": "الرمز البريدي",
+        "estimate": "تقدير",
+        "multiple_rates": "وجدنا العديد من أسعار الشحن المتاحة لعنوانك:",
+        "one_rate": "لقد وجدنا سعر شحن واحد متاح لعنوانك:",
+        "no_rates": "عذرًا، نحن لا نشحن إلى هذا الوجهة.",
+        "errors": "توجد بعض الأخطاء:",
+        "free": "مجاني"
+      },
+      "tool": {
+        "save": "حفظ",
+        "cancel": "إلغاء",
+        "close": "إغلاق",
+        "apply": "تقديم",
+        "note": "إضافة ملاحظة للطلب",
+        "edit_note": "تعديل ملاحظة الطلب",
+        "discount": "أضف رمز الخصم",
+        "edit_discount": "تعديل رمز الخصم",
+        "placeholder_discount": "أدخل رمز الخصم",
+        "gift_wrap_html": "<span class=\"hdt-s-text hdt-font-normal\">هل ترغب في تغليف الهدايا؟</span> <span class=\"hdt-s-text2\">فقط {{ money }}</span>",
+        "add_gift_wrap": "أضف تغليف الهدايا",
+        "placeholder_coupon": "رمز القسيمة"
+      }
+    },
+    "testimonials": {
+      "verified_buyer": "مشترٍ تم التحقق منه"
+    },
+    "newsletter_form": {
+      "email_placeholder": "أدخل عنوان البريد الإلكتروني",
+      "submit": "اشترك",
+      "subscribing": "جارٍ الاشتراك...",
+      "confirmation": "شكراً لاشتراكك!",
+      "error_exist": "البريد الإلكتروني مستخدم بالفعل لحساب آخر"
+    },
+    "footer": {
+      "payment": "طرق الدفع"
+    },
+    "featured_blog": {
+      "view_all": "عرض الكل",
+      "onboarding_title": "مشاركة مدونة",
+      "onboarding_content": "زود عملاءك بملخص لمنشور مدونتك"
+    },
+    "featured_collection": {
+      "view_all": "عرض الكل",
+      "view_all_label": "عرض جميع المنتجات في مجموعة {{ collection_name }}",
+      "product_stock": {
+        "available": "متاح:",
+        "sold": "مباع:"
+      }
+    },
+    "featured_collection_2": {
+      "shop_now": "تسوق الآن"
+    },
+    "collection_list": {
+      "view_all": "عرض الكل"
+    },
+    "collection_template": {
+      "title": "مجموعة",
+      "short_by_txt": "فرز",
+      "empty": "هذه المجموعة فارغة",
+      "continue_shopping": "مواصلة التسوق",
+      "continue_shopping_html": "<a class=\"&lt;span class='notranslate'&gt;{{ class }}&lt;/span&gt;\" href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">متابعة التسوق</a>"
+    },
+    "countdown_timmer": {
+      "day": "يوم",
+      "day_plural": "أيام",
+      "hr": "ساعة",
+      "hr_plural": "ساعات",
+      "min": "دقيقة",
+      "min_plural": "دقائق",
+      "sec": "ثانيًا",
+      "sec_plural": "ثواني",
+      "day_plural_mini": "أيام",
+      "hr_plural_mini": "ساعات",
+      "min_plural_mini": "دقيقة",
+      "sec_plural_mini": "ثوانٍ"
+    },
+    "video": {
+      "load_video": "تحميل الفيديو: {{ description }}"
+    },
+    "slideshow": {
+      "load_slide": "تحميل الشريحة",
+      "previous_slideshow": "الشريحة السابقة",
+      "next_slideshow": "الشريحة التالية",
+      "pause_slideshow": "إيقاف عرض الشرائح مؤقتًا",
+      "play_slideshow": "تشغيل عرض الشرائح",
+      "carousel": "دائري",
+      "slide": "شريحة"
+    },
+    "store_locator": {
+      "need_api": "تحتاج إلى رمز وصول Mapbox API"
+    },
+    "page": {
+      "title": "عنوان الصفحة"
+    }
+  },
+  "general": {
+    "meta": {
+      "tag": "موسومة",
+      "page": "صفحة"
+    },
+    "aria": {
+      "back_to_top": "العودة إلى الأعلى",
+      "exit_popup": {
+        "copy": "نسخة",
+        "copied": "تم النسخ"
+      }
+    },
+    "password_page": {
+      "login_form_heading": "أدخل كلمة المرور",
+      "login_password_button": "ادخل باستخدام كلمة المرور",
+      "login_form_password_label": "كلمة المرور",
+      "login_form_password_placeholder": "كلمة المرور الخاصة بك",
+      "login_form_error": "كلمة المرور خاطئة!",
+      "login_form_submit": "إدخال",
+      "admin_link_html": "هل أنت مالك المتجر؟ <a href=\"/admin\" class=\"link underlined-link\">سجّل الدخول هنا</a>",
+      "powered_by_shopify_html": "سيتم تشغيل هذا المتجر بواسطة {{ shopify }}"
+    },
+    "social": {
+      "shares": {
+        "share_on_facebook": "مشاركة عبر الفيسبوك",
+        "share_on_x": "تغريدة على تويتر",
+        "share_on_pinterest": "تثبيت في بنترست",
+        "share_on_tumblr": "مشاركة على تمبلر",
+        "share_on_telegram": "مشاركة على تيليجرام",
+        "share_on_whatsapp": "مشاركة عبر واتساب",
+        "share_on_email": "إرسال عبر البريد",
+        "share_btn": "مشاركة",
+        "share_header": "مشاركة",
+        "share_btn_copy": "نسخة",
+        "success_message": "تم نسخ الرابط إلى الحافظة"
+      },
+      "links": {
+        "x": "تويتر",
+        "facebook": "فيسبوك",
+        "pinterest": "بينترست",
+        "instagram": "انستغرام",
+        "tumblr": "تامبلر",
+        "snapchat": "سناب شات",
+        "youtube": "يوتيوب",
+        "vimeo": "فيميو",
+        "tiktok": "تيك توك",
+        "discord": "خلاف",
+        "kick": "ركلة",
+        "twitch": "تويتش"
+      },
+      "follow": {
+        "follow_fb": "تابعنا على فيسبوك"
+      }
     }
   }
 }
