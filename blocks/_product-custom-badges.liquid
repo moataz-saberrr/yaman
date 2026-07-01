@@ -74,12 +74,13 @@
     font-size: 13px;
     line-height: 19px;
     text-align: center;
+    flex-direction: row-reverse;
   }
 
   @media (max-width: 767px) {
     .hdt-custom-badges-wrap {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
     }
     .hdt-custom-badge-item {
@@ -89,9 +90,10 @@
     }
     .hdt-badge-text {
       text-transform: none;
-      font-size: 13px;
+      font-size: 10px;
       white-space: normal;
       font-weight: 500;
+      line-height: 12.46px;
     }
   }
 </style>

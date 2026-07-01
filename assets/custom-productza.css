@@ -34,9 +34,14 @@
     }
     .hdt-price{
       font-family: var(--font-secondary);
-      font-weight: 400;
+      font-weight: 700;
       font-size: 38px;
       line-height: 30px;
+      @media (max-width: 767px) {
+        font-weight: 700;
+        font-size: 30px;
+        
+      }
     }
     .hdt-product__price hdt-compare-at-price{
       text-decoration: none;
@@ -82,6 +87,12 @@
   [class^=hdt-secion-main-product]{
     .hdt-product__description p{
       color: #B89A5E;
+      @media (max-width: 767px) {
+      font-weight: 500;
+    text-transform: uppercase;
+    text-wrap-style: pretty;
+
+      }
     }
 
     .hdt-compare-at-price:not([hidden])+.hdt-price:not(.hdt-price-item--range){
