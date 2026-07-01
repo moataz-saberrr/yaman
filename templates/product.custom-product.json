@@ -224,42 +224,44 @@
         "pd_mb": "20px,,50px,"
       }
     },
-    "yaman_results": {
-      "type": "yaman-results-n",
+    "yaman_proof": {
+      "type": "yaman-product-proof-n",
       "blocks": {
         "image_1": {
           "type": "image",
           "settings": {
+            "alt": "",
             "label_left": "Before",
-            "label_right": "Week 4"
+            "label_right": "Week 4",
+            "caption": ""
           }
         },
         "stat_1": {
           "type": "stat",
           "settings": {
             "value": "+36%",
-            "description": "More defined jawline"
+            "text": "More defined jawline"
           }
         },
         "stat_2": {
           "type": "stat",
           "settings": {
             "value": "+42%",
-            "description": "Improved skin firmness"
+            "text": "Improved skin firmness"
           }
         },
         "stat_3": {
           "type": "stat",
           "settings": {
             "value": "+42%",
-            "description": "More lifted-looking appearance"
+            "text": "More lifted-looking appearance"
           }
         },
         "stat_4": {
           "type": "stat",
           "settings": {
             "value": "-31%",
-            "description": "Less tense-looking appearance"
+            "text": "Less tense-looking appearance"
           }
         }
       },
@@ -270,10 +272,26 @@
         "stat_3",
         "stat_4"
       ],
-      "name": "YAMAN Results",
       "settings": {
         "heading": "Noticeable results within weeks of use",
-        "subtitle": "Gradual improvement in the appearance of the skin with consistent use."
+        "subtitle": "Gradual improvement in the appearance of the skin with consistent use.",
+        "background_color": "#f7f6f1",
+        "container_max_width": 1200,
+        "heading_max_width": 720,
+        "content_gap": 48,
+        "content_gap_mb": 24,
+        "enable_dots": true,
+        "enable_arrows": false,
+        "hide_arrows_mobile": true,
+        "image_radius": 16,
+        "accent_color": "#c79a4b",
+        "card_bg": "#ffffff",
+        "card_border": "#ececE6",
+        "card_shadow": true,
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "padding_top_mb": 44,
+        "padding_bottom_mb": 44
       }
     },
     "visible_lift": {
@@ -1229,7 +1247,7 @@
   "order": [
     "breadcrumb",
     "main-product",
-    "yaman_results",
+    "yaman_proof",
     "visible_lift",
     "yaman_steps",
     "modes_ticker",
