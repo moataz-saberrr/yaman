@@ -1533,8 +1533,8 @@
    cards stay aligned with the header) so the shadow has room to render. */
 .hdt-yaman-routines-section .hdt-yaman-routines__viewport {
   padding-block: 10px 24px;
-  padding-inline: 10px;
-  margin-inline: -10px;
+  /* padding-inline: 10px;
+  margin-inline: -10px; */
 }
 
 /* Desktop: N full cards, no peek */
@@ -1703,7 +1703,7 @@
 
   /* Prevent the last card's peek from causing page overflow */
   .hdt-yaman-routines-section .hdt-yaman-routines__container {
-    padding-inline-end: 0;
+    padding-inline: 0;
   }
 }
 
@@ -1724,7 +1724,7 @@
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: start;
     gap: 12px 16px;
-    padding-inline-end: var(--rt-pad-x, 20px);
+    padding-inline: var(--rt-pad-x, 20px);
   }
 
   .hdt-yaman-routines-section .hdt-yaman-routines__heading {
@@ -1762,7 +1762,7 @@
     --slide-spacing: var(--rt-gap-mb, 12px);
     --slide-size: calc(100% / var(--rt-cols-mb, 2.3));
     margin-inline: calc(50% - 50vw);
-    padding-inline: 14px;
+    padding-inline-start: 14px;
     box-sizing: border-box;
   }
 
