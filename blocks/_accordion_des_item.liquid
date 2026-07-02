@@ -4,7 +4,13 @@
   unless product
      assign product = section.settings.product
   endunless
-  if block.settings.title == blank or product.description == blank
+  
+  assign final_desc = product.description
+  if block.settings.description != blank
+    assign final_desc = block.settings.description
+  endif
+  
+  if block.settings.title == blank or final_desc == blank
     continue
   endif
 
@@ -27,10 +33,10 @@
         </span>
       </summary>
     {%- endif -%}
-    {%- unless product.description == blank or block.settings.title == blank -%}
+    {%- unless final_desc == blank or block.settings.title == blank -%}
       <div id="{{ block.id }}-item" class="hdt-accordion-content hdt-text-base hdt-font-normal hdt-rte" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
         <div itemprop="text">
-          {{ product.description }}
+          {{ final_desc }}
         </div>
       </div>
     {%- endunless -%}
@@ -151,6 +157,12 @@
         "label": "t:sections.accordion.blocks.accordion_item.title",
         "default": "Accordion title"
       },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Custom description",
+        "info": "If left empty, it will display the product's main description."
+      }
     ],
     "presets": [
       {

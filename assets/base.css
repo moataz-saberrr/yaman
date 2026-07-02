@@ -916,6 +916,7 @@ select {
 }
 .hdt-container {
   max-width: var(--container-max-width);
+  padding: 0 1.5rem;
 }
 /* .hdt-container--stretch {
   width: 100%;

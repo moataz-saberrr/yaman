@@ -162,7 +162,7 @@
           "pr_text": "#070707",
           "price": "#070707",
           "sale_price": "#b80000",
-          "input_primary": "#1D2847",
+          "input_primary": "#1d2847",
           "input_secondary": "#878787"
         }
       },
@@ -320,11 +320,11 @@
           "background": "#ffffff",
           "background_gradient": "",
           "background2": "#f2f2f2",
-          "button": "#000000",
+          "button": "#1D2847",
           "button_label": "#ffffff",
           "button_border": "#000000",
           "secondary_button_label": "#000000",
-          "accent_color": "#000000",
+          "accent_color": "#1D2847",
           "line_border": "#dddddd",
           "overlay": "#000000",
           "pr_text": "#070707",

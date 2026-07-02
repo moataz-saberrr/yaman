@@ -11,6 +11,7 @@
   "sections": {
     "breadcrumb": {
       "type": "brc-nav-product",
+      "disabled": true,
       "settings": {
         "back_next_pr": true,
         "colors_by_section": true,
@@ -31,28 +32,35 @@
           "type": "_group-product",
           "settings": {
             "colors_by_block": false,
-            "color_scheme": ""
+            "color_scheme": "scheme-e1fbc996-3421-4748-88c0-101d284aa8d6"
           },
           "blocks": {
-            "text_jWfzHn": {
-              "type": "text",
-              "name": "t:blocks.text.name",
+            "product_custom_badges_wmDxQ4": {
+              "type": "_product-custom-badges",
+              "name": "Custom Badges",
               "settings": {
-                "text": "<p>Yāman Beauty Tech</p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "lg",
-                "line_height": "hdt-lh-1",
-                "font_weight": "normal",
-                "text_color": "hdt-s-text",
-                "countdown": "2025-12-30 15:00:00",
-                "txt_day": "days",
-                "font_size_text_lg": 16,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
+                "text_1": " Cheek Elevation",
+                "icon_svg_1": "",
+                "icon_image_1": "shopify://shop_images/icon_2_0c455788-9b79-48e7-994c-e14c71397fb4.svg",
+                "bg_color_1": "#f9f8f3",
+                "text_2": " Jaw Tension Release",
+                "icon_svg_2": "",
+                "icon_image_2": "shopify://shop_images/icon_3_2f9db22f-068f-4ea8-afa1-d502156fe0d3.svg",
+                "bg_color_2": "#f9f8f3",
+                "text_3": " 10-Minute Automated Ritual",
+                "icon_svg_3": "",
+                "icon_image_3": "shopify://shop_images/icon_4_d53aa914-354f-42f8-8735-653eedbbea70.svg",
+                "bg_color_3": "#f9f8f3",
+                "text_4": " Jawline Definition",
+                "icon_svg_4": "",
+                "icon_image_4": "shopify://shop_images/icon_5.svg",
+                "bg_color_4": "#f9f8f3"
               },
               "blocks": {}
+            },
+            "judge_me_reviews_preview_badge_THyzgN": {
+              "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+              "settings": {}
             },
             "product_title_ehRqkq": {
               "type": "_product-title",
@@ -67,42 +75,62 @@
               },
               "blocks": {}
             },
+            "product_description_J6kM3x": {
+              "type": "_product-description",
+              "name": "t:sections.main-product.blocks.description.name",
+              "settings": {
+                "des": "2",
+                "short_des": "<p>EMS Technology Results for a More Lifted-Looking Face</p>",
+                "readm": false,
+                "length": 130,
+                "readm_txt": "Read more",
+                "readl_txt": "Read less",
+                "ffamily": "",
+                "text_size": "4xl",
+                "line_height": "",
+                "font_weight": "normal",
+                "heading_color": "",
+                "text_color": "hdt-text-secondary",
+                "font_size_text_lg": 27,
+                "font_size_text": 20,
+                "letter_spacing_text": 0
+              },
+              "blocks": {}
+            },
+            "product_check_list_mr8xQN": {
+              "type": "_product-check-list",
+              "name": "Check List",
+              "settings": {
+                "text_1": "Activates cheek muscles to support a more lifted appearance.",
+                "text_2": "Helps relax the jaw area and reduce the appearance of tension.",
+                "text_3": "10 minutes daily, hands-free.",
+                "text_4": "Adjustable intensity for each side independently.",
+                "text_5": "",
+                "text_6": ""
+              },
+              "blocks": {}
+            },
             "product_price_9JizTC": {
               "type": "_product-price",
               "settings": {
-                "label_onsale_style": "fixed_amount"
+                "label_onsale_style": "percentage"
               },
               "blocks": {}
             },
             "product_tabby_installment_ptP6Bb": {
               "type": "_product-tabby-installment",
               "name": "Tabby Installment",
-              "settings": {},
-              "blocks": {}
-            },
-            "product_tags_pills_DmFQ4K": {
-              "type": "_product-tags-pills",
-              "name": "Tags Pills",
               "settings": {
-                "text_1": "Dynamic Lifting Device",
-                "text_2": "redefine",
-                "text_3": "with RF + EMS",
-                "text_4": "with RF + EMS",
-                "text_5": "Clinically proven",
-                "text_6": "lift",
-                "text_7": "sculpt",
-                "text_8": "",
-                "text_9": "",
-                "text_10": ""
+                "text_before_price": "Split it into 4 installments of",
+                "tamara_image": "shopify://shop_images/Tamara_Row.svg",
+                "text_between_images": "or",
+                "tabby_image": "shopify://shop_images/tabby.svg"
               },
               "blocks": {}
             },
-            "judge_me_reviews_preview_badge_ED6Ucg": {
-              "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-              "settings": {}
-            },
             "product_variant_picker_WMmDTM": {
               "type": "_product-variant-picker",
+              "disabled": true,
               "settings": {
                 "color_picker_type": "color_rounded",
                 "color_size": "medium",
@@ -134,32 +162,124 @@
               },
               "blocks": {}
             },
-            "product_features_grid_kPFABG": {
-              "type": "_product-features-grid",
-              "name": "Features Grid",
+            "product_icon_texts_xtRFFR": {
+              "type": "_product-icon-texts",
+              "name": "Icon Texts Row",
               "settings": {
-                "image_1": "shopify://shop_images/icon-park_back-one.svg",
-                "text_1": "60-day money back",
-                "image_2": "shopify://shop_images/Vector.svg",
-                "text_2": "Free express shipping",
-                "image_3": "shopify://shop_images/ion_card-outline.svg",
-                "text_3": "0% Tabby available",
-                "image_4": "shopify://shop_images/streamline-flex_warranty-badge-highlight.svg",
-                "text_4": "2-year warranty"
+                "text_1": "Shipping within 1-2 business days",
+                "icon_svg_1": "",
+                "icon_image_1": "shopify://shop_images/icon.svg",
+                "text_2": "Free shipping on all orders.",
+                "icon_svg_2": "",
+                "icon_image_2": "shopify://shop_images/icon_1.svg",
+                "text_3": "",
+                "icon_svg_3": "",
+                "text_4": "",
+                "icon_svg_4": ""
+              },
+              "blocks": {}
+            },
+            "product_upsell_bfPQLa": {
+              "type": "_product-upsell",
+              "name": "Product Upsell Box",
+              "settings": {
+                "heading": "Pairs beautifully with:",
+                "product": "سيروم-مرطب-للبشرة-medi-lift-moisture-serum",
+                "btn_text": "Yes, add it to my order"
+              },
+              "blocks": {}
+            },
+            "group_product_accordion_CHxwjy": {
+              "type": "_group_product_accordion",
+              "name": "t:sections.accordion.name",
+              "settings": {
+                "open": false,
+                "accordion_des": "3",
+                "spacing": 15
+              },
+              "blocks": {
+                "accordion_des_item_XUw4Qq": {
+                  "type": "_accordion_des_item",
+                  "settings": {
+                    "icon": "none",
+                    "title": "What’s Inside the Box?",
+                    "description": "<ul><li>Medi Lift Mask</li><li>Extra extension strap</li><li>EMS control units</li><li>Dual USB charging cable</li><li>Power adapter</li></ul>"
+                  },
+                  "blocks": {}
+                },
+                "accordion_des_item_69byBP": {
+                  "type": "_accordion_des_item",
+                  "settings": {
+                    "icon": "none",
+                    "title": "How to Use",
+                    "description": "<ul><li>Cleanse the skin</li><li>Apply the gel</li><li>Put on the mask</li><li>Choose the appropriate position</li><li>Use for 10 minutes</li><li>Clean after use</li></ul>"
+                  },
+                  "blocks": {}
+                },
+                "accordion_des_item_ek3k3A": {
+                  "type": "_accordion_des_item",
+                  "settings": {
+                    "icon": "none",
+                    "title": "Specifications",
+                    "description": "<ul><li>Technology: EMS (Electrical Muscle Stimulation)</li><li>Training mode: Low frequency, 2.5–17 Hz</li><li>Release mode: High frequency, 20–100 Hz</li></ul>"
+                  },
+                  "blocks": {}
+                },
+                "accordion_des_item_kbCkp8": {
+                  "type": "_accordion_des_item",
+                  "settings": {
+                    "icon": "none",
+                    "title": "Warnings",
+                    "description": "<p>Do not use the device if you are:</p><ul><li>Pregnant or have recently given birth</li><li>Using a pacemaker, have an irregular heartbeat, or another heart condition</li><li>Experiencing epilepsy or a tendency to bleed</li><li>Have metal implants or a silver crown in the treatment area</li><li>Under 22 years old</li></ul>"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "accordion_des_item_XUw4Qq",
+                "accordion_des_item_69byBP",
+                "accordion_des_item_ek3k3A",
+                "accordion_des_item_kbCkp8"
+              ]
+            },
+            "product_custom_badges_86R7Nf": {
+              "type": "_product-custom-badges",
+              "name": "Custom Badges",
+              "settings": {
+                "text_1": "1YEAR WARRANTY",
+                "icon_svg_1": "",
+                "icon_image_1": "shopify://shop_images/icon_6.svg",
+                "bg_color_1": "#f9f8f3",
+                "text_2": "100% SECURE CHECKOUT",
+                "icon_svg_2": "",
+                "icon_image_2": "shopify://shop_images/icon_7.svg",
+                "bg_color_2": "#f9f8f3",
+                "text_3": "WHATSAPP SUPPORT",
+                "icon_svg_3": "",
+                "icon_image_3": "shopify://shop_images/icon_8.svg",
+                "bg_color_3": "#f9f8f3",
+                "text_4": "OFFICIAL YA-MAN PRODUCT",
+                "icon_svg_4": "",
+                "icon_image_4": "shopify://shop_images/icon_9.svg",
+                "bg_color_4": "#f9f8f3"
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "text_jWfzHn",
+            "product_custom_badges_wmDxQ4",
+            "judge_me_reviews_preview_badge_THyzgN",
             "product_title_ehRqkq",
+            "product_description_J6kM3x",
+            "product_check_list_mr8xQN",
             "product_price_9JizTC",
             "product_tabby_installment_ptP6Bb",
-            "product_tags_pills_DmFQ4K",
-            "judge_me_reviews_preview_badge_ED6Ucg",
             "product_variant_picker_WMmDTM",
             "product_buy_button_aPmAbD",
-            "product_features_grid_kPFABG"
+            "product_icon_texts_xtRFFR",
+            "product_upsell_bfPQLa",
+            "group_product_accordion_CHxwjy",
+            "product_custom_badges_86R7Nf"
           ]
         },
         "main-product-sidebar": {
@@ -177,8 +297,8 @@
           "type": "_product-medias",
           "static": true,
           "settings": {
-            "media_box_size": 50,
-            "desktop_media_layout": "thumbnail_left",
+            "media_box_size": 40,
+            "desktop_media_layout": "thumbnail_bottom",
             "media_size": "small",
             "mobile_media_layout": "thumbnails",
             "show_first_media": true,
@@ -204,6 +324,10 @@
       },
       "block_order": [
         "group_product_9RYttB"
+      ],
+      "custom_css": [
+        ".hdt-product__tabby-installment {background-color: #f8f7f0; border-bottom: 1px solid #e0e0e0; padding-inline: 24px; margin-bottom: 0 !important; @media (max-width: 1150px) {padding-top: 12px; padding-inline: 18px; }}",
+        "hdt-buy-buttons.hdt-product-form__buttons {padding-block: 20px; background-color: #f8f7f0; padding-inline: 24px; border-bottom: 1px solid #e0e0e0;}"
       ],
       "settings": {
         "product_list_fbt": [],
@@ -1844,6 +1968,169 @@
         "color_scheme": "",
         "space": 50
       }
+    },
+    "custom_section_PhqThL": {
+      "type": "custom-section",
+      "blocks": {
+        "group_CVQXHp": {
+          "type": "group",
+          "name": "Group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 10,
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100,
+            "colors_by_block": false,
+            "color_scheme": "",
+            "group_rounded": "",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_left": 0,
+            "padding_right": 0,
+            "padding_rate_mobile": 0
+          },
+          "blocks": {
+            "icon_LKndXR": {
+              "type": "icon",
+              "name": "t:blocks.icon.name",
+              "settings": {
+                "icon": "none",
+                "svg_upload": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg>",
+                "width_lg": 45,
+                "width_md": 44,
+                "width": 44
+              },
+              "blocks": {}
+            },
+            "heading_pdVnQF": {
+              "type": "heading",
+              "name": "t:blocks.heading.name",
+              "settings": {
+                "heading": "<p>Real Results, Real Radiance: Voices from the Region</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "line_height": "hdt-lh-1-2",
+                "font_weight": "bold",
+                "heading_size": "h2",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 48,
+                "font_size_heading": 27,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            },
+            "text_nmicyD": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Trusted by women across the GCC for effortless, high-performance facial sculpting</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "ffamily": "",
+                "text_size": "base",
+                "line_height": "",
+                "font_weight": "normal",
+                "text_color": "hdt-text-secondary",
+                "countdown": "2025-12-30 15:00:00",
+                "txt_day": "days",
+                "font_size_text_lg": 16,
+                "font_size_text": 14,
+                "letter_spacing_text": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "icon_LKndXR",
+            "heading_pdVnQF",
+            "text_nmicyD"
+          ]
+        },
+        "judge_me_reviews_review_widget_EhV9yT": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "group_CVQXHp",
+        "judge_me_reviews_review_widget_EhV9yT"
+      ],
+      "custom_css": [
+        ".shopify-block.shopify-app-block,.hdt-container,.hdt-section--custom {background: linear-gradient( 180deg, rgba(212, 184, 122, 0) 0%, rgba(212, 184, 122, 0.084) 50%, rgba(212, 184, 122, 0) 100% );}"
+      ],
+      "name": "t:sections.custom_section.name",
+      "settings": {
+        "layout": "10",
+        "item_spacing": 0,
+        "item_spacing_tb": 0,
+        "item_spacing_mb": 0,
+        "colors_by_section": false,
+        "color_scheme": "",
+        "background_opacity": 0,
+        "section_layout": "full_width",
+        "hdt_background_parallax": false,
+        "mg": "",
+        "mg_mb": ",,30px,",
+        "pd": "65px,,65px",
+        "pd_mb": "65px,,65px"
+      }
+    },
+    "featured_collection_n_AWXjjw": {
+      "type": "featured-collection-n",
+      "custom_css": [
+        ".hdt-yaman-routine__container {@media (max-width: 767px) {.star-rating__stars img {width: 12px !important; height: 12px !important; } .star-rating__count {color: #070707 !important; font-size: 12px !important; } }}",
+        ".hdt-yaman-routine__container .hdt-slider__slide {padding-inline-start: 10px !important;}"
+      ],
+      "settings": {
+        "custom_class_featured": "",
+        "badge_text": "",
+        "heading": "Products You May Like",
+        "subheading": "",
+        "collection": "test-collection",
+        "limit": 12,
+        "show_vendor": true,
+        "card_button_label": "SHOP NOW",
+        "show_installment": true,
+        "image_ratio": "square",
+        "col_dk": "5",
+        "col_tb": "2",
+        "col_mb": "2",
+        "card_width_mb": 85,
+        "nav_ui": false,
+        "dot_ui": true,
+        "loop": false,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "hide_controls_mobile": true,
+        "button_label": "",
+        "button_link": "",
+        "button_target": false,
+        "bg_color": "#faf7f0",
+        "badge_bg": "#e3efe7",
+        "badge_color": "#2f6b4f",
+        "card_bg": "#ffffff",
+        "card_border": "#ece7dc",
+        "image_radius": 10,
+        "container_max_width": 1300,
+        "container_padding": 0,
+        "custom_class": "",
+        "padding_top": 66,
+        "padding_bottom": 46,
+        "padding_top_mb": 26,
+        "padding_bottom_mb": 26
+      }
     }
   },
   "order": [
@@ -1868,6 +2155,8 @@
     "featured_collection_choose_n_Npyxxm",
     "final_cta",
     "tabs",
-    "sidebar"
+    "sidebar",
+    "custom_section_PhqThL",
+    "featured_collection_n_AWXjjw"
   ]
 }

@@ -28,9 +28,7 @@
   endcapture
 -%}
 
-<div
-  class="hdt-yaman-routine-section{% if sec_class != blank %} {{ sec_class }}{% endif %}{% if section.settings.hide_controls_mobile %} is-hide-controls-mb{% endif %} {%if section.settings.custom_class_featured != blank%} {{section.settings.custom_class_featured}} {%-endif-%}"
-  style="
+<div class="hdt-yaman-routine-section{% if sec_class != blank %} {{ sec_class }}{% endif %}{% if section.settings.hide_controls_mobile %} is-hide-controls-mb{% endif %} {%if section.settings.custom_class_featured != blank%} {{section.settings.custom_class_featured}} {%-endif-%}" style="
     --routine-bg: {{ section.settings.bg_color }};
     --routine-maxw: {{ section.settings.container_max_width }}px;
     --routine-pad-x: {{ section.settings.container_padding }}px;
@@ -40,14 +38,14 @@
     --routine-pb-mb: {{ section.settings.padding_bottom_mb }}px;
     --routine-cols: {{ section.settings.col_dk }};
     --routine-cols-tb: {{ section.settings.col_tb }};
+    --routine-cols-mb: {{ section.settings.col_mb }};
     --routine-card-mb: {{ section.settings.card_width_mb }};
     --routine-radius: {{ section.settings.image_radius }}px;
     --routine-badge-bg: {{ section.settings.badge_bg }};
     --routine-badge-color: {{ section.settings.badge_color }};
     --routine-card-bg: {{ section.settings.card_bg }};
     --routine-card-border: {{ section.settings.card_border }};
-  "
->
+  ">
   <div class="hdt-yaman-routine">
     <div class="hdt-yaman-routine__container">
       <div class="hdt-yaman-routine__header">
@@ -65,24 +63,35 @@
       <div class="hdt-yaman-routine__slider-wrap">
         <hdt-slider
           id="Slider-{{ section.id }}"
-          class="hdt-yaman-routine__slider hdt-product-carousel hdt-collection-products hdt-slider__products hdt-collection-has-pr1 hdt-pr-border_none hdt-ratio--{{ image_ratio }} hdt-slider hdt-slider-parent hdt-slide-spacing-x hdt-relative lg:hdt-slides-{{ section.settings.col_dk }} md:hdt-slides-{{ section.settings.col_tb }} hdt-slides-1"
-          config='{ "id": "Slider-{{ section.id }}", "navUI": {{ section.settings.nav_ui }}, "dotUI": {{ section.settings.dot_ui }}, "loop": {{ section.settings.loop }}, "autoPlay": {{ section.settings.autoplay | times: 1000 }}, "pauseOnHover": {{ section.settings.pause_on_hover }}, "navUICenter": true }'
-        >
+          class="hdt-yaman-routine__slider hdt-product-carousel hdt-collection-products hdt-slider__products hdt-collection-has-pr1 hdt-pr-border_none hdt-ratio--{{ image_ratio }} hdt-slider hdt-slider-parent hdt-slide-spacing-x hdt-relative lg:hdt-slides-{{ section.settings.col_dk }} md:hdt-slides-{{ section.settings.col_tb }} hdt-slides-{{ section.settings.col_mb }}"
+          config='{ "id": "Slider-{{ section.id }}", "navUI": {{ section.settings.nav_ui }}, "dotUI": {{ section.settings.dot_ui }}, "loop": {{ section.settings.loop }}, "autoPlay": {{ section.settings.autoplay | times: 1000 }}, "pauseOnHover": {{ section.settings.pause_on_hover }}, "navUICenter": true }'>
           <div class="hdt-slider__viewport hdt-relative">
             <div class="hdt-slider__container">
               {%- if has_products -%}
                 {%- for product in sel_collection.products limit: limit -%}
-                  {%- render 'card-product-routine',
-                    card_product: product,
-                    class: 'hdt-slider__slide hdt-pr-style1 hdt-yaman-routine__card',
-                    section_id: section.id,
-                    sizes: sizes,
-                    image_ratio: image_ratio,
-                    color_list: color_list,
-                    size_list: size_list,
-                    btn_wishlist_code: btn_wishlist_code,
-                    show_vendor: section.settings.show_vendor,
-                    card_btn_label: section.settings.card_button_label
+                  {%- render 'card-product-routine'
+                    ,
+ card_product: product
+                    ,
+ class: 'hdt-slider__slide hdt-pr-style1 hdt-yaman-routine__card'
+                    ,
+ section_id: section.id
+                    ,
+ sizes: sizes
+                    ,
+ image_ratio: image_ratio
+                    ,
+ color_list: color_list
+                    ,
+ size_list: size_list
+                    ,
+ btn_wishlist_code: btn_wishlist_code
+                    ,
+ show_vendor: section.settings.show_vendor
+                    ,
+ card_btn_label: section.settings.card_button_label
+                    ,
+ show_installment: section.settings.show_installment
                   -%}
                 {%- endfor -%}
               {%- else -%}
@@ -107,10 +116,14 @@
                 type="button"
                 disabled
                 name="previous"
-                aria-label="{{ 'general.slider.previous_slide' | t }}"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
-                  <path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/>
+                aria-label="{{ 'general.slider.previous_slide' | t }}">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="7"
+                  height="11"
+                  viewBox="0 0 7 11"
+                  fill="none">
+                  <path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor" />
                 </svg>
               </button>
               <button
@@ -119,10 +132,14 @@
                 type="button"
                 disabled
                 name="next"
-                aria-label="{{ 'general.slider.next_slide' | t }}"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
-                  <path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/>
+                aria-label="{{ 'general.slider.next_slide' | t }}">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="7"
+                  height="11"
+                  viewBox="0 0 7 11"
+                  fill="none">
+                  <path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor" />
                 </svg>
               </button>
             </div>
@@ -135,8 +152,7 @@
               class="hdt-yaman-routine__dots hdt-slider__dots hdt-pagination hdt-style-default hdt-radius-true hdt-hide-mobile-{{ section.settings.hide_controls_mobile }}"
               style="--space-between: 8px; --margin-top: 24px;"
               hdt-reveal="slide-in"
-              timeline
-            ></div>
+              timeline></div>
           {%- endif -%}
         </hdt-slider>
 
@@ -153,9 +169,9 @@
             class="hdt-yaman-routine__button"
             href="{{ btn_link | default: '#' }}"
             {% if section.settings.button_target %}
-              target="_blank" rel="noopener"
-            {% endif %}
-          >
+            target="_blank"
+            rel="noopener"
+            {% endif %}>
             {{- section.settings.button_label | escape -}}
           </a>
         </div>
@@ -165,300 +181,310 @@
 </div>
 
 {% schema %}
-{
-  "name": "YAMAN Routine",
-  "tag": "section",
-  "class": "hdt-section hdt-yaman-routine-wrap",
-  "settings": [
-    {
-      "type": "text",
-      "id": "custom_class_featured",
-      "label": "Custom Class",
-      "info": "Add custom class to the section to edit in styling"
-    },
-    {
-      "type": "text",
-      "id": "badge_text",
-      "label": "Badge text",
-      "default": "SKINCARE"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Complete Your Routine"
-    },
-    {
-      "type": "textarea",
-      "id": "subheading",
-      "label": "Subtitle",
-      "default": "Treatment serums formulated to work in perfect synergy with YAMAN devices — amplifying every session for visible results."
-    },
-    {
-      "type": "header",
-      "content": "Products"
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
-    },
-    {
-      "type": "range",
-      "id": "limit",
-      "min": 1,
-      "max": 24,
-      "step": 1,
-      "label": "Products to show",
-      "default": 3
-    },
-    {
-      "type": "checkbox",
-      "id": "show_vendor",
-      "label": "Show vendor / category label",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "card_button_label",
-      "label": "Card button label",
-      "info": "Links to each product's page.",
-      "default": "SHOP NOW"
-    },
-    {
-      "type": "select",
-      "id": "image_ratio",
-      "label": "Image ratio",
-      "options": [
-        { "value": "adapt_image", "label": "Adapt to image" },
-        { "value": "square", "label": "Square" },
-        { "value": "portrait", "label": "Portrait" },
-        { "value": "landscape", "label": "Landscape" }
-      ],
-      "default": "square"
-    },
-    {
-      "type": "select",
-      "id": "col_dk",
-      "label": "Columns (desktop)",
-      "options": [
-        { "value": "2", "label": "2" },
-        { "value": "3", "label": "3" },
-        { "value": "4", "label": "4" },
-        { "value": "5", "label": "5" }
-      ],
-      "default": "3"
-    },
-    {
-      "type": "select",
-      "id": "col_tb",
-      "label": "Columns (tablet)",
-      "options": [
-        { "value": "1", "label": "1" },
-        { "value": "2", "label": "2" },
-        { "value": "3", "label": "3" }
-      ],
-      "default": "2"
-    },
-    {
-      "type": "range",
-      "id": "card_width_mb",
-      "min": 60,
-      "max": 95,
-      "step": 1,
-      "unit": "%",
-      "label": "Mobile card width",
-      "info": "Lower = more of the next card peeks in the slider.",
-      "default": 80
-    },
-    {
-      "type": "header",
-      "content": "Carousel"
-    },
-    {
-      "type": "checkbox",
-      "id": "nav_ui",
-      "label": "Show arrows",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "dot_ui",
-      "label": "Show dots",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "loop",
-      "label": "Loop",
-      "info": "Keeps the arrows active even when there are only a few products.",
-      "default": true
-    },
-    {
-      "type": "range",
-      "id": "autoplay",
-      "min": 0,
-      "max": 7,
-      "step": 0.5,
-      "unit": "s",
-      "label": "Autoplay speed",
-      "info": "0 = off.",
-      "default": 0
-    },
-    {
-      "type": "checkbox",
-      "id": "pause_on_hover",
-      "label": "Pause on hover",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_controls_mobile",
-      "label": "Hide arrows & dots on mobile",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Button"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button label",
-      "default": "VIEW ALL DEVICES"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button link",
-      "info": "Leave empty to link to the selected collection."
-    },
-    {
-      "type": "checkbox",
-      "id": "button_target",
-      "label": "Open button in new tab",
-      "default": false
-    },
-    {
-      "type": "header",
-      "content": "Layout & style"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background color",
-      "default": "#FAF7F0"
-    },
-    {
-      "type": "color",
-      "id": "badge_bg",
-      "label": "Badge background",
-      "default": "#E3EFE7"
-    },
-    {
-      "type": "color",
-      "id": "badge_color",
-      "label": "Badge text color",
-      "default": "#2F6B4F"
-    },
-    {
-      "type": "color",
-      "id": "card_bg",
-      "label": "Product card background",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "color",
-      "id": "card_border",
-      "label": "Product card border",
-      "default": "#ECE7DC"
-    },
-    {
-      "type": "range",
-      "id": "image_radius",
-      "min": 0,
-      "max": 40,
-      "step": 1,
-      "unit": "px",
-      "label": "Card corner radius",
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "container_max_width",
-      "min": 800,
-      "max": 1600,
-      "step": 10,
-      "unit": "px",
-      "label": "Container max width",
-      "default": 1200
-    },
-    {
-      "type": "range",
-      "id": "container_padding",
-      "min": 0,
-      "max": 60,
-      "step": 1,
-      "unit": "px",
-      "label": "Container side padding",
-      "default": 15
-    },
-    {
-      "type": "text",
-      "id": "custom_class",
-      "label": "Custom section class",
-      "info": "Optional extra class for per-instance styling."
-    },
-    {
-      "type": "header",
-      "content": "Spacing"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 160,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding top (desktop)",
-      "default": 90
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 160,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding bottom (desktop)",
-      "default": 90
-    },
-    {
-      "type": "range",
-      "id": "padding_top_mb",
-      "min": 0,
-      "max": 120,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding top (mobile)",
-      "default": 56
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom_mb",
-      "min": 0,
-      "max": 120,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding bottom (mobile)",
-      "default": 56
-    }
-  ],
-  "presets": [
-    {
-      "name": "YAMAN Routine",
-      "category": "YAMAN"
-    }
-  ]
-}
+  {
+    "name": "YAMAN Routine",
+    "tag": "section",
+    "class": "hdt-section hdt-yaman-routine-wrap",
+    "settings": [
+      {
+        "type": "text",
+        "id": "custom_class_featured",
+        "label": "Custom Class",
+        "info": "Add custom class to the section to edit in styling"
+      },
+      {
+        "type": "text",
+        "id": "badge_text",
+        "label": "Badge text",
+        "default": "SKINCARE"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Complete Your Routine"
+      },
+      {
+        "type": "textarea",
+        "id": "subheading",
+        "label": "Subtitle",
+        "default": "Treatment serums formulated to work in perfect synergy with YAMAN devices — amplifying every session for visible results."
+      }, {
+        "type": "header",
+        "content": "Products"
+      }, {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      }, {
+        "type": "range",
+        "id": "limit",
+        "min": 1,
+        "max": 24,
+        "step": 1,
+        "label": "Products to show",
+        "default": 3
+      }, {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show vendor / category label",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "card_button_label",
+        "label": "Card button label",
+        "info": "Links to each product's page.",
+        "default": "SHOP NOW"
+      }, {
+        "type": "checkbox",
+        "id": "show_installment",
+        "label": "Show installment text",
+        "info": "Calculates and displays a monthly installment amount under the price.",
+        "default": false
+      }, {
+        "type": "select",
+        "id": "image_ratio",
+        "label": "Image ratio",
+        "options": [
+          {
+            "value": "adapt_image",
+            "label": "Adapt to image"
+          }, {
+            "value": "square",
+            "label": "Square"
+          }, {
+            "value": "portrait",
+            "label": "Portrait"
+          }, {
+            "value": "landscape",
+            "label": "Landscape"
+          }
+        ],
+        "default": "square"
+      }, {
+        "type": "select",
+        "id": "col_dk",
+        "label": "Columns (desktop)",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          }, {
+            "value": "3",
+            "label": "3"
+          }, {
+            "value": "4",
+            "label": "4"
+          }, {
+            "value": "5",
+            "label": "5"
+          }
+        ],
+        "default": "3"
+      }, {
+        "type": "select",
+        "id": "col_tb",
+        "label": "Columns (tablet)",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          }, {
+            "value": "2",
+            "label": "2"
+          }, {
+            "value": "3",
+            "label": "3"
+          }
+        ],
+        "default": "2"
+      }, {
+        "type": "select",
+        "id": "col_mb",
+        "label": "Columns (mobile)",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          }, {
+            "value": "2",
+            "label": "2"
+          }
+        ],
+        "default": "1"
+      }, {
+        "type": "range",
+        "id": "card_width_mb",
+        "min": 60,
+        "max": 95,
+        "step": 1,
+        "unit": "%",
+        "label": "Mobile card width",
+        "info": "Lower = more of the next card peeks in the slider.",
+        "default": 80
+      }, {
+        "type": "header",
+        "content": "Carousel"
+      }, {
+        "type": "checkbox",
+        "id": "nav_ui",
+        "label": "Show arrows",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "dot_ui",
+        "label": "Show dots",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "loop",
+        "label": "Loop",
+        "info": "Keeps the arrows active even when there are only a few products.",
+        "default": true
+      }, {
+        "type": "range",
+        "id": "autoplay",
+        "min": 0,
+        "max": 7,
+        "step": 0.5,
+        "unit": "s",
+        "label": "Autoplay speed",
+        "info": "0 = off.",
+        "default": 0
+      }, {
+        "type": "checkbox",
+        "id": "pause_on_hover",
+        "label": "Pause on hover",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "hide_controls_mobile",
+        "label": "Hide arrows & dots on mobile",
+        "default": true
+      }, {
+        "type": "header",
+        "content": "Button"
+      }, {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label",
+        "default": "VIEW ALL DEVICES"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link",
+        "info": "Leave empty to link to the selected collection."
+      }, {
+        "type": "checkbox",
+        "id": "button_target",
+        "label": "Open button in new tab",
+        "default": false
+      }, {
+        "type": "header",
+        "content": "Layout & style"
+      }, {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color",
+        "default": "#FAF7F0"
+      }, {
+        "type": "color",
+        "id": "badge_bg",
+        "label": "Badge background",
+        "default": "#E3EFE7"
+      }, {
+        "type": "color",
+        "id": "badge_color",
+        "label": "Badge text color",
+        "default": "#2F6B4F"
+      }, {
+        "type": "color",
+        "id": "card_bg",
+        "label": "Product card background",
+        "default": "#FFFFFF"
+      }, {
+        "type": "color",
+        "id": "card_border",
+        "label": "Product card border",
+        "default": "#ECE7DC"
+      }, {
+        "type": "range",
+        "id": "image_radius",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "Card corner radius",
+        "default": 16
+      }, {
+        "type": "range",
+        "id": "container_max_width",
+        "min": 800,
+        "max": 1600,
+        "step": 10,
+        "unit": "px",
+        "label": "Container max width",
+        "default": 1200
+      }, {
+        "type": "range",
+        "id": "container_padding",
+        "min": 0,
+        "max": 60,
+        "step": 1,
+        "unit": "px",
+        "label": "Container side padding",
+        "default": 15
+      }, {
+        "type": "text",
+        "id": "custom_class",
+        "label": "Custom section class",
+        "info": "Optional extra class for per-instance styling."
+      }, {
+        "type": "header",
+        "content": "Spacing"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 160,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top (desktop)",
+        "default": 90
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 160,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom (desktop)",
+        "default": 90
+      }, {
+        "type": "range",
+        "id": "padding_top_mb",
+        "min": 0,
+        "max": 120,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top (mobile)",
+        "default": 56
+      }, {
+        "type": "range",
+        "id": "padding_bottom_mb",
+        "min": 0,
+        "max": 120,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom (mobile)",
+        "default": 56
+      }
+    ],
+    "presets": [
+      {
+        "name": "YAMAN Routine",
+        "category": "YAMAN"
+      }
+    ]
+  }
 {% endschema %}

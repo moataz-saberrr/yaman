@@ -90,7 +90,20 @@
       endif -%}
       <h3><a data-pr-url href="{{ product_url }}" class="hdt-card-product__title hdt-text-{{ settings.pr_title_size }} hdt-font-{{ settings.pr_title_weight }} hdt-line-clamp" data-instant>{{ card_product.title | default: "Product title" | escape }}</a></h3>
       {%- liquid
-        render 'card-price', section_id: section_id, product: card_product, show_volume_note: true
+        render 'card-price', section_id: section_id, product: card_product, show_volume_note: true, remove_zeros: true
+      -%}
+      {%- if show_installment and card_product.price != blank -%}
+        {%- assign installment_price = card_product.price | divided_by: 4 -%}
+        {%- if settings.currency_code_enabled -%}
+          {%- assign inst_formatted = installment_price | money_without_trailing_zeros | append: ' ' | append: cart.currency.iso_code -%}
+        {%- else -%}
+          {%- assign inst_formatted = installment_price | money_without_trailing_zeros -%}
+        {%- endif -%}
+        <div class="hdt-yaman-routine__installment hdt-text-base hdt-font-normal">
+          or {{ inst_formatted }}/month
+        </div>
+      {%- endif -%}
+      {%- liquid
         render 'color-list', section_id: section_id, product: card_product, product_url: product_url, placement: 'top'
       -%}
     </div>

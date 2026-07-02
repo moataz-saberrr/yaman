@@ -45,6 +45,14 @@
     assign money_price_min = price_min | money
     assign money_price_max = price_max | money
   endif
+
+  if remove_zeros
+    assign money_price = money_price | replace: '.00', '' | replace: ',00', ''
+    assign money_compare_at_price = money_compare_at_price | replace: '.00', '' | replace: ',00', ''
+    assign money_price_min = money_price_min | replace: '.00', '' | replace: ',00', ''
+    assign money_price_max = money_price_max | replace: '.00', '' | replace: ',00', ''
+  endif
+
   if compare_at_price > price
     assign on_sale = true
   else

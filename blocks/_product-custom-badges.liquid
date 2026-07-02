@@ -1,0 +1,217 @@
+<div class="hdt-product-info__item hdt-product__custom-badges" {{ block.shopify_attributes }}>
+  <div class="hdt-custom-badges-wrap">
+    {%- for i in (1..4) -%}
+      {%- capture text_key -%}text_{{ i }}{%- endcapture -%}
+      {%- capture icon_svg_key -%}icon_svg_{{ i }}{%- endcapture -%}
+      {%- capture icon_image_key -%}icon_image_{{ i }}{%- endcapture -%}
+      {%- capture bg_color_key -%}bg_color_{{ i }}{%- endcapture -%}
+
+      {%- assign text = block.settings[text_key] -%}
+      {%- assign icon_svg = block.settings[icon_svg_key] -%}
+      {%- assign icon_image = block.settings[icon_image_key] -%}
+      {%- assign bg_color = block.settings[bg_color_key] -%}
+
+      {%- if text != blank or icon_svg != blank or icon_image != blank -%}
+        <div class="hdt-custom-badge-item" style="background-color: {{ bg_color }};">
+          {%- if icon_svg != blank -%}
+            <span class="hdt-badge-icon">{{ icon_svg }}</span>
+          {%- elsif icon_image != blank -%}
+            <img src="{{ icon_image | image_url: width: 40 }}" alt="{{ text | escape }}" width="{{ icon_image.width }}" height="{{ icon_image.height }}" class="hdt-badge-icon-img" loading="lazy">
+          {%- endif -%}
+          
+          {%- if text != blank -%}
+            <span class="hdt-badge-text">{{ text }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .hdt-product__custom-badges {
+    margin: 20px 0;
+  }
+  .hdt-custom-badges-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .hdt-custom-badge-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    border-radius: 8px;
+    /* flex: 1 1 auto; */
+    /* min-width: fit-content; */
+  }
+  .hdt-badge-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b; /* Blueish grey from screenshot */
+  }
+  .hdt-badge-icon svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+    fill: currentColor;
+    stroke: currentColor;
+  }
+  .hdt-badge-icon-img {
+    width: 16px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .hdt-badge-text {
+    color: #64748b;
+    white-space: nowrap;
+    font-family: DIN Next LT W23;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 19px;
+    text-align: center;
+    flex-direction: row-reverse;
+  }
+
+  @media (max-width: 767px) {
+    .hdt-custom-badges-wrap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .hdt-custom-badge-item {
+      padding: 12px 10px;
+      flex-direction: row-reverse;
+      text-align: center;
+    }
+    .hdt-badge-text {
+      text-transform: none;
+      font-size: 10px;
+      white-space: normal;
+      font-weight: 500;
+      line-height: 12.46px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Badges",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Badge 1"
+    },
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Text",
+      "default": "1Year Warranty"
+    },
+    {
+      "type": "liquid",
+      "id": "icon_svg_1",
+      "label": "Icon SVG"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image_1",
+      "label": "Icon Image"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_1",
+      "label": "Background Color",
+      "default": "#F9F8F3"
+    },
+    {
+      "type": "header",
+      "content": "Badge 2"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Text",
+      "default": "100% Secure Checkout"
+    },
+    {
+      "type": "liquid",
+      "id": "icon_svg_2",
+      "label": "Icon SVG"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image_2",
+      "label": "Icon Image"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_2",
+      "label": "Background Color",
+      "default": "#F9F8F3"
+    },
+    {
+      "type": "header",
+      "content": "Badge 3"
+    },
+    {
+      "type": "text",
+      "id": "text_3",
+      "label": "Text",
+      "default": "WhatsApp Support"
+    },
+    {
+      "type": "liquid",
+      "id": "icon_svg_3",
+      "label": "Icon SVG"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image_3",
+      "label": "Icon Image"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_3",
+      "label": "Background Color",
+      "default": "#F9F8F3"
+    },
+    {
+      "type": "header",
+      "content": "Badge 4"
+    },
+    {
+      "type": "text",
+      "id": "text_4",
+      "label": "Text",
+      "default": "Official YA-MAN Product"
+    },
+    {
+      "type": "liquid",
+      "id": "icon_svg_4",
+      "label": "Icon SVG"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image_4",
+      "label": "Icon Image"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_4",
+      "label": "Background Color",
+      "default": "#F9F8F3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Badges"
+    }
+  ]
+}
+{% endschema %}

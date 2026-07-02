@@ -1,0 +1,158 @@
+<div class="hdt-product-info__item hdt-product__icon-texts" {{ block.shopify_attributes }}>
+  <div class="hdt-icon-texts-wrapper">
+    {%- for i in (1..4) -%}
+      {%- capture text_key -%}text_{{ i }}{%- endcapture -%}
+      {%- capture icon_svg_key -%}icon_svg_{{ i }}{%- endcapture -%}
+      {%- capture icon_image_key -%}icon_image_{{ i }}{%- endcapture -%}
+
+      {%- assign text = block.settings[text_key] -%}
+      {%- assign icon_svg = block.settings[icon_svg_key] -%}
+      {%- assign icon_image = block.settings[icon_image_key] -%}
+
+      {%- if text != blank or icon_svg != blank or icon_image != blank -%}
+        <div class="hdt-icon-text-item">
+          {%- if text != blank -%}
+            <span class="hdt-icon-text-label">{{ text }}</span>
+          {%- endif -%}
+
+          {%- if icon_svg != blank -%}
+            <span class="hdt-icon-text-svg">{{ icon_svg }}</span>
+          {%- elsif icon_image != blank -%}
+            <img src="{{ icon_image | image_url: width: 40 }}" alt="{{ text | escape }}" width="{{ icon_image.width }}" height="{{ icon_image.height }}" class="hdt-icon-text-img" loading="lazy">
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .hdt-product__icon-texts {
+    margin: 15px 0;
+  }
+  .hdt-icon-texts-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 30px; /* Space between each item */
+    row-gap: 10px; /* Space between each item */
+    justify-content: center;
+  }
+  .hdt-icon-text-item {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between text and icon */
+    font-size: 14px;
+    color: #666666; /* Light gray text similar to the screenshot */
+    line-height: 1.2;
+  }
+  .hdt-icon-text-svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hdt-icon-text-svg svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    display: block;
+  }
+  .hdt-icon-text-img {
+    width: 20px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Icon Texts Row",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Item 1"
+    },
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Text 1",
+      "default": "Shipping within 1-2 business days"
+    },
+    {
+      "type": "liquid",
+      "id": "icon_svg_1",
+      "label": "Icon SVG 1 (Priority)"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image_1",
+      "label": "Icon Image 1 (Fallback)"
+    },
+    {
+      "type": "header",
+      "content": "Item 2"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Text 2",
+      "default": "Free shipping on all orders."
+    },
+    {
+      "type": "liquid",
+      "id": "icon_svg_2",
+      "label": "Icon SVG 2 (Priority)"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image_2",
+      "label": "Icon Image 2 (Fallback)"
+    },
+    {
+      "type": "header",
+      "content": "Item 3"
+    },
+    {
+      "type": "text",
+      "id": "text_3",
+      "label": "Text 3"
+    },
+    {
+      "type": "liquid",
+      "id": "icon_svg_3",
+      "label": "Icon SVG 3 (Priority)"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image_3",
+      "label": "Icon Image 3 (Fallback)"
+    },
+    {
+      "type": "header",
+      "content": "Item 4"
+    },
+    {
+      "type": "text",
+      "id": "text_4",
+      "label": "Text 4"
+    },
+    {
+      "type": "liquid",
+      "id": "icon_svg_4",
+      "label": "Icon SVG 4 (Priority)"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image_4",
+      "label": "Icon Image 4 (Fallback)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon Texts Row"
+    }
+  ]
+}
+{% endschema %}
