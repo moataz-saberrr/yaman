@@ -1,0 +1,628 @@
+<!-- section/yaman-real-routines-video-n.liquid — YAMAN Routines.
+     Product-page "Watch Real Routines Tailored to Your Needs" shoppable video /
+     real-routines carousel. Adapted from (but does NOT modify) the Kalles base
+     sections/shoppable-video-n.liquid.
+     Carousel = the native Kalles <hdt-slider> custom element (same contract as the
+     base: .hdt-slider__viewport > .hdt-slider__container > .hdt-slider__slide, with
+     --slide-size / --slide-spacing driving widths). NOT a native/CSS-snap/Flickity
+     carousel. Slides are inline section blocks looped as .hdt-slider__slide elements.
+     CSS: assets/custom-productan.css (loaded globally from layout/theme.liquid).
+     JS: assets/yaman-real-routines-video-n.js handles ONLY video play/pause. -->
+{%- liquid
+  assign cols_dk = section.settings.cols_dk | default: '5'
+  assign cols_tb = section.settings.cols_tb | default: '3.3'
+  assign cols_mb = section.settings.cols_mb | default: '2.3'
+-%}
+<div
+  class="hdt-yaman-routines"
+  style="
+    --rt-cols-dk: {{ cols_dk }};
+    --rt-cols-tb: {{ cols_tb }};
+    --rt-cols-mb: {{ cols_mb }};
+    --rt-maxw: {{ section.settings.container_max_width }}px;
+    --rt-pad-x: {{ section.settings.container_padding }}px;
+    --rt-bg: {{ section.settings.background_color }};
+    --rt-gap: {{ section.settings.gap }}px;
+    --rt-gap-tb: {{ section.settings.gap_tb }}px;
+    --rt-gap-mb: {{ section.settings.gap_mb }}px;
+    --rt-radius: {{ section.settings.card_radius }}px;
+    --rt-card-bg: {{ section.settings.card_bg }};
+    --rt-ratio: {{ section.settings.media_ratio }};
+    --rt-scrim: {{ section.settings.scrim_color }};
+    --rt-scrim-op: {{ section.settings.scrim_opacity | divided_by: 100.0 }};
+    --rt-label-color: {{ section.settings.label_text_color }};
+    --rt-pt: {{ section.settings.padding_top }}px;
+    --rt-pb: {{ section.settings.padding_bottom }}px;
+    --rt-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --rt-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+  "
+>
+  <div class="hdt-yaman-routines__container">
+    <div class="hdt-yaman-routines__header">
+      <div class="hdt-yaman-routines__intro">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="hdt-yaman-routines__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="hdt-yaman-routines__subtitle">{{ section.settings.subtitle }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- liquid
+        assign has_rating = false
+        if section.settings.rating_value != blank or section.settings.rating_text != blank
+          assign has_rating = true
+        endif
+        assign has_proof = false
+        if section.settings.proof_heading != blank or section.settings.proof_text != blank
+          assign has_proof = true
+        endif
+      -%}
+      {%- if has_rating or has_proof -%}
+        <div class="hdt-yaman-routines__proof">
+          {%- if has_rating -%}
+            <div class="hdt-yaman-routines__proof-item hdt-yaman-routines__proof-item--rating">
+              <div class="hdt-yaman-routines__proof-head">
+                <span class="hdt-yaman-routines__proof-icon hdt-yaman-routines__proof-icon--star">
+                  {%- if section.settings.rating_icon != blank -%}
+                    {{ section.settings.rating_icon | image_url: width: 72 | image_tag: loading: 'lazy', widths: '24,36,48,72', alt: '' }}
+                  {%- else -%}
+                    <span aria-hidden="true">{{ section.settings.rating_icon_text | default: '★' }}</span>
+                  {%- endif -%}
+                </span>
+                {%- if section.settings.rating_value != blank -%}
+                  <span class="hdt-yaman-routines__proof-value">{{ section.settings.rating_value }}</span>
+                {%- endif -%}
+              </div>
+              {%- if section.settings.rating_text != blank -%}
+                <p class="hdt-yaman-routines__proof-text">{{ section.settings.rating_text }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if has_rating and has_proof -%}
+            <span class="hdt-yaman-routines__proof-divider" aria-hidden="true"></span>
+          {%- endif -%}
+
+          {%- if has_proof -%}
+            <div class="hdt-yaman-routines__proof-item hdt-yaman-routines__proof-item--proof">
+              <div class="hdt-yaman-routines__proof-head">
+                <span class="hdt-yaman-routines__proof-icon hdt-yaman-routines__proof-icon--cam">
+                  {%- if section.settings.proof_icon != blank -%}
+                    {{ section.settings.proof_icon | image_url: width: 72 | image_tag: loading: 'lazy', widths: '24,36,48,72', alt: '' }}
+                  {%- else -%}
+                    <span aria-hidden="true">{{ section.settings.proof_icon_text | default: '📷' }}</span>
+                  {%- endif -%}
+                </span>
+                {%- if section.settings.proof_heading != blank -%}
+                  <span class="hdt-yaman-routines__proof-value hdt-yaman-routines__proof-value--proof">{{ section.settings.proof_heading }}</span>
+                {%- endif -%}
+              </div>
+              {%- if section.settings.proof_text != blank -%}
+                <p class="hdt-yaman-routines__proof-text">{{ section.settings.proof_text }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <hdt-slider
+      id="Slider-{{ section.id }}"
+      class="hdt-slider hdt-relative hdt-yaman-routines__slider lg:hdt-slides-5 md:hdt-slides-3 hdt-slides-1"
+      config='{ "id": "Slider-{{ section.id }}", "navUI": {{ section.settings.enable_arrows }}, "dotUI": {{ section.settings.enable_dots }}, "loop": {{ section.settings.loop }}, "autoPlay": 0, "pauseOnHover": true }'
+    >
+      <div class="hdt-slider__viewport hdt-relative hdt-yaman-routines__viewport">
+        <div class="hdt-slider__container hdt-yaman-routines__track">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign rt_video = block.settings.video
+              assign rt_poster = block.settings.poster
+              assign rt_product = block.settings.product
+
+              # Label: manual label first, else the selected product's title.
+              assign rt_label = block.settings.label
+              if rt_label == blank and rt_product != blank
+                assign rt_label = rt_product.title
+              endif
+
+              # Link: custom override first, else product url.
+              assign rt_link = block.settings.custom_link
+              if rt_link == blank and rt_product != blank
+                assign rt_link = rt_product.url
+              endif
+
+              # Label-bar icon: custom image first, else the product image,
+              # else the built-in Figma icon (handled in the markup below).
+              assign rt_product_img = null
+              if rt_product != blank and rt_product.featured_image != blank
+                assign rt_product_img = rt_product.featured_image
+              endif
+
+              assign rt_alt = block.settings.alt | default: rt_label
+            -%}
+            <div class="hdt-slider__slide hdt-yaman-routines__slide" data-rt-card {{ block.shopify_attributes }}>
+              <div class="hdt-yaman-routines__card">
+                <div
+                  class="hdt-yaman-routines__media"
+                  data-rt-media
+                  role="button"
+                  tabindex="0"
+                  aria-label="{{ 'Play video' | escape }}"
+                >
+                  {%- if rt_video != blank -%}
+                    <video
+                      class="hdt-yaman-routines__video"
+                      data-rt-video
+                      playsinline
+                      muted
+                      preload="metadata"
+                      {% if section.settings.video_loop %}loop{% endif %}
+                      {% if rt_poster != blank %}poster="{{ rt_poster | image_url: width: 800 }}"{% endif %}
+                    >
+                      {%- for source in rt_video.sources -%}
+                        <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                      {%- endfor -%}
+                    </video>
+                  {%- elsif rt_poster != blank -%}
+                    {{ rt_poster | image_url: width: 800 | image_tag: loading: 'lazy', class: 'hdt-yaman-routines__poster', alt: rt_alt, widths: '300,400,600,800' }}
+                  {%- else -%}
+                    <span class="hdt-yaman-routines__placeholder" aria-hidden="true"></span>
+                  {%- endif -%}
+
+                  <span class="hdt-yaman-routines__scrim" aria-hidden="true"></span>
+
+                  <span class="hdt-yaman-routines__play" data-rt-play aria-hidden="true">
+                    <span class="hdt-yaman-routines__play-bg"></span>
+                    <svg class="hdt-yaman-routines__play-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 5.5v13l11-6.5L8 5.5z" fill="currentColor"/>
+                    </svg>
+                    <svg class="hdt-yaman-routines__pause-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="7" y="5" width="3.6" height="14" rx="1.2" fill="currentColor"/>
+                      <rect x="13.4" y="5" width="3.6" height="14" rx="1.2" fill="currentColor"/>
+                    </svg>
+                  </span>
+                </div>
+
+                {%- assign rt_icon_img = block.settings.label_icon -%}
+                {%- assign rt_icon_txt = block.settings.label_icon_text -%}
+
+                {%- capture rt_labelbar_inner -%}
+                  <span class="hdt-yaman-routines__label-icon">
+                    {%- if rt_icon_img != blank -%}
+                      {{ rt_icon_img | image_url: width: 100 | image_tag: loading: 'lazy', widths: '50,75,100', alt: block.settings.label_icon_alt | default: '' }}
+                    {%- elsif rt_product_img != blank -%}
+                      {{ rt_product_img | image_url: width: 100 | image_tag: loading: 'lazy', widths: '50,75,100', alt: block.settings.label_icon_alt | default: rt_label | escape }}
+                    {%- elsif rt_icon_txt != blank -%}
+                      <span class="hdt-yaman-routines__label-icon-text" aria-hidden="true">{{ rt_icon_txt }}</span>
+                    {%- else -%}
+                      <img src="{{ 'yaman-routines-label-icon.png' | asset_url }}" alt="" loading="lazy" width="50" height="50">
+                    {%- endif -%}
+                  </span>
+                  {%- if rt_label != blank -%}
+                    <span class="hdt-yaman-routines__label">{{ rt_label }}</span>
+                  {%- endif -%}
+                {%- endcapture -%}
+
+                {%- if rt_link != blank -%}
+                  <a class="hdt-yaman-routines__labelbar" href="{{ rt_link }}" data-rt-link>{{ rt_labelbar_inner }}</a>
+                {%- else -%}
+                  <div class="hdt-yaman-routines__labelbar">{{ rt_labelbar_inner }}</div>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      {%- if section.settings.enable_arrows -%}
+        <div class="hdt-navigation hdt-position-default hdt-visible-always hdt-style-outline hdt-shape-rounded hdt-size-small hdt-hide-mobile-{{ section.settings.hide_arrows_mobile }}">
+          <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--prev" type="button" disabled name="previous" aria-label="previous">
+            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/></svg>
+          </button>
+          <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--next" type="button" disabled name="next" aria-label="next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/></svg>
+          </button>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.enable_dots -%}
+        <div hdt-slider-dots aria-controls="Slider-{{ section.id }}" class="hdt-slider__dots hdt-pagination hdt-position-center hdt-style-default hdt-radius-true hdt-hide-mobile-{{ section.settings.hide_dots_mobile }}" style="--space-between: 10px; --margin-top: 18px;" hdt-reveal="slide-in" timeline></div>
+      {%- endif -%}
+    </hdt-slider>
+  </div>
+</div>
+
+{%- comment -%} custom-productan.css is loaded globally (with preload) from layout/theme.liquid.
+   <hdt-slider> is a theme-wide custom element (defined in the theme's global JS) — nothing to load
+   for the carousel here. Only the small, section-scoped video play/pause script is loaded. {%- endcomment -%}
+<script src="{{ 'yaman-real-routines-video-n.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "YAMAN Routines",
+  "tag": "section",
+  "class": "hdt-yaman-routines-section hdt-section",
+  "max_blocks": 16,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Watch Real Routines Tailored to Your Needs"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Real users, authentic daily rituals. See how the Medi Lift Plus advanced EMS technology lifts, sculpts, and refines muscle tone over time"
+    },
+    {
+      "type": "header",
+      "content": "Rating (right side)"
+    },
+    {
+      "type": "image_picker",
+      "id": "rating_icon",
+      "label": "Rating icon",
+      "info": "Optional. Falls back to the icon text below."
+    },
+    {
+      "type": "text",
+      "id": "rating_icon_text",
+      "label": "Rating icon text / emoji",
+      "default": "★"
+    },
+    {
+      "type": "text",
+      "id": "rating_value",
+      "label": "Rating value",
+      "default": "4.7 / 5"
+    },
+    {
+      "type": "textarea",
+      "id": "rating_text",
+      "label": "Rating supporting text",
+      "default": "Based on 1,200+ Verified User Experiences"
+    },
+    {
+      "type": "header",
+      "content": "Proof (right side)"
+    },
+    {
+      "type": "image_picker",
+      "id": "proof_icon",
+      "label": "Proof icon",
+      "info": "Optional. Falls back to the icon text below."
+    },
+    {
+      "type": "text",
+      "id": "proof_icon_text",
+      "label": "Proof icon text / emoji",
+      "default": "📷"
+    },
+    {
+      "type": "text",
+      "id": "proof_heading",
+      "label": "Proof heading",
+      "default": "Real results"
+    },
+    {
+      "type": "textarea",
+      "id": "proof_text",
+      "label": "Proof text",
+      "default": "documented by 143+ verified customers"
+    },
+    {
+      "type": "header",
+      "content": "Container"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 960,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1310
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Cards / carousel"
+    },
+    {
+      "type": "select",
+      "id": "cols_dk",
+      "label": "Cards per view (desktop)",
+      "default": "5",
+      "options": [
+        { "label": "4", "value": "4" },
+        { "label": "5", "value": "5" },
+        { "label": "6", "value": "6" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "cols_tb",
+      "label": "Cards per view (tablet)",
+      "default": "3.3",
+      "options": [
+        { "label": "2 + peek", "value": "2.3" },
+        { "label": "3 + peek", "value": "3.3" },
+        { "label": "4", "value": "4" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "cols_mb",
+      "label": "Cards per view (mobile)",
+      "default": "2.3",
+      "options": [
+        { "label": "1 + peek", "value": "1.25" },
+        { "label": "2 + peek", "value": "2.3" },
+        { "label": "3", "value": "3" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "media_ratio",
+      "label": "Video aspect ratio (reel)",
+      "info": "e.g. 9 / 16 for reels.",
+      "default": "9 / 16"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Card corner radius",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Card gap (desktop)",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "gap_tb",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Card gap (tablet)",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "gap_mb",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Card gap (mobile)",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "scrim_color",
+      "label": "Video overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "scrim_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "%",
+      "label": "Video overlay opacity",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "label_text_color",
+      "label": "Label text color",
+      "default": "#414141"
+    },
+    {
+      "type": "header",
+      "content": "Carousel controls"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_arrows",
+      "label": "Show arrows",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_arrows_mobile",
+      "label": "Hide arrows on mobile",
+      "default": true,
+      "visible_if": "{{ section.settings.enable_arrows }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_dots",
+      "label": "Show pagination dots",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_dots_mobile",
+      "label": "Hide dots on mobile",
+      "default": true,
+      "visible_if": "{{ section.settings.enable_dots }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop carousel",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_loop",
+      "label": "Loop videos",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Shopify-hosted video. Leave empty to show the poster image only."
+        },
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "Poster image",
+          "info": "Shown before the video plays, or as a fallback when no video is set."
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Accessibility label",
+          "info": "Describes the video/poster for screen readers."
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Bottom label",
+          "default": "Jawline Definition"
+        },
+        {
+          "type": "image_picker",
+          "id": "label_icon",
+          "label": "Label icon image",
+          "info": "Optional. If empty, the selected product's image is used, otherwise the built-in icon."
+        },
+        {
+          "type": "text",
+          "id": "label_icon_text",
+          "label": "Label icon text / emoji",
+          "info": "Optional. Only used when no icon image and no product are set."
+        },
+        {
+          "type": "text",
+          "id": "label_icon_alt",
+          "label": "Label icon alt text"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product (optional)",
+          "info": "Optional. When set, its image shows as the label icon and its title as the label (unless overridden above); its URL is the label link if no custom link is set."
+        },
+        {
+          "type": "url",
+          "id": "custom_link",
+          "label": "Custom link override",
+          "info": "If empty, the selected product's URL is used (if any)."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Routines",
+      "category": "YAMAN",
+      "blocks": [
+        { "type": "video", "settings": { "label": "Jawline Definition" } },
+        { "type": "video", "settings": { "label": "Puffiness" } },
+        { "type": "video", "settings": { "label": "Firmness" } },
+        { "type": "video", "settings": { "label": "Ease of Use" } },
+        { "type": "video", "settings": { "label": "Before & After" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

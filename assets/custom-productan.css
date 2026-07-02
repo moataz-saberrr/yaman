@@ -1070,3 +1070,710 @@
     gap: var(--hu-gap-mb, 16px);
   }
 }
+
+/* ===========================================================================
+ * Section: YAMAN Mask Compare  (sections/yaman-mask-comparison-n.liquid)
+ * 3-column comparison table: Feature label | Medi Lift PLUS by YA-MAN (dark
+ * navy, highlighted) | Traditional Lower-Face Masks. Subtle full-bleed
+ * background image + light overlay, centered header, editable "row" blocks.
+ * Scoped under .hdt-yaman-mask-compare-section. Logical properties for RTL.
+ * =========================================================================== */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare {
+  position: relative;
+  background-color: var(--mc-bg, #ffffff);
+  padding-top: var(--mc-pt, 65px);
+  padding-bottom: var(--mc-pb, 65px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---- Subtle background image + light overlay ----------------------------- */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__bg-img {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-color: color-mix(
+    in srgb,
+    var(--mc-overlay, #ffffff) calc(var(--mc-overlay-op, 0.86) * 100%),
+    transparent
+  );
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__container {
+  position: relative;
+  z-index: 2;
+  max-inline-size: var(--mc-maxw, 1290px);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* ---- Header (Figma: heading 48/Bold/#070707, subtitle 18/Regular) -------- */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__header {
+  text-align: center;
+  max-inline-size: 900px;
+  margin-inline: auto;
+  margin-block-end: 40px;
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__heading {
+  margin: 0;
+  color: #070707;
+  font-weight: 700;
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.48px;
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__subtitle {
+  margin: 16px auto 0;
+  max-inline-size: 640px;
+  color: rgba(7, 7, 7, 0.5);
+  font-size: clamp(14px, 1.6vw, 18px);
+  line-height: 24px;
+}
+
+/* ---- Table shell --------------------------------------------------------- */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__table-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__table {
+  inline-size: 100%;
+  max-inline-size: var(--mc-tablew, 1096px);
+  border-radius: var(--mc-radius, 12px);
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(29, 40, 71, 0.08);
+}
+
+/* ---- Rows / cells (flex: same column ratios keep columns aligned) -------- */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__row {
+  display: flex;
+  align-items: stretch;
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-inline-size: 0;
+  padding-block: 12px;
+  padding-inline: 16px;
+}
+
+/* Column widths — feature column is wider, product columns equal */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell--feature {
+  flex: 1.55 1 0;
+  justify-content: flex-start;
+  text-align: start;
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell--main {
+  flex: 1.05 1 0;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--mc-main-bg, #1d2847);
+  color: var(--mc-main-text, #f8f7f0);
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell--other {
+  flex: 1 1 0;
+  justify-content: center;
+  text-align: center;
+  color: var(--mc-other-accent, #a02828);
+}
+
+/* ---- Header row ---------------------------------------------------------- */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__row--head {
+  background-color: var(--mc-header-bg, #f8f7f0);
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__col-header {
+  flex-direction: column;
+  gap: 10px;
+  padding-block: 18px;
+  min-block-size: 120px;
+}
+
+/* Feature heading stays vertically centred and start-aligned */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__col-header.hdt-yaman-mask-compare__cell--feature {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+/* Navy header cell rounds its own top corners so it reads as a raised column */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__col-header.hdt-yaman-mask-compare__cell--main {
+  border-start-start-radius: var(--mc-radius, 12px);
+  border-start-end-radius: var(--mc-radius, 12px);
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__col-image {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  block-size: 64px;
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__col-image img {
+  display: block;
+  block-size: 100%;
+  inline-size: auto;
+  object-fit: contain;
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__col-title {
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 700;
+  line-height: 1.24;
+  color: var(--mc-title-color, #2a2a2a);
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__col-title--main {
+  color: var(--mc-main-text, #f8f7f0);
+  font-size: clamp(16px, 1.7vw, 20px);
+}
+
+/* ---- Body rows: alternating stripes -------------------------------------- */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__body .hdt-yaman-mask-compare__row {
+  min-block-size: 58px;
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__body .hdt-yaman-mask-compare__row:nth-child(odd) .hdt-yaman-mask-compare__cell--feature,
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__body .hdt-yaman-mask-compare__row:nth-child(odd) .hdt-yaman-mask-compare__cell--other {
+  background-color: var(--mc-row-bg, #ffffff);
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__body .hdt-yaman-mask-compare__row:nth-child(even) .hdt-yaman-mask-compare__cell--feature,
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__body .hdt-yaman-mask-compare__row:nth-child(even) .hdt-yaman-mask-compare__cell--other {
+  background-color: var(--mc-stripe-bg, #f8f7f0);
+}
+
+/* Thin dividers between the navy segments (Figma: 0.3px #f8f7f0) */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__body .hdt-yaman-mask-compare__row .hdt-yaman-mask-compare__cell--main {
+  border-block-start: 1px solid color-mix(in srgb, var(--mc-header-bg, #f8f7f0) 24%, transparent);
+}
+
+/* ---- Feature label + comparison text ------------------------------------- */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell--feature .hdt-yaman-mask-compare__text {
+  font-weight: 700;
+  font-size: clamp(15px, 1.6vw, 22px);
+  line-height: 1.24;
+  color: var(--mc-feature-text, #2a2a2a);
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell--main .hdt-yaman-mask-compare__text,
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell--other .hdt-yaman-mask-compare__text {
+  font-size: clamp(13px, 1.4vw, 18px);
+  font-weight: 300;
+  line-height: 1.34;
+}
+
+/* ---- Inline check / X icons ---------------------------------------------- */
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__icon--check {
+  color: var(--mc-check, #f3efe4);
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__icon--x {
+  color: var(--mc-x, #a02828);
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__icon--img img {
+  display: block;
+  inline-size: 16px;
+  block-size: 16px;
+  object-fit: contain;
+}
+
+.hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__empty {
+  margin: 0;
+  padding-block: 40px;
+  text-align: center;
+  color: rgba(7, 7, 7, 0.5);
+  font-size: 14px;
+}
+
+/* ---- Mobile: keep the compact 3-column table (Figma mobile node) --------- */
+@media (max-width: 767px) {
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare {
+    padding-top: var(--mc-pt-mb, 40px);
+    padding-bottom: var(--mc-pb-mb, 40px);
+  }
+
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__container {
+    padding-inline: 14px;
+  }
+
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__header {
+    margin-block-end: 24px;
+  }
+
+  /* Narrower feature column, roomier product columns for wrapped text */
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell--feature {
+    flex: 1.15 1 0;
+  }
+
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell--main,
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell--other {
+    flex: 1.25 1 0;
+  }
+
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell {
+    padding-block: 10px;
+    padding-inline: 8px;
+    gap: 5px;
+  }
+
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__col-header {
+    min-block-size: 92px;
+    padding-block: 14px;
+    gap: 8px;
+  }
+
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__col-image {
+    block-size: 40px;
+  }
+
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__col-title {
+    font-size: calc(13px * var(--mc-fs-scale, 0.84));
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__col-title--main {
+    font-size: calc(14px * var(--mc-fs-scale, 0.84));
+  }
+
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell--feature .hdt-yaman-mask-compare__text {
+    font-size: calc(15px * var(--mc-fs-scale, 0.84));
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell--main .hdt-yaman-mask-compare__text,
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__cell--other .hdt-yaman-mask-compare__text {
+    font-size: calc(15px * var(--mc-fs-scale, 0.84));
+  }
+
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__icon svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+/* Very small screens: allow horizontal scroll as a last resort so the table
+   never collapses into an unreadable layout */
+@media (max-width: 360px) {
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hdt-yaman-mask-compare-section .hdt-yaman-mask-compare__table {
+    min-inline-size: 340px;
+  }
+}
+
+/* ===========================================================================
+ * Section: YAMAN Routines  (sections/yaman-real-routines-video-n.liquid)
+ * "Watch Real Routines Tailored to Your Needs" shoppable real-routines video
+ * carousel. Carousel = native Kalles <hdt-slider> (widths via --slide-size /
+ * --slide-spacing). Reel-style cards, split header (intro + rating/proof).
+ * Scoped under .hdt-yaman-routines-section. Logical properties for RTL.
+ * =========================================================================== */
+.hdt-yaman-routines-section .hdt-yaman-routines {
+  background-color: var(--rt-bg, #ffffff);
+  padding-top: var(--rt-pt, 65px);
+  padding-bottom: var(--rt-pb, 65px);
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__container {
+  max-inline-size: var(--rt-maxw, 1310px);
+  margin-inline: auto;
+  padding-inline: var(--rt-pad-x, 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ---- Header: intro (start) + rating/proof (end) -------------------------- */
+.hdt-yaman-routines-section .hdt-yaman-routines__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px 40px;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__intro {
+  min-inline-size: 0;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__heading {
+  margin: 0;
+  color: #070707;
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.48px;
+  max-inline-size: 701px;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__subtitle {
+  margin: 16px 0 0;
+  max-inline-size: 701px;
+  color: rgba(7, 7, 7, 0.5);
+  font-size: clamp(14px, 1.4vw, 18px);
+  line-height: 24px;
+}
+
+/* ---- Rating / proof group ------------------------------------------------ */
+.hdt-yaman-routines-section .hdt-yaman-routines__proof {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__proof-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-inline-size: 0;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__proof-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__proof-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  line-height: 1;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__proof-icon img {
+  display: block;
+  block-size: 34px;
+  inline-size: auto;
+  object-fit: contain;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__proof-icon--star {
+  color: #b89a5e;
+  font-size: 28px;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__proof-icon--cam {
+  font-size: 26px;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__proof-value {
+  color: #1d2847;
+  font-weight: 700;
+  font-size: clamp(24px, 2.4vw, 36px);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__proof-value--proof {
+  font-size: clamp(18px, 1.8vw, 22px);
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__proof-text {
+  margin: 0;
+  max-inline-size: 200px;
+  color: rgba(7, 7, 7, 0.4);
+  font-size: clamp(13px, 1.4vw, 18px);
+  line-height: 1.34;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__proof-divider {
+  align-self: center;
+  inline-size: 1px;
+  block-size: 56px;
+  background-color: rgba(7, 7, 7, 0.1);
+  flex: 0 0 auto;
+}
+
+/* ---- Native <hdt-slider> sizing (peek via --slide-size) ------------------ */
+.hdt-yaman-routines-section .hdt-yaman-routines__slider {
+  display: block;
+  inline-size: 100%;
+  --slide-spacing: var(--rt-gap, 14px);
+}
+
+/* The Kalles slider viewport clips overflow, which would cut off each card's
+   drop shadow. Pad the viewport (and pull it back with a negative margin so the
+   cards stay aligned with the header) so the shadow has room to render. */
+.hdt-yaman-routines-section .hdt-yaman-routines__viewport {
+  padding-block: 10px 24px;
+  padding-inline: 10px;
+  margin-inline: -10px;
+}
+
+/* Desktop: N full cards, no peek */
+@media (min-width: 1150px) {
+  .hdt-yaman-routines-section .hdt-yaman-routines__slider {
+    --slide-size: calc(100% / var(--rt-cols-dk, 5));
+  }
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__slide {
+  min-inline-size: 0;
+}
+
+/* ---- Card ---------------------------------------------------------------- */
+.hdt-yaman-routines-section .hdt-yaman-routines__card {
+  display: flex;
+  flex-direction: column;
+  background: var(--rt-card-bg, #ffffff);
+  border-radius: var(--rt-radius, 16px);
+  overflow: hidden;
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* ---- Media: reel-style, dark overlay, centred play ----------------------- */
+.hdt-yaman-routines-section .hdt-yaman-routines__media {
+  position: relative;
+  aspect-ratio: var(--rt-ratio, 9 / 16);
+  background: #17171b;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__video,
+.hdt-yaman-routines-section .hdt-yaman-routines__poster,
+.hdt-yaman-routines-section .hdt-yaman-routines__placeholder {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__placeholder {
+  background: linear-gradient(150deg, #2a2f3d, #12151d);
+}
+
+/* Dark scrim for readability; fades once the video is playing */
+.hdt-yaman-routines-section .hdt-yaman-routines__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-color: color-mix(
+    in srgb,
+    var(--rt-scrim, #000000) calc(var(--rt-scrim-op, 0.4) * 100%),
+    transparent
+  );
+  transition: opacity 0.25s ease;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__slide.is-playing .hdt-yaman-routines__scrim {
+  opacity: 0;
+}
+
+/* Centre play/pause button */
+.hdt-yaman-routines-section .hdt-yaman-routines__play {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  transform: translate(-50%, -50%);
+  inline-size: 64px;
+  block-size: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+[dir="rtl"] .hdt-yaman-routines-section .hdt-yaman-routines__play {
+  transform: translate(50%, -50%);
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__play-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(2px);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__play-icon,
+.hdt-yaman-routines-section .hdt-yaman-routines__pause-icon {
+  position: relative;
+  z-index: 1;
+}
+
+/* Default (paused): show play triangle, hide pause bars */
+.hdt-yaman-routines-section .hdt-yaman-routines__pause-icon { display: none; }
+.hdt-yaman-routines-section .hdt-yaman-routines__slide.is-playing .hdt-yaman-routines__play-icon { display: none; }
+.hdt-yaman-routines-section .hdt-yaman-routines__slide.is-playing .hdt-yaman-routines__pause-icon { display: block; }
+
+/* While playing, fade the centre button; reveal on hover */
+.hdt-yaman-routines-section .hdt-yaman-routines__slide.is-playing .hdt-yaman-routines__play { opacity: 0; }
+.hdt-yaman-routines-section .hdt-yaman-routines__slide.is-playing .hdt-yaman-routines__media:hover .hdt-yaman-routines__play { opacity: 1; }
+
+/* ---- Bottom label bar ---------------------------------------------------- */
+.hdt-yaman-routines-section .hdt-yaman-routines__labelbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-block: 8px;
+  padding-inline: 10px;
+  background: #ffffff;
+  color: var(--rt-label-color, #414141);
+  text-decoration: none;
+  min-block-size: 50px;
+}
+
+/* Linked label bar: pointer cursor, and never underline the title on hover. */
+.hdt-yaman-routines-section a.hdt-yaman-routines__labelbar {
+  cursor: pointer;
+}
+
+.hdt-yaman-routines-section a.hdt-yaman-routines__labelbar:hover,
+.hdt-yaman-routines-section a.hdt-yaman-routines__labelbar:hover .hdt-yaman-routines__label {
+  text-decoration: none;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__label-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  inline-size: 40px;
+  block-size: 40px;
+  border-radius: 999px;
+  overflow: hidden;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__label-icon img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__label {
+  min-inline-size: 0;
+  color: var(--rt-label-color, #414141);
+  font-size: clamp(14px, 1.4vw, 20px);
+  line-height: 1.36;
+  text-align: center;
+  flex: 1 1 auto;
+}
+
+/* ---- Tablet & below: cap card width, keep reel ratio, allow peek --------- */
+@media (max-width: 1149px) {
+  .hdt-yaman-routines-section .hdt-yaman-routines__slider {
+    --slide-spacing: var(--rt-gap-tb, var(--rt-gap, 14px));
+    --slide-size: min(calc(100% / var(--rt-cols-tb, 3.3)), 320px);
+  }
+
+  /* Prevent the last card's peek from causing page overflow */
+  .hdt-yaman-routines-section .hdt-yaman-routines__container {
+    padding-inline-end: 0;
+  }
+}
+
+/* ---- Mobile: compact header, full-bleed carousel, 2 + peek --------------- */
+@media (max-width: 767px) {
+  .hdt-yaman-routines-section .hdt-yaman-routines {
+    padding-top: var(--rt-pt-mb, 36px);
+    padding-bottom: var(--rt-pb-mb, 36px);
+  }
+
+  .hdt-yaman-routines-section .hdt-yaman-routines__container {
+    gap: 22px;
+    padding-inline-end: 0;
+  }
+
+  /* Heading (left) + rating (right, top-aligned); subtitle flows under heading */
+  .hdt-yaman-routines-section .hdt-yaman-routines__header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 12px 16px;
+    padding-inline-end: var(--rt-pad-x, 20px);
+  }
+
+  .hdt-yaman-routines-section .hdt-yaman-routines__heading {
+    font-size: clamp(22px, 6vw, 30px);
+    text-transform: uppercase;
+  }
+
+  .hdt-yaman-routines-section .hdt-yaman-routines__subtitle {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* Mobile shows only the rating summary (matches the mobile design) */
+  .hdt-yaman-routines-section .hdt-yaman-routines__proof {
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  .hdt-yaman-routines-section .hdt-yaman-routines__proof-divider,
+  .hdt-yaman-routines-section .hdt-yaman-routines__proof-item--proof {
+    display: none;
+  }
+
+  .hdt-yaman-routines-section .hdt-yaman-routines__proof-value {
+    font-size: 20px;
+  }
+
+  .hdt-yaman-routines-section .hdt-yaman-routines__proof-text {
+    max-inline-size: 150px;
+    font-size: 12px;
+  }
+
+  /* Full-bleed the carousel to the viewport edges (like the mobile design) */
+  .hdt-yaman-routines-section .hdt-yaman-routines__slider {
+    --slide-spacing: var(--rt-gap-mb, 12px);
+    --slide-size: calc(100% / var(--rt-cols-mb, 2.3));
+    margin-inline: calc(50% - 50vw);
+    padding-inline: 14px;
+    box-sizing: border-box;
+  }
+
+  .hdt-yaman-routines-section .hdt-yaman-routines__label {
+    font-size: 14px;
+  }
+
+  .hdt-yaman-routines-section .hdt-yaman-routines__label-icon {
+    inline-size: 34px;
+    block-size: 34px;
+    font-size: 18px;
+  }
+}
+

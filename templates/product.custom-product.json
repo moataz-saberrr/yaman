@@ -666,6 +666,187 @@
         "padding_bottom_mb": 40
       }
     },
+    "yaman_mask_compare": {
+      "type": "yaman-mask-comparison-n",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "feature_label": "Coverage Areas",
+            "main_text": "Cheeks and jaw area",
+            "other_text": "General lower-face coverage",
+            "main_icon": "check",
+            "other_icon": "x"
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "feature_label": "Targeted Modes",
+            "main_text": "EMS Training Mode + EMS Relaxation Mode",
+            "other_text": "One basic function",
+            "main_icon": "check",
+            "other_icon": "x"
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "feature_label": "Independent Side Control",
+            "main_text": "Adjustable settings for each side",
+            "other_text": "Same setting for both sides",
+            "main_icon": "check",
+            "other_icon": "x"
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "feature_label": "User Experience",
+            "main_text": "Hands-free use",
+            "other_text": "Less flexible fit",
+            "main_icon": "check",
+            "other_icon": "x"
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "feature_label": "Daily Routine",
+            "main_text": "10-minute routine",
+            "other_text": "Longer, less convenient routine",
+            "main_icon": "check",
+            "other_icon": "x"
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "feature_label": "Fit",
+            "main_text": "Flexible design for the lower face",
+            "other_text": "One-size-fits-all",
+            "main_icon": "check",
+            "other_icon": "x"
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6"
+      ],
+      "name": "YAMAN Mask Compare",
+      "settings": {
+        "heading": "Less Effort, a More Practical Routine",
+        "subtitle": "Compare targeted EMS technology with traditional manual use and see the difference for yourself.",
+        "background_color": "#ffffff",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 86,
+        "feature_heading": "Traditional Lower-Face Masks",
+        "main_heading": "Medi Lift PLUS by YA-MAN",
+        "other_heading": "Traditional Lower-Face Masks",
+        "main_bg": "#1d2847",
+        "header_bg": "#f8f7f0",
+        "row_bg": "#ffffff",
+        "stripe_bg": "#f8f7f0",
+        "divider_color": "#eceae1",
+        "main_text_color": "#f8f7f0",
+        "other_accent_color": "#a02828",
+        "feature_text_color": "#2a2a2a",
+        "col_title_color": "#2a2a2a",
+        "check_color": "#f3efe4",
+        "x_color": "#a02828",
+        "container_max_width": 1290,
+        "table_max_width": 1096,
+        "table_radius": 12,
+        "mobile_font_scale": 84,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
+      }
+    },
+    "yaman_routines": {
+      "type": "yaman-real-routines-video-n",
+      "blocks": {
+        "video_1": {
+          "type": "video",
+          "settings": {
+            "label": "Jawline Definition"
+          }
+        },
+        "video_2": {
+          "type": "video",
+          "settings": {
+            "label": "Puffiness"
+          }
+        },
+        "video_3": {
+          "type": "video",
+          "settings": {
+            "label": "Firmness"
+          }
+        },
+        "video_4": {
+          "type": "video",
+          "settings": {
+            "label": "Ease of Use"
+          }
+        },
+        "video_5": {
+          "type": "video",
+          "settings": {
+            "label": "Before & After"
+          }
+        }
+      },
+      "block_order": [
+        "video_1",
+        "video_2",
+        "video_3",
+        "video_4",
+        "video_5"
+      ],
+      "name": "YAMAN Routines",
+      "settings": {
+        "heading": "Watch Real Routines Tailored to Your Needs",
+        "subtitle": "Real users, authentic daily rituals. See how the Medi Lift Plus advanced EMS technology lifts, sculpts, and refines muscle tone over time",
+        "rating_icon_text": "★",
+        "rating_value": "4.7 / 5",
+        "rating_text": "Based on 1,200+ Verified User Experiences",
+        "proof_icon_text": "📷",
+        "proof_heading": "Real results",
+        "proof_text": "documented by 143+ verified customers",
+        "background_color": "#ffffff",
+        "container_max_width": 1310,
+        "container_padding": 20,
+        "cols_dk": "5",
+        "cols_tb": "3.3",
+        "cols_mb": "2.3",
+        "media_ratio": "9 / 16",
+        "card_radius": 16,
+        "gap": 14,
+        "gap_tb": 14,
+        "gap_mb": 12,
+        "card_bg": "#ffffff",
+        "scrim_color": "#000000",
+        "scrim_opacity": 40,
+        "label_text_color": "#414141",
+        "enable_arrows": false,
+        "hide_arrows_mobile": true,
+        "enable_dots": false,
+        "hide_dots_mobile": true,
+        "loop": false,
+        "video_loop": true,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mb": 36,
+        "padding_bottom_mb": 36
+      }
+    },
     "visible_lift": {
       "type": "product-visible-lift-n",
       "disabled": true,
@@ -1624,6 +1805,8 @@
     "yaman_special",
     "yaman_mode_banner",
     "yaman_howuse",
+    "yaman_mask_compare",
+    "yaman_routines",
     "visible_lift",
     "yaman_steps",
     "modes_ticker",
