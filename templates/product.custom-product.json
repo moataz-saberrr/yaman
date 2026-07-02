@@ -520,7 +520,8 @@
     "featured_collection_n_AWXjjw": {
       "type": "featured-collection-n",
       "custom_css": [
-        ".hdt-yaman-routine__container {@media (max-width: 767px) {.hdt-slider__slide {padding-inline-start: 10px !important; } .star-rating__stars img {width: 12px !important; height: 12px !important; } .star-rating__count {color: #070707 !important; font-size: 12px !important; } }}"
+        ".hdt-yaman-routine__container {@media (max-width: 767px) {.star-rating__stars img {width: 12px !important; height: 12px !important; } .star-rating__count {color: #070707 !important; font-size: 12px !important; } }}",
+        ".hdt-yaman-routine__container .hdt-slider__slide {padding-inline-start: 10px !important;}"
       ],
       "settings": {
         "custom_class_featured": "",
