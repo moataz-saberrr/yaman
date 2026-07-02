@@ -348,104 +348,6 @@
         "pd_mb": "20px,,50px,"
       }
     },
-    "yaman_product_proof_n_G4PnLR": {
-      "type": "yaman-product-proof-n",
-      "blocks": {
-        "image_dC7nGR": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
-            "alt": "",
-            "label_left": "",
-            "label_right": "",
-            "caption": ""
-          }
-        },
-        "image_kakTai": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
-            "alt": "",
-            "label_left": "",
-            "label_right": "",
-            "caption": ""
-          }
-        },
-        "image_8HEEaf": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
-            "alt": "",
-            "label_left": "",
-            "label_right": "",
-            "caption": ""
-          }
-        },
-        "stat_Ex8JXW": {
-          "type": "stat",
-          "settings": {
-            "value": "+36%",
-            "text": "More defined jawline",
-            "accent_color": ""
-          }
-        },
-        "stat_7RenzD": {
-          "type": "stat",
-          "settings": {
-            "value": "+42%",
-            "text": "Improved skin firmness",
-            "accent_color": ""
-          }
-        },
-        "stat_Jejtkn": {
-          "type": "stat",
-          "settings": {
-            "value": "+42%",
-            "text": "More lifted-looking appearance",
-            "accent_color": ""
-          }
-        },
-        "stat_xzEDEG": {
-          "type": "stat",
-          "settings": {
-            "value": "-31%",
-            "text": "Less tense-looking appearance",
-            "accent_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_dC7nGR",
-        "image_kakTai",
-        "image_8HEEaf",
-        "stat_Ex8JXW",
-        "stat_7RenzD",
-        "stat_Jejtkn",
-        "stat_xzEDEG"
-      ],
-      "name": "YAMAN Proof",
-      "settings": {
-        "heading": "Noticeable results within weeks of use",
-        "subtitle": "Gradual improvement in the appearance of the skin with consistent use.",
-        "background_color": "#f7f6f1",
-        "container_max_width": 1200,
-        "heading_max_width": 720,
-        "content_gap": 48,
-        "content_gap_mb": 24,
-        "enable_dots": true,
-        "enable_arrows": false,
-        "hide_arrows_mobile": true,
-        "image_radius": 16,
-        "accent_color": "#c79a4b",
-        "card_bg": "#ffffff",
-        "card_border": "#ecece6",
-        "card_shadow": true,
-        "padding_top": 70,
-        "padding_bottom": 70,
-        "padding_top_mb": 45,
-        "padding_bottom_mb": 45
-      }
-    },
     "yaman_marquee": {
       "type": "yaman-shipping-marquee-n",
       "blocks": {
@@ -535,123 +437,14 @@
         "padding_bottom_mb": 14
       }
     },
-    "yaman_special": {
-      "type": "yaman-special-features-n",
-      "blocks": {
-        "card_1": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/6e5da0bac9f281f845a885483126c3d2c27f185b.png",
-            "image_alt": "",
-            "size": "tall",
-            "number": "01",
-            "show_line": true,
-            "title": "DUAL EMS TECHNOLOGY",
-            "description": "Two targeted modes for a firmer-looking, more defined lower face.",
-            "text_color": "",
-            "accent_color": "",
-            "scrim": "none",
-            "overlay_opacity": 40
-          }
-        },
-        "card_2": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/840049a74556cbfe49512ca1dc6e356421fe633a.png",
-            "image_alt": "",
-            "size": "normal",
-            "number": "02",
-            "show_line": true,
-            "title": "EMS TRAINING MODE",
-            "description": "Stimulates the cheek muscles.",
-            "text_color": "",
-            "accent_color": "",
-            "scrim": "none",
-            "overlay_opacity": 40
-          }
-        },
-        "card_3": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/221b5bc62cac50f0cc54d01fab6b348b3c173505.png",
-            "image_alt": "",
-            "size": "normal",
-            "number": "03",
-            "show_line": true,
-            "title": "EMS RELAXATION MODE",
-            "description": "Helps relax the jaw area.",
-            "text_color": "",
-            "accent_color": "",
-            "scrim": "none",
-            "overlay_opacity": 40
-          }
-        },
-        "card_4": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/7252f0a1715c3e8cf05cffec9f4d3b24ab62f527.png",
-            "image_alt": "",
-            "size": "wide",
-            "number": "04",
-            "show_line": true,
-            "title": "HANDS-FREE DESIGN",
-            "description": "Wear it, start your session, and carry on with your day.",
-            "text_color": "#070707",
-            "accent_color": "#c9a844",
-            "scrim": "light",
-            "overlay_opacity": 40
-          }
-        },
-        "card_5": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/aa54b4a272076b731b538f6b8f8f9ac39bae3c8b.png",
-            "image_alt": "",
-            "size": "wide",
-            "number": "05",
-            "show_line": true,
-            "title": "MINUTE ROUTINE-10",
-            "description": "Easy to fit into your routine for consistent use.",
-            "text_color": "#070707",
-            "accent_color": "#c9a844",
-            "scrim": "light",
-            "overlay_opacity": 40
-          }
-        }
-      },
-      "block_order": [
-        "card_1",
-        "card_2",
-        "card_3",
-        "card_4",
-        "card_5"
-      ],
-      "settings": {
-        "heading": "What Makes It Special?",
-        "subtitle": "Two targeted modes to train the cheek muscles and relax the jaw area, using EMS technology in a 10-minute session.",
-        "header_max_width": 900,
-        "background_color": "#ffffff",
-        "container_max_width": 1290,
-        "grid_gap": 16,
-        "grid_gap_mb": 12,
-        "card_radius": 18,
-        "text_color": "#ffffff",
-        "accent_color": "#c9a844",
-        "overlay_opacity": 40,
-        "padding_top": 70,
-        "padding_bottom": 70,
-        "padding_top_mb": 44,
-        "padding_bottom_mb": 44
-      }
-    },
     "yaman_mode_banner": {
       "type": "yaman-mode-banner-n",
       "blocks": {
         "slide_1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/product_page_En_02.png",
-            "image_mobile": "shopify://shop_images/large_product_page_En_02.png",
+            "image": "shopify://shop_images/096052a2a55893cfad0b3e8f54b3eef24b839fbc.png",
+            "image_mobile": "shopify://shop_images/53b47c306c56ff46dda948c697cacaf50760116c.png",
             "image_alt": "",
             "eyebrow": "",
             "heading": "",
@@ -717,44 +510,44 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/9ddcd3d1fdeec2307dc025fbceed7fe6e3cc87f7.png",
+            "image": "shopify://shop_images/61e4d11a940a6602c721a79067d17b23701e20d8.png",
             "image_alt": "",
-            "number": "01",
-            "title": "APPLY GEL OR SERUM",
-            "description": "Prepare the lower face with a suitable gel or compatible serum before use.",
+            "number": "",
+            "title": "Botanical Extracts ",
+            "description": "Soothe the skin, support its natural radiance, and improve its overall appearance.",
             "link": ""
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/87eed1c998b60f0c568b9ab837e5fb6f7d607d5f.png",
+            "image": "shopify://shop_images/b24921152763ea3429fb69319373cbdf0365ce01.png",
             "image_alt": "",
-            "number": "02",
-            "title": "SECURE THE MASK PROPERLY",
-            "description": "Fit the mask comfortably and securely over the cheeks and jaw area.",
+            "number": "",
+            "title": "Barrier-Supporting Ceramides ",
+            "description": "Help strengthen the skin’s natural barrier and maintain hydration.",
             "link": ""
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/8ee7ed1d320fee1c1af8b46b1bc1f524e4b17b30.png",
+            "image": "shopify://shop_images/aae1c77c58d7f89ab9234768ea5348da760d143e.png",
             "image_alt": "",
-            "number": "03",
-            "title": "ADJUST EACH SIDE",
-            "description": "Set the intensity for the left and right sides independently to suit your needs.",
+            "number": "",
+            "title": "Hydrating Collagen",
+            "description": "Supports skin elasticity and gives it a smoother, more radiant look.",
             "link": ""
           }
         },
         "step_4": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/29b408b200a12caa2fb4f30841e0da47b9507aa3.png",
+            "image": "shopify://shop_images/d6da15a7d0d90a8704683f31af559fcf6fe71b80.png",
             "image_alt": "",
-            "number": "04",
-            "title": "WEAR FOR 10 MINUTES",
-            "description": "Enjoy a hands-free, 10-minute daily routine.",
+            "number": "",
+            "title": "Hyaluronic Acid ",
+            "description": "Deeply hydrates the skin and helps lock in moisture.",
             "link": ""
           }
         }
@@ -766,8 +559,8 @@
         "step_4"
       ],
       "settings": {
-        "heading": "How to Use",
-        "subtitle": "Four simple steps designed to fit seamlessly into your routine.",
+        "heading": "Active Ingredients for Skin Hydration and Protection",
+        "subtitle": "A complete formula of carefully selected ingredients to support skin hydration, strengthen its natural barrier, and help maintain its health and softness.",
         "header_max_width": 760,
         "background_color": "#ffffff",
         "show_glow": true,
@@ -784,109 +577,6 @@
         "enable_carousel_mobile": true,
         "full_bleed_mobile": true,
         "mobile_card_width": 78,
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "padding_top_mb": 40,
-        "padding_bottom_mb": 40
-      }
-    },
-    "yaman_mask_compare": {
-      "type": "yaman-mask-comparison-n",
-      "blocks": {
-        "row_1": {
-          "type": "row",
-          "settings": {
-            "feature_label": "Coverage Areas",
-            "main_text": "Cheeks and jaw area",
-            "other_text": "General lower-face coverage",
-            "main_icon": "check",
-            "other_icon": "x"
-          }
-        },
-        "row_2": {
-          "type": "row",
-          "settings": {
-            "feature_label": "Targeted Modes",
-            "main_text": "EMS Training Mode + EMS Relaxation Mode",
-            "other_text": "One basic function",
-            "main_icon": "check",
-            "other_icon": "x"
-          }
-        },
-        "row_3": {
-          "type": "row",
-          "settings": {
-            "feature_label": "Independent Side Control",
-            "main_text": "Adjustable settings for each side",
-            "other_text": "Same setting for both sides",
-            "main_icon": "check",
-            "other_icon": "x"
-          }
-        },
-        "row_4": {
-          "type": "row",
-          "settings": {
-            "feature_label": "User Experience",
-            "main_text": "Hands-free use",
-            "other_text": "Less flexible fit",
-            "main_icon": "check",
-            "other_icon": "x"
-          }
-        },
-        "row_5": {
-          "type": "row",
-          "settings": {
-            "feature_label": "Daily Routine",
-            "main_text": "10-minute routine",
-            "other_text": "Longer, less convenient routine",
-            "main_icon": "check",
-            "other_icon": "x"
-          }
-        },
-        "row_6": {
-          "type": "row",
-          "settings": {
-            "feature_label": "Fit",
-            "main_text": "Flexible design for the lower face",
-            "other_text": "One-size-fits-all",
-            "main_icon": "check",
-            "other_icon": "x"
-          }
-        }
-      },
-      "block_order": [
-        "row_1",
-        "row_2",
-        "row_3",
-        "row_4",
-        "row_5",
-        "row_6"
-      ],
-      "name": "YAMAN Mask Compare",
-      "settings": {
-        "heading": "Less Effort, a More Practical Routine",
-        "subtitle": "Compare targeted EMS technology with traditional manual use and see the difference for yourself.",
-        "background_color": "#ffffff",
-        "overlay_color": "#ffffff",
-        "overlay_opacity": 86,
-        "feature_heading": "Traditional Lower-Face Masks",
-        "main_heading": "Medi Lift PLUS by YA-MAN",
-        "other_heading": "Traditional Lower-Face Masks",
-        "main_bg": "#1d2847",
-        "header_bg": "#f8f7f0",
-        "row_bg": "#ffffff",
-        "stripe_bg": "#f8f7f0",
-        "divider_color": "#eceae1",
-        "main_text_color": "#f8f7f0",
-        "other_accent_color": "#a02828",
-        "feature_text_color": "#2a2a2a",
-        "col_title_color": "#2a2a2a",
-        "check_color": "#f3efe4",
-        "x_color": "#a02828",
-        "container_max_width": 1290,
-        "table_max_width": 1096,
-        "table_radius": 12,
-        "mobile_font_scale": 84,
         "padding_top": 64,
         "padding_bottom": 64,
         "padding_top_mb": 40,
@@ -1238,12 +928,9 @@
   "order": [
     "breadcrumb",
     "main-product",
-    "yaman_product_proof_n_G4PnLR",
     "yaman_marquee",
-    "yaman_special",
     "yaman_mode_banner",
     "yaman_howuse",
-    "yaman_mask_compare",
     "yaman_routines",
     "tabs",
     "sidebar",
