@@ -505,7 +505,7 @@
       }
     },
     "yaman_howuse": {
-      "type": "yaman-how-to-use-n",
+      "type": "yaman-how-to-use-grid-n",
       "blocks": {
         "step_1": {
           "type": "step",
@@ -561,16 +561,24 @@
       "settings": {
         "heading": "Active Ingredients for Skin Hydration and Protection",
         "subtitle": "A complete formula of carefully selected ingredients to support skin hydration, strengthen its natural barrier, and help maintain its health and softness.",
-        "header_max_width": 760,
+        "header_max_width": 1000,
+        "layout": "grid",
+        "custom_class": "",
         "background_color": "#ffffff",
-        "show_glow": true,
+        "show_glow": false,
         "glow_color": "#d4b87a",
-        "container_max_width": 1040,
+        "container_max_width": 1310,
+        "grid_max_width": 928,
         "columns": 4,
-        "gap": 32,
-        "gap_mb": 16,
+        "mobile_columns": 2,
+        "gap": 12,
+        "gap_mb": 12,
         "card_bg": "#f8f7f0",
         "card_radius": 16,
+        "card_border": true,
+        "border_color": "#b89a5e",
+        "border_opacity": 30,
+        "border_width": 1,
         "image_ratio": "223 / 200",
         "accent_color": "#c9a844",
         "title_color": "#1d2847",
@@ -586,6 +594,50 @@
     "yaman_routines": {
       "type": "yaman-real-routines-video-n",
       "blocks": {
+        "routines-heading": {
+          "type": "heading",
+          "settings": {
+            "text": "<p>What Makes This Product the Best?</p>",
+            "size": 48,
+            "size_mb": 30,
+            "weight": "700",
+            "color": "#070707",
+            "max_width": 760
+          }
+        },
+        "routines-subtitle": {
+          "type": "subheading",
+          "settings": {
+            "text": "<p>The serum is designed for anyone using Medi Lift EMS devices.</p>",
+            "size": 18,
+            "size_mb": 14,
+            "weight": "400",
+            "color": "#7a7a7a",
+            "max_width": 620
+          }
+        },
+        "routines-heading-2": {
+          "type": "heading",
+          "settings": {
+            "text": "<p>See why customers love using the serum with their device!</p>",
+            "size": 38,
+            "size_mb": 24,
+            "weight": "700",
+            "color": "#070707",
+            "max_width": 820
+          }
+        },
+        "routines-subtitle-2": {
+          "type": "subheading",
+          "settings": {
+            "text": "<p>Real reviews from real people.</p>",
+            "size": 18,
+            "size_mb": 14,
+            "weight": "500",
+            "color": "#7a7a7a",
+            "max_width": 620
+          }
+        },
         "video_1": {
           "type": "video",
           "settings": {
@@ -666,6 +718,10 @@
         }
       },
       "block_order": [
+        "routines-heading",
+        "routines-subtitle",
+        "routines-heading-2",
+        "routines-subtitle-2",
         "video_1",
         "video_ibCG6g",
         "video_x4mxxR",
@@ -675,6 +731,7 @@
       ],
       "name": "YAMAN Routines",
       "settings": {
+        "header_style": "centered",
         "heading": "Watch Real Routines Tailored to Your Needs",
         "subtitle": "Real users, authentic daily rituals. See how the Medi Lift Plus advanced EMS technology lifts, sculpts, and refines muscle tone over time",
         "rating_icon_text": "★",
@@ -683,7 +740,7 @@
         "proof_icon_text": "📷",
         "proof_heading": "Real results",
         "proof_text": "documented by 143+ verified customers",
-        "background_color": "#ffffff",
+        "background_color": "#f8f7f0",
         "container_max_width": 1310,
         "container_padding": 20,
         "cols_dk": "5",
