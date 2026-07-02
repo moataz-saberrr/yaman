@@ -13,7 +13,7 @@
     "color_scheme_body": "scheme-1",
     "color_focus": "#070707",
     "color_scheme_dialog": "scheme-1",
-    "badge_sale": "#B80000",
+    "badge_sale": "#1D2847",
     "badge_new": "#56cfe1",
     "badge_soldout": "#999999",
     "badge_preorder": "#0774d7",
@@ -31,6 +31,7 @@
     "heading_spacing": 0,
     "font_custom_sheading": "--f_family_3",
     "font_base": "--f_family_1",
+    "bd_fweight": 400,
     "body_lh": 1.7,
     "body_spacing": 0,
     "h0_size": 64,
@@ -44,7 +45,7 @@
     "h5_size_mb": 18,
     "h6_size": 16,
     "h6_size_mb": 14,
-    "thickness_btn": 2,
+    "thickness_btn": 1,
     "padding_btn_1": 12,
     "min_width_dt_btn_1": 160,
     "min_width_btn_1": 280,
@@ -133,7 +134,7 @@
     "currency_code_enabled": false,
     "flag_currency": true,
     "round_currency": true,
-    "favicon": "shopify://shop_images/k-fav.jpg",
+    "favicon": "shopify://shop_images/logo.svg",
     "home_keywords": "Yaman",
     "content_for_index": [],
     "blocks": {
@@ -161,7 +162,7 @@
           "pr_text": "#070707",
           "price": "#070707",
           "sale_price": "#b80000",
-          "input_primary": "#ffffff",
+          "input_primary": "#1D2847",
           "input_secondary": "#878787"
         }
       },
@@ -302,12 +303,33 @@
           "button_label": "#ffffff",
           "button_border": "#070707",
           "secondary_button_label": "#070707",
-          "accent_color": "#FFFFFF",
+          "accent_color": "#ffffff",
           "line_border": "#dddddd",
           "overlay": "#000000",
           "pr_text": "#070707",
           "price": "#070707",
           "sale_price": "#b80000",
+          "input_primary": "#ffffff",
+          "input_secondary": "#878787"
+        }
+      },
+      "scheme-e1fbc996-3421-4748-88c0-101d284aa8d6": {
+        "settings": {
+          "text": "#070707",
+          "text2": "#838383",
+          "background": "#ffffff",
+          "background_gradient": "",
+          "background2": "#f2f2f2",
+          "button": "#000000",
+          "button_label": "#ffffff",
+          "button_border": "#000000",
+          "secondary_button_label": "#000000",
+          "accent_color": "#000000",
+          "line_border": "#dddddd",
+          "overlay": "#000000",
+          "pr_text": "#070707",
+          "price": "#070707",
+          "sale_price": "#838383",
           "input_primary": "#ffffff",
           "input_secondary": "#878787"
         }

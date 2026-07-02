@@ -6,8 +6,8 @@
   assign product = block.settings.product
   assign product_url = product.url
   assign cta_url = block.settings.button_url | default: product_url
-  assign before_alt = block.settings.before_alt | default: 'Before'
-  assign after_alt = block.settings.after_alt | default: 'After'
+  assign before_alt = 'Before Image'
+  assign after_alt = 'After Image'
 -%}
 <div class="hdt-slider__slide hdt-yaman-results__slide" {{ block.shopify_attributes }}>
   <div class="hdt-yaman-results__card">
@@ -27,8 +27,8 @@
         {%- endif -%}
       </div>
 
-      <span class="hdt-yaman-results__label hdt-yaman-results__label--before">{{ block.settings.before_label | default: 'Before' }}</span>
-      <span class="hdt-yaman-results__label hdt-yaman-results__label--after">{{ block.settings.after_label | default: 'After' }}</span>
+      <span class="hdt-yaman-results__label hdt-yaman-results__label--before">Before</span>
+      <span class="hdt-yaman-results__label hdt-yaman-results__label--after">After</span>
 
       <span class="hdt-yaman-results__divider" aria-hidden="true"></span>
       <div
@@ -93,28 +93,6 @@
       "type": "image_picker",
       "id": "after_image",
       "label": "After image"
-    },
-    {
-      "type": "text",
-      "id": "before_label",
-      "label": "Before label",
-      "default": "Before"
-    },
-    {
-      "type": "text",
-      "id": "after_label",
-      "label": "After label",
-      "default": "After"
-    },
-    {
-      "type": "text",
-      "id": "before_alt",
-      "label": "Before image alt (optional)"
-    },
-    {
-      "type": "text",
-      "id": "after_alt",
-      "label": "After image alt (optional)"
     },
     {
       "type": "header",

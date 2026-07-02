@@ -1,0 +1,453 @@
+<!-- sections/about-tech-n.liquid — YAMAN Tech (About-page technology / core-values banner).
+     Duplicated/customized from the Kalles "About us" section (sections/about-us.liquid) — the
+     theme's full-width background-image + overlay banner pattern (the same base used by the
+     About Video hero). slideshow.liquid was NOT used: this is a single static banner, not a
+     carousel. Background media + overlay + height modes + left content are kept; the play
+     button is replaced with dynamic `stat` blocks + a note + an optional bottom line to match
+     the Figma design. Original Kalles files are NOT modified. -->
+{{ 'custom_yaman_about.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign img_des = section.settings.image | default: section.settings.image_mb
+  assign img_mb = section.settings.image_mb | default: section.settings.image
+  assign sizes = '100vw'
+  assign widths = '375,480,600,750,900,1100,1300,1500,1700,1900,2100,2400,2800,3200'
+-%}
+{% style %}
+  {% render 'spacing-vars', box: section %}
+  #shopify-section-{{ section.id }} .hdt-yaman-tech {
+    --yt-fixed-h-mb: {{ section.settings.fixed_height_mb }}px;
+    --yt-fixed-h-des: {{ section.settings.fixed_height }}px;
+    --yt-overlay: {{ section.settings.overlay_color.rgb }};
+    --yt-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --yt-text: {{ section.settings.text_color.rgb }};
+    --yt-heading: {{ section.settings.heading_color.rgb }};
+    --yt-stat-value: {{ section.settings.stat_value_color.rgb }};
+    --yt-stat-label: {{ section.settings.stat_label_color.rgb }};
+    --yt-line: {{ section.settings.line_color.rgb }};
+    --yt-maxw: {{ section.settings.container_max_width }}px;
+    --yt-obj-mb: {{ section.settings.object_position_mb }};
+    --yt-obj-des: {{ section.settings.object_position_des }};
+    {%- if img_des != blank %}--yt-ar-des: {{ img_des.aspect_ratio }};{% endif -%}
+    {%- if img_mb != blank %}--yt-ar-mb: {{ img_mb.aspect_ratio }};{% endif -%}
+  }
+{% endstyle %}
+<div
+  class="hdt-container{% if section.settings.full_width %}-full{% endif %} hdt-section-spacing hdt-section-spacing-{{ section.id }} hdt-yaman-tech hdt-yaman-tech--hd-{{ section.settings.height_des }} hdt-yaman-tech--hm-{{ section.settings.height_mb }} hdt-relative"
+  color-scheme="{{ section.settings.color_scheme }}"
+>
+  <div class="hdt-yaman-tech__media">
+    {%- if img_mb != blank -%}
+      {{
+        img_mb
+        | image_url: width: img_mb.width
+        | image_tag:
+          width: img_mb.width,
+          height: img_mb.height,
+          sizes: sizes,
+          widths: widths,
+          loading: 'lazy',
+          class: 'hdt-yaman-tech__img hdt-yaman-tech__img--mobile'
+      }}
+    {%- endif -%}
+    {%- if img_des != blank -%}
+      {{
+        img_des
+        | image_url: width: img_des.width
+        | image_tag:
+          width: img_des.width,
+          height: img_des.height,
+          sizes: sizes,
+          widths: widths,
+          loading: 'lazy',
+          class: 'hdt-yaman-tech__img hdt-yaman-tech__img--desktop'
+      }}
+    {%- endif -%}
+    {%- if img_des == blank and img_mb == blank -%}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'hdt-yaman-tech__img hdt-yaman-tech__img--desktop hdt-placeholder' }}
+    {%- endif -%}
+    {%- if section.settings.show_overlay -%}
+      <div class="hdt-yaman-tech__overlay" aria-hidden="true"></div>
+    {%- endif -%}
+  </div>
+
+  <div class="hdt-yaman-tech__container">
+    <div
+      class="hdt-yaman-tech__content hdt-yaman-tech__content--align-{{ section.settings.content_align_des }} hdt-yaman-tech__content--valign-{{ section.settings.content_valign_des }} hdt-yaman-tech__content--mb-{{ section.settings.content_align_mb }}"
+    >
+      <div class="hdt-yaman-tech__body">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="hdt-yaman-tech__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="hdt-yaman-tech__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <div class="hdt-yaman-tech__stats">
+            {%- for block in section.blocks -%}
+              <div class="hdt-yaman-tech__stat" {{ block.shopify_attributes }}>
+                {%- if block.settings.value != blank -%}
+                  <span class="hdt-yaman-tech__stat-value">{{ block.settings.value }}</span>
+                {%- endif -%}
+                {%- if block.settings.label != blank -%}
+                  <span class="hdt-yaman-tech__stat-label">{{ block.settings.label }}</span>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.note != blank -%}
+          <p class="hdt-yaman-tech__note">{{ section.settings.note }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_line -%}
+        <div class="hdt-yaman-tech__line" aria-hidden="true"></div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YAMAN Tech",
+  "tag": "section",
+  "class": "hdt-yaman-tech-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mb",
+      "label": "Background image (Mobile)",
+      "info": "Optional. Falls back to the desktop image if left empty."
+    },
+    {
+      "type": "select",
+      "id": "object_position_des",
+      "label": "Image focus (Desktop)",
+      "options": [
+        { "value": "center", "label": "Center" },
+        { "value": "top", "label": "Top" },
+        { "value": "bottom", "label": "Bottom" },
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "object_position_mb",
+      "label": "Image focus (Mobile)",
+      "options": [
+        { "value": "center", "label": "Center" },
+        { "value": "top", "label": "Top" },
+        { "value": "bottom", "label": "Bottom" },
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show dark overlay",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#05080d",
+      "visible_if": "{{ section.settings.show_overlay }}"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 55,
+      "visible_if": "{{ section.settings.show_overlay }}"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "OUR TECHNOLOGY"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "YA-MAN'S CORE VALUES HIGHLIGHT INVENTION AND INNOVATION."
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note (small print)",
+      "default": "* as of April 2025"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Eyebrow / note color",
+      "default": "#a7aeb8"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "stat_value_color",
+      "label": "Stat value color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "stat_label_color",
+      "label": "Stat label color",
+      "default": "#d4d8de"
+    },
+    {
+      "type": "header",
+      "content": "Bottom line"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show bottom line",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Line color",
+      "default": "#5a5f66",
+      "visible_if": "{{ section.settings.show_line }}"
+    },
+    {
+      "type": "header",
+      "content": "Layout — Desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.all.full_width.label",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "height_des",
+      "label": "Section height (Desktop)",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "fixed", "label": "Fixed height" },
+        { "value": "full", "label": "Fill screen height" }
+      ],
+      "default": "fixed"
+    },
+    {
+      "type": "range",
+      "id": "fixed_height",
+      "label": "Fixed height (Desktop)",
+      "min": 320,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 560,
+      "visible_if": "{{ section.settings.height_des == 'fixed' }}"
+    },
+    {
+      "type": "select",
+      "id": "content_align_des",
+      "label": "Content alignment (Desktop)",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "content_valign_des",
+      "label": "Content vertical position (Desktop)",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "label": "Content max width",
+      "min": 600,
+      "max": 1500,
+      "step": 20,
+      "unit": "px",
+      "default": 1280
+    },
+    {
+      "type": "header",
+      "content": "Layout — Mobile"
+    },
+    {
+      "type": "select",
+      "id": "height_mb",
+      "label": "Section height (Mobile)",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "fixed", "label": "Fixed height" },
+        { "value": "full", "label": "Fill screen height" }
+      ],
+      "default": "fixed"
+    },
+    {
+      "type": "range",
+      "id": "fixed_height_mb",
+      "label": "Fixed height (Mobile)",
+      "min": 280,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 460,
+      "visible_if": "{{ section.settings.height_mb == 'fixed' }}"
+    },
+    {
+      "type": "select",
+      "id": "content_align_mb",
+      "label": "Content alignment (Mobile)",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Colors (scheme)"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_spacing"
+    },
+    {
+      "type": "text",
+      "id": "mg",
+      "label": "Margin",
+      "info": "Margin top, margin right, margin bottom, margin left. Leave blank to skip.",
+      "placeholder": ",,0px,"
+    },
+    {
+      "type": "text",
+      "id": "mg_mb",
+      "label": "Margin (Mobile)",
+      "placeholder": ",,0px,",
+      "visible_if": "{{ section.settings.mg != blank }}"
+    },
+    {
+      "type": "text",
+      "id": "pd",
+      "label": "Padding",
+      "info": "Padding top, padding right, padding bottom, padding left. Leave blank to skip.",
+      "placeholder": ",,,"
+    },
+    {
+      "type": "text",
+      "id": "pd_mb",
+      "label": "Padding (Mobile)",
+      "placeholder": ",,,",
+      "visible_if": "{{ section.settings.pd != blank }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "380"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Patents"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Tech",
+      "category": "t:sections_categories.05_section.name",
+      "settings": {
+        "show_overlay": true,
+        "overlay_color": "#05080d",
+        "overlay_opacity": 55,
+        "eyebrow": "OUR TECHNOLOGY",
+        "heading": "YA-MAN'S CORE VALUES HIGHLIGHT INVENTION AND INNOVATION.",
+        "note": "* as of April 2025",
+        "text_color": "#a7aeb8",
+        "heading_color": "#ffffff",
+        "stat_value_color": "#ffffff",
+        "stat_label_color": "#d4d8de",
+        "show_line": true,
+        "line_color": "#5a5f66",
+        "full_width": true,
+        "height_des": "fixed",
+        "fixed_height": 560,
+        "content_align_des": "left",
+        "content_valign_des": "center",
+        "container_max_width": 1280,
+        "height_mb": "fixed",
+        "fixed_height_mb": 460,
+        "content_align_mb": "left",
+        "color_scheme": "scheme-1"
+      },
+      "blocks": [
+        { "type": "stat", "settings": { "value": "380", "label": "Patents" } },
+        { "type": "stat", "settings": { "value": "981", "label": "Intellectual Property Rights" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

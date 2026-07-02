@@ -1,0 +1,106 @@
+<div class="hdt-product-info__item hdt-product__features-grid" {{ block.shopify_attributes }}>
+  <div class="hdt-features-grid-container">
+    {% for i in (1..4) %}
+      {% capture image_key %}image_{{ i }}{% endcapture %}
+      {% capture text_key %}text_{{ i }}{% endcapture %}
+      {% assign feature_image = block.settings[image_key] %}
+      {% assign feature_text = block.settings[text_key] %}
+      
+      {% if feature_image != blank or feature_text != blank %}
+        <div class="hdt-feature-item">
+          {% if feature_image != blank %}
+            <div class="hdt-feature-icon">
+              <img src="{{ feature_image | image_url: width: 40 }}" alt="{{ feature_image.alt | escape }}" width="20" height="20" loading="lazy">
+            </div>
+          {% endif %}
+          {% if feature_text != blank %}
+            <span class="hdt-feature-text">{{ feature_text }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .hdt-features-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .hdt-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hdt-feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .hdt-feature-icon img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+  }
+  .hdt-feature-text {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #070707;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Features Grid",
+  "tag": null,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Icon 1"
+    },
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Text 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Icon 2"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Text 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Icon 3"
+    },
+    {
+      "type": "text",
+      "id": "text_3",
+      "label": "Text 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Icon 4"
+    },
+    {
+      "type": "text",
+      "id": "text_4",
+      "label": "Text 4"
+    }
+  ],
+  "presets": [{ "name": "Features Grid" }]
+}
+{% endschema %}

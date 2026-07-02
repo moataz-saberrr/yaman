@@ -1,0 +1,439 @@
+<!--
+  sections/banner-video-n.liquid — YAMAN About Video hero.
+  Duplicated/customized from the Kalles "About us" section (sections/about-us.liquid),
+  which is this theme's banner-video hero: a full-width background image + the
+  `_button_video` block (the <hdt-video-popup> custom element drives the play button
+  and the video modal — no custom JS needed). Original Kalles files are NOT modified.
+-->
+{{ 'custom_yaman_about.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign img_des = section.settings.image | default: section.settings.image_mb
+  assign img_mb = section.settings.image_mb | default: section.settings.image
+  assign sizes = '100vw'
+  assign widths = '375,480,600,750,900,1100,1300,1500,1700,1900,2100,2400,2800,3200'
+-%}
+{% style %}
+  {% render 'spacing-vars', box: section %}
+  #shopify-section-{{ section.id }} .hdt-yaman-about-video {
+    --av-fixed-h-mb: {{ section.settings.fixed_height_mb }}px;
+    --av-fixed-h-des: {{ section.settings.fixed_height }}px;
+    --av-overlay: {{ section.settings.overlay_color.rgb }};
+    --av-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --av-text: {{ section.settings.text_color.rgb }};
+    --av-play-border: {{ section.settings.play_border_color.rgb }};
+    --av-play-icon: {{ section.settings.play_icon_color.rgb }};
+    --av-play-size: {{ section.settings.play_size }}px;
+    --av-maxw: {{ section.settings.container_max_width }}px;
+    --av-play-x-des: {{ section.settings.play_pos_x_des }}%;
+    --av-play-y-des: {{ section.settings.play_pos_y_des }}%;
+    {%- if img_des != blank %}--av-ar-des: {{ img_des.aspect_ratio }};{% endif -%}
+    {%- if img_mb != blank %}--av-ar-mb: {{ img_mb.aspect_ratio }};{% endif -%}
+  }
+{% endstyle %}
+<div
+  class="
+    hdt-container{% if section.settings.full_width %}-full{% endif %}
+    hdt-section-spacing hdt-section-spacing-{{ section.id }} hdt-yaman-about-video
+    hdt-yaman-about-video--hd-{{ section.settings.height_des }}
+    hdt-yaman-about-video--hm-{{ section.settings.height_mb }}
+    hdt-relative {% if section.settings.custom_class != blank %}
+    {{ section.settings.custom_class }}{% endif%}
+  "
+  color-scheme="{{ section.settings.color_scheme }}"
+>
+  <div class="hdt-yaman-about-video__media">
+    {%- if img_mb != blank -%}
+      {{
+        img_mb
+        | image_url: width: img_mb.width
+        | image_tag:
+          width: img_mb.width,
+          height: img_mb.height,
+          sizes: sizes,
+          widths: widths,
+          loading: 'eager',
+          fetchpriority: 'high',
+          class: 'hdt-yaman-about-video__img hdt-yaman-about-video__img--mobile'
+      }}
+    {%- endif -%}
+    {%- if img_des != blank -%}
+      {{
+        img_des
+        | image_url: width: img_des.width
+        | image_tag:
+          width: img_des.width,
+          height: img_des.height,
+          sizes: sizes,
+          widths: widths,
+          loading: 'eager',
+          fetchpriority: 'high',
+          class: 'hdt-yaman-about-video__img hdt-yaman-about-video__img--desktop'
+      }}
+    {%- endif -%}
+    {%- if img_des == blank and img_mb == blank -%}
+      {{
+        'lifestyle-1'
+        | placeholder_svg_tag: 'hdt-yaman-about-video__img hdt-yaman-about-video__img--desktop hdt-placeholder'
+      }}
+    {%- endif -%}
+    {%- if section.settings.show_overlay -%}
+      <div class="hdt-yaman-about-video__overlay" aria-hidden="true"></div>
+    {%- endif -%}
+  </div>
+
+  <div
+    class="hdt-yaman-about-video__content hdt-yaman-about-video__content--align-{{ section.settings.content_align_des }} hdt-yaman-about-video__content--valign-{{ section.settings.content_valign_des }} hdt-yaman-about-video__content--mb-{{ section.settings.content_align_mb }}"
+  >
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="hdt-yaman-about-video__eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.show_play -%}
+      <div class="hdt-yaman-about-video__play">
+        {% content_for 'block', type: '_button_video', id: 'about-video-btn' %}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="hdt-yaman-about-video__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.subtitle != blank -%}
+      <div class="hdt-yaman-about-video__subtitle">{{ section.settings.subtitle }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YAMAN About Video",
+  "tag": "section",
+  "class": "hdt-yaman-about-video-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.system"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mb",
+      "label": "Background image (Mobile)",
+      "info": "Optional. Falls back to the desktop image if left empty."
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Add custom class to the section to edit in styling"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show dark overlay",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#0a0a0a",
+      "visible_if": "{{ section.settings.show_overlay }}"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 45,
+      "visible_if": "{{ section.settings.show_overlay }}"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "ABOUT US"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to YĀMAN"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>The very latest and greatest in J-Beauty innovations are here.</p>"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_play",
+      "label": "Show play button",
+      "default": true,
+      "info": "The play button opens the video. Edit its video source / behavior in the 'Play video' block below."
+    },
+    {
+      "type": "header",
+      "content": "Play button"
+    },
+    {
+      "type": "range",
+      "id": "play_size",
+      "label": "Play button size",
+      "min": 44,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "default": 84
+    },
+    {
+      "type": "color",
+      "id": "play_border_color",
+      "label": "Play button border color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "play_icon_color",
+      "label": "Play icon color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "play_pos_x_des",
+      "label": "Play position X (Desktop)",
+      "info": "Horizontal position of the play button on desktop.",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "play_pos_y_des",
+      "label": "Play position Y (Desktop)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 42
+    },
+    {
+      "type": "header",
+      "content": "Layout — Desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.all.full_width.label",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "height_des",
+      "label": "Section height (Desktop)",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "fixed", "label": "Fixed height" },
+        { "value": "full", "label": "Fill screen height" }
+      ],
+      "default": "fixed"
+    },
+    {
+      "type": "range",
+      "id": "fixed_height",
+      "label": "Fixed height (Desktop)",
+      "min": 320,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 620,
+      "visible_if": "{{ section.settings.height_des == 'fixed' }}"
+    },
+    {
+      "type": "select",
+      "id": "content_align_des",
+      "label": "Content alignment (Desktop)",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "content_valign_des",
+      "label": "Content vertical position (Desktop)",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "label": "Content max width",
+      "min": 400,
+      "max": 1400,
+      "step": 20,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "header",
+      "content": "Layout — Mobile"
+    },
+    {
+      "type": "select",
+      "id": "height_mb",
+      "label": "Section height (Mobile)",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "fixed", "label": "Fixed height" },
+        { "value": "full", "label": "Fill screen height" }
+      ],
+      "default": "fixed"
+    },
+    {
+      "type": "range",
+      "id": "fixed_height_mb",
+      "label": "Fixed height (Mobile)",
+      "min": 280,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 480,
+      "visible_if": "{{ section.settings.height_mb == 'fixed' }}"
+    },
+    {
+      "type": "select",
+      "id": "content_align_mb",
+      "label": "Content alignment (Mobile)",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_spacing"
+    },
+    {
+      "type": "text",
+      "id": "mg",
+      "label": "Margin",
+      "info": "Margin top, margin right, margin bottom, margin left. Leave blank to skip.",
+      "placeholder": ",,0px,"
+    },
+    {
+      "type": "text",
+      "id": "mg_mb",
+      "label": "Margin (Mobile)",
+      "placeholder": ",,0px,",
+      "visible_if": "{{ section.settings.mg != blank }}"
+    },
+    {
+      "type": "text",
+      "id": "pd",
+      "label": "Padding",
+      "info": "Padding top, padding right, padding bottom, padding left. Leave blank to skip.",
+      "placeholder": ",,,"
+    },
+    {
+      "type": "text",
+      "id": "pd_mb",
+      "label": "Padding (Mobile)",
+      "placeholder": ",,,",
+      "visible_if": "{{ section.settings.pd != blank }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN About Video",
+      "category": "t:sections_categories.05_section.name",
+      "settings": {
+        "show_overlay": true,
+        "overlay_color": "#0a0a0a",
+        "overlay_opacity": 45,
+        "eyebrow": "ABOUT US",
+        "heading": "Welcome to YĀMAN",
+        "subtitle": "<p>The very latest and greatest in J-Beauty innovations are here.</p>",
+        "text_color": "#ffffff",
+        "show_play": true,
+        "play_size": 84,
+        "play_pos_x_des": 60,
+        "play_pos_y_des": 42,
+        "full_width": true,
+        "height_des": "fixed",
+        "fixed_height": 620,
+        "content_align_des": "left",
+        "content_valign_des": "center",
+        "height_mb": "fixed",
+        "fixed_height_mb": 480,
+        "content_align_mb": "center",
+        "color_scheme": "scheme-1"
+      },
+      "blocks": [
+        {
+          "id": "about-video-btn",
+          "type": "_button_video",
+          "static": true,
+          "settings": {
+            "source": "youtube",
+            "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "click_action": "popup",
+            "label": "",
+            "btn_style": "",
+            "size": "custom custom-inline",
+            "min_height_btn": 84,
+            "min_width_btn": 100,
+            "min_width_dt_btn": 100,
+            "icon": "play",
+            "icon_position": "after",
+            "icon_height": 22,
+            "icon_spacing": 0,
+            "rounded": "hdt-btn-radius-full"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

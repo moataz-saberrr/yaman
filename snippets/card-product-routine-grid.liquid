@@ -1,16 +1,21 @@
 {%- comment -%}
-  YAMAN Routine product card — section-local copy of `card-product1` for
-  sections/featured-collection-n.liquid only. Differences from card-product1:
-    - removes the image-overlay quick-view / quick-add (ultra) group
-    - adds a full-width "Shop now" button in a card footer, BELOW the price,
-      linking to the product's own page (product_url). Label is set per-section
-      via `card_btn_label` (defaults to "SHOP NOW").
-  The original `card-product1` is left untouched.
+  YAMAN Routine product card — GRID variant for the collection page.
+  Visual twin of `card-product-routine.liquid` (the "Complete Your Routine"
+  card used by sections/featured-collection-n.liquid), but built to be rendered
+  by the stock collection grid (sections/main-collection.liquid, product_des
+  "11"). Differences from card-product-routine:
+    - carries a stand-alone scope class `hdt-yaman-pr-routine` on the card root
+      so its styling (in assets/custom_yaman.css) does NOT depend on the
+      `.hdt-yaman-routine-section` wrapper.
+    - drops the section-scoped helper classes on the footer.
+  Like the routine card: NO image-overlay quick-view / quick-add (ultra) group;
+  a full-width "SHOP NOW" button in the footer that links to the product's own
+  page (product_url). The original Kalles `card-product11.liquid` is untouched.
 
   Accepts the same params as card-product1, plus:
   - card_product, section_id, sizes, class, image_ratio, show_vendor,
     color_list, size_list, btn_wishlist_code, product_url
-  - card_btn_label: {String} label for the footer "Shop now" button (optional)
+  - card_btn_label: {String} label for the footer button (optional, default "SHOP NOW")
 {%- endcomment -%}
 
 {%- liquid
@@ -60,7 +65,7 @@
   endif
 -%}
 
-<hdt-card-product class="hdt-card-product {{ class }}{% if card_product.available == false %} hdt-pr-sold_out{% endif %}">
+<hdt-card-product class="hdt-card-product hdt-yaman-pr-routine {{ class }}{% if card_product.available == false %} hdt-pr-sold_out{% endif %}">
   <div class="hdt-card-product__wrapper">
     <div class="hdt-card-product__media hdt-oh{% if size_count > 0 and settings.size_position == '1' %} hdt-has-size-list{% endif %} {% if card_product.metafields.theme.countdown.value != blank %} hdt-has-countdown{% endif %}">
       {%- render 'card-product-media', card_product: card_product, product_url: product_url, sizes: sizes, image_ratio: image_ratio -%}
@@ -94,8 +99,8 @@
         render 'color-list', section_id: section_id, product: card_product, product_url: product_url, placement: 'top'
       -%}
     </div>
-    <div class="hdt-card-product__footer hdt-yaman-routine__footer">
-      <a href="{{ product_url }}" class="hdt-card-product__btn-ultra hdt-yaman-routine__shop-now" data-pr-url data-instant aria-label="{{ card_product.title | escape }}">
+    <div class="hdt-card-product__footer">
+      <a href="{{ product_url }}" class="hdt-card-product__btn-ultra" data-pr-url data-instant aria-label="{{ card_product.title | escape }}">
         <span class="hdt-truncate">{{ card_btn_label | default: 'SHOP NOW' }}</span>
       </a>
     </div>

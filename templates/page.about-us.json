@@ -21,7 +21,10 @@
             "text_size": "2xl",
             "text_color": "hdt-s-text",
             "italic": false,
-            "uppercase": false
+            "uppercase": false,
+            "font_size_text_lg": 16,
+            "font_size_text": 14,
+            "letter_spacing_text": 0
           },
           "blocks": {}
         },
@@ -34,7 +37,10 @@
             "text_size": "base",
             "text_color": "hdt-s-text",
             "italic": false,
-            "uppercase": false
+            "uppercase": false,
+            "font_size_text_lg": 16,
+            "font_size_text": 14,
+            "letter_spacing_text": 0
           },
           "blocks": {}
         }
@@ -43,475 +49,376 @@
         "heading_liquid_p4fPaC",
         "heading_liquid_q9LNqL"
       ],
+      "disabled": true,
       "settings": {
         "use_dynamic_source": true,
-        "image": "shopify://shop_images/shop-banner.jpg",
         "color_scheme": "scheme-77e4ef58-56a9-4631-876a-12098ba7d57d",
         "bg_overlay": 54,
         "space_item": 10,
+        "mg": "",
+        "mg_mb": "",
         "pd": "54px,,54px,",
-        "pd_mb": "54px,,54px,",
-        "mg": "",
-        "mg_mb": ""
+        "pd_mb": "54px,,54px,"
       }
     },
-    "custom_section_mnTphP": {
-      "type": "custom-section",
+    "banner_video_n_qR3QCD": {
+      "type": "banner-video-n",
       "blocks": {
-        "multi_column_DCDGjR": {
-          "type": "_multi_column",
-          "settings": {
-            "column_dk": "6",
-            "column_tb": "6",
-            "column_mb": "12",
-            "spacing_h_dk": 0,
-            "spacing_v_dk": 0,
-            "spacing_h_tb": 0,
-            "spacing_v_tb": 0,
-            "spacing_h_mb": 0,
-            "spacing_v_mb": 0,
-            "content_position": "start",
-            "content_position_mb": "center-start",
-            "alignment": "left",
-            "alignment_mb": "left",
-            "background_color": "rgba(0,0,0,0)",
-            "rounded": "none"
-          },
-          "blocks": {
-            "text_JNRV4X": {
-              "type": "text",
-              "settings": {
-                "text": "<h6>OUR MISSION</h6>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "2xl",
-                "text_color": "hdt-s-text",
-                "font_size_text_lg": 16,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            },
-            "spacer_kRAtyr": {
-              "type": "spacer",
-              "settings": {
-                "direction": false,
-                "space_lg": 10,
-                "space_md": 10,
-                "space": 10
-              },
-              "blocks": {}
-            },
-            "liquid_rgJ8Fd": {
-              "type": "_liquid",
-              "settings": {
-                "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,<hdt-font-3> totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae</hdt-font-3> vitae dicta sunt explicabo nemo enim ipsam.",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "text_size": "base",
-                "text_color": "hdt-text-secondary",
-                "font_size_text_lg": 16,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_JNRV4X",
-            "spacer_kRAtyr",
-            "liquid_rgJ8Fd"
-          ]
-        },
-        "multi_column_mJ4tbf": {
-          "type": "_multi_column",
-          "settings": {
-            "column_dk": "6",
-            "column_tb": "6",
-            "column_mb": "12",
-            "spacing_h_dk": 0,
-            "spacing_v_dk": 0,
-            "spacing_h_tb": 0,
-            "spacing_v_tb": 0,
-            "spacing_h_mb": 0,
-            "spacing_v_mb": 20,
-            "content_position": "start",
-            "content_position_mb": "center-start",
-            "alignment": "left",
-            "alignment_mb": "left",
-            "background_color": "rgba(0,0,0,0)",
-            "rounded": "none"
-          },
-          "blocks": {
-            "text_YnAUrb": {
-              "type": "text",
-              "settings": {
-                "text": "<h6>OUR<strong> </strong>STORIES</h6>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "2xl",
-                "text_color": "hdt-s-text",
-                "font_size_text_lg": 16,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            },
-            "spacer_JK7pAQ": {
-              "type": "spacer",
-              "settings": {
-                "direction": false,
-                "space_lg": 10,
-                "space_md": 10,
-                "space": 10
-              },
-              "blocks": {}
-            },
-            "text_kHUw3G": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "base",
-                "text_color": "hdt-text-secondary",
-                "font_size_text_lg": 16,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_YnAUrb",
-            "spacer_JK7pAQ",
-            "text_kHUw3G"
-          ]
-        },
-        "multi_column_N8zgbM": {
-          "type": "_multi_column",
-          "settings": {
-            "column_dk": "6",
-            "column_tb": "6",
-            "column_mb": "12",
-            "spacing_h_dk": 0,
-            "spacing_v_dk": 10,
-            "spacing_h_tb": 0,
-            "spacing_v_tb": 0,
-            "spacing_h_mb": 0,
-            "spacing_v_mb": 0,
-            "content_position": "start",
-            "content_position_mb": "center-start",
-            "alignment": "left",
-            "alignment_mb": "left",
-            "background_color": "rgba(0,0,0,0)",
-            "rounded": "none"
-          },
-          "blocks": {
-            "text_3qbFR6": {
-              "type": "text",
-              "settings": {
-                "text": "<h6>OUR APPROACH</h6>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "2xl",
-                "text_color": "hdt-s-text",
-                "font_size_text_lg": 16,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            },
-            "spacer_TFppb4": {
-              "type": "spacer",
-              "settings": {
-                "direction": false,
-                "space_lg": 10,
-                "space_md": 10,
-                "space": 10
-              },
-              "blocks": {}
-            },
-            "liquid_YjyfWf": {
-              "type": "_liquid",
-              "settings": {
-                "text": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,<hdt-font-3> sed quia non numquam eius modi tempora incidunt ut labore</hdt-font-3>  et dolore magnam aliquam quaerat voluptatem.",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "text_size": "base",
-                "text_color": "hdt-text-secondary",
-                "font_size_text_lg": 16,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            },
-            "spacer_cDrtpW": {
-              "type": "spacer",
-              "name": "Spacer",
-              "settings": {
-                "direction": false,
-                "space_lg": 0,
-                "space_md": 14,
-                "space": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_3qbFR6",
-            "spacer_TFppb4",
-            "liquid_YjyfWf",
-            "spacer_cDrtpW"
-          ]
-        },
-        "multi_column_q8pbfr": {
-          "type": "_multi_column",
-          "settings": {
-            "column_dk": "6",
-            "column_tb": "6",
-            "column_mb": "12",
-            "spacing_h_dk": 0,
-            "spacing_v_dk": 10,
-            "spacing_h_tb": 0,
-            "spacing_v_tb": 0,
-            "spacing_h_mb": 0,
-            "spacing_v_mb": 20,
-            "content_position": "start",
-            "content_position_mb": "center-start",
-            "alignment": "left",
-            "alignment_mb": "left",
-            "background_color": "rgba(0,0,0,0)",
-            "rounded": "none"
-          },
-          "blocks": {
-            "text_nddCYE": {
-              "type": "text",
-              "settings": {
-                "text": "<h6>OUR PHILOSOPHY</h6>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "2xl",
-                "text_color": "hdt-s-text",
-                "font_size_text_lg": 16,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            },
-            "spacer_MBmq6H": {
-              "type": "spacer",
-              "settings": {
-                "direction": false,
-                "space_lg": 10,
-                "space_md": 10,
-                "space": 10
-              },
-              "blocks": {}
-            },
-            "text_VETPai": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Quis nostrum exercitationem ullam.</p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "base",
-                "text_color": "hdt-text-secondary",
-                "font_size_text_lg": 16,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_nddCYE",
-            "spacer_MBmq6H",
-            "text_VETPai"
-          ]
-        },
-        "multi_column_L3VjgX": {
-          "type": "_multi_column",
-          "settings": {
-            "column_dk": "12",
-            "column_tb": "12",
-            "column_mb": "12",
-            "spacing_h_dk": 0,
-            "spacing_v_dk": 0,
-            "spacing_h_tb": 0,
-            "spacing_v_tb": 0,
-            "spacing_h_mb": 0,
-            "spacing_v_mb": 0,
-            "content_position": "center",
-            "content_position_mb": "center",
-            "alignment": "left",
-            "alignment_mb": "left",
-            "background_color": "#ffffff",
-            "rounded": "none"
-          },
-          "blocks": {
-            "blockquote_enU7Da": {
-              "type": "blockquote",
-              "settings": {
-                "quote": "<p><em>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Quis nostrum exercitationem ullam.</em></p>"
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "blockquote_enU7Da"
-          ]
-        }
-      },
-      "block_order": [
-        "multi_column_DCDGjR",
-        "multi_column_mJ4tbf",
-        "multi_column_N8zgbM",
-        "multi_column_q8pbfr",
-        "multi_column_L3VjgX"
-      ],
-      "custom_css": [
-        "blockquote {font-family: var(--f_family_3); color: rgb(var(--color-foreground2));background-color: #f5f5f5;}",
-        "hdt-font-3{font-style: italic;}"
-      ],
-      "settings": {
-        "layout": "12",
-        "item_spacing": 30,
-        "item_spacing_tb": 15,
-        "item_spacing_mb": 15,
-        "color_scheme": "",
-        "pd": "60px,,50px,",
-        "pd_mb": "48px,,40px,",
-        "mg": "",
-        "mg_mb": ""
-      }
-    },
-    "our_team_VpLJtG": {
-      "type": "our-team",
-      "blocks": {
-        "ourteam_carousel_cxphgq": {
-          "type": "_ourteam_carousel",
-          "settings": {
-            "loop": false,
-            "autoplay": 0,
-            "pauseOnHover": false,
-            "navUI": true,
-            "nav_position": "default",
-            "nav_visible": "hover",
-            "nav_style": "default",
-            "nav_shape": "rounded",
-            "nav_size": "small",
-            "nav_hide_mobile": false,
-            "dotUI": false,
-            "pag_style": "default",
-            "pag_rounded": false,
-            "pag_space": 10,
-            "pag_mgt": 10,
-            "pag_hide_mobile": false
-          },
-          "blocks": {
-            "ourteam_item_G4UN6c": {
-              "type": "_ourteam_item",
-              "settings": {
-                "image": "shopify://shop_images/mem-01.jpg",
-                "name": "Lisa John",
-                "position": "Fashion Design",
-                "facebook": "https://facebook.com/",
-                "instagram": "https://instagram.com",
-                "behance": "https://behance.net/",
-                "tiktok": ""
-              },
-              "blocks": {}
-            },
-            "ourteam_item_FNc7q9": {
-              "type": "_ourteam_item",
-              "settings": {
-                "image": "shopify://shop_images/mem-02.jpg",
-                "name": "Jane Doe",
-                "position": "Director",
-                "facebook": "https://facebook.com/",
-                "instagram": "https://instagram.com/",
-                "behance": "",
-                "tiktok": ""
-              },
-              "blocks": {}
-            },
-            "ourteam_item_MMyXqF": {
-              "type": "_ourteam_item",
-              "settings": {
-                "image": "shopify://shop_images/mem-03.jpg",
-                "name": "Cartherin Forres",
-                "position": "Marketing Director",
-                "facebook": "https://facebook.com/",
-                "instagram": "https://instagram.com/",
-                "behance": "",
-                "tiktok": "https://tiktok.com/"
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "ourteam_item_G4UN6c",
-            "ourteam_item_FNc7q9",
-            "ourteam_item_MMyXqF"
-          ]
-        },
-        "our-team": {
-          "type": "section-heading",
-          "disabled": true,
+        "about-video-btn": {
+          "type": "_button_video",
           "static": true,
           "settings": {
-            "design_heading": "2",
-            "horizontal": false,
-            "alignment": "center",
-            "heading_gap": 15,
-            "margin_bottom": 30
+            "source": "shopify",
+            "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "video": "shopify://files/videos/Video1About.mp4",
+            "click_action": "inline",
+            "enable_close": false,
+            "label": "",
+            "btn_style": "",
+            "color_btn": "#fff",
+            "color_hover_btn": "#fff",
+            "background_btn": "#222",
+            "background_hover_btn": "#333",
+            "border_w_btn": "",
+            "border_btn": "#222",
+            "border_hover_btn": "#333",
+            "size": "custom custom-inline",
+            "text_size": "hdt-text-base",
+            "font_weight": "normal",
+            "font_size_btn": 14,
+            "padding_btn": 30,
+            "min_width_btn": 100,
+            "min_width_dt_btn": 100,
+            "min_height_btn": 84,
+            "rounded": "hdt-btn-radius-full",
+            "icon": "play",
+            "icon_position": "after",
+            "icon_height": 22,
+            "icon_spacing": 0
           },
-          "blocks": {
-            "heading_section_d3A4By": {
-              "type": "_heading_section",
-              "settings": {
-                "heading": "Our Team",
-                "line_height": "",
-                "heading_size": "h5",
-                "text_color": "hdt-s-text"
-              },
-              "blocks": {}
-            }
+          "blocks": {}
+        }
+      },
+      "name": "YAMAN About Video",
+      "settings": {
+        "image": "shopify://shop_images/finalAboutDesktop.jpg",
+        "image_mb": "shopify://shop_images/FinalAboutMobile.jpg",
+        "custom_class": "",
+        "show_overlay": true,
+        "overlay_color": "#0a0a0a",
+        "overlay_opacity": 45,
+        "eyebrow": "ABOUT US",
+        "heading": "Welcome to YĀMAN",
+        "subtitle": "<p>The very latest and greatest in J-Beauty innovations are here.</p>",
+        "text_color": "#aca594",
+        "show_play": true,
+        "play_size": 84,
+        "play_border_color": "#a59a8e",
+        "play_icon_color": "#a59a8e",
+        "play_pos_x_des": 50,
+        "play_pos_y_des": 50,
+        "full_width": true,
+        "height_des": "fixed",
+        "fixed_height": 540,
+        "content_align_des": "left",
+        "content_valign_des": "center",
+        "container_max_width": 1200,
+        "height_mb": "fixed",
+        "fixed_height_mb": 400,
+        "content_align_mb": "center",
+        "color_scheme": "scheme-1",
+        "mg": "",
+        "mg_mb": "",
+        "pd": "",
+        "pd_mb": ""
+      }
+    },
+    "image_with_text_n_df6tDr": {
+      "type": "image-with-text-n",
+      "name": "YAMAN Story",
+      "settings": {
+        "image": "shopify://shop_images/brand_story.jpg",
+        "image_mb": "shopify://shop_images/brand_story.jpg",
+        "image_alt": "",
+        "image_ratio": "adapt",
+        "image_radius": 24,
+        "image_radius_mb": 18,
+        "eyebrow": "BRAND STORY",
+        "heading": "The first name in beauty technology in Japan.",
+        "paragraph_1": "<p>Based in Tokyo, YĀMAN is known throughout Japan – and now the world – for putting beauty devices on the map. Compatible solution-based product launches soon followed.</p>",
+        "paragraph_2": "<p>Embracing technology and innovation, today the company thrives as a group of prestige beauty brands with devoted fan bases globally.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_new_tab": false,
+        "button_style": "",
+        "image_position": "left",
+        "image_position_mb": "top",
+        "content_valign": "center",
+        "text_align": "left",
+        "text_align_mb": "left",
+        "container_max_width": 1280,
+        "gap": 72,
+        "gap_mb": 24,
+        "background_color": "#f8f7f0",
+        "heading_color": "#070707",
+        "body_color": "#737371",
+        "eyebrow_color": "#959aa4",
+        "section_layout": "wrapper_container",
+        "colors_by_section": true,
+        "color_scheme": "",
+        "background_opacity": 0,
+        "hdt_background_parallax": false,
+        "mg": "",
+        "mg_mb": "",
+        "pd": "65px,75px,65px,75px",
+        "pd_mb": "32px,28px,32px,28px"
+      }
+    },
+    "banner_video_n_yCWywj": {
+      "type": "banner-video-n",
+      "blocks": {
+        "about-video-btn": {
+          "type": "_button_video",
+          "static": true,
+          "settings": {
+            "source": "shopify",
+            "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "video": "shopify://files/videos/AboutVideo2.mp4",
+            "click_action": "inline",
+            "enable_close": false,
+            "label": "",
+            "btn_style": "",
+            "color_btn": "#fff",
+            "color_hover_btn": "#fff",
+            "background_btn": "#222",
+            "background_hover_btn": "#333",
+            "border_w_btn": "",
+            "border_btn": "#222",
+            "border_hover_btn": "#333",
+            "size": "custom custom-inline",
+            "text_size": "hdt-text-base",
+            "font_weight": "normal",
+            "font_size_btn": 14,
+            "padding_btn": 30,
+            "min_width_btn": 100,
+            "min_width_dt_btn": 100,
+            "min_height_btn": 84,
+            "rounded": "hdt-btn-radius-full",
+            "icon": "play",
+            "icon_position": "after",
+            "icon_height": 22,
+            "icon_spacing": 0
           },
-          "block_order": [
-            "heading_section_d3A4By"
-          ]
+          "blocks": {}
+        }
+      },
+      "name": "YAMAN About Video",
+      "settings": {
+        "image": "shopify://shop_images/finalBanner1.png",
+        "image_mb": "shopify://shop_images/finalBanner2.png",
+        "custom_class": "custom_banner2",
+        "show_overlay": true,
+        "overlay_color": "#0a0a0a",
+        "overlay_opacity": 45,
+        "eyebrow": "",
+        "heading": "A NEW BEAUTIFUL",
+        "subtitle": "",
+        "text_color": "#e8e8e9",
+        "show_play": true,
+        "play_size": 84,
+        "play_border_color": "#a59a8e",
+        "play_icon_color": "#a59a8e",
+        "play_pos_x_des": 50,
+        "play_pos_y_des": 50,
+        "full_width": true,
+        "height_des": "fixed",
+        "fixed_height": 460,
+        "content_align_des": "center",
+        "content_valign_des": "center",
+        "container_max_width": 1200,
+        "height_mb": "fixed",
+        "fixed_height_mb": 400,
+        "content_align_mb": "center",
+        "color_scheme": "scheme-1",
+        "mg": "",
+        "mg_mb": "",
+        "pd": "",
+        "pd_mb": ""
+      }
+    },
+    "shipping_about_n_6ypQb8": {
+      "type": "shipping-about-n",
+      "blocks": {
+        "stat_qXByPr": {
+          "type": "stat",
+          "settings": {
+            "value": "700,000+",
+            "label": "Customers Worldwide",
+            "link": ""
+          }
+        },
+        "stat_whmFd6": {
+          "type": "stat",
+          "settings": {
+            "value": "4.8/5",
+            "label": "Average Rating",
+            "link": ""
+          }
+        },
+        "stat_RfU3dr": {
+          "type": "stat",
+          "settings": {
+            "value": "#3",
+            "label": "Fastest Growing Startup",
+            "link": ""
+          }
+        },
+        "stat_eefVkR": {
+          "type": "stat",
+          "settings": {
+            "value": "7+",
+            "label": "Clinical & User Studies",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "ourteam_carousel_cxphgq"
+        "stat_qXByPr",
+        "stat_whmFd6",
+        "stat_RfU3dr",
+        "stat_eefVkR"
       ],
+      "name": "YAMAN Brands",
       "settings": {
-        "image_ratio": "adapt_image",
-        "col_dk": "3",
-        "col_tb": "2",
-        "col_mb": "1",
+        "heading": "Brands",
+        "container_max_width": 1200,
+        "container_padding_x": 16,
+        "panel_radius": 24,
+        "gap": 24,
+        "gap_mb": 28,
+        "show_dividers": true,
+        "divider_color": "#d9d5ca",
+        "col_dk": "4",
+        "col_mb": "2",
+        "background_color": "#ffffff",
+        "panel_color": "#f6f3ea",
+        "heading_color": "#070707",
+        "value_color": "#d4b87a",
+        "label_color": "#1d2847",
+        "section_layout": "container",
         "colors_by_section": false,
         "color_scheme": "",
         "background_opacity": 0,
-        "section_layout": "container",
-        "pd": ",,85px,",
-        "pd_mb": ",,49px,",
+        "hdt_background_parallax": false,
         "mg": "",
-        "mg_mb": ""
+        "mg_mb": "",
+        "pd": "65px,75px,65px,75px",
+        "pd_mb": "24px,20px,24px,20px"
+      }
+    },
+    "about_tech_n_N636aL": {
+      "type": "about-tech-n",
+      "blocks": {
+        "stat_GERmnR": {
+          "type": "stat",
+          "settings": {
+            "value": "380",
+            "label": "Patents"
+          }
+        },
+        "stat_6WFqpB": {
+          "type": "stat",
+          "settings": {
+            "value": "981",
+            "label": "Intellectual Property Rights"
+          }
+        }
+      },
+      "block_order": [
+        "stat_GERmnR",
+        "stat_6WFqpB"
+      ],
+      "name": "YAMAN Tech",
+      "settings": {
+        "image": "shopify://shop_images/FinalAbout_-_Technology.jpg",
+        "image_mb": "shopify://shop_images/FinalAbout_-_Technology2.jpg",
+        "object_position_des": "center",
+        "object_position_mb": "center",
+        "show_overlay": false,
+        "overlay_color": "#05080d",
+        "overlay_opacity": 55,
+        "eyebrow": "OUR TECHNOLOGY",
+        "heading": "YA-MAN'S CORE VALUES HIGHLIGHT INVENTION AND INNOVATION.",
+        "note": "* as of April 2025",
+        "text_color": "#635e58",
+        "heading_color": "#f5ebdd",
+        "stat_value_color": "#ffffff",
+        "stat_label_color": "#ffffff",
+        "show_line": false,
+        "line_color": "#ffffff",
+        "full_width": true,
+        "height_des": "fixed",
+        "fixed_height": 430,
+        "content_align_des": "left",
+        "content_valign_des": "center",
+        "container_max_width": 1280,
+        "height_mb": "fixed",
+        "fixed_height_mb": 490,
+        "content_align_mb": "left",
+        "color_scheme": "scheme-1",
+        "mg": "",
+        "mg_mb": "",
+        "pd": "",
+        "pd_mb": ""
+      }
+    },
+    "featured_collection_n_dWNghg": {
+      "type": "featured-collection-n",
+      "settings": {
+        "custom_class_featured": "featured_aboutPage",
+        "badge_text": "",
+        "heading": "Best Sellers",
+        "subheading": "",
+        "collection": "test-collection",
+        "limit": 12,
+        "show_vendor": true,
+        "card_button_label": "SHOP NOW",
+        "image_ratio": "square",
+        "col_dk": "5",
+        "col_tb": "2",
+        "card_width_mb": 80,
+        "nav_ui": false,
+        "dot_ui": false,
+        "loop": true,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "hide_controls_mobile": true,
+        "button_label": "SHOP NOW",
+        "button_link": "",
+        "button_target": false,
+        "bg_color": "#faf7f0",
+        "badge_bg": "#e3efe7",
+        "badge_color": "#2f6b4f",
+        "card_bg": "#ffffff",
+        "card_border": "#ece7dc",
+        "image_radius": 16,
+        "container_max_width": 1200,
+        "container_padding": 15,
+        "custom_class": "",
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 56
       }
     }
   },
   "order": [
     "main_heading_fgVmaw",
-    "custom_section_mnTphP",
-    "our_team_VpLJtG"
+    "banner_video_n_qR3QCD",
+    "image_with_text_n_df6tDr",
+    "banner_video_n_yCWywj",
+    "shipping_about_n_6ypQb8",
+    "about_tech_n_N636aL",
+    "featured_collection_n_dWNghg"
   ]
 }

@@ -1,0 +1,896 @@
+/* ============================================================
+   custom_yaman_about.css
+   Custom styles for the YAMAN "About Us" PAGE sections only.
+   - Homepage custom styles stay in assets/custom_yaman.css.
+   - Loaded per-section (e.g. from sections/banner-video-n.liquid).
+   - Every rule MUST be scoped under a unique section parent class
+     so nothing leaks into original Kalles sections.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   YAMAN About Video hero  —  sections/banner-video-n.liquid
+   Scope: .hdt-yaman-about-video-section (section tag class)
+   ------------------------------------------------------------ */
+.hdt-yaman-about-video-section .hdt-yaman-about-video {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  color: rgb(var(--av-text, 255 255 255));
+}
+
+/* ---- Section height (mobile-first) ---- */
+.hdt-yaman-about-video-section .hdt-yaman-about-video--hm-fixed {
+  height: var(--av-fixed-h-mb, 480px);
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video--hm-full {
+  height: 100svh;
+  min-height: 440px;
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video--hm-adapt {
+  height: auto;
+  aspect-ratio: var(--av-ar-mb, 3 / 4);
+}
+
+/* ---- Media layer ---- */
+.hdt-yaman-about-video-section .hdt-yaman-about-video__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video__img--desktop {
+  display: none;
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video__img--mobile {
+  display: block;
+}
+
+/* ---- Overlay ---- */
+.hdt-yaman-about-video-section .hdt-yaman-about-video__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgb(var(--av-overlay, 10 10 10));
+  opacity: var(--av-overlay-opacity, 0.45);
+  pointer-events: none;
+}
+
+/* ---- Content (mobile-first: centered stack) ---- */
+.hdt-yaman-about-video-section .hdt-yaman-about-video__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 3vw, 20px);
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(28px, 7vw, 48px);
+  box-sizing: border-box;
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video__content--mb-center {
+  align-items: center;
+  text-align: center;
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video__content--mb-left {
+  align-items: flex-start;
+  text-align: left;
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video__content--mb-right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* ---- Typography ---- */
+.hdt-yaman-about-video-section .hdt-yaman-about-video__eyebrow {
+  margin: 0;
+  font-size: 18px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 30px;
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video__heading {
+  color: white !important;
+  margin: 0;
+  color: inherit;
+  font-size: 48px;
+  line-height: 1.05;
+  font-weight: 700;
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video__subtitle {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin-top: 28px;
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video__subtitle > * {
+  margin: 0;
+}
+
+/* ---- Play button (reuses the _button_video block markup) ---- */
+.hdt-yaman-about-video-section .hdt-yaman-about-video__play {
+  display: flex;
+}
+.hdt-yaman-about-video-section
+  .hdt-yaman-about-video__play
+  .hdt-button-video-wrapper {
+  display: inline-flex;
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video__play .hdt-button-block {
+  width: var(--av-play-size, 84px);
+  height: var(--av-play-size, 84px);
+  min-width: var(--av-play-size, 84px) !important;
+  min-height: var(--av-play-size, 84px) !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent !important;
+  border: 4px solid #A59A8E !important;
+  color: #A59A8E !important;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+.hdt-yaman-about-video-section
+  .hdt-yaman-about-video__play
+  .hdt-button-block:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+  transform: scale(1.06);
+}
+.hdt-yaman-about-video-section
+  .hdt-yaman-about-video__play
+  .hdt-button-block
+  svg {
+  width: 38%;
+  height: 38%;
+}
+.hdt-yaman-about-video-section
+  .hdt-yaman-about-video__play
+  .hdt-button-block
+  svg,
+.hdt-yaman-about-video-section
+  .hdt-yaman-about-video__play
+  .hdt-button-block
+  svg
+  path {
+  fill: #A59A8E;
+}
+@media (max-width:767px) {
+  .hdt-yaman-about-video-section .hdt-yaman-about-video__heading {
+    font-size: 38px;
+}
+
+.hdt-yaman-about-video-section .hdt-yaman-about-video__eyebrow {
+    margin: 0;
+    font-size: 16px;
+}
+.hdt-yaman-about-video-section .hdt-yaman-about-video__subtitle {
+    margin: 14px 0 0;
+    font-size: 15px;
+}
+}
+
+/* ============================================================
+   Desktop ( >= 768px )
+   ============================================================ */
+@media (min-width: 1150px) {
+  /* Height modes override the mobile ones on desktop */
+  .hdt-yaman-about-video-section .hdt-yaman-about-video--hd-fixed {
+    height: var(--av-fixed-h-des, 620px);
+    aspect-ratio: auto;
+  }
+  .hdt-yaman-about-video-section .hdt-yaman-about-video--hd-full {
+    height: 100svh;
+    min-height: 560px;
+    aspect-ratio: auto;
+  }
+  .hdt-yaman-about-video-section .hdt-yaman-about-video--hd-adapt {
+    height: auto;
+    aspect-ratio: var(--av-ar-des, 16 / 7);
+  }
+
+  /* Desktop image swap */
+  .hdt-yaman-about-video-section .hdt-yaman-about-video__img--desktop {
+    display: block;
+  }
+  .hdt-yaman-about-video-section .hdt-yaman-about-video__img--mobile {
+    display: none;
+  }
+
+  /* Content becomes a full-bleed layer; text is indented to align
+     with a centered max-width zone (gutter + auto side space). */
+  .hdt-yaman-about-video-section .hdt-yaman-about-video__content {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    gap: 18px;
+    padding-block: clamp(40px, 8vh, 90px);
+    padding-inline: 75px
+  }
+
+  /* Horizontal alignment of the text column (desktop) */
+  .hdt-yaman-about-video-section .hdt-yaman-about-video__content--align-left {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .hdt-yaman-about-video-section .hdt-yaman-about-video__content--align-center {
+    align-items: center;
+    text-align: center;
+  }
+  .hdt-yaman-about-video-section .hdt-yaman-about-video__content--align-right {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  /* Vertical position of the text column (desktop) */
+  .hdt-yaman-about-video-section .hdt-yaman-about-video__content--valign-top {
+    justify-content: flex-start;
+  }
+  .hdt-yaman-about-video-section
+    .hdt-yaman-about-video__content--valign-center {
+    justify-content: center;
+  }
+  .hdt-yaman-about-video-section
+    .hdt-yaman-about-video__content--valign-bottom {
+    justify-content: flex-end;
+  }
+
+  /* Play button floats over the media, positioned by the X/Y settings
+     (relative to the full hero because .__content spans inset:0). */
+  .hdt-yaman-about-video-section .hdt-yaman-about-video__play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    margin: 0;
+  }
+}
+
+/* ------------------------------------------------------------
+   YAMAN Story (Brand Story)  —  sections/image-with-text-n.liquid
+   Scope: .hdt-yaman-story-section (section wrapper class)
+   ------------------------------------------------------------ */
+.hdt-yaman-story-section .hdt-yaman-story__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--ys-gap-mb, 24px);
+  width: 100%;
+  max-width: var(--ys-maxw, 1280px);
+  margin-inline: auto;
+}
+
+/* ---- Media (mobile-first) ---- */
+.hdt-yaman-story-section .hdt-yaman-story__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--ys-radius-mb, 18px);
+  aspect-ratio: var(--ys-ar, 4 / 3);
+}
+.hdt-yaman-story-section .hdt-yaman-story__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.hdt-yaman-story-section .hdt-yaman-story__image--desktop {
+  display: none;
+}
+.hdt-yaman-story-section .hdt-yaman-story__image--mobile {
+  display: block;
+}
+
+/* Mobile image order (image top by default) */
+.hdt-yaman-story-section
+  .hdt-yaman-story--imgmb-bottom
+  .hdt-yaman-story__media {
+  order: 2;
+}
+.hdt-yaman-story-section
+  .hdt-yaman-story--imgmb-bottom
+  .hdt-yaman-story__content {
+  order: 1;
+}
+
+/* ---- Content ---- */
+.hdt-yaman-story-section .hdt-yaman-story__content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.hdt-yaman-story-section .hdt-yaman-story__content--mb-left {
+  align-items: flex-start;
+  text-align: left;
+}
+.hdt-yaman-story-section .hdt-yaman-story__content--mb-center {
+  align-items: center;
+  text-align: center;
+}
+.hdt-yaman-story-section .hdt-yaman-story__content--mb-right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* ---- Typography ---- */
+.hdt-yaman-story-section .hdt-yaman-story__eyebrow {
+  margin: 0;
+  color: rgb(var(--ys-eyebrow, 155 155 155));
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.hdt-yaman-story-section .hdt-yaman-story__heading {
+  color: rgb(var(--ys-heading, 17 17 17));
+  font-size: clamp(28px, 7vw, 46px);
+  line-height: 1.12;
+  font-weight: 700;
+  margin-bottom: 68px;
+}
+.hdt-yaman-story-section .hdt-yaman-story__text {
+  color: rgb(var(--ys-body, 111 111 111));
+  font-size: clamp(15px, 4vw, 17px);
+  line-height: 1.5;
+  font-family: "DIN Next LT";
+  font-weight: 400;
+  margin-bottom: 64px;
+}
+.hdt-yaman-story-section .hdt-yaman-story__text > * {
+  margin: 0;
+}
+.hdt-yaman-story-section .hdt-yaman-story__paragraph {
+}
+.hdt-yaman-story-section .hdt-yaman-story__cta {
+  margin-top: 26px;
+}
+
+/* ============================================================
+   Desktop ( >= 768px )
+   ============================================================ */
+@media (min-width: 768px) {
+  .hdt-yaman-story-section .hdt-yaman-story__container {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--ys-gap, 72px);
+    align-items: start;
+  }
+  .hdt-yaman-story-section
+    .hdt-yaman-story--valign-top
+    .hdt-yaman-story__container {
+    align-items: start;
+  }
+
+  .hdt-yaman-story-section .hdt-yaman-story__media {
+    border-radius: var(--ys-radius, 24px);
+  }
+  .hdt-yaman-story-section .hdt-yaman-story__image--desktop {
+    display: block;
+  }
+  .hdt-yaman-story-section .hdt-yaman-story__image--mobile {
+    display: none;
+  }
+
+  /* Image left/right (desktop) */
+  .hdt-yaman-story-section .hdt-yaman-story--img-right .hdt-yaman-story__media {
+    order: 2;
+  }
+  .hdt-yaman-story-section
+    .hdt-yaman-story--img-right
+    .hdt-yaman-story__content {
+    order: 1;
+  }
+
+  /* Text alignment (desktop) overrides the mobile alignment */
+  .hdt-yaman-story-section .hdt-yaman-story__content--align-left {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .hdt-yaman-story-section .hdt-yaman-story__content--align-center {
+    align-items: center;
+    text-align: center;
+  }
+  .hdt-yaman-story-section .hdt-yaman-story__content--align-right {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+@media (max-width: 767px) {
+  .hdt-yaman-story-section .hdt-yaman-story__eyebrow {
+    font-size: 15px;
+  }
+  .hdt-yaman-story-section .hdt-yaman-story__content {
+    margin-top: 0px;
+  }
+  .hdt-yaman-story-section .hdt-yaman-story__container {
+    gap: 28px;
+  }
+  .hdt-yaman-story-section .hdt-yaman-story__heading {
+    margin-bottom: 26px;
+    line-height: 1.45;
+  }
+  .hdt-yaman-story-section .hdt-yaman-story__text {
+    margin-bottom: 26px;
+    font-size: 16px;
+  }
+}
+.custom_banner2{
+.hdt-yaman-about-video__heading{
+  margin-top: 154px !important;
+  font-family: "DIN Next LT";
+  font-weight: 500;
+  font-size: 34px;
+}
+@media (max-width:1150px) {
+  .hdt-yaman-about-video__heading{
+  margin-top: 8px !important; 
+}
+}
+}
+
+/* ------------------------------------------------------------
+   YAMAN Brands (stats panel)  —  sections/shipping-about-n.liquid
+   Scope: .hdt-yaman-brands-section (section wrapper class)
+   ------------------------------------------------------------ */
+.hdt-yaman-brands-section .hdt-yaman-brands {
+  width: 100%;
+  max-width: var(--yb-maxw, 1200px);
+  margin-inline: auto;
+  padding-inline: var(--yb-pad-x, 16px);
+  box-sizing: border-box;
+}
+.hdt-yaman-brands-section .hdt-yaman-brands__heading {
+  margin-bottom: 42px;
+  color: rgb(var(--yb-heading, 10 10 10));
+  text-align: center;
+  font-weight: 700;
+  font-size: 46px
+  line-height: 1.1;
+}
+
+/* ---- Panel ---- */
+.hdt-yaman-brands-section .hdt-yaman-brands__panel {
+  background: rgb(var(--yb-panel, 246 243 234));
+  border-radius: var(--yb-radius, 24px);
+  padding: clamp(24px, 4vw, 40px) clamp(16px, 3vw, 32px);
+}
+
+/* ---- Grid (mobile-first) ---- */
+.hdt-yaman-brands-section .hdt-yaman-brands__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--yb-cols-mb, 2), 1fr);
+  column-gap: var(--yb-gap-mb, 28px);
+  row-gap: clamp(28px, 6vw, 40px);
+}
+
+/* ---- Item ---- */
+.hdt-yaman-brands-section .hdt-yaman-brands__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  text-align: center;
+  min-width: 0;
+}
+.hdt-yaman-brands-section .hdt-yaman-brands__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+.hdt-yaman-brands-section .hdt-yaman-brands__value {
+  color: rgb(var(--yb-value, 201 168 106));
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1.1;
+}
+.hdt-yaman-brands-section .hdt-yaman-brands__label {
+  color: rgb(var(--yb-label, 20 35 59));
+  font-size: clamp(13px, 3.4vw, 16px);
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+/* ---- Dividers (subtle, vertically centered, not full height) ----
+   The line sits on the LEFT edge of an item; it is shown only on items
+   that are NOT first-in-row, so it reads as a separator between columns. */
+.hdt-yaman-brands-section .hdt-yaman-brands__item::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(var(--yb-gap-mb, 28px) / -2);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 56%;
+  background: rgb(var(--yb-divider, 217 213 202));
+  display: none;
+}
+/* Mobile: 2-col → divider on the right-column items only */
+.hdt-yaman-brands-section
+  .hdt-yaman-brands__grid--dividers[data-cols-mb="2"]
+  .hdt-yaman-brands__item:nth-child(2n)::before {
+  display: block;
+}
+
+/* ============================================================
+   Desktop ( >= 768px )
+   ============================================================ */
+@media (min-width: 768px) {
+  .hdt-yaman-brands-section .hdt-yaman-brands__grid {
+    grid-template-columns: repeat(var(--yb-cols-dk, 4), 1fr);
+    column-gap: var(--yb-gap, 24px);
+    row-gap: 0;
+  }
+  .hdt-yaman-brands-section .hdt-yaman-brands__item::before {
+    inset-inline-start: calc(var(--yb-gap, 24px) / -2);
+  }
+
+  /* Reset to "show on all", then suppress the first item of each row
+     for the active desktop column count. */
+  .hdt-yaman-brands-section
+    .hdt-yaman-brands__grid--dividers[data-cols-dk="2"]
+    .hdt-yaman-brands__item:nth-child(n)::before,
+  .hdt-yaman-brands-section
+    .hdt-yaman-brands__grid--dividers[data-cols-dk="3"]
+    .hdt-yaman-brands__item:nth-child(n)::before,
+  .hdt-yaman-brands-section
+    .hdt-yaman-brands__grid--dividers[data-cols-dk="4"]
+    .hdt-yaman-brands__item:nth-child(n)::before,
+  .hdt-yaman-brands-section
+    .hdt-yaman-brands__grid--dividers[data-cols-dk="5"]
+    .hdt-yaman-brands__item:nth-child(n)::before,
+  .hdt-yaman-brands-section
+    .hdt-yaman-brands__grid--dividers[data-cols-dk="6"]
+    .hdt-yaman-brands__item:nth-child(n)::before {
+    display: block;
+  }
+  .hdt-yaman-brands-section
+    .hdt-yaman-brands__grid--dividers[data-cols-dk="2"]
+    .hdt-yaman-brands__item:nth-child(2n + 1)::before {
+    display: none;
+  }
+  .hdt-yaman-brands-section
+    .hdt-yaman-brands__grid--dividers[data-cols-dk="3"]
+    .hdt-yaman-brands__item:nth-child(3n + 1)::before {
+    display: none;
+  }
+  .hdt-yaman-brands-section
+    .hdt-yaman-brands__grid--dividers[data-cols-dk="4"]
+    .hdt-yaman-brands__item:nth-child(4n + 1)::before {
+    display: none;
+  }
+  .hdt-yaman-brands-section
+    .hdt-yaman-brands__grid--dividers[data-cols-dk="5"]
+    .hdt-yaman-brands__item:nth-child(5n + 1)::before {
+    display: none;
+  }
+  .hdt-yaman-brands-section
+    .hdt-yaman-brands__grid--dividers[data-cols-dk="6"]
+    .hdt-yaman-brands__item:nth-child(6n + 1)::before {
+    display: none;
+  }
+}
+
+@media (max-width:1150px) {
+  .hdt-yaman-brands{
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+  .custom-shipping-about{
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+  }
+  .hdt-yaman-brands-section .hdt-yaman-brands__value{
+    font-size: 42px;
+  }
+  .hdt-yaman-brands-section .hdt-yaman-brands__label{
+    font-size: 15px;
+  }
+}
+@media (max-width:425px) {
+
+  .custom-shipping-about{
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+  }
+  .hdt-yaman-brands-section .hdt-yaman-brands__value{
+    font-size: 38px;
+  }
+  .hdt-yaman-brands-section .hdt-yaman-brands__label{
+    font-size: 14px;
+  }
+}
+
+/* ------------------------------------------------------------
+   YAMAN Tech (technology / core-values banner)
+   sections/about-tech-n.liquid
+   Scope: .hdt-yaman-tech-section (section tag class)
+   ------------------------------------------------------------ */
+.hdt-yaman-tech-section .hdt-yaman-tech {
+  position: relative;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  color: rgb(var(--yt-text, 167 174 184));
+}
+
+/* ---- Section height (mobile-first) ---- */
+.hdt-yaman-tech-section .hdt-yaman-tech--hm-fixed {
+  height: var(--yt-fixed-h-mb, 460px);
+}
+.hdt-yaman-tech-section .hdt-yaman-tech--hm-full {
+  height: 100svh;
+  min-height: 420px;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech--hm-adapt {
+  height: auto;
+  aspect-ratio: var(--yt-ar-mb, 3 / 4);
+}
+
+/* ---- Media layer ---- */
+.hdt-yaman-tech-section .hdt-yaman-tech__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--yt-obj-mb, center);
+  display: block;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__img--desktop {
+  display: none;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__img--mobile {
+  display: block;
+}
+
+/* ---- Overlay ---- */
+.hdt-yaman-tech-section .hdt-yaman-tech__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgb(var(--yt-overlay, 5 8 13));
+  opacity: var(--yt-overlay-opacity, 0.55);
+  pointer-events: none;
+}
+
+/* ---- Container + content layer ---- */
+.hdt-yaman-tech-section .hdt-yaman-tech__container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  max-width: var(--yt-maxw, 1280px);
+  margin-inline: auto;
+  padding: clamp(28px, 7vw, 56px);
+  box-sizing: border-box;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 100%;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 3vw, 24px);
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__content--valign-top .hdt-yaman-tech__body {
+  justify-content: flex-start;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__content--valign-center .hdt-yaman-tech__body {
+  justify-content: center;
+}
+
+/* Horizontal alignment (mobile-first uses the mobile modifier) */
+.hdt-yaman-tech-section .hdt-yaman-tech__content--mb-left .hdt-yaman-tech__body {
+  align-items: flex-start;
+  text-align: left;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__content--mb-center .hdt-yaman-tech__body {
+  align-items: center;
+  text-align: center;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__content--mb-right .hdt-yaman-tech__body {
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* ---- Typography ---- */
+.hdt-yaman-tech-section .hdt-yaman-tech__eyebrow {
+  margin: 0;
+  color: rgb(var(--yt-text, 167 174 184));
+  font-size: clamp(12px, 3vw, 14px);
+  text-transform: uppercase;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__heading {
+  margin: 0;
+  color: rgb(var(--yt-heading, 255 255 255));
+  font-size: 34px;
+  line-height: 1.5;
+  font-family: "DIN Next LT";
+  font-weight: 400;
+  text-transform: uppercase;
+  max-width: 18ch;
+}
+
+/* ---- Stats ---- */
+.hdt-yaman-tech-section .hdt-yaman-tech__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(28px, 9vw, 72px);
+  margin-top: clamp(8px, 2vw, 16px);
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__stat-value {
+  color: rgb(var(--yt-stat-value, 255 255 255));
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__stat-label {
+  color: rgb(var(--yt-stat-label, 212 216 222));
+  font-size: clamp(13px, 3.4vw, 16px);
+  line-height: 1.3;
+}
+
+/* ---- Note ---- */
+.hdt-yaman-tech-section .hdt-yaman-tech__note {
+  margin: clamp(6px, 1.5vw, 12px) 0 0;
+  color: rgb(var(--yt-text, 167 174 184));
+  font-size: clamp(10px, 2.6vw, 12px);
+  opacity: 0.85;
+}
+
+/* ---- Bottom line ---- */
+.hdt-yaman-tech-section .hdt-yaman-tech__line {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 1px;
+  margin-top: clamp(20px, 4vw, 36px);
+  background: rgb(var(--yt-line, 90 95 102));
+}
+
+/* ============================================================
+   Desktop ( >= 768px )
+   ============================================================ */
+@media (min-width: 768px) {
+  .hdt-yaman-tech-section .hdt-yaman-tech--hd-fixed {
+    height: var(--yt-fixed-h-des, 560px);
+    aspect-ratio: auto;
+  }
+  .hdt-yaman-tech-section .hdt-yaman-tech--hd-full {
+    height: 100svh;
+    min-height: 520px;
+    aspect-ratio: auto;
+  }
+  .hdt-yaman-tech-section .hdt-yaman-tech--hd-adapt {
+    height: auto;
+    aspect-ratio: var(--yt-ar-des, 16 / 7);
+  }
+
+  .hdt-yaman-tech-section .hdt-yaman-tech__img {
+    object-position: var(--yt-obj-des, center);
+  }
+  .hdt-yaman-tech-section .hdt-yaman-tech__img--desktop {
+    display: block;
+  }
+  .hdt-yaman-tech-section .hdt-yaman-tech__img--mobile {
+    display: none;
+  }
+
+  .hdt-yaman-tech-section .hdt-yaman-tech__container {
+    padding-block: clamp(40px, 7vh, 80px);
+    padding-inline: clamp(28px, 5vw, 90px);
+  }
+  .hdt-yaman-tech-section .hdt-yaman-tech__heading {
+    max-width: 61%;
+  }
+
+  /* Desktop horizontal alignment overrides the mobile modifier */
+  .hdt-yaman-tech-section .hdt-yaman-tech__content--align-left .hdt-yaman-tech__body {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .hdt-yaman-tech-section .hdt-yaman-tech__content--align-center .hdt-yaman-tech__body {
+    align-items: center;
+    text-align: center;
+  }
+  .hdt-yaman-tech-section .hdt-yaman-tech__content--align-right .hdt-yaman-tech__body {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+.hdt-yaman-tech__stats{
+  font-family: "DIN Next LT" !important;
+  font-weight: 400 !important;
+}
+
+@media (max-width: 767px){
+  .hdt-yaman-tech-section .hdt-yaman-tech__body{
+    flex: unset;
+    margin-top: 18px;
+  }
+  
+.hdt-yaman-tech-section .hdt-yaman-tech__heading {
+    font-size: 27px;
+    line-height: 1.5;
+    max-width: 79%;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__stat-value {
+    font-size: 27px;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__stat-label {
+    font-size: 14px;
+}
+.hdt-yaman-tech-section .hdt-yaman-tech__note{
+  margin-top: 18px;
+}
+
+}
+
+
+
+.featured_aboutPage{
+          padding-block: 65px !important;
+
+  .hdt-slide-spacing-x{
+        --slide-spacing: 14px;
+  }
+  .hdt-slider__slide {
+   
+    padding-inline-start: 14px;
+}
+.star-rating__count {
+    font-size: 10px !important;
+    color: #838383 !important;
+}
+.star-rating__stars img {
+    width: 13px !important;
+    height: 13px !important;
+    color: #838383 !important;
+}
+ .hdt-yaman-routine__container {
+    max-width: 1400px !important;
+}
+.hdt-yaman-routine-section .hdt-yaman-routine__button-wrap {
+    margin-top: 20px;
+}
+.hdt-yaman-routine__button {
+    padding: 13px 72px;
+    border-radius: 12px;
+}
+
+@media (max-width:767px) {
+  .hdt-yaman-routine__container{
+    padding-right: 0;
+  }
+  
+}
+}

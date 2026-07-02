@@ -1,0 +1,222 @@
+<!-- product-final-cta-n.liquid — YAMAN product-page final CTA banner.
+     Variant-aware: ADD TO BAG (native theme product form + AJAX cart) for single-variant
+     products, SELECT OPTIONS (smooth-scrolls to the variant picker) for multi-variant,
+     SOLD OUT (disabled) when unavailable. Optional consult link.
+     CSS: assets/custom_yaman_dev2.css (.product .hdt-product-final-cta-section)
+     JS:  assets/product-final-cta-n.js (scoped scroll-to-options) -->
+{%- liquid
+  assign p = product
+  assign variant = p.selected_or_first_available_variant
+  assign has_options = false
+  unless p.has_only_default_variant
+    assign has_options = true
+  endunless
+  assign cta_form_id = 'final-cta-form-' | append: section.id
+  assign atc_label = section.settings.atc_label | default: 'ADD TO BAG'
+  assign select_label = section.settings.select_label | default: 'SELECT OPTIONS'
+  assign soldout_label = section.settings.soldout_label | default: 'SOLD OUT'
+-%}
+<div
+  class="hdt-product-final-cta"
+  id="hdt-product-final-cta-{{ section.id }}"
+  style="--fcta-bg: {{ section.settings.background_color }}; --fcta-text: {{ section.settings.text_color }}; --fcta-cart-bg: {{ section.settings.cart_bg }}; --fcta-cart-text: {{ section.settings.cart_text }}; --fcta-maxw: {{ section.settings.container_max_width }}px; --fcta-pt: {{ section.settings.padding_top }}px; --fcta-pb: {{ section.settings.padding_bottom }}px; --fcta-pt-mb: {{ section.settings.padding_top_mb }}px; --fcta-pb-mb: {{ section.settings.padding_bottom_mb }}px;"
+>
+  <div class="hdt-product-final-cta__container">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="hdt-product-final-cta__eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="hdt-product-final-cta__heading">{{ section.settings.heading | escape | newline_to_br }}</h2>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <p class="hdt-product-final-cta__subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    <div class="hdt-product-final-cta__actions">
+      {%- if p == blank -%}
+        {%- comment -%} No product context (e.g. previewed off a product page) — skip the cart button. {%- endcomment -%}
+      {%- elsif p.available == false -%}
+        <button type="button" class="hdt-product-final-cta__button hdt-product-final-cta__button--cart" disabled>{{ soldout_label }}</button>
+      {%- elsif has_options -%}
+        <button type="button" class="hdt-product-final-cta__button hdt-product-final-cta__button--cart" data-fcta-scroll>{{ select_label }}</button>
+      {%- else -%}
+        <wrapp-hdt-pr-frm class="hdt-contents">
+          {%- form 'product', p, id: cta_form_id, class: 'hdt-main-product-form hdt-product-final-cta__form' -%}
+            <input type="hidden" name="id" value="{{ variant.id }}">
+            <div class="hdt-form__message-wrapper hdt-form-message--error" role="alert" ref="addToCartTextError" hidden><span class="hdt-error-message"></span></div>
+            <hdt-buy-buttons class="hdt-product-final-cta__buybtns" form="{{ cta_form_id }}">
+              <button type="submit" name="add" class="hdt-product-final-cta__button hdt-product-final-cta__button--cart">{{ atc_label }} — {{ variant.price | money }}</button>
+            </hdt-buy-buttons>
+          {%- endform -%}
+        </wrapp-hdt-pr-frm>
+      {%- endif -%}
+
+      {%- if section.settings.consult_url != blank -%}
+        <a class="hdt-product-final-cta__button hdt-product-final-cta__button--consult" href="{{ section.settings.consult_url }}">{{ section.settings.consult_label | default: 'BOOK A 1-ON-1 CONSULT' }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'product-final-cta-n.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Final CTA",
+  "tag": "section",
+  "class": "hdt-section hdt-product-final-cta-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "STILL DECIDING?"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "info": "One line per row.",
+      "default": "Try Real Lift Plus risk-free\nfor 60 days"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Free express shipping · Free returns · 2-year warranty · Klarna available."
+    },
+    {
+      "type": "header",
+      "content": "Add-to-bag button"
+    },
+    {
+      "type": "text",
+      "id": "atc_label",
+      "label": "Add-to-bag prefix",
+      "info": "Shown for single-variant products as “{prefix} — {price}”.",
+      "default": "ADD TO BAG"
+    },
+    {
+      "type": "text",
+      "id": "select_label",
+      "label": "Select-options text",
+      "info": "Shown for products with variants; scrolls up to the options.",
+      "default": "SELECT OPTIONS"
+    },
+    {
+      "type": "text",
+      "id": "soldout_label",
+      "label": "Sold-out text",
+      "default": "SOLD OUT"
+    },
+    {
+      "type": "header",
+      "content": "Consult button"
+    },
+    {
+      "type": "text",
+      "id": "consult_label",
+      "label": "Consult button text",
+      "default": "BOOK A 1-ON-1 CONSULT"
+    },
+    {
+      "type": "url",
+      "id": "consult_url",
+      "label": "Consult button URL",
+      "info": "Leave blank to hide the consult button entirely."
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#070707"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "cart_bg",
+      "label": "Add-to-bag button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "cart_text",
+      "label": "Add-to-bag button text",
+      "default": "#070707"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 400,
+      "max": 1100,
+      "step": 10,
+      "unit": "px",
+      "label": "Content max width",
+      "default": 640
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 65
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 65
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "Final CTA",
+      "category": "t:sections_categories.05_section.name"
+    }
+  ]
+}
+{% endschema %}

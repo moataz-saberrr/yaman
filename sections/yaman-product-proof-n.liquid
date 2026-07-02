@@ -1,0 +1,450 @@
+<!-- sections/yaman-product-proof-n.liquid — YAMAN product-page "Proof / Results" section
+  Layout: centered heading/subtitle, then 2-col (static before/after image carousel + 2x2 stat cards).
+  Carousel: reuses the theme's built-in Kalles <hdt-slideshow> slider (dots/arrows via config) — NO custom JS.
+  The before/after image is STATIC per slide (no draggable handle, no comparison overlay).
+  CSS: assets/custom-productan.css (scoped under .hdt-yaman-proof-section) -->
+{{ 'custom-productan.css' | asset_url | stylesheet_tag: media: 'all' }}
+{{ 'slideshow.css' | asset_url | stylesheet_tag: media: 'all' }}
+{%- liquid
+  # split section blocks into image slides and stat cards
+  assign image_count = 0
+  assign stat_count = 0
+  for block in section.blocks
+    if block.type == 'image'
+      assign image_count = image_count | plus: 1
+    elsif block.type == 'stat'
+      assign stat_count = stat_count | plus: 1
+    endif
+  endfor
+
+  assign show_arrows = section.settings.enable_arrows
+  # dots reflect the number of image slides; auto-hide when there is only one slide
+  assign show_dots = false
+  if section.settings.enable_dots and image_count > 1
+    assign show_dots = true
+  endif
+
+  assign hide_arrows_mb = section.settings.hide_arrows_mobile
+-%}
+<div
+  class="hdt-yaman-proof{% if section.settings.card_shadow %} hdt-yaman-proof--shadow{% endif %}"
+  id="yaman-proof-{{ section.id }}"
+  style="
+    --yp-bg: {{ section.settings.background_color }};
+    --yp-maxw: {{ section.settings.container_max_width }}px;
+    --yp-head-maxw: {{ section.settings.heading_max_width }}px;
+    --yp-radius: {{ section.settings.image_radius }}px;
+    --yp-card-bg: {{ section.settings.card_bg }};
+    --yp-card-border: {{ section.settings.card_border }};
+    --yp-accent: {{ section.settings.accent_color }};
+    --yp-gap: {{ section.settings.content_gap }}px;
+    --yp-gap-mb: {{ section.settings.content_gap_mb }}px;
+    --yp-pt: {{ section.settings.padding_top }}px;
+    --yp-pb: {{ section.settings.padding_bottom }}px;
+    --yp-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --yp-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+  "
+>
+  <div class="hdt-yaman-proof__container">
+
+    {%- if section.settings.heading != blank or section.settings.subtitle != blank -%}
+      <div class="hdt-yaman-proof__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="hdt-yaman-proof__heading">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="hdt-yaman-proof__subtitle">{{ section.settings.subtitle | escape | newline_to_br }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="hdt-yaman-proof__content">
+
+      <!-- MEDIA: static before/after image carousel (Kalles slider) -->
+      <div class="hdt-yaman-proof__media">
+        <hdt-slideshow
+          id="YamanProofSlider-{{ section.id }}"
+          class="hdt-yaman-proof__slider hdt-slider hdt-relative hdt-slideshow hdt-slides-1"
+          config='{"loop": false, "navUI": {{ show_arrows }}, "dotUI": {{ show_dots }}, "autoPlay": 0, "pauseOnHover": true, "autoHeight": false, "slidesToScroll": 1 }'
+        >
+          <div class="hdt-yaman-proof__viewport hdt-slider__viewport hdt-relative">
+            <div class="hdt-slider__container">
+              {%- if image_count > 0 -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.type != 'image' -%}
+                    {%- continue -%}
+                  {%- endif -%}
+                  {%- liquid
+                    assign img = block.settings.image
+                    assign img_mb = block.settings.image_mobile
+                    assign alt = block.settings.alt | default: 'Before and after result'
+                  -%}
+                  <div class="hdt-slider__slide hdt-yaman-proof__slide" {{ block.shopify_attributes }}>
+                    <div class="hdt-yaman-proof__image-wrap">
+                      {%- if img != blank -%}
+                        {%- if img_mb != blank -%}
+                          <picture>
+                            <source
+                              media="(max-width: 767px)"
+                              srcset="{{ img_mb | image_url: width: 900 }}"
+                            >
+                            {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'hdt-yaman-proof__image', alt: alt, widths: '400,600,800,1000,1200', sizes: '(max-width: 767px) 92vw, 620px' }}
+                          </picture>
+                        {%- else -%}
+                          {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'hdt-yaman-proof__image', alt: alt, widths: '400,600,800,1000,1200', sizes: '(max-width: 767px) 92vw, 620px' }}
+                        {%- endif -%}
+                      {%- else -%}
+                        <div class="hdt-yaman-proof__image hdt-yaman-proof__placeholder" aria-hidden="true">
+                          {{ 'image' | placeholder_svg_tag: 'hdt-yaman-proof__placeholder-svg' }}
+                        </div>
+                      {%- endif -%}
+
+                      {%- if block.settings.label_left != blank or block.settings.label_right != blank -%}
+                        <div class="hdt-yaman-proof__labels">
+                          {%- if block.settings.label_left != blank -%}
+                            <span class="hdt-yaman-proof__label hdt-yaman-proof__label--left">{{ block.settings.label_left }}</span>
+                          {%- endif -%}
+                          {%- if block.settings.label_right != blank -%}
+                            <span class="hdt-yaman-proof__label hdt-yaman-proof__label--right">{{ block.settings.label_right }}</span>
+                          {%- endif -%}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                    {%- if block.settings.caption != blank -%}
+                      <p class="hdt-yaman-proof__caption">{{ block.settings.caption }}</p>
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+              {%- else -%}
+                <!-- safe placeholder when no image blocks exist -->
+                <div class="hdt-slider__slide hdt-yaman-proof__slide">
+                  <div class="hdt-yaman-proof__image-wrap">
+                    <div class="hdt-yaman-proof__image hdt-yaman-proof__placeholder" aria-hidden="true">
+                      {{ 'image' | placeholder_svg_tag: 'hdt-yaman-proof__placeholder-svg' }}
+                    </div>
+                  </div>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+
+          {%- if show_arrows -%}
+            <div class="hdt-navigation hdt-position-default hdt-visible-hover hdt-style-default hdt-shape-rounded hdt-size-small hdt-hide-mobile-{{ hide_arrows_mb }}">
+              <button aria-controls="YamanProofSlider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--prev" type="button" disabled name="previous" aria-label="previous">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/></svg>
+              </button>
+              <button aria-controls="YamanProofSlider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--next" type="button" disabled name="next" aria-label="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/></svg>
+              </button>
+            </div>
+          {%- endif -%}
+
+          {%- if show_dots -%}
+            <div hdt-slider-dots aria-controls="YamanProofSlider-{{ section.id }}" class="hdt-yaman-proof__dots hdt-slider__dots hdt-pagination hdt-position-center hdt-style-default hdt-radius-true hdt-hide-mobile-false" style="--space-between: 8px; --margin-top: 18px;"></div>
+          {%- endif -%}
+        </hdt-slideshow>
+      </div>
+
+      <!-- STATS: 2x2 editable stat cards -->
+      {%- if stat_count > 0 -%}
+        <div class="hdt-yaman-proof__stats">
+          {%- for block in section.blocks -%}
+            {%- if block.type != 'stat' -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- liquid
+              assign accent = block.settings.accent_color | default: section.settings.accent_color
+              assign val = block.settings.value | strip
+              assign sign = val | slice: 0
+            -%}
+            <div class="hdt-yaman-proof__stat" style="--yp-stat-accent: {{ accent }};" {{ block.shopify_attributes }}>
+              {%- if val != blank -%}
+                <p class="hdt-yaman-proof__value">
+                  {%- if sign == '+' or sign == '-' -%}
+                    <span class="hdt-yaman-proof__sign">{{ sign }}</span>{{ val | remove_first: sign }}
+                  {%- else -%}
+                    {{ val }}
+                  {%- endif -%}
+                </p>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p class="hdt-yaman-proof__stat-text">{{ block.settings.text }}</p>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- elsif request.design_mode -%}
+        <div class="hdt-yaman-proof__stats hdt-yaman-proof__stats--empty">
+          <p class="hdt-yaman-proof__stat-text">Add “Stat” blocks in the theme editor to show result cards here.</p>
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YAMAN Proof",
+  "tag": "section",
+  "class": "hdt-section hdt-yaman-proof-section",
+  "max_blocks": 20,
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "info": "A leading + or − is highlighted with the accent color.",
+          "default": "+36%"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Description",
+          "default": "More defined jawline"
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Accent color (sign / value highlight)",
+          "info": "Optional. Falls back to the section accent color."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Before / after image",
+          "info": "Use one image that already contains the before/after visual."
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile image (optional)"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text"
+        },
+        {
+          "type": "header",
+          "content": "Optional labels"
+        },
+        {
+          "type": "text",
+          "id": "label_left",
+          "label": "Left label",
+          "info": "Leave blank if the image already has labels.",
+          "default": "Before"
+        },
+        {
+          "type": "text",
+          "id": "label_right",
+          "label": "Right label",
+          "default": "Week 4"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption (optional)"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Noticeable results within weeks of use"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Gradual improvement in the appearance of the skin with consistent use."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f7f6f1"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 800,
+      "max": 1500,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "heading_max_width",
+      "min": 400,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "Heading max width",
+      "default": 720
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "min": 20,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Content gap (desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "content_gap_mb",
+      "min": 12,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Content gap (mobile)",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Image carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_dots",
+      "label": "Show dots",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_arrows",
+      "label": "Show arrows",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_arrows_mobile",
+      "label": "Hide arrows on mobile",
+      "default": true,
+      "visible_if": "{{ section.settings.enable_arrows }}"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Image corner radius",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Stat cards"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color (sign / value)",
+      "default": "#c79a4b"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_border",
+      "label": "Card border color",
+      "default": "#ececE6"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_shadow",
+      "label": "Subtle card shadow",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 45
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Proof",
+      "category": "t:sections_categories.05_section.name",
+      "blocks": [
+        { "type": "image", "settings": { "label_left": "Before", "label_right": "Week 4" } },
+        { "type": "stat", "settings": { "value": "+36%", "text": "More defined jawline" } },
+        { "type": "stat", "settings": { "value": "+42%", "text": "Improved skin firmness" } },
+        { "type": "stat", "settings": { "value": "+42%", "text": "More lifted-looking appearance" } },
+        { "type": "stat", "settings": { "value": "-31%", "text": "Less tense-looking appearance" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

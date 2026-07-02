@@ -1,0 +1,452 @@
+<!-- sections/yaman-mode-banner-n.liquid — YAMAN product-page "Mode Banner" slider
+  Full-width dark banner slider. Each slide = background image (separate desktop/mobile)
+  + overlay + content (eyebrow / heading / text). Reuses the theme's built-in Kalles
+  <hdt-slideshow> slider (arrows/dots/loop/autoplay via config). No custom JS.
+  CSS: assets/custom-productan.css (scoped under .hdt-yaman-mode-banner-section) -->
+{{ 'custom-productan.css' | asset_url | stylesheet_tag: media: 'all' }}
+{{ 'slideshow.css' | asset_url | stylesheet_tag: media: 'all' }}
+{%- liquid
+  assign count = section.blocks.size
+
+  assign show_arrows = false
+  if section.settings.enable_arrows and count > 1
+    assign show_arrows = true
+  endif
+
+  assign show_dots = false
+  if section.settings.enable_dots and count > 1
+    assign show_dots = true
+  endif
+
+  assign hide_arrows_mb = section.settings.hide_arrows_mobile
+  assign hide_dots_mb = section.settings.hide_dots_mobile
+  assign autoplay_ms = 0
+  if section.settings.autoplay
+    assign autoplay_ms = section.settings.autoplay_speed | times: 1000
+  endif
+-%}
+<div
+  class="hdt-yaman-mode-banner"
+  id="yaman-mode-banner-{{ section.id }}"
+  style="
+    --mb-bg: {{ section.settings.background_color }};
+    --mb-h: {{ section.settings.height }}px;
+    --mb-h-mb: {{ section.settings.height_mb }}px;
+    --mb-maxw: {{ section.settings.container_max_width }}px;
+    --mb-content-maxw: {{ section.settings.content_max_width }}px;
+    --mb-ovc: {{ section.settings.overlay_color }};
+    --mb-ov: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --mb-arrow: {{ section.settings.arrow_color }};
+    --mb-arrow-bg: {{ section.settings.arrow_bg }};
+    --mb-pt: {{ section.settings.padding_top }}px;
+    --mb-pb: {{ section.settings.padding_bottom }}px;
+    --mb-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --mb-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+  "
+>
+  {%- if count > 0 -%}
+    <hdt-slideshow
+      id="ModeBanner-{{ section.id }}"
+      class="hdt-yaman-mode-banner__slider hdt-slider hdt-relative hdt-slideshow hdt-slides-1"
+      config='{"loop": {{ section.settings.loop }}, "navUI": {{ show_arrows }}, "dotUI": {{ show_dots }}, "autoPlay": {{ autoplay_ms }}, "pauseOnHover": true, "autoHeight": false, "slidesToScroll": 1 }'
+    >
+      <div class="hdt-yaman-mode-banner__viewport hdt-slider__viewport hdt-relative">
+        <div class="hdt-slider__container">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign img = block.settings.image
+              assign img_mb = block.settings.image_mobile
+              assign alt = block.settings.image_alt | default: block.settings.heading
+              assign pos = block.settings.content_position | default: 'flex-start'
+              assign align_mb = block.settings.text_align_mobile | default: 'center'
+
+              assign card_style = ''
+              if block.settings.text_color != blank
+                assign card_style = card_style | append: '--mb-card-text: ' | append: block.settings.text_color | append: ';'
+              endif
+              if block.settings.accent_color != blank
+                assign card_style = card_style | append: '--mb-card-accent: ' | append: block.settings.accent_color | append: ';'
+              endif
+              if block.settings.overlay_color != blank
+                assign card_style = card_style | append: '--mb-ovc: ' | append: block.settings.overlay_color | append: ';'
+              endif
+              if block.settings.use_overlay_override
+                assign cov = block.settings.overlay_opacity | divided_by: 100.0
+                assign card_style = card_style | append: '--mb-ov: ' | append: cov | append: ';'
+              endif
+            -%}
+            <div
+              class="hdt-slider__slide hdt-yaman-mode-banner__slide"
+              style="{{ card_style }} --mb-pos: {{ pos }}; --mb-align-mb: {{ align_mb }};"
+              {{ block.shopify_attributes }}
+            >
+              <div class="hdt-yaman-mode-banner__media">
+                {%- if img != blank -%}
+                  <picture>
+                    {%- if img_mb != blank -%}
+                      <source media="(max-width: 767px)" srcset="{{ img_mb | image_url: width: 1000 }}, {{ img_mb | image_url: width: 1400 }} 1.5x">
+                    {%- endif -%}
+                    {{ img | image_url: width: 2000 | image_tag: class: 'hdt-yaman-mode-banner__image', alt: alt, loading: 'lazy', widths: '800,1200,1600,2000', sizes: '100vw' }}
+                  </picture>
+                {%- else -%}
+                  <div class="hdt-yaman-mode-banner__image hdt-yaman-mode-banner__placeholder" aria-hidden="true"></div>
+                {%- endif -%}
+                <div class="hdt-yaman-mode-banner__overlay" aria-hidden="true"></div>
+              </div>
+
+              <div class="hdt-yaman-mode-banner__container">
+                <div class="hdt-yaman-mode-banner__content">
+                  {%- if block.settings.eyebrow != blank -%}
+                    <p class="hdt-yaman-mode-banner__eyebrow">{{ block.settings.eyebrow | escape }}</p>
+                  {%- endif -%}
+                  {%- if block.settings.heading != blank -%}
+                    <h2 class="hdt-yaman-mode-banner__heading">{{ block.settings.heading | escape }}</h2>
+                  {%- endif -%}
+                  {%- if block.settings.text != blank -%}
+                    <div class="hdt-yaman-mode-banner__text">{{ block.settings.text }}</div>
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      {%- if show_arrows -%}
+        <div class="hdt-yaman-mode-banner__nav hdt-navigation hdt-position-default hdt-visible-always hdt-style-default hdt-shape-rounded hdt-size-small hdt-hide-mobile-{{ hide_arrows_mb }}">
+          <button aria-controls="ModeBanner-{{ section.id }}" class="hdt-slider__button hdt-slider__button--prev hdt-yaman-mode-banner__arrow" type="button" disabled name="previous" aria-label="Previous slide">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button aria-controls="ModeBanner-{{ section.id }}" class="hdt-slider__button hdt-slider__button--next hdt-yaman-mode-banner__arrow" type="button" disabled name="next" aria-label="Next slide">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      {%- endif -%}
+
+      {%- if show_dots -%}
+        <div hdt-slider-dots aria-controls="ModeBanner-{{ section.id }}" class="hdt-yaman-mode-banner__dots hdt-slider__dots hdt-pagination hdt-position-center hdt-style-default hdt-radius-true hdt-hide-mobile-{{ hide_dots_mb }}" style="--space-between: 8px; --margin-top: -34px;"></div>
+      {%- endif -%}
+    </hdt-slideshow>
+  {%- elsif request.design_mode -%}
+    <p class="hdt-yaman-mode-banner__empty">Add “Slide” blocks in the theme editor to build the mode banner.</p>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "YAMAN Mode Banner",
+  "tag": "section",
+  "class": "hdt-section hdt-yaman-mode-banner-section section-allow-transparent",
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background image (desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Background image (mobile)",
+          "info": "Optional. Falls back to the desktop image."
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "default": "MEDI LIFT MODES"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Training EMS Mode"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>Utilizes low-frequency EMS ranging from 2.5 to 17 Hz specifically engineered to target and stimulate the cheek muscles. This active workout supports a visibly elevated mid-face contour and restores symmetry and facial balance</p>"
+        },
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "Content position (desktop)",
+          "options": [
+            { "value": "flex-start", "label": "Start" },
+            { "value": "center", "label": "Center" },
+            { "value": "flex-end", "label": "End" }
+          ],
+          "default": "flex-start"
+        },
+        {
+          "type": "select",
+          "id": "text_align_mobile",
+          "label": "Text alignment (mobile)",
+          "options": [
+            { "value": "flex-start", "label": "Start" },
+            { "value": "center", "label": "Center" },
+            { "value": "flex-end", "label": "End" }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "header",
+          "content": "Colors & overlay"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "info": "Optional. Falls back to the section default."
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Eyebrow / accent color"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay color"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_overlay_override",
+          "label": "Override overlay opacity",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Overlay opacity",
+          "default": 55,
+          "visible_if": "{{ block.settings.use_overlay_override }}"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color (fallback)",
+      "default": "#0e1626"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 280,
+      "max": 720,
+      "step": 10,
+      "unit": "px",
+      "label": "Section height (desktop)",
+      "default": 440
+    },
+    {
+      "type": "range",
+      "id": "height_mb",
+      "min": 360,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Section height (mobile)",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 900,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1290
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 360,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Content max width",
+      "default": 560
+    },
+    {
+      "type": "header",
+      "content": "Colors & overlay"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Image overlay color",
+      "default": "#0b1220"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Default overlay opacity",
+      "default": 55
+    },
+    {
+      "type": "header",
+      "content": "Arrows & dots"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_arrows",
+      "label": "Show arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_arrows_mobile",
+      "label": "Hide arrows on mobile",
+      "default": true,
+      "visible_if": "{{ section.settings.enable_arrows }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_dots",
+      "label": "Show dots",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_dots_mobile",
+      "label": "Hide dots on mobile",
+      "default": true,
+      "visible_if": "{{ section.settings.enable_dots }}"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow color",
+      "default": "#f3ecdf"
+    },
+    {
+      "type": "color",
+      "id": "arrow_bg",
+      "label": "Arrow background",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "header",
+      "content": "Slider behavior"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay speed",
+      "default": 6,
+      "visible_if": "{{ section.settings.autoplay }}"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Mode Banner",
+      "category": "t:sections_categories.05_section.name",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "MEDI LIFT MODES",
+            "heading": "Training EMS Mode",
+            "text": "<p>Utilizes low-frequency EMS ranging from 2.5 to 17 Hz specifically engineered to target and stimulate the cheek muscles. This active workout supports a visibly elevated mid-face contour and restores symmetry and facial balance</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

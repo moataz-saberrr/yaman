@@ -1,0 +1,1072 @@
+/* ===========================================================================
+ * custom-productan.css — YAMAN product-page custom styles
+ * ---------------------------------------------------------------------------
+ * Section: YAMAN Proof  (sections/yaman-product-proof-n.liquid)
+ * Everything is scoped under .hdt-yaman-proof-section so it can never leak
+ * into other Kalles sections. Do not add unrelated/global rules here.
+ * =========================================================================== */
+
+/* ---- Section shell ------------------------------------------------------- */
+.hdt-yaman-proof-section .hdt-yaman-proof {
+  background-color: var(--yp-bg, #f7f6f1);
+  padding-top: var(--yp-pt, 70px);
+  padding-bottom: var(--yp-pb, 70px);
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__container {
+  max-width: var(--yp-maxw, 1200px);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* ---- Header -------------------------------------------------------------- */
+.hdt-yaman-proof-section .hdt-yaman-proof__header {
+  text-align: center;
+  max-width: var(--yp-head-maxw, 720px);
+  margin: 0 auto 40px;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__heading {
+  margin: 0;
+  color: #1c2540;
+  font-weight: 700;
+  font-size: clamp(24px, 3.4vw, 38px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__subtitle {
+  margin: 12px auto 0;
+  max-width: 560px;
+  color: #7c8091;
+  font-size: clamp(13px, 1.4vw, 15px);
+  line-height: 1.5;
+}
+
+/* ---- Content grid: image left, stats right (desktop) --------------------- */
+.hdt-yaman-proof-section .hdt-yaman-proof__content {
+  display: grid;
+  grid-template-columns: minmax(0, 46%) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--yp-gap, 48px);
+}
+
+/* ---- Media / carousel ---------------------------------------------------- */
+.hdt-yaman-proof-section .hdt-yaman-proof__media {
+  min-width: 0;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__slider {
+  display: block;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__image-wrap {
+  position: relative;
+  border-radius: var(--yp-radius, 16px);
+  overflow: hidden;
+  background: #ecebe5;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__placeholder {
+  aspect-ratio: 16 / 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__placeholder-svg {
+  width: 42%;
+  opacity: 0.35;
+  fill: #9a9a9a;
+}
+
+/* Optional before/after pill labels over the bottom of the image */
+.hdt-yaman-proof-section .hdt-yaman-proof__labels {
+  position: absolute;
+  inset-inline: 12px;
+  bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__label {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2a2f3d;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__caption {
+  margin: 10px 0 0;
+  text-align: center;
+  color: #7c8091;
+  font-size: 13px;
+}
+
+/* ---- Carousel dots (Kalles slider dots, restyled to pill lines) ---------- */
+.hdt-yaman-proof-section .hdt-yaman-proof__dots {
+  margin-top: 18px;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__dots .hdt-slider__dot {
+  width: 18px !important;
+  height: 4px !important;
+  border-radius: 999px;
+  background-color: #cbc9c1;
+  opacity: 1;
+  border: 0;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__dots .hdt-slider__dot.hdt-slider__dot--selected {
+  width: 26px;
+  background-color: #1c2540;
+}
+
+/* ---- Stats: 2x2 cards ---------------------------------------------------- */
+.hdt-yaman-proof-section .hdt-yaman-proof__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__stats--empty {
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__stat {
+  background: var(--yp-card-bg, #ffffff);
+  border: 1px solid var(--yp-card-border, #ececE6);
+  border-radius: 16px;
+  padding: 26px 24px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hdt-yaman-proof--shadow .hdt-yaman-proof__stat {
+  box-shadow: 0 6px 18px rgba(28, 37, 64, 0.06);
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__value {
+  margin: 0;
+  color: #1c2540;
+  font-weight: 700;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1;
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__sign {
+  color: var(--yp-stat-accent, var(--yp-accent, #c79a4b));
+}
+
+.hdt-yaman-proof-section .hdt-yaman-proof__stat-text {
+  margin: 10px 0 0;
+  color: #8b8f9c;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* ---- Responsive: mobile = stats first, image carousel below -------------- */
+@media (max-width: 991px) {
+  .hdt-yaman-proof-section .hdt-yaman-proof__content {
+    grid-template-columns: 1fr;
+    gap: var(--yp-gap-mb, 24px);
+  }
+
+  /* stats above the image on mobile */
+  .hdt-yaman-proof-section .hdt-yaman-proof__stats {
+    order: 1;
+  }
+
+  .hdt-yaman-proof-section .hdt-yaman-proof__media {
+    order: 2;
+  }
+}
+
+@media (max-width: 767px) {
+  .hdt-yaman-proof-section .hdt-yaman-proof {
+    padding-top: var(--yp-pt-mb, 44px);
+    padding-bottom: var(--yp-pb-mb, 44px);
+  }
+
+  .hdt-yaman-proof-section .hdt-yaman-proof__header {
+    margin-bottom: 26px;
+  }
+
+  .hdt-yaman-proof-section .hdt-yaman-proof__stat {
+    padding: 18px 16px;
+    min-height: 96px;
+    border-radius: 14px;
+  }
+
+  .hdt-yaman-proof-section .hdt-yaman-proof__stats {
+    gap: 12px;
+  }
+}
+
+/* ===========================================================================
+ * Section: YAMAN Marquee  (sections/yaman-shipping-marquee-n.liquid)
+ * Dark navy infinite shipping/benefits strip. Scoped under
+ * .hdt-yaman-marquee-section. Uses logical properties (padding-inline,
+ * margin-inline, inset-inline, border-inline) for RTL/translation readiness.
+ * =========================================================================== */
+.hdt-yaman-marquee-section .hdt-yaman-marquee {
+  background-color: var(--mq-bg, #1d2847);
+  color: var(--mq-text, #e7e9f0);
+  padding-top: var(--mq-pt, 18px);
+  padding-bottom: var(--mq-pb, 18px);
+  overflow: hidden;
+}
+
+/* Constrain width when "Full width" is off */
+.hdt-yaman-marquee-section .hdt-yaman-marquee:not(.is-full) .hdt-yaman-marquee__viewport {
+  max-width: var(--mq-maxw, 1500px);
+  margin-inline: auto;
+}
+
+.hdt-yaman-marquee-section .hdt-yaman-marquee__viewport {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+/* Track = two identical groups; animate -50% to loop seamlessly */
+.hdt-yaman-marquee-section .hdt-yaman-marquee__track {
+  display: flex;
+  inline-size: max-content;
+  will-change: transform;
+  animation: hdt-yaman-marquee-scroll var(--mq-duration, 40s) linear infinite;
+}
+
+.hdt-yaman-marquee-section .hdt-yaman-marquee.is-reverse .hdt-yaman-marquee__track {
+  animation-direction: reverse;
+}
+
+/* Pause on hover (only when enabled) */
+.hdt-yaman-marquee-section .hdt-yaman-marquee.is-pausable:hover .hdt-yaman-marquee__track {
+  animation-play-state: paused;
+}
+
+.hdt-yaman-marquee-section .hdt-yaman-marquee__group {
+  display: flex;
+  align-items: center;
+  gap: var(--mq-gap, 40px);
+  padding-inline-end: var(--mq-gap, 40px);
+}
+
+.hdt-yaman-marquee-section .hdt-yaman-marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  color: inherit;
+  text-decoration: none;
+}
+
+.hdt-yaman-marquee-section a.hdt-yaman-marquee__item:hover .hdt-yaman-marquee__text {
+  text-decoration: underline;
+}
+
+.hdt-yaman-marquee-section .hdt-yaman-marquee__text {
+  font-size: var(--mq-fs, 15px);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.hdt-yaman-marquee-section .hdt-yaman-marquee__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mq-item-accent, var(--mq-accent, #d4b87a));
+  font-size: var(--mq-icon, 18px);
+  line-height: 1;
+}
+
+.hdt-yaman-marquee-section .hdt-yaman-marquee__icon-img {
+  display: block;
+  block-size: var(--mq-icon, 18px);
+  inline-size: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Inline Figma preset SVG icons */
+.hdt-yaman-marquee-section .hdt-yaman-marquee__svg {
+  display: block;
+  block-size: var(--mq-icon, 18px);
+  inline-size: var(--mq-icon, 18px);
+}
+
+/* Divider between items — hidden when "Show dividers" is off */
+.hdt-yaman-marquee-section .hdt-yaman-marquee__divider {
+  flex: 0 0 auto;
+  inline-size: 1px;
+  block-size: 1.2em;
+  background-color: var(--mq-divider, #3b4667);
+}
+
+.hdt-yaman-marquee-section .hdt-yaman-marquee:not(.has-dividers) .hdt-yaman-marquee__divider {
+  display: none;
+}
+
+.hdt-yaman-marquee-section .hdt-yaman-marquee__empty {
+  margin: 0;
+  text-align: center;
+  color: var(--mq-text, #e7e9f0);
+  font-size: 14px;
+  padding-block: 6px;
+}
+
+@keyframes hdt-yaman-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Mobile sizing */
+@media (max-width: 767px) {
+  .hdt-yaman-marquee-section .hdt-yaman-marquee {
+    padding-top: var(--mq-pt-mb, 14px);
+    padding-bottom: var(--mq-pb-mb, 14px);
+  }
+
+  .hdt-yaman-marquee-section .hdt-yaman-marquee__group {
+    gap: var(--mq-gap-mb, 24px);
+    padding-inline-end: var(--mq-gap-mb, 24px);
+  }
+
+  .hdt-yaman-marquee-section .hdt-yaman-marquee__text {
+    font-size: var(--mq-fs-mb, 13px);
+  }
+
+  .hdt-yaman-marquee-section .hdt-yaman-marquee__icon {
+    font-size: var(--mq-icon-mb, 16px);
+  }
+
+  .hdt-yaman-marquee-section .hdt-yaman-marquee__icon-img {
+    block-size: var(--mq-icon-mb, 16px);
+  }
+
+  .hdt-yaman-marquee-section .hdt-yaman-marquee__svg {
+    block-size: var(--mq-icon-mb, 16px);
+    inline-size: var(--mq-icon-mb, 16px);
+  }
+}
+
+/* Respect reduced-motion: stop the animation, allow manual horizontal scroll */
+@media (prefers-reduced-motion: reduce) {
+  .hdt-yaman-marquee-section .hdt-yaman-marquee__viewport {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .hdt-yaman-marquee-section .hdt-yaman-marquee__track {
+    animation: none;
+  }
+}
+
+/* ===========================================================================
+ * Section: YAMAN Special  (sections/yaman-special-features-n.liquid)
+ * "What Makes It Special" static responsive image feature grid.
+ * Scoped under .hdt-yaman-special-section. Logical properties for RTL.
+ * =========================================================================== */
+.hdt-yaman-special-section .hdt-yaman-special {
+  background-color: var(--sp-bg, #ffffff);
+  padding-top: var(--sp-pt, 70px);
+  padding-bottom: var(--sp-pb, 70px);
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__container {
+  max-width: var(--sp-maxw, 1200px);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* ---- Header (Figma: heading 48/Bold/#070707, subtitle 18/Regular) -------- */
+.hdt-yaman-special-section .hdt-yaman-special__header {
+  text-align: center;
+  max-width: var(--sp-head-maxw, 900px);
+  margin-inline: auto;
+  margin-block-end: 40px;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__heading {
+  margin: 0;
+  color: #070707;
+  font-weight: 700;
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.48px;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__subtitle {
+  margin: 20px auto 0;
+  max-inline-size: 900px;
+  color: rgba(7, 7, 7, 0.55);
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 24px;
+}
+
+/* ---- Grid: desktop = 6 columns (3 normal + 2 wide), 16px gap ------------- */
+.hdt-yaman-special-section .hdt-yaman-special__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--sp-gap, 16px);
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__card--normal,
+.hdt-yaman-special-section .hdt-yaman-special__card--tall {
+  grid-column: span 2;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__card--wide {
+  grid-column: span 3;
+}
+
+/* ---- Card (Figma: radius 18px, row1 320px, row2 340px) ------------------- */
+.hdt-yaman-special-section .hdt-yaman-special__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--sp-radius, 18px);
+  min-block-size: 320px;
+  isolation: isolate;
+  background: #e9e7e0;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__card--wide {
+  min-block-size: 340px;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__image {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e2e0d8;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__placeholder-svg {
+  width: 40%;
+  opacity: 0.4;
+  fill: #a5a5a5;
+}
+
+/* ---- Scrims -------------------------------------------------------------
+ * Figma: cards 1–3 use the (dark) image directly — no overlay.
+ * Cards 4–5 use a white gradient fading in from the inline-start edge.
+ * A dark-bottom scrim is available (opacity-driven) for readability on
+ * lighter images if a merchant needs it. */
+.hdt-yaman-special-section .hdt-yaman-special__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: none;
+  pointer-events: none;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__card--scrim-dark .hdt-yaman-special__overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, var(--sp-card-ov, var(--sp-ov, 0.4))) 0%,
+    rgba(0, 0, 0, calc(var(--sp-card-ov, var(--sp-ov, 0.4)) * 0.35)) 45%,
+    rgba(0, 0, 0, 0) 78%
+  );
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__card--scrim-light .hdt-yaman-special__overlay {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.6) 2%,
+    rgba(255, 255, 255, 0) 60%
+  );
+}
+
+[dir="rtl"] .hdt-yaman-special-section .hdt-yaman-special__card--scrim-light .hdt-yaman-special__overlay {
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0.6) 2%,
+    rgba(255, 255, 255, 0) 60%
+  );
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__content {
+  position: relative;
+  z-index: 2;
+  block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 24px 28px;
+  padding-inline: 28px;
+  color: var(--sp-card-text, var(--sp-text, #ffffff)) !important;
+  h3{
+      color: var(--sp-card-text, var(--sp-text, #ffffff)) !important;
+  }
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__top {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__number {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--sp-card-accent, var(--sp-accent, #c9a844));
+  line-height: 1;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__line {
+  display: block;
+  inline-size: 42px;
+  block-size: 2px;
+  background-color: var(--sp-card-accent, var(--sp-accent, #c9a844));
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__text {
+  margin-block-start: auto;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__title {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  line-height: 1.1;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__description {
+  margin: 8px 0 0;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+  opacity: 0.68;
+  max-inline-size: 42ch;
+}
+
+.hdt-yaman-special-section .hdt-yaman-special__empty {
+  text-align: center;
+  color: #7c8091;
+  font-size: 14px;
+}
+
+/* ---- Tablet / mobile: 2-column arrangement ------------------------------- */
+@media (max-width: 767px) {
+  .hdt-yaman-special-section .hdt-yaman-special {
+    padding-top: var(--sp-pt-mb, 44px);
+    padding-bottom: var(--sp-pb-mb, 44px);
+  }
+
+  .hdt-yaman-special-section .hdt-yaman-special__header {
+    margin-block-end: 24px;
+  }
+
+  .hdt-yaman-special-section .hdt-yaman-special__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row dense;
+    gap: var(--sp-gap-mb, 12px);
+  }
+
+  /* Tall card (e.g. card 01) fills the inline-start column across two rows */
+  .hdt-yaman-special-section .hdt-yaman-special__card--tall {
+    grid-column: 1;
+    grid-row: span 2;
+    min-block-size: 320px;
+  }
+
+  .hdt-yaman-special-section .hdt-yaman-special__card--normal {
+    grid-column: auto;
+    min-block-size: 154px;
+  }
+
+  /* Wide cards go full width */
+  .hdt-yaman-special-section .hdt-yaman-special__card--wide {
+    grid-column: 1 / -1;
+    min-block-size: 190px;
+  }
+
+  .hdt-yaman-special-section .hdt-yaman-special__content {
+    padding-block: 18px 18px;
+    padding-inline: 18px;
+  }
+
+  .hdt-yaman-special-section .hdt-yaman-special__number {
+    font-size: 17px;
+  }
+
+  .hdt-yaman-special-section .hdt-yaman-special__title {
+    font-size: 20px;
+  }
+
+  .hdt-yaman-special-section .hdt-yaman-special__description {
+    font-size: 14px;
+  }
+}
+
+/* Very small screens: single column, everything readable */
+@media (max-width: 380px) {
+  .hdt-yaman-special-section .hdt-yaman-special__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hdt-yaman-special-section .hdt-yaman-special__card--normal,
+  .hdt-yaman-special-section .hdt-yaman-special__card--tall,
+  .hdt-yaman-special-section .hdt-yaman-special__card--wide {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-block-size: 190px;
+  }
+}
+
+/* ===========================================================================
+ * Section: YAMAN Mode Banner  (sections/yaman-mode-banner-n.liquid)
+ * Full-width dark banner slider (Kalles hdt-slideshow). Scoped under
+ * .hdt-yaman-mode-banner-section. Logical properties for RTL readiness.
+ * =========================================================================== */
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner {
+  background-color: var(--mb-bg, #0e1626);
+  padding-top: var(--mb-pt, 0px);
+  padding-bottom: var(--mb-pb, 0px);
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__slider {
+  display: block;
+  position: relative;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__slide {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--mb-bg, #0e1626);
+}
+
+/* ---- Media: show the WHOLE image (Figma = object-contain, no crop).
+   The image sets the slide height at its natural ratio (≈524px at 1440w). --- */
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__media {
+  position: relative;
+  z-index: 0;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__media picture {
+  display: block;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+/* Placeholder (no image) keeps the Figma banner ratio / height */
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__placeholder {
+  aspect-ratio: 1440 / 524;
+  min-block-size: var(--mb-h, 524px);
+  background: linear-gradient(120deg, #0b1220, #1d2847);
+}
+
+/* Dark scrim fading from the inline-start side (desktop) for left-aligned text */
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--mb-ovc, #0b1220) calc(var(--mb-ov, 0.55) * 100%), transparent) 0%,
+    color-mix(in srgb, var(--mb-ovc, #0b1220) calc(var(--mb-ov, 0.55) * 55%), transparent) 38%,
+    transparent 68%
+  );
+}
+
+[dir="rtl"] .hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__overlay {
+  background: linear-gradient(
+    to left,
+    color-mix(in srgb, var(--mb-ovc, #0b1220) calc(var(--mb-ov, 0.55) * 100%), transparent) 0%,
+    color-mix(in srgb, var(--mb-ovc, #0b1220) calc(var(--mb-ov, 0.55) * 55%), transparent) 38%,
+    transparent 68%
+  );
+}
+
+/* ---- Content (overlaid on top of the full image) ------------------------- */
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__container {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  max-inline-size: var(--mb-maxw, 1290px);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 64px);
+  display: flex;
+  align-items: center;
+  justify-content: var(--mb-pos, flex-start);
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__content {
+  max-inline-size: var(--mb-content-maxw, 560px);
+  color: var(--mb-card-text, var(--mb-text, #f3ecdf));
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__eyebrow {
+  margin: 0 0 14px;
+  color: var(--mb-card-accent, var(--mb-accent, #c9a844));
+  font-size: clamp(14px, 1.5vw, 18px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__heading {
+  margin: 0 0 18px;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__text {
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.6;
+  opacity: 0.86;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__text > * {
+  margin: 0;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__empty {
+  text-align: center;
+  color: #f3ecdf;
+  padding-block: 40px;
+}
+
+/* ---- Arrows (Figma: 60px chevrons, top 298/524 ≈ 56.8%, insets 23/13px) -- */
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__nav {
+  position: absolute;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__arrow {
+  position: absolute;
+  inset-block-start: 56.8%;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 60px;
+  block-size: 60px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--mb-arrow-bg, transparent);
+  color: var(--mb-arrow, #f3ecdf);
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__arrow.hdt-slider__button--prev {
+  inset-inline-start: 23px;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__arrow.hdt-slider__button--next {
+  inset-inline-end: 13px;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__arrow:hover:not([disabled]) {
+  opacity: 1;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__arrow[disabled] {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* Flip the chevrons for RTL */
+[dir="rtl"] .hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__arrow svg {
+  transform: scaleX(-1);
+}
+
+/* ---- Dots (optional) ----------------------------------------------------- */
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__dots {
+  position: relative;
+  z-index: 2;
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__dots .hdt-slider__dot {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__dots .hdt-slider__dot--selected {
+  background-color: var(--mb-arrow, #f3ecdf);
+}
+
+/* ---- Mobile: text on top, image below (within the dark banner) ----------- */
+@media (max-width: 767px) {
+  .hdt-yaman-mode-banner-section .hdt-yaman-mode-banner {
+    padding-top: var(--mb-pt-mb, 0px);
+    padding-bottom: var(--mb-pb-mb, 0px);
+  }
+
+  /* Placeholder fallback height on mobile */
+  .hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__placeholder {
+    aspect-ratio: 485 / 652;
+    min-block-size: var(--mb-h-mb, 600px);
+  }
+
+  /* Dark scrim from the top for top-aligned text */
+  .hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__overlay,
+  [dir="rtl"] .hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__overlay {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--mb-ovc, #0b1220) calc(var(--mb-ov, 0.55) * 100%), transparent) 6%,
+      color-mix(in srgb, var(--mb-ovc, #0b1220) calc(var(--mb-ov, 0.55) * 50%), transparent) 40%,
+      transparent 66%
+    );
+  }
+
+  .hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__container {
+    align-items: flex-start;
+    justify-content: center;
+    padding-block-start: 36px;
+  }
+
+  .hdt-yaman-mode-banner-section .hdt-yaman-mode-banner__content {
+    max-inline-size: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: var(--mb-align-mb, center);
+    text-align: center;
+  }
+}
+
+/* ===========================================================================
+ * Section: YAMAN How Use  (sections/yaman-how-to-use-n.liquid)
+ * "How to Use" step cards — desktop static grid, mobile full-bleed scroll-snap
+ * carousel (no JS). Scoped under .hdt-yaman-howuse-section. Logical props/RTL.
+ * =========================================================================== */
+.hdt-yaman-howuse-section .hdt-yaman-howuse {
+  position: relative;
+  background-color: var(--hu-bg, #ffffff);
+  padding-top: var(--hu-pt, 65px);
+  padding-bottom: var(--hu-pb, 65px);
+  overflow: hidden;
+}
+
+/* Faint gold vertical glow (Figma) — decorative, behind content */
+.hdt-yaman-howuse-section .hdt-yaman-howuse.has-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--hu-glow, #d4b87a) 0%, transparent) 0%,
+    color-mix(in srgb, var(--hu-glow, #d4b87a) 30%, transparent) 50%,
+    color-mix(in srgb, var(--hu-glow, #d4b87a) 0%, transparent) 100%
+  );
+}
+
+.hdt-yaman-howuse-section .hdt-yaman-howuse__container {
+  position: relative;
+  z-index: 1;
+  max-inline-size: var(--hu-maxw, 1040px);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* ---- Header (Figma: heading 48/Bold/#070707, subtitle 18/Regular) -------- */
+.hdt-yaman-howuse-section .hdt-yaman-howuse__header {
+  text-align: center;
+  max-inline-size: var(--hu-head-maxw, 760px);
+  margin-inline: auto;
+  margin-block-end: 40px;
+}
+
+.hdt-yaman-howuse-section .hdt-yaman-howuse__heading {
+  margin: 0;
+  color: #070707;
+  font-weight: 700;
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.48px;
+}
+
+.hdt-yaman-howuse-section .hdt-yaman-howuse__subtitle {
+  margin: 20px auto 0;
+  max-inline-size: 620px;
+  color: rgba(7, 7, 7, 0.5);
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 24px;
+}
+
+/* ---- Track: desktop static grid ------------------------------------------ */
+.hdt-yaman-howuse-section .hdt-yaman-howuse__track {
+  display: grid;
+  grid-template-columns: repeat(var(--hu-cols, 4), minmax(0, 1fr));
+  gap: var(--hu-gap, 32px);
+  justify-content: center;
+}
+
+/* ---- Card ---------------------------------------------------------------- */
+.hdt-yaman-howuse-section .hdt-yaman-howuse__card {
+  display: flex;
+  flex-direction: column;
+  background: var(--hu-card-bg, #f8f7f0);
+  border-radius: var(--hu-radius, 16px);
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+
+.hdt-yaman-howuse-section .hdt-yaman-howuse__image-wrap {
+  position: relative;
+  aspect-ratio: var(--hu-img-ar, 223 / 200);
+  background: #e9e7df;
+}
+
+.hdt-yaman-howuse-section .hdt-yaman-howuse__image {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.hdt-yaman-howuse-section .hdt-yaman-howuse__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hdt-yaman-howuse-section .hdt-yaman-howuse__placeholder-svg {
+  width: 40%;
+  opacity: 0.4;
+  fill: #a5a5a5;
+}
+
+.hdt-yaman-howuse-section .hdt-yaman-howuse__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-block: 14px 16px;
+  padding-inline: 14px;
+}
+
+.hdt-yaman-howuse-section .hdt-yaman-howuse__number {
+  color: var(--hu-accent, #c9a844);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hdt-yaman-howuse-section .hdt-yaman-howuse__title {
+  margin: 0;
+  color: var(--hu-title, #1d2847);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.hdt-yaman-howuse-section .hdt-yaman-howuse__description {
+  margin: 0;
+  color: rgba(7, 7, 7, 0.5);
+  font-size: 13px;
+  line-height: 1.46;
+}
+
+.hdt-yaman-howuse-section .hdt-yaman-howuse__empty {
+  text-align: center;
+  color: rgba(7, 7, 7, 0.5);
+}
+
+/* ---- Tablet: 2 per row --------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hdt-yaman-howuse-section .hdt-yaman-howuse__track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---- Mobile: full-bleed scroll-snap carousel (one card + a peek) --------- */
+@media (max-width: 767px) {
+  .hdt-yaman-howuse-section .hdt-yaman-howuse {
+    padding-top: var(--hu-pt-mb, 40px);
+    padding-bottom: var(--hu-pb-mb, 40px);
+  }
+
+  .hdt-yaman-howuse-section .hdt-yaman-howuse__header {
+    margin-block-end: 26px;
+  }
+
+  .hdt-yaman-howuse.has-carousel .hdt-yaman-howuse__viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* align the first card with the container gutter */
+    scroll-padding-inline-start: 16px;
+    padding-inline: 16px;
+  }
+
+  /* Full-bleed: break the viewport out to the screen edges */
+  .hdt-yaman-howuse.has-carousel.is-fullbleed .hdt-yaman-howuse__viewport {
+    margin-inline: calc(50% - 50vw);
+  }
+
+  .hdt-yaman-howuse.has-carousel .hdt-yaman-howuse__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hdt-yaman-howuse.has-carousel .hdt-yaman-howuse__track {
+    display: flex;
+    grid-template-columns: none;
+    gap: var(--hu-gap-mb, 16px);
+    justify-content: flex-start;
+  }
+
+  .hdt-yaman-howuse.has-carousel .hdt-yaman-howuse__card {
+    flex: 0 0 var(--hu-card-mb, 78%);
+    scroll-snap-align: start;
+  }
+
+  /* If the mobile carousel is disabled, fall back to a 2-col grid */
+  .hdt-yaman-howuse:not(.has-carousel) .hdt-yaman-howuse__track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--hu-gap-mb, 16px);
+  }
+}

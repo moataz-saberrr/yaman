@@ -303,6 +303,71 @@
   }
 }
 
+/* ---- OVERLAY RESPONSIVE FIX (768px–1375px) ----------------------------------
+   In this range the slide height is driven by the image aspect-ratio, so it
+   shrinks as the viewport narrows. The overlay content kept ~desktop font
+   sizes + 48px block padding + fixed gaps, so its intrinsic height exceeded the
+   (shrinking) slide; being position:absolute + vertically centred inside an
+   overflow:hidden viewport, the top (heading) overflowed and got clipped.
+   Fix: scale the heading + vertical rhythm down with the viewport (clamp/vw) in
+   stepped bands so the content always fits. Every band is min-width:768px, so
+   the <768px black-panel mobile layout stays exactly as-is. */
+@media (min-width: 768px) and (max-width: 1375px) {
+  .hdt-slideshow-n .hdt-yaman-hero__content {
+    padding-block: clamp(18px, 2.6vw, 44px);
+    padding-inline: clamp(24px, 5vw, 80px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__heading {
+    font-size: clamp(28px, 4.2vw, 58px);
+    line-height: 1.02;
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__text {
+    margin-top: clamp(8px, 1.2vw, 16px);
+    font-size: clamp(13px, 1.15vw, 16px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__button {
+    margin-top: clamp(12px, 1.7vw, 24px);
+    padding: clamp(10px, 1vw, 15px) clamp(16px, 1.8vw, 26px);
+    font-size: clamp(12px, 0.95vw, 14px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__meta {
+    margin-top: clamp(12px, 1.9vw, 30px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__meta-item {
+    font-size: clamp(10px, 0.85vw, 12px);
+  }
+}
+/* tablet / small-desktop: tighten heading + spacing further */
+@media (min-width: 768px) and (max-width: 1150px) {
+  .hdt-slideshow-n .hdt-yaman-hero__content {
+    padding-block: clamp(16px, 2.3vw, 32px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__heading {
+    font-size: clamp(26px, 3.7vw, 46px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__button {
+    margin-top: clamp(12px, 1.5vw, 18px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__meta {
+    margin-top: clamp(12px, 1.6vw, 20px);
+  }
+}
+/* small tablet: tightest, guarantees the 3-line heading clears short slides */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hdt-slideshow-n .hdt-yaman-hero__content {
+    padding-block: clamp(14px, 2vw, 22px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__heading {
+    font-size: clamp(24px, 3.3vw, 36px);
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__text {
+    margin-top: 8px;
+  }
+  .hdt-slideshow-n .hdt-yaman-hero__meta {
+    margin-top: 12px;
+  }
+}
+
 /* ---- pagination dots: scoped pill style (overrides the var-driven theme dots) ---- */
 .hdt-slideshow-n .hdt-yaman-hero__dots {
   z-index: 3;
@@ -478,6 +543,10 @@
   width: 100%;
   padding: 0;
   text-wrap: nowrap;
+  @media (max-width: 1150px) {
+    padding: 0 1.5rem;
+    
+  }
 }
 
 /* Heading — "Clarity before commitment." (plain, left, bold navy) */
@@ -487,7 +556,7 @@
   display: block;
   color: #1d2847;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1;
 }
 /* Strip Kalles heading-design decoration lines for the clean FAQ look */
 .hdt-yaman-faq-section .hdt-heading-block::before,
@@ -548,6 +617,34 @@
     padding: 20px 0;
     font-size: 16px;
   }
+}
+
+/* FAQ Footer Link */
+.hdt-yaman-faq-footer {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
+.hdt-yaman-faq-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1d2847;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  svg{
+    width: 10px;
+    height: 10px;
+  }
+}
+.hdt-yaman-faq-link:hover {
+  opacity: 0.7;
+}
+.hdt-yaman-faq-link-text {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 /* ===========================================================================
@@ -916,7 +1013,7 @@
 .hdt-yaman-results-section .hdt-yaman-results {
   max-width: var(--rr-maxw, 1310px);
   margin-inline: auto;
-  padding-inline: 10px;
+  /* padding-inline: 10px; */
 }
 
 /* ---- Header ---- */
@@ -940,7 +1037,12 @@
 }
 
 /* ---- Carousel per-view (override Kalles slide sizing, scoped) ---- */
-.hdt-yaman-results-section .hdt-slider__viewport { overflow: hidden; }
+.hdt-yaman-results-section .hdt-slider__viewport { 
+  overflow: hidden;
+  @media (max-width: 1150px) {
+    padding: 1px;     
+  }
+}
 .hdt-yaman-results-section .hdt-slider__slide { height: auto; }
 .hdt-yaman-results-section .hdt-slider__container {
   --slide-size: var(--rr-w-mb, 44%);
@@ -949,7 +1051,7 @@
 }
 @media (min-width: 768px) {
   .hdt-yaman-results-section .hdt-slider__container {
-    --slide-size: calc(100% / var(--rr-cols-tb, 3));
+    --slide-size: calc(100% / var(--rr-cols-tb, 3) - 3%);
     --slide-spacing: var(--rr-gap-tb, 16px);
   }
 }
@@ -961,7 +1063,14 @@
 }
 
 /* ---- Card ---- */
-.hdt-yaman-results-section .hdt-yaman-results__slide { height: auto; }
+.hdt-yaman-results-section .hdt-yaman-results__slide { 
+  height: auto; 
+@media (max-width: 1150px) {
+  &:first-child{
+    margin-inline-start: 12px;
+  }
+}
+}
 .hdt-yaman-results-section .hdt-yaman-results__card {
   display: flex;
   flex-direction: column;
@@ -1007,14 +1116,15 @@
   position: absolute;
   top: 12px;
   z-index: 3;
-  padding: 3px 11px;
+  padding: 5px 11px;
   background: #fff;
   color: #000;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   border-radius: 9px;
   box-shadow: 0 1.8px 1.8px rgba(0, 0, 0, 0.1);
   pointer-events: none;
+  line-height: 1;
 }
 .hdt-yaman-results-section .hdt-yaman-results__label--before { inset-inline-start: 12px; }
 .hdt-yaman-results-section .hdt-yaman-results__label--after { inset-inline-end: 12px; }
@@ -1067,7 +1177,10 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 1.35;
-  color: #1d2847;
+  color: #000000A6;
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
 }
 .hdt-yaman-results-section .hdt-yaman-results__meta {
   margin: 0;
@@ -1098,6 +1211,7 @@
   font-weight: 700;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  width: fit-content;
 }
 .hdt-yaman-results-section .hdt-yaman-results__button:hover { opacity: 0.92; }
 .hdt-yaman-results-section .hdt-yaman-results__button[aria-disabled="true"] { pointer-events: none; opacity: 0.55; }
@@ -1624,6 +1738,10 @@
 .hdt-yaman-sets-section .hdt-yaman-sets__head {
   text-align: center;
   margin-bottom: 26px;
+}
+.hdt-yaman-sets-section .star-rating__stars img{
+  width: 16px !important;
+  height: 16px !important;
 }
 .hdt-yaman-sets-section .hdt-yaman-sets__heading {
   margin: 0 0 10px;
@@ -2399,6 +2517,167 @@
 
 
 /* ---------------------------------------------------------------------------
+ * 6b. ROUTINE CARD — collection grid  ->  snippets/card-product-routine-grid.liquid
+ *     Scope class: .hdt-yaman-pr-routine (sits on the <hdt-card-product> root).
+ *     Self-contained visual twin of the "Complete Your Routine" card (section 6),
+ *     so it renders correctly inside the stock collection grid
+ *     (sections/main-collection.liquid, product_des "11"): white rounded card with
+ *     border + padding, left-aligned info, and a full-width black SHOP NOW pill in
+ *     the footer that links to the product page. No dependency on
+ *     .hdt-yaman-routine-section, so it can't leak into other cards/sections.
+ * ------------------------------------------------------------------------- */
+.hdt-yaman-pr-routine { display: flex; height: 100%; }
+.hdt-yaman-pr-routine .hdt-card-product__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ece7dc;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 1px 2px rgba(13, 13, 13, 0.04);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.hdt-yaman-pr-routine:hover .hdt-card-product__wrapper {
+  box-shadow: 0 10px 26px rgba(13, 13, 13, 0.08);
+  transform: translateY(-2px);
+}
+.hdt-yaman-pr-routine .hdt-card-product__media {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* info block — left aligned, spacing tuned to the Figma card */
+.hdt-yaman-pr-routine .hdt-card-product__info {
+  text-align: start;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.hdt-yaman-pr-routine .hdt-card-product__info > * { margin: 0; }
+.hdt-yaman-pr-routine .hdt-card-product__info .jdgm-prev-badge { margin-bottom: 5px; }
+.hdt-yaman-pr-routine .hdt-card-product__info .hdt-price-wrapp { margin-top: 3px; }
+
+/* Judge.me / rating badge — grey stars left, count right (mirrors section 6) */
+.hdt-yaman-pr-routine .hdt-card-product__info .jdgm-prev-badge,
+.hdt-yaman-pr-routine .hdt-card-product__info .hdt-pr-card-rating,
+.hdt-yaman-pr-routine .hdt-card-product__info > .spr-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  line-height: 1;
+}
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0;
+}
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars .jdgm-star {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  color: transparent;
+  background: center / contain no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23b9b3a8'%20stroke-width='1.6'%20stroke-linejoin='round'%3E%3Cpath%20d='M12%20.587l3.668%207.431%208.2%201.192-5.934%205.782%201.401%208.168L12%2018.896l-7.335%203.864%201.401-8.168L.132%209.21l8.2-1.192z'/%3E%3C/svg%3E");
+}
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars .jdgm-star::before { display: none; }
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars .jdgm-star svg,
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars .jdgm-star img { display: none; }
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars .jdgm--on {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='%230d0d0d'%3E%3Cpath%20d='M12%20.587l3.668%207.431%208.2%201.192-5.934%205.782%201.401%208.168L12%2018.896l-7.335%203.864%201.401-8.168L.132%209.21l8.2-1.192z'/%3E%3C/svg%3E");
+}
+.hdt-yaman-pr-routine .jdgm-prev-badge__stars .jdgm--half {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cdefs%3E%3ClinearGradient%20id='h'%3E%3Cstop%20offset='50%25'%20stop-color='%230d0d0d'/%3E%3Cstop%20offset='50%25'%20stop-color='%230d0d0d'%20stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d='M12%20.587l3.668%207.431%208.2%201.192-5.934%205.782%201.401%208.168L12%2018.896l-7.335%203.864%201.401-8.168L.132%209.21l8.2-1.192z'%20fill='url(%23h)'%20stroke='%23b9b3a8'%20stroke-width='1.6'%20stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.hdt-yaman-pr-routine .jdgm-prev-badge__text {
+  margin: 0;
+  font-size: 12px;
+  color: #9a9486;
+  white-space: nowrap;
+}
+
+/* vendor / category line */
+.hdt-yaman-pr-routine .hdt-card-product__vendor {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #828282;
+  text-decoration: none;
+}
+
+/* title */
+.hdt-yaman-pr-routine .hdt-card-product__title {
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #0d0d0d;
+}
+.hdt-yaman-pr-routine .hdt-card-product__title a { color: inherit; text-decoration: none; }
+.hdt-yaman-pr-routine:hover .hdt-card-product__title a { opacity: 0.78; }
+
+/* price */
+.hdt-yaman-pr-routine .hdt-price-wrapp {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hdt-yaman-pr-routine .hdt-price__list { display: flex; align-items: baseline; gap: 8px; }
+.hdt-yaman-pr-routine .hdt-price { font-size: 16px; font-weight: 500; color: #828282; }
+.hdt-yaman-pr-routine .hdt-compare-at-price { font-size: 14px; color: #828282; text-decoration: line-through; }
+.hdt-yaman-pr-routine .hdt-compare-at-price:not([hidden]) + .hdt-price:not(.hdt-price-item--range) { color: #070707 !important; }
+
+/* footer SHOP NOW — full-width black pill (links to the product page) */
+.hdt-yaman-pr-routine .hdt-card-product__footer { margin-top: auto; padding-top: 14px; }
+.hdt-yaman-pr-routine .hdt-card-product__btn-ultra {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 0;
+  padding: 14px 20px;
+  background: #0d0d0d;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.hdt-yaman-pr-routine .hdt-card-product__btn-ultra:hover { opacity: 0.92; transform: translateY(-1px); background-color: #000; }
+.hdt-yaman-pr-routine .hdt-card-product__footer .hdt-pr-card-icon { display: none; }
+.hdt-yaman-pr-routine .hdt-card-product__footer .hdt-truncate {
+  position: static;
+  width: auto;
+  height: auto;
+  clip: auto;
+  overflow: visible;
+  white-space: normal;
+}
+
+/* Mobile: hide the image-overlay quick buttons + wishlist (match section 6) */
+@media (max-width: 767px) {
+  .hdt-yaman-pr-routine .hdt-product-btns,
+  .hdt-yaman-pr-routine .hdt-card-product__btn-wishlist { display: none !important; }
+}
+.hdt-price__list:not(:has(.hdt-compare-at-price)) .hdt-money{
+  color:#000;
+}
+
+.hdt-yaman-routine_card
+
+/* ---------------------------------------------------------------------------
  * 9. HOW TO CHOOSE  ->  sections/featured-collection-choose-n.liquid
  *    Scope class: .hdt-yaman-choose-section  |  BEM: .hdt-yaman-choose__*
  *    Comparison carousel of manual product cards in the theme's native
@@ -2620,4 +2899,383 @@
   /* arrows OUTSIDE the cards, in the page gutter — the track keeps full width
      (no inset), so the cards stay wide; section overflow:clip stops page scroll. */
   .hdt-yaman-choose-section .hdt-navigation { --sl-btn-prev-l: -60px; --sl-btn-next-r: -60px; }
+}
+
+/* ----------------------------------------------------------------------------
+ * YAMAN Videos — shoppable video carousel
+ * Section: sections/shoppable-video-n.liquid   (scope: .hdt-yaman-video-section)
+ * Block:   blocks/_yaman-video-n.liquid         (one .hdt-slider__slide each)
+ * JS:      assets/shoppable-video-n.js          (video play/pause only)
+ * Carousel: native Kalles <hdt-slider>
+ * -------------------------------------------------------------------------- */
+
+.hdt-yaman-video-section .hdt-yaman-video {
+  background: var(--yv-bg, #fff);
+  padding-top: var(--yv-pt, 60px);
+  padding-bottom: var(--yv-pb, 60px);
+}
+
+.hdt-yaman-video-section .hdt-yaman-video__container {
+  max-width: var(--yv-maxw, 1310px);
+  margin: 0 auto;
+  padding-left: var(--yv-pad-x, 20px);
+  padding-right: var(--yv-pad-x, 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Heading -------------------------------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__heading {
+  margin: 0;
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 700;
+  text-align: left;
+  color: #070707;
+  word-break: break-word;
+}
+
+/* Native <hdt-slider> sizing -------------------------------------------------
+ * Override the theme's --slide-size / --slide-spacing (set by the hdt-slides-*
+ * classes) so the gap follows our settings and the mobile slide shows a peek of
+ * the next card. Desktop/tablet widths come from lg:/md:hdt-slides-* natively. */
+.hdt-yaman-video-section .hdt-yaman-video__slider {
+  display: block;
+  width: 100%;
+  --slide-spacing: var(--yv-gap, 20px);
+}
+
+/* Card / slide --------------------------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__slide {
+  min-width: 0;
+}
+
+/* Media -----------------------------------------------------------------------
+ * Portrait ratio matches Figma (~308 x 508 ≈ 31 / 51). Height comes from an
+ * in-flow ::before padding spacer so the slide always has a real height. */
+.hdt-yaman-video-section .hdt-yaman-video__media {
+  position: relative;
+  width: 100%;
+  border-radius: var(--yv-radius, 20px);
+  overflow: hidden;
+  cursor: pointer;
+  background: #e9e4dc;
+  outline: none;
+}
+.hdt-yaman-video-section .hdt-yaman-video__media::before {
+  content: "";
+  display: block;
+  /* Instagram Reels aspect ratio (9:16) so portrait reels fill the card
+     without being cropped by their length. */
+  padding-top: calc(16 / 9 * 100%);
+}
+
+.hdt-yaman-video-section .hdt-yaman-video__video,
+.hdt-yaman-video-section .hdt-yaman-video__poster,
+.hdt-yaman-video-section .hdt-yaman-video__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hdt-yaman-video-section .hdt-yaman-video__placeholder {
+  background: linear-gradient(135deg, #e9e4dc 0%, #d8d0c4 100%);
+}
+
+/* Centre play / pause overlay ----------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  pointer-events: none; /* never blocks the click-to-toggle on the media */
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+.hdt-yaman-video-section .hdt-yaman-video__play-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(1px);
+}
+.hdt-yaman-video-section .hdt-yaman-video__play-icon,
+.hdt-yaman-video-section .hdt-yaman-video__pause-icon {
+  position: relative;
+  z-index: 1;
+}
+/* Default (paused): show play triangle, hide pause bars. */
+.hdt-yaman-video-section .hdt-yaman-video__pause-icon { display: none; }
+.hdt-yaman-video-section .hdt-yaman-video__slide.is-playing .hdt-yaman-video__play-icon { display: none; }
+.hdt-yaman-video-section .hdt-yaman-video__slide.is-playing .hdt-yaman-video__pause-icon { display: block; }
+/* While playing, fade the overlay so it doesn't cover the video; show on hover. */
+.hdt-yaman-video-section .hdt-yaman-video__slide.is-playing .hdt-yaman-video__play { opacity: 0; }
+.hdt-yaman-video-section .hdt-yaman-video__slide.is-playing .hdt-yaman-video__media:hover .hdt-yaman-video__play { opacity: 1; }
+
+/* Creator handle pill (top-left) -------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__handle {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.38);
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Product label (bottom-left) ----------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__product {
+  position: absolute;
+  bottom: 30px;
+  left: 12px;
+  z-index: 2;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+.hdt-yaman-video-section a.hdt-yaman-video__product:hover {
+  text-decoration: underline;
+}
+
+/* CTA button ----------------------------------------------------------------*/
+.hdt-yaman-video-section .hdt-yaman-video__button-wrap {
+  display: flex;
+  justify-content: center;
+}
+.hdt-yaman-video-section .hdt-yaman-video__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 18px;
+  border: 1px solid #070707;
+  border-radius: 12px;
+  background: transparent;
+  color: #070707;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.hdt-yaman-video-section .hdt-yaman-video__button:hover {
+  background: #070707;
+  color: #fff;
+}
+
+/* Tablet & below ------------------------------------------------------------
+ * Figma's cards are a fixed ~308px wide (mobile 308 x 459 ≈ 149%). On a % width
+ * a wide tablet/large-phone viewport would make the card huge and very tall, so
+ * we cap the card width and use the shorter Figma mobile ratio below 1150px. */
+@media (max-width: 1149px) {
+  .hdt-yaman-video-section .hdt-yaman-video__heading {
+    font-size: 40px;
+  }
+  /* Keep the Instagram Reels 9:16 ratio on tablet/mobile too. */
+  .hdt-yaman-video-section .hdt-yaman-video__media::before {
+    padding-top: calc(16 / 9 * 100%);
+  }
+  /* Keep the chosen tablet column count, but never let a card exceed ~340px so
+     its height stays controlled. */
+  .hdt-yaman-video-section .hdt-yaman-video__slider {
+    --slide-size: min(calc(100% / var(--yv-cols-tb, 2)), 340px);
+  }
+  .hdt-yaman-video-section .hdt-yaman-video__container {
+    padding-inline-end: 0;
+  }
+}
+
+/* Mobile --------------------------------------------------------------------*/
+@media (max-width: 767px) {
+  .hdt-yaman-video-section .hdt-yaman-video {
+    padding-top: var(--yv-pt-mb, 36px);
+    padding-bottom: var(--yv-pb-mb, 36px);
+  }
+  .hdt-yaman-video-section .hdt-yaman-video__container {
+    gap: 24px;
+    padding-inline-end: 0;
+  }
+  .hdt-yaman-video-section .hdt-yaman-video__heading {
+    font-size: 30px;
+    line-height: 1.15;
+  }
+  /* One full card + a peek of the next — capped at ~320px so the card stays the
+     Figma size (and a sensible height) on larger phones. */
+  .hdt-yaman-video-section .hdt-yaman-video__slider {
+    --slide-spacing: var(--yv-gap-mb, 14px);
+    --slide-size: min(var(--yv-card-mb, 82%), 320px);
+  }
+}
+
+
+
+/* ============================================================
+   YAMAN Stats — sections/stats-n.liquid
+   Scope: .hdt-yaman-stats-section
+   Desktop + tablet: 4 stats in one centred row with vertical
+   dividers between items (NO horizontal divider). Mobile (<=767px):
+   2x2 grid with a vertical divider between the columns AND a
+   horizontal divider between the two rows (horizontal = mobile only).
+   Static numbers — no JS, no count-up.
+   ============================================================ */
+.hdt-yaman-stats-section .hdt-yaman-stats {
+  background-color: var(--st-bg, #f8f7f0);
+  padding-top: var(--st-pt, 40px);
+  padding-bottom: var(--st-pb, 55px);
+}
+.hdt-yaman-stats-section .hdt-yaman-stats__container {
+  max-width: var(--st-maxw, 1310px);
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 15px;
+  box-sizing: border-box;
+}
+/* Centred horizontal cluster (NOT full-bleed): 4 fixed-width columns with
+   the divider sitting in the inline padding between them. */
+.hdt-yaman-stats-section .hdt-yaman-stats__grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.hdt-yaman-stats-section .hdt-yaman-stats__item {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: 200px; /* ~124px text column + ~38px inline padding each side (Figma) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 38px;
+  text-align: center;
+  color: var(--st-text, #404962);
+  overflow-wrap: anywhere;
+}
+/* Vertical dividers between the 4 items, centred in the inter-column space
+   (desktop + tablet). No horizontal divider at these widths. */
+.hdt-yaman-stats-section .hdt-yaman-stats__item:not(:first-child) {
+  border-inline-start: 1px solid var(--st-divider, #c6c9d0);
+}
+.hdt-yaman-stats-section .hdt-yaman-stats__value {
+  font-weight: 700;
+  font-size: var(--st-value, 46px);
+  line-height: 1.05;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.hdt-yaman-stats-section .hdt-yaman-stats__label {
+  font-weight: 400;
+  font-size: var(--st-label, 16px);
+  line-height: 1.3;
+}
+
+/* Tablet: keep the centred 4-across cluster, just smaller columns + number. */
+@media (min-width: 768px) and (max-width: 1150px) {
+  .hdt-yaman-stats-section .hdt-yaman-stats__item {
+    width: 172px;
+    padding-inline: 24px;
+  }
+  .hdt-yaman-stats-section .hdt-yaman-stats__value {
+    font-size: clamp(32px, 4.2vw, var(--st-value, 46px));
+  }
+}
+
+/* Mobile: 2x2 grid + centre dividers (vertical between columns,
+   horizontal between rows — the horizontal one is mobile only). */
+@media (max-width: 767px) {
+  .hdt-yaman-stats-section .hdt-yaman-stats {
+    padding-top: var(--st-pt-mb, 38px);
+    padding-bottom: var(--st-pb-mb, 38px);
+  }
+  .hdt-yaman-stats-section .hdt-yaman-stats__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .hdt-yaman-stats-section .hdt-yaman-stats__item {
+    width: auto;
+    padding: 22px 14px;
+  }
+  /* reset the desktop "every item except first" vertical rule */
+  .hdt-yaman-stats-section .hdt-yaman-stats__item:not(:first-child) {
+    border-inline-start: 0;
+  }
+  /* vertical divider down the centre = start edge of the right column (items 2 & 4) */
+  .hdt-yaman-stats-section .hdt-yaman-stats__item:nth-child(even) {
+    border-inline-start: 1px solid var(--st-divider, #c6c9d0);
+  }
+  /* horizontal divider across the centre = top edge of the 2nd row (items 3 & 4) */
+  .hdt-yaman-stats-section .hdt-yaman-stats__item:nth-child(n + 3) {
+    border-block-start: 1px solid var(--st-divider, #c6c9d0);
+  }
+  .hdt-yaman-stats-section .hdt-yaman-stats__value {
+    font-size: var(--st-value-mb, 40px);
+  }
+}
+
+
+
+
+/* footer */
+footer {
+  .hdt-section-inner{
+    @media (min-width: 768px) and (max-width: 1149px) {
+      padding-block-start: calc(var(--pd-block-start) * .60) !important;
+      padding-block-end: calc(var(--pd-block-end) * .60) !important;
+      padding-inline-start: calc(var(--pd-inline-start) * .45) !important;
+      padding-inline-end: calc(var(--pd-inline-end) * .45) !important;
+    }
+
+  }
+  .hdt-row{
+    justify-content: space-between;
+  }
+  .hdt-socials__style-outline-background li a{
+        border: .1rem solid #F5EBDD33;
+  }
+  .shopify-section-group-footer-group:nth-child(2) {
+border-top: 0.96px solid #FFFFFF0F ;
+ }
+#main_footer_copyright{
+  margin-top: 32px;
+.hdt-col-content{
+  width: 100%;
+}
+  .hdt-group-content {
+    text-align: center;
+    .hdt-text-warry:has(.custom-footer-payments) {
+      @media (max-width: 767px) {
+        order: -1;
+      }
+      @media (max-width: 1149px) {
+        .custom-footer-payments{
+            justify-content:center !important;
+          }
+      }
+    }
+    span,
+    p {
+      font-size: var(--text-sm) !important;
+    }
+  }
+}
 }
