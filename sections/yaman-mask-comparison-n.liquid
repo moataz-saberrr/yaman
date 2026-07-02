@@ -1,0 +1,495 @@
+<!-- section/yaman-mask-comparison-n.liquid — YAMAN Mask Compare.
+     Product-page 3-column comparison table: Feature label | Medi Lift PLUS by YA-MAN
+     (dark navy, highlighted) | Traditional Lower-Face Masks. Built from scratch.
+     Subtle full-bleed background image + light overlay, centered header, editable
+     "row" blocks. Middle column uses check icons, right column uses X icons.
+     CSS: assets/custom-productan.css (loaded globally from layout/theme.liquid). -->
+{%- liquid
+  assign bg = section.settings.bg_image
+  assign bg_mb = section.settings.bg_image_mb | default: section.settings.bg_image
+  assign feature_heading = section.settings.feature_heading
+  assign main_heading = section.settings.main_heading
+  assign other_heading = section.settings.other_heading
+  assign main_image = section.settings.main_image
+  assign other_image = section.settings.other_image
+-%}
+<div
+  class="hdt-yaman-mask-compare"
+  style="
+    --mc-bg: {{ section.settings.background_color }};
+    --mc-overlay: {{ section.settings.overlay_color }};
+    --mc-overlay-op: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --mc-main-bg: {{ section.settings.main_bg }};
+    --mc-header-bg: {{ section.settings.header_bg }};
+    --mc-stripe-bg: {{ section.settings.stripe_bg }};
+    --mc-row-bg: {{ section.settings.row_bg }};
+    --mc-divider: {{ section.settings.divider_color }};
+    --mc-main-text: {{ section.settings.main_text_color }};
+    --mc-other-accent: {{ section.settings.other_accent_color }};
+    --mc-feature-text: {{ section.settings.feature_text_color }};
+    --mc-title-color: {{ section.settings.col_title_color }};
+    --mc-check: {{ section.settings.check_color }};
+    --mc-x: {{ section.settings.x_color }};
+    --mc-maxw: {{ section.settings.container_max_width }}px;
+    --mc-tablew: {{ section.settings.table_max_width }}px;
+    --mc-radius: {{ section.settings.table_radius }}px;
+    --mc-fs-scale: {{ section.settings.mobile_font_scale | divided_by: 100.0 }};
+    --mc-pt: {{ section.settings.padding_top }}px;
+    --mc-pb: {{ section.settings.padding_bottom }}px;
+    --mc-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --mc-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+  "
+>
+  <div class="hdt-yaman-mask-compare__bg" aria-hidden="true">
+    {%- if bg != blank or bg_mb != blank -%}
+      <picture>
+        {%- if bg_mb != blank -%}
+          <source media="(max-width: 767px)" srcset="{{ bg_mb | image_url: width: 1000 }}">
+        {%- endif -%}
+        <img
+          class="hdt-yaman-mask-compare__bg-img"
+          src="{{ bg | default: bg_mb | image_url: width: 1920 }}"
+          alt=""
+          loading="lazy"
+          width="1920"
+          height="900"
+        >
+      </picture>
+    {%- endif -%}
+  </div>
+  <span class="hdt-yaman-mask-compare__overlay" aria-hidden="true"></span>
+
+  <div class="hdt-yaman-mask-compare__container">
+    {%- if section.settings.heading != blank or section.settings.subtitle != blank -%}
+      <div class="hdt-yaman-mask-compare__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="hdt-yaman-mask-compare__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="hdt-yaman-mask-compare__subtitle">{{ section.settings.subtitle }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="hdt-yaman-mask-compare__table-wrap">
+      <div class="hdt-yaman-mask-compare__table" role="table">
+        <div class="hdt-yaman-mask-compare__row hdt-yaman-mask-compare__row--head" role="row">
+          <div class="hdt-yaman-mask-compare__cell hdt-yaman-mask-compare__cell--feature hdt-yaman-mask-compare__col-header" role="columnheader">
+            {%- if feature_heading != blank -%}
+              <span class="hdt-yaman-mask-compare__col-title">{{ feature_heading }}</span>
+            {%- endif -%}
+          </div>
+          <div class="hdt-yaman-mask-compare__cell hdt-yaman-mask-compare__cell--main hdt-yaman-mask-compare__col-header" role="columnheader">
+            <span class="hdt-yaman-mask-compare__col-image">
+              {%- if main_image != blank -%}
+                {{ main_image | image_url: width: 200 | image_tag: loading: 'lazy', widths: '96,144,200', alt: main_heading | escape }}
+              {%- else -%}
+                <img src="{{ 'yaman-mask-compare-main.png' | asset_url }}" alt="{{ main_heading | escape }}" loading="lazy" width="128" height="143">
+              {%- endif -%}
+            </span>
+            {%- if main_heading != blank -%}
+              <span class="hdt-yaman-mask-compare__col-title hdt-yaman-mask-compare__col-title--main">{{ main_heading }}</span>
+            {%- endif -%}
+          </div>
+          <div class="hdt-yaman-mask-compare__cell hdt-yaman-mask-compare__cell--other hdt-yaman-mask-compare__col-header" role="columnheader">
+            <span class="hdt-yaman-mask-compare__col-image">
+              {%- if other_image != blank -%}
+                {{ other_image | image_url: width: 200 | image_tag: loading: 'lazy', widths: '96,144,200', alt: other_heading | escape }}
+              {%- else -%}
+                <img src="{{ 'yaman-mask-compare-other.png' | asset_url }}" alt="{{ other_heading | escape }}" loading="lazy" width="120" height="120">
+              {%- endif -%}
+            </span>
+            {%- if other_heading != blank -%}
+              <span class="hdt-yaman-mask-compare__col-title">{{ other_heading }}</span>
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if section.blocks.size > 0 -%}
+          <div class="hdt-yaman-mask-compare__body">
+            {%- for block in section.blocks -%}
+              <div class="hdt-yaman-mask-compare__row" role="row" {{ block.shopify_attributes }}>
+                <div class="hdt-yaman-mask-compare__cell hdt-yaman-mask-compare__cell--feature" role="cell">
+                  {%- if block.settings.feature_label != blank -%}
+                    <span class="hdt-yaman-mask-compare__text">{{ block.settings.feature_label }}</span>
+                  {%- endif -%}
+                </div>
+
+                <div class="hdt-yaman-mask-compare__cell hdt-yaman-mask-compare__cell--main" role="cell">
+                  {%- if block.settings.main_icon_image != blank -%}
+                    <span class="hdt-yaman-mask-compare__icon hdt-yaman-mask-compare__icon--img">
+                      {{ block.settings.main_icon_image | image_url: width: 48 | image_tag: loading: 'lazy', widths: '16,24,48', alt: '' }}
+                    </span>
+                  {%- elsif block.settings.main_icon == 'check' -%}
+                    <span class="hdt-yaman-mask-compare__icon hdt-yaman-mask-compare__icon--check" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                  {%- elsif block.settings.main_icon == 'x' -%}
+                    <span class="hdt-yaman-mask-compare__icon hdt-yaman-mask-compare__icon--x" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+                    </span>
+                  {%- endif -%}
+                  {%- if block.settings.main_text != blank -%}
+                    <span class="hdt-yaman-mask-compare__text">{{ block.settings.main_text }}</span>
+                  {%- endif -%}
+                </div>
+
+                <div class="hdt-yaman-mask-compare__cell hdt-yaman-mask-compare__cell--other" role="cell">
+                  {%- if block.settings.other_icon_image != blank -%}
+                    <span class="hdt-yaman-mask-compare__icon hdt-yaman-mask-compare__icon--img">
+                      {{ block.settings.other_icon_image | image_url: width: 48 | image_tag: loading: 'lazy', widths: '16,24,48', alt: '' }}
+                    </span>
+                  {%- elsif block.settings.other_icon == 'check' -%}
+                    <span class="hdt-yaman-mask-compare__icon hdt-yaman-mask-compare__icon--check" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                  {%- elsif block.settings.other_icon == 'x' -%}
+                    <span class="hdt-yaman-mask-compare__icon hdt-yaman-mask-compare__icon--x" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+                    </span>
+                  {%- endif -%}
+                  {%- if block.settings.other_text != blank -%}
+                    <span class="hdt-yaman-mask-compare__text">{{ block.settings.other_text }}</span>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- else -%}
+          <p class="hdt-yaman-mask-compare__empty">{{ 'Add comparison rows in the theme editor.' }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- comment -%} custom-productan.css is loaded globally (with preload) from layout/theme.liquid — nothing to load here. {%- endcomment -%}
+
+{% schema %}
+{
+  "name": "YAMAN Mask Compare",
+  "tag": "section",
+  "class": "hdt-yaman-mask-compare-section hdt-section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Less Effort, a More Practical Routine"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Compare targeted EMS technology with traditional manual use and see the difference for yourself."
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image (desktop)",
+      "info": "Optional. Shown very subtly behind the light overlay."
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mb",
+      "label": "Background image (mobile)",
+      "info": "Optional. Falls back to the desktop image."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Overlay opacity",
+      "default": 86
+    },
+    {
+      "type": "header",
+      "content": "Columns"
+    },
+    {
+      "type": "text",
+      "id": "feature_heading",
+      "label": "Feature column heading",
+      "default": "Traditional Lower-Face Masks"
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Middle column heading",
+      "default": "Medi Lift PLUS by YA-MAN"
+    },
+    {
+      "type": "text",
+      "id": "other_heading",
+      "label": "Right column heading",
+      "default": "Traditional Lower-Face Masks"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Middle column header image",
+      "info": "Optional. Sits above the middle column title. A default device icon is shown if empty."
+    },
+    {
+      "type": "image_picker",
+      "id": "other_image",
+      "label": "Right column header image",
+      "info": "Optional. Sits above the right column title. A default device icon is shown if empty."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "main_bg",
+      "label": "Middle column background",
+      "default": "#1D2847"
+    },
+    {
+      "type": "color",
+      "id": "header_bg",
+      "label": "Header row background",
+      "default": "#F8F7F0"
+    },
+    {
+      "type": "color",
+      "id": "row_bg",
+      "label": "Row background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "stripe_bg",
+      "label": "Alternate row background",
+      "default": "#F8F7F0"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider / border color",
+      "default": "#ECEAE1"
+    },
+    {
+      "type": "color",
+      "id": "main_text_color",
+      "label": "Middle column text color",
+      "default": "#F8F7F0"
+    },
+    {
+      "type": "color",
+      "id": "other_accent_color",
+      "label": "Right column accent color",
+      "default": "#A02828"
+    },
+    {
+      "type": "color",
+      "id": "feature_text_color",
+      "label": "Feature label text color",
+      "default": "#2A2A2A"
+    },
+    {
+      "type": "color",
+      "id": "col_title_color",
+      "label": "Column title color (feature / right)",
+      "default": "#2A2A2A"
+    },
+    {
+      "type": "color",
+      "id": "check_color",
+      "label": "Check icon color",
+      "default": "#F3EFE4"
+    },
+    {
+      "type": "color",
+      "id": "x_color",
+      "label": "X icon color",
+      "default": "#A02828"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 960,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1290
+    },
+    {
+      "type": "range",
+      "id": "table_max_width",
+      "min": 720,
+      "max": 1400,
+      "step": 8,
+      "unit": "px",
+      "label": "Table max width",
+      "default": 1096
+    },
+    {
+      "type": "range",
+      "id": "table_radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Table corner radius",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_scale",
+      "min": 70,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Mobile font scale",
+      "default": 84
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_label",
+          "label": "Feature label",
+          "default": "Coverage Areas"
+        },
+        {
+          "type": "text",
+          "id": "main_text",
+          "label": "Middle column text",
+          "default": "Cheeks and jaw area"
+        },
+        {
+          "type": "text",
+          "id": "other_text",
+          "label": "Right column text",
+          "default": "General lower-face coverage"
+        },
+        {
+          "type": "select",
+          "id": "main_icon",
+          "label": "Middle icon",
+          "options": [
+            { "value": "check", "label": "Check" },
+            { "value": "x", "label": "X" },
+            { "value": "none", "label": "None" }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "select",
+          "id": "other_icon",
+          "label": "Right icon",
+          "options": [
+            { "value": "check", "label": "Check" },
+            { "value": "x", "label": "X" },
+            { "value": "none", "label": "None" }
+          ],
+          "default": "x"
+        },
+        {
+          "type": "image_picker",
+          "id": "main_icon_image",
+          "label": "Middle custom icon (optional)"
+        },
+        {
+          "type": "image_picker",
+          "id": "other_icon_image",
+          "label": "Right custom icon (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN Mask Compare",
+      "category": "YAMAN",
+      "blocks": [
+        { "type": "row", "settings": { "feature_label": "Coverage Areas", "main_text": "Cheeks and jaw area", "other_text": "General lower-face coverage" } },
+        { "type": "row", "settings": { "feature_label": "Targeted Modes", "main_text": "EMS Training Mode + EMS Relaxation Mode", "other_text": "One basic function" } },
+        { "type": "row", "settings": { "feature_label": "Independent Side Control", "main_text": "Adjustable settings for each side", "other_text": "Same setting for both sides" } },
+        { "type": "row", "settings": { "feature_label": "User Experience", "main_text": "Hands-free use", "other_text": "Less flexible fit" } },
+        { "type": "row", "settings": { "feature_label": "Daily Routine", "main_text": "10-minute routine", "other_text": "Longer, less convenient routine" } },
+        { "type": "row", "settings": { "feature_label": "Fit", "main_text": "Flexible design for the lower face", "other_text": "One-size-fits-all" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

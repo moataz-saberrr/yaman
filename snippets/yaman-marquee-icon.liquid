@@ -1,0 +1,32 @@
+{%- comment -%}
+  yaman-marquee-icon.liquid — inline trust icons taken from the YAMAN Figma marquee.
+  Gold parts use `currentColor` (inherits the icon accent color); navy cut-outs use
+  `var(--mq-bg)` so they match the strip background. Used by sections/yaman-shipping-marquee-n.liquid.
+  Params: name = shield | sparkle | star | lightning | truck
+{%- endcomment -%}
+{%- case name -%}
+  {%- when 'shield' -%}
+    <svg class="hdt-yaman-marquee__svg" viewBox="0 0 22 21.875" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <path d="M11.4167 2L5 5.66667V12.0833C5 15.75 7.75 18.9583 11.4167 19.875C15.0833 18.9583 17.8333 15.75 17.8333 12.0833V5.66667L11.4167 2Z" fill="currentColor"/>
+      <path d="M8.25 11.3929L10.0833 13.2158L14.2083 9.11426" stroke="var(--mq-bg, #1d2847)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  {%- when 'sparkle' -%}
+    <svg class="hdt-yaman-marquee__svg" viewBox="0 0 22.5 22.5" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <path d="M11.25 3V19.5M3 11.25H19.5M5.38333 5.38333L17.1167 17.1167M17.1167 5.38333L5.38333 17.1167" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  {%- when 'star' -%}
+    <svg class="hdt-yaman-marquee__svg" viewBox="0 0 22.6667 22.5" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <path d="M11.3333 3L13.1667 8.31667L18.6667 11.25L13.1667 14.1833L11.3333 19.5L9.5 14.1833L4 11.25L9.5 8.31667L11.3333 3Z" fill="currentColor"/>
+    </svg>
+  {%- when 'lightning' -%}
+    <svg class="hdt-yaman-marquee__svg" viewBox="0 0 21.625 22.5" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <path d="M11.9583 3L6 12.1667H11.0417L9.20833 19.5L15.625 10.3333H10.5833L11.9583 3Z" fill="currentColor"/>
+    </svg>
+  {%- when 'truck' -%}
+    <svg class="hdt-yaman-marquee__svg" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <path d="M12.8333 7.33333H2.75C2.24374 7.33333 1.83333 7.74374 1.83333 8.25V14.6667C1.83333 15.1729 2.24374 15.5833 2.75 15.5833H12.8333C13.3396 15.5833 13.75 15.1729 13.75 14.6667V8.25C13.75 7.74374 13.3396 7.33333 12.8333 7.33333Z" fill="currentColor"/>
+      <path d="M13.75 9.16667H17.4167L20.1667 13.2917V15.5833H13.75V9.16667Z" fill="currentColor"/>
+      <path d="M5.5 17.875C6.51252 17.875 7.33333 17.0542 7.33333 16.0417C7.33333 15.0291 6.51252 14.2083 5.5 14.2083C4.48748 14.2083 3.66667 15.0291 3.66667 16.0417C3.66667 17.0542 4.48748 17.875 5.5 17.875Z" fill="var(--mq-bg, #1d2847)" stroke="currentColor" stroke-width="1.2"/>
+      <path d="M16.5 17.875C17.5125 17.875 18.3333 17.0542 18.3333 16.0417C18.3333 15.0291 17.5125 14.2083 16.5 14.2083C15.4875 14.2083 14.6667 15.0291 14.6667 16.0417C14.6667 17.0542 15.4875 17.875 16.5 17.875Z" fill="var(--mq-bg, #1d2847)" stroke="currentColor" stroke-width="1.2"/>
+    </svg>
+{%- endcase -%}
