@@ -68,8 +68,8 @@
                 "txt_tr_pr": "none",
                 "tag": "h1",
                 "heading_size": "h_custom",
-                "font_size_heading_lg": 48,
-                "font_size_heading": 38,
+                "font_size_heading_lg": 34,
+                "font_size_heading": 27,
                 "font_weight": "bold",
                 "letter_spacing_heading": 0
               },
@@ -80,7 +80,7 @@
               "name": "t:sections.main-product.blocks.description.name",
               "settings": {
                 "des": "2",
-                "short_des": "<p>EMS Technology Results for a More Lifted-Looking Face</p>",
+                "short_des": "<p>A moisturizing serum specially designed for MEDI LIFT EMS devices.</p>",
                 "readm": false,
                 "length": 130,
                 "readm_txt": "Read more",
@@ -91,22 +91,9 @@
                 "font_weight": "normal",
                 "heading_color": "",
                 "text_color": "hdt-text-secondary",
-                "font_size_text_lg": 27,
-                "font_size_text": 20,
+                "font_size_text_lg": 18,
+                "font_size_text": 18,
                 "letter_spacing_text": 0
-              },
-              "blocks": {}
-            },
-            "product_check_list_mr8xQN": {
-              "type": "_product-check-list",
-              "name": "Check List",
-              "settings": {
-                "text_1": "Activates cheek muscles to support a more lifted appearance.",
-                "text_2": "Helps relax the jaw area and reduce the appearance of tension.",
-                "text_3": "10 minutes daily, hands-free.",
-                "text_4": "Adjustable intensity for each side independently.",
-                "text_5": "",
-                "text_6": ""
               },
               "blocks": {}
             },
@@ -179,13 +166,13 @@
               },
               "blocks": {}
             },
-            "product_upsell_bfPQLa": {
-              "type": "_product-upsell",
-              "name": "Product Upsell Box",
+            "product_upsell_cards_eHqf6Y": {
+              "type": "_product-upsell-cards",
+              "name": "Product Upsell Cards",
               "settings": {
-                "heading": "Pairs beautifully with:",
-                "product": "سيروم-مرطب-للبشرة-medi-lift-moisture-serum",
-                "btn_text": "Yes, add it to my order"
+                "heading": "Recommended to use the serum with:",
+                "product_1": "medi-lift-plus",
+                "product_2": "جهاز-العناية-بالبشرة-photo-plus-prestige-sp"
               },
               "blocks": {}
             },
@@ -198,30 +185,12 @@
                 "spacing": 15
               },
               "blocks": {
-                "accordion_des_item_XUw4Qq": {
-                  "type": "_accordion_des_item",
-                  "settings": {
-                    "icon": "none",
-                    "title": "What’s Inside the Box?",
-                    "description": "<ul><li>Medi Lift Mask</li><li>Extra extension strap</li><li>EMS control units</li><li>Dual USB charging cable</li><li>Power adapter</li></ul>"
-                  },
-                  "blocks": {}
-                },
                 "accordion_des_item_69byBP": {
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
                     "title": "How to Use",
                     "description": "<ul><li>Cleanse the skin</li><li>Apply the gel</li><li>Put on the mask</li><li>Choose the appropriate position</li><li>Use for 10 minutes</li><li>Clean after use</li></ul>"
-                  },
-                  "blocks": {}
-                },
-                "accordion_des_item_ek3k3A": {
-                  "type": "_accordion_des_item",
-                  "settings": {
-                    "icon": "none",
-                    "title": "Specifications",
-                    "description": "<ul><li>Technology: EMS (Electrical Muscle Stimulation)</li><li>Training mode: Low frequency, 2.5–17 Hz</li><li>Release mode: High frequency, 20–100 Hz</li></ul>"
                   },
                   "blocks": {}
                 },
@@ -236,34 +205,9 @@
                 }
               },
               "block_order": [
-                "accordion_des_item_XUw4Qq",
                 "accordion_des_item_69byBP",
-                "accordion_des_item_ek3k3A",
                 "accordion_des_item_kbCkp8"
               ]
-            },
-            "product_custom_badges_86R7Nf": {
-              "type": "_product-custom-badges",
-              "name": "Custom Badges",
-              "settings": {
-                "text_1": "1YEAR WARRANTY",
-                "icon_svg_1": "",
-                "icon_image_1": "shopify://shop_images/icon_6.svg",
-                "bg_color_1": "#f9f8f3",
-                "text_2": "100% SECURE CHECKOUT",
-                "icon_svg_2": "",
-                "icon_image_2": "shopify://shop_images/icon_7.svg",
-                "bg_color_2": "#f9f8f3",
-                "text_3": "WHATSAPP SUPPORT",
-                "icon_svg_3": "",
-                "icon_image_3": "shopify://shop_images/icon_8.svg",
-                "bg_color_3": "#f9f8f3",
-                "text_4": "OFFICIAL YA-MAN PRODUCT",
-                "icon_svg_4": "",
-                "icon_image_4": "shopify://shop_images/icon_9.svg",
-                "bg_color_4": "#f9f8f3"
-              },
-              "blocks": {}
             }
           },
           "block_order": [
@@ -271,15 +215,13 @@
             "judge_me_reviews_preview_badge_THyzgN",
             "product_title_ehRqkq",
             "product_description_J6kM3x",
-            "product_check_list_mr8xQN",
             "product_price_9JizTC",
             "product_tabby_installment_ptP6Bb",
             "product_variant_picker_WMmDTM",
             "product_buy_button_aPmAbD",
             "product_icon_texts_xtRFFR",
-            "product_upsell_bfPQLa",
-            "group_product_accordion_CHxwjy",
-            "product_custom_badges_86R7Nf"
+            "product_upsell_cards_eHqf6Y",
+            "group_product_accordion_CHxwjy"
           ]
         },
         "main-product-sidebar": {
