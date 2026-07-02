@@ -2407,6 +2407,12 @@
 .hdt-compare-at-price:not([hidden])+.hdt-price:not(.hdt-price-item--range){
   color: #070707 !important;
 }
+.hdt-yaman-routine__installment {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #070707;
+  font-weight: 400;
+}
 /* ---- Card footer add-to-cart: full-width black pill (below the price) ----
    Reuses the theme's btn-ultra (AJAX add-to-cart / quick-add / choose-options).
    We make its parent/form full width and restyle the button as a SHOP-NOW pill. */
@@ -2499,7 +2505,7 @@
 
 /* Mobile: 1 card + a peek of the next; hide quick-add (+) / wishlist (heart). */
 @media (max-width: 767px) {
-  .hdt-yaman-routine-section .hdt-yaman-routine__slider { --slide-size: calc(var(--routine-card-mb, 80) * 1%); }
+  .hdt-yaman-routine-section .hdt-yaman-routine__slider { --slide-size: calc(var(--routine-card-mb, 80) * 1% / var(--routine-cols-mb, 1)); }
   .hdt-yaman-routine-section .hdt-product-btns,
   .hdt-yaman-routine-section .hdt-card-product__btn-wishlist { display: none !important; }
   /* optional: hide arrows + dots on mobile (toggle "Hide arrows & dots on mobile") */
