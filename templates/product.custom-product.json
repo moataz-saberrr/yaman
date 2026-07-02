@@ -98,7 +98,7 @@
               "blocks": {}
             },
             "product_check_list_mr8xQN": {
-              "type": "product-check-list",
+              "type": "_product-check-list",
               "name": "Check List",
               "settings": {
                 "text_1": "Activates cheek muscles to support a more lifted appearance.",

@@ -341,6 +341,296 @@
         "space": 50
       }
     },
+    "custom_section_4f6xVa": {
+      "type": "custom-section",
+      "blocks": {
+        "group_8RW6pj": {
+          "type": "group",
+          "name": "Group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 0,
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100,
+            "colors_by_block": true,
+            "color_scheme": "scheme-f53418a1-d77c-43c8-93e4-bf0865d33ae6",
+            "group_rounded": "",
+            "padding_top": 0,
+            "padding_bottom": 40,
+            "padding_left": 0,
+            "padding_right": 0,
+            "padding_rate_mobile": 30
+          },
+          "blocks": {
+            "heading_DUz47F": {
+              "type": "heading",
+              "name": "t:blocks.heading.name",
+              "settings": {
+                "heading": "<p>Noticeable Results Within Weeks of Use</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "line_height": "",
+                "font_weight": "bold",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 48,
+                "font_size_heading": 27,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            },
+            "text_AVKYbn": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Gradual improvement in the appearance of the skin with regular use.</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "ffamily": "",
+                "text_size": "custom",
+                "line_height": "",
+                "font_weight": "normal",
+                "text_color": "hdt-text-secondary",
+                "countdown": "2025-12-30 15:00:00",
+                "txt_day": "days",
+                "font_size_text_lg": 18,
+                "font_size_text": 14,
+                "letter_spacing_text": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_DUz47F",
+            "text_AVKYbn"
+          ]
+        },
+        "multi_column_cUCmcx": {
+          "type": "_multi_column",
+          "settings": {
+            "column_dk": "6",
+            "column_tb": "6",
+            "column_mb": "12",
+            "column_dk_10": "6",
+            "column_tb_10": "6",
+            "column_mb_10": "10",
+            "spacing_h_dk": 0,
+            "spacing_v_dk": 0,
+            "spacing_h_tb": 0,
+            "spacing_v_tb": 0,
+            "spacing_h_mb": 0,
+            "spacing_v_mb": 0,
+            "content_position": "auto",
+            "align_content": false,
+            "content_position_mb": "auto",
+            "alignment": "left",
+            "alignment_mb": "center",
+            "background_color": "#F8F7F0",
+            "rounded": "none"
+          },
+          "blocks": {
+            "heading_69eGTE": {
+              "type": "heading",
+              "settings": {
+                "heading": "<p>Why Is This Serum Different?</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "line_height": "",
+                "font_weight": "bold",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 48,
+                "font_size_heading": 27,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            },
+            "text_BqjdXj": {
+              "type": "text",
+              "settings": {
+                "text": "<p>It is not made just to “moisturize.” It is designed to solve an important issue many people overlook:</p>",
+                "hidden_br_mobile": true,
+                "hidden_on_mobile": false,
+                "ffamily": "",
+                "text_size": "custom",
+                "line_height": "",
+                "font_weight": "normal",
+                "text_color": "hdt-s-text",
+                "countdown": "2025-12-30 15:00:00",
+                "txt_day": "days",
+                "font_size_text_lg": 20,
+                "font_size_text": 14,
+                "letter_spacing_text": 0
+              },
+              "blocks": {}
+            },
+            "spacer_GeFdRh": {
+              "type": "spacer",
+              "name": "t:blocks.spacer.name",
+              "settings": {
+                "direction": false,
+                "space_lg": 20,
+                "space_md": 10,
+                "space": 0
+              },
+              "blocks": {}
+            },
+            "text_GJqQcY": {
+              "type": "text",
+              "settings": {
+                "text": "<p>How can EMS pulses be delivered to the skin consistently and effectively without dryness or reduced conductivity?</p>",
+                "hidden_br_mobile": true,
+                "hidden_on_mobile": false,
+                "ffamily": "",
+                "text_size": "custom",
+                "line_height": "",
+                "font_weight": "normal",
+                "text_color": "hdt-s-text",
+                "countdown": "2025-12-30 15:00:00",
+                "txt_day": "days",
+                "font_size_text_lg": 20,
+                "font_size_text": 14,
+                "letter_spacing_text": 0
+              },
+              "blocks": {}
+            },
+            "spacer_WEykhT": {
+              "type": "spacer",
+              "name": "t:blocks.spacer.name",
+              "settings": {
+                "direction": false,
+                "space_lg": 20,
+                "space_md": 12,
+                "space": 0
+              },
+              "blocks": {}
+            },
+            "text_7wbkat": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>This serum acts as a smart layer between the device and your skin, making each session smoother and more comfortable:</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "ffamily": "",
+                "text_size": "custom",
+                "line_height": "",
+                "font_weight": "medium",
+                "text_color": "hdt-text-secondary",
+                "countdown": "2025-12-30 15:00:00",
+                "txt_day": "days",
+                "font_size_text_lg": 22,
+                "font_size_text": 16,
+                "letter_spacing_text": 0
+              },
+              "blocks": {}
+            },
+            "product_check_list_3ybPTK": {
+              "type": "product-check-list",
+              "name": "Check List",
+              "settings": {
+                "text_1": "Helps transmit EMS pulses evenly during use",
+                "text_2": "Reduces friction and dryness during longer sessions",
+                "text_3": "Provides continuous hydration from the beginning to the end of the session",
+                "text_4": "Helps the device glide smoothly over the skin without interruptions",
+                "text_5": "",
+                "text_6": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_69eGTE",
+            "text_BqjdXj",
+            "spacer_GeFdRh",
+            "text_GJqQcY",
+            "spacer_WEykhT",
+            "text_7wbkat",
+            "product_check_list_3ybPTK"
+          ]
+        },
+        "multi_column_BYEPkK": {
+          "type": "_multi_column",
+          "settings": {
+            "column_dk": "6",
+            "column_tb": "6",
+            "column_mb": "12",
+            "column_dk_10": "4",
+            "column_tb_10": "4",
+            "column_mb_10": "10",
+            "spacing_h_dk": 0,
+            "spacing_v_dk": 0,
+            "spacing_h_tb": 0,
+            "spacing_v_tb": 0,
+            "spacing_h_mb": 0,
+            "spacing_v_mb": 0,
+            "content_position": "auto",
+            "align_content": true,
+            "content_position_mb": "auto",
+            "alignment": "center",
+            "alignment_mb": "center",
+            "background_color": "#F8F7F0",
+            "rounded": "none"
+          },
+          "blocks": {
+            "image_NnQCDU": {
+              "type": "image",
+              "name": "t:blocks.image.name",
+              "settings": {
+                "img": "shopify://shop_images/60ea199ac5c1552a14524e09fc1e7001b327e7ab.png",
+                "image_ratio": "adapt_image",
+                "img_effect": "none",
+                "b_effect": "none",
+                "custom_width": "full",
+                "image_w": 50,
+                "image_w_mb": 50,
+                "rounded": "hdt-opt-radius"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_NnQCDU"
+          ]
+        }
+      },
+      "block_order": [
+        "group_8RW6pj",
+        "multi_column_cUCmcx",
+        "multi_column_BYEPkK"
+      ],
+      "custom_css": [
+        ".hdt-check-list-item {font-size: 18px; @media (max-width: 767px) {font-size: 14px; text-align: start; }}",
+        ".hdt-check-icon {color: #b89a5e; font-weight: 600;}",
+        ".hdt-product__check-list {margin: 16px 0 0 0;}",
+        ".hdt-group-content .hdt-text-warry {text-align: center;}",
+        "@media (min-width: 1150px) {.hdt-column.hdt-g-col:has(.hdt-product-info__item) {padding-inline-end: 40px; }}",
+        "@media (max-width: 767px) {.hdt-column.hdt-g-col:has(.hdt-image-wrap) {order: 2; } .hdt-column.hdt-g-col:has(.hdt-product-info__item) {order: 3; padding-block-start: 14px; }}"
+      ],
+      "name": "t:sections.custom_section.name",
+      "settings": {
+        "layout": "10",
+        "item_spacing": 0,
+        "item_spacing_tb": 0,
+        "item_spacing_mb": 0,
+        "colors_by_section": true,
+        "color_scheme": "scheme-37d56984-7aa2-4572-8274-4900e1e2a19b",
+        "background_opacity": 1,
+        "section_layout": "wrapper_container",
+        "hdt_background_parallax": false,
+        "mg": "",
+        "mg_mb": ",,30px,",
+        "pd": "65px,0,65px,0",
+        "pd_mb": "24px,0,24px,0"
+      }
+    },
     "custom_section_nTGYfK": {
       "type": "custom-section",
       "blocks": {
@@ -647,6 +937,7 @@
     "main-product",
     "tabs",
     "sidebar",
+    "custom_section_4f6xVa",
     "custom_section_nTGYfK",
     "custom_section_PhqThL",
     "featured_collection_n_AWXjjw"

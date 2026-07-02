@@ -320,17 +320,59 @@
           "background": "#ffffff",
           "background_gradient": "",
           "background2": "#f2f2f2",
-          "button": "#1D2847",
+          "button": "#1d2847",
           "button_label": "#ffffff",
           "button_border": "#000000",
           "secondary_button_label": "#000000",
-          "accent_color": "#1D2847",
+          "accent_color": "#1d2847",
           "line_border": "#dddddd",
           "overlay": "#000000",
           "pr_text": "#070707",
           "price": "#070707",
           "sale_price": "#838383",
           "input_primary": "#ffffff",
+          "input_secondary": "#878787"
+        }
+      },
+      "scheme-37d56984-7aa2-4572-8274-4900e1e2a19b": {
+        "settings": {
+          "text": "#1d2847",
+          "text2": "#b89a5e",
+          "background": "#F8F7F0",
+          "background_gradient": "",
+          "background2": "#f2f2f2",
+          "button": "#070707",
+          "button_label": "#ffffff",
+          "button_border": "#070707",
+          "secondary_button_label": "#070707",
+          "accent_color": "#1d2847",
+          "line_border": "#dddddd",
+          "overlay": "#000000",
+          "pr_text": "#070707",
+          "price": "#070707",
+          "sale_price": "#b80000",
+          "input_primary": "#1d2847",
+          "input_secondary": "#878787"
+        }
+      },
+      "scheme-f53418a1-d77c-43c8-93e4-bf0865d33ae6": {
+        "settings": {
+          "text": "#1d2847",
+          "text2": "#595959",
+          "background": "#F8F7F0",
+          "background_gradient": "",
+          "background2": "#f2f2f2",
+          "button": "#070707",
+          "button_label": "#ffffff",
+          "button_border": "#070707",
+          "secondary_button_label": "#070707",
+          "accent_color": "#1d2847",
+          "line_border": "#dddddd",
+          "overlay": "#000000",
+          "pr_text": "#070707",
+          "price": "#070707",
+          "sale_price": "#b80000",
+          "input_primary": "#1d2847",
           "input_secondary": "#878787"
         }
       }
