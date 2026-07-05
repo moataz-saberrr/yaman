@@ -331,7 +331,6 @@
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 400;
-  margin-bottom: 24px;
 }
 .hdt-yaman-story-section .hdt-yaman-story__heading {
   color: rgb(var(--ys-heading, 17 17 17));
@@ -891,14 +890,32 @@
   .hdt-yaman-routine__container{
     padding-right: 0;
   }
-  
+.hdt-yaman-story-section{
+  .hdt-section-spacing{
+    padding: 0 !important;
+  }
+  .hdt-container{
+    padding: 24px 31px !important;
+  }
 }
+  .hdt-yaman-brands-section{
+    .hdt-container{
+      padding: 0 !important;
+    }
+    .custom-shipping-about {
+       padding: 24px 28px !important;
+    }
+    .hdt-yaman-brands__heading{
+      margin-bottom: 24px;
+    }
+  }
 }
+
 
 
 /* Translation to Arabic CSS */
 .dir--rtl{
-  .hdt-yaman-story__content,.hdt-yaman-tech__body{
+  .hdt-yaman-story__content,.hdt-yaman-tech__body,.hdt-yaman-tech__heading{
     text-align: right;
   }
   .hdt-yaman-story__heading{
@@ -909,6 +926,14 @@
   }
   .hdt-yaman-tech__stat{
     align-items: center;
+  }
+  .hdt-yaman-routine-section .hdt-yaman-routine__button {
+    .hdt-yaman-routine__button {
+    padding: 10px 69px;
+    font-size: 15px;
+  }
+
+
   }
 @media (min-width: 768px) {
     .hdt-yaman-tech-section .hdt-yaman-tech__heading {
