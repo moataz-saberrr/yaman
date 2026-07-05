@@ -139,7 +139,7 @@ line-height: 24px;
 color: #070707BF;
     }
     .hdt-accordion-style3 .hdt-accordion-item .hdt-accordion-icon{
-      color: #07070766;
+      /* color: #07070766; */
       padding-inline-end: 12px;
     }
     .hdt-accordion-style3 .hdt-accordion-item .hdt-accordion-content{
