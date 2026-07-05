@@ -970,5 +970,13 @@
     .hdt-yaman-tech-section .hdt-yaman-tech__heading {
       max-width: 35%;
     }
+    .featured_aboutPage {
+      .hdt-slider__container > hdt-card-product:first-child {
+        padding-right: 28px !important;
+      }
+      .hdt-price__list {
+        flex-direction: row-reverse;
+      }
+    }
   }
 }
