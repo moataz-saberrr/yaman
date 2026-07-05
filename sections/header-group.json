@@ -33,7 +33,7 @@
       "settings": {
         "show_line_separator": true,
         "close_btn": "0",
-        "height": 70,
+        "height": 50,
         "fontsize": 14,
         "design": "marquee",
         "hdt_using_image_icon": false,
@@ -86,7 +86,7 @@
         "header_menu_colors": "scheme-e0b73555-c767-4eda-aa6d-4e44e10aefce",
         "h_icon": "kalles",
         "hover_icon": "2",
-        "search_type": "none",
+        "search_type": "icon",
         "show_currency": false,
         "show_language": false,
         "enabled_user": false,
