@@ -144,6 +144,11 @@ line-height: 24px;
 color: #070707A6;
     }
   }
+  .hdt-thumbnail__media.is-thumb-selected img {
+    border-width: 1.5px !important;
+    border-style: solid !important;
+    border-color: #070707B2 !important;
+}
 }
 .hdt-yaman-routine__card {
   .star-rating__stars img{
