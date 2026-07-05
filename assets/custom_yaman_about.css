@@ -967,7 +967,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .dir--rtl {
     .hdt-yaman-tech-section .hdt-yaman-tech__heading {
       max-width: 35%;
