@@ -127,6 +127,7 @@
     }
     .hdt-accordion-style3>hdt-accordion{
       border: 1px solid rgb(var(--color-line-border));
+      border-radius: 8px;
       .hdt-accordion-title{
         padding-inline-start: 12px;
       }
@@ -136,6 +137,10 @@ font-weight: 300;
 font-size: 18px;
 line-height: 24px;
 color: #070707BF;
+    }
+    .hdt-accordion-style3 .hdt-accordion-item .hdt-accordion-icon{
+      color: #07070766;
+      padding-inline-end: 12px;
     }
     .hdt-accordion-style3 .hdt-accordion-item .hdt-accordion-content{
 font-weight: 700;

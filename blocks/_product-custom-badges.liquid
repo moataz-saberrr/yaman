@@ -1,5 +1,5 @@
 <div class="hdt-product-info__item hdt-product__custom-badges" {{ block.shopify_attributes }}>
-  <div class="hdt-custom-badges-wrap">
+  <div class="hdt-custom-badges-wrap badges-mobile-{{ block.settings.badges_per_row_mobile | default: '4' }}">
     {%- for i in (1..4) -%}
       {%- capture text_key -%}text_{{ i }}{%- endcapture -%}
       {%- capture icon_svg_key -%}icon_svg_{{ i }}{%- endcapture -%}
@@ -80,8 +80,13 @@
   @media (max-width: 767px) {
     .hdt-custom-badges-wrap {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
+    }
+    .hdt-custom-badges-wrap.badges-mobile-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .hdt-custom-badges-wrap.badges-mobile-4 {
+      grid-template-columns: repeat(4, 1fr);
     }
     .hdt-custom-badge-item {
       padding: 12px 10px;
@@ -103,6 +108,22 @@
   "name": "Custom Badges",
   "tag": null,
   "settings": [
+    {
+      "type": "select",
+      "id": "badges_per_row_mobile",
+      "label": "Badges per row on mobile",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 per row"
+        },
+        {
+          "value": "4",
+          "label": "4 per row"
+        }
+      ],
+      "default": "4"
+    },
     {
       "type": "header",
       "content": "Badge 1"
