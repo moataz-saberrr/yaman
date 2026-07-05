@@ -84,11 +84,14 @@
     </div>
     <div class="hdt-card-product__info hdt-card-align-{{ settings.pr_card_alignment }}">
       {%- if settings.show_rating %}{% render 'hdt-pr-card-rating', product: card_product %}{% endif -%}
-      {%- liquid
-      if card_product.vendor.size > 0 and show_vendor
-        render 'vendor' with card_product.vendor, class: 'hdt-inline-block hdt-text-base hdt-font-normal'
-      endif -%}
+        <div>
+        <div class="hdt-inline-block hdt-text-base hdt-font-normal hdt-product-type" style="min-height: 15px;">
+          {%- if card_product.type.size > 0 and show_product_type -%}
+          {{ card_product.type }}
+        {%- endif -%}
+          </div>
       <h3><a data-pr-url href="{{ product_url }}" class="hdt-card-product__title hdt-text-{{ settings.pr_title_size }} hdt-font-{{ settings.pr_title_weight }} hdt-line-clamp" data-instant>{{ card_product.title | default: "Product title" | escape }}</a></h3>
+        </div>
       {%- liquid
         render 'card-price', section_id: section_id, product: card_product, show_volume_note: true, remove_zeros: true
       -%}

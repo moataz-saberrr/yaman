@@ -12,14 +12,14 @@
 {%- endcapture -%}
 
 {%- if product.description != blank and block.settings.des == '1' -%}    
-  <div class="hdt-product-info__item hdt-product__description" {{ block.shopify_attributes }}>
+  <div class="hdt-product-info__item hdt-product__description {% if block.settings.show_border_bottom %}has-bottom-border{% endif %}" {{ block.shopify_attributes }}>
     <div class="hdt-rte {{ block.settings.heading_color }} {{ block.settings.text_color }} hdt-text-{{ block.settings.text_size }} hdt-font-{{ block.settings.font_weight }} {{ block.settings.line_height }}" {%- if css != blank %} style="{{ css }}"{% endif %}>
       {{ product.description }}
     </div>
   </div>
 {%- elsif description_excerpt != blank -%}
   {%- if block.settings.readm == false -%}
-    <div class="hdt-product-info__item hdt-product__description" {{ block.shopify_attributes }}>
+    <div class="hdt-product-info__item hdt-product__description {% if block.settings.show_border_bottom %}has-bottom-border{% endif %}" {{ block.shopify_attributes }}>
       <div class="hdt-rte {{ block.settings.heading_color }} {{ block.settings.text_color }} hdt-text-{{ block.settings.text_size }} hdt-font-{{ block.settings.font_weight }} {{ block.settings.line_height }}" {%- if css != blank %} style="{{ css }}"{% endif %}>
         {{ description_excerpt }}
       </div>
@@ -27,7 +27,7 @@
   {%- else -%}
     {%- assign height_limit = block.settings.length | abs -%}
     <product-description class="hdt-block hdt-main-product-description" data-height-limit="{{ height_limit }}" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
-      <div data-content class="hdt-product-info__item hdt-product__description hdt-relative hdt-oh {{ block.settings.heading_color }} {{ block.settings.text_color }} hdt-text-{{ block.settings.text_size }} hdt-font-{{ block.settings.font_weight }} {{ block.settings.line_height }}" {%- if css != blank %} style="{{ css }}"{% endif %}>
+      <div data-content class="hdt-product-info__item hdt-product__description {% if block.settings.show_border_bottom %}has-bottom-border{% endif %} hdt-relative hdt-oh {{ block.settings.heading_color }} {{ block.settings.text_color }} hdt-text-{{ block.settings.text_size }} hdt-font-{{ block.settings.font_weight }} {{ block.settings.line_height }}" {%- if css != blank %} style="{{ css }}"{% endif %}>
         <div class="hdt-rte hdt-full-des">
           {{ description_excerpt }}
         </div>
@@ -40,6 +40,13 @@
     </product-description>
   {%- endif -%}
 {%- endif -%}
+
+<style>
+  .hdt-product__description.has-bottom-border {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 18px;
+  }
+</style>
 
 {% schema %}
 {
@@ -62,6 +69,12 @@
       "label": "t:sections.main-product.blocks.description.settings.des.label",
       "info": "t:sections.main-product.blocks.description.settings.des.info",
       "default": "2"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_border_bottom",
+      "label": "Show bottom border",
+      "default": false
     },
     {
       "type": "richtext",
