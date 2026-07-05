@@ -290,6 +290,57 @@
         "pd_mb": "20px,,50px,"
       }
     },
+    "tabs": {
+      "type": "main-product-tabs",
+      "blocks": {
+        "tab_des_tKqkJj": {
+          "type": "tab_des",
+          "settings": {
+            "title": "Description"
+          }
+        },
+        "tab_add_HXf3yk": {
+          "type": "tab_add",
+          "settings": {
+            "title": "Additional Information"
+          }
+        },
+        "tab_html_7dKb7L": {
+          "type": "tab_html",
+          "settings": {
+            "title": "Custom tab",
+            "content": "",
+            "page": "wash-care"
+          }
+        }
+      },
+      "block_order": [
+        "tab_des_tKqkJj",
+        "tab_add_HXf3yk",
+        "tab_html_7dKb7L"
+      ],
+      "disabled": true,
+      "settings": {
+        "tabs_design": "tab",
+        "enable_first_tab": false,
+        "full_width": false,
+        "colors_by_section": true,
+        "color_scheme": "scheme-c9476b69-abc7-454f-a946-2d5a9f5f3a37",
+        "background_opacity": 1,
+        "mg": "",
+        "mg_mb": "",
+        "pd": "60px,,60px,",
+        "pd_mb": "30px,,30px,"
+      }
+    },
+    "sidebar": {
+      "type": "sidebar-product",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "space": 50
+      }
+    },
     "yaman_marquee": {
       "type": "yaman-shipping-marquee-n",
       "blocks": {
@@ -379,158 +430,147 @@
         "padding_bottom_mb": 14
       }
     },
-    "yaman_mode_banner": {
-      "type": "yaman-mode-banner-n",
+    "product_hero_banner_n_NhX4eU": {
+      "type": "product-hero-banner-n",
       "blocks": {
-        "slide_1": {
+        "slide_chfzDq": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/096052a2a55893cfad0b3e8f54b3eef24b839fbc.png",
             "image_mobile": "shopify://shop_images/53b47c306c56ff46dda948c697cacaf50760116c.png",
             "image_alt": "",
-            "eyebrow": "",
-            "heading": "",
-            "text": "",
-            "content_position": "flex-start",
+            "focal_desktop": "center",
+            "focal_mobile": "center bottom",
+            "rating_show": true,
+            "rating_value": "4.67",
+            "rating_max": "5",
+            "rating_text": "Over 12,500 Verified Reviews",
+            "rating_color": "#e3a519",
+            "rating_text_color": "#8a857c",
+            "heading": "Medi Lift Moisture Serum — Moisturizing Facial Serum",
+            "text_1": "<p>Not just a moisturizing serum—it is a smart layer designed to help your device work more effectively on your skin.</p>",
+            "text_2": "<p>If you use MEDI LIFT EMS devices, this product is not an optional extra—it is an essential part of the experience.</p>",
+            "heading_color": "#111111",
+            "text_color": "#2a2a2a",
+            "content_position": "flex-end",
+            "content_valign": "center",
+            "text_align": "start",
+            "content_max_width": 800,
+            "content_position_mobile": "flex-start",
             "text_align_mobile": "center",
-            "text_color": "",
-            "accent_color": "",
-            "overlay_color": "",
+            "content_max_width_mb": 500,
+            "badge_bg": "#f7f5ef",
+            "badge_text_color": "#5f594e",
+            "badge_border_color": "#e7e1d4",
+            "badge_1_text": "Supportive Glide",
+            "badge_1_svg": "",
+            "badge_1_image": "shopify://shop_images/icon_10.svg",
+            "badge_1_link": "",
+            "badge_2_text": "Soft Skin",
+            "badge_2_svg": "",
+            "badge_2_image": "shopify://shop_images/Vector_a500c7d2-9066-4d15-84dd-588e8d4b0176.svg",
+            "badge_2_link": "",
+            "badge_3_text": "Deep Hydration",
+            "badge_3_svg": "",
+            "badge_3_image": "shopify://shop_images/icon_11.svg",
+            "badge_3_link": "",
+            "badge_4_text": "Japanese Technology",
+            "badge_4_svg": "",
+            "badge_4_image": "shopify://shop_images/icon_12.svg",
+            "badge_4_link": "",
+            "badge_5_text": "",
+            "badge_5_svg": "",
+            "badge_5_link": "",
+            "badge_6_text": "",
+            "badge_6_svg": "",
+            "badge_6_link": "",
             "use_overlay_override": false,
-            "overlay_opacity": 55
+            "overlay_color": "",
+            "overlay_opacity": 30
           }
         },
-        "slide_aGbJEa": {
+        "slide_bgEzf9": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/product_page_En_03.png",
-            "image_mobile": "shopify://shop_images/large_product_page_En_03.png",
+            "image": "shopify://shop_images/096052a2a55893cfad0b3e8f54b3eef24b839fbc.png",
+            "image_mobile": "shopify://shop_images/53b47c306c56ff46dda948c697cacaf50760116c.png",
             "image_alt": "",
-            "eyebrow": "",
-            "heading": "",
-            "text": "",
-            "content_position": "flex-start",
+            "focal_desktop": "center",
+            "focal_mobile": "center bottom",
+            "rating_show": true,
+            "rating_value": "4.67",
+            "rating_max": "5",
+            "rating_text": "Over 12,500 Verified Reviews",
+            "rating_color": "#e3a519",
+            "rating_text_color": "#8a857c",
+            "heading": "Medi Lift Moisture Serum — Moisturizing Facial Serum",
+            "text_1": "<p>Not just a moisturizing serum—it is a smart layer designed to help your device work more effectively on your skin.</p>",
+            "text_2": "<p>If you use MEDI LIFT EMS devices, this product is not an optional extra—it is an essential part of the experience.</p>",
+            "heading_color": "#111111",
+            "text_color": "#2a2a2a",
+            "content_position": "flex-end",
+            "content_valign": "center",
+            "text_align": "start",
+            "content_max_width": 600,
+            "content_position_mobile": "flex-start",
             "text_align_mobile": "center",
-            "text_color": "",
-            "accent_color": "",
-            "overlay_color": "",
+            "content_max_width_mb": 460,
+            "badge_bg": "#f7f5ef",
+            "badge_text_color": "#5f594e",
+            "badge_border_color": "#e7e1d4",
+            "badge_1_text": "Supportive Glide",
+            "badge_1_svg": "",
+            "badge_1_link": "",
+            "badge_2_text": "Soft Skin",
+            "badge_2_svg": "",
+            "badge_2_link": "",
+            "badge_3_text": "Deep Hydration",
+            "badge_3_svg": "",
+            "badge_3_link": "",
+            "badge_4_text": "Japanese Technology",
+            "badge_4_svg": "",
+            "badge_4_link": "",
+            "badge_5_text": "",
+            "badge_5_svg": "",
+            "badge_5_link": "",
+            "badge_6_text": "",
+            "badge_6_svg": "",
+            "badge_6_link": "",
             "use_overlay_override": false,
-            "overlay_opacity": 55
+            "overlay_color": "",
+            "overlay_opacity": 30
           }
         }
       },
       "block_order": [
-        "slide_1",
-        "slide_aGbJEa"
+        "slide_chfzDq",
+        "slide_bgEzf9"
       ],
+      "name": "Product Hero",
       "settings": {
-        "background_color": "#0e1626",
-        "height": 520,
-        "height_mb": 600,
-        "container_max_width": 1290,
-        "content_max_width": 560,
+        "height_mode": "adapt",
+        "full_width": false,
+        "container_max_width": 1440,
+        "background_color": "#ece3d7",
+        "height": 560,
+        "height_tablet": 460,
+        "height_mb": 620,
         "overlay_color": "#0b1220",
-        "overlay_opacity": 55,
+        "overlay_opacity": 0,
         "enable_arrows": true,
         "hide_arrows_mobile": true,
         "enable_dots": false,
-        "hide_dots_mobile": true,
-        "arrow_color": "#f3ecdf",
-        "arrow_bg": "rgba(0,0,0,0)",
+        "hide_dots_mobile": false,
+        "arrow_color": "#1d2847",
+        "arrow_bg": "#ffffffb3",
         "loop": true,
         "autoplay": false,
         "autoplay_speed": 6,
         "padding_top": 0,
         "padding_bottom": 0,
         "padding_top_mb": 0,
-        "padding_bottom_mb": 0
-      }
-    },
-    "yaman_howuse": {
-      "type": "yaman-how-to-use-grid-n",
-      "blocks": {
-        "step_1": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/61e4d11a940a6602c721a79067d17b23701e20d8.png",
-            "image_alt": "",
-            "number": "",
-            "title": "Botanical Extracts ",
-            "description": "Soothe the skin, support its natural radiance, and improve its overall appearance.",
-            "link": ""
-          }
-        },
-        "step_2": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/b24921152763ea3429fb69319373cbdf0365ce01.png",
-            "image_alt": "",
-            "number": "",
-            "title": "Barrier-Supporting Ceramides ",
-            "description": "Help strengthen the skin’s natural barrier and maintain hydration.",
-            "link": ""
-          }
-        },
-        "step_3": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/aae1c77c58d7f89ab9234768ea5348da760d143e.png",
-            "image_alt": "",
-            "number": "",
-            "title": "Hydrating Collagen",
-            "description": "Supports skin elasticity and gives it a smoother, more radiant look.",
-            "link": ""
-          }
-        },
-        "step_4": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/d6da15a7d0d90a8704683f31af559fcf6fe71b80.png",
-            "image_alt": "",
-            "number": "",
-            "title": "Hyaluronic Acid ",
-            "description": "Deeply hydrates the skin and helps lock in moisture.",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "step_1",
-        "step_2",
-        "step_3",
-        "step_4"
-      ],
-      "settings": {
-        "heading": "Active Ingredients for Skin Hydration and Protection",
-        "subtitle": "A complete formula of carefully selected ingredients to support skin hydration, strengthen its natural barrier, and help maintain its health and softness.",
-        "header_max_width": 1000,
-        "layout": "grid",
-        "custom_class": "",
-        "background_color": "#ffffff",
-        "show_glow": false,
-        "glow_color": "#d4b87a",
-        "container_max_width": 1310,
-        "grid_max_width": 928,
-        "columns": 4,
-        "mobile_columns": 2,
-        "gap": 12,
-        "gap_mb": 12,
-        "card_bg": "#f8f7f0",
-        "card_radius": 16,
-        "card_border": true,
-        "border_color": "#b89a5e",
-        "border_opacity": 30,
-        "border_width": 1,
-        "image_ratio": "223 / 200",
-        "accent_color": "#c9a844",
-        "title_color": "#1d2847",
-        "enable_carousel_mobile": true,
-        "full_bleed_mobile": true,
-        "mobile_card_width": 78,
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "padding_top_mb": 40,
-        "padding_bottom_mb": 40
+        "padding_bottom_mb": 0,
+        "custom_class": ""
       }
     },
     "yaman_routines": {
@@ -709,55 +749,91 @@
         "padding_bottom_mb": 36
       }
     },
-    "tabs": {
-      "type": "main-product-tabs",
+    "yaman_howuse": {
+      "type": "yaman-how-to-use-grid-n",
       "blocks": {
-        "tab_des_tKqkJj": {
-          "type": "tab_des",
+        "step_1": {
+          "type": "step",
           "settings": {
-            "title": "Description"
+            "image": "shopify://shop_images/61e4d11a940a6602c721a79067d17b23701e20d8.png",
+            "image_alt": "",
+            "number": "",
+            "title": "Botanical Extracts ",
+            "description": "Soothe the skin, support its natural radiance, and improve its overall appearance.",
+            "link": ""
           }
         },
-        "tab_add_HXf3yk": {
-          "type": "tab_add",
+        "step_2": {
+          "type": "step",
           "settings": {
-            "title": "Additional Information"
+            "image": "shopify://shop_images/b24921152763ea3429fb69319373cbdf0365ce01.png",
+            "image_alt": "",
+            "number": "",
+            "title": "Barrier-Supporting Ceramides ",
+            "description": "Help strengthen the skin’s natural barrier and maintain hydration.",
+            "link": ""
           }
         },
-        "tab_html_7dKb7L": {
-          "type": "tab_html",
+        "step_3": {
+          "type": "step",
           "settings": {
-            "title": "Custom tab",
-            "content": "",
-            "page": "wash-care"
+            "image": "shopify://shop_images/aae1c77c58d7f89ab9234768ea5348da760d143e.png",
+            "image_alt": "",
+            "number": "",
+            "title": "Hydrating Collagen",
+            "description": "Supports skin elasticity and gives it a smoother, more radiant look.",
+            "link": ""
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/d6da15a7d0d90a8704683f31af559fcf6fe71b80.png",
+            "image_alt": "",
+            "number": "",
+            "title": "Hyaluronic Acid ",
+            "description": "Deeply hydrates the skin and helps lock in moisture.",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "tab_des_tKqkJj",
-        "tab_add_HXf3yk",
-        "tab_html_7dKb7L"
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4"
       ],
-      "disabled": true,
       "settings": {
-        "tabs_design": "tab",
-        "enable_first_tab": false,
-        "full_width": false,
-        "colors_by_section": true,
-        "color_scheme": "scheme-c9476b69-abc7-454f-a946-2d5a9f5f3a37",
-        "background_opacity": 1,
-        "mg": "",
-        "mg_mb": "",
-        "pd": "60px,,60px,",
-        "pd_mb": "30px,,30px,"
-      }
-    },
-    "sidebar": {
-      "type": "sidebar-product",
-      "disabled": true,
-      "settings": {
-        "color_scheme": "",
-        "space": 50
+        "heading": "Active Ingredients for Skin Hydration and Protection",
+        "subtitle": "A complete formula of carefully selected ingredients to support skin hydration, strengthen its natural barrier, and help maintain its health and softness.",
+        "header_max_width": 1000,
+        "layout": "grid",
+        "custom_class": "",
+        "background_color": "#ffffff",
+        "show_glow": false,
+        "glow_color": "#d4b87a",
+        "container_max_width": 1310,
+        "grid_max_width": 928,
+        "columns": 4,
+        "mobile_columns": 2,
+        "gap": 12,
+        "gap_mb": 12,
+        "card_bg": "#f8f7f0",
+        "card_radius": 16,
+        "card_border": true,
+        "border_color": "#b89a5e",
+        "border_opacity": 30,
+        "border_width": 1,
+        "image_ratio": "223 / 200",
+        "accent_color": "#c9a844",
+        "title_color": "#1d2847",
+        "enable_carousel_mobile": true,
+        "full_bleed_mobile": true,
+        "mobile_card_width": 78,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
       }
     },
     "custom_section_4f6xVa": {
@@ -851,7 +927,7 @@
             "content_position_mb": "auto",
             "alignment": "left",
             "alignment_mb": "center",
-            "background_color": "#F8F7F0",
+            "background_color": "#f8f7f0",
             "rounded": "none"
           },
           "blocks": {
@@ -995,7 +1071,7 @@
             "content_position_mb": "auto",
             "alignment": "center",
             "alignment_mb": "center",
-            "background_color": "#F8F7F0",
+            "background_color": "#f8f7f0",
             "rounded": "none"
           },
           "blocks": {
@@ -1357,9 +1433,9 @@
     "tabs",
     "sidebar",
     "yaman_marquee",
-    "yaman_mode_banner",
-    "yaman_howuse",
+    "product_hero_banner_n_NhX4eU",
     "yaman_routines",
+    "yaman_howuse",
     "custom_section_4f6xVa",
     "custom_section_nTGYfK",
     "custom_section_PhqThL",
