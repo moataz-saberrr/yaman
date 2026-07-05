@@ -2504,6 +2504,10 @@
 .hdt-yaman-routine-section .hdt-navigation { --gap-arrow: 50%; }
 
 /* Mobile: 1 card + a peek of the next; hide quick-add (+) / wishlist (heart). */
+@media (max-width: 1150px) {
+    .hdt-yaman-routine-section .hdt-yaman-routine__slider { --slide-size: calc(var(--routine-card-tb, 80) * 1% / var(--routine-cols-tb, 2)); }
+
+}
 @media (max-width: 767px) {
   .hdt-yaman-routine-section .hdt-yaman-routine__slider { --slide-size: calc(var(--routine-card-mb, 80) * 1% / var(--routine-cols-mb, 1)); }
   .hdt-yaman-routine-section .hdt-product-btns,
