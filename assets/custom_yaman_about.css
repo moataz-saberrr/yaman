@@ -910,6 +910,7 @@
 
 @media (max-width: 767px) {
   .featured_aboutPage {
+    padding-block: 28px !important;
     .hdt-yaman-routine .hdt-yaman-routine__container {
       padding-inline: 0 !important;
     }
