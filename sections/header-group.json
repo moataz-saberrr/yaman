@@ -88,7 +88,7 @@
         "hover_icon": "2",
         "search_type": "icon",
         "show_currency": false,
-        "show_language": false,
+        "show_language": true,
         "enabled_user": false,
         "enabled_wishlist": false,
         "enabled_cart": true,

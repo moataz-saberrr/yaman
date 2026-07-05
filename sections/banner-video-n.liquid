@@ -104,6 +104,29 @@
   </div>
 </div>
 
+{%- comment -%}
+  Sound-on playback (additive). The video markup is owned by the embedded original
+  Kalles `_button_video` block, which hardcodes a muted native <video>. Rather than
+  editing that off-limits block (which would risk resetting the merchant's saved video),
+  this scoped script unmutes the native Shopify-hosted <video> for THIS section only,
+  and only when the merchant turns "Mute video" off. Playback is user-initiated (the
+  play button opens the modal), so browsers allow sound. YouTube/Vimeo embeds are not
+  affected — the Kalles player force-mutes those on autoplay/mobile — so they stay muted.
+{%- endcomment -%}
+{%- unless section.settings.video_muted -%}
+  <script>
+    (function () {
+      var root = document.getElementById('shopify-section-{{ section.id }}');
+      if (!root) return;
+      root.querySelectorAll('video').forEach(function (v) {
+        v.muted = false;
+        v.removeAttribute('muted');
+        v.addEventListener('play', function () { v.muted = false; });
+      });
+    })();
+  </script>
+{%- endunless -%}
+
 {% schema %}
 {
   "name": "YAMAN About Video",
@@ -192,6 +215,13 @@
       "label": "Show play button",
       "default": true,
       "info": "The play button opens the video. Edit its video source / behavior in the 'Play video' block below."
+    },
+    {
+      "type": "checkbox",
+      "id": "video_muted",
+      "label": "Mute video",
+      "default": true,
+      "info": "On: the video plays muted. Off: it plays with sound when opened via the play button (Shopify-hosted video only). YouTube/Vimeo embeds stay muted due to browser autoplay rules."
     },
     {
       "type": "header",
@@ -397,6 +427,7 @@
         "subtitle": "<p>The very latest and greatest in J-Beauty innovations are here.</p>",
         "text_color": "#ffffff",
         "show_play": true,
+        "video_muted": true,
         "play_size": 84,
         "play_pos_x_des": 60,
         "play_pos_y_des": 42,
