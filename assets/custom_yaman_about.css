@@ -867,7 +867,7 @@
 
 
 .featured_aboutPage{
-          padding-block: 65px !important;
+  padding-block: 65px !important;
 
   .hdt-slide-spacing-x{
         --slide-spacing: 14px;
@@ -898,8 +898,9 @@
 
 @media (max-width:767px) {
   .featured_aboutPage{
-   .hdt-yaman-routine__container{
-    padding-inline: 0;
+    border: 1px solid red;
+   .hdt-yaman-routine .hdt-yaman-routine__container{
+    padding-inline: 0 !important;
     }
   }
   
@@ -919,7 +920,7 @@
        padding: 24px 28px !important;
     }
     .hdt-yaman-brands__heading{
-      margin-bottom: 24px;
+      margin-bottom: 24px !important;
     }
   }
   .hdt-yaman-story-section .hdt-yaman-story__eyebrow{
