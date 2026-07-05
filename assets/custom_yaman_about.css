@@ -965,6 +965,11 @@
       font-size: 15px;
     }
   }
+  .featured_aboutPage {
+    .hdt-price__list {
+      flex-direction: row-reverse !important;
+    }
+  }
 }
 
 @media (min-width: 768px) {
@@ -980,9 +985,6 @@
       .hdt-slider__container > hdt-card-product:first-child {
         padding-right: 28px !important;
         padding-left: 0 !important;
-      }
-      .hdt-price__list {
-        flex-direction: row-reverse !important;
       }
     }
   }
