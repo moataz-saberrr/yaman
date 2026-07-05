@@ -912,7 +912,7 @@
 /* ---- Header (Figma: heading 48/Bold/#070707, subtitle 18/Regular) -------- */
 .hdt-yaman-howuse-section .hdt-yaman-howuse__header {
   text-align: center;
-  max-inline-size: var(--hu-head-maxw, 760px);
+  /* max-inline-size: var(--hu-head-maxw, 760px); */
   margin-inline: auto;
   margin-block-end: 40px;
 }
