@@ -11,6 +11,7 @@
    YAMAN About Video hero  —  sections/banner-video-n.liquid
    Scope: .hdt-yaman-about-video-section (section tag class)
    ------------------------------------------------------------ */
+
 .hdt-yaman-about-video-section .hdt-yaman-about-video {
   position: relative;
   display: flex;
@@ -135,8 +136,8 @@
   justify-content: center;
   border-radius: 50%;
   background: transparent !important;
-  border: 4px solid #A59A8E !important;
-  color: #A59A8E !important;
+  border: 4px solid #a59a8e !important;
+  color: #a59a8e !important;
   cursor: pointer;
   transition:
     background 0.3s ease,
@@ -164,21 +165,21 @@
   .hdt-button-block
   svg
   path {
-  fill: #A59A8E;
+  fill: #a59a8e;
 }
-@media (max-width:767px) {
+@media (max-width: 767px) {
   .hdt-yaman-about-video-section .hdt-yaman-about-video__heading {
     font-size: 38px;
-}
+  }
 
-.hdt-yaman-about-video-section .hdt-yaman-about-video__eyebrow {
+  .hdt-yaman-about-video-section .hdt-yaman-about-video__eyebrow {
     margin: 0;
     font-size: 16px;
-}
-.hdt-yaman-about-video-section .hdt-yaman-about-video__subtitle {
+  }
+  .hdt-yaman-about-video-section .hdt-yaman-about-video__subtitle {
     margin: 14px 0 0;
     font-size: 15px;
-}
+  }
 }
 
 /* ============================================================
@@ -216,7 +217,7 @@
     margin: 0;
     gap: 18px;
     padding-block: clamp(40px, 8vh, 90px);
-    padding-inline: 75px
+    padding-inline: 75px;
   }
 
   /* Horizontal alignment of the text column (desktop) */
@@ -351,8 +352,7 @@
 .hdt-yaman-story-section .hdt-yaman-story__text > * {
   margin: 0;
 }
-.hdt-yaman-story-section .hdt-yaman-story__paragraph {
-}
+
 .hdt-yaman-story-section .hdt-yaman-story__cta {
   margin-top: 26px;
 }
@@ -425,18 +425,18 @@
     font-size: 16px;
   }
 }
-.custom_banner2{
-.hdt-yaman-about-video__heading{
-  margin-top: 154px !important;
-  font-family: "DIN Next LT";
-  font-weight: 500;
-  font-size: 34px;
-}
-@media (max-width:1150px) {
-  .hdt-yaman-about-video__heading{
-  margin-top: 8px !important; 
-}
-}
+.custom_banner2 {
+  .hdt-yaman-about-video__heading {
+    margin-top: 154px !important;
+    font-family: "DIN Next LT";
+    font-weight: 500;
+    font-size: 34px;
+  }
+  @media (max-width: 1150px) {
+    .hdt-yaman-about-video__heading {
+      margin-top: 8px !important;
+    }
+  }
 }
 
 /* ------------------------------------------------------------
@@ -455,7 +455,7 @@
   color: rgb(var(--yb-heading, 10 10 10));
   text-align: center;
   font-weight: 700;
-  font-size: 46px
+  font-size: 46px;
   line-height: 1.1;
 }
 
@@ -586,32 +586,31 @@
   }
 }
 
-@media (max-width:1150px) {
-  .hdt-yaman-brands{
+@media (max-width: 1150px) {
+  .hdt-yaman-brands {
     padding-right: 0 !important;
     padding-left: 0 !important;
   }
-  .custom-shipping-about{
+  .custom-shipping-about {
     padding-right: 15px !important;
     padding-left: 15px !important;
   }
-  .hdt-yaman-brands-section .hdt-yaman-brands__value{
+  .hdt-yaman-brands-section .hdt-yaman-brands__value {
     font-size: 42px;
   }
-  .hdt-yaman-brands-section .hdt-yaman-brands__label{
+  .hdt-yaman-brands-section .hdt-yaman-brands__label {
     font-size: 15px;
   }
 }
-@media (max-width:425px) {
-
-  .custom-shipping-about{
+@media (max-width: 425px) {
+  .custom-shipping-about {
     padding-right: 10px !important;
     padding-left: 10px !important;
   }
-  .hdt-yaman-brands-section .hdt-yaman-brands__value{
+  .hdt-yaman-brands-section .hdt-yaman-brands__value {
     font-size: 38px;
   }
-  .hdt-yaman-brands-section .hdt-yaman-brands__label{
+  .hdt-yaman-brands-section .hdt-yaman-brands__label {
     font-size: 14px;
   }
 }
@@ -695,23 +694,33 @@
   flex-direction: column;
   gap: clamp(16px, 3vw, 24px);
 }
-.hdt-yaman-tech-section .hdt-yaman-tech__content--valign-top .hdt-yaman-tech__body {
+.hdt-yaman-tech-section
+  .hdt-yaman-tech__content--valign-top
+  .hdt-yaman-tech__body {
   justify-content: flex-start;
 }
-.hdt-yaman-tech-section .hdt-yaman-tech__content--valign-center .hdt-yaman-tech__body {
+.hdt-yaman-tech-section
+  .hdt-yaman-tech__content--valign-center
+  .hdt-yaman-tech__body {
   justify-content: center;
 }
 
 /* Horizontal alignment (mobile-first uses the mobile modifier) */
-.hdt-yaman-tech-section .hdt-yaman-tech__content--mb-left .hdt-yaman-tech__body {
+.hdt-yaman-tech-section
+  .hdt-yaman-tech__content--mb-left
+  .hdt-yaman-tech__body {
   align-items: flex-start;
   text-align: left;
 }
-.hdt-yaman-tech-section .hdt-yaman-tech__content--mb-center .hdt-yaman-tech__body {
+.hdt-yaman-tech-section
+  .hdt-yaman-tech__content--mb-center
+  .hdt-yaman-tech__body {
   align-items: center;
   text-align: center;
 }
-.hdt-yaman-tech-section .hdt-yaman-tech__content--mb-right .hdt-yaman-tech__body {
+.hdt-yaman-tech-section
+  .hdt-yaman-tech__content--mb-right
+  .hdt-yaman-tech__body {
   align-items: flex-end;
   text-align: right;
 }
@@ -814,147 +823,152 @@
   }
 
   /* Desktop horizontal alignment overrides the mobile modifier */
-  .hdt-yaman-tech-section .hdt-yaman-tech__content--align-left .hdt-yaman-tech__body {
+  .hdt-yaman-tech-section
+    .hdt-yaman-tech__content--align-left
+    .hdt-yaman-tech__body {
     align-items: flex-start;
     text-align: left;
   }
-  .hdt-yaman-tech-section .hdt-yaman-tech__content--align-center .hdt-yaman-tech__body {
+  .hdt-yaman-tech-section
+    .hdt-yaman-tech__content--align-center
+    .hdt-yaman-tech__body {
     align-items: center;
     text-align: center;
   }
-  .hdt-yaman-tech-section .hdt-yaman-tech__content--align-right .hdt-yaman-tech__body {
+  .hdt-yaman-tech-section
+    .hdt-yaman-tech__content--align-right
+    .hdt-yaman-tech__body {
     align-items: flex-end;
     text-align: right;
   }
 }
-.hdt-yaman-tech__stats{
+.hdt-yaman-tech__stats {
   font-family: "DIN Next LT" !important;
   font-weight: 400 !important;
 }
 
-@media (max-width: 767px){
-  .hdt-yaman-tech-section .hdt-yaman-tech__body{
+@media (max-width: 767px) {
+  .hdt-yaman-tech-section .hdt-yaman-tech__body {
     flex: unset;
     margin-top: 18px;
   }
-  
-.hdt-yaman-tech-section .hdt-yaman-tech__heading {
+
+  .hdt-yaman-tech-section .hdt-yaman-tech__heading {
     font-size: 27px;
     line-height: 1.5;
     max-width: 79%;
-}
-.hdt-yaman-tech-section .hdt-yaman-tech__stat-value {
+  }
+  .hdt-yaman-tech-section .hdt-yaman-tech__stat-value {
     font-size: 27px;
-}
-.hdt-yaman-tech-section .hdt-yaman-tech__stat-label {
+  }
+  .hdt-yaman-tech-section .hdt-yaman-tech__stat-label {
     font-size: 14px;
-}
-.hdt-yaman-tech-section .hdt-yaman-tech__note{
-  margin-top: 18px;
-}
-.hdt-yaman-about-video__heading{
-  font-size: 27px;
-}
-.hdt-yaman-brands__heading{
-  margin-bottom: 16px;
-}
-.hdt-yaman-tech__media{
-  height: 429px;
+  }
+  .hdt-yaman-tech-section .hdt-yaman-tech__note {
+    margin-top: 18px;
+  }
+  .hdt-yaman-about-video__heading {
+    font-size: 27px;
+  }
+  .hdt-yaman-brands__heading {
+    margin-bottom: 16px;
+  }
+  .hdt-yaman-tech {
+    height: 429px !important;
+  }
 }
 
-}
-
-
-
-.featured_aboutPage{
+.featured_aboutPage {
   padding-block: 65px !important;
 
-  .hdt-slide-spacing-x{
-        --slide-spacing: 14px;
+  .hdt-slide-spacing-x {
+    --slide-spacing: 14px;
   }
   .hdt-slider__slide {
-   
     padding-inline-start: 14px;
-}
-.star-rating__count {
+  }
+  .star-rating__count {
     font-size: 10px !important;
     color: #838383 !important;
-}
-.star-rating__stars img {
+  }
+  .star-rating__stars img {
     width: 13px !important;
     height: 13px !important;
     color: #838383 !important;
-}
- .hdt-yaman-routine__container {
+  }
+  .hdt-yaman-routine__container {
     max-width: 1400px !important;
-}
-.hdt-yaman-routine-section .hdt-yaman-routine__button-wrap {
+  }
+  .hdt-yaman-routine-section .hdt-yaman-routine__button-wrap {
     margin-top: 20px;
-}
-.hdt-yaman-routine__button {
+  }
+  .hdt-yaman-routine__button {
     padding: 13px 72px;
     border-radius: 12px;
+  }
 }
 
-@media (max-width:767px) {
-  .featured_aboutPage{
-    border: 1px solid red;
-   .hdt-yaman-routine .hdt-yaman-routine__container{
-    padding-inline: 0 !important;
+@media (max-width: 767px) {
+  .featured_aboutPage {
+    .hdt-yaman-routine .hdt-yaman-routine__container {
+      padding-inline: 0 !important;
+    }
+    .hdt-slider__container > hdt-card-product:first-child {
+      padding-left: 28px !important;
     }
   }
-  
-.hdt-yaman-story-section{
-  .hdt-section-spacing{
-    padding: 0 !important;
+
+  .hdt-yaman-story-section {
+    .hdt-section-spacing {
+      padding: 0 !important;
+    }
+    .hdt-container {
+      padding: 24px 31px !important;
+    }
   }
-  .hdt-container{
-    padding: 24px 31px !important;
-  }
-}
-  .hdt-yaman-brands-section{
-    .hdt-container{
+  .hdt-yaman-brands-section {
+    .hdt-container {
       padding: 0 !important;
     }
     .custom-shipping-about {
-       padding: 24px 28px !important;
+      padding: 24px 28px !important;
     }
-    .hdt-yaman-brands__heading{
+    .hdt-yaman-brands__heading {
       margin-bottom: 24px !important;
     }
   }
-  .hdt-yaman-story-section .hdt-yaman-story__eyebrow{
+  .hdt-yaman-story-section .hdt-yaman-story__eyebrow {
     margin-bottom: 0px;
   }
 }
 
-
-
 /* Translation to Arabic CSS */
-.dir--rtl{
-  .hdt-yaman-story__content,.hdt-yaman-tech__body,.hdt-yaman-tech__heading{
+.dir--rtl {
+  .hdt-yaman-story__content,
+  .hdt-yaman-tech__body,
+  .hdt-yaman-tech__heading {
     text-align: right;
   }
-  .hdt-yaman-story__heading{
+  .hdt-yaman-story__heading {
     text-wrap: balance;
   }
-  .hdt-yaman-brands__panel,.hdt-yaman-tech__stats{
+  .hdt-yaman-brands__panel,
+  .hdt-yaman-tech__stats {
     direction: ltr;
   }
-  .hdt-yaman-tech__stat{
+  .hdt-yaman-tech__stat {
     align-items: center;
   }
   .hdt-yaman-routine-section .hdt-yaman-routine__button {
     .hdt-yaman-routine__button {
-    padding: 10px 69px;
-    font-size: 15px;
-  }
-
-
-  }
-@media (min-width: 768px) {
-    .hdt-yaman-tech-section .hdt-yaman-tech__heading {
-        max-width: 35%;
+      padding: 10px 69px;
+      font-size: 15px;
     }
-}
+  }
+
+  @media (min-width: 768px) {
+    .hdt-yaman-tech-section .hdt-yaman-tech__heading {
+      max-width: 35%;
+    }
+  }
 }
