@@ -38,6 +38,30 @@
   "
 >
   <div class="hdt-yaman-routines__container">
+    {%- if section.settings.header_style == 'centered' -%}
+      {%- comment -%} Centered header built from editable Heading / Subheading blocks,
+        rendered in their own container (the video blocks are filtered out below and
+        rendered in the carousel). Section-local blocks, so they can't be mixed with
+        theme blocks — the video block stays local too. {%- endcomment -%}
+      <div class="hdt-yaman-routines__header hdt-yaman-routines__header--centered">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'heading' -%}
+              <div
+                class="hdt-yaman-routines__block-text hdt-yaman-routines__block-text--heading"
+                style="--rh-fs: {{ block.settings.size }}px; --rh-fs-mb: {{ block.settings.size_mb }}px; --rh-weight: {{ block.settings.weight }}; --rh-color: {{ block.settings.color }}; --rh-mw: {{ block.settings.max_width }}px;"
+                {{ block.shopify_attributes }}
+              >{{ block.settings.text }}</div>
+            {%- when 'subheading' -%}
+              <div
+                class="hdt-yaman-routines__block-text hdt-yaman-routines__block-text--sub"
+                style="--rh-fs: {{ block.settings.size }}px; --rh-fs-mb: {{ block.settings.size_mb }}px; --rh-weight: {{ block.settings.weight }}; --rh-color: {{ block.settings.color }}; --rh-mw: {{ block.settings.max_width }}px;"
+                {{ block.shopify_attributes }}
+              >{{ block.settings.text }}</div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
     <div class="hdt-yaman-routines__header">
       <div class="hdt-yaman-routines__intro">
         {%- if section.settings.heading != blank -%}
@@ -106,6 +130,7 @@
         </div>
       {%- endif -%}
     </div>
+    {%- endif -%}
 
     <hdt-slider
       id="Slider-{{ section.id }}"
@@ -115,6 +140,7 @@
       <div class="hdt-slider__viewport hdt-relative hdt-yaman-routines__viewport">
         <div class="hdt-slider__container hdt-yaman-routines__track">
           {%- for block in section.blocks -%}
+            {%- unless block.type == 'video' -%}{%- continue -%}{%- endunless -%}
             {%- liquid
               assign rt_video = block.settings.video
               assign rt_poster = block.settings.poster
@@ -250,10 +276,22 @@
       "content": "Header"
     },
     {
+      "type": "select",
+      "id": "header_style",
+      "label": "Header style",
+      "options": [
+        { "value": "split", "label": "Split (heading left + rating/proof right)" },
+        { "value": "centered", "label": "Centered (Heading / Text blocks)" }
+      ],
+      "default": "split",
+      "info": "Centered uses editable Heading + Text theme blocks (shown in the block list) instead of the settings/rating below."
+    },
+    {
       "type": "textarea",
       "id": "heading",
       "label": "Heading",
-      "default": "Watch Real Routines Tailored to Your Needs"
+      "default": "Watch Real Routines Tailored to Your Needs",
+      "visible_if": "{{ section.settings.header_style == 'split' }}"
     },
     {
       "type": "textarea",
@@ -551,6 +589,128 @@
     }
   ],
   "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Heading",
+          "default": "<p>What Makes This Product the Best?</p>"
+        },
+        {
+          "type": "range",
+          "id": "size",
+          "min": 16,
+          "max": 80,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size (desktop)",
+          "default": 48
+        },
+        {
+          "type": "range",
+          "id": "size_mb",
+          "min": 14,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size (mobile)",
+          "default": 30
+        },
+        {
+          "type": "select",
+          "id": "weight",
+          "label": "Font weight",
+          "options": [
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "700"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text color",
+          "default": "#070707"
+        },
+        {
+          "type": "range",
+          "id": "max_width",
+          "min": 300,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "label": "Max width",
+          "default": 760
+        }
+      ]
+    },
+    {
+      "type": "subheading",
+      "name": "Subheading",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Subheading",
+          "default": "<p>Real reviews from real people.</p>"
+        },
+        {
+          "type": "range",
+          "id": "size",
+          "min": 12,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size (desktop)",
+          "default": 18
+        },
+        {
+          "type": "range",
+          "id": "size_mb",
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size (mobile)",
+          "default": 14
+        },
+        {
+          "type": "select",
+          "id": "weight",
+          "label": "Font weight",
+          "options": [
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "400"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text color",
+          "default": "#7a7a7a"
+        },
+        {
+          "type": "range",
+          "id": "max_width",
+          "min": 260,
+          "max": 900,
+          "step": 10,
+          "unit": "px",
+          "label": "Max width",
+          "default": 620
+        }
+      ]
+    },
     {
       "type": "video",
       "name": "Video",

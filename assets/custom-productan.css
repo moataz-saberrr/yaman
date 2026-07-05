@@ -1426,6 +1426,43 @@
   gap: 24px 40px;
 }
 
+/* Centered header (editable Heading / Subheading blocks) — used on the serum page */
+.hdt-yaman-routines-section .hdt-yaman-routines__header--centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__block-text {
+  margin: 0;
+  inline-size: 100%;
+  max-inline-size: var(--rh-mw, 760px);
+  color: var(--rh-color, #070707);
+  font-weight: var(--rh-weight, 400);
+  font-size: var(--rh-fs, 18px);
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__block-text > * {
+  margin: 0;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__block-text--heading {
+  line-height: 1.1;
+  letter-spacing: -0.48px;
+}
+
+.hdt-yaman-routines-section .hdt-yaman-routines__block-text--sub {
+  line-height: 1.4;
+}
+
+@media (max-width: 767px) {
+  .hdt-yaman-routines-section .hdt-yaman-routines__block-text {
+    font-size: var(--rh-fs-mb, 16px);
+  }
+}
+
 .hdt-yaman-routines-section .hdt-yaman-routines__intro {
   min-inline-size: 0;
 }
@@ -1694,16 +1731,26 @@
   flex: 1 1 auto;
 }
 
-/* ---- Tablet & below: cap card width, keep reel ratio, allow peek --------- */
+/* ---- Tablet & below: cap card width, keep reel ratio, full-bleed carousel - */
 @media (max-width: 1149px) {
+  /* Full-bleed the carousel to the screen edges on tablet + mobile so the cards
+     stick to the screen (viewport padding for the shadows is kept). */
   .hdt-yaman-routines-section .hdt-yaman-routines__slider {
     --slide-spacing: var(--rt-gap-tb, var(--rt-gap, 14px));
     --slide-size: min(calc(100% / var(--rt-cols-tb, 3.3)), 320px);
+    margin-inline: calc(50% - 50vw);
+    padding-inline: 14px;
+    box-sizing: border-box;
   }
 
   /* Prevent the last card's peek from causing page overflow */
   .hdt-yaman-routines-section .hdt-yaman-routines__container {
     padding-inline: 0;
+  }
+
+  /* Keep the header aligned to the container gutter now the carousel is full-bleed */
+  .hdt-yaman-routines-section .hdt-yaman-routines__header {
+    padding-inline: var(--rt-pad-x, 20px);
   }
 }
 
@@ -1719,8 +1766,8 @@
     padding-inline-end: 0;
   }
 
-  /* Heading (left) + rating (right, top-aligned); subtitle flows under heading */
-  .hdt-yaman-routines-section .hdt-yaman-routines__header {
+  /* Split header: heading (left) + rating (right, top-aligned) */
+  .hdt-yaman-routines-section .hdt-yaman-routines__header:not(.hdt-yaman-routines__header--centered) {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: start;
     gap: 12px 16px;
@@ -1774,6 +1821,220 @@
     inline-size: 34px;
     block-size: 34px;
     font-size: 18px;
+  }
+}
+
+/* ===========================================================================
+ * Section: YAMAN How Use Grid  (sections/yaman-how-to-use-grid-n.liquid)
+ * Duplicate of the "How to Use" cards for the serum page: Grid⇄Carousel layout
+ * option + per-card border. Fully independent from yaman-how-to-use-n — scoped
+ * under .hdt-yaman-howuse-grid-section so it never overrides the original.
+ * Logical properties for RTL readiness.
+ * =========================================================================== */
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse {
+  position: relative;
+  background-color: var(--hu-bg, #ffffff);
+  padding-top: var(--hu-pt, 64px);
+  padding-bottom: var(--hu-pb, 64px);
+  overflow: hidden;
+}
+
+/* Optional faint gold vertical glow (off by default here) */
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse.has-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--hu-glow, #d4b87a) 0%, transparent) 0%,
+    color-mix(in srgb, var(--hu-glow, #d4b87a) 30%, transparent) 50%,
+    color-mix(in srgb, var(--hu-glow, #d4b87a) 0%, transparent) 100%
+  );
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__container {
+  position: relative;
+  z-index: 1;
+  max-inline-size: var(--hu-maxw, 1310px);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* ---- Header -------------------------------------------------------------- */
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__header {
+  text-align: center;
+  max-inline-size: var(--hu-head-maxw, 1000px);
+  margin-inline: auto;
+  margin-block-end: 40px;
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__heading {
+  margin: 0;
+  color: #070707;
+  font-weight: 700;
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.48px;
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__subtitle {
+  margin: 16px auto 0;
+  max-inline-size: 900px;
+  color: rgba(7, 7, 7, 0.5);
+  font-size: clamp(14px, 1.6vw, 18px);
+  line-height: 24px;
+}
+
+/* ---- Track: static grid (centered, constrained to the cards row width) --- */
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__track {
+  display: grid;
+  grid-template-columns: repeat(var(--hu-cols, 4), minmax(0, 1fr));
+  gap: var(--hu-gap, 12px);
+  max-inline-size: var(--hu-gridw, 928px);
+  margin-inline: auto;
+}
+
+/* ---- Card (with optional gold border) ------------------------------------ */
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__card {
+  display: flex;
+  flex-direction: column;
+  background: var(--hu-card-bg, #f8f7f0);
+  border-radius: var(--hu-radius, 16px);
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse.is-bordered .hdt-yaman-howuse__card {
+  border: var(--hu-border-w, 1px) solid
+    color-mix(in srgb, var(--hu-border, #b89a5e) calc(var(--hu-border-op, 0.3) * 100%), transparent);
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__image-wrap {
+  position: relative;
+  aspect-ratio: var(--hu-img-ar, 223 / 200);
+  background: #e9e7df;
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__image {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__placeholder-svg {
+  width: 40%;
+  opacity: 0.4;
+  fill: #a5a5a5;
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-block: 14px 16px;
+  padding-inline: 14px;
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__number {
+  color: var(--hu-accent, #c9a844);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__title {
+  margin: 0;
+  color: var(--hu-title, #1d2847);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.14;
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__description {
+  margin: 0;
+  color: rgba(7, 7, 7, 0.5);
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.hdt-yaman-howuse-grid-section .hdt-yaman-howuse__empty {
+  text-align: center;
+  color: rgba(7, 7, 7, 0.5);
+}
+
+/* ---- Tablet: grid layout falls to 2 columns ------------------------------ */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hdt-yaman-howuse-grid-section .hdt-yaman-howuse--grid .hdt-yaman-howuse__track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---- Mobile -------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .hdt-yaman-howuse-grid-section .hdt-yaman-howuse {
+    padding-top: var(--hu-pt-mb, 40px);
+    padding-bottom: var(--hu-pb-mb, 40px);
+  }
+
+  .hdt-yaman-howuse-grid-section .hdt-yaman-howuse__header {
+    margin-block-end: 26px;
+  }
+
+  /* GRID layout: mobile column count (Figma = 2) */
+  .hdt-yaman-howuse-grid-section .hdt-yaman-howuse--grid .hdt-yaman-howuse__track {
+    grid-template-columns: repeat(var(--hu-cols-mb, 2), minmax(0, 1fr));
+    gap: var(--hu-gap-mb, 12px);
+    max-inline-size: none;
+  }
+
+  /* CAROUSEL layout: full-bleed scroll-snap carousel (one card + a peek) */
+  .hdt-yaman-howuse-grid-section .hdt-yaman-howuse--carousel.has-carousel .hdt-yaman-howuse__viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-padding-inline-start: 16px;
+    padding-inline: 16px;
+  }
+
+  .hdt-yaman-howuse-grid-section .hdt-yaman-howuse--carousel.has-carousel.is-fullbleed .hdt-yaman-howuse__viewport {
+    margin-inline: calc(50% - 50vw);
+  }
+
+  .hdt-yaman-howuse-grid-section .hdt-yaman-howuse--carousel.has-carousel .hdt-yaman-howuse__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hdt-yaman-howuse-grid-section .hdt-yaman-howuse--carousel.has-carousel .hdt-yaman-howuse__track {
+    display: flex;
+    grid-template-columns: none;
+    gap: var(--hu-gap-mb, 12px);
+    justify-content: flex-start;
+    max-inline-size: none;
+  }
+
+  .hdt-yaman-howuse-grid-section .hdt-yaman-howuse--carousel.has-carousel .hdt-yaman-howuse__card {
+    flex: 0 0 var(--hu-card-mb, 78%);
+    scroll-snap-align: start;
+  }
+
+  /* Carousel layout with the mobile carousel disabled → 2-col grid fallback */
+  .hdt-yaman-howuse-grid-section .hdt-yaman-howuse--carousel:not(.has-carousel) .hdt-yaman-howuse__track {
+    grid-template-columns: repeat(var(--hu-cols-mb, 2), minmax(0, 1fr));
+    gap: var(--hu-gap-mb, 12px);
+    max-inline-size: none;
   }
 }
 

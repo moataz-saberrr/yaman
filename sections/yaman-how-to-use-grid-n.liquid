@@ -1,0 +1,475 @@
+<!-- sections/yaman-how-to-use-grid-n.liquid — YAMAN "How Use / Ingredients" cards.
+  A duplicate of yaman-how-to-use-n adapted for the serum product page: adds a
+  Grid⇄Carousel layout option and a per-card border, and is scoped under its own
+  parent class (.hdt-yaman-howuse-grid-section) plus an optional custom class so
+  it can NEVER override the original yaman-how-to-use-n on other pages.
+  Grid: static grid on all breakpoints (desktop columns / mobile columns).
+  Carousel: desktop grid + mobile full-bleed CSS scroll-snap carousel (no JS).
+  Section-local "step" blocks. CSS: assets/custom-productan.css. -->
+{{ 'custom-productan.css' | asset_url | stylesheet_tag: media: 'all' }}
+{%- liquid
+  assign count = section.blocks.size
+  assign cols = section.settings.columns | default: 4
+  assign layout = section.settings.layout | default: 'grid'
+-%}
+<div
+  class="hdt-yaman-howuse hdt-yaman-howuse--{{ layout }}{% if layout == 'carousel' and section.settings.enable_carousel_mobile %} has-carousel{% endif %}{% if layout == 'carousel' and section.settings.full_bleed_mobile %} is-fullbleed{% endif %}{% if section.settings.show_glow %} has-glow{% endif %}{% if section.settings.card_border %} is-bordered{% endif %}{% if section.settings.custom_class != blank %} {{ section.settings.custom_class }}{% endif %}"
+  id="yaman-howuse-grid-{{ section.id }}"
+  style="
+    --hu-bg: {{ section.settings.background_color }};
+    --hu-glow: {{ section.settings.glow_color }};
+    --hu-maxw: {{ section.settings.container_max_width }}px;
+    --hu-gridw: {{ section.settings.grid_max_width }}px;
+    --hu-head-maxw: {{ section.settings.header_max_width }}px;
+    --hu-cols: {{ cols }};
+    --hu-cols-mb: {{ section.settings.mobile_columns }};
+    --hu-gap: {{ section.settings.gap }}px;
+    --hu-gap-mb: {{ section.settings.gap_mb }}px;
+    --hu-card-bg: {{ section.settings.card_bg }};
+    --hu-radius: {{ section.settings.card_radius }}px;
+    --hu-border: {{ section.settings.border_color }};
+    --hu-border-op: {{ section.settings.border_opacity | divided_by: 100.0 }};
+    --hu-border-w: {{ section.settings.border_width }}px;
+    --hu-img-ar: {{ section.settings.image_ratio }};
+    --hu-accent: {{ section.settings.accent_color }};
+    --hu-title: {{ section.settings.title_color }};
+    --hu-card-mb: {{ section.settings.mobile_card_width }}%;
+    --hu-pt: {{ section.settings.padding_top }}px;
+    --hu-pb: {{ section.settings.padding_bottom }}px;
+    --hu-pt-mb: {{ section.settings.padding_top_mb }}px;
+    --hu-pb-mb: {{ section.settings.padding_bottom_mb }}px;
+  "
+>
+  <div class="hdt-yaman-howuse__container">
+
+    {%- if section.settings.heading != blank or section.settings.subtitle != blank -%}
+      <div class="hdt-yaman-howuse__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="hdt-yaman-howuse__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="hdt-yaman-howuse__subtitle">{{ section.settings.subtitle | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if count > 0 -%}
+      <div class="hdt-yaman-howuse__viewport">
+        <div class="hdt-yaman-howuse__track">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign img = block.settings.image
+              assign img_mb = block.settings.image_mobile
+              assign alt = block.settings.image_alt | default: block.settings.title
+              assign link = block.settings.link
+              assign tag = 'div'
+              if link != blank
+                assign tag = 'a'
+              endif
+            -%}
+            <{{ tag }}
+              class="hdt-yaman-howuse__card"
+              {% if link != blank %}href="{{ link }}"{% endif %}
+              {{ block.shopify_attributes }}
+            >
+              <div class="hdt-yaman-howuse__image-wrap">
+                {%- if img != blank -%}
+                  {%- if img_mb != blank -%}
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="{{ img_mb | image_url: width: 700 }}, {{ img_mb | image_url: width: 1000 }} 1.5x">
+                      {{ img | image_url: width: 600 | image_tag: class: 'hdt-yaman-howuse__image', alt: alt, loading: 'lazy', widths: '223,340,460,600', sizes: '(max-width: 767px) 46vw, 240px' }}
+                    </picture>
+                  {%- else -%}
+                    {{ img | image_url: width: 600 | image_tag: class: 'hdt-yaman-howuse__image', alt: alt, loading: 'lazy', widths: '223,340,460,600', sizes: '(max-width: 767px) 46vw, 240px' }}
+                  {%- endif -%}
+                {%- else -%}
+                  <div class="hdt-yaman-howuse__image hdt-yaman-howuse__placeholder" aria-hidden="true">
+                    {{ 'image' | placeholder_svg_tag: 'hdt-yaman-howuse__placeholder-svg' }}
+                  </div>
+                {%- endif -%}
+              </div>
+
+              <div class="hdt-yaman-howuse__body">
+                {%- if block.settings.number != blank -%}
+                  <span class="hdt-yaman-howuse__number">{{ block.settings.number }}</span>
+                {%- endif -%}
+                {%- if block.settings.title != blank -%}
+                  <h3 class="hdt-yaman-howuse__title">{{ block.settings.title | escape }}</h3>
+                {%- endif -%}
+                {%- if block.settings.description != blank -%}
+                  <p class="hdt-yaman-howuse__description">{{ block.settings.description | escape }}</p>
+                {%- endif -%}
+              </div>
+            </{{ tag }}>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- elsif request.design_mode -%}
+      <p class="hdt-yaman-howuse__empty">Add “Step” blocks in the theme editor to build the cards.</p>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YAMAN How Use Grid",
+  "tag": "section",
+  "class": "hdt-section hdt-yaman-howuse-grid-section",
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile image (optional)"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Step number",
+          "info": "Optional. Leave empty to hide."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "CARD TITLE"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Active Ingredients for Skin Hydration and Protection"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "A complete formula of carefully selected ingredients to support skin hydration, strengthen its natural barrier, and help maintain its health and softness."
+    },
+    {
+      "type": "range",
+      "id": "header_max_width",
+      "min": 400,
+      "max": 1200,
+      "step": 10,
+      "unit": "px",
+      "label": "Header max width",
+      "default": 1000
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout mode",
+      "options": [
+        { "value": "grid", "label": "Grid (all breakpoints)" },
+        { "value": "carousel", "label": "Grid + mobile carousel" }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom section class",
+      "info": "Optional extra CSS class for scoping/targeting a single instance."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_glow",
+      "label": "Show gold glow",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "glow_color",
+      "label": "Glow color",
+      "default": "#d4b87a"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 800,
+      "max": 1600,
+      "step": 10,
+      "unit": "px",
+      "label": "Container max width",
+      "default": 1310
+    },
+    {
+      "type": "range",
+      "id": "grid_max_width",
+      "min": 600,
+      "max": 1400,
+      "step": 8,
+      "unit": "px",
+      "label": "Cards row max width",
+      "info": "Constrains the grid of cards (Figma ≈ 928px for 4 cards).",
+      "default": 928
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Columns (desktop)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_columns",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Columns (mobile grid)",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Card gap (desktop)",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "gap_mb",
+      "min": 6,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Card gap (mobile)",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Card"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#f8f7f0"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Card corner radius",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "card_border",
+      "label": "Show card border",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Card border color",
+      "default": "#b89a5e"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Card border opacity",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Card border width",
+      "default": 1
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "223 / 200", "label": "Figma (1.1 : 1)" },
+        { "value": "1 / 1", "label": "Square" },
+        { "value": "4 / 5", "label": "Portrait" },
+        { "value": "4 / 3", "label": "Landscape" }
+      ],
+      "default": "223 / 200"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Number / accent color",
+      "default": "#c9a844"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#1d2847"
+    },
+    {
+      "type": "header",
+      "content": "Mobile carousel",
+      "info": "Only used when Layout mode = Grid + mobile carousel."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_carousel_mobile",
+      "label": "Enable mobile carousel",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "full_bleed_mobile",
+      "label": "Full-bleed carousel (mobile)",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_width",
+      "min": 60,
+      "max": 90,
+      "step": 1,
+      "unit": "%",
+      "label": "Card width (mobile carousel)",
+      "info": "Lower = more of the next card peeks in.",
+      "default": 78
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "YAMAN How Use Grid",
+      "category": "YAMAN",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Botanical Extracts",
+            "description": "Soothe the skin, support its natural radiance, and improve its overall appearance."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Barrier-Supporting Ceramides",
+            "description": "Help strengthen the skin’s natural barrier and maintain hydration."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Hydrating Collagen",
+            "description": "Supports skin elasticity and gives it a smoother, more radiant look."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Hyaluronic Acid",
+            "description": "Deeply hydrates the skin and helps lock in moisture."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
