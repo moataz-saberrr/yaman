@@ -894,3 +894,25 @@
   
 }
 }
+
+
+/* Translation to Arabic CSS */
+.dir--rtl{
+  .hdt-yaman-story__content,.hdt-yaman-tech__body{
+    text-align: right;
+  }
+  .hdt-yaman-story__heading{
+    text-wrap: balance;
+  }
+  .hdt-yaman-brands__panel,.hdt-yaman-tech__stats{
+    direction: ltr;
+  }
+  .hdt-yaman-tech__stat{
+    align-items: center;
+  }
+@media (min-width: 768px) {
+    .hdt-yaman-tech-section .hdt-yaman-tech__heading {
+        max-width: 35%;
+    }
+}
+}
