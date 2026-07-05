@@ -68,8 +68,8 @@
                 "txt_tr_pr": "none",
                 "tag": "h1",
                 "heading_size": "h_custom",
-                "font_size_heading_lg": 36,
-                "font_size_heading": 36,
+                "font_size_heading_lg": 48,
+                "font_size_heading": 38,
                 "font_weight": "bold",
                 "letter_spacing_heading": 0
               },
@@ -86,7 +86,7 @@
                 "readm_txt": "Read more",
                 "readl_txt": "Read less",
                 "ffamily": "",
-                "text_size": "4xl",
+                "text_size": "custom",
                 "line_height": "",
                 "font_weight": "normal",
                 "heading_color": "",
@@ -325,6 +325,10 @@
       "block_order": [
         "group_product_9RYttB"
       ],
+      "custom_css": [
+        ".hdt-product__tabby-installment {background-color: #f8f7f0; border-bottom: 1px solid #e0e0e0; padding-inline: 24px; margin-bottom: 0 !important; @media (max-width: 1150px) {padding-top: 12px; padding-inline: 18px; }}",
+        "hdt-buy-buttons.hdt-product-form__buttons {padding-block: 20px; background-color: #f8f7f0; padding-inline: 24px; border-bottom: 1px solid #e0e0e0;}"
+      ],
       "settings": {
         "product_list_fbt": [],
         "sticky_atc": true,
@@ -344,101 +348,414 @@
         "pd_mb": "20px,,50px,"
       }
     },
-    "visible_lift": {
-      "type": "product-visible-lift-n",
-      "disabled": true,
+    "yaman_product_proof_n_G4PnLR": {
+      "type": "yaman-product-proof-n",
+      "blocks": {
+        "image_dC7nGR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
+            "alt": "",
+            "label_left": "",
+            "label_right": "",
+            "caption": ""
+          }
+        },
+        "image_kakTai": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
+            "alt": "",
+            "label_left": "",
+            "label_right": "",
+            "caption": ""
+          }
+        },
+        "image_8HEEaf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
+            "alt": "",
+            "label_left": "",
+            "label_right": "",
+            "caption": ""
+          }
+        },
+        "stat_Ex8JXW": {
+          "type": "stat",
+          "settings": {
+            "value": "+36%",
+            "text": "More defined jawline",
+            "accent_color": ""
+          }
+        },
+        "stat_7RenzD": {
+          "type": "stat",
+          "settings": {
+            "value": "+42%",
+            "text": "Improved skin firmness",
+            "accent_color": ""
+          }
+        },
+        "stat_Jejtkn": {
+          "type": "stat",
+          "settings": {
+            "value": "+42%",
+            "text": "More lifted-looking appearance",
+            "accent_color": ""
+          }
+        },
+        "stat_xzEDEG": {
+          "type": "stat",
+          "settings": {
+            "value": "-31%",
+            "text": "Less tense-looking appearance",
+            "accent_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_dC7nGR",
+        "image_kakTai",
+        "image_8HEEaf",
+        "stat_Ex8JXW",
+        "stat_7RenzD",
+        "stat_Jejtkn",
+        "stat_xzEDEG"
+      ],
+      "name": "YAMAN Proof",
       "settings": {
-        "eyebrow": "REAL RESULTS. CLINICALLY PROVEN",
-        "heading": "Visible Lift.\nReal Transformation.",
-        "study": "Independent Clinical Study, 200 participants.",
-        "note": "Clinical Study Conducted Over 12 Weeks, with 200 participants using the full YAMAN regime",
-        "stat_1_number": "93%",
-        "stat_1_text": "saw firmer skin after 4 weeks of daily use",
-        "stat_2_number": "89%",
-        "stat_2_text": "saw lifted contours — visible lift in jaw + cheek",
-        "stat_3_number": "86%",
-        "stat_3_text": "reported brighter skin after Photon LED protocol",
-        "stat_4_number": "97%",
-        "stat_4_text": "said it felt spa-grade — texture, glide, comfort score",
-        "before_label": "Before",
-        "after_label": "After",
-        "pair_1_before": "shopify://shop_images/997a5664b2d333132b651389ab055b706a17f9fd.png",
-        "pair_1_after": "shopify://shop_images/07a86df3cd56443c4d6d66a04c17d63f38d1c775.png",
-        "pair_1_before_alt": "",
-        "pair_1_after_alt": "",
-        "pair_2_before": "shopify://shop_images/c9beebe520f9e5bed3dcfd99c545dc5fc3dd3fd7.png",
-        "pair_2_after": "shopify://shop_images/0b1488dbfa099b095753fad64e84c1f53cb95702.png",
-        "pair_2_before_alt": "",
-        "pair_2_after_alt": "",
-        "pair_3_before": "shopify://shop_images/6d7ad05a6a1db8dd7ae6b2a8ce3ea7d52644b360.png",
-        "pair_3_after": "shopify://shop_images/20469992c48310d1a4de2099aa2c6f770b801c60.png",
-        "pair_3_before_alt": "",
-        "pair_3_after_alt": "",
-        "pair_4_before": "shopify://shop_images/26eb3db20070f8dd957642a72e6015192de1c086_1.png",
-        "pair_4_after": "shopify://shop_images/7eb0dd35536f85872fe2c4b6f177529630719bc0_1.png",
-        "pair_4_before_alt": "",
-        "pair_4_after_alt": "",
-        "pair_5_before": "shopify://shop_images/292e10651c4f2edf235077aac0feff7cffa92600.png",
-        "pair_5_after": "shopify://shop_images/7e583662b627d738c3535838bf897fdc23d04aa0.png",
-        "pair_5_before_alt": "",
-        "pair_5_after_alt": "",
-        "background_color": "#ffffff",
-        "stats_bg": "#f8f7f0",
-        "accent_color": "#d4b87a",
-        "container_max_width": 1310,
-        "main_radius": 36,
-        "default_position": 50,
+        "heading": "Noticeable results within weeks of use",
+        "subtitle": "Gradual improvement in the appearance of the skin with consistent use.",
+        "background_color": "#f7f6f1",
+        "container_max_width": 1200,
+        "heading_max_width": 720,
+        "content_gap": 48,
+        "content_gap_mb": 24,
+        "enable_dots": true,
+        "enable_arrows": false,
+        "hide_arrows_mobile": true,
+        "image_radius": 16,
+        "accent_color": "#c79a4b",
+        "card_bg": "#ffffff",
+        "card_border": "#ecece6",
+        "card_shadow": true,
         "padding_top": 70,
-        "padding_bottom": 60,
-        "padding_top_mb": 40,
-        "padding_bottom_mb": 40
+        "padding_bottom": 70,
+        "padding_top_mb": 45,
+        "padding_bottom_mb": 45
       }
     },
-    "yaman_steps": {
-      "type": "yaman-routine-steps-n",
+    "yaman_marquee": {
+      "type": "yaman-shipping-marquee-n",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "text": "1 Year Warranty",
+            "icon_preset": "shield",
+            "icon_text": "✦",
+            "icon_alt": "",
+            "link": "",
+            "accent_color": ""
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "text": "60-Day Easy Return Policy",
+            "icon_preset": "sparkle",
+            "icon_text": "✦",
+            "icon_alt": "",
+            "link": "",
+            "accent_color": ""
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "text": "Expert Approved Technology",
+            "icon_preset": "star",
+            "icon_text": "✦",
+            "icon_alt": "",
+            "link": "",
+            "accent_color": ""
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "text": "Medical-Grade Silicone",
+            "icon_preset": "lightning",
+            "icon_text": "✦",
+            "icon_alt": "",
+            "link": "",
+            "accent_color": ""
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "text": "Free Shipping",
+            "icon_preset": "truck",
+            "icon_text": "✦",
+            "icon_alt": "",
+            "link": "",
+            "accent_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5"
+      ],
+      "settings": {
+        "background_color": "#1d2847",
+        "text_color": "#e7e9f0",
+        "accent_color": "#d4b87a",
+        "divider_color": "#3b4667",
+        "full_width": true,
+        "container_max_width": 1500,
+        "show_dividers": true,
+        "item_gap": 40,
+        "item_gap_mb": 24,
+        "font_size": 15,
+        "font_size_mb": 13,
+        "icon_size": 18,
+        "icon_size_mb": 16,
+        "speed": 40,
+        "direction": "left",
+        "pause_on_hover": true,
+        "padding_top": 18,
+        "padding_bottom": 18,
+        "padding_top_mb": 14,
+        "padding_bottom_mb": 14
+      }
+    },
+    "yaman_special": {
+      "type": "yaman-special-features-n",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/6e5da0bac9f281f845a885483126c3d2c27f185b.png",
+            "image_alt": "",
+            "size": "tall",
+            "number": "01",
+            "show_line": true,
+            "title": "DUAL EMS TECHNOLOGY",
+            "description": "Two targeted modes for a firmer-looking, more defined lower face.",
+            "text_color": "",
+            "accent_color": "",
+            "scrim": "none",
+            "overlay_opacity": 40
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/840049a74556cbfe49512ca1dc6e356421fe633a.png",
+            "image_alt": "",
+            "size": "normal",
+            "number": "02",
+            "show_line": true,
+            "title": "EMS TRAINING MODE",
+            "description": "Stimulates the cheek muscles.",
+            "text_color": "",
+            "accent_color": "",
+            "scrim": "none",
+            "overlay_opacity": 40
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/221b5bc62cac50f0cc54d01fab6b348b3c173505.png",
+            "image_alt": "",
+            "size": "normal",
+            "number": "03",
+            "show_line": true,
+            "title": "EMS RELAXATION MODE",
+            "description": "Helps relax the jaw area.",
+            "text_color": "",
+            "accent_color": "",
+            "scrim": "none",
+            "overlay_opacity": 40
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/7252f0a1715c3e8cf05cffec9f4d3b24ab62f527.png",
+            "image_alt": "",
+            "size": "wide",
+            "number": "04",
+            "show_line": true,
+            "title": "HANDS-FREE DESIGN",
+            "description": "Wear it, start your session, and carry on with your day.",
+            "text_color": "#070707",
+            "accent_color": "#c9a844",
+            "scrim": "light",
+            "overlay_opacity": 40
+          }
+        },
+        "card_5": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/aa54b4a272076b731b538f6b8f8f9ac39bae3c8b.png",
+            "image_alt": "",
+            "size": "wide",
+            "number": "05",
+            "show_line": true,
+            "title": "MINUTE ROUTINE-10",
+            "description": "Easy to fit into your routine for consistent use.",
+            "text_color": "#070707",
+            "accent_color": "#c9a844",
+            "scrim": "light",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4",
+        "card_5"
+      ],
+      "settings": {
+        "heading": "What Makes It Special?",
+        "subtitle": "Two targeted modes to train the cheek muscles and relax the jaw area, using EMS technology in a 10-minute session.",
+        "header_max_width": 900,
+        "background_color": "#ffffff",
+        "container_max_width": 1290,
+        "grid_gap": 16,
+        "grid_gap_mb": 12,
+        "card_radius": 18,
+        "text_color": "#ffffff",
+        "accent_color": "#c9a844",
+        "overlay_opacity": 40,
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "padding_top_mb": 44,
+        "padding_bottom_mb": 44
+      }
+    },
+    "yaman_mode_banner": {
+      "type": "yaman-mode-banner-n",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/product_page_En_02.png",
+            "image_mobile": "shopify://shop_images/large_product_page_En_02.png",
+            "image_alt": "",
+            "eyebrow": "",
+            "heading": "",
+            "text": "",
+            "content_position": "flex-start",
+            "text_align_mobile": "center",
+            "text_color": "",
+            "accent_color": "",
+            "overlay_color": "",
+            "use_overlay_override": false,
+            "overlay_opacity": 55
+          }
+        },
+        "slide_aGbJEa": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/product_page_En_03.png",
+            "image_mobile": "shopify://shop_images/large_product_page_En_03.png",
+            "image_alt": "",
+            "eyebrow": "",
+            "heading": "",
+            "text": "",
+            "content_position": "flex-start",
+            "text_align_mobile": "center",
+            "text_color": "",
+            "accent_color": "",
+            "overlay_color": "",
+            "use_overlay_override": false,
+            "overlay_opacity": 55
+          }
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "slide_aGbJEa"
+      ],
+      "settings": {
+        "background_color": "#0e1626",
+        "height": 520,
+        "height_mb": 600,
+        "container_max_width": 1290,
+        "content_max_width": 560,
+        "overlay_color": "#0b1220",
+        "overlay_opacity": 55,
+        "enable_arrows": true,
+        "hide_arrows_mobile": true,
+        "enable_dots": false,
+        "hide_dots_mobile": true,
+        "arrow_color": "#f3ecdf",
+        "arrow_bg": "rgba(0,0,0,0)",
+        "loop": true,
+        "autoplay": false,
+        "autoplay_speed": 6,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "yaman_howuse": {
+      "type": "yaman-how-to-use-n",
       "blocks": {
         "step_1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/601db66e6c5db46ecf7aed34ef7e0df3c755fe53.png",
+            "image": "shopify://shop_images/9ddcd3d1fdeec2307dc025fbceed7fe6e3cc87f7.png",
+            "image_alt": "",
             "number": "01",
-            "title": "Cleanse",
-            "description": "Start with a clean, dry face. Skin contact ensures optimal conductivity for every session.",
-            "time": "2 MIN",
-            "alt": ""
+            "title": "APPLY GEL OR SERUM",
+            "description": "Prepare the lower face with a suitable gel or compatible serum before use.",
+            "link": ""
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/a641b8f6f62ff1062dc2fc00c8b63470abddf5ca.png",
+            "image": "shopify://shop_images/87eed1c998b60f0c568b9ab837e5fb6f7d607d5f.png",
+            "image_alt": "",
             "number": "02",
-            "title": "Lift",
-            "description": "Apply a generous layer of YĀMAN Lifting Gel. Glide the device upward along jaw, cheek, and brow — RF + EMS active.",
-            "time": "6 MIN",
-            "alt": ""
+            "title": "SECURE THE MASK PROPERLY",
+            "description": "Fit the mask comfortably and securely over the cheeks and jaw area.",
+            "link": ""
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/96149ca60d749735fe624416cf47cbef8e3b60aa.png",
+            "image": "shopify://shop_images/8ee7ed1d320fee1c1af8b46b1bc1f524e4b17b30.png",
+            "image_alt": "",
             "number": "03",
-            "title": "Sculpt",
-            "description": "Switch to sculpt mode for under-eye and forehead detail work. Target fine lines and hollows.",
-            "time": "3 MIN",
-            "alt": ""
+            "title": "ADJUST EACH SIDE",
+            "description": "Set the intensity for the left and right sides independently to suit your needs.",
+            "link": ""
           }
         },
         "step_4": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/5af78915b57748225d7189371b4ae4ef258280bd.png",
+            "image": "shopify://shop_images/29b408b200a12caa2fb4f30841e0da47b9507aa3.png",
+            "image_alt": "",
             "number": "04",
-            "title": "Glow",
-            "description": "Finish with Photon LED to support cellular renewal and skin radiance overnight.",
-            "time": "1 MIN",
-            "alt": ""
+            "title": "WEAR FOR 10 MINUTES",
+            "description": "Enjoy a hands-free, 10-minute daily routine.",
+            "link": ""
           }
         }
       },
@@ -448,798 +765,259 @@
         "step_3",
         "step_4"
       ],
-      "disabled": true,
-      "name": "YAMAN Steps",
       "settings": {
-        "icon": "shopify://shop_images/Asset_7_1.png",
-        "eyebrow": "YOUR 12-MINUTE ROUTINE",
-        "heading": "Four steps to lifted, sculpted skin.",
-        "subtitle": "Designed to fit your morning without interruption.",
-        "background_color": "#faf6f0",
-        "heading_color": "#1d2847",
-        "accent_color": "#d4b87a",
-        "overlay_opacity": 60,
-        "container_max_width": 1310,
-        "container_padding": 20,
-        "cols_dk": "4",
-        "card_radius": 12,
-        "gap": 24,
-        "gap_mb": 14,
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "padding_top_mb": 48,
-        "padding_bottom_mb": 48
+        "heading": "How to Use",
+        "subtitle": "Four simple steps designed to fit seamlessly into your routine.",
+        "header_max_width": 760,
+        "background_color": "#ffffff",
+        "show_glow": true,
+        "glow_color": "#d4b87a",
+        "container_max_width": 1040,
+        "columns": 4,
+        "gap": 32,
+        "gap_mb": 16,
+        "card_bg": "#f8f7f0",
+        "card_radius": 16,
+        "image_ratio": "223 / 200",
+        "accent_color": "#c9a844",
+        "title_color": "#1d2847",
+        "enable_carousel_mobile": true,
+        "full_bleed_mobile": true,
+        "mobile_card_width": 78,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
       }
     },
-    "modes_ticker": {
-      "type": "product-modes-ticker-n",
+    "yaman_mask_compare": {
+      "type": "yaman-mask-comparison-n",
       "blocks": {
-        "mode_2": {
-          "type": "mode",
+        "row_1": {
+          "type": "row",
           "settings": {
-            "image": "shopify://shop_images/Modes_Ticker_-_Responsive_AI_Ready_1.png",
-            "link": "",
-            "open_new_tab": false
+            "feature_label": "Coverage Areas",
+            "main_text": "Cheeks and jaw area",
+            "other_text": "General lower-face coverage",
+            "main_icon": "check",
+            "other_icon": "x"
           }
         },
-        "mode_Ej6xeV": {
-          "type": "mode",
+        "row_2": {
+          "type": "row",
           "settings": {
-            "image": "shopify://shop_images/Modes_Ticker_-_Responsive_AI_Ready_2.png",
-            "link": "",
-            "open_new_tab": false
+            "feature_label": "Targeted Modes",
+            "main_text": "EMS Training Mode + EMS Relaxation Mode",
+            "other_text": "One basic function",
+            "main_icon": "check",
+            "other_icon": "x"
           }
         },
-        "mode_imHNXh": {
-          "type": "mode",
+        "row_3": {
+          "type": "row",
           "settings": {
-            "image": "shopify://shop_images/Modes_Ticker_-_Responsive_AI_Ready_3.png",
-            "link": "",
-            "open_new_tab": false
+            "feature_label": "Independent Side Control",
+            "main_text": "Adjustable settings for each side",
+            "other_text": "Same setting for both sides",
+            "main_icon": "check",
+            "other_icon": "x"
           }
         },
-        "mode_H6P3jQ": {
-          "type": "mode",
+        "row_4": {
+          "type": "row",
           "settings": {
-            "image": "shopify://shop_images/Modes_Ticker_-_Responsive_AI_Ready_4.png",
-            "link": "",
-            "open_new_tab": false
+            "feature_label": "User Experience",
+            "main_text": "Hands-free use",
+            "other_text": "Less flexible fit",
+            "main_icon": "check",
+            "other_icon": "x"
           }
         },
-        "mode_bGAPBA": {
-          "type": "mode",
+        "row_5": {
+          "type": "row",
           "settings": {
-            "image": "shopify://shop_images/Modes_Ticker_-_Responsive_AI_Ready_2.png",
-            "link": "",
-            "open_new_tab": false
+            "feature_label": "Daily Routine",
+            "main_text": "10-minute routine",
+            "other_text": "Longer, less convenient routine",
+            "main_icon": "check",
+            "other_icon": "x"
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "feature_label": "Fit",
+            "main_text": "Flexible design for the lower face",
+            "other_text": "One-size-fits-all",
+            "main_icon": "check",
+            "other_icon": "x"
           }
         }
       },
       "block_order": [
-        "mode_2",
-        "mode_Ej6xeV",
-        "mode_imHNXh",
-        "mode_H6P3jQ",
-        "mode_bGAPBA"
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6"
       ],
-      "disabled": true,
+      "name": "YAMAN Mask Compare",
       "settings": {
-        "background_color": "#f8f7f0",
-        "full_width": false,
-        "container_max_width": 1400,
-        "alignment": "space-between",
-        "gap": 80,
-        "gap_tablet": 48,
-        "gap_mobile": 10,
-        "image_height": 90,
-        "image_height_tablet": 48,
-        "image_height_mobile": 40,
-        "padding_top": 32,
-        "padding_bottom": 32,
-        "padding_top_mb": 24,
-        "padding_bottom_mb": 24
-      }
-    },
-    "yaman_modes": {
-      "type": "yaman-device-modes-n",
-      "blocks": {
-        "mode_1": {
-          "type": "mode",
-          "settings": {
-            "icon_alt": "",
-            "accent_color": "#3b82f6",
-            "title": "CLEAN",
-            "description": "Deep ION Cleaning",
-            "link": ""
-          }
-        },
-        "mode_2": {
-          "type": "mode",
-          "settings": {
-            "icon_alt": "",
-            "accent_color": "#f5a623",
-            "title": "NEB",
-            "description": "Deep Skin Care",
-            "link": ""
-          }
-        },
-        "mode_3": {
-          "type": "mode",
-          "settings": {
-            "icon_alt": "",
-            "accent_color": "#ef4444",
-            "title": "EMS UP",
-            "description": "Facial Muscle Care",
-            "link": ""
-          }
-        },
-        "mode_4": {
-          "type": "mode",
-          "settings": {
-            "icon": "shopify://shop_images/Vector.png",
-            "icon_alt": "",
-            "accent_color": "#cfe8ff",
-            "title": "COOL",
-            "description": "Cooling & Firming skin care",
-            "link": ""
-          }
-        },
-        "mode_5": {
-          "type": "mode",
-          "settings": {
-            "icon_alt": "",
-            "accent_color": "#ffffff",
-            "title": "EYE CARE",
-            "description": "Eye Area Care",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "mode_1",
-        "mode_2",
-        "mode_3",
-        "mode_4",
-        "mode_5"
-      ],
-      "disabled": true,
-      "name": "YAMAN Modes",
-      "settings": {
-        "top_icon": "shopify://shop_images/Layer_1.png",
-        "top_icon_text": "MODE",
-        "eyebrow": "SOLUTION FOR EVERY PROBLEM",
-        "heading": "Different Mode. One Device.",
-        "subtitle": "Designed to solve all your skin problems.",
-        "background_color": "#faf6f0",
-        "panel_color": "#1d2847",
-        "heading_color": "#1d2847",
-        "container_max_width": 1310,
-        "panel_max_width": 1190,
-        "container_padding": 20,
-        "panel_padding": 36,
-        "panel_padding_mb": 24,
-        "gap": 28,
-        "gap_mb": 24,
-        "padding_top": 86,
-        "padding_bottom": 80,
-        "padding_top_mb": 48,
-        "padding_bottom_mb": 48
-      }
-    },
-    "yaman_comparison_table_n_KWdTeM": {
-      "type": "yaman-comparison-table-n",
-      "blocks": {
-        "row_CYimTc": {
-          "type": "row",
-          "settings": {
-            "left_text": "One-time investment",
-            "right_text": "180$ - 400$ per session",
-            "left_icon_type": "check",
-            "right_icon_type": "x",
-            "highlight": false
-          }
-        },
-        "row_6zHBGU": {
-          "type": "row",
-          "settings": {
-            "left_text": "12-minutes daily ritual",
-            "right_text": "Travel & appointment time",
-            "left_icon_type": "check",
-            "right_icon_type": "x",
-            "highlight": false
-          }
-        },
-        "row_iRagqz": {
-          "type": "row",
-          "settings": {
-            "left_text": "use at home, anytime",
-            "right_text": "Recurring monthly cost",
-            "left_icon_type": "check",
-            "right_icon_type": "x",
-            "highlight": false
-          }
-        },
-        "row_wqFB8V": {
-          "type": "row",
-          "settings": {
-            "left_text": "No downtime",
-            "right_text": "Possible downtime",
-            "left_icon_type": "check",
-            "right_icon_type": "x",
-            "highlight": false
-          }
-        },
-        "row_NQxDGa": {
-          "type": "row",
-          "settings": {
-            "left_text": "Visible results in weeks",
-            "right_text": "Results fade over time",
-            "left_icon_type": "check",
-            "right_icon_type": "x",
-            "highlight": false
-          }
-        }
-      },
-      "block_order": [
-        "row_CYimTc",
-        "row_6zHBGU",
-        "row_iRagqz",
-        "row_wqFB8V",
-        "row_NQxDGa"
-      ],
-      "disabled": true,
-      "name": "YAMAN Compare",
-      "settings": {
-        "bg_image": "shopify://shop_images/9909fe3684d54238b03f3b9fb1f074df384291e4_1.jpg",
-        "overlay_color": "#1d2847",
-        "overlay_opacity": 57,
-        "eyebrow": "CLINIC RESULTS AT HOME",
-        "heading": "Professional lifting results, without the monthly appointments",
-        "left_title": "REAL LIFT PLUS",
-        "right_title": "CLINIC TREATMENTS",
-        "left_icon": "shopify://shop_images/Group.png",
-        "right_icon": "shopify://shop_images/Layer_2.png",
-        "vs_label": "VS",
-        "panel_color": "#d9d9d9",
-        "panel_right_color": "#1d2847",
-        "panel_border_color": "#ffffff",
-        "left_text_color": "#1d2847",
-        "right_text_color": "#d4b87a",
-        "vs_bg": "#d4b87a",
-        "vs_text": "#ffffff",
-        "mobile_layout": "auto",
-        "container_max_width": 1310,
-        "table_max_width": 800,
-        "text_max_width": 420,
-        "container_padding": 40,
-        "padding_top": 70,
-        "padding_bottom": 70,
-        "padding_top_mb": 44,
-        "padding_bottom_mb": 44
-      }
-    },
-    "product_pairs_n_ECgMwJ": {
-      "type": "product-pairs-n",
-      "disabled": true,
-      "name": "Pairs Product",
-      "settings": {
-        "main_image": "shopify://shop_images/d25e9975ca71cba9b21ab0b1d811d8f734406b9d.jpg",
-        "main_image_alt": "",
-        "eyebrow": "Pairs Perfectly with",
-        "heading": "Medilift Moisture Serum",
-        "description": "Containing 36 different beauty ingredients, giving your skin resilience",
-        "view_more_label": "View More",
-        "view_more_url": "shopify://pages/contact",
-        "product": "مجموعة-شد-البشرة-والترطيب-العميق-medi-lift-plus-serum-set",
-        "product_label": "Real Lift Plus · Complete Set ·  Device + Serum",
-        "atc_label": "ADD TO BAG",
-        "soldout_label": "SOLD OUT",
-        "background_color": "#f8f7f0",
-        "card_bg": "#ffffff",
-        "heading_color": "#070707",
-        "text_color": "#5e5e5e",
-        "card_radius": 24,
+        "heading": "Less Effort, a More Practical Routine",
+        "subtitle": "Compare targeted EMS technology with traditional manual use and see the difference for yourself.",
+        "background_color": "#ffffff",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 86,
+        "feature_heading": "Traditional Lower-Face Masks",
+        "main_heading": "Medi Lift PLUS by YA-MAN",
+        "other_heading": "Traditional Lower-Face Masks",
+        "main_bg": "#1d2847",
+        "header_bg": "#f8f7f0",
+        "row_bg": "#ffffff",
+        "stripe_bg": "#f8f7f0",
+        "divider_color": "#eceae1",
+        "main_text_color": "#f8f7f0",
+        "other_accent_color": "#a02828",
+        "feature_text_color": "#2a2a2a",
+        "col_title_color": "#2a2a2a",
+        "check_color": "#f3efe4",
+        "x_color": "#a02828",
         "container_max_width": 1290,
-        "media_min_height": 440,
-        "padding_top": 46,
-        "padding_bottom": 46,
-        "padding_top_mb": 32,
-        "padding_bottom_mb": 32
+        "table_max_width": 1096,
+        "table_radius": 12,
+        "mobile_font_scale": 84,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
       }
     },
-    "yaman_ugc": {
-      "type": "shoppable-video-ugc-n",
+    "yaman_routines": {
+      "type": "yaman-real-routines-video-n",
       "blocks": {
         "video_1": {
           "type": "video",
           "settings": {
             "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/37a71092160198ed6849336c7c3bc36409f6a47d.png",
-            "handle": "",
+            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "alt": "",
+            "label": "Jawline Definition",
+            "label_icon_text": "",
+            "label_icon_alt": "",
             "product": "",
-            "product_label": "",
-            "custom_link": "",
-            "alt": ""
+            "custom_link": ""
           }
         },
-        "video_Nh7YFr": {
+        "video_ibCG6g": {
           "type": "video",
           "settings": {
             "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/bd23e4c8f0c496d73f15f887d9fe868401a18ba6.jpg",
-            "handle": "",
+            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "alt": "",
+            "label": "Jawline Definition",
+            "label_icon_text": "",
+            "label_icon_alt": "",
             "product": "",
-            "product_label": "",
-            "custom_link": "",
-            "alt": ""
+            "custom_link": ""
           }
         },
-        "video_grhpVc": {
+        "video_x4mxxR": {
           "type": "video",
           "settings": {
             "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/ebfa51cd44b5215e62b8be02e84925da8fe31c39.jpg",
-            "handle": "",
+            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "alt": "",
+            "label": "Jawline Definition",
+            "label_icon_text": "",
+            "label_icon_alt": "",
             "product": "",
-            "product_label": "",
-            "custom_link": "",
-            "alt": ""
+            "custom_link": ""
           }
         },
-        "video_bUCi6X": {
+        "video_pC6rXn": {
           "type": "video",
           "settings": {
             "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/9909fe3684d54238b03f3b9fb1f074df384291e4.jpg",
-            "handle": "",
+            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "alt": "",
+            "label": "Jawline Definition",
+            "label_icon_text": "",
+            "label_icon_alt": "",
             "product": "",
-            "product_label": "",
-            "custom_link": "",
-            "alt": ""
+            "custom_link": ""
+          }
+        },
+        "video_Q4bL6L": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "alt": "",
+            "label": "Jawline Definition",
+            "label_icon_text": "",
+            "label_icon_alt": "",
+            "product": "",
+            "custom_link": ""
+          }
+        },
+        "video_F9bzY6": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
+            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "alt": "",
+            "label": "Jawline Definition",
+            "label_icon_text": "",
+            "label_icon_alt": "",
+            "product": "",
+            "custom_link": ""
           }
         }
       },
       "block_order": [
         "video_1",
-        "video_Nh7YFr",
-        "video_grhpVc",
-        "video_bUCi6X"
+        "video_ibCG6g",
+        "video_x4mxxR",
+        "video_pC6rXn",
+        "video_Q4bL6L",
+        "video_F9bzY6"
       ],
-      "disabled": true,
-      "name": "YAMAN UGC",
+      "name": "YAMAN Routines",
       "settings": {
-        "icon": "shopify://shop_images/sherlock_age_signAsset_14_1_1.png",
-        "eyebrow": "TRUST THE PRODUCT",
-        "heading": "Real People. Real Glow.",
-        "background_color": "#f8f7f0",
-        "card_background": "#ffffff",
+        "heading": "Watch Real Routines Tailored to Your Needs",
+        "subtitle": "Real users, authentic daily rituals. See how the Medi Lift Plus advanced EMS technology lifts, sculpts, and refines muscle tone over time",
+        "rating_icon_text": "★",
+        "rating_value": "4.7 / 5",
+        "rating_text": "Based on 1,200+ Verified User Experiences",
+        "proof_icon_text": "📷",
+        "proof_heading": "Real results",
+        "proof_text": "documented by 143+ verified customers",
+        "background_color": "#ffffff",
         "container_max_width": 1310,
         "container_padding": 20,
-        "cols_dk": "4",
-        "cols_tb": "2",
-        "card_width_mb": 82,
-        "card_radius": 12,
-        "gap": 20,
-        "gap_mb": 14,
+        "cols_dk": "5",
+        "cols_tb": "3.3",
+        "cols_mb": "2.3",
+        "media_ratio": "9 / 16",
+        "card_radius": 16,
+        "gap": 14,
+        "gap_tb": 14,
+        "gap_mb": 12,
+        "card_bg": "#ffffff",
+        "scrim_color": "#000000",
+        "scrim_opacity": 40,
+        "label_text_color": "#414141",
         "enable_arrows": false,
         "hide_arrows_mobile": true,
         "enable_dots": false,
         "hide_dots_mobile": true,
         "loop": false,
-        "autoplay": 0,
-        "pause_on_hover": true,
         "video_loop": true,
         "padding_top": 64,
-        "padding_bottom": 46,
-        "padding_top_mb": 40,
-        "padding_bottom_mb": 32
-      }
-    },
-    "custom_section_PAg7aP": {
-      "type": "custom-section",
-      "blocks": {
-        "group_XePr8W": {
-          "type": "group",
-          "name": "Group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 0,
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100,
-            "colors_by_block": false,
-            "color_scheme": "",
-            "group_rounded": "",
-            "padding_top": 0,
-            "padding_bottom": 0,
-            "padding_left": 0,
-            "padding_right": 0,
-            "padding_rate_mobile": 0
-          },
-          "blocks": {
-            "icon_YBxaHc": {
-              "type": "icon",
-              "name": "t:blocks.icon.name",
-              "settings": {
-                "icon": "none",
-                "svg_upload": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg>",
-                "width_lg": 45,
-                "width_md": 44,
-                "width": 44
-              },
-              "blocks": {}
-            },
-            "heading_zghVRB": {
-              "type": "heading",
-              "name": "t:blocks.heading.name",
-              "settings": {
-                "heading": "<p>Our Customers Talk About Their Experience</p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "line_height": "",
-                "font_weight": "semibold",
-                "heading_size": "h2",
-                "text_color": "hdt-s-text",
-                "font_size_heading_lg": 50,
-                "font_size_heading": 24,
-                "letter_spacing_heading": 0
-              },
-              "blocks": {}
-            },
-            "text_c3WaQB": {
-              "type": "text",
-              "name": "t:blocks.text.name",
-              "settings": {
-                "text": "<p>Your experience with us should be exceptional from start to finish</p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "base",
-                "line_height": "",
-                "font_weight": "normal",
-                "text_color": "hdt-text-secondary",
-                "countdown": "2025-12-30 15:00:00",
-                "txt_day": "days",
-                "font_size_text_lg": 16,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "icon_YBxaHc",
-            "heading_zghVRB",
-            "text_c3WaQB"
-          ]
-        },
-        "judge_me_reviews_review_widget_3KK6ik": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "real_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "group_XePr8W",
-        "judge_me_reviews_review_widget_3KK6ik"
-      ],
-      "disabled": true,
-      "name": "t:sections.custom_section.name",
-      "settings": {
-        "layout": "10",
-        "item_spacing": 30,
-        "item_spacing_tb": 15,
-        "item_spacing_mb": 15,
-        "colors_by_section": false,
-        "color_scheme": "",
-        "background_opacity": 0,
-        "section_layout": "container",
-        "hdt_background_parallax": false,
-        "mg": "",
-        "mg_mb": ",,30px,",
-        "pd": "65px,,65px",
-        "pd_mb": "65px,,65px"
-      }
-    },
-    "accordion_n_LCGQQD": {
-      "type": "accordion-n",
-      "blocks": {
-        "accordion_item_9pxm34": {
-          "type": "_accordion-item",
-          "settings": {
-            "open": false,
-            "icon": "none",
-            "title": "How does the Medi Lift Plus work?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
-          },
-          "blocks": {}
-        },
-        "accordion_item_ERrfed": {
-          "type": "_accordion-item",
-          "settings": {
-            "open": false,
-            "icon": "none",
-            "title": "How soon will I see results?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
-          },
-          "blocks": {}
-        },
-        "accordion_item_Ezzepr": {
-          "type": "_accordion-item",
-          "settings": {
-            "open": false,
-            "icon": "none",
-            "title": "Is it safe for all skin types?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
-          },
-          "blocks": {}
-        },
-        "accordion_item_MPCXG9": {
-          "type": "_accordion-item",
-          "settings": {
-            "open": false,
-            "icon": "none",
-            "title": "How often should I use it?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
-          },
-          "blocks": {}
-        },
-        "accordion_item_e9xTDy": {
-          "type": "_accordion-item",
-          "settings": {
-            "open": false,
-            "icon": "none",
-            "title": "Do I need to use it with the YĀMAN app?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
-          },
-          "blocks": {}
-        },
-        "accordion_item_Umtbaw": {
-          "type": "_accordion-item",
-          "settings": {
-            "open": false,
-            "icon": "none",
-            "title": "Is there a warranty?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
-          },
-          "blocks": {}
-        },
-        "accordion_item_G4EVDT": {
-          "type": "_accordion-item",
-          "settings": {
-            "open": false,
-            "icon": "none",
-            "title": "Can I pay in instalments?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
-          },
-          "blocks": {}
-        },
-        "accordion-heading": {
-          "type": "section-heading",
-          "static": true,
-          "settings": {
-            "design_heading": "1",
-            "horizontal": false,
-            "alignment": "left",
-            "heading_gap": 0,
-            "margin_bottom": 24
-          },
-          "blocks": {
-            "heading_icon_jJMejF": {
-              "type": "_heading_icon",
-              "name": "t:blocks.icon.name",
-              "settings": {
-                "image": "shopify://shop_images/Asset_10_1.svg",
-                "svg": "",
-                "text_color": "hdt-s-text",
-                "line": false,
-                "width": "custom",
-                "width_dk": 37,
-                "width_tb": 37,
-                "width_mb": 37,
-                "mg": "",
-                "mg_mb": "",
-                "pd": "",
-                "pd_mb": ""
-              },
-              "blocks": {}
-            },
-            "heading_section_X4YpJt": {
-              "type": "_heading_section",
-              "settings": {
-                "heading": "Clarity before commitment.",
-                "line_height": "",
-                "heading_size": "h_custom",
-                "text_color": "hdt-s-text",
-                "font_size_heading_lg": 48,
-                "font_size_heading": 28,
-                "letter_spacing_heading": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_icon_jJMejF",
-            "heading_section_X4YpJt"
-          ]
-        }
-      },
-      "block_order": [
-        "accordion_item_9pxm34",
-        "accordion_item_ERrfed",
-        "accordion_item_Ezzepr",
-        "accordion_item_MPCXG9",
-        "accordion_item_e9xTDy",
-        "accordion_item_Umtbaw",
-        "accordion_item_G4EVDT"
-      ],
-      "settings": {
-        "accordion_des": "3",
-        "faq_max_width": 784,
-        "faq_link_text": "View all FAQs",
-        "faq_link_url": "shopify://pages/contact",
-        "section_layout": "wrapper_container",
-        "section_background": "shopify://shop_images/Section.png",
-        "hdt_background_parallax": false,
-        "colors_by_section": false,
-        "color_scheme": "scheme-1",
-        "background_opacity": 0,
-        "mg": "",
-        "mg_mb": "",
-        "pd": "60px,,100px,",
-        "pd_mb": "40px,,50px,"
-      }
-    },
-    "featured_collection_choose_n_Npyxxm": {
-      "type": "featured-collection-choose-n",
-      "blocks": {
-        "card_tw46qn": {
-          "type": "card",
-          "settings": {
-            "product": "medi-lift-plus",
-            "pill": "LIFT & FIRM",
-            "image": "shopify://shop_images/Medi_Lift_Plus.png",
-            "image_alt": "",
-            "title": "Medi Lift Plus",
-            "description": "Hands-free EMS device that lifts and firms the lower face.",
-            "benefits_value": "Lifting & jawline definition",
-            "time_value": "10 min / day",
-            "ideal_value": "Ages 25-35",
-            "button_label": "VIEW DETAILS",
-            "button_link": "shopify://products/medi-lift-plus"
-          }
-        },
-        "card_wBLf8H": {
-          "type": "card",
-          "settings": {
-            "product": "liftlogy-sp-the-new-technology-مجموعة-شد-الوجه-الرقبة-و-أجزاء-الجسم",
-            "pill": "CONTOUR & SCULPT",
-            "image": "shopify://shop_images/Image_LIFTOLOGY_SP.png",
-            "image_alt": "",
-            "title": "LIFTOLOGY SP",
-            "description": "EMS + microcurrent for firmer, contoured skin.",
-            "benefits_value": "Firming & contouring",
-            "time_value": "1 min / side",
-            "ideal_value": "Ages 30–40",
-            "button_label": "VIEW DETAILS",
-            "button_link": ""
-          }
-        },
-        "card_YkL33f": {
-          "type": "card",
-          "settings": {
-            "product": "",
-            "pill": "FULL FACIAL CARE",
-            "image": "shopify://shop_images/Image_Photo_Plus_Prestige_SP.png",
-            "image_alt": "",
-            "title": "Photo Plus Prestige SP",
-            "description": "RF + EMS + Photon for complete facial care.",
-            "benefits_value": "Full facial rejuvenation",
-            "time_value": "15 min / day",
-            "ideal_value": "All ages",
-            "button_label": "VIEW DETAILS",
-            "button_link": ""
-          }
-        },
-        "card_WQarym": {
-          "type": "card",
-          "settings": {
-            "product": "",
-            "pill": "BRIGHTEN & PORES",
-            "image": "shopify://shop_images/Image_Hydra_Bright_Skin_Set.png",
-            "image_alt": "",
-            "title": "Hydra Bright Skin Set",
-            "description": "Hydra cleanse + infusion for brighter, refined skin.",
-            "benefits_value": "Brightens & refines pores",
-            "time_value": "10 min / day",
-            "ideal_value": "All ages",
-            "button_label": "VIEW DETAILS",
-            "button_link": ""
-          }
-        },
-        "card_fBdi89": {
-          "type": "card",
-          "settings": {
-            "product": "",
-            "pill": "LIFT & FIRM",
-            "image_alt": "",
-            "title": "",
-            "description": "",
-            "benefits_value": "",
-            "time_value": "",
-            "ideal_value": "",
-            "button_label": "VIEW DETAILS",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "card_tw46qn",
-        "card_wBLf8H",
-        "card_YkL33f",
-        "card_WQarym",
-        "card_fBdi89"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "Compare YĀMAN devices",
-        "subheading": "N O T  S U R E  W H I C H  O N E ?",
-        "benefits_label": "Benefits",
-        "time_label": "Time",
-        "ideal_label": "Ideal For",
-        "col_dk": "4",
-        "col_tb": "2",
-        "card_width_mb": 82,
-        "card_gap": 24,
-        "card_gap_mb": 12,
-        "nav_ui": true,
-        "dot_ui": true,
-        "hide_nav_mobile": true,
-        "hide_dots_mobile": true,
-        "loop": false,
-        "autoplay": 0,
-        "pause_on_hover": true,
-        "bg_color": "#ffffff",
-        "container_max_width": 1280,
-        "container_padding": 15,
-        "custom_class": "",
-        "padding_top": 60,
-        "padding_bottom": 30,
-        "padding_top_mb": 60,
-        "padding_bottom_mb": 30
-      }
-    },
-    "final_cta": {
-      "type": "product-final-cta-n",
-      "disabled": true,
-      "settings": {
-        "eyebrow": "STILL DECIDING?",
-        "heading": "Try Real Lift Plus risk-free\nfor 60 days",
-        "subheading": "Free express shipping · Free returns · 2-year warranty · Klarna available.",
-        "atc_label": "ADD TO BAG",
-        "select_label": "SELECT OPTIONS",
-        "soldout_label": "SOLD OUT",
-        "consult_label": "BOOK A 1-ON-1 CONSULT",
-        "consult_url": "shopify://pages/contact",
-        "background_color": "#070707",
-        "text_color": "#ffffff",
-        "cart_bg": "#ffffff",
-        "cart_text": "#070707",
-        "container_max_width": 640,
-        "padding_top": 65,
-        "padding_bottom": 65,
-        "padding_top_mb": 50,
-        "padding_bottom_mb": 50
+        "padding_bottom": 64,
+        "padding_top_mb": 36,
+        "padding_bottom_mb": 36
       }
     },
     "tabs": {
@@ -1292,23 +1070,184 @@
         "color_scheme": "",
         "space": 50
       }
+    },
+    "custom_section_PhqThL": {
+      "type": "custom-section",
+      "blocks": {
+        "group_CVQXHp": {
+          "type": "group",
+          "name": "Group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 10,
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100,
+            "colors_by_block": false,
+            "color_scheme": "",
+            "group_rounded": "",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_left": 0,
+            "padding_right": 0,
+            "padding_rate_mobile": 0
+          },
+          "blocks": {
+            "icon_LKndXR": {
+              "type": "icon",
+              "name": "t:blocks.icon.name",
+              "settings": {
+                "icon": "none",
+                "svg_upload": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#f5a623\"><path d=\"M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z\"></path></svg>",
+                "width_lg": 45,
+                "width_md": 44,
+                "width": 44
+              },
+              "blocks": {}
+            },
+            "heading_pdVnQF": {
+              "type": "heading",
+              "name": "t:blocks.heading.name",
+              "settings": {
+                "heading": "<p>Real Results, Real Radiance: Voices from the Region</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "line_height": "hdt-lh-1-2",
+                "font_weight": "bold",
+                "heading_size": "h2",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 48,
+                "font_size_heading": 27,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            },
+            "text_nmicyD": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Trusted by women across the GCC for effortless, high-performance facial sculpting</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "ffamily": "",
+                "text_size": "base",
+                "line_height": "",
+                "font_weight": "normal",
+                "text_color": "hdt-text-secondary",
+                "countdown": "2025-12-30 15:00:00",
+                "txt_day": "days",
+                "font_size_text_lg": 16,
+                "font_size_text": 14,
+                "letter_spacing_text": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "icon_LKndXR",
+            "heading_pdVnQF",
+            "text_nmicyD"
+          ]
+        },
+        "judge_me_reviews_review_widget_EhV9yT": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "group_CVQXHp",
+        "judge_me_reviews_review_widget_EhV9yT"
+      ],
+      "custom_css": [
+        ".shopify-block.shopify-app-block,.hdt-container,.hdt-section--custom {background: linear-gradient( 180deg, rgba(212, 184, 122, 0) 0%, rgba(212, 184, 122, 0.084) 50%, rgba(212, 184, 122, 0) 100% );}"
+      ],
+      "name": "t:sections.custom_section.name",
+      "settings": {
+        "layout": "10",
+        "item_spacing": 0,
+        "item_spacing_tb": 0,
+        "item_spacing_mb": 0,
+        "colors_by_section": false,
+        "color_scheme": "",
+        "background_opacity": 0,
+        "section_layout": "full_width",
+        "hdt_background_parallax": false,
+        "mg": "",
+        "mg_mb": ",,30px,",
+        "pd": "65px,,65px",
+        "pd_mb": "65px,,65px"
+      }
+    },
+    "featured_collection_n_AWXjjw": {
+      "type": "featured-collection-n",
+      "custom_css": [
+        ".hdt-yaman-routinecontainer {@media (max-width: 767px) {.star-ratingstars img {width: 12px !important; height: 12px !important; } .star-ratingcount {color: #070707 !important; font-size: 12px !important; } }}",
+        ".hdt-yaman-routinecontainer .hdt-slide-spacing-x {--slide-spacing: 10px !important;}"
+      ],
+      "settings": {
+        "custom_class_featured": "",
+        "badge_text": "",
+        "heading": "Products You May Like",
+        "subheading": "",
+        "collection": "test-collection",
+        "limit": 12,
+        "show_vendor": true,
+        "card_button_label": "SHOP NOW",
+        "show_installment": true,
+        "image_ratio": "square",
+        "col_dk": "5",
+        "col_tb": "2",
+        "col_mb": "2",
+        "card_width_mb": 85,
+        "nav_ui": false,
+        "dot_ui": true,
+        "loop": false,
+        "autoplay": 0,
+        "pause_on_hover": true,
+        "hide_controls_mobile": true,
+        "button_label": "",
+        "button_link": "",
+        "button_target": false,
+        "bg_color": "#faf7f0",
+        "badge_bg": "#e3efe7",
+        "badge_color": "#2f6b4f",
+        "card_bg": "#ffffff",
+        "card_border": "#ece7dc",
+        "image_radius": 10,
+        "container_max_width": 1300,
+        "container_padding": 0,
+        "custom_class": "hdt-yaman-routinecontainer",
+        "padding_top": 66,
+        "padding_bottom": 46,
+        "padding_top_mb": 26,
+        "padding_bottom_mb": 26
+      }
     }
   },
   "order": [
     "breadcrumb",
     "main-product",
-    "visible_lift",
-    "yaman_steps",
-    "modes_ticker",
-    "yaman_modes",
-    "yaman_comparison_table_n_KWdTeM",
-    "product_pairs_n_ECgMwJ",
-    "yaman_ugc",
-    "custom_section_PAg7aP",
-    "accordion_n_LCGQQD",
-    "featured_collection_choose_n_Npyxxm",
-    "final_cta",
+    "yaman_product_proof_n_G4PnLR",
+    "yaman_marquee",
+    "yaman_special",
+    "yaman_mode_banner",
+    "yaman_howuse",
+    "yaman_mask_compare",
+    "yaman_routines",
     "tabs",
-    "sidebar"
+    "sidebar",
+    "custom_section_PhqThL",
+    "featured_collection_n_AWXjjw"
   ]
 }

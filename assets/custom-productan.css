@@ -22,7 +22,7 @@
 /* ---- Header -------------------------------------------------------------- */
 .hdt-yaman-proof-section .hdt-yaman-proof__header {
   text-align: center;
-  max-width: var(--yp-head-maxw, 720px);
+  /* max-width: var(--yp-head-maxw, 720px); */
   margin: 0 auto 40px;
 }
 
@@ -33,6 +33,7 @@
   font-size: clamp(24px, 3.4vw, 38px);
   line-height: 1.15;
   letter-spacing: -0.01em;
+  text-transform: uppercase;
 }
 
 .hdt-yaman-proof-section .hdt-yaman-proof__subtitle {
@@ -417,6 +418,7 @@
   font-size: clamp(28px, 5vw, 48px);
   line-height: 1.1;
   letter-spacing: -0.48px;
+  text-transform: uppercase;
 }
 
 .hdt-yaman-special-section .hdt-yaman-special__subtitle {
@@ -451,6 +453,9 @@
   min-block-size: 320px;
   isolation: isolate;
   background: #e9e7e0;
+  @media (max-width: 767px) {
+    border-radius: 7px;
+  }
 }
 
 .hdt-yaman-special-section .hdt-yaman-special__card--wide {
@@ -551,6 +556,9 @@
   inline-size: 42px;
   block-size: 2px;
   background-color: var(--sp-card-accent, var(--sp-accent, #c9a844));
+  @media (max-width: 767px) {
+    inline-size: 30px;
+  }
 }
 
 .hdt-yaman-special-section .hdt-yaman-special__text {
@@ -626,11 +634,12 @@
   }
 
   .hdt-yaman-special-section .hdt-yaman-special__title {
-    font-size: 20px;
+    font-size: 17px;
   }
 
   .hdt-yaman-special-section .hdt-yaman-special__description {
     font-size: 14px;
+    line-height: 1;
   }
 }
 
@@ -906,7 +915,7 @@
   z-index: 1;
   max-inline-size: var(--hu-maxw, 1040px);
   margin-inline: auto;
-  padding-inline: 20px;
+  /* padding-inline: 20px; */
 }
 
 /* ---- Header (Figma: heading 48/Bold/#070707, subtitle 18/Regular) -------- */
@@ -924,6 +933,7 @@
   font-size: clamp(28px, 5vw, 48px);
   line-height: 1.1;
   letter-spacing: -0.48px;
+  text-transform: uppercase;
 }
 
 .hdt-yaman-howuse-section .hdt-yaman-howuse__subtitle {
@@ -1045,7 +1055,8 @@
 
   /* Full-bleed: break the viewport out to the screen edges */
   .hdt-yaman-howuse.has-carousel.is-fullbleed .hdt-yaman-howuse__viewport {
-    margin-inline: calc(50% - 50vw);
+    margin-inline-start:0px;
+    margin-inline-end: 10px;
   }
 
   .hdt-yaman-howuse.has-carousel .hdt-yaman-howuse__viewport::-webkit-scrollbar {
