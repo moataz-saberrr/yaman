@@ -80,10 +80,6 @@
 }
   }
 
-  /* margin bottom 0 if tabby installment is exist */
-   .hdt-product-info__list:has(.hdt-product__tabby-installment) .hdt-product-info__item.hdt-product__price{
-    /* margin-block-end: 0; */
-  }
   [class^=hdt-secion-main-product]{
     .hdt-product__description p{
       color: #B89A5E;
@@ -148,6 +144,34 @@ font-size: 18px;
 line-height: 24px;
 color: #070707A6;
     }
+    .orichi-bundle {max-width: 100%}
+.orichi-bundle .bundle-header__title {gap: 0;}
+.orichi-bundle .bundle-header__title--line{background-color:#07070714}
+.orichi-bundle .bundle-header__title--line:first-child {order:2}
+.orichi-bundle .bundle-header__title--text{font-weight: 500}
+.orichi-bundle .bundle-current-price{color: #7E7B77}
+.orichi-bundle .bundle-original-price{color: #AAAAAA}
+.orichi-bundle .bundle-radio-label{box-shadow: 0 0 0 1px #B89A5E;}
+.orichi-form-watermark{display:none}
+@media (max-width: 767px) {
+  .orichi-bundle {
+    .bundle-current-price{
+      font-size: 13px
+    }
+    .bundle-original-price{
+      font-size: 12px
+    }
+    .bundle-card-title{
+      font-size: 14px;
+    }
+    .bundle-card-wrapper-title{
+              flex-direction: column;
+        gap: 0;
+        align-items: baseline;
+    }
+  }
+}
+
   }
   .hdt-thumbnail__media.is-thumb-selected img {
     border-width: 1.5px !important;
