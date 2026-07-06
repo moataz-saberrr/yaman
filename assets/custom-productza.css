@@ -165,9 +165,12 @@ color: #070707A6;
       font-size: 14px;
     }
     .bundle-card-wrapper-title{
-              flex-direction: column;
-        gap: 0;
-        align-items: baseline;
+      flex-direction: column;
+      gap: 0;
+      align-items: baseline;
+    }
+    .bundle-header__title--text{
+      font-size: 18px;
     }
   }
 }
