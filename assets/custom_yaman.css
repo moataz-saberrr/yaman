@@ -1088,6 +1088,7 @@
   -webkit-user-select: none;
   user-select: none;
   cursor: ew-resize;
+  direction: rtl;
 }
 .hdt-yaman-results-section .hdt-yaman-results__image { position: absolute; inset: 0; }
 .hdt-yaman-results-section .hdt-yaman-results__img,
@@ -2873,8 +2874,8 @@
   padding: 25px 15px !important;
 }
 .hdt-yaman-choose-section .hdt-slider .hdt-navigation{
-    left: -66px;
-    width: calc(var(--nav-width) + 10%);
+    left: -15px;
+    width: calc(var(--nav-width) + 1%);
 }
 .hdt-yaman-choose-section .hdt-navigation .hdt-slider__button svg { width: 8px; height: 12px; }
 .hdt-yaman-choose-section .hdt-navigation .hdt-slider__button:not([disabled="disabled"]):hover {
