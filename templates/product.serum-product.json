@@ -81,6 +81,7 @@
               "name": "t:sections.main-product.blocks.description.name",
               "settings": {
                 "des": "2",
+                "show_border_bottom": false,
                 "short_des": "<p>A moisturizing serum specially designed for MEDI LIFT EMS devices.</p>",
                 "readm": false,
                 "length": 130,
@@ -97,6 +98,10 @@
                 "letter_spacing_text": 0
               },
               "blocks": {}
+            },
+            "volume_discount_bundle_volume_discount_block_FQGidq": {
+              "type": "shopify://apps/volume-discount-bundle/blocks/volume_discount_block/831adfc0-6cab-4c9a-9951-63aaa6f4e791",
+              "settings": {}
             },
             "product_price_9JizTC": {
               "type": "_product-price",
@@ -216,6 +221,7 @@
             "judge_me_reviews_preview_badge_THyzgN",
             "product_title_ehRqkq",
             "product_description_J6kM3x",
+            "volume_discount_bundle_volume_discount_block_FQGidq",
             "product_price_9JizTC",
             "product_tabby_installment_ptP6Bb",
             "product_variant_picker_WMmDTM",
@@ -1395,7 +1401,7 @@
         "subheading": "",
         "collection": "test-collection",
         "limit": 12,
-        "show_vendor": true,
+        "show_product_type": true,
         "card_button_label": "SHOP NOW",
         "show_installment": true,
         "image_ratio": "square",
