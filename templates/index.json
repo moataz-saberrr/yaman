@@ -424,16 +424,19 @@
     "yaman_routine": {
       "type": "featured-collection-n",
       "settings": {
+        "custom_class_featured": "",
         "badge_text": "SKINCARE",
         "heading": "Complete Your Routine",
         "subheading": "Treatment serums formulated to work in perfect synergy with YAMAN devices — amplifying every session for visible results.",
         "collection": "اجهزة-يامان",
         "limit": 12,
-        "show_vendor": true,
+        "show_product_type": true,
         "card_button_label": "SHOP NOW",
+        "show_installment": false,
         "image_ratio": "square",
         "col_dk": "3",
         "col_tb": "2",
+        "col_mb": "1",
         "card_width_mb": 80,
         "nav_ui": true,
         "dot_ui": false,
@@ -1008,6 +1011,9 @@
         "faq_5",
         "faq_6",
         "faq_7"
+      ],
+      "custom_css": [
+        ".hdt-yaman-faq-section .hdt-heading-block{text-align: justify;}"
       ],
       "settings": {
         "accordion_des": "3",
