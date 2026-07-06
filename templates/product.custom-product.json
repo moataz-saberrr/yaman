@@ -1129,7 +1129,8 @@
                 "text_color": "hdt-s-text",
                 "font_size_heading_lg": 48,
                 "font_size_heading": 27,
-                "letter_spacing_heading": 0
+                "letter_spacing_heading": 0,
+                "uppercase": false
               },
               "blocks": {}
             },
@@ -1231,7 +1232,7 @@
         "card_border": "#ece7dc",
         "image_radius": 10,
         "container_max_width": 1300,
-        "container_padding": 0,
+        "container_padding": 15,
         "custom_class": "hdt-yaman-routinecontainer",
         "padding_top": 66,
         "padding_bottom": 46,
