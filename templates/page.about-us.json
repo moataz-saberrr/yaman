@@ -383,7 +383,6 @@
         "subheading": "",
         "collection": "test-collection",
         "limit": 12,
-        "show_vendor": true,
         "card_button_label": "SHOP NOW",
         "show_installment": false,
         "image_ratio": "square",
