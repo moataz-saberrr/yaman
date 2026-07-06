@@ -8,20 +8,9 @@
  * ------------------------------------------------------------
  */
 {
-  "context": {
-    "market": "sa"
-  },
-  "parent": "index.json",
-  "sections": {
-    "yaman_hero": {
-      "settings": {},
-      "blocks": {
-        "slide_1": {
-          "settings": {
-            "heading": "بشرة مشدودة\n ملامح محددة \nجمال طبيعي"
-          }
-        }
-      }
+  "markets": {
+    "sa": {
+      "parent": "@default"
     }
   }
 }
