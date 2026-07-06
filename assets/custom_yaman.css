@@ -2244,6 +2244,10 @@
   max-width: var(--routine-maxw, 1200px);
   margin-inline: auto;
   padding-inline: var(--routine-pad-x, 15px);
+  @media (max-width:1150px) {
+    padding-inline: 0;
+    
+  }
 }
 
 /* Header */

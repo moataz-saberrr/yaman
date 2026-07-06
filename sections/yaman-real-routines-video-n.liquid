@@ -49,13 +49,13 @@
             {%- when 'heading' -%}
               <div
                 class="hdt-yaman-routines__block-text hdt-yaman-routines__block-text--heading"
-                style="--rh-fs: {{ block.settings.size }}px; --rh-fs-mb: {{ block.settings.size_mb }}px; --rh-weight: {{ block.settings.weight }}; --rh-color: {{ block.settings.color }}; --rh-mw: {{ block.settings.max_width }}px;"
+                style="--rh-fs: {{ block.settings.size }}px; --rh-fs-mb: {{ block.settings.size_mb }}px; --rh-weight: {{ block.settings.weight }}; --rh-color: {{ block.settings.color }}; --rh-mw: {{ block.settings.max_width }}px;{% if block.settings.uppercase %} text-transform: uppercase;{% endif %}"
                 {{ block.shopify_attributes }}
               >{{ block.settings.text }}</div>
             {%- when 'subheading' -%}
               <div
                 class="hdt-yaman-routines__block-text hdt-yaman-routines__block-text--sub"
-                style="--rh-fs: {{ block.settings.size }}px; --rh-fs-mb: {{ block.settings.size_mb }}px; --rh-weight: {{ block.settings.weight }}; --rh-color: {{ block.settings.color }}; --rh-mw: {{ block.settings.max_width }}px;"
+                style="--rh-fs: {{ block.settings.size }}px; --rh-fs-mb: {{ block.settings.size_mb }}px; --rh-weight: {{ block.settings.weight }}; --rh-color: {{ block.settings.color }}; --rh-mw: {{ block.settings.max_width }}px;{% if block.settings.uppercase %} text-transform: uppercase;{% endif %}"
                 {{ block.shopify_attributes }}
               >{{ block.settings.text }}</div>
           {%- endcase -%}
@@ -647,6 +647,12 @@
           "unit": "px",
           "label": "Max width",
           "default": 760
+        },
+        {
+          "type": "checkbox",
+          "id": "uppercase",
+          "label": "Uppercase text",
+          "default": false
         }
       ]
     },
@@ -708,6 +714,12 @@
           "unit": "px",
           "label": "Max width",
           "default": 620
+        },
+        {
+          "type": "checkbox",
+          "id": "uppercase",
+          "label": "Uppercase text",
+          "default": false
         }
       ]
     },
