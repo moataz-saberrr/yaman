@@ -591,7 +591,8 @@
             "size_mb": 30,
             "weight": "700",
             "color": "#070707",
-            "max_width": 760
+            "max_width": 760,
+            "uppercase": true
           }
         },
         "routines-subtitle": {
@@ -602,7 +603,8 @@
             "size_mb": 14,
             "weight": "400",
             "color": "#7a7a7a",
-            "max_width": 620
+            "max_width": 620,
+            "uppercase": false
           }
         },
         "routines-heading-2": {
@@ -613,7 +615,8 @@
             "size_mb": 24,
             "weight": "700",
             "color": "#070707",
-            "max_width": 820
+            "max_width": 820,
+            "uppercase": true
           }
         },
         "routines-subtitle-2": {
@@ -624,7 +627,8 @@
             "size_mb": 14,
             "weight": "500",
             "color": "#7a7a7a",
-            "max_width": 620
+            "max_width": 620,
+            "uppercase": false
           }
         },
         "video_1": {
@@ -812,6 +816,7 @@
       ],
       "settings": {
         "heading": "Active Ingredients for Skin Hydration and Protection",
+        "heading_uppercase": true,
         "subtitle": "A complete formula of carefully selected ingredients to support skin hydration, strengthen its natural barrier, and help maintain its health and softness.",
         "header_max_width": 1000,
         "layout": "grid",
@@ -884,7 +889,8 @@
                 "text_color": "hdt-s-text",
                 "font_size_heading_lg": 48,
                 "font_size_heading": 27,
-                "letter_spacing_heading": 0
+                "letter_spacing_heading": 0,
+                "uppercase": true
               },
               "blocks": {}
             },
@@ -950,7 +956,8 @@
                 "text_color": "hdt-s-text",
                 "font_size_heading_lg": 48,
                 "font_size_heading": 27,
-                "letter_spacing_heading": 0
+                "letter_spacing_heading": 0,
+                "uppercase": false
               },
               "blocks": {}
             },
@@ -1174,7 +1181,8 @@
                 "text_color": "hdt-s-text",
                 "font_size_heading_lg": 48,
                 "font_size_heading": 27,
-                "letter_spacing_heading": 0
+                "letter_spacing_heading": 0,
+                "uppercase": true
               },
               "blocks": {}
             },
@@ -1323,7 +1331,8 @@
                 "text_color": "hdt-s-text",
                 "font_size_heading_lg": 48,
                 "font_size_heading": 27,
-                "letter_spacing_heading": 0
+                "letter_spacing_heading": 0,
+                "uppercase": false
               },
               "blocks": {}
             },
@@ -1425,7 +1434,7 @@
         "card_border": "#ece7dc",
         "image_radius": 10,
         "container_max_width": 1300,
-        "container_padding": 0,
+        "container_padding": 15,
         "custom_class": "hdt-yaman-routinecontainer",
         "padding_top": 66,
         "padding_bottom": 46,
