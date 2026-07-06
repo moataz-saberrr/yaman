@@ -153,6 +153,7 @@ color: #070707A6;
 .orichi-bundle .bundle-original-price{color: #AAAAAA}
 .orichi-bundle .bundle-radio-label{box-shadow: 0 0 0 1px #B89A5E;}
 .orichi-form-watermark{display:none}
+.bundle-top-row{direction: ltr;}
 @media (max-width: 767px) {
   .orichi-bundle {
     .bundle-current-price{
