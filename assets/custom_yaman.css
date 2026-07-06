@@ -1088,7 +1088,7 @@
   -webkit-user-select: none;
   user-select: none;
   cursor: ew-resize;
-  direction: rtl;
+  direction: ltr;
 }
 .hdt-yaman-results-section .hdt-yaman-results__image { position: absolute; inset: 0; }
 .hdt-yaman-results-section .hdt-yaman-results__img,
