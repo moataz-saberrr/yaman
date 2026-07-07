@@ -659,64 +659,47 @@
             "product_image": "shopify://shop_images/hearicon.png",
             "product_title": "Medi Lift Plus",
             "stars": 5,
-            "title": "\"This is by far the best one!\"",
-            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
-            "reviewer": "Sitora",
-            "location": "Riyadh",
-            "usage": "8 weeks of use",
+            "title": "\"فرق واضح في تحديد الفك من الأسابيع الأولى!\"",
+            "body": "صراحة كنت متخوفة في البداية، لكن بعد الالتزام بالجلسة اليومية لمدة 10 دقائق، لاحظت فرق كبير جداً في منطقة الفك والذقن. الأحلى إنه يخفف الشد القوي اللي يصير بفك الأسنان بسبب التوتر. الميزة اللي خلتني أستمر عليه بدون كسل إنه يُلبس كماسك وما يربطني، أتحرك وأخلص شغلي بالبيت وهو شغال. أنصح فيه وبشدة!",
+            "reviewer": "سارة .م",
+            "location": "الرياض",
+            "usage": "مدة الاستخدام: 8 أسابيع",
             "button_label": "Medi Lift Plus →",
-            "button_link": "",
+            "button_link": "shopify://products/medi-lift-plus",
             "product_link": "",
             "alt": ""
           }
         },
-        "review_2": {
+        "review_g9GRMW": {
           "type": "review",
           "settings": {
             "product_image": "shopify://shop_images/hearicon.png",
             "product_title": "Medi Lift Plus",
             "stars": 5,
-            "title": "\"This is by far the best one!\"",
-            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
-            "reviewer": "Sitora",
-            "location": "Riyadh",
-            "usage": "8 weeks of use",
+            "title": "\"ملمس بشرتي تحسن بالكامل وأصبحت أكثر حيوية!\"",
+            "body": "ما أطوف يوم بدونه! بعد ما أدرجت قناع يمان في روتيني المسائي الثابت، ملمس بشرتي بالكامل اتغير وصار أنعم وأكثر مرونة بشكل ملحوظ. أحب وضع التدريب (Training) لأنه يحرك عضلات الخد ويرفعها لفوق. الجهاز استثمار ممتاز يغنيكِ عن مشاوير العيادات، ونتيجته التراكمية تظهر بوضوح مع الاستمرار.",
+            "reviewer": "نورة الخالدي",
+            "location": "جدة",
+            "usage": "مدة الاستخدام: 4 أسابيع",
             "button_label": "Medi Lift Plus →",
-            "button_link": "",
+            "button_link": "shopify://products/medi-lift-plus",
             "product_link": "",
             "alt": ""
           }
         },
-        "review_3": {
+        "review_tUFeBJ": {
           "type": "review",
           "settings": {
             "product_image": "shopify://shop_images/hearicon.png",
             "product_title": "Medi Lift Plus",
             "stars": 5,
-            "title": "\"This is by far the best one!\"",
-            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
-            "reviewer": "Sitora",
-            "location": "Riyadh",
-            "usage": "8 weeks of use",
+            "title": "\"أفضل جهاز أضفته لروتيني الصباحي\"",
+            "body": "من أفضل الأجهزة التجميلية اللي جربتها بالمنزل. أستخدمه الصباح مع جيل الصبار الطبيعي، يعطي نضارة فورية للوجه ويشيل الانتفاخ والخمول تماماً. النبضات حقت الجهاز تحسينها فعلاً تحرك العضلات الضعيفة. النتيجة طبيعية وتخلي ملامح الوجه تبدو أصغر وأكثر تحديداً. يستحق كل ريال.",
+            "reviewer": "منيرة",
+            "location": "دبي",
+            "usage": "مدة الاستخدام: 6 أسابيع",
             "button_label": "Medi Lift Plus →",
-            "button_link": "",
-            "product_link": "",
-            "alt": ""
-          }
-        },
-        "review_GQyjxc": {
-          "type": "review",
-          "settings": {
-            "product_image": "shopify://shop_images/hearicon.png",
-            "product_title": "Medi Lift Plus",
-            "stars": 5,
-            "title": "\"This is by far the best one!\"",
-            "body": "I never skip a day. After consistently using this mask, my skin texture is completely improved and my skin looks so much better overall.",
-            "reviewer": "Sitora",
-            "location": "Riyadh",
-            "usage": "8 weeks of use",
-            "button_label": "Medi Lift Plus →",
-            "button_link": "",
+            "button_link": "shopify://products/medi-lift-plus",
             "product_link": "",
             "alt": ""
           }
@@ -724,9 +707,8 @@
       },
       "block_order": [
         "review_1",
-        "review_2",
-        "review_3",
-        "review_GQyjxc"
+        "review_g9GRMW",
+        "review_tUFeBJ"
       ],
       "settings": {
         "show_summary": true,
@@ -1013,7 +995,7 @@
         "faq_7"
       ],
       "custom_css": [
-        ".hdt-yaman-faq-section .hdt-heading-block{text-align: justify;}"
+        ".hdt-yaman-faq-section .hdt-heading-block {text-align: justify;}"
       ],
       "settings": {
         "accordion_des": "3",
