@@ -81,6 +81,20 @@
   }
 
   [class^=hdt-secion-main-product]{
+    .hdt-selector-mode__radio_full .hdt-selector__item{
+      border: none;
+    }
+    .hdt-product-form__label{
+    font-size: 27px;
+    font-weight: 500;
+    @media (max-width: 767px) {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    [update-value]{
+      display: none;
+    }
+    }
     .hdt-product__description p{
       color: #B89A5E;
       @media (max-width: 767px) {
@@ -789,4 +803,90 @@ font-size: 12px !important;
       height: var(--phb-h-tb, 460px);
     }
   }
+}
+
+/* =====================================================================
+   Custom Product Variant Picker - Radio Full
+   ===================================================================== */
+.hdt-selector-mode__radio_full .hdt-selector__item label.is-type-radio_full,
+.hdt-color-mode__radio_full .hdt-swatch__item label.is-type-radio_full {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  background-color: #ffffff !important;
+  border: 1px solid #E7E1D4 !important;
+  border-radius: 12px !important;
+  padding: 18px 20px !important;
+  margin-bottom: 12px !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hdt-selector-mode__radio_full .hdt-selector__item,
+.hdt-color-mode__radio_full .hdt-swatch__item {
+  width: 100%;
+}
+
+input[type="radio"]:checked + label.is-type-radio_full {
+  background-color: #F8F7F0 !important;
+  border-color: #F8F7F0 !important;
+}
+
+.hdt-radio-full-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hdt-radio-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #B89A5E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+input[type="radio"]:checked + label.is-type-radio_full .hdt-radio-circle {
+  border: 2px solid #B89A5E;
+}
+
+input[type="radio"]:checked + label.is-type-radio_full .hdt-radio-circle::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  background-color: #B89A5E;
+  border-radius: 50%;
+  position: absolute;
+}
+
+label.is-type-radio_full .hdt-form-color-name {
+  font-size: 16px !important;
+  color: #1D2847 !important;
+  font-weight: 700 !important;
+}
+
+.hdt-radio-full-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+.hdt-radio-full-right .hdt-price-current {
+  font-size: 18px;
+  font-weight: 700;
+  color: #4a4a4a;
+  font-family: var(--font-heading-family);
+}
+
+.hdt-radio-full-right .hdt-price-compare {
+  font-size: 14px;
+  color: #b0b0b0;
+  text-decoration: line-through;
+  margin-top: 4px;
 }
