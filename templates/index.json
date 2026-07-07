@@ -45,29 +45,11 @@
             "panel_color": "#070707"
           },
           "blocks": {}
-        },
-        "slide_3": {
-          "type": "_slide-item-n",
-          "disabled": true,
-          "settings": {
-            "heading": "YOUR\nDAILY\nRITUAL.",
-            "heading_mb": "",
-            "subheading": "<p>Spa-grade skincare technology, designed for home.</p>",
-            "button_label": "DISCOVER YOUR GLOW",
-            "button_link": "",
-            "button_target": false,
-            "meta_text": "30-DAY RETURNS | 10M+ UNITS SOLD | TRUSTED WORLDWIDE",
-            "accent_last_line": false,
-            "accent_color": "#f5ebdd",
-            "panel_color": "#070707"
-          },
-          "blocks": {}
         }
       },
       "block_order": [
         "slide_1",
-        "slide_2",
-        "slide_3"
+        "slide_2"
       ],
       "settings": {
         "image_height": "adapt_image",
