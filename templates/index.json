@@ -409,7 +409,7 @@
         "saving_text": "#1b7a3d",
         "container_max_width": 1360,
         "container_padding": 15,
-        "mobile_peek": 80,
+        "mobile_peek": 65,
         "gap": 20,
         "gap_mb": 14,
         "autoplay": false,
@@ -437,7 +437,7 @@
         "col_dk": "3",
         "col_tb": "2",
         "col_mb": "1",
-        "card_width_mb": 80,
+        "card_width_mb": 65,
         "nav_ui": true,
         "dot_ui": false,
         "loop": true,
@@ -456,10 +456,10 @@
         "container_max_width": 1200,
         "container_padding": 15,
         "custom_class": "",
-        "padding_top": 90,
-        "padding_bottom": 90,
-        "padding_top_mb": 56,
-        "padding_bottom_mb": 56
+        "padding_top": 66,
+        "padding_bottom": 46,
+        "padding_top_mb": 36,
+        "padding_bottom_mb": 36
       }
     },
     "science_slideshow_n_mKkryb": {
@@ -1013,7 +1013,7 @@
         "faq_7"
       ],
       "custom_css": [
-        ".hdt-yaman-faq-section .hdt-heading-block{text-align: justify;}"
+        ".hdt-yaman-faq-section .hdt-heading-block {text-align: justify;}"
       ],
       "settings": {
         "accordion_des": "3",

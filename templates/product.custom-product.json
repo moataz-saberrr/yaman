@@ -599,7 +599,7 @@
             "show_line": true,
             "title": "HANDS-FREE DESIGN",
             "description": "Wear it, start your session, and carry on with your day.",
-            "text_color": "#070707",
+            "text_color": "#000000",
             "accent_color": "#c9a844",
             "scrim": "light",
             "overlay_opacity": 40
@@ -615,7 +615,7 @@
             "show_line": true,
             "title": "MINUTE ROUTINE-10",
             "description": "Easy to fit into your routine for consistent use.",
-            "text_color": "#070707",
+            "text_color": "#000000",
             "accent_color": "#c9a844",
             "scrim": "light",
             "overlay_opacity": 40
