@@ -45,29 +45,11 @@
             "panel_color": "#070707"
           },
           "blocks": {}
-        },
-        "slide_3": {
-          "type": "_slide-item-n",
-          "disabled": true,
-          "settings": {
-            "heading": "YOUR\nDAILY\nRITUAL.",
-            "heading_mb": "",
-            "subheading": "<p>Spa-grade skincare technology, designed for home.</p>",
-            "button_label": "DISCOVER YOUR GLOW",
-            "button_link": "",
-            "button_target": false,
-            "meta_text": "30-DAY RETURNS | 10M+ UNITS SOLD | TRUSTED WORLDWIDE",
-            "accent_last_line": false,
-            "accent_color": "#f5ebdd",
-            "panel_color": "#070707"
-          },
-          "blocks": {}
         }
       },
       "block_order": [
         "slide_1",
-        "slide_2",
-        "slide_3"
+        "slide_2"
       ],
       "settings": {
         "image_height": "adapt_image",
@@ -424,15 +406,19 @@
     "yaman_routine": {
       "type": "featured-collection-n",
       "settings": {
+        "custom_class_featured": "",
         "badge_text": "SKINCARE",
         "heading": "Complete Your Routine",
         "subheading": "Treatment serums formulated to work in perfect synergy with YAMAN devices — amplifying every session for visible results.",
         "collection": "اجهزة-يامان",
         "limit": 12,
+        "show_product_type": true,
         "card_button_label": "SHOP NOW",
+        "show_installment": false,
         "image_ratio": "square",
         "col_dk": "3",
         "col_tb": "2",
+        "col_mb": "1",
         "card_width_mb": 80,
         "nav_ui": true,
         "dot_ui": false,
