@@ -143,11 +143,24 @@
           </label>
         {%- endif -%}
       {%- elsif color_picker_type == 'radio_variant' or color_picker_type == 'radio_full' -%}
+        {%- assign option_idx = 'option' | append: option.position -%}
+        {%- assign current_variant = product.variants | where: option_idx, value | first -%}
         <div class="hdt-swatch__item hdt-flex hdt-align-center{% if option_unavailable %} is-unavailable{% endif %}">
-          <input autocomplete="off" is-value type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" name="{{ option.name | escape }}" value="{{ value | escape }}" form="{{ product_form_id }}"{% if value_selected %} checked{% endif %} class="{% if option_soldout %}is-disabled{% endif %}" data-value-id="{{ value.id }}">
+          <input autocomplete="off" is-value type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" name="{{ option.name | escape }}" value="{{ value | escape }}" form="{{ product_form_id }}"{% if value_selected %} checked{% endif %} class="{% if option_soldout %}is-disabled{% endif %} sr-only" data-value-id="{{ value.id }}">
           <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class="hdt-product-form_value is-type-{{ color_picker_type }}">
             {%- if option_soldout %}<span class="sr-only">{{ 'products.product.variant_sold_out' | t }}</span>{% endif -%}
-            <span class="hdt-form-color-name">{{- value | escape -}}</span>
+            <div class="hdt-radio-full-left">
+              <span class="hdt-radio-circle"></span>
+              <span class="hdt-form-color-name">{{- value | escape -}}</span>
+            </div>
+            {%- if color_picker_type == 'radio_full' and current_variant -%}
+              <div class="hdt-radio-full-right">
+                <span class="hdt-price-current">{{ current_variant.price | money }}</span>
+                {%- if current_variant.compare_at_price > current_variant.price -%}
+                  <span class="hdt-price-compare">{{ current_variant.compare_at_price | money }}</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
           </label>
         </div>
       {%- elsif color_picker_type contains 'dropdown' -%}
@@ -164,11 +177,24 @@
         </label>
       {%- endif -%}
     {%- elsif block.settings.picker_type == 'radio_variant' or block.settings.picker_type == 'radio_full' -%}
+      {%- assign option_idx = 'option' | append: option.position -%}
+      {%- assign current_variant = product.variants | where: option_idx, value | first -%}
       <div class="hdt-selector__item hdt-flex hdt-align-center{% if option_unavailable %} is-unavailable{% endif %}">
-        <input autocomplete="off" is-value type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" name="{{ option.name | escape }}" value="{{ value | escape }}" form="{{ product_form_id }}"{% if value_selected %} checked{% endif %} class="{% if option_soldout %}is-disabled{% endif %}" data-value-id="{{ value.id }}">
+        <input autocomplete="off" is-value type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" name="{{ option.name | escape }}" value="{{ value | escape }}" form="{{ product_form_id }}"{% if value_selected %} checked{% endif %} class="{% if option_soldout %}is-disabled{% endif %} sr-only" data-value-id="{{ value.id }}">
         <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class="hdt-product-form_value is-type-{{ block.settings.picker_type }}">
           {%- if option_soldout %}<span class="sr-only">{{ 'products.product.variant_sold_out' | t }}</span>{% endif -%}
-          <span class="hdt-form-color-name">{{- value | escape -}}</span>
+          <div class="hdt-radio-full-left">
+            <span class="hdt-radio-circle"></span>
+            <span class="hdt-form-color-name">{{- value | escape -}}</span>
+          </div>
+          {%- if block.settings.picker_type == 'radio_full' and current_variant -%}
+            <div class="hdt-radio-full-right">
+              <span class="hdt-price-current">{{ current_variant.price | money }}</span>
+              {%- if current_variant.compare_at_price > current_variant.price -%}
+                <span class="hdt-price-compare">{{ current_variant.compare_at_price | money }}</span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
         </label>
       </div>
     {%- elsif block.settings.picker_type == 'circle'-%}

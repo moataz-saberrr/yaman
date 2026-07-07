@@ -145,7 +145,7 @@
       },
       "7609861849053656801": {
         "type": "shopify://apps/volume-discount-bundle/blocks/volume_discount/831adfc0-6cab-4c9a-9951-63aaa6f4e791",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     },
