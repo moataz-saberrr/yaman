@@ -556,7 +556,8 @@
       "name": "Product Hero",
       "settings": {
         "height_mode": "adapt",
-        "full_width": false,
+        "height_mode_mb": "fixed",
+        "full_width": true,
         "container_max_width": 1440,
         "background_color": "#ece3d7",
         "height": 560,
