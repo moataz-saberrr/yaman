@@ -38,11 +38,12 @@
   endif
 
   assign auto_height = false
-  if section.settings.height_mode == 'adapt'
+  if section.settings.height_mode == 'adapt' or section.settings.height_mode_mb == 'adapt'
     assign auto_height = true
   endif
 
-  assign root_class = 'hdt-product-hero-banner hdt-product-hero-banner--' | append: section.settings.height_mode
+  assign root_class = 'hdt-product-hero-banner hdt-product-hero-banner-dk--' | append: section.settings.height_mode
+  assign root_class = root_class | append: ' hdt-product-hero-banner-mb--' | append: section.settings.height_mode_mb
   if section.settings.full_width
     assign root_class = root_class | append: ' hdt-product-hero-banner--full'
   endif
@@ -639,13 +640,23 @@
     {
       "type": "select",
       "id": "height_mode",
-      "label": "Height mode",
+      "label": "Height mode (Desktop & Tablet)",
       "options": [
         { "value": "adapt", "label": "Adapt to image" },
         { "value": "fixed", "label": "Fixed height" }
       ],
       "default": "fixed",
       "info": "Adapt = never crop the image. Fixed = cover the set heights below (use Image focus to keep the product visible)."
+    },
+    {
+      "type": "select",
+      "id": "height_mode_mb",
+      "label": "Height mode (Mobile)",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "fixed", "label": "Fixed height" }
+      ],
+      "default": "fixed"
     },
     {
       "type": "checkbox",

@@ -180,9 +180,9 @@
   padding: 0 5px 5px;
 }
 :where(.hdt-slider.hdt-pr-border_on_item,.hdt-slider.hdt-collection-products) .hdt-slider__viewport {
-  padding: 1px;
+  padding-inline: 5px;
   @media (max-width: 1150px) {
-    margin-inline: 10px;
+    /* margin-inline: 10px; */
     
   }
 }

@@ -479,30 +479,31 @@ font-size: 12px !important;
     height: 100%;
   }
 
-  /* Fixed-height mode: image covers the set heights */
-  .hdt-product-hero-banner--fixed .hdt-product-hero-banner__slide {
-    height: var(--phb-h, 560px);
-  }
-  .hdt-product-hero-banner--fixed .hdt-product-hero-banner__media,
-  .hdt-product-hero-banner--fixed .hdt-product-hero-banner__image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-  .hdt-product-hero-banner--fixed .hdt-product-hero-banner__image {
-    object-fit: cover;
-    object-position: var(--phb-focal, center);
-  }
+  /* Desktop/Tablet height modes */
+  @media (min-width: 768px) {
+    .hdt-product-hero-banner-dk--fixed .hdt-product-hero-banner__slide {
+      height: var(--phb-h, 560px);
+    }
+    .hdt-product-hero-banner-dk--fixed .hdt-product-hero-banner__media,
+    .hdt-product-hero-banner-dk--fixed .hdt-product-hero-banner__image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hdt-product-hero-banner-dk--fixed .hdt-product-hero-banner__image {
+      object-fit: cover;
+      object-position: var(--phb-focal, center);
+    }
 
-  /* Adapt mode: image keeps its natural ratio (never cropped) */
-  .hdt-product-hero-banner--adapt .hdt-product-hero-banner__image {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  .hdt-product-hero-banner--adapt .hdt-product-hero-banner__placeholder {
-    aspect-ratio: 16 / 7;
+    .hdt-product-hero-banner-dk--adapt .hdt-product-hero-banner__image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .hdt-product-hero-banner-dk--adapt .hdt-product-hero-banner__placeholder {
+      aspect-ratio: 16 / 7;
+    }
   }
 
   .hdt-product-hero-banner__placeholder {
@@ -728,12 +729,30 @@ font-size: 12px !important;
      Mobile  (< 768px)  — content top / centered, image below
      ========================================================= */
   @media (max-width: 767px) {
-    .hdt-product-hero-banner--fixed .hdt-product-hero-banner__slide {
+    .hdt-product-hero-banner-mb--fixed .hdt-product-hero-banner__slide {
       height: var(--phb-h-mb, 620px);
     }
-    .hdt-product-hero-banner--fixed .hdt-product-hero-banner__image {
+    .hdt-product-hero-banner-mb--fixed .hdt-product-hero-banner__media,
+    .hdt-product-hero-banner-mb--fixed .hdt-product-hero-banner__image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hdt-product-hero-banner-mb--fixed .hdt-product-hero-banner__image {
+      object-fit: cover;
       object-position: var(--phb-focal-mb, center bottom);
     }
+
+    .hdt-product-hero-banner-mb--adapt .hdt-product-hero-banner__image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .hdt-product-hero-banner-mb--adapt .hdt-product-hero-banner__placeholder {
+      aspect-ratio: 16 / 7;
+    }
+
     .hdt-product-hero-banner__container {
       justify-content: center;
       align-items: var(--phb-pos-mb, flex-start);
@@ -766,7 +785,7 @@ font-size: 12px !important;
 
   /* Tablet-only height (768px – 1149px) for Fixed mode */
   @media (min-width: 768px) and (max-width: 1149px) {
-    .hdt-product-hero-banner--fixed .hdt-product-hero-banner__slide {
+    .hdt-product-hero-banner-dk--fixed .hdt-product-hero-banner__slide {
       height: var(--phb-h-tb, 460px);
     }
   }

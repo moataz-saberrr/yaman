@@ -1020,6 +1020,7 @@
 .hdt-yaman-results-section .hdt-yaman-results__header {
   text-align: center;
   margin-bottom: 32px;
+  padding-inline: 10px;
 }
 .hdt-yaman-results-section .hdt-yaman-results__heading {
   margin: 0;
@@ -1040,7 +1041,7 @@
 .hdt-yaman-results-section .hdt-slider__viewport { 
   overflow: hidden;
   @media (max-width: 1150px) {
-    padding: 1px;     
+    padding-inline: 7px;     
   }
 }
 .hdt-yaman-results-section .hdt-slider__slide { height: auto; }
@@ -1739,10 +1740,11 @@
 .hdt-yaman-sets-section .hdt-yaman-sets__head {
   text-align: center;
   margin-bottom: 26px;
+  padding-inline: 10px;
 }
 .hdt-yaman-sets-section .star-rating__stars img{
-  width: 16px !important;
-  height: 16px !important;
+  width: 14px !important;
+  height: 14px !important;
 }
 .hdt-yaman-sets-section .hdt-yaman-sets__heading {
   margin: 0 0 10px;
@@ -1856,6 +1858,10 @@
   align-items: center;
   gap: 6px;
   min-height: 0;
+}
+.hdt-yaman-sets-section .hdt-yaman-sets__rating .star-rating{
+  align-items: baseline;
+
 }
 .hdt-yaman-sets-section .hdt-yaman-sets__rating:empty {
   display: none;
@@ -2252,7 +2258,7 @@
 }
 
 /* Header */
-.hdt-yaman-routine-section .hdt-yaman-routine__header { text-align: center; margin-bottom: 32px; }
+.hdt-yaman-routine-section .hdt-yaman-routine__header { text-align: center; margin-bottom: 32px; padding-inline: 10px; }
 .hdt-yaman-routine-section .hdt-yaman-routine__badge {
   display: inline-block;
   margin-bottom: 14px;
@@ -2318,8 +2324,8 @@
 .star-rating__stars{
   gap: 4px !important;
     img{
-    width: 20px !important;
-    height: 20px !important;
+    width: 16px !important;
+    height: 16px !important;
     color: #828282;
   }
 }

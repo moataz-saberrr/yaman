@@ -343,6 +343,15 @@
   to { transform: translateX(-50%); }
 }
 
+[dir="rtl"] .hdt-yaman-marquee-section .hdt-yaman-marquee__track {
+  animation-name: hdt-yaman-marquee-scroll-rtl;
+}
+
+@keyframes hdt-yaman-marquee-scroll-rtl {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
+
 /* Mobile sizing */
 @media (max-width: 767px) {
   .hdt-yaman-marquee-section .hdt-yaman-marquee {

@@ -22,6 +22,7 @@
   data-tb-autoplay="{{ section.settings.autoplay }}"
   data-tb-autoplay-ms="{{ section.settings.autoplay_speed | times: 1000 }}"
   data-tb-loop="{{ section.settings.loop }}"
+  data-tb-rtl="{% if request.locale.iso_code == 'ar' %}true{% else %}false{% endif %}"
   style="
     --tb-cols-dk: {{ cols_dk }};
     --tb-cols-tb: {{ cols_tb }};

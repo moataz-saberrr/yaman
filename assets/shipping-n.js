@@ -37,9 +37,11 @@
     var loop = d.tbLoop === 'true';
     var autoplay = d.tbAutoplay === 'true';
     var autoplayMs = parseInt(d.tbAutoplayMs, 10) || 4000;
+    var rightToLeft = d.tbRtl === 'true';
 
     var flkty = new window.Flickity(track, {
-      cellAlign: 'left',
+      cellAlign: rightToLeft ? 'right' : 'left',
+      rightToLeft: rightToLeft,
       // `contain` keeps dragging bounded (no body scroll); `wrapAround` gives an
       // endless loop when the merchant turns Loop on. They are mutually exclusive.
       contain: !loop,
