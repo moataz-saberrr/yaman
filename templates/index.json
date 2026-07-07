@@ -20,7 +20,7 @@
             "heading_mb": "ELEVATE.\nSCULPT.\nREDEFINE.",
             "subheading": "<p>46 years of R&D. 345+ patents. Clinical-grade technology designed for you.</p>",
             "button_label": "SHOP MEDI LIFT PLUS — 1,700 SAR",
-            "button_link": "",
+            "button_link": "shopify://products/medi-lift-plus",
             "button_target": false,
             "meta_text": "345+ PATENTS | ISO 13485 CERTIFIED | 10M+ UNITS SOLD",
             "accent_last_line": false,
@@ -37,7 +37,7 @@
             "heading_mb": "",
             "subheading": "<p>Clinically proven results powered by Japanese R&D.</p>",
             "button_label": "EXPLORE THE 4 SETS",
-            "button_link": "",
+            "button_link": "shopify://collections/اجهزة-يامان",
             "button_target": false,
             "meta_text": "SFDA CERTIFIED | CLINICALLY TESTED | FREE GCC DELIVERY",
             "accent_last_line": false,
@@ -151,9 +151,9 @@
         "badge_6"
       ],
       "settings": {
-        "autoplay": false,
+        "autoplay": true,
         "autoplay_speed": 4,
-        "loop": false,
+        "loop": true,
         "container_max_width": 1360,
         "container_padding": 15,
         "background_color": "#faf7f0",
@@ -223,7 +223,7 @@
         "reviews_count": "347 reviews",
         "review_text": "",
         "button_label": "SHOP NOW",
-        "button_link": "",
+        "button_link": "shopify://products/medi-lift-plus",
         "button_target": false,
         "card_background": "#f7eee1",
         "button_bg": "#16233f",
@@ -253,7 +253,7 @@
             "meta": "Reem, 42 · Dubai · 8 weeks",
             "product_text": "Medi Lift Plus",
             "button_label": "Shop Medi Lift Plus",
-            "button_url": "",
+            "button_url": "shopify://products/medi-lift-plus",
             "open_new_tab": false
           },
           "blocks": {}
@@ -268,7 +268,7 @@
             "meta": "Noura, 38 · Riyadh · 10 weeks",
             "product_text": "LIFTOLOGY SP",
             "button_label": "Shop LIFTOLOGY SP",
-            "button_url": "",
+            "button_url": "shopify://products/the-firming-set-copy",
             "open_new_tab": false
           },
           "blocks": {}
@@ -283,7 +283,7 @@
             "meta": "Sara, 45 · Abu Dhabi · 12 weeks",
             "product_text": "Photo Plus Prestige SP",
             "button_label": "Shop Photo Plus SP",
-            "button_url": "",
+            "button_url": "shopify://products/the-complete-facial-set-copy",
             "open_new_tab": false
           },
           "blocks": {}
@@ -298,7 +298,7 @@
             "meta": "Hessa, 36 · Kuwait · 6 weeks",
             "product_text": "Hydra Bright Skin Set",
             "button_label": "Shop Hydra Bright",
-            "button_url": "",
+            "button_url": "shopify://products/the-glow-set-copy",
             "open_new_tab": false
           },
           "blocks": {}
