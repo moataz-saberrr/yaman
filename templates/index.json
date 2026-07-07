@@ -664,7 +664,7 @@
             "reviewer": "سارة .م",
             "location": "الرياض",
             "usage": "مدة الاستخدام: 8 أسابيع",
-            "button_label": "Medi Lift Plus →",
+            "button_label": "→ Medi Lift Plus",
             "button_link": "shopify://products/medi-lift-plus",
             "product_link": "",
             "alt": ""
@@ -681,7 +681,7 @@
             "reviewer": "نورة الخالدي",
             "location": "جدة",
             "usage": "مدة الاستخدام: 4 أسابيع",
-            "button_label": "Medi Lift Plus →",
+            "button_label": "→ Medi Lift Plus",
             "button_link": "shopify://products/medi-lift-plus",
             "product_link": "",
             "alt": ""
@@ -698,7 +698,7 @@
             "reviewer": "منيرة",
             "location": "دبي",
             "usage": "مدة الاستخدام: 6 أسابيع",
-            "button_label": "Medi Lift Plus →",
+            "button_label": "→ Medi Lift Plus",
             "button_link": "shopify://products/medi-lift-plus",
             "product_link": "",
             "alt": ""
@@ -725,9 +725,9 @@
         "mobile_peek": 85,
         "gap": 24,
         "gap_mb": 16,
-        "autoplay": false,
+        "autoplay": true,
         "autoplay_speed": 5,
-        "loop": false,
+        "loop": true,
         "padding_top": 60,
         "padding_bottom": 60,
         "padding_top_mb": 36,
