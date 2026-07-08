@@ -23,7 +23,7 @@
       assign sizes  = '100vw'
   endcase
 %}
-<div id="{{ section.id }}" class="{{ parent }} {% if section.settings.hdt_background_parallax %} hdt-animate--parallax-bg {% endif %}" {%- if section.settings.colors_by_section %} color-scheme="{{ section.settings.color_scheme }}" style="--background-opacity: {{ section.settings.background_opacity }};"{%- endif %} hdt-reveal="fade-in">
+<div id="{{ section.id }}" class="{{ parent }} {% if section.settings.custom_class %} {{ section.settings.custom_class }} {% endif %}{% if section.settings.hdt_background_parallax %} hdt-animate--parallax-bg {% endif %}" {%- if section.settings.colors_by_section %} color-scheme="{{ section.settings.color_scheme }}" style="--background-opacity: {{ section.settings.background_opacity }};"{%- endif %} hdt-reveal="fade-in">
   <div class="{{ child }}">
     {% comment %} hdt-animate--parallax {% endcomment %}
     {%- if section.settings.section_background != blank -%}
@@ -62,6 +62,11 @@
     },
   ],
   "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    },
     {
       "type": "select",
       "id": "layout",

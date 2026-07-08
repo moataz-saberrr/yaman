@@ -190,6 +190,10 @@ color: #070707A6;
   }
 }
 
+ .hdt-selector-mode__radio_full .hdt-product-form__values{
+  gap: 0rem 1rem !important;
+ }
+
   }
   .hdt-thumbnail__media.is-thumb-selected img {
     border-width: 1.5px !important;
@@ -208,6 +212,9 @@ color: #070707A6;
 .star-rating__count{
 font-size: 12px !important;
 }
+
+
+
 }
 
 /* Judge me section */
@@ -818,7 +825,7 @@ font-size: 12px !important;
   border: 1px solid #E7E1D4 !important;
   border-radius: 12px !important;
   padding: 18px 20px !important;
-  margin-bottom: 12px !important;
+  margin-bottom: 8px !important;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -889,4 +896,62 @@ label.is-type-radio_full .hdt-form-color-name {
   color: #b0b0b0;
   text-decoration: line-through;
   margin-top: 4px;
+}
+
+
+/* =====================================================================
+   Custom Serum results section 
+   ===================================================================== */
+
+.custom_serum_results{
+  .hdt-ratio--adapt_image{
+    margin-inline-start: auto;
+  }
+  @media (max-width: 1150px) {
+    .hdt-ratio--adapt_image{
+      max-width: 80%;
+    }
+    /* .hdt-spacer-block{
+      display: none;
+    } */
+  }
+  .hdt-check-list-item {
+  font-size: 18px;
+  @media (max-width: 1150px) {
+    font-size: 16px;
+  }
+  @media (max-width: 767px) {
+    font-size: 14px;
+    text-align: start;
+  }
+}
+.hdt-check-icon {
+  color: #b89a5e;
+  font-weight: 600;
+}
+.hdt-product__check-list {
+  margin: 16px 0 0 0;
+}
+.hdt-group-content .hdt-text-warry {
+  text-align: center;
+}
+@media (min-width: 1151px) {
+  .hdt-column.hdt-g-col:has(.hdt-product-info__item) {
+    padding-inline-end: 40px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1151px) {
+  .hdt-column.hdt-g-col:has(.hdt-product-info__item) {
+    padding-inline-end: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .hdt-column.hdt-g-col:has(.hdt-image-wrap) {
+    order: 2;
+  }
+  .hdt-column.hdt-g-col:has(.hdt-product-info__item) {
+    order: 3;
+    padding-block-start: 14px;
+  }
+}
 }
