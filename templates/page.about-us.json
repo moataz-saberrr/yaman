@@ -292,7 +292,7 @@
       ],
       "name": "YAMAN Brands",
       "settings": {
-        "heading": "Brands",
+        "heading": "",
         "container_max_width": 1200,
         "container_padding_x": 16,
         "panel_radius": 24,
@@ -383,6 +383,7 @@
         "subheading": "",
         "collection": "test-collection",
         "limit": 12,
+        "show_product_type": true,
         "card_button_label": "SHOP NOW",
         "show_installment": false,
         "image_ratio": "square",

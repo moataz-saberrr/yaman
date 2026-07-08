@@ -489,63 +489,10 @@
             "overlay_color": "",
             "overlay_opacity": 30
           }
-        },
-        "slide_bgEzf9": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/096052a2a55893cfad0b3e8f54b3eef24b839fbc.png",
-            "image_mobile": "shopify://shop_images/53b47c306c56ff46dda948c697cacaf50760116c.png",
-            "image_alt": "",
-            "focal_desktop": "center",
-            "focal_mobile": "center bottom",
-            "rating_show": true,
-            "rating_value": "4.67",
-            "rating_max": "5",
-            "rating_text": "Over 12,500 Verified Reviews",
-            "rating_color": "#e3a519",
-            "rating_text_color": "#8a857c",
-            "heading": "Medi Lift Moisture Serum — Moisturizing Facial Serum",
-            "text_1": "<p>Not just a moisturizing serum—it is a smart layer designed to help your device work more effectively on your skin.</p>",
-            "text_2": "<p>If you use MEDI LIFT EMS devices, this product is not an optional extra—it is an essential part of the experience.</p>",
-            "heading_color": "#111111",
-            "text_color": "#2a2a2a",
-            "content_position": "flex-end",
-            "content_valign": "center",
-            "text_align": "start",
-            "content_max_width": 600,
-            "content_position_mobile": "flex-start",
-            "text_align_mobile": "center",
-            "content_max_width_mb": 460,
-            "badge_bg": "#f7f5ef",
-            "badge_text_color": "#5f594e",
-            "badge_border_color": "#e7e1d4",
-            "badge_1_text": "Supportive Glide",
-            "badge_1_svg": "",
-            "badge_1_link": "",
-            "badge_2_text": "Soft Skin",
-            "badge_2_svg": "",
-            "badge_2_link": "",
-            "badge_3_text": "Deep Hydration",
-            "badge_3_svg": "",
-            "badge_3_link": "",
-            "badge_4_text": "Japanese Technology",
-            "badge_4_svg": "",
-            "badge_4_link": "",
-            "badge_5_text": "",
-            "badge_5_svg": "",
-            "badge_5_link": "",
-            "badge_6_text": "",
-            "badge_6_svg": "",
-            "badge_6_link": "",
-            "use_overlay_override": false,
-            "overlay_color": "",
-            "overlay_opacity": 30
-          }
         }
       },
       "block_order": [
-        "slide_chfzDq",
-        "slide_bgEzf9"
+        "slide_chfzDq"
       ],
       "name": "Product Hero",
       "settings": {
@@ -593,34 +540,10 @@
         "routines-subtitle": {
           "type": "subheading",
           "settings": {
-            "text": "<p>The serum is designed for anyone using Medi Lift EMS devices.</p>",
+            "text": "<p>The serum is designed for anyone using Medi Lift EMS devices. <br/>Real reviews from real people.</p>",
             "size": 18,
             "size_mb": 14,
             "weight": "400",
-            "color": "#7a7a7a",
-            "max_width": 620,
-            "uppercase": false
-          }
-        },
-        "routines-heading-2": {
-          "type": "heading",
-          "settings": {
-            "text": "<p>See why customers love using the serum with their device!</p>",
-            "size": 38,
-            "size_mb": 24,
-            "weight": "700",
-            "color": "#070707",
-            "max_width": 820,
-            "uppercase": true
-          }
-        },
-        "routines-subtitle-2": {
-          "type": "subheading",
-          "settings": {
-            "text": "<p>Real reviews from real people.</p>",
-            "size": 18,
-            "size_mb": 14,
-            "weight": "500",
             "color": "#7a7a7a",
             "max_width": 620,
             "uppercase": false
@@ -708,8 +631,6 @@
       "block_order": [
         "routines-heading",
         "routines-subtitle",
-        "routines-heading-2",
-        "routines-subtitle-2",
         "video_1",
         "video_ibCG6g",
         "video_x4mxxR",
@@ -949,59 +870,10 @@
                 "font_weight": "bold",
                 "heading_size": "h_custom",
                 "text_color": "hdt-s-text",
-                "font_size_heading_lg": 48,
-                "font_size_heading": 27,
+                "font_size_heading_lg": 42,
+                "font_size_heading": 24,
                 "letter_spacing_heading": 0,
                 "uppercase": false
-              },
-              "blocks": {}
-            },
-            "text_BqjdXj": {
-              "type": "text",
-              "settings": {
-                "text": "<p>It is not made just to “moisturize.” It is designed to solve an important issue many people overlook:</p>",
-                "hidden_br_mobile": true,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "custom",
-                "line_height": "",
-                "font_weight": "normal",
-                "text_color": "hdt-s-text",
-                "countdown": "2025-12-30 15:00:00",
-                "txt_day": "days",
-                "font_size_text_lg": 20,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            },
-            "spacer_GeFdRh": {
-              "type": "spacer",
-              "name": "t:blocks.spacer.name",
-              "settings": {
-                "direction": false,
-                "space_lg": 20,
-                "space_md": 10,
-                "space": 0
-              },
-              "blocks": {}
-            },
-            "text_GJqQcY": {
-              "type": "text",
-              "settings": {
-                "text": "<p>How can EMS pulses be delivered to the skin consistently and effectively without dryness or reduced conductivity?</p>",
-                "hidden_br_mobile": true,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "custom",
-                "line_height": "",
-                "font_weight": "normal",
-                "text_color": "hdt-s-text",
-                "countdown": "2025-12-30 15:00:00",
-                "txt_day": "days",
-                "font_size_text_lg": 20,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
               },
               "blocks": {}
             },
@@ -1036,6 +908,17 @@
               },
               "blocks": {}
             },
+            "spacer_yUA79U": {
+              "type": "spacer",
+              "name": "t:blocks.spacer.name",
+              "settings": {
+                "direction": false,
+                "space_lg": 16,
+                "space_md": 10,
+                "space": 0
+              },
+              "blocks": {}
+            },
             "product_check_list_3ybPTK": {
               "type": "product-check-list",
               "name": "Check List",
@@ -1052,11 +935,9 @@
           },
           "block_order": [
             "heading_69eGTE",
-            "text_BqjdXj",
-            "spacer_GeFdRh",
-            "text_GJqQcY",
             "spacer_WEykhT",
             "text_7wbkat",
+            "spacer_yUA79U",
             "product_check_list_3ybPTK"
           ]
         },
@@ -1092,9 +973,9 @@
                 "image_ratio": "adapt_image",
                 "img_effect": "none",
                 "b_effect": "none",
-                "custom_width": "full",
-                "image_w": 50,
-                "image_w_mb": 50,
+                "custom_width": "custom",
+                "image_w": 75,
+                "image_w_mb": 100,
                 "rounded": "hdt-opt-radius"
               },
               "blocks": {}
@@ -1110,16 +991,10 @@
         "multi_column_cUCmcx",
         "multi_column_BYEPkK"
       ],
-      "custom_css": [
-        ".hdt-check-list-item {font-size: 18px; @media (max-width: 767px) {font-size: 14px; text-align: start; }}",
-        ".hdt-check-icon {color: #b89a5e; font-weight: 600;}",
-        ".hdt-product__check-list {margin: 16px 0 0 0;}",
-        ".hdt-group-content .hdt-text-warry {text-align: center;}",
-        "@media (min-width: 1150px) {.hdt-column.hdt-g-col:has(.hdt-product-info__item) {padding-inline-end: 40px; }}",
-        "@media (max-width: 767px) {.hdt-column.hdt-g-col:has(.hdt-image-wrap) {order: 2; } .hdt-column.hdt-g-col:has(.hdt-product-info__item) {order: 3; padding-block-start: 14px; }}"
-      ],
+      "custom_css": [],
       "name": "t:sections.custom_section.name",
       "settings": {
+        "custom_class": "custom_serum_results",
         "layout": "10",
         "item_spacing": 0,
         "item_spacing_tb": 0,
@@ -1258,6 +1133,7 @@
       ],
       "name": "t:sections.custom_section.name",
       "settings": {
+        "custom_class": "",
         "layout": "10",
         "item_spacing": 0,
         "item_spacing_tb": 0,
@@ -1377,6 +1253,7 @@
       ],
       "name": "t:sections.custom_section.name",
       "settings": {
+        "custom_class": "",
         "layout": "10",
         "item_spacing": 0,
         "item_spacing_tb": 0,

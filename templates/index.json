@@ -151,9 +151,9 @@
         "badge_6"
       ],
       "settings": {
-        "autoplay": true,
+        "autoplay": false,
         "autoplay_speed": 4,
-        "loop": true,
+        "loop": false,
         "container_max_width": 1360,
         "container_padding": 15,
         "background_color": "#faf7f0",
