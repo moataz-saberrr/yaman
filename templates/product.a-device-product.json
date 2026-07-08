@@ -186,7 +186,7 @@
               "name": "Product Upsell Box",
               "settings": {
                 "heading": "Pairs beautifully with:",
-                "product": "سيروم-مرطب-للبشرة-medi-lift-moisture-serum",
+                "product": "{{ closest.product.metafields.custom.product_upsell_box.value }}",
                 "btn_text": "Yes, add it to my order"
               },
               "blocks": {}
