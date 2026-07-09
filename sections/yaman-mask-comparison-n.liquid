@@ -13,6 +13,7 @@
   assign main_image = section.settings.main_image
   assign other_image = section.settings.other_image
 -%}
+{%- if section.settings.heading != blank -%}
 <div
   class="hdt-yaman-mask-compare"
   style="
@@ -162,7 +163,7 @@
     </div>
   </div>
 </div>
-
+{%  endif %}
 {%- comment -%} custom-productan.css is loaded globally (with preload) from layout/theme.liquid — nothing to load here. {%- endcomment -%}
 
 {% schema %}
