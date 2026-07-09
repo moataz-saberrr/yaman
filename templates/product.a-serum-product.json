@@ -673,7 +673,7 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/61e4d11a940a6602c721a79067d17b23701e20d8.png",
+            "image": "{{ product.metafields.custom.how_use_step_1_img.value }}",
             "image_alt": "",
             "number": "",
             "title": "Botanical Extracts ",
@@ -684,7 +684,7 @@
         "step_2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/b24921152763ea3429fb69319373cbdf0365ce01.png",
+            "image": "{{ product.metafields.custom.how_use_step_2_img.value }}",
             "image_alt": "",
             "number": "",
             "title": "Barrier-Supporting Ceramides ",
@@ -695,7 +695,7 @@
         "step_3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/aae1c77c58d7f89ab9234768ea5348da760d143e.png",
+            "image": "{{ product.metafields.custom.how_use_step_3_img.value }}",
             "image_alt": "",
             "number": "",
             "title": "Hydrating Collagen",
@@ -706,11 +706,11 @@
         "step_4": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/d6da15a7d0d90a8704683f31af559fcf6fe71b80.png",
+            "image": "{{ product.metafields.custom.how_use_step_4_img.value }}",
             "image_alt": "",
             "number": "",
-            "title": "Hyaluronic Acid ",
-            "description": "Deeply hydrates the skin and helps lock in moisture.",
+            "title": "{{ product.metafields.custom.how_use_step_4_desc.value }}",
+            "description": "",
             "link": ""
           }
         }
@@ -724,7 +724,7 @@
       "settings": {
         "heading": "{{ product.metafields.custom.how_use_title.value }}",
         "heading_uppercase": true,
-        "subtitle": "",
+        "subtitle": "{{ product.metafields.custom.how_use_sub_title.value }}",
         "header_max_width": 1000,
         "layout": "grid",
         "custom_class": "",
