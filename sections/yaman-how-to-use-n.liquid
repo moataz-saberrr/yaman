@@ -57,11 +57,11 @@
                 assign tag = 'a'
               endif
             -%}
+             {%- if img != blank -%}
             <{{ tag }}
               class="hdt-yaman-howuse__card"
               {% if link != blank %}href="{{ link }}"{% endif %}
-              {{ block.shopify_attributes }}
-            >
+              {{ block.shopify_attributes }} >
               <div class="hdt-yaman-howuse__image-wrap">
                 {%- if img != blank -%}
                   {%- if img_mb != blank -%}
@@ -91,6 +91,7 @@
                 {%- endif -%}
               </div>
             </{{ tag }}>
+          {%  endif %}
           {%- endfor -%}
         </div>
       </div>
