@@ -207,7 +207,7 @@
                         {%- assign b_svg = block.settings[svg_key] -%}
                         {%- assign b_img = block.settings[img_key] -%}
                         {%- assign b_link = block.settings[link_key] -%}
-                        {%- if b_text != blank or b_svg != blank or b_img != blank -%}
+                        {%- if b_text != blank -%}
                           {%- if b_link != blank -%}<a href="{{ b_link }}" class="hdt-product-hero-banner__badge">{%- else -%}<span class="hdt-product-hero-banner__badge">{%- endif -%}
                             {%- if b_text != blank -%}<span class="hdt-product-hero-banner__badge-text">{{ b_text | escape }}</span>{%- endif -%}
                             {%- if b_svg != blank -%}<span class="hdt-product-hero-banner__badge-icon">{{ b_svg }}</span>
