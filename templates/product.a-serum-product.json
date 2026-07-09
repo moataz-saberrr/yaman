@@ -555,10 +555,11 @@
             "video": "{{ product.metafields.custom.routines_video1_link.value }}",
             "poster": "{{ product.metafields.custom.routines_video1_poster.value }}",
             "alt": "",
-            "label": "Jawline Definition",
+            "label": "{{ product.metafields.custom.routines_video1_lable.value }}",
+            "label_icon": "{{ product.metafields.custom.routines_video1_lable_img.value }}",
             "label_icon_text": "",
             "label_icon_alt": "",
-            "product": "",
+            "product": "{{ product.metafields.custom.routines_video1_lable_product.value }}",
             "custom_link": ""
           }
         },
@@ -568,10 +569,11 @@
             "video": "{{ product.metafields.custom.routines_video2_link.value }}",
             "poster": "{{ product.metafields.custom.routines_video2_poster.value }}",
             "alt": "",
-            "label": "Jawline Definition",
+            "label": "{{ product.metafields.custom.routines_video2_lable.value }}",
+            "label_icon": "{{ product.metafields.custom.routines_video2_lable_img.value }}",
             "label_icon_text": "",
             "label_icon_alt": "",
-            "product": "",
+            "product": "{{ product.metafields.custom.routines_video2_lable_product.value }}",
             "custom_link": ""
           }
         },
