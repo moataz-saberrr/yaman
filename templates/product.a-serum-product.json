@@ -528,44 +528,55 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_1_img.value }}",
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_9_2026_05_19_57_PM0.webp",
             "image_alt": "",
             "number": "",
-            "title": "{{ product.metafields.custom.how_use_step_1_title.value }}",
-            "description": "{{ product.metafields.custom.how_use_step_1_desc.value }}",
+            "title": "Squalane",
+            "description": "A moisturizing ingredient that helps soften the skin and maintain its hydration.",
             "link": ""
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_2_img.value }}",
+            "image": "shopify://shop_images/almond0_e2bc4978-f211-41be-a942-1b1e36651053.webp",
             "image_alt": "",
             "number": "",
-            "title": "{{ product.metafields.custom.how_use_step_2_title.value }}",
-            "description": "{{ product.metafields.custom.how_use_step_2_desc.value }}",
+            "title": "Almond Oil",
+            "description": "A nutrient-rich moisturizing ingredient that helps nourish and deeply hydrate the skin.",
             "link": ""
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_3_img.value }}",
+            "image": "shopify://shop_images/joj0_5136dcb3-6c15-4948-ac7c-64739e9608b3.webp",
             "image_alt": "",
             "number": "",
-            "title": "{{ product.metafields.custom.how_use_step_3_title.value }}",
-            "description": "{{ product.metafields.custom.how_use_step_3_desc.value }}",
+            "title": "Jojoba Seed Oil",
+            "description": "A moisturizing ingredient that helps protect the skin from moisture loss and promotes its softness and elasticity.",
             "link": ""
           }
         },
         "step_4": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_4_img.value }}",
+            "image": "shopify://shop_images/Macd0_94f6af38-3e41-445b-bd03-b9f2335b4da9.webp",
             "image_alt": "",
             "number": "",
-            "title": "{{ product.metafields.custom.how_use_step_4_title.value }}",
-            "description": "{{ product.metafields.custom.how_use_step_4_desc.value }}",
+            "title": "Macadamia Oil",
+            "description": "moisturizer that rebuilds the skin barrier and is rich in antioxidants",
+            "link": ""
+          }
+        },
+        "step_feEna9": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/flower0_02276bb2-988f-4be5-843f-83e74268640b.webp",
+            "image_alt": "",
+            "number": "",
+            "title": "Meadowfoam Flower Oil",
+            "description": "A moisturizing ingredient that helps soften the skin and maintain its natural balance.",
             "link": ""
           }
         }
@@ -574,7 +585,8 @@
         "step_1",
         "step_2",
         "step_3",
-        "step_4"
+        "step_4",
+        "step_feEna9"
       ],
       "settings": {
         "heading": "{{ product.metafields.custom.how_use_title.value }}",
@@ -588,7 +600,7 @@
         "glow_color": "#d4b87a",
         "container_max_width": 1310,
         "grid_max_width": 928,
-        "columns": 4,
+        "columns": 5,
         "mobile_columns": 2,
         "gap": 12,
         "gap_mb": 12,
