@@ -858,7 +858,7 @@
       "settings": {
         "heading": "FACE MODE PROTOCOL",
         "subtitle": "For maximum lifting efficiency, gently press and hold the treatment head static against each localized point for the designated time",
-        "header_max_width": 760,
+        "header_max_width": 800,
         "background_color": "#ffffff",
         "show_glow": true,
         "glow_color": "#d4b87a",
