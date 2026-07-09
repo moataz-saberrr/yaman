@@ -676,8 +676,8 @@
             "image": "{{ product.metafields.custom.how_use_step_1_img.value }}",
             "image_alt": "",
             "number": "",
-            "title": "Botanical Extracts ",
-            "description": "Soothe the skin, support its natural radiance, and improve its overall appearance.",
+            "title": "{{ product.metafields.custom.how_use_step_1_title.value }}",
+            "description": "{{ product.metafields.custom.how_use_step_1_desc.value }}",
             "link": ""
           }
         },
@@ -687,8 +687,8 @@
             "image": "{{ product.metafields.custom.how_use_step_2_img.value }}",
             "image_alt": "",
             "number": "",
-            "title": "Barrier-Supporting Ceramides ",
-            "description": "Help strengthen the skin’s natural barrier and maintain hydration.",
+            "title": "{{ product.metafields.custom.how_use_step_2_title.value }}",
+            "description": "{{ product.metafields.custom.how_use_step_2_desc.value }}",
             "link": ""
           }
         },
