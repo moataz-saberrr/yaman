@@ -40,19 +40,19 @@
               "name": "Custom Badges",
               "settings": {
                 "badges_per_row_mobile": "4",
-                "text_1": "{{ closest.product.metafields.custom.padge1_text.value }}",
+                "text_1": "Japanese Engineering",
                 "icon_svg_1": "",
                 "icon_image_1": "shopify://shop_images/icon_2_0c455788-9b79-48e7-994c-e14c71397fb4.svg",
                 "bg_color_1": "#f9f8f3",
-                "text_2": "{{ closest.product.metafields.custom.padge2_text.value }}",
+                "text_2": "Targeted Contour",
                 "icon_svg_2": "",
                 "icon_image_2": "shopify://shop_images/icon_3_2f9db22f-068f-4ea8-afa1-d502156fe0d3.svg",
                 "bg_color_2": "#f9f8f3",
-                "text_3": "{{ closest.product.metafields.custom.padge3_text.value }}",
+                "text_3": "Effortless Operation",
                 "icon_svg_3": "",
                 "icon_image_3": "shopify://shop_images/icon_4_d53aa914-354f-42f8-8735-653eedbbea70.svg",
                 "bg_color_3": "#f9f8f3",
-                "text_4": "{{ closest.product.metafields.custom.padge4_text.value }}",
+                "text_4": "Daily Integration",
                 "icon_svg_4": "",
                 "icon_image_4": "shopify://shop_images/icon_5.svg",
                 "bg_color_4": "#f9f8f3"
@@ -82,7 +82,7 @@
               "settings": {
                 "des": "2",
                 "show_border_bottom": true,
-                "short_des": "<p>{{ closest.product.metafields.custom.sub_heading.value }}</p>",
+                "short_des": "<p>Advanced Face & Body Sculpting System + Conductive Serum</p>",
                 "readm": false,
                 "length": 130,
                 "readm_txt": "Read more",
@@ -103,15 +103,15 @@
               "type": "product-check-list",
               "name": "Check List",
               "settings": {
-                "text_1": "{{ closest.product.metafields.custom.checklist_1_text.value }}",
-                "text_2": "{{ closest.product.metafields.custom.checklist_2_text.value }}",
-                "text_3": "{{ closest.product.metafields.custom.checklist_3_text.value }}",
-                "text_4": "{{ closest.product.metafields.custom.checklist_4_text.value }}",
-                "text_5": "{{ closest.product.metafields.custom.checklist_5_text.value }}",
-                "text_6": "{{ closest.product.metafields.custom.checklist_6_text.value }}",
-                "text_7": "{{ closest.product.metafields.custom.checklist_7_text.value }}",
-                "text_8": "{{ closest.product.metafields.custom.checklist_8_text.value }}",
-                "text_9": "{{ closest.product.metafields.custom.checklist_9_text.value }}"
+                "text_1": "Firms and tones the neck, upper chest, and décolletage area",
+                "text_2": "Blue-green LED light helps soothe the skin and reduce the appearance of redness and inflammation",
+                "text_3": "One versatile device designed for multiple areas of the face and body",
+                "text_4": "Supports healthy blood circulation with dual-heating technology",
+                "text_5": "Red LED light gently supports collagen production for firmer-looking skin",
+                "text_6": "Preheating the tissue allows EMS pulses to reach the muscles more effectively",
+                "text_7": "Tones the lower facial muscles and helps define the jawline",
+                "text_8": "Firms and tones the upper arms—one of the most challenging areas to target through exercise",
+                "text_9": ""
               },
               "blocks": {}
             },
@@ -207,8 +207,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "{{ closest.product.metafields.custom.accordion_1_title.value }}",
-                    "description": "{{ closest.product.metafields.custom.accordion_1_desc | metafield_tag }}"
+                    "title": "How To Use",
+                    "description": "<ol><li> Preparation: Begin by thoroughly cleansing your skin to remove any impurities, makeup, or oil barriers</li><li>02 Activation Primer: Apply a generous, uniform layer of your preferred conductive gel, lotion, or serum to pave the way for optimal EMS pulse transmission</li><li>Mode Selection: Turn on the device and select your targeted treatment pathway- choose FACE Mode for upper structural lifting or BODY Mode for localized contouring</li><li> Facial Sculpting Technique: When treating the face, always position the device head at the base of the neck and smoothly glide in upward, lifting motions toward the hairline </li><li>Body Contouring Technique: For body treatments, gently guide the electrode head in continuous, clockwise circular motions over your chosen target zones</li><li>Thermal Experience: A gradual, building warmth will emerge during the session; this is the intelligent heating system performing exactly as intended to soften tissue and boost current absorption</li></ol><p><strong>Recommended Session Cadence<br/></strong>Optimal Results Framework: For targeted structural improvement, utilize the device 1 to 3 times per week, dedicating a precise 10-minute session for your facial lifting routine</p>"
                   },
                   "blocks": {}
                 },
@@ -216,8 +216,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "{{ closest.product.metafields.custom.accordion_2_title.value }}",
-                    "description": "{{ closest.product.metafields.custom.accordion_2_desc | metafield_tag }}"
+                    "title": "Technical Specifications & Product Details",
+                    "description": "<ul><li><strong>Technology:</strong> Blue-Green LED, Red LED, Multi-Frequency EMS, and Dual-Heating Technology</li><li><strong>Face Mode:</strong> Low- and High-Frequency EMS</li><li><strong>Body Mode:</strong> Low-, Medium-, and High-Frequency EMS with Dual Heating</li><li><strong>Charging Time:</strong> Approximately 3.5 hours</li><li><strong>Operating Time:</strong> Approximately 30 minutes per full charge</li><li><strong>Routine Frequency:</strong> Formulated to be safe and effective for daily integration into your skincare regimen</li><li><strong>Recommended Use:</strong> Suitable for daily use</li><li><strong>Recommended Facial Serums:</strong> Serum White for brightening and Flawless Hydrating Serum for improved skin elasticity and hydration</li><li><strong>Country of Origin:</strong> Made in Japan</li><li><strong>Conductive Medium:</strong> A lotion or serum must be applied before use</li></ul>"
                   },
                   "blocks": {}
                 },
