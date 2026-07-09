@@ -1101,9 +1101,9 @@
               "type": "product-simple-featured",
               "name": "Simple Featured Product",
               "settings": {
-                "product": "medi-lift-plus",
+                "product": "{{ closest.product.metafields.custom.better_together_product.value }}",
                 "heading": "",
-                "button_text": "SHOP THE MASK",
+                "button_text": "{{ closest.product.metafields.custom.better_together_subheading.value }}",
                 "bg_color": "#ffffff",
                 "border_color": "#efeae0"
               },
