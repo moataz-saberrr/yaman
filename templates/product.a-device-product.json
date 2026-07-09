@@ -204,8 +204,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "What’s Inside the Box?",
-                    "description": "<ul><li>Medi Lift Mask</li><li>Extra extension strap</li><li>EMS control units</li><li>Dual USB charging cable</li><li>Power adapter</li><li>Hydrating skin serum</li></ul>"
+                    "title": "{{ closest.product.metafields.custom.accordion_1_title.value }}",
+                    "description": "{{ closest.product.metafields.custom.accordion_1_desc | metafield_tag }}"
                   },
                   "blocks": {}
                 },
@@ -213,8 +213,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "How to Use",
-                    "description": "<ul><li>Cleanse the skin</li><li>Apply the gel</li><li>Put on the mask</li><li>Choose the appropriate position</li><li>Use for 10 minutes</li><li>Clean after use</li></ul>"
+                    "title": "{{ closest.product.metafields.custom.accordion_2_title.value }}",
+                    "description": "{{ closest.product.metafields.custom.accordion_2_desc | metafield_tag }}"
                   },
                   "blocks": {}
                 },
@@ -222,8 +222,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "Specifications",
-                    "description": "<ul><li>Technology: EMS (Electrical Muscle Stimulation)</li><li>Training mode: Low frequency, 2.5–17 Hz</li><li>Release mode: High frequency, 20–100 Hz</li></ul>"
+                    "title": "{{ closest.product.metafields.custom.accordion_3_title.value }}",
+                    "description": "{{ closest.product.metafields.custom.accordion_3_desc | metafield_tag }}"
                   },
                   "blocks": {}
                 },
@@ -231,8 +231,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "Warnings",
-                    "description": "<p>Do not use the device if you are:</p><ul><li>Pregnant or have recently given birth</li><li>Using a pacemaker, have an irregular heartbeat, or another heart condition</li><li>Experiencing epilepsy or a tendency to bleed</li><li>Have metal implants or a silver crown in the treatment area</li><li>Under 22 years old</li></ul>"
+                    "title": "{{ closest.product.metafields.custom.accordion_4_title.value }}",
+                    "description": "{{ closest.product.metafields.custom.accordion_4_desc | metafield_tag }}"
                   },
                   "blocks": {}
                 }
