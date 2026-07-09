@@ -109,6 +109,7 @@
         {%- if section.blocks.size > 0 -%}
           <div class="hdt-yaman-mask-compare__body">
             {%- for block in section.blocks -%}
+              {%- if block.settings.feature_label != blank -%}
               <div class="hdt-yaman-mask-compare__row" role="row" {{ block.shopify_attributes }}>
                 <div class="hdt-yaman-mask-compare__cell hdt-yaman-mask-compare__cell--feature" role="cell">
                   {%- if block.settings.feature_label != blank -%}
@@ -154,6 +155,7 @@
                   {%- endif -%}
                 </div>
               </div>
+              {%  endif %}
             {%- endfor -%}
           </div>
         {%- else -%}
