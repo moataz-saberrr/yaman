@@ -458,7 +458,7 @@
         "item_1": {
           "type": "item",
           "settings": {
-            "text": "{{ product.metafields.custom.marquee_text_1.value }}",
+            "text": "1 Year Warranty",
             "icon_preset": "shield",
             "icon_text": "✦",
             "icon_alt": "",
@@ -469,7 +469,7 @@
         "item_2": {
           "type": "item",
           "settings": {
-            "text": "{{ product.metafields.custom.marquee_text_2.value }}",
+            "text": "60-Day Easy Return Policy",
             "icon_preset": "sparkle",
             "icon_text": "✦",
             "icon_alt": "",
@@ -480,7 +480,7 @@
         "item_3": {
           "type": "item",
           "settings": {
-            "text": "{{ product.metafields.custom.marquee_text_3.value }}",
+            "text": "Expert Approved Technology",
             "icon_preset": "star",
             "icon_text": "✦",
             "icon_alt": "",
@@ -491,7 +491,7 @@
         "item_4": {
           "type": "item",
           "settings": {
-            "text": "{{ product.metafields.custom.marquee_text_4.value }}",
+            "text": "Medical-Grade Silicone",
             "icon_preset": "lightning",
             "icon_text": "✦",
             "icon_alt": "",
@@ -502,7 +502,7 @@
         "item_5": {
           "type": "item",
           "settings": {
-            "text": "{{ product.metafields.custom.marquee_text_5.value }}",
+            "text": "Free Shipping",
             "icon_preset": "truck",
             "icon_text": "✦",
             "icon_alt": "",
