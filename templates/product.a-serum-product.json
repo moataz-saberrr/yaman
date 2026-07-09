@@ -522,151 +522,6 @@
         "custom_class": ""
       }
     },
-    "yaman_routines": {
-      "type": "yaman-real-routines-video-n",
-      "blocks": {
-        "routines-heading": {
-          "type": "heading",
-          "settings": {
-            "text": "<p>{{ product.metafields.custom.routines_title.value }}</p>",
-            "size": 48,
-            "size_mb": 30,
-            "weight": "700",
-            "color": "#070707",
-            "max_width": 760,
-            "uppercase": true
-          }
-        },
-        "routines-subtitle": {
-          "type": "subheading",
-          "settings": {
-            "text": "<p>{{ product.metafields.custom.routines_subtitle.value }}</p>",
-            "size": 18,
-            "size_mb": 14,
-            "weight": "400",
-            "color": "#7a7a7a",
-            "max_width": 620,
-            "uppercase": false
-          }
-        },
-        "video_1": {
-          "type": "video",
-          "settings": {
-            "video": "{{ product.metafields.custom.routines_video1_link.value }}",
-            "poster": "{{ product.metafields.custom.routines_video1_poster.value }}",
-            "alt": "",
-            "label": "{{ product.metafields.custom.routines_video1_lable.value }}",
-            "label_icon": "{{ product.metafields.custom.routines_video1_lable_img.value }}",
-            "label_icon_text": "",
-            "label_icon_alt": "",
-            "product": "{{ product.metafields.custom.routines_video1_lable_product.value }}",
-            "custom_link": ""
-          }
-        },
-        "video_ibCG6g": {
-          "type": "video",
-          "settings": {
-            "video": "{{ product.metafields.custom.routines_video2_link.value }}",
-            "poster": "{{ product.metafields.custom.routines_video2_poster.value }}",
-            "alt": "",
-            "label": "{{ product.metafields.custom.routines_video2_lable.value }}",
-            "label_icon": "{{ product.metafields.custom.routines_video2_lable_img.value }}",
-            "label_icon_text": "",
-            "label_icon_alt": "",
-            "product": "{{ product.metafields.custom.routines_video2_lable_product.value }}",
-            "custom_link": ""
-          }
-        },
-        "video_x4mxxR": {
-          "type": "video",
-          "settings": {
-            "video": "{{ product.metafields.custom.routines_video3_link.value }}",
-            "poster": "{{ product.metafields.custom.routines_video3_poster.value }}",
-            "alt": "",
-            "label": "{{ product.metafields.custom.routines_video3_lable.value }}",
-            "label_icon": "{{ product.metafields.custom.routines_video3_lable_img.value }}",
-            "label_icon_text": "",
-            "label_icon_alt": "",
-            "product": "{{ product.metafields.custom.routines_video3_lable_product.value }}",
-            "custom_link": ""
-          }
-        },
-        "video_pC6rXn": {
-          "type": "video",
-          "settings": {
-            "video": "{{ product.metafields.custom.routines_video4_link.value }}",
-            "poster": "{{ product.metafields.custom.routines_video4_poster.value }}",
-            "alt": "",
-            "label": "{{ product.metafields.custom.routines_video4_lable.value }}",
-            "label_icon": "{{ product.metafields.custom.routines_video4_lable_img.value }}",
-            "label_icon_text": "",
-            "label_icon_alt": "",
-            "product": "{{ product.metafields.custom.routines_video4_lable_product.value }}",
-            "custom_link": ""
-          }
-        },
-        "video_Q4bL6L": {
-          "type": "video",
-          "settings": {
-            "video": "{{ product.metafields.custom.routines_video5_link.value }}",
-            "poster": "{{ product.metafields.custom.routines_video5_poster.value }}",
-            "alt": "",
-            "label": "{{ product.metafields.custom.routines_video5_lable.value }}",
-            "label_icon": "{{ product.metafields.custom.routines_video5_lable_image.value }}",
-            "label_icon_text": "",
-            "label_icon_alt": "",
-            "product": "{{ product.metafields.custom.routines_video5_lable_product.value }}",
-            "custom_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "routines-heading",
-        "routines-subtitle",
-        "video_1",
-        "video_ibCG6g",
-        "video_x4mxxR",
-        "video_pC6rXn",
-        "video_Q4bL6L"
-      ],
-      "name": "YAMAN Routines",
-      "settings": {
-        "header_style": "centered",
-        "heading": "Watch Real Routines Tailored to Your Needs",
-        "subtitle": "{{ product.metafields.custom.routines_subtitle.value }}",
-        "rating_icon_text": "★",
-        "rating_value": "4.7 / 5",
-        "rating_text": "Based on 1,200+ Verified User Experiences",
-        "proof_icon_text": "📷",
-        "proof_heading": "Real results",
-        "proof_text": "documented by 143+ verified customers",
-        "background_color": "#f8f7f0",
-        "container_max_width": 1310,
-        "container_padding": 20,
-        "cols_dk": "5",
-        "cols_tb": "3.3",
-        "cols_mb": "2.3",
-        "media_ratio": "9 / 16",
-        "card_radius": 16,
-        "gap": 14,
-        "gap_tb": 14,
-        "gap_mb": 12,
-        "card_bg": "#ffffff",
-        "scrim_color": "#000000",
-        "scrim_opacity": 40,
-        "label_text_color": "#414141",
-        "enable_arrows": false,
-        "hide_arrows_mobile": true,
-        "enable_dots": false,
-        "hide_dots_mobile": true,
-        "loop": false,
-        "video_loop": true,
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "padding_top_mb": 36,
-        "padding_bottom_mb": 36
-      }
-    },
     "yaman_howuse": {
       "type": "yaman-how-to-use-grid-n",
       "blocks": {
@@ -919,7 +774,10 @@
                 "text_3": "Provides continuous hydration from the beginning to the end of the session",
                 "text_4": "Helps the device glide smoothly over the skin without interruptions",
                 "text_5": "",
-                "text_6": ""
+                "text_6": "",
+                "text_7": "",
+                "text_8": "",
+                "text_9": ""
               },
               "blocks": {}
             }
@@ -1313,7 +1171,6 @@
     "sidebar",
     "yaman_marquee",
     "product_hero_banner_n_NhX4eU",
-    "yaman_routines",
     "yaman_howuse",
     "custom_section_4f6xVa",
     "custom_section_nTGYfK",
