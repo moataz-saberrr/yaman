@@ -552,8 +552,8 @@
         "video_1": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "video": "{{ product.metafields.custom.routines_video1_link.value }}",
+            "poster": "{{ product.metafields.custom.routines_video1_poster.value }}",
             "alt": "",
             "label": "Jawline Definition",
             "label_icon_text": "",
@@ -565,8 +565,8 @@
         "video_ibCG6g": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "video": "{{ product.metafields.custom.routines_video2_link.value }}",
+            "poster": "{{ product.metafields.custom.routines_video2_poster.value }}",
             "alt": "",
             "label": "Jawline Definition",
             "label_icon_text": "",
@@ -578,52 +578,42 @@
         "video_x4mxxR": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "video": "{{ product.metafields.custom.routines_video3_link.value }}",
+            "poster": "{{ product.metafields.custom.routines_video3_poster.value }}",
             "alt": "",
-            "label": "Jawline Definition",
+            "label": "{{ product.metafields.custom.routines_video3_lable.value }}",
+            "label_icon": "{{ product.metafields.custom.routines_video3_lable_img.value }}",
             "label_icon_text": "",
             "label_icon_alt": "",
-            "product": "",
+            "product": "{{ product.metafields.custom.routines_video3_lable_product.value }}",
             "custom_link": ""
           }
         },
         "video_pC6rXn": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "video": "{{ product.metafields.custom.routines_video4_link.value }}",
+            "poster": "{{ product.metafields.custom.routines_video4_poster.value }}",
             "alt": "",
-            "label": "Jawline Definition",
+            "label": "{{ product.metafields.custom.routines_video4_lable.value }}",
+            "label_icon": "{{ product.metafields.custom.routines_video4_lable_img.value }}",
             "label_icon_text": "",
             "label_icon_alt": "",
-            "product": "",
+            "product": "{{ product.metafields.custom.routines_video4_lable_product.value }}",
             "custom_link": ""
           }
         },
         "video_Q4bL6L": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "video": "{{ product.metafields.custom.routines_video5_link.value }}",
+            "poster": "{{ product.metafields.custom.routines_video5_poster.value }}",
             "alt": "",
-            "label": "Jawline Definition",
+            "label": "{{ product.metafields.custom.routines_video5_lable.value }}",
+            "label_icon": "{{ product.metafields.custom.routines_video5_lable_image.value }}",
             "label_icon_text": "",
             "label_icon_alt": "",
-            "product": "",
-            "custom_link": ""
-          }
-        },
-        "video_F9bzY6": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
-            "alt": "",
-            "label": "Jawline Definition",
-            "label_icon_text": "",
-            "label_icon_alt": "",
-            "product": "",
+            "product": "{{ product.metafields.custom.routines_video5_lable_product.value }}",
             "custom_link": ""
           }
         }
@@ -635,8 +625,7 @@
         "video_ibCG6g",
         "video_x4mxxR",
         "video_pC6rXn",
-        "video_Q4bL6L",
-        "video_F9bzY6"
+        "video_Q4bL6L"
       ],
       "name": "YAMAN Routines",
       "settings": {
