@@ -738,29 +738,71 @@
     "yaman_howuse": {
       "type": "yaman-how-to-use-n",
       "blocks": {
-        "step_1": {
+        "step_GJEddC": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_1_img.value }}",
             "image_alt": "",
             "number": "01",
-            "title": "{{ product.metafields.custom.how_use_step_1_title.value }}",
-            "description": "{{ product.metafields.custom.how_use_step_1_desc.value }}",
+            "title": "STEP TITLE",
+            "description": "",
             "link": ""
           }
-        },
-        "step_2": {
+        }
+      },
+      "block_order": [
+        "step_GJEddC"
+      ],
+      "settings": {
+        "heading": "Step-by-Step Application Guide",
+        "subtitle": "Before beginning your treatment, ensure your skin is clean and apply your conductive serum or gel evenly over the target zones to facilitate seamless pulse delivery",
+        "header_max_width": 760,
+        "background_color": "#ffffff",
+        "show_glow": true,
+        "glow_color": "#d4b87a",
+        "container_max_width": 1040,
+        "columns": 4,
+        "gap": 32,
+        "gap_mb": 16,
+        "card_bg": "#f8f7f0",
+        "card_radius": 16,
+        "image_ratio": "223 / 200",
+        "accent_color": "#c9a844",
+        "title_color": "#1d2847",
+        "enable_carousel_mobile": true,
+        "full_bleed_mobile": true,
+        "mobile_card_width": 78,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
+      }
+    },
+    "yaman_how_to_use_n_xgtVGz": {
+      "type": "yaman-how-to-use-n",
+      "blocks": {
+        "step_4NbYTR": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_2_img.value }}",
+            "image": "shopify://shop_images/010.webp",
             "image_alt": "",
-            "number": "02",
-            "title": "{{ product.metafields.custom.how_use_step_2_title.value }}",
-            "description": "{{ product.metafields.custom.how_use_step_2_desc.value }}",
+            "number": "01",
+            "title": "The Neck",
+            "description": "Hold for 10 seconds to tone and release structural strain",
             "link": ""
           }
         },
-        "step_3": {
+        "step_exgqm6": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/020.webp",
+            "image_alt": "",
+            "number": "02",
+            "title": "The Lower Jawline",
+            "description": "Hold directly below the face line for 10 seconds to sculpt the lower profile",
+            "link": ""
+          }
+        },
+        "step_awfgCP": {
           "type": "step",
           "settings": {
             "image": "{{ product.metafields.custom.how_use_step_3_img.value }}",
@@ -771,7 +813,7 @@
             "link": ""
           }
         },
-        "step_4": {
+        "step_THmbjG": {
           "type": "step",
           "settings": {
             "image": "{{ product.metafields.custom.how_use_step_4_img.value }}",
@@ -782,7 +824,7 @@
             "link": ""
           }
         },
-        "step_BF9NLh": {
+        "step_gKNPmx": {
           "type": "step",
           "settings": {
             "image": "{{ product.metafields.custom.how_use_step_5_img.value }}",
@@ -795,15 +837,15 @@
         }
       },
       "block_order": [
-        "step_1",
-        "step_2",
-        "step_3",
-        "step_4",
-        "step_BF9NLh"
+        "step_4NbYTR",
+        "step_exgqm6",
+        "step_awfgCP",
+        "step_THmbjG",
+        "step_gKNPmx"
       ],
       "settings": {
-        "heading": "{{ product.metafields.custom.how_use_title.value }}",
-        "subtitle": "{{ product.metafields.custom.how_use_sub_title.value }}",
+        "heading": "FACE MODE PROTOCOL",
+        "subtitle": "For maximum lifting efficiency, gently press and hold the treatment head static against each localized point for the designated time",
         "header_max_width": 760,
         "background_color": "#ffffff",
         "show_glow": true,
@@ -1244,6 +1286,7 @@
     "yaman_special",
     "yaman_mode_banner",
     "yaman_howuse",
+    "yaman_how_to_use_n_xgtVGz",
     "yaman_mask_compare",
     "yaman_routines",
     "tabs",
