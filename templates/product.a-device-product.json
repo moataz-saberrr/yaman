@@ -763,13 +763,25 @@
             "description": "Enjoy a hands-free, 10-minute daily routine.",
             "link": ""
           }
+        },
+        "step_BF9NLh": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/29b408b200a12caa2fb4f30841e0da47b9507aa3.png",
+            "image_alt": "",
+            "number": "05",
+            "title": "WEAR FOR 10 MINUTES",
+            "description": "Enjoy a hands-free, 10-minute daily routine.",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "step_1",
         "step_2",
         "step_3",
-        "step_4"
+        "step_4",
+        "step_BF9NLh"
       ],
       "settings": {
         "heading": "How to Use",
