@@ -935,6 +935,122 @@
         "padding_bottom_mb": 40
       }
     },
+    "yaman_real_routines_video_n_kjeVxH": {
+      "type": "yaman-real-routines-video-n",
+      "blocks": {
+        "video_xbBAeQ": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/【YA-MAN Official】Liftlogy SP.mp4",
+            "alt": "",
+            "label": "Liftlogy SP",
+            "label_icon": "shopify://shop_images/image02Arb0.webp",
+            "label_icon_text": "",
+            "label_icon_alt": "",
+            "product": "liftology-sp-premium-lifting-device",
+            "custom_link": ""
+          }
+        },
+        "video_HYKEdE": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/【YA-MAN Official】How to Use Liftlogy.mp4",
+            "poster": "shopify://shop_images/image01En0.webp",
+            "alt": "",
+            "label": "Liftlogy SP",
+            "label_icon": "shopify://shop_images/image02Arb0.webp",
+            "label_icon_text": "",
+            "label_icon_alt": "",
+            "product": "liftology-sp-premium-lifting-device",
+            "custom_link": ""
+          }
+        },
+        "video_Faafpg": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/【YA-MAN Official】Liftlogy SP.mp4",
+            "alt": "",
+            "label": "Liftlogy SP",
+            "label_icon": "shopify://shop_images/image02Arb0.webp",
+            "label_icon_text": "",
+            "label_icon_alt": "",
+            "product": "liftology-sp-premium-lifting-device",
+            "custom_link": ""
+          }
+        },
+        "video_X7PPAz": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/【YA-MAN Official】How to Use Liftlogy.mp4",
+            "poster": "shopify://shop_images/image01En0.webp",
+            "alt": "",
+            "label": "Liftlogy SP",
+            "label_icon": "shopify://shop_images/image02Arb0.webp",
+            "label_icon_text": "",
+            "label_icon_alt": "",
+            "product": "liftology-sp-premium-lifting-device",
+            "custom_link": ""
+          }
+        },
+        "video_nX8f7x": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/【YA-MAN Official】Liftlogy SP.mp4",
+            "alt": "",
+            "label": "Liftlogy SP",
+            "label_icon": "shopify://shop_images/image02Arb0.webp",
+            "label_icon_text": "",
+            "label_icon_alt": "",
+            "product": "liftology-sp-premium-lifting-device",
+            "custom_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_xbBAeQ",
+        "video_HYKEdE",
+        "video_Faafpg",
+        "video_X7PPAz",
+        "video_nX8f7x"
+      ],
+      "name": "YAMAN Routines",
+      "settings": {
+        "header_style": "split",
+        "heading": "Watch Real Routines Tailored to Your Needs",
+        "subtitle": "Real users, authentic daily rituals.",
+        "rating_icon_text": "★",
+        "rating_value": "4.7 / 5",
+        "rating_text": "Based on 1,200+ Verified User Experiences",
+        "proof_icon_text": "📷",
+        "proof_heading": "Real results",
+        "proof_text": "documented by 143+ verified customers",
+        "background_color": "#FFFFFF",
+        "container_max_width": 1310,
+        "container_padding": 20,
+        "cols_dk": "5",
+        "cols_tb": "3.3",
+        "cols_mb": "2.3",
+        "media_ratio": "9 / 16",
+        "card_radius": 16,
+        "gap": 14,
+        "gap_tb": 14,
+        "gap_mb": 12,
+        "card_bg": "#FFFFFF",
+        "scrim_color": "#000000",
+        "scrim_opacity": 40,
+        "label_text_color": "#414141",
+        "enable_arrows": false,
+        "hide_arrows_mobile": true,
+        "enable_dots": false,
+        "hide_dots_mobile": true,
+        "loop": false,
+        "video_loop": true,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mb": 36,
+        "padding_bottom_mb": 36
+      }
+    },
     "tabs": {
       "type": "main-product-tabs",
       "disabled": true,
@@ -1135,6 +1251,7 @@
     "yaman_howuse",
     "yaman_how_to_use_n_xgtVGz",
     "yaman_how_to_use_n_DBJJRL",
+    "yaman_real_routines_video_n_kjeVxH",
     "tabs",
     "sidebar",
     "custom_section_PhqThL",
