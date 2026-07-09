@@ -884,7 +884,7 @@
       "settings": {
         "heading": "Less Effort, a More Practical Routine",
         "subtitle": "Compare targeted EMS technology with traditional manual use and see the difference for yourself.",
-        "bg_image": "shopify://shop_images/9909fe3684d54238b03f3b9fb1f074df384291e4_5861dc8b-2d81-4cfe-ba1a-9fec65469c08.jpg",
+        "bg_image": "{{ product.metafields.custom.compare_bg_img.value }}",
         "background_color": "#ffffff",
         "overlay_color": "#ffffff",
         "overlay_opacity": 86,
