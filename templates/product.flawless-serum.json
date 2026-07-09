@@ -750,7 +750,7 @@
               "type": "text",
               "name": "t:blocks.text.name",
               "settings": {
-                "text": "<p>This serum acts as a smart layer between the device and your skin, making each session smoother and more comfortable:</p>",
+                "text": "<p>It's not just another moisturizer, it tackles something most people overlook: how do you nourish the skin with vitamins and active ingredients while keeping it firm and elastic at the same time?</p>",
                 "hidden_br_mobile": false,
                 "hidden_on_mobile": false,
                 "ffamily": "",
@@ -781,10 +781,10 @@
               "type": "product-check-list",
               "name": "Check List",
               "settings": {
-                "text_1": "Helps transmit EMS pulses evenly during use",
-                "text_2": "Reduces friction and dryness during longer sessions",
-                "text_3": "Provides continuous hydration from the beginning to the end of the session",
-                "text_4": "Helps the device glide smoothly over the skin without interruptions",
+                "text_1": "This serum contains retinyl palmitate, which cares for the skin and protects it from damage caused by dryness, delivering a steady supply of vitamin A to the skin's outer layer to maintain healthy, balanced skin.",
+                "text_2": "It also features two specialized firming ingredients: Rosa Hybrid Flower Extract, derived from edible roses, and Acetyl Hexapeptide-8, a widely recognized ingredient for mature skin care working together to give skin a more elastic, youthful appearance.",
+                "text_3": "",
+                "text_4": "",
                 "text_5": "",
                 "text_6": "",
                 "text_7": "",
@@ -830,7 +830,7 @@
               "type": "image",
               "name": "t:blocks.image.name",
               "settings": {
-                "img": "shopify://shop_images/60ea199ac5c1552a14524e09fc1e7001b327e7ab.png",
+                "img": "shopify://shop_images/ChatGPT_Image_Jul_9_2026_04_20_44_PM0.webp",
                 "image_ratio": "adapt_image",
                 "img_effect": "none",
                 "b_effect": "none",
