@@ -108,7 +108,10 @@
                 "text_3": "{{ closest.product.metafields.custom.checklist_3_text.value }}",
                 "text_4": "{{ closest.product.metafields.custom.checklist_4_text.value }}",
                 "text_5": "{{ closest.product.metafields.custom.checklist_5_text.value }}",
-                "text_6": "{{ closest.product.metafields.custom.checklist_6_text.value }}"
+                "text_6": "{{ closest.product.metafields.custom.checklist_6_text.value }}",
+                "text_7": "{{ closest.product.metafields.custom.checklist_7_text.value }}",
+                "text_8": "{{ closest.product.metafields.custom.checklist_8_text.value }}",
+                "text_9": "{{ closest.product.metafields.custom.checklist_9_text.value }}"
               },
               "blocks": {}
             },
