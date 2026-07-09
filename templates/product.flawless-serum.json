@@ -82,7 +82,7 @@
               "settings": {
                 "des": "2",
                 "show_border_bottom": false,
-                "short_des": "<p>A moisturizing serum specially designed for MEDI LIFT EMS devices.</p>",
+                "short_des": "<p>A serum specially formulated for YA-MAN devices with RF and EMS technology. </p>",
                 "readm": false,
                 "length": 130,
                 "readm_txt": "Read more",
@@ -172,8 +172,8 @@
               "name": "Product Upsell Cards",
               "settings": {
                 "heading": "Recommended to use the serum with:",
-                "product_1": "medi-lift-plus",
-                "product_2": "جهاز-العناية-بالبشرة-photo-plus-prestige-sp"
+                "product_1": "liftology-sp-premium-lifting-device",
+                "product_2": "the-complete-facial-set-copy"
               },
               "blocks": {}
             },
@@ -191,7 +191,7 @@
                   "settings": {
                     "icon": "none",
                     "title": "How to Use",
-                    "description": "<ul><li>Before turning on the device, apply a suitable amount of serum to the treatment areas.</li><li>Make sure the skin is covered with a visible, continuous layer.</li><li>Begin your session using the device directly on the skin.</li><li>If the serum is absorbed during use, apply more immediately.</li></ul><p><strong>Maintaining the layer throughout the session = optimal device performance</strong></p>"
+                    "description": "<p>Apply an appropriate amount of serum to clean skin before using the device, spreading it evenly over the treatment area. Reapply as needed during the session, following the device instructions.<br/></p>"
                   },
                   "blocks": {}
                 },
@@ -200,7 +200,7 @@
                   "settings": {
                     "icon": "none",
                     "title": "Warnings",
-                    "description": "<ul><li>Do not use the device on dry skin.</li><li>Using too little serum can reduce pulse effectiveness.</li><li>For external use only.</li><li>Avoid contact with the eyes.</li><li>Stop use if irritation occurs.</li><li>Keep away from heat and sunlight, and out of reach of children.</li></ul>"
+                    "description": "<p>For external use only. Avoid contact with the eyes. Discontinue use if irritation or sensitivity occurs. Store in a cool, dry place away from direct sunlight and out of reach of children.</p>"
                   },
                   "blocks": {}
                 }
@@ -928,7 +928,10 @@
                 "text_3": "Provides continuous hydration from the beginning to the end of the session",
                 "text_4": "Helps the device glide smoothly over the skin without interruptions",
                 "text_5": "",
-                "text_6": ""
+                "text_6": "",
+                "text_7": "",
+                "text_8": "",
+                "text_9": ""
               },
               "blocks": {}
             }
