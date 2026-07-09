@@ -528,7 +528,7 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/61e4d11a940a6602c721a79067d17b23701e20d8.png",
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_9_2026_05_19_57_PM0.webp",
             "image_alt": "",
             "number": "",
             "title": "Botanical Extracts ",
@@ -539,7 +539,7 @@
         "step_2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/b24921152763ea3429fb69319373cbdf0365ce01.png",
+            "image": "shopify://shop_images/almond0_e2bc4978-f211-41be-a942-1b1e36651053.webp",
             "image_alt": "",
             "number": "",
             "title": "Barrier-Supporting Ceramides ",
@@ -550,7 +550,7 @@
         "step_3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/aae1c77c58d7f89ab9234768ea5348da760d143e.png",
+            "image": "shopify://shop_images/Macd0_94f6af38-3e41-445b-bd03-b9f2335b4da9.webp",
             "image_alt": "",
             "number": "",
             "title": "Hydrating Collagen",
@@ -561,7 +561,18 @@
         "step_4": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/d6da15a7d0d90a8704683f31af559fcf6fe71b80.png",
+            "image": "shopify://shop_images/joj0_5136dcb3-6c15-4948-ac7c-64739e9608b3.webp",
+            "image_alt": "",
+            "number": "",
+            "title": "Hyaluronic Acid ",
+            "description": "Deeply hydrates the skin and helps lock in moisture.",
+            "link": ""
+          }
+        },
+        "step_x3qY3p": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/flower0_02276bb2-988f-4be5-843f-83e74268640b.webp",
             "image_alt": "",
             "number": "",
             "title": "Hyaluronic Acid ",
@@ -574,7 +585,8 @@
         "step_1",
         "step_2",
         "step_3",
-        "step_4"
+        "step_4",
+        "step_x3qY3p"
       ],
       "settings": {
         "heading": "Five Plant-Based Oils for Long-Lasting Moisture",
@@ -588,7 +600,7 @@
         "glow_color": "#d4b87a",
         "container_max_width": 1310,
         "grid_max_width": 928,
-        "columns": 4,
+        "columns": 5,
         "mobile_columns": 2,
         "gap": 12,
         "gap_mb": 12,
