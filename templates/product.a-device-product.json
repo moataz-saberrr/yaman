@@ -633,8 +633,8 @@
         "card_5"
       ],
       "settings": {
-        "heading": "What Makes It Special?",
-        "subtitle": "Two targeted modes to train the cheek muscles and relax the jaw area, using EMS technology in a 10-minute session.",
+        "heading": "{{ product.metafields.custom.special_title.value }}",
+        "subtitle": "{{ product.metafields.custom.special_sub_title.value }}",
         "header_max_width": 900,
         "background_color": "#ffffff",
         "container_max_width": 1290,
