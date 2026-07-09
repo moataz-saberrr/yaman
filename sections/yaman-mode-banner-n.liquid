@@ -75,11 +75,11 @@
                 assign card_style = card_style | append: '--mb-ov: ' | append: cov | append: ';'
               endif
             -%}
+             {%- if img != blank -%}
             <div
               class="hdt-slider__slide hdt-yaman-mode-banner__slide"
               style="{{ card_style }} --mb-pos: {{ pos }}; --mb-align-mb: {{ align_mb }};"
-              {{ block.shopify_attributes }}
-            >
+              {{ block.shopify_attributes }} >
               <div class="hdt-yaman-mode-banner__media">
                 {%- if img != blank -%}
                   <picture>
@@ -108,6 +108,7 @@
                 </div>
               </div>
             </div>
+          {% endif %}
           {%- endfor -%}
         </div>
       </div>
