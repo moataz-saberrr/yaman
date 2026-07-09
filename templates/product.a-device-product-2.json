@@ -449,7 +449,7 @@
       ],
       "name": "YAMAN Proof",
       "settings": {
-        "heading": "{{ product.metafields.custom.proof_heading.value }}",
+        "heading": " Who Is It For?",
         "subtitle": "{{ product.metafields.custom.proof_subheading.value }}",
         "background_color": "#f7f6f1",
         "container_max_width": 1200,
