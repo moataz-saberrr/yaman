@@ -157,6 +157,7 @@
               assign val = block.settings.value | strip
               assign sign = val | slice: 0
             -%}
+            {%- if val != blank -%}
             <div class="hdt-yaman-proof__stat" style="--yp-stat-accent: {{ accent }};" {{ block.shopify_attributes }}>
               {%- if val != blank -%}
                 <p class="hdt-yaman-proof__value">
@@ -171,6 +172,8 @@
                 <p class="hdt-yaman-proof__stat-text">{{ block.settings.text }}</p>
               {%- endif -%}
             </div>
+            {%- endif -%}
+
           {%- endfor -%}
         </div>
       {%- elsif request.design_mode -%}
