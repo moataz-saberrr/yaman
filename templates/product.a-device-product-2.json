@@ -805,33 +805,44 @@
         "step_awfgCP": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_3_img.value }}",
+            "image": "shopify://shop_images/030.webp",
             "image_alt": "",
             "number": "03",
-            "title": "{{ product.metafields.custom.how_use_step_3_title.value }}",
-            "description": "{{ product.metafields.custom.how_use_step_3_desc.value }}",
+            "title": "The Cheeks (Primary Lift)",
+            "description": "Hold for 20 seconds along the muscle pathway connecting the corner of the mouth to the ear",
             "link": ""
           }
         },
         "step_THmbjG": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_4_img.value }}",
+            "image": "shopify://shop_images/040.webp",
             "image_alt": "",
             "number": "04",
-            "title": "{{ product.metafields.custom.how_use_step_4_title.value }}",
-            "description": "{{ product.metafields.custom.how_use_step_4_desc.value }}",
+            "title": "The Temples",
+            "description": "Hold for 5 seconds to lift and smooth the brow region",
             "link": ""
           }
         },
         "step_gKNPmx": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_5_img.value }}",
+            "image": "shopify://shop_images/050.webp",
             "image_alt": "",
             "number": "05",
-            "title": "{{ product.metafields.custom.how_use_step_5_title.value }}",
-            "description": "{{ product.metafields.custom.how_use_step_5_desc.value }}",
+            "title": "The Forehead Edge",
+            "description": "Hold for 5 seconds along the upper hairline",
+            "link": ""
+          }
+        },
+        "step_k9XhfL": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/060.webp",
+            "image_alt": "",
+            "number": "06",
+            "title": "The Cheek Sweep (Secondary Sculpt)",
+            "description": "Finish your facial routine by gently sweeping the device upward across the cheeks for 10 seconds",
             "link": ""
           }
         }
@@ -841,7 +852,8 @@
         "step_exgqm6",
         "step_awfgCP",
         "step_THmbjG",
-        "step_gKNPmx"
+        "step_gKNPmx",
+        "step_k9XhfL"
       ],
       "settings": {
         "heading": "FACE MODE PROTOCOL",
