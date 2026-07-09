@@ -918,89 +918,77 @@
         "video_1": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "video": "shopify://files/videos/Hydra Bright Skin device tutorial from YA-MAN Arabia طريقة استخدام جهاز الهايدرا برايت سكين من يامان.mp4",
             "alt": "",
-            "label": "Jawline Definition",
+            "label": "Hydra Bright Skin device tutorial from YA-MAN Arabia",
+            "label_icon": "shopify://shop_images/40.webp",
             "label_icon_text": "",
             "label_icon_alt": "",
-            "product": "",
+            "product": "yaman-hydra-bright-skin-device",
+            "custom_link": ""
+          }
+        },
+        "video_dGgyY8": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/HYDRA BRIGHT SKIN.mp4",
+            "poster": "shopify://shop_images/40.webp",
+            "alt": "",
+            "label": "HYDRA BRIGHT SKIN",
+            "label_icon": "shopify://shop_images/40.webp",
+            "label_icon_text": "",
+            "label_icon_alt": "",
+            "product": "yaman-hydra-bright-skin-device",
+            "custom_link": ""
+          }
+        },
+        "video_hF9wNH": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Hydra Bright Skin device tutorial from YA-MAN Arabia طريقة استخدام جهاز الهايدرا برايت سكين من يامان.mp4",
+            "alt": "",
+            "label": "Hydra Bright Skin device tutorial from YA-MAN Arabia",
+            "label_icon": "shopify://shop_images/40.webp",
+            "label_icon_text": "",
+            "label_icon_alt": "",
+            "product": "yaman-hydra-bright-skin-device",
             "custom_link": ""
           }
         },
         "video_ibCG6g": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "video": "shopify://files/videos/HYDRA BRIGHT SKIN.mp4",
+            "poster": "shopify://shop_images/40.webp",
             "alt": "",
-            "label": "Jawline Definition",
+            "label": "HYDRA BRIGHT SKIN",
+            "label_icon": "shopify://shop_images/40.webp",
             "label_icon_text": "",
             "label_icon_alt": "",
-            "product": "",
+            "product": "yaman-hydra-bright-skin-device",
             "custom_link": ""
           }
         },
-        "video_x4mxxR": {
+        "video_YcidWA": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
+            "video": "shopify://files/videos/Hydra Bright Skin device tutorial from YA-MAN Arabia طريقة استخدام جهاز الهايدرا برايت سكين من يامان.mp4",
             "alt": "",
-            "label": "Jawline Definition",
+            "label": "Hydra Bright Skin device tutorial from YA-MAN Arabia",
+            "label_icon": "shopify://shop_images/40.webp",
             "label_icon_text": "",
             "label_icon_alt": "",
-            "product": "",
-            "custom_link": ""
-          }
-        },
-        "video_pC6rXn": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
-            "alt": "",
-            "label": "Jawline Definition",
-            "label_icon_text": "",
-            "label_icon_alt": "",
-            "product": "",
-            "custom_link": ""
-          }
-        },
-        "video_Q4bL6L": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
-            "alt": "",
-            "label": "Jawline Definition",
-            "label_icon_text": "",
-            "label_icon_alt": "",
-            "product": "",
-            "custom_link": ""
-          }
-        },
-        "video_F9bzY6": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
-            "poster": "shopify://shop_images/e5daf7f41dd015dcdf2f8c4261a7937bc0d32af7.png",
-            "alt": "",
-            "label": "Jawline Definition",
-            "label_icon_text": "",
-            "label_icon_alt": "",
-            "product": "",
+            "product": "yaman-hydra-bright-skin-device",
             "custom_link": ""
           }
         }
       },
       "block_order": [
         "video_1",
+        "video_dGgyY8",
+        "video_hF9wNH",
         "video_ibCG6g",
-        "video_x4mxxR",
-        "video_pC6rXn",
-        "video_Q4bL6L",
-        "video_F9bzY6"
+        "video_YcidWA"
       ],
       "name": "YAMAN Routines",
       "settings": {
