@@ -814,9 +814,9 @@
         "row_1": {
           "type": "row",
           "settings": {
-            "feature_label": "Coverage Areas",
-            "main_text": "Cheeks and jaw area",
-            "other_text": "General lower-face coverage",
+            "feature_label": "{{ product.metafields.custom.compare_row1_col1_label.value }}",
+            "main_text": "{{ product.metafields.custom.compare_row1_col2_label.value }}",
+            "other_text": "{{ product.metafields.custom.compare_row1_col3_label.value }}",
             "main_icon": "check",
             "other_icon": "x"
           }
@@ -824,9 +824,9 @@
         "row_2": {
           "type": "row",
           "settings": {
-            "feature_label": "Targeted Modes",
-            "main_text": "EMS Training Mode + EMS Relaxation Mode",
-            "other_text": "One basic function",
+            "feature_label": "{{ product.metafields.custom.compare_row2_col1_label.value }}",
+            "main_text": "{{ product.metafields.custom.compare_row2_col2_label.value }}",
+            "other_text": "{{ product.metafields.custom.compare_row2_col3_label.value }}",
             "main_icon": "check",
             "other_icon": "x"
           }
@@ -834,9 +834,9 @@
         "row_3": {
           "type": "row",
           "settings": {
-            "feature_label": "Independent Side Control",
-            "main_text": "Adjustable settings for each side",
-            "other_text": "Same setting for both sides",
+            "feature_label": "{{ product.metafields.custom.compare_row3_col1_label.value }}",
+            "main_text": "{{ product.metafields.custom.compare_row3_col2_label.value }}",
+            "other_text": "{{ product.metafields.custom.compare_row3_col3_label.value }}",
             "main_icon": "check",
             "other_icon": "x"
           }
@@ -844,9 +844,9 @@
         "row_4": {
           "type": "row",
           "settings": {
-            "feature_label": "User Experience",
-            "main_text": "Hands-free use",
-            "other_text": "Less flexible fit",
+            "feature_label": "{{ product.metafields.custom.compare_row4_col1_label.value }}",
+            "main_text": "{{ product.metafields.custom.compare_row4_col2_label.value }}",
+            "other_text": "{{ product.metafields.custom.compare_row4_col3_label.value }}",
             "main_icon": "check",
             "other_icon": "x"
           }
@@ -854,9 +854,9 @@
         "row_5": {
           "type": "row",
           "settings": {
-            "feature_label": "Daily Routine",
-            "main_text": "10-minute routine",
-            "other_text": "Longer, less convenient routine",
+            "feature_label": "{{ product.metafields.custom.compare_row5_col1_label.value }}",
+            "main_text": "{{ product.metafields.custom.compare_row5_col2_label.value }}",
+            "other_text": "{{ product.metafields.custom.compare_row5_col3_label.value }}",
             "main_icon": "check",
             "other_icon": "x"
           }
@@ -864,9 +864,9 @@
         "row_6": {
           "type": "row",
           "settings": {
-            "feature_label": "Fit",
-            "main_text": "Flexible design for the lower face",
-            "other_text": "One-size-fits-all",
+            "feature_label": "{{ product.metafields.custom.compare_row6_col1_label.value }}",
+            "main_text": "{{ product.metafields.custom.compare_row6_col2_label.value }}",
+            "other_text": "{{ product.metafields.custom.compare_row6_col3_label.value }}",
             "main_icon": "check",
             "other_icon": "x"
           }
@@ -882,7 +882,7 @@
       ],
       "name": "YAMAN Mask Compare",
       "settings": {
-        "heading": "{{ product.metafields.custom.compare_title.value }}",
+        "heading": "{{ product.metafields.custom.compare_title.value }}بي",
         "subtitle": "{{ product.metafields.custom.compare_subtitle.value }}",
         "bg_image": "{{ product.metafields.custom.compare_bg_img.value }}",
         "background_color": "#ffffff",
