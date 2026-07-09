@@ -740,7 +740,7 @@
             "image": "{{ product.metafields.custom.how_use_step_2_img.value }}",
             "image_alt": "",
             "number": "02",
-            "title": "{{ product.metafields.custom.how_use_step_1_title.value }}",
+            "title": "{{ product.metafields.custom.how_use_step_2_title.value }}",
             "description": "{{ product.metafields.custom.how_use_step_2_desc.value }}",
             "link": ""
           }
