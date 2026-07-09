@@ -357,7 +357,7 @@
         "image_dC7nGR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
+            "image": "{{ product.metafields.custom.proof_image_1.value }}",
             "alt": "",
             "label_left": "",
             "label_right": "",
@@ -367,7 +367,7 @@
         "image_kakTai": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
+            "image": "{{ product.metafields.custom.proof_image_2.value }}",
             "alt": "",
             "label_left": "",
             "label_right": "",
@@ -429,7 +429,7 @@
       "name": "YAMAN Proof",
       "settings": {
         "heading": "{{ product.metafields.custom.proof_heading.value }}",
-        "subtitle": "Gradual improvement in the appearance of the skin with consistent use.",
+        "subtitle": "{{ product.metafields.custom.proof_subheading.value }}",
         "background_color": "#f7f6f1",
         "container_max_width": 1200,
         "heading_max_width": 720,
