@@ -377,7 +377,7 @@
         "image_8HEEaf": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
+            "image": "{{ product.metafields.custom.proof_image_3.value }}",
             "alt": "",
             "label_left": "",
             "label_right": "",
