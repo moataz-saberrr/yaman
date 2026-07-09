@@ -13,6 +13,7 @@
   assign cols_tb = section.settings.cols_tb | default: '3.3'
   assign cols_mb = section.settings.cols_mb | default: '2.3'
 -%}
+{%- if section.settings.subtitle != blank -%}
 <div
   class="hdt-yaman-routines"
   style="
@@ -258,7 +259,7 @@
     </hdt-slider>
   </div>
 </div>
-
+{% endif %}
 {%- comment -%} custom-productan.css is loaded globally (with preload) from layout/theme.liquid.
    <hdt-slider> is a theme-wide custom element (defined in the theme's global JS) — nothing to load
    for the carousel here. Only the small, section-scoped video play/pause script is loaded. {%- endcomment -%}
