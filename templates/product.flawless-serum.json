@@ -438,7 +438,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/1_2.webp",
-            "image_mobile": "shopify://shop_images/53b47c306c56ff46dda948c697cacaf50760116c.png",
+            "image_mobile": "shopify://shop_images/mob.webp",
             "image_alt": "",
             "focal_desktop": "center",
             "focal_mobile": "center bottom",
