@@ -969,7 +969,7 @@
               "type": "image",
               "name": "t:blocks.image.name",
               "settings": {
-                "img": "shopify://shop_images/60ea199ac5c1552a14524e09fc1e7001b327e7ab.png",
+                "img": "{{ closest.product.metafields.custom.results_img.value }}",
                 "image_ratio": "adapt_image",
                 "img_effect": "none",
                 "b_effect": "none",
