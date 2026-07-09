@@ -674,7 +674,7 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "image": "{{ product.metafields.custom.mode_banner_slide_1_desk_image.value }}",
+            "image": "shopify://shop_images/Bannar_En_010.webp",
             "image_mobile": "{{ product.metafields.custom.mode_banner_slide_1_mob_image.value }}",
             "image_alt": "",
             "eyebrow": "",
