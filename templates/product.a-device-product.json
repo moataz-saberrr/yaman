@@ -1042,33 +1042,6 @@
     },
     "tabs": {
       "type": "main-product-tabs",
-      "blocks": {
-        "tab_des_tKqkJj": {
-          "type": "tab_des",
-          "settings": {
-            "title": "Description"
-          }
-        },
-        "tab_add_HXf3yk": {
-          "type": "tab_add",
-          "settings": {
-            "title": "Additional Information"
-          }
-        },
-        "tab_html_7dKb7L": {
-          "type": "tab_html",
-          "settings": {
-            "title": "Custom tab",
-            "content": "",
-            "page": "wash-care"
-          }
-        }
-      },
-      "block_order": [
-        "tab_des_tKqkJj",
-        "tab_add_HXf3yk",
-        "tab_html_7dKb7L"
-      ],
       "disabled": true,
       "settings": {
         "tabs_design": "tab",
