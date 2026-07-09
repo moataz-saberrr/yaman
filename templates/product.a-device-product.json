@@ -1005,8 +1005,8 @@
       "name": "YAMAN Routines",
       "settings": {
         "header_style": "split",
-        "heading": "Watch Real Routines Tailored to Your Needs",
-        "subtitle": "Real users, authentic daily rituals.",
+        "heading": "{{ product.metafields.custom.routines_title.value }}",
+        "subtitle": "{{ product.metafields.custom.routines_subtitle.value }}",
         "rating_icon_text": "★",
         "rating_value": "4.7 / 5",
         "rating_text": "Based on 1,200+ Verified User Experiences",
