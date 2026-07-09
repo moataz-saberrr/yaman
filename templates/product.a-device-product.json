@@ -882,7 +882,7 @@
       ],
       "name": "YAMAN Mask Compare",
       "settings": {
-        "heading": "{{ product.metafields.custom.compare_title.value }}بي",
+        "heading": "{{ product.metafields.custom.compare_title.value }}",
         "subtitle": "{{ product.metafields.custom.compare_subtitle.value }}",
         "bg_image": "{{ product.metafields.custom.compare_bg_img.value }}",
         "background_color": "#ffffff",
