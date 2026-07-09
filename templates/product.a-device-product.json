@@ -428,7 +428,7 @@
       ],
       "name": "YAMAN Proof",
       "settings": {
-        "heading": "Noticeable results within weeks of use",
+        "heading": "{{ product.metafields.custom.proof_heading.value }}",
         "subtitle": "Gradual improvement in the appearance of the skin with consistent use.",
         "background_color": "#f7f6f1",
         "container_max_width": 1200,
