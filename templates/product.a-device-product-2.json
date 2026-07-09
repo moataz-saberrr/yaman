@@ -570,7 +570,7 @@
             "size": "tall",
             "number": "01",
             "show_line": true,
-            "title": "{{ product.metafields.custom.special_card_1_title.value }}",
+            "title": "A dual-use device designed for both face and body.",
             "description": "{{ product.metafields.custom.special_card_1_desc.value }}",
             "text_color": "",
             "accent_color": "",
@@ -581,12 +581,12 @@
         "card_2": {
           "type": "card",
           "settings": {
-            "image": "{{ product.metafields.custom.special_card_2_img.value }}",
+            "image": "shopify://shop_images/multi-frequency_EMS_with_advanced_dual-zone_heating0.webp",
             "image_alt": "",
             "size": "normal",
             "number": "02",
             "show_line": true,
-            "title": "{{ product.metafields.custom.special_card_2_title.value }}",
+            "title": "Features multi-frequency EMS with dual heating technology.",
             "description": "{{ product.metafields.custom.special_card_2_desc.value }}",
             "text_color": "",
             "accent_color": "",
@@ -597,12 +597,12 @@
         "card_3": {
           "type": "card",
           "settings": {
-            "image": "{{ product.metafields.custom.special_card_3_img.value }}",
+            "image": "shopify://shop_images/EMS_Technology_for_Lifting_and_Firming0.webp",
             "image_alt": "",
             "size": "normal",
             "number": "03",
             "show_line": true,
-            "title": "{{ product.metafields.custom.special_card_3_title.value }}",
+            "title": "Enhances electrical pulse penetration for the cheeks, jawline, neck, arms, and chest.",
             "description": "{{ product.metafields.custom.special_card_3_desc.value }}",
             "text_color": "",
             "accent_color": "",
