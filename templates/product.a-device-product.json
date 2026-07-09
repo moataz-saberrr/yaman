@@ -595,13 +595,13 @@
         "card_4": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/7252f0a1715c3e8cf05cffec9f4d3b24ab62f527.png",
+            "image": "{{ product.metafields.custom.special_card_4_img.value }}",
             "image_alt": "",
             "size": "wide",
             "number": "04",
             "show_line": true,
-            "title": "HANDS-FREE DESIGN",
-            "description": "Wear it, start your session, and carry on with your day.",
+            "title": "{{ product.metafields.custom.special_card_4_title.value }}",
+            "description": "{{ product.metafields.custom.special_card_4_desc.value }}",
             "text_color": "#000000",
             "accent_color": "#c9a844",
             "scrim": "light",
@@ -611,13 +611,13 @@
         "card_5": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/aa54b4a272076b731b538f6b8f8f9ac39bae3c8b.png",
+            "image": "{{ product.metafields.custom.special_card_5_img.value }}",
             "image_alt": "",
             "size": "wide",
             "number": "05",
             "show_line": true,
-            "title": "MINUTE ROUTINE-10",
-            "description": "Easy to fit into your routine for consistent use.",
+            "title": "{{ product.metafields.custom.special_card_5_title.value }}",
+            "description": "{{ product.metafields.custom.special_card_5_desc.value }}",
             "text_color": "#000000",
             "accent_color": "#c9a844",
             "scrim": "light",
