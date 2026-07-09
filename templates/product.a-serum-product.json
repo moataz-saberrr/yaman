@@ -698,8 +698,8 @@
             "image": "{{ product.metafields.custom.how_use_step_3_img.value }}",
             "image_alt": "",
             "number": "",
-            "title": "Hydrating Collagen",
-            "description": "Supports skin elasticity and gives it a smoother, more radiant look.",
+            "title": "{{ product.metafields.custom.how_use_step_3_title.value }}",
+            "description": "{{ product.metafields.custom.how_use_step_3_desc.value }}",
             "link": ""
           }
         },
@@ -709,8 +709,8 @@
             "image": "{{ product.metafields.custom.how_use_step_4_img.value }}",
             "image_alt": "",
             "number": "",
-            "title": "{{ product.metafields.custom.how_use_step_4_desc.value }}",
-            "description": "",
+            "title": "{{ product.metafields.custom.how_use_step_4_title.value }}",
+            "description": "{{ product.metafields.custom.how_use_step_4_desc.value }}",
             "link": ""
           }
         }
