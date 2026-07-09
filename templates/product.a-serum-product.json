@@ -528,7 +528,7 @@
         "routines-heading": {
           "type": "heading",
           "settings": {
-            "text": "<p>What Makes This Product the Best?</p>",
+            "text": "<p>{{ product.metafields.custom.routines_title.value }}</p>",
             "size": 48,
             "size_mb": 30,
             "weight": "700",
@@ -540,7 +540,7 @@
         "routines-subtitle": {
           "type": "subheading",
           "settings": {
-            "text": "<p>The serum is designed for anyone using Medi Lift EMS devices. <br/>Real reviews from real people.</p>",
+            "text": "<p>{{ product.metafields.custom.routines_subtitle.value }}</p>",
             "size": 18,
             "size_mb": 14,
             "weight": "400",
@@ -642,7 +642,7 @@
       "settings": {
         "header_style": "centered",
         "heading": "Watch Real Routines Tailored to Your Needs",
-        "subtitle": "Real users, authentic daily rituals. See how the Medi Lift Plus advanced EMS technology lifts, sculpts, and refines muscle tone over time",
+        "subtitle": "",
         "rating_icon_text": "★",
         "rating_value": "4.7 / 5",
         "rating_text": "Based on 1,200+ Verified User Experiences",
