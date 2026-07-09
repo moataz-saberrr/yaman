@@ -722,9 +722,9 @@
         "step_4"
       ],
       "settings": {
-        "heading": "Active Ingredients for Skin Hydration and Protection",
+        "heading": "{{ product.metafields.custom.how_use_title.value }}",
         "heading_uppercase": true,
-        "subtitle": "A complete formula of carefully selected ingredients to support skin hydration, strengthen its natural barrier, and help maintain its health and softness.",
+        "subtitle": "",
         "header_max_width": 1000,
         "layout": "grid",
         "custom_class": "",
