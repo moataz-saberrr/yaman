@@ -189,6 +189,9 @@
 .hdt-yaman-howuse__track:has(.hdt-yaman-howuse__card:nth-child(5)) h3.hdt-yaman-howuse__title {
     font-size: 15px;
 }
+.hdt-yaman-howuse__track:has(.hdt-yaman-howuse__card:nth-child(6)) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
 
 /* ---- Responsive: mobile = stats first, image carousel below -------------- */
 @media (max-width: 991px) {
