@@ -82,7 +82,7 @@
               "settings": {
                 "des": "2",
                 "show_border_bottom": false,
-                "short_des": "<p>A moisturizing serum specially designed for MEDI LIFT EMS devices.</p>",
+                "short_des": "<p>{{ closest.product.metafields.custom.sub_heading.value }}</p>",
                 "readm": false,
                 "length": 130,
                 "readm_txt": "Read more",
@@ -173,7 +173,7 @@
               "settings": {
                 "heading": "Recommended to use the serum with:",
                 "product_1": "medi-lift-plus",
-                "product_2": "جهاز-العناية-بالبشرة-photo-plus-prestige-sp"
+                "product_2": ""
               },
               "blocks": {}
             },
