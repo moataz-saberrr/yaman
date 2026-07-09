@@ -183,6 +183,12 @@
   font-size: 13px;
   line-height: 1.4;
 }
+.hdt-yaman-howuse__track:has(.hdt-yaman-howuse__card:nth-child(5)) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.hdt-yaman-howuse__track:has(.hdt-yaman-howuse__card:nth-child(5)) h3.hdt-yaman-howuse__title {
+    font-size: 15px;
+}
 
 /* ---- Responsive: mobile = stats first, image carousel below -------------- */
 @media (max-width: 991px) {
