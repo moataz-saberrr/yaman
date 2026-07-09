@@ -651,8 +651,8 @@
         "card_5"
       ],
       "settings": {
-        "heading": "{{ product.metafields.custom.special_title.value }}",
-        "subtitle": "{{ product.metafields.custom.special_sub_title.value }}",
+        "heading": "What Makes It Different?",
+        "subtitle": "",
         "header_max_width": 900,
         "background_color": "#ffffff",
         "container_max_width": 1290,
