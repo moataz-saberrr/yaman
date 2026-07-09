@@ -360,27 +360,27 @@
         "image_dC7nGR": {
           "type": "image",
           "settings": {
-            "image": "{{ product.metafields.custom.proof_image_1.value }}",
+            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
             "alt": "",
             "label_left": "",
             "label_right": "",
             "caption": ""
           }
         },
-        "image_kakTai": {
+        "image_g77aNn": {
           "type": "image",
           "settings": {
-            "image": "{{ product.metafields.custom.proof_image_2.value }}",
+            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
             "alt": "",
             "label_left": "",
             "label_right": "",
             "caption": ""
           }
         },
-        "image_8HEEaf": {
+        "image_dyMq8t": {
           "type": "image",
           "settings": {
-            "image": "{{ product.metafields.custom.proof_image_3.value }}",
+            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
             "alt": "",
             "label_left": "",
             "label_right": "",
@@ -390,44 +390,62 @@
         "stat_Ex8JXW": {
           "type": "stat",
           "settings": {
-            "value": "{{ product.metafields.custom.proof_stat_1_vlaue.value }}",
-            "text": "{{ product.metafields.custom.proof_stat_1_desc.value }}",
+            "value": "Targeted Body Rejuvenation",
+            "text": " Ideal for addressing skin laxity and sagging across the delicate chest, collarbone, and neck areas",
             "accent_color": ""
           }
         },
         "stat_7RenzD": {
           "type": "stat",
           "settings": {
-            "value": "{{ product.metafields.custom.proof_stat_2_vlaue.value }}",
-            "text": "{{ product.metafields.custom.proof_stat_2_desc.value }}",
+            "value": "Comprehensive, All-in-One Sculpting",
+            "text": " Perfect for anyone looking to lift, tone, and contour their face, upper arms, chest, and décolleté using a single, sophisticated device",
             "accent_color": ""
           }
         },
         "stat_Jejtkn": {
           "type": "stat",
           "settings": {
-            "value": "{{ product.metafields.custom.proof_stat_3_vlaue.value }}",
-            "text": "{{ product.metafields.custom.proof_stat_3_desc.value }}",
+            "value": "Streamlined Beauty Rituals",
+            "text": "Designed for those who want to seamlessly blend their facial lifting and body contouring routines into a single, cohesive session",
             "accent_color": ""
           }
         },
         "stat_xzEDEG": {
           "type": "stat",
           "settings": {
-            "value": "{{ product.metafields.custom.proof_stat_4_vlaue.value }}",
-            "text": "{{ product.metafields.custom.proof_stat_4_desc.value }}",
+            "value": "Precision Fitness for Skin",
+            "text": " Engineered specifically to engage, tone, and challenge stubborn body zones that are notoriously hard to target with standard exercise alone",
+            "accent_color": ""
+          }
+        },
+        "stat_bwmnnf": {
+          "type": "stat",
+          "settings": {
+            "value": "Advanced Thermal Comfort",
+            "text": "The ultimate choice for individuals who prefer a deeply comforting, heated EMS experience over traditional, cold electrical pulses",
+            "accent_color": ""
+          }
+        },
+        "stat_LTnJQm": {
+          "type": "stat",
+          "settings": {
+            "value": "The Ultimate Bridal Prep",
+            "text": "An essential, fast-acting treatment device for brides-to-be wanting to achieve a radiant, sculpted glow before their wedding day",
             "accent_color": ""
           }
         }
       },
       "block_order": [
         "image_dC7nGR",
-        "image_kakTai",
-        "image_8HEEaf",
+        "image_g77aNn",
+        "image_dyMq8t",
         "stat_Ex8JXW",
         "stat_7RenzD",
         "stat_Jejtkn",
-        "stat_xzEDEG"
+        "stat_xzEDEG",
+        "stat_bwmnnf",
+        "stat_LTnJQm"
       ],
       "name": "YAMAN Proof",
       "settings": {
