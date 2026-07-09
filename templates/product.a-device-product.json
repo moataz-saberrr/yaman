@@ -723,55 +723,55 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/9ddcd3d1fdeec2307dc025fbceed7fe6e3cc87f7.png",
+            "image": "{{ product.metafields.custom.how_use_step_1_img.value }}",
             "image_alt": "",
             "number": "01",
-            "title": "APPLY GEL OR SERUM",
-            "description": "Prepare the lower face with a suitable gel or compatible serum before use.",
+            "title": "{{ product.metafields.custom.how_use_step_1_title.value }}",
+            "description": "{{ product.metafields.custom.how_use_step_1_desc.value }}",
             "link": ""
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/87eed1c998b60f0c568b9ab837e5fb6f7d607d5f.png",
+            "image": "{{ product.metafields.custom.how_use_step_2_img.value }}",
             "image_alt": "",
             "number": "02",
-            "title": "SECURE THE MASK PROPERLY",
-            "description": "Fit the mask comfortably and securely over the cheeks and jaw area.",
+            "title": "{{ product.metafields.custom.how_use_step_1_title.value }}",
+            "description": "{{ product.metafields.custom.how_use_step_2_desc.value }}",
             "link": ""
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/8ee7ed1d320fee1c1af8b46b1bc1f524e4b17b30.png",
+            "image": "{{ product.metafields.custom.how_use_step_3_img.value }}",
             "image_alt": "",
             "number": "03",
-            "title": "ADJUST EACH SIDE",
-            "description": "Set the intensity for the left and right sides independently to suit your needs.",
+            "title": "{{ product.metafields.custom.how_use_step_3_title.value }}",
+            "description": "{{ product.metafields.custom.how_use_step_3_desc.value }}",
             "link": ""
           }
         },
         "step_4": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/29b408b200a12caa2fb4f30841e0da47b9507aa3.png",
+            "image": "{{ product.metafields.custom.how_use_step_4_img.value }}",
             "image_alt": "",
             "number": "04",
-            "title": "WEAR FOR 10 MINUTES",
-            "description": "Enjoy a hands-free, 10-minute daily routine.",
+            "title": "{{ product.metafields.custom.how_use_step_4_title.value }}",
+            "description": "{{ product.metafields.custom.how_use_step_4_desc.value }}",
             "link": ""
           }
         },
         "step_BF9NLh": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/29b408b200a12caa2fb4f30841e0da47b9507aa3.png",
+            "image": "{{ product.metafields.custom.how_use_step_5_img.value }}",
             "image_alt": "",
             "number": "05",
-            "title": "WEAR FOR 10 MINUTES",
-            "description": "Enjoy a hands-free, 10-minute daily routine.",
+            "title": "{{ product.metafields.custom.how_use_step_5_title.value }}",
+            "description": "{{ product.metafields.custom.how_use_step_5_desc.value }}",
             "link": ""
           }
         }
@@ -784,8 +784,8 @@
         "step_BF9NLh"
       ],
       "settings": {
-        "heading": "How to Use",
-        "subtitle": "Four simple steps designed to fit seamlessly into your routine.",
+        "heading": "{{ product.metafields.custom.how_use_title.value }}",
+        "subtitle": "{{ product.metafields.custom.how_use_sub_title.value }}",
         "header_max_width": 760,
         "background_color": "#ffffff",
         "show_glow": true,
