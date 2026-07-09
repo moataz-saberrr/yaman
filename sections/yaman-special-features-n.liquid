@@ -58,11 +58,11 @@
               assign card_style = card_style | append: '--sp-card-ov: ' | append: ov | append: ';'
             endif
           -%}
+           {%- if img != blank -%}
           <div
             class="hdt-yaman-special__card hdt-yaman-special__card--{{ size }} hdt-yaman-special__card--scrim-{{ scrim }}"
             style="{{ card_style }}"
-            {{ block.shopify_attributes }}
-          >
+            {{ block.shopify_attributes }}>
             {%- if img != blank -%}
               {%- if img_mb != blank -%}
                 <picture>
@@ -102,6 +102,7 @@
               {%- endif -%}
             </div>
           </div>
+        {% endif %}
         {%- endfor -%}
       </div>
     {%- elsif request.design_mode -%}
