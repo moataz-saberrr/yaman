@@ -632,6 +632,9 @@
         "card_4",
         "card_5"
       ],
+      "custom_css": [
+        ".hdt-yaman-special-section .hdt-yaman-special__title {margin: 0; font-size: 20px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.2px; line-height: 1.1; max-width: 60%;}"
+      ],
       "settings": {
         "heading": "{{ product.metafields.custom.special_title.value }}",
         "subtitle": "{{ product.metafields.custom.special_sub_title.value }}",
