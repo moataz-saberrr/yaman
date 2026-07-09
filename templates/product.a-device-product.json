@@ -387,32 +387,32 @@
         "stat_Ex8JXW": {
           "type": "stat",
           "settings": {
-            "value": "+36%",
-            "text": "More defined jawline",
+            "value": "{{ product.metafields.custom.proof_stat_1_vlaue.value }}",
+            "text": "{{ product.metafields.custom.proof_stat_1_desc.value }}",
             "accent_color": ""
           }
         },
         "stat_7RenzD": {
           "type": "stat",
           "settings": {
-            "value": "+42%",
-            "text": "Improved skin firmness",
+            "value": "{{ product.metafields.custom.proof_stat_2_vlaue.value }}",
+            "text": "{{ product.metafields.custom.proof_stat_2_desc.value }}",
             "accent_color": ""
           }
         },
         "stat_Jejtkn": {
           "type": "stat",
           "settings": {
-            "value": "+42%",
-            "text": "More lifted-looking appearance",
+            "value": "{{ product.metafields.custom.proof_stat_3_vlaue.value }}",
+            "text": "{{ product.metafields.custom.proof_stat_3_desc.value }}",
             "accent_color": ""
           }
         },
         "stat_xzEDEG": {
           "type": "stat",
           "settings": {
-            "value": "-31%",
-            "text": "Less tense-looking appearance",
+            "value": "{{ product.metafields.custom.proof_stat_4_vlaue.value }}",
+            "text": "{{ product.metafields.custom.proof_stat_4_desc.value }}",
             "accent_color": ""
           }
         }
