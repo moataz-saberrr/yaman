@@ -126,9 +126,9 @@
               "type": "_product-tabby-installment",
               "name": "Tabby Installment",
               "settings": {
-                "text_before_price": "Split it into 4 installments of",
+                "text_before_price": "قسمها على 4 دفعات بقيمة",
                 "tamara_image": "shopify://shop_images/Tamara_Row.svg",
-                "text_between_images": "or",
+                "text_between_images": "أو",
                 "tabby_image": "shopify://shop_images/tabby.svg"
               },
               "blocks": {}
@@ -171,10 +171,10 @@
               "type": "_product-icon-texts",
               "name": "Icon Texts Row",
               "settings": {
-                "text_1": "Shipping within 1-2 business days",
+                "text_1": "يتم الشحن خلال 1-2 يوم عمل",
                 "icon_svg_1": "",
                 "icon_image_1": "shopify://shop_images/icon.svg",
-                "text_2": "Free shipping on all orders.",
+                "text_2": "شحن مجاني لجميع الطلبات",
                 "icon_svg_2": "",
                 "icon_image_2": "shopify://shop_images/icon_1.svg",
                 "text_3": "",
