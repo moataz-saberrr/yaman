@@ -686,13 +686,85 @@
             "use_overlay_override": false,
             "overlay_opacity": 55
           }
+        },
+        "slide_jWAQdH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Plus_Prestige_Bannar_without_text_0.webp",
+            "image_alt": "",
+            "eyebrow": "وضع الإشراقة والإدخال",
+            "heading": "RF أحمر + LED + DWHP + DYHP",
+            "text": "<p>دفعة مخصصة تساعد على إدخال المكونات الفعّالة بعمق داخل البشرة، مثل فيتامين C، حمض الترانيكساميك، النياسيناميد، وحتى كولاجين البيبتايد.</p><p><strong>RF + DWHP + DYHP + LED</strong></p>",
+            "content_position": "flex-start",
+            "text_align_mobile": "center",
+            "text_color": "#FFFFFF",
+            "accent_color": "",
+            "overlay_color": "",
+            "use_overlay_override": false,
+            "overlay_opacity": 55
+          }
+        },
+        "slide_VXA7G7": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Plus_Prestige_Bannar_without_text_0.webp",
+            "image_alt": "",
+            "eyebrow": "وضع شدّ العضلات",
+            "heading": "EMS دوّار + LED أحمر",
+            "text": "<p>نبضات كهربائية تحاكي حركة التمرين اليدوي، لتساعد على تنشيط عضلات الوجه وتحديد الملامح.<br/> ويعمل الـ LED الأحمر على دعم مظهر الكولاجين في نفس الوقت.</p><p><strong>EMS + Red LED</strong></p>",
+            "content_position": "flex-start",
+            "text_align_mobile": "center",
+            "text_color": "#FFFFFF",
+            "accent_color": "",
+            "overlay_color": "",
+            "use_overlay_override": false,
+            "overlay_opacity": 55
+          }
+        },
+        "slide_6EY9R8": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Plus_Prestige_Bannar_without_text_0.webp",
+            "image_alt": "",
+            "eyebrow": "وضع العناية بالعين",
+            "heading": "Eye Lift RF + تيار مايكرو + EMS",
+            "text": "<p>عناية لطيفة للمنطقة الحساسة حول العين، تساعد على تقليل مظهر الانتفاخ والإرهاق، مع نبضات دقيقة مخصصة لمنطقة لا تتحمل قوة الأوضاع العادية.</p><p><strong>Eye Lift RF + Microcurrent + EMS</strong></p>",
+            "content_position": "flex-start",
+            "text_align_mobile": "center",
+            "text_color": "#FFFFFF",
+            "accent_color": "",
+            "overlay_color": "",
+            "use_overlay_override": false,
+            "overlay_opacity": 55
+          }
+        },
+        "slide_qEYVUV": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Plus_Prestige_Bannar_without_text_0.webp",
+            "image_alt": "",
+            "eyebrow": "وضع التبريد",
+            "heading": "تبريد + LED أزرق",
+            "text": "<p>يمنح البشرة إحساسًا بالانتعاش والتهدئة، ويساعد على تقليل مظهر الاحمرار المؤقت.<br/> الـ LED الأزرق مناسب لتهدئة البشرة بعد الاستخدام اليومي.</p><p><strong>Cool + Blue LED</strong></p>",
+            "content_position": "flex-start",
+            "text_align_mobile": "center",
+            "text_color": "#FFFFFF",
+            "accent_color": "",
+            "overlay_color": "",
+            "use_overlay_override": false,
+            "overlay_opacity": 55
+          }
         }
       },
       "block_order": [
-        "slide_1"
+        "slide_1",
+        "slide_jWAQdH",
+        "slide_VXA7G7",
+        "slide_6EY9R8",
+        "slide_qEYVUV"
       ],
       "custom_css": [
-        ":where(h1,h2,h3,h4,h5,h6) {color: rgb(255 255 255);}"
+        ":where(h1, h2, h3, h4, h5, h6) {color: rgb(255 255 255);}"
       ],
       "settings": {
         "background_color": "#0e1626",
