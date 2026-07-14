@@ -40,19 +40,19 @@
               "name": "Custom Badges",
               "settings": {
                 "badges_per_row_mobile": "4",
-                "text_1": "Japanese Engineering",
+                "text_1": "تقنية يابانية",
                 "icon_svg_1": "",
                 "icon_image_1": "shopify://shop_images/icon_2_0c455788-9b79-48e7-994c-e14c71397fb4.svg",
                 "bg_color_1": "#f9f8f3",
-                "text_2": "Targeted Contour",
+                "text_2": "شد وتقوية الرقبة ومنطقة الترقوة",
                 "icon_svg_2": "",
                 "icon_image_2": "shopify://shop_images/icon_3_2f9db22f-068f-4ea8-afa1-d502156fe0d3.svg",
                 "bg_color_2": "#f9f8f3",
-                "text_3": "Effortless Operation",
+                "text_3": "سهل الاستخدام",
                 "icon_svg_3": "",
                 "icon_image_3": "shopify://shop_images/icon_4_d53aa914-354f-42f8-8735-653eedbbea70.svg",
                 "bg_color_3": "#f9f8f3",
-                "text_4": "Daily Integration",
+                "text_4": "مناسب للاستخدام اليومي",
                 "icon_svg_4": "",
                 "icon_image_4": "shopify://shop_images/icon_5.svg",
                 "bg_color_4": "#f9f8f3"
@@ -82,7 +82,7 @@
               "settings": {
                 "des": "2",
                 "show_border_bottom": true,
-                "short_des": "<p>Advanced Face & Body Sculpting System + Conductive Serum</p>",
+                "short_des": "<p>Yaman Photo PLUS Prestige SP 5-in-1 intensive lifting and brightening device<br/></p>",
                 "readm": false,
                 "length": 130,
                 "readm_txt": "Read more",
@@ -207,8 +207,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "How To Use",
-                    "description": "<ol><li> Preparation: Begin by thoroughly cleansing your skin to remove any impurities, makeup, or oil barriers</li><li>02 Activation Primer: Apply a generous, uniform layer of your preferred conductive gel, lotion, or serum to pave the way for optimal EMS pulse transmission</li><li>Mode Selection: Turn on the device and select your targeted treatment pathway- choose FACE Mode for upper structural lifting or BODY Mode for localized contouring</li><li> Facial Sculpting Technique: When treating the face, always position the device head at the base of the neck and smoothly glide in upward, lifting motions toward the hairline </li><li>Body Contouring Technique: For body treatments, gently guide the electrode head in continuous, clockwise circular motions over your chosen target zones</li><li>Thermal Experience: A gradual, building warmth will emerge during the session; this is the intelligent heating system performing exactly as intended to soften tissue and boost current absorption</li></ol><p><strong>Recommended Session Cadence<br/></strong>Optimal Results Framework: For targeted structural improvement, utilize the device 1 to 3 times per week, dedicating a precise 10-minute session for your facial lifting routine</p>"
+                    "title": "طريقة الاستخدام",
+                    "description": "<ol><li>نظّفي البشرة وجففيها جيدًا قبل الاستخدام. </li><li>اختاري الوضع المناسب حسب احتياج بشرتك. </li><li>استخدمي الجهاز بلطف على مناطق الوجه وفق تعليمات دليل الاستخدام.</li><li>يمكن استخدام منتجات العناية المناسبة مع الجهاز لتحسين تجربة الترطيب والامتصاص. </li><li>بعد الانتهاء من الجلسة، استخدمي وضع التبريد لتهدئة البشرة وإنهاء الروتين بإحساس منعش.  </li></ol>"
                   },
                   "blocks": {}
                 },
@@ -216,8 +216,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "Technical Specifications & Product Details",
-                    "description": "<ul><li><strong>Technology:</strong> Blue-Green LED, Red LED, Multi-Frequency EMS, and Dual-Heating Technology</li><li><strong>Face Mode:</strong> Low- and High-Frequency EMS</li><li><strong>Body Mode:</strong> Low-, Medium-, and High-Frequency EMS with Dual Heating</li><li><strong>Charging Time:</strong> Approximately 3.5 hours</li><li><strong>Operating Time:</strong> Approximately 30 minutes per full charge</li><li><strong>Routine Frequency:</strong> Formulated to be safe and effective for daily integration into your skincare regimen</li><li><strong>Recommended Use:</strong> Suitable for daily use</li><li><strong>Recommended Facial Serums:</strong> Serum White for brightening and Flawless Hydrating Serum for improved skin elasticity and hydration</li><li><strong>Country of Origin:</strong> Made in Japan</li><li><strong>Conductive Medium:</strong> A lotion or serum must be applied before use</li></ul>"
+                    "title": "المواصفات",
+                    "description": "<ul><li><strong>التقنية:</strong> RF 3MHz · EMS · إضاءة LED باللون الأحمر/البرتقالي/الأزرق · التنظيف الأيوني · DWHP · DYHP · التبريد · NEB · التيار الميكروي · Eye Lift RF</li><li><strong>الأوضاع:</strong> CLEAN · NEB · EMS UP · EYE CARE · COOL</li><li><strong>وقت الشحن:</strong> USB — مدة الشحن حوالي 3 ساعات</li><li><strong>وقت التشغيل:</strong> حوالي 30 دقيقة لكل شحنة</li><li><strong>الأبعاد:</strong> العرض 52 × العمق 62 × الارتفاع 203 مم — مع ملحق تثبيت القطن</li><li><strong>الوزن:</strong> 293 جم — مع ملحق تثبيت القطن</li><li><strong>مقاومة الماء:</strong> IPX4 — مقاوم لرذاذ الماء، غير مناسب للاستخدام أثناء الاستحمام أو داخل حوض الاستحمام</li><li><strong>بلد الصنع:</strong> اليابان</li></ul>"
                   },
                   "blocks": {}
                 },
@@ -1024,7 +1024,7 @@
         "proof_icon_text": "📷",
         "proof_heading": "Real results",
         "proof_text": "documented by 143+ verified customers",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "container_max_width": 1310,
         "container_padding": 20,
         "cols_dk": "5",
@@ -1035,7 +1035,7 @@
         "gap": 14,
         "gap_tb": 14,
         "gap_mb": 12,
-        "card_bg": "#FFFFFF",
+        "card_bg": "#ffffff",
         "scrim_color": "#000000",
         "scrim_opacity": 40,
         "label_text_color": "#414141",
