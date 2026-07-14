@@ -602,7 +602,7 @@
             "show_line": true,
             "title": "تهدئة البشرة بالتبريد بعد الاستخدام",
             "description": "",
-            "text_color": "#000000",
+            "text_color": "#FFFFFF",
             "accent_color": "#c9a844",
             "scrim": "light",
             "overlay_opacity": 40
@@ -618,7 +618,7 @@
             "show_line": true,
             "title": "دعم مرونة البشرة",
             "description": "",
-            "text_color": "#000000",
+            "text_color": "#FFFFFF",
             "accent_color": "#c9a844",
             "scrim": "light",
             "overlay_opacity": 40
@@ -634,7 +634,7 @@
             "show_line": true,
             "title": "روتين عناية متكامل في جهاز واحد",
             "description": "",
-            "text_color": "#000000",
+            "text_color": "#FFFBFB",
             "accent_color": "#c9a844",
             "scrim": "light",
             "overlay_opacity": 40
