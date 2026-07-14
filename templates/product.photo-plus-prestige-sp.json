@@ -789,114 +789,61 @@
         "padding_bottom_mb": 0
       }
     },
-    "yaman_howuse": {
-      "type": "yaman-how-to-use-n",
-      "blocks": {
-        "step_GJEddC": {
-          "type": "step",
-          "settings": {
-            "image_alt": "",
-            "number": "01",
-            "title": "STEP TITLE",
-            "description": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "step_GJEddC"
-      ],
-      "settings": {
-        "heading": "Step-by-Step Application Guide",
-        "subtitle": "Before beginning your treatment, ensure your skin is clean and apply your conductive serum or gel evenly over the target zones to facilitate seamless pulse delivery",
-        "header_max_width": 760,
-        "background_color": "#ffffff",
-        "show_glow": true,
-        "glow_color": "#d4b87a",
-        "container_max_width": 1040,
-        "columns": 4,
-        "gap": 32,
-        "gap_mb": 16,
-        "card_bg": "#f8f7f0",
-        "card_radius": 16,
-        "image_ratio": "223 / 200",
-        "accent_color": "#c9a844",
-        "title_color": "#1d2847",
-        "enable_carousel_mobile": true,
-        "full_bleed_mobile": true,
-        "mobile_card_width": 78,
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "padding_top_mb": 40,
-        "padding_bottom_mb": 40
-      }
-    },
     "yaman_how_to_use_n_xgtVGz": {
       "type": "yaman-how-to-use-n",
       "blocks": {
         "step_4NbYTR": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/010.webp",
+            "image": "shopify://shop_images/010_e194b7b1-b8ec-4b8a-87e7-4ab34d668da8.webp",
             "image_alt": "",
             "number": "01",
-            "title": "The Neck",
-            "description": "Hold for 10 seconds to tone and release structural strain",
+            "title": " ابدئي بتنظيف بشرتك جيدًا.",
+            "description": "",
             "link": ""
           }
         },
         "step_exgqm6": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/020.webp",
+            "image": "shopify://shop_images/020_52ed3764-d5a4-43c0-b117-7771b5e45a41.webp",
             "image_alt": "",
             "number": "02",
-            "title": "The Lower Jawline",
-            "description": "Hold directly below the face line for 10 seconds to sculpt the lower profile",
+            "title": " ضعي السيروم أو الجل المناسب للوضع، واستخدمي قطنة مبللة باللوشن حسب التوصية.",
+            "description": "",
             "link": ""
           }
         },
         "step_awfgCP": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/030.webp",
+            "image": "shopify://shop_images/030_47fe3f57-c1bf-4118-8d6b-8a3ede714c85.webp",
             "image_alt": "",
             "number": "03",
-            "title": "The Cheeks (Primary Lift)",
-            "description": "Hold for 20 seconds along the muscle pathway connecting the corner of the mouth to the ear",
+            "title": "اختاري الوضع المناسب لاحتياج بشرتك:",
+            "description": "CLEAN / NEB / EMS UP / EYE CARE / COOL",
             "link": ""
           }
         },
         "step_THmbjG": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/040.webp",
+            "image": "shopify://shop_images/040_97ea73b2-cf80-416e-9dc8-b14d663d272d.webp",
             "image_alt": "",
             "number": "04",
-            "title": "The Temples",
-            "description": "Hold for 5 seconds to lift and smooth the brow region",
+            "title": "مرّري الجهاز بلطف على الوجه حسب الوضع المختار.",
+            "description": "",
             "link": ""
           }
         },
         "step_gKNPmx": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/050.webp",
+            "image": "shopify://shop_images/050_71dff3ae-9920-4b1d-8868-437e0665347f.webp",
             "image_alt": "",
             "number": "05",
-            "title": "The Forehead Edge",
-            "description": "Hold for 5 seconds along the upper hairline",
-            "link": ""
-          }
-        },
-        "step_k9XhfL": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/060.webp",
-            "image_alt": "",
-            "number": "06",
-            "title": "The Cheek Sweep (Secondary Sculpt)",
-            "description": "Finish your facial routine by gently sweeping the device upward across the cheeks for 10 seconds",
+            "title": "اختتمي الروتين دائمًا بوضع COOL للمساعدة على تهدئة البشرة وإغلاق المسام.",
+            "description": "",
             "link": ""
           }
         }
@@ -906,73 +853,17 @@
         "step_exgqm6",
         "step_awfgCP",
         "step_THmbjG",
-        "step_gKNPmx",
-        "step_k9XhfL"
+        "step_gKNPmx"
       ],
       "settings": {
-        "heading": "FACE MODE PROTOCOL",
-        "subtitle": "For maximum lifting efficiency, gently press and hold the treatment head static against each localized point for the designated time",
+        "heading": "طريقة الاستخدام",
+        "subtitle": "",
         "header_max_width": 800,
         "background_color": "#ffffff",
         "show_glow": true,
         "glow_color": "#d4b87a",
         "container_max_width": 1040,
-        "columns": 4,
-        "gap": 32,
-        "gap_mb": 16,
-        "card_bg": "#f8f7f0",
-        "card_radius": 16,
-        "image_ratio": "223 / 200",
-        "accent_color": "#c9a844",
-        "title_color": "#1d2847",
-        "enable_carousel_mobile": true,
-        "full_bleed_mobile": true,
-        "mobile_card_width": 78,
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "padding_top_mb": 40,
-        "padding_bottom_mb": 40
-      }
-    },
-    "yaman_how_to_use_n_DBJJRL": {
-      "type": "yaman-how-to-use-n",
-      "blocks": {
-        "step_d3bWdp": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/0010.webp",
-            "image_alt": "",
-            "number": "01",
-            "title": "The Décolleté",
-            "description": "Guide the device smoothly from the inside outward, sliding right along the length of your collarbone",
-            "link": ""
-          }
-        },
-        "step_ik9mn7": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/0020.webp",
-            "image_alt": "",
-            "number": "02",
-            "title": "The Upper Arms",
-            "description": "Move the device in continuous upward motions starting from the elbow crease directly toward the armpit to firm loose tissue",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "step_d3bWdp",
-        "step_ik9mn7"
-      ],
-      "settings": {
-        "heading": "2. BODY MODE PROTOCOL ",
-        "subtitle": "Activate the mode and move the device in smooth, steady patterns across the body zones as the deep warmth builds up gradually:",
-        "header_max_width": 800,
-        "background_color": "#ffffff",
-        "show_glow": true,
-        "glow_color": "#d4b87a",
-        "container_max_width": 1040,
-        "columns": 4,
+        "columns": 3,
         "gap": 32,
         "gap_mb": 16,
         "card_bg": "#f8f7f0",
@@ -1070,14 +961,14 @@
       "name": "YAMAN Routines",
       "settings": {
         "header_style": "split",
-        "heading": "Watch Real Routines Tailored to Your Needs",
-        "subtitle": "Real users, authentic daily rituals.",
+        "heading": "شاهدي التجارب حسب احتياجكِ",
+        "subtitle": "مستخدمات حقيقيات وروتينات واقعية.",
         "rating_icon_text": "★",
         "rating_value": "4.7 / 5",
-        "rating_text": "Based on 1,200+ Verified User Experiences",
+        "rating_text": "تقييم موثّق من العملاء، بناءً على أكثر من 1,200 تقييم",
         "proof_icon_text": "📷",
-        "proof_heading": "Real results",
-        "proof_text": "documented by 143+ verified customers",
+        "proof_heading": "تجارب مصوّرة",
+        "proof_text": "أكثر من 1,500 فيديو من العملاء، والعدد مستمر في الزيادة.",
         "background_color": "#ffffff",
         "container_max_width": 1310,
         "container_padding": 20,
@@ -1302,9 +1193,7 @@
     "yaman_marquee",
     "yaman_special",
     "yaman_mode_banner",
-    "yaman_howuse",
     "yaman_how_to_use_n_xgtVGz",
-    "yaman_how_to_use_n_DBJJRL",
     "yaman_real_routines_video_n_kjeVxH",
     "tabs",
     "sidebar",
