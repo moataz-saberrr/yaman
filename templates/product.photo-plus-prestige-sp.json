@@ -1106,7 +1106,7 @@
               "type": "heading",
               "name": "t:blocks.heading.name",
               "settings": {
-                "heading": "<p>Real Results, Real Radiance: Voices from the Region</p>",
+                "heading": "<p>عملاؤنا يتحدثون عن تجربتهم</p>",
                 "hidden_br_mobile": false,
                 "hidden_on_mobile": false,
                 "line_height": "hdt-lh-1-2",
@@ -1124,7 +1124,7 @@
               "type": "text",
               "name": "t:blocks.text.name",
               "settings": {
-                "text": "<p>Trusted by women across the GCC for effortless, high-performance facial sculpting</p>",
+                "text": "<p>نؤمن أن تجربتك معنا يجب أن تكون استثنائية من البداية للنهاية</p>",
                 "hidden_br_mobile": false,
                 "hidden_on_mobile": false,
                 "ffamily": "",
@@ -1191,12 +1191,12 @@
       "settings": {
         "custom_class_featured": "",
         "badge_text": "",
-        "heading": "Products You May Like",
+        "heading": "منتجات قد تعجبك",
         "subheading": "",
         "collection": "test-collection",
         "limit": 12,
         "show_product_type": true,
-        "card_button_label": "SHOP NOW",
+        "card_button_label": "تسوق الآن",
         "show_installment": true,
         "image_ratio": "square",
         "col_dk": "5",
