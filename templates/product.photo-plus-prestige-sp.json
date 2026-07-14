@@ -951,19 +951,6 @@
             "custom_link": ""
           }
         },
-        "video_Faafpg": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/【YA-MAN Official】Liftlogy SP.mp4",
-            "alt": "",
-            "label": "Photo Plus Prestige SP",
-            "label_icon": "shopify://shop_images/040_97ea73b2-cf80-416e-9dc8-b14d663d272d.webp",
-            "label_icon_text": "",
-            "label_icon_alt": "",
-            "product": "the-complete-facial-set-copy",
-            "custom_link": ""
-          }
-        },
         "video_X7PPAz": {
           "type": "video",
           "settings": {
@@ -977,10 +964,23 @@
             "custom_link": ""
           }
         },
-        "video_nX8f7x": {
+        "video_Faafpg": {
           "type": "video",
           "settings": {
             "video": "shopify://files/videos/11YA-MAN Photo PLUS Prestige SP【BeautyFoo Mall】.mp4",
+            "alt": "",
+            "label": "Photo Plus Prestige SP",
+            "label_icon": "shopify://shop_images/040_97ea73b2-cf80-416e-9dc8-b14d663d272d.webp",
+            "label_icon_text": "",
+            "label_icon_alt": "",
+            "product": "the-complete-facial-set-copy",
+            "custom_link": ""
+          }
+        },
+        "video_nX8f7x": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/How to use - YA-MAN Photo PLUS Prestige SP【BeautyFoo Mall】.mp4",
             "alt": "",
             "label": "Photo Plus Prestige SP",
             "label_icon": "shopify://shop_images/040_97ea73b2-cf80-416e-9dc8-b14d663d272d.webp",
@@ -994,8 +994,8 @@
       "block_order": [
         "video_xbBAeQ",
         "video_HYKEdE",
-        "video_Faafpg",
         "video_X7PPAz",
+        "video_Faafpg",
         "video_nX8f7x"
       ],
       "name": "YAMAN Routines",
