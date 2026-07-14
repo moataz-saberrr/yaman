@@ -103,14 +103,14 @@
               "type": "product-check-list",
               "name": "Check List",
               "settings": {
-                "text_1": "Firms and tones the neck, upper chest, and décolletage area",
-                "text_2": "Blue-green LED light helps soothe the skin and reduce the appearance of redness and inflammation",
-                "text_3": "One versatile device designed for multiple areas of the face and body",
-                "text_4": "Supports healthy blood circulation with dual-heating technology",
-                "text_5": "Red LED light gently supports collagen production for firmer-looking skin",
-                "text_6": "Preheating the tissue allows EMS pulses to reach the muscles more effectively",
-                "text_7": "Tones the lower facial muscles and helps define the jawline",
-                "text_8": "Firms and tones the upper arms—one of the most challenging areas to target through exercise",
+                "text_1": "يساعد على تنظيف المسام بعمق وإزالة الشوائب.",
+                "text_2": "يساهم في تحسين امتصاص منتجات العناية بالبشرة.",
+                "text_3": "يدعم ترطيب البشرة ومنحها ملمسًا أنعم.",
+                "text_4": "يساعد على تحفيز الدورة الدموية وتحسين مظهر البشرة.",
+                "text_5": "يساهم في توحيد مظهر لون البشرة وتحسين مرونتها.",
+                "text_6": "يساعد على تهدئة البشرة وشد مظهر المسام بعد الجلسة.",
+                "text_7": "يمنح البشرة مظهرًا أكثر نضارة وشبابًا مع الاستخدام المنتظم.",
+                "text_8": "",
                 "text_9": ""
               },
               "blocks": {}
