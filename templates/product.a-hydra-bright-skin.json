@@ -617,8 +617,8 @@
         ".hdt-yaman-special-section .hdt-yaman-special__title {margin: 0; font-size: 20px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.2px; line-height: 1.1; max-width: 60%;}"
       ],
       "settings": {
-        "heading": "{{ product.metafields.custom.special_title.value }}",
-        "subtitle": "{{ product.metafields.custom.special_sub_title.value }}",
+        "heading": "What Makes It Different",
+        "subtitle": "The only product in the line that comes as a complete set (device + lotion). Designed for deep cleansing and gentle exfoliation using ultrasonic technology. A cleansing product no lifting, no collagen stimulation.",
         "header_max_width": 900,
         "background_color": "#ffffff",
         "container_max_width": 1290,
