@@ -565,7 +565,7 @@
         "card_1": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/both_the_face_and_body0.webp",
+            "image": "shopify://shop_images/both_the_face_and_body.png",
             "image_alt": "",
             "size": "tall",
             "number": "01",
@@ -1024,7 +1024,7 @@
         "proof_icon_text": "📷",
         "proof_heading": "Real results",
         "proof_text": "documented by 143+ verified customers",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "container_max_width": 1310,
         "container_padding": 20,
         "cols_dk": "5",
@@ -1035,7 +1035,7 @@
         "gap": 14,
         "gap_tb": 14,
         "gap_mb": 12,
-        "card_bg": "#FFFFFF",
+        "card_bg": "#ffffff",
         "scrim_color": "#000000",
         "scrim_opacity": 40,
         "label_text_color": "#414141",
