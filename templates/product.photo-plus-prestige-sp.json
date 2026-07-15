@@ -207,8 +207,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "طريقة الاستخدام",
-                    "description": "<ol><li>نظّفي البشرة وجففيها جيدًا قبل الاستخدام. </li><li>اختاري الوضع المناسب حسب احتياج بشرتك. </li><li>استخدمي الجهاز بلطف على مناطق الوجه وفق تعليمات دليل الاستخدام.</li><li>يمكن استخدام منتجات العناية المناسبة مع الجهاز لتحسين تجربة الترطيب والامتصاص. </li><li>بعد الانتهاء من الجلسة، استخدمي وضع التبريد لتهدئة البشرة وإنهاء الروتين بإحساس منعش.  </li></ol>"
+                    "title": "How To Use",
+                    "description": "<ol><li>Cleanse and dry the skin thoroughly before use.</li><li>Select the mode suited to your skin's needs.</li><li>Gently glide the device over facial areas, following the user manual instructions.</li><li>Suitable skincare products can be used with the device to enhance hydration and absorption.</li><li>After the session, use the cooling mode to soothe the skin and finish the routine with a refreshing feel </li></ol>"
                   },
                   "blocks": {}
                 },
