@@ -82,7 +82,7 @@
               "settings": {
                 "des": "2",
                 "show_border_bottom": true,
-                "short_des": "<p>{{ closest.product.metafields.custom.sub_heading.value }}</p>",
+                "short_des": "<p>Ultrasonic Peeling Device + Peeling Lotion</p>",
                 "readm": false,
                 "length": 130,
                 "readm_txt": "Read more",
@@ -103,15 +103,15 @@
               "type": "product-check-list",
               "name": "Check List",
               "settings": {
-                "text_1": "{{ closest.product.metafields.custom.checklist_1_text.value }}",
-                "text_2": "{{ closest.product.metafields.custom.checklist_2_text.value }}",
-                "text_3": "{{ closest.product.metafields.custom.checklist_3_text.value }}",
-                "text_4": "{{ closest.product.metafields.custom.checklist_4_text.value }}",
-                "text_5": "{{ closest.product.metafields.custom.checklist_5_text.value }}",
-                "text_6": "{{ closest.product.metafields.custom.checklist_6_text.value }}",
-                "text_7": "{{ closest.product.metafields.custom.checklist_7_text.value }}",
-                "text_8": "{{ closest.product.metafields.custom.checklist_8_text.value }}",
-                "text_9": "{{ closest.product.metafields.custom.checklist_9_text.value }}"
+                "text_1": "Dual exfoliation: device + lotion working together",
+                "text_2": "Visibly reduces the appearance of enlarged pores",
+                "text_3": "Enhances the absorption of serums and moisturizers applied after",
+                "text_4": "Automatically shuts off at the end of each cycle",
+                "text_5": "Gently removes dead skin cells and oil buildup from deep within pores",
+                "text_6": "Noticeably smoother skin from the very first use",
+                "text_7": "Instant healthy glow after every session",
+                "text_8": "IPX5 water-jet protected",
+                "text_9": "not suitable for full submersion"
               },
               "blocks": {}
             },
@@ -189,7 +189,7 @@
               "name": "Product Upsell Box",
               "settings": {
                 "heading": "Pairs beautifully with:",
-                "product": "{{ closest.product.metafields.custom.product_upsell_box.value }}",
+                "product": "hydra-bright-skin-peeling-lotion",
                 "btn_text": "Yes, add it to my order"
               },
               "blocks": {}
@@ -207,8 +207,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "{{ closest.product.metafields.custom.accordion_1_title.value }}",
-                    "description": "{{ closest.product.metafields.custom.accordion_1_desc | metafield_tag }}"
+                    "title": "HOW IT WORKS",
+                    "description": "<p>The device features a built-in compartment where you place the included Hydra Bright Skin lotion. During use, the lotion gently flows to the device head, working in sync with the ultrasonic vibrations on the skin. The result is a dual exfoliation effect, the vibrations break down dead skin cells, while the lotion dissolves oil buildup and impurities.</p><p><strong>The lotion is essential:</strong> 400ml included with the set.</p>"
                   },
                   "blocks": {}
                 },
@@ -216,8 +216,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "{{ closest.product.metafields.custom.accordion_2_title.value }}",
-                    "description": "{{ closest.product.metafields.custom.accordion_2_desc | metafield_tag }}"
+                    "title": "SPECIFICATIONS",
+                    "description": "<ul><li><strong>Technology </strong>:Ultrasonic waves. 90,000 vibrations per second </li><li><strong>Type </strong>: Home peeling device + included peeling lotion (400ml) </li><li><strong>Power Voltage</strong> : 5V — 0.5A </li><li><strong>Charging Time</strong> : Up to 3 hours </li><li><strong>Operating Time</strong> : Approximately 30 minutes per charge </li><li><strong>Dimensions</strong>:  40 × 48 × 218.5 mm (with cap) </li><li><strong>Weight </strong>: Approximately 209g (main body) </li><li><strong>Materials </strong>: Plastic, stainless steel body, silicone brush head </li><li><strong>Water Resistance</strong> : Water-jet protected only, not suitable for full submersion </li><li><strong>Made In</strong>: Japan </li></ul>"
                   },
                   "blocks": {}
                 },
@@ -225,17 +225,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "{{ closest.product.metafields.custom.accordion_3_title.value }}",
-                    "description": "{{ closest.product.metafields.custom.accordion_3_desc | metafield_tag }}"
-                  },
-                  "blocks": {}
-                },
-                "accordion_des_item_kbCkp8": {
-                  "type": "_accordion_des_item",
-                  "settings": {
-                    "icon": "none",
-                    "title": "{{ closest.product.metafields.custom.accordion_4_title.value }}",
-                    "description": "{{ closest.product.metafields.custom.accordion_4_desc | metafield_tag }}"
+                    "title": "WARNINGS",
+                    "description": "<ul><li>Do not apply excessive pressure to avoid redness or bruising</li><li>Do not use on sensitive skin or open wounds</li><li>Clean the device after every use</li><li>Do not use immediately after peeling treatments or laser procedures</li><li>Do not submerge in water — IPX5 means water-jet protected only</li><li>Not suitable for children or those with skin conditions without consulting a doctor</li></ul>"
                   },
                   "blocks": {}
                 }
@@ -243,8 +234,7 @@
               "block_order": [
                 "accordion_des_item_XUw4Qq",
                 "accordion_des_item_69byBP",
-                "accordion_des_item_ek3k3A",
-                "accordion_des_item_kbCkp8"
+                "accordion_des_item_ek3k3A"
               ]
             },
             "product_custom_badges_86R7Nf": {
@@ -360,7 +350,7 @@
         "image_dC7nGR": {
           "type": "image",
           "settings": {
-            "image": "{{ product.metafields.custom.proof_image_1.value }}",
+            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
             "alt": "",
             "label_left": "",
             "label_right": "",
@@ -370,7 +360,7 @@
         "image_kakTai": {
           "type": "image",
           "settings": {
-            "image": "{{ product.metafields.custom.proof_image_2.value }}",
+            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
             "alt": "",
             "label_left": "",
             "label_right": "",
@@ -380,7 +370,7 @@
         "image_8HEEaf": {
           "type": "image",
           "settings": {
-            "image": "{{ product.metafields.custom.proof_image_3.value }}",
+            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
             "alt": "",
             "label_left": "",
             "label_right": "",
@@ -390,32 +380,24 @@
         "stat_Ex8JXW": {
           "type": "stat",
           "settings": {
-            "value": "{{ product.metafields.custom.proof_stat_1_vlaue.value }}",
-            "text": "{{ product.metafields.custom.proof_stat_1_desc.value }}",
+            "value": "93%",
+            "text": "Noticed improved skin smoothness after just one week",
             "accent_color": ""
           }
         },
         "stat_7RenzD": {
           "type": "stat",
           "settings": {
-            "value": "{{ product.metafields.custom.proof_stat_2_vlaue.value }}",
-            "text": "{{ product.metafields.custom.proof_stat_2_desc.value }}",
+            "value": "88%",
+            "text": "Noticed a visible reduction in the appearance of pores",
             "accent_color": ""
           }
         },
         "stat_Jejtkn": {
           "type": "stat",
           "settings": {
-            "value": "{{ product.metafields.custom.proof_stat_3_vlaue.value }}",
-            "text": "{{ product.metafields.custom.proof_stat_3_desc.value }}",
-            "accent_color": ""
-          }
-        },
-        "stat_xzEDEG": {
-          "type": "stat",
-          "settings": {
-            "value": "{{ product.metafields.custom.proof_stat_4_vlaue.value }}",
-            "text": "{{ product.metafields.custom.proof_stat_4_desc.value }}",
+            "value": "90%",
+            "text": "Experienced an immediate glow after the third use",
             "accent_color": ""
           }
         }
@@ -426,13 +408,12 @@
         "image_8HEEaf",
         "stat_Ex8JXW",
         "stat_7RenzD",
-        "stat_Jejtkn",
-        "stat_xzEDEG"
+        "stat_Jejtkn"
       ],
       "name": "YAMAN Proof",
       "settings": {
-        "heading": "{{ product.metafields.custom.proof_heading.value }}",
-        "subtitle": "{{ product.metafields.custom.proof_subheading.value }}",
+        "heading": "Clinically proven results within weeks of use.",
+        "subtitle": "",
         "background_color": "#f7f6f1",
         "container_max_width": 1200,
         "heading_max_width": 720,
