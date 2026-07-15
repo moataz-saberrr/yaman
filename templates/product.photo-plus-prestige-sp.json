@@ -40,19 +40,19 @@
               "name": "Custom Badges",
               "settings": {
                 "badges_per_row_mobile": "4",
-                "text_1": "تقنية يابانية",
+                "text_1": "Japanese technology ",
                 "icon_svg_1": "",
                 "icon_image_1": "shopify://shop_images/icon_2_0c455788-9b79-48e7-994c-e14c71397fb4.svg",
                 "bg_color_1": "#f9f8f3",
-                "text_2": "شد وتقوية الرقبة ومنطقة الترقوة",
+                "text_2": "Deep cleansing ",
                 "icon_svg_2": "",
                 "icon_image_2": "shopify://shop_images/icon_3_2f9db22f-068f-4ea8-afa1-d502156fe0d3.svg",
                 "bg_color_2": "#f9f8f3",
-                "text_3": "سهل الاستخدام",
+                "text_3": "Better absorption",
                 "icon_svg_3": "",
                 "icon_image_3": "shopify://shop_images/icon_4_d53aa914-354f-42f8-8735-653eedbbea70.svg",
                 "bg_color_3": "#f9f8f3",
-                "text_4": "مناسب للاستخدام اليومي",
+                "text_4": "Clearer radiance ",
                 "icon_svg_4": "",
                 "icon_image_4": "shopify://shop_images/icon_5.svg",
                 "bg_color_4": "#f9f8f3"
@@ -82,7 +82,7 @@
               "settings": {
                 "des": "2",
                 "show_border_bottom": true,
-                "short_des": "<p>Photo Plus Prestige SP    جهاز العناية بالبشرة </p>",
+                "short_des": "<p>Photo Plus Prestige SP  Skin Care Device </p>",
                 "readm": false,
                 "length": 130,
                 "readm_txt": "Read more",
@@ -103,13 +103,13 @@
               "type": "product-check-list",
               "name": "Check List",
               "settings": {
-                "text_1": "يساعد على تنظيف المسام بعمق وإزالة الشوائب.",
-                "text_2": "يساهم في تحسين امتصاص منتجات العناية بالبشرة.",
-                "text_3": "يدعم ترطيب البشرة ومنحها ملمسًا أنعم.",
-                "text_4": "يساعد على تحفيز الدورة الدموية وتحسين مظهر البشرة.",
-                "text_5": "يساهم في توحيد مظهر لون البشرة وتحسين مرونتها.",
-                "text_6": "يساعد على تهدئة البشرة وشد مظهر المسام بعد الجلسة.",
-                "text_7": "يمنح البشرة مظهرًا أكثر نضارة وشبابًا مع الاستخدام المنتظم.",
+                "text_1": "Deep pore cleansing & impurity removal",
+                "text_2": "Better product absorption",
+                "text_3": "Improved hydration & softer texture",
+                "text_4": "Boosted circulation for healthier-looking skin",
+                "text_5": "Even skin tone & elasticity",
+                "text_6": "Soothes skin, tightens pore appearance",
+                "text_7": "Fresher, more youthful look with regular use",
                 "text_8": "",
                 "text_9": ""
               },
@@ -126,9 +126,9 @@
               "type": "_product-tabby-installment",
               "name": "Tabby Installment",
               "settings": {
-                "text_before_price": "قسمها على 4 دفعات بقيمة",
+                "text_before_price": "4 interest-free payments",
                 "tamara_image": "shopify://shop_images/Tamara_Row.svg",
-                "text_between_images": "أو",
+                "text_between_images": "or",
                 "tabby_image": "shopify://shop_images/tabby.svg"
               },
               "blocks": {}
@@ -171,10 +171,10 @@
               "type": "_product-icon-texts",
               "name": "Icon Texts Row",
               "settings": {
-                "text_1": "يتم الشحن خلال 1-2 يوم عمل",
+                "text_1": "Delivery within 1–2 business days",
                 "icon_svg_1": "",
                 "icon_image_1": "shopify://shop_images/icon.svg",
-                "text_2": "شحن مجاني لجميع الطلبات",
+                "text_2": "Free shipping on all orders ",
                 "icon_svg_2": "",
                 "icon_image_2": "shopify://shop_images/icon_1.svg",
                 "text_3": "",
@@ -188,7 +188,7 @@
               "type": "_product-upsell",
               "name": "Product Upsell Box",
               "settings": {
-                "heading": "عادة يتم شراؤه مع :",
+                "heading": "Recommended to use with:",
                 "product": "flawless-serum-hydrating",
                 "btn_text": "Yes, add it to my order"
               },
@@ -602,7 +602,7 @@
             "show_line": true,
             "title": "تهدئة البشرة بالتبريد بعد الاستخدام",
             "description": "",
-            "text_color": "#FFFFFF",
+            "text_color": "#ffffff",
             "accent_color": "#c9a844",
             "scrim": "light",
             "overlay_opacity": 40
@@ -618,7 +618,7 @@
             "show_line": true,
             "title": "دعم مرونة البشرة",
             "description": "",
-            "text_color": "#FFFFFF",
+            "text_color": "#ffffff",
             "accent_color": "#c9a844",
             "scrim": "light",
             "overlay_opacity": 40
@@ -634,7 +634,7 @@
             "show_line": true,
             "title": "روتين عناية متكامل في جهاز واحد",
             "description": "",
-            "text_color": "#FFFBFB",
+            "text_color": "#fffbfb",
             "accent_color": "#c9a844",
             "scrim": "light",
             "overlay_opacity": 40
