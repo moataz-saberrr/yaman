@@ -971,9 +971,9 @@
               "type": "product-simple-featured",
               "name": "Simple Featured Product",
               "settings": {
-                "product": "{{ closest.product.metafields.custom.better_together_product.value }}",
+                "product": "yaman-hydra-bright-skin-device",
                 "heading": "",
-                "button_text": "{{ closest.product.metafields.custom.better_together_subheading.value }}",
+                "button_text": "SHOP NOW",
                 "bg_color": "#ffffff",
                 "border_color": "#efeae0"
               },
