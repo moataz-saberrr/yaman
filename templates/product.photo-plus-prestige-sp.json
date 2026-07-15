@@ -778,7 +778,7 @@
             "image": "shopify://shop_images/010_e194b7b1-b8ec-4b8a-87e7-4ab34d668da8.webp",
             "image_alt": "",
             "number": "01",
-            "title": " ابدئي بتنظيف بشرتك جيدًا.",
+            "title": "Start by cleansing your skin thoroughly.",
             "description": "",
             "link": ""
           }
@@ -789,7 +789,7 @@
             "image": "shopify://shop_images/020_52ed3764-d5a4-43c0-b117-7771b5e45a41.webp",
             "image_alt": "",
             "number": "02",
-            "title": " ضعي السيروم أو الجل المناسب للوضع، واستخدمي قطنة مبللة باللوشن حسب التوصية.",
+            "title": "Apply the serum or gel suited to the mode, using a saturated cotton pad as recommended.",
             "description": "",
             "link": ""
           }
@@ -800,7 +800,7 @@
             "image": "shopify://shop_images/030_47fe3f57-c1bf-4118-8d6b-8a3ede714c85.webp",
             "image_alt": "",
             "number": "03",
-            "title": "اختاري الوضع المناسب لاحتياج بشرتك:",
+            "title": "Choose the mode that fits your skin's needs:",
             "description": "CLEAN / NEB / EMS UP / EYE CARE / COOL",
             "link": ""
           }
@@ -811,7 +811,7 @@
             "image": "shopify://shop_images/040_97ea73b2-cf80-416e-9dc8-b14d663d272d.webp",
             "image_alt": "",
             "number": "04",
-            "title": "مرّري الجهاز بلطف على الوجه حسب الوضع المختار.",
+            "title": "Gently glide the device over the selected area of the face.",
             "description": "",
             "link": ""
           }
@@ -822,7 +822,7 @@
             "image": "shopify://shop_images/050_71dff3ae-9920-4b1d-8868-437e0665347f.webp",
             "image_alt": "",
             "number": "05",
-            "title": "اختتمي الروتين دائمًا بوضع COOL للمساعدة على تهدئة البشرة وإغلاق المسام.",
+            "title": "End your routine with the COOL mode to soothe the skin and close the pores.",
             "description": "",
             "link": ""
           }
@@ -836,7 +836,7 @@
         "step_gKNPmx"
       ],
       "settings": {
-        "heading": "طريقة الاستخدام",
+        "heading": "How to Use",
         "subtitle": "",
         "header_max_width": 800,
         "background_color": "#ffffff",
@@ -878,8 +878,8 @@
         "step_ekLqTb"
       ],
       "settings": {
-        "heading": "التكرار الموصى به",
-        "subtitle": "CLEAN / NEB / EMS UP / EYE CARE يُستخدم من 2 إلى 3 مرات أسبوعيًا.COOL MODE يمكن استخدامه يوميًا حسب رغبتك.ملاحظة: لا تستخدمي نفس الوضع أكثر من مرة في اليوم الواحد.",
+        "heading": "Recommended Frequency",
+        "subtitle": "CLEAN / NEB / EMS UP / EYE CARE Use 2 to 3 times a week.COOL MODE Can be used daily as needed.Note: Do not use the same mode more than once per day.",
         "header_max_width": 800,
         "background_color": "#ffffff",
         "show_glow": true,
@@ -981,14 +981,14 @@
       "name": "YAMAN Routines",
       "settings": {
         "header_style": "split",
-        "heading": "شاهدي التجارب حسب احتياجكِ",
-        "subtitle": "مستخدمات حقيقيات وروتينات واقعية.",
+        "heading": "Watch Real Routines Tailored to Your Needs",
+        "subtitle": "Real users, authentic daily rituals.",
         "rating_icon_text": "★",
         "rating_value": "4.7 / 5",
-        "rating_text": "تقييم موثّق من العملاء، بناءً على أكثر من 1,200 تقييم",
+        "rating_text": "Based on 1,200+ Verified User Experiences",
         "proof_icon_text": "📷",
-        "proof_heading": "تجارب مصوّرة",
-        "proof_text": "أكثر من 1,500 فيديو من العملاء، والعدد مستمر في الزيادة.",
+        "proof_heading": "Real results",
+        "proof_text": "documented by 143+ verified customers",
         "background_color": "#ffffff",
         "container_max_width": 1310,
         "container_padding": 20,
@@ -1084,7 +1084,7 @@
               "type": "heading",
               "name": "t:blocks.heading.name",
               "settings": {
-                "heading": "<p>عملاؤنا يتحدثون عن تجربتهم</p>",
+                "heading": "<p>Real Results, Real Radiance: Voices from the Region</p>",
                 "hidden_br_mobile": false,
                 "hidden_on_mobile": false,
                 "line_height": "hdt-lh-1-2",
@@ -1102,7 +1102,7 @@
               "type": "text",
               "name": "t:blocks.text.name",
               "settings": {
-                "text": "<p>نؤمن أن تجربتك معنا يجب أن تكون استثنائية من البداية للنهاية</p>",
+                "text": "<p>Trusted by women across the GCC for effortless, high-performance facial sculpting</p>",
                 "hidden_br_mobile": false,
                 "hidden_on_mobile": false,
                 "ffamily": "",
@@ -1169,12 +1169,12 @@
       "settings": {
         "custom_class_featured": "",
         "badge_text": "",
-        "heading": "منتجات قد تعجبك",
+        "heading": "Products You May Like",
         "subheading": "",
         "collection": "test-collection",
         "limit": 12,
         "show_product_type": true,
-        "card_button_label": "تسوق الآن",
+        "card_button_label": "Shop Now",
         "show_installment": true,
         "image_ratio": "square",
         "col_dk": "5",
