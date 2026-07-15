@@ -755,7 +755,7 @@
         "show_glow": true,
         "glow_color": "#d4b87a",
         "container_max_width": 1040,
-        "columns": 5,
+        "columns": 3,
         "gap": 22,
         "gap_mb": 16,
         "card_bg": "#f8f7f0",
