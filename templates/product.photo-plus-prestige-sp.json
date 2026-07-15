@@ -438,7 +438,7 @@
         "item_1": {
           "type": "item",
           "settings": {
-            "text": "1 سنة ضمان",
+            "text": "1 Year Warranty",
             "icon_preset": "shield",
             "icon_text": "✦",
             "icon_alt": "",
@@ -449,7 +449,7 @@
         "item_2": {
           "type": "item",
           "settings": {
-            "text": "ارجاع خلال 60 يوم",
+            "text": "60-Day Easy Return Policy",
             "icon_preset": "sparkle",
             "icon_text": "✦",
             "icon_alt": "",
@@ -460,7 +460,7 @@
         "item_3": {
           "type": "item",
           "settings": {
-            "text": "معتمد طبيًا",
+            "text": "Expert Approved Technology",
             "icon_preset": "star",
             "icon_text": "✦",
             "icon_alt": "",
@@ -471,7 +471,7 @@
         "item_4": {
           "type": "item",
           "settings": {
-            "text": "سيليكون طبي",
+            "text": "Medical-Grade Silicone",
             "icon_preset": "lightning",
             "icon_text": "✦",
             "icon_alt": "",
@@ -482,7 +482,7 @@
         "item_5": {
           "type": "item",
           "settings": {
-            "text": "شحن مجاني",
+            "text": "Free Shipping",
             "icon_preset": "truck",
             "icon_text": "✦",
             "icon_alt": "",
