@@ -572,46 +572,12 @@
             "scrim": "none",
             "overlay_opacity": 40
           }
-        },
-        "card_4": {
-          "type": "card",
-          "settings": {
-            "image": "{{ product.metafields.custom.special_card_4_img.value }}",
-            "image_alt": "",
-            "size": "wide",
-            "number": "04",
-            "show_line": true,
-            "title": "{{ product.metafields.custom.special_card_4_title.value }}",
-            "description": "{{ product.metafields.custom.special_card_4_desc.value }}",
-            "text_color": "#000000",
-            "accent_color": "#c9a844",
-            "scrim": "light",
-            "overlay_opacity": 40
-          }
-        },
-        "card_5": {
-          "type": "card",
-          "settings": {
-            "image": "{{ product.metafields.custom.special_card_5_img.value }}",
-            "image_alt": "",
-            "size": "wide",
-            "number": "05",
-            "show_line": true,
-            "title": "{{ product.metafields.custom.special_card_5_title.value }}",
-            "description": "{{ product.metafields.custom.special_card_5_desc.value }}",
-            "text_color": "#000000",
-            "accent_color": "#c9a844",
-            "scrim": "light",
-            "overlay_opacity": 40
-          }
         }
       },
       "block_order": [
         "card_1",
         "card_2",
-        "card_3",
-        "card_4",
-        "card_5"
+        "card_3"
       ],
       "custom_css": [
         ".hdt-yaman-special-section .hdt-yaman-special__title {margin: 0; font-size: 20px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.2px; line-height: 1.1; max-width: 60%;}"
@@ -766,110 +732,6 @@
         "enable_carousel_mobile": true,
         "full_bleed_mobile": true,
         "mobile_card_width": 78,
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "padding_top_mb": 40,
-        "padding_bottom_mb": 40
-      }
-    },
-    "yaman_mask_compare": {
-      "type": "yaman-mask-comparison-n",
-      "blocks": {
-        "row_1": {
-          "type": "row",
-          "settings": {
-            "feature_label": "{{ product.metafields.custom.compare_row1_col1_label.value }}",
-            "main_text": "{{ product.metafields.custom.compare_row1_col2_label.value }}",
-            "other_text": "{{ product.metafields.custom.compare_row1_col3_label.value }}",
-            "main_icon": "check",
-            "other_icon": "x"
-          }
-        },
-        "row_2": {
-          "type": "row",
-          "settings": {
-            "feature_label": "{{ product.metafields.custom.compare_row2_col1_label.value }}",
-            "main_text": "{{ product.metafields.custom.compare_row2_col2_label.value }}",
-            "other_text": "{{ product.metafields.custom.compare_row2_col3_label.value }}",
-            "main_icon": "check",
-            "other_icon": "x"
-          }
-        },
-        "row_3": {
-          "type": "row",
-          "settings": {
-            "feature_label": "{{ product.metafields.custom.compare_row3_col1_label.value }}",
-            "main_text": "{{ product.metafields.custom.compare_row3_col2_label.value }}",
-            "other_text": "{{ product.metafields.custom.compare_row3_col3_label.value }}",
-            "main_icon": "check",
-            "other_icon": "x"
-          }
-        },
-        "row_4": {
-          "type": "row",
-          "settings": {
-            "feature_label": "{{ product.metafields.custom.compare_row4_col1_label.value }}",
-            "main_text": "{{ product.metafields.custom.compare_row4_col2_label.value }}",
-            "other_text": "{{ product.metafields.custom.compare_row4_col3_label.value }}",
-            "main_icon": "check",
-            "other_icon": "x"
-          }
-        },
-        "row_5": {
-          "type": "row",
-          "settings": {
-            "feature_label": "{{ product.metafields.custom.compare_row5_col1_label.value }}",
-            "main_text": "{{ product.metafields.custom.compare_row5_col2_label.value }}",
-            "other_text": "{{ product.metafields.custom.compare_row5_col3_label.value }}",
-            "main_icon": "check",
-            "other_icon": "x"
-          }
-        },
-        "row_6": {
-          "type": "row",
-          "settings": {
-            "feature_label": "{{ product.metafields.custom.compare_row6_col1_label.value }}",
-            "main_text": "{{ product.metafields.custom.compare_row6_col2_label.value }}",
-            "other_text": "{{ product.metafields.custom.compare_row6_col3_label.value }}",
-            "main_icon": "check",
-            "other_icon": "x"
-          }
-        }
-      },
-      "block_order": [
-        "row_1",
-        "row_2",
-        "row_3",
-        "row_4",
-        "row_5",
-        "row_6"
-      ],
-      "name": "YAMAN Mask Compare",
-      "settings": {
-        "heading": "{{ product.metafields.custom.compare_title.value }}",
-        "subtitle": "{{ product.metafields.custom.compare_subtitle.value }}",
-        "bg_image": "{{ product.metafields.custom.compare_bg_img.value }}",
-        "background_color": "#ffffff",
-        "overlay_color": "#ffffff",
-        "overlay_opacity": 86,
-        "feature_heading": "{{ product.metafields.custom.compare_col1_title.value }}",
-        "main_heading": "{{ product.metafields.custom.compare_col2_title.value }}",
-        "other_heading": "{{ product.metafields.custom.compare_col3_title.value }}",
-        "main_bg": "#1d2847",
-        "header_bg": "#f8f7f0",
-        "row_bg": "#ffffff",
-        "stripe_bg": "#f8f7f0",
-        "divider_color": "#eceae1",
-        "main_text_color": "#f8f7f0",
-        "other_accent_color": "#a02828",
-        "feature_text_color": "#2a2a2a",
-        "col_title_color": "#2a2a2a",
-        "check_color": "#f3efe4",
-        "x_color": "#a02828",
-        "container_max_width": 1290,
-        "table_max_width": 1096,
-        "table_radius": 12,
-        "mobile_font_scale": 84,
         "padding_top": 64,
         "padding_bottom": 64,
         "padding_top_mb": 40,
@@ -1190,7 +1052,6 @@
     "yaman_special",
     "yaman_mode_banner",
     "yaman_howuse",
-    "yaman_mask_compare",
     "yaman_routines",
     "tabs",
     "sidebar",
