@@ -189,7 +189,7 @@
               "name": "Product Upsell Box",
               "settings": {
                 "heading": "Pairs beautifully with:",
-                "product": "{{ closest.product.metafields.custom.product_upsell_box.value }}",
+                "product": "flawless-serum-hydrating",
                 "btn_text": "Yes, add it to my order"
               },
               "blocks": {}
