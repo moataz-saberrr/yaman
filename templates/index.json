@@ -16,6 +16,7 @@
           "type": "_slide-item-n",
           "settings": {
             "image": "shopify://shop_images/hero_desktop_img1.jpg",
+            "image_mb": "shopify://shop_images/hero_desktop_img1.jpg",
             "heading": "LIFT.\nSCULPT.\nREDEFINE",
             "heading_mb": "ELEVATE.\nSCULPT.\nREDEFINE.",
             "subheading": "<p>46 years of R&D. 345+ patents. Clinical-grade technology designed for you.</p>",
