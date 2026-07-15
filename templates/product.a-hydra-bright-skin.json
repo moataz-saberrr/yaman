@@ -687,7 +687,7 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_1_img.value }}",
+            "image": "shopify://shop_images/100.webp",
             "image_alt": "",
             "number": "01",
             "title": "Start with a clean and completely dry face",
@@ -698,7 +698,7 @@
         "step_2": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_2_img.value }}",
+            "image": "shopify://shop_images/ban40.webp",
             "image_alt": "",
             "number": "02",
             "title": "Pour the Hydra Bright Skin lotion into the designated compartment make sure the suction tube is fully submerged",
@@ -709,7 +709,7 @@
         "step_3": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_3_img.value }}",
+            "image": "shopify://shop_images/120.webp",
             "image_alt": "",
             "number": "03",
             "title": "Close the cap firmly",
@@ -720,7 +720,7 @@
         "step_4": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_4_img.value }}",
+            "image": "shopify://shop_images/130.webp",
             "image_alt": "",
             "number": "04",
             "title": "Turn on the device and glide it gently across the face in continuous movements",
@@ -731,7 +731,7 @@
         "step_BF9NLh": {
           "type": "step",
           "settings": {
-            "image": "{{ product.metafields.custom.how_use_step_5_img.value }}",
+            "image": "shopify://shop_images/140.webp",
             "image_alt": "",
             "number": "05",
             "title": "Clean the device after each use with a damp cloth, do not submerge in water",
