@@ -748,8 +748,8 @@
         "step_BF9NLh"
       ],
       "settings": {
-        "heading": "{{ product.metafields.custom.how_use_title.value }}",
-        "subtitle": "{{ product.metafields.custom.how_use_sub_title.value }}",
+        "heading": "HOW TO USE",
+        "subtitle": "",
         "header_max_width": 760,
         "background_color": "#ffffff",
         "show_glow": true,
