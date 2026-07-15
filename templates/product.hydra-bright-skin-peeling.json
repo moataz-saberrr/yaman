@@ -830,7 +830,7 @@
               "type": "image",
               "name": "t:blocks.image.name",
               "settings": {
-                "img": "{{ closest.product.metafields.custom.results_img.value }}",
+                "img": "shopify://shop_images/Jul_9_2026_03_23_15_PM0.webp",
                 "image_ratio": "adapt_image",
                 "img_effect": "none",
                 "b_effect": "none",
