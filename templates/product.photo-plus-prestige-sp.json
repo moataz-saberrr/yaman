@@ -220,31 +220,11 @@
                     "description": "<ul><li><strong>Technology:</strong> RF 3MHz · EMS · Blue/Red LED Light · Warm/Cold Compress · DWHP · Eye Lift RF · NEB · Micro-current · DYHP</li><li><strong>Modes:</strong> CLEAN · NEB · EMS UP · EYE CARE · COOL</li><li><strong>Charging Time:</strong> ~3 hours — USB</li><li><strong>Operating Time:</strong> ~30 minutes per full charge</li><li><strong>Dimensions:</strong> Width 52 × Depth 62 × Height 203 mm — including cotton attachment</li><li><strong>Weight:</strong> 293 g — including cotton attachment</li><li><strong>Water Resistance:</strong> Splash-resistant, suitable for use in the bathroom or during a shower — IPX4</li><li><strong>Country of Origin:</strong> Japan</li></ul>"
                   },
                   "blocks": {}
-                },
-                "accordion_des_item_ek3k3A": {
-                  "type": "_accordion_des_item",
-                  "settings": {
-                    "icon": "none",
-                    "title": "{{ closest.product.metafields.custom.accordion_3_title.value }}",
-                    "description": "{{ closest.product.metafields.custom.accordion_3_desc | metafield_tag }}"
-                  },
-                  "blocks": {}
-                },
-                "accordion_des_item_kbCkp8": {
-                  "type": "_accordion_des_item",
-                  "settings": {
-                    "icon": "none",
-                    "title": "{{ closest.product.metafields.custom.accordion_4_title.value }}",
-                    "description": "{{ closest.product.metafields.custom.accordion_4_desc | metafield_tag }}"
-                  },
-                  "blocks": {}
                 }
               },
               "block_order": [
                 "accordion_des_item_XUw4Qq",
-                "accordion_des_item_69byBP",
-                "accordion_des_item_ek3k3A",
-                "accordion_des_item_kbCkp8"
+                "accordion_des_item_69byBP"
               ]
             },
             "product_custom_badges_86R7Nf": {
@@ -252,19 +232,19 @@
               "name": "Custom Badges",
               "settings": {
                 "badges_per_row_mobile": "2",
-                "text_1": "ضمان عام",
+                "text_1": "1YEAR WARRANTY",
                 "icon_svg_1": "",
                 "icon_image_1": "shopify://shop_images/icon_6.svg",
                 "bg_color_1": "#f9f8f3",
-                "text_2": "دفع آمن",
+                "text_2": "100% SECURE CHECKOUT",
                 "icon_svg_2": "",
                 "icon_image_2": "shopify://shop_images/icon_7.svg",
                 "bg_color_2": "#f9f8f3",
-                "text_3": "دعم واتساب",
+                "text_3": "WHATSAPP SUPPORT",
                 "icon_svg_3": "",
                 "icon_image_3": "shopify://shop_images/icon_8.svg",
                 "bg_color_3": "#f9f8f3",
-                "text_4": "منتج YA-MAN",
+                "text_4": "OFFICIAL YA-MAN PRODUCT",
                 "icon_svg_4": "",
                 "icon_image_4": "shopify://shop_images/icon_9.svg",
                 "bg_color_4": "#f9f8f3"
