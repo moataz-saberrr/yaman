@@ -589,9 +589,9 @@
         "step_feEna9"
       ],
       "settings": {
-        "heading": "{{ product.metafields.custom.how_use_title.value }}",
+        "heading": "MOISTURE IS MAINTAINED WITH FIVE TYPES OF BOTANICAL OIL",
         "heading_uppercase": true,
-        "subtitle": "{{ product.metafields.custom.how_use_sub_title.value }}",
+        "subtitle": "This product contains five types of plant-derived moisturizing ingredients, locking moisture within the skin and protecting against skin problems caused by dyyness.",
         "header_max_width": 1000,
         "layout": "grid",
         "custom_class": "",
