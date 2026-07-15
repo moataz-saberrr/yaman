@@ -886,11 +886,11 @@
         "step_d3bWdp": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/0010.webp",
+            "image": "shopify://shop_images/003.png",
             "image_alt": "",
             "number": "01",
             "title": "The Décolleté",
-            "description": "Guide the device smoothly from the inside outward, sliding right along the length of your collarbone",
+            "description": "Guide the device smoothly from the bottom upward, sliding gently along the length of your leg.",
             "link": ""
           }
         },
