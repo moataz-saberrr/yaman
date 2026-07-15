@@ -82,7 +82,7 @@
               "settings": {
                 "des": "2",
                 "show_border_bottom": false,
-                "short_des": "<p>{{ closest.product.metafields.custom.sub_heading.value }}</p>",
+                "short_des": "<p>The Perfect lotion for YA-MAN Devices</p>",
                 "readm": false,
                 "length": 130,
                 "readm_txt": "Read more",
@@ -190,8 +190,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "{{ closest.product.metafields.custom.accordion_1_title.value }}",
-                    "description": "{{ closest.product.metafields.custom.accordion_1_desc | metafield_tag }}"
+                    "title": "How to Use:",
+                    "description": "<p>Use this lotion with the Hydra Bright Skin device according to the device instructions. Apply an appropriate amount onto the cotton pad or device head before starting your cleansing and exfoliating session.</p>"
                   },
                   "blocks": {}
                 },
@@ -199,8 +199,8 @@
                   "type": "_accordion_des_item",
                   "settings": {
                     "icon": "none",
-                    "title": "{{ closest.product.metafields.custom.accordion_2_title.value }}",
-                    "description": "{{ closest.product.metafields.custom.accordion_2_desc | metafield_tag }}"
+                    "title": "Precautions",
+                    "description": "<ul><li>For use with the Hydra Bright Skin device only.</li><li>Do not use around the eyes or on irritated or broken skin.</li><li>Discontinue use immediately if irritation or sensitivity occurs.</li><li>For external use only.</li><li>Store in a cool, dry place away from direct sunlight and out of reach of children.</li></ul>"
                   },
                   "blocks": {}
                 }
