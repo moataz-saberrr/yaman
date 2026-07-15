@@ -371,7 +371,7 @@
           "type": "stat",
           "settings": {
             "value": "34.7%",
-            "text": "زيادة في مرونة البشرة",
+            "text": "Increase in skin elasticity ",
             "accent_color": ""
           }
         },
@@ -379,7 +379,7 @@
           "type": "stat",
           "settings": {
             "value": "22.7%",
-            "text": "زيادة في إشراق البشرة",
+            "text": "Increase in skin radiance ",
             "accent_color": ""
           }
         },
@@ -387,7 +387,7 @@
           "type": "stat",
           "settings": {
             "value": "14.0%",
-            "text": "زيادة في لمعان البشرة",
+            "text": "Increase in skin luminosity ",
             "accent_color": ""
           }
         },
@@ -395,7 +395,7 @@
           "type": "stat",
           "settings": {
             "value": "8.0%",
-            "text": "تحسن في توحيد لونالبشرة",
+            "text": "Improvement in skin tone evenness ",
             "accent_color": ""
           }
         }
@@ -411,8 +411,8 @@
       ],
       "name": "YAMAN Proof",
       "settings": {
-        "heading": "نتائج ملحوظة خلال أسابيع من الاستخدام",
-        "subtitle": "تحسّن تدريجي في مظهر البشرة مع الاستخدام المنتظم",
+        "heading": "Noticeable results within weeks",
+        "subtitle": "of use Gradual improvement in skin appearance with regular use",
         "background_color": "#f7f6f1",
         "container_max_width": 1200,
         "heading_max_width": 720,
