@@ -574,6 +574,7 @@
         },
         "card_1": {
           "type": "card",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/0.webp",
             "image_alt": "",
