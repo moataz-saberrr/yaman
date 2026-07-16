@@ -530,7 +530,7 @@
           "settings": {
             "image": "shopify://shop_images/product_page2-050.webp",
             "image_alt": "",
-            "size": "tall",
+            "size": "normal",
             "number": "01",
             "show_line": true,
             "title": "Comes with a specialized peeling lotion to maximize results.",
