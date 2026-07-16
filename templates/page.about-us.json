@@ -102,6 +102,7 @@
       },
       "name": "YAMAN About Video",
       "settings": {
+        "autoplay_video": "shopify://files/videos/Video1About.mp4",
         "image": "shopify://shop_images/finalAboutDesktop.jpg",
         "image_mb": "shopify://shop_images/FinalAboutMobile.jpg",
         "custom_class": "",
