@@ -524,19 +524,67 @@
     "yaman_special": {
       "type": "yaman-special-features-n",
       "blocks": {
+        "card_crtedz": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/0_8ea68434-31d3-447f-a548-cba7be48ae9c.webp",
+            "image_alt": "",
+            "size": "normal",
+            "number": "01",
+            "show_line": true,
+            "title": "روتين عناية متكامل في جهاز واحد",
+            "description": "",
+            "text_color": "#fffbfb",
+            "accent_color": "#c9a844",
+            "scrim": "none",
+            "overlay_opacity": 40
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/0_edf022eb-a988-47c0-bd6d-b2da82e52831.webp",
+            "image_alt": "",
+            "size": "normal",
+            "number": "02",
+            "show_line": true,
+            "title": "تهدئة البشرة بالتبريد بعد الاستخدام",
+            "description": "",
+            "text_color": "#ffffff",
+            "accent_color": "#c9a844",
+            "scrim": "none",
+            "overlay_opacity": 40
+          }
+        },
+        "card_5": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/0_554aec42-eb9f-4ca1-928a-822ea7838738.webp",
+            "image_alt": "",
+            "size": "normal",
+            "number": "03",
+            "show_line": true,
+            "title": "دعم مرونة البشرة",
+            "description": "",
+            "text_color": "#ffffff",
+            "accent_color": "#c9a844",
+            "scrim": "none",
+            "overlay_opacity": 40
+          }
+        },
         "card_1": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/0.webp",
             "image_alt": "",
             "size": "tall",
-            "number": "01",
+            "number": "04",
             "show_line": true,
             "title": "تحسين مظهر النضارة",
             "description": "",
             "text_color": "",
             "accent_color": "",
-            "scrim": "none",
+            "scrim": "light",
             "overlay_opacity": 40
           }
         },
@@ -556,78 +604,46 @@
             "overlay_opacity": 40
           }
         },
+        "card_BtH6wC": {
+          "type": "card",
+          "settings": {
+            "image_alt": "",
+            "size": "normal",
+            "number": "05",
+            "show_line": true,
+            "title": "FEATURE TITLE",
+            "description": "",
+            "text_color": "",
+            "accent_color": "",
+            "scrim": "light",
+            "overlay_opacity": 40
+          }
+        },
         "card_3": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/0_2e187b4a-e882-4434-a0e3-fd6b61e0fc28.webp",
             "image_alt": "",
             "size": "normal",
-            "number": "03",
+            "number": "06",
             "show_line": true,
             "title": "تنظيف عميق للمسام",
             "description": "",
             "text_color": "",
             "accent_color": "",
-            "scrim": "none",
-            "overlay_opacity": 40
-          }
-        },
-        "card_4": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/0_edf022eb-a988-47c0-bd6d-b2da82e52831.webp",
-            "image_alt": "",
-            "size": "normal",
-            "number": "04",
-            "show_line": true,
-            "title": "تهدئة البشرة بالتبريد بعد الاستخدام",
-            "description": "",
-            "text_color": "#ffffff",
-            "accent_color": "#c9a844",
-            "scrim": "light",
-            "overlay_opacity": 40
-          }
-        },
-        "card_5": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/0_554aec42-eb9f-4ca1-928a-822ea7838738.webp",
-            "image_alt": "",
-            "size": "normal",
-            "number": "05",
-            "show_line": true,
-            "title": "دعم مرونة البشرة",
-            "description": "",
-            "text_color": "#ffffff",
-            "accent_color": "#c9a844",
-            "scrim": "light",
-            "overlay_opacity": 40
-          }
-        },
-        "card_crtedz": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/0_8ea68434-31d3-447f-a548-cba7be48ae9c.webp",
-            "image_alt": "",
-            "size": "normal",
-            "number": "05",
-            "show_line": true,
-            "title": "روتين عناية متكامل في جهاز واحد",
-            "description": "",
-            "text_color": "#fffbfb",
-            "accent_color": "#c9a844",
             "scrim": "light",
             "overlay_opacity": 40
           }
         }
       },
       "block_order": [
-        "card_1",
-        "card_2",
-        "card_3",
+        "card_crtedz",
         "card_4",
         "card_5",
-        "card_crtedz"
+        "card_1",
+        "card_2",
+        "card_BtH6wC",
+        "card_3"
       ],
       "settings": {
         "heading": "What Makes It Different?",
