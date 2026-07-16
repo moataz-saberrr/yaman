@@ -728,24 +728,6 @@
             "overlay_opacity": 55
           }
         },
-        "slide_1": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Bannar_En_010.webp",
-            "image_mobile": "{{ product.metafields.custom.mode_banner_slide_1_mob_image.value }}",
-            "image_alt": "",
-            "eyebrow": "",
-            "heading": "",
-            "text": "",
-            "content_position": "flex-start",
-            "text_align_mobile": "center",
-            "text_color": "",
-            "accent_color": "",
-            "overlay_color": "",
-            "use_overlay_override": false,
-            "overlay_opacity": 55
-          }
-        },
         "slide_aGbJEa": {
           "type": "slide",
           "settings": {
@@ -769,7 +751,6 @@
         "slide_dckG7B",
         "slide_dDmnUg",
         "slide_Ndtw8Q",
-        "slide_1",
         "slide_aGbJEa"
       ],
       "settings": {
