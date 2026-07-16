@@ -584,7 +584,7 @@
             "description": "",
             "text_color": "",
             "accent_color": "",
-            "scrim": "light",
+            "scrim": "dark",
             "overlay_opacity": 40
           }
         },
@@ -600,7 +600,7 @@
             "description": "",
             "text_color": "",
             "accent_color": "",
-            "scrim": "none",
+            "scrim": "dark",
             "overlay_opacity": 40
           }
         },
@@ -631,7 +631,7 @@
             "description": "",
             "text_color": "",
             "accent_color": "",
-            "scrim": "light",
+            "scrim": "dark",
             "overlay_opacity": 40
           }
         }
