@@ -530,7 +530,7 @@
           "settings": {
             "image": "shopify://shop_images/product_page2-050.webp",
             "image_alt": "",
-            "size": "normal",
+            "size": "tall",
             "number": "01",
             "show_line": true,
             "title": "Comes with a specialized peeling lotion to maximize results.",
@@ -606,14 +606,65 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/ban10.webp",
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_16_2026_02_52_58_PM.png",
             "image_alt": "",
-            "eyebrow": "",
-            "heading": "",
-            "text": "",
+            "eyebrow": "Ultrasonic Waves",
+            "heading": ".",
+            "text": "<p>Deep pore cleansing with up to 90,000 vibrations per second, helping gently break down impurities and dead skin cells.</p>",
             "content_position": "flex-start",
             "text_align_mobile": "center",
-            "text_color": "",
+            "text_color": "#FFFFFF",
+            "accent_color": "",
+            "overlay_color": "#FFFFFF",
+            "use_overlay_override": false,
+            "overlay_opacity": 10
+          }
+        },
+        "slide_tjqW7w": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_16_2026_02_52_58_PM.png",
+            "image_alt": "",
+            "eyebrow": "Cleansing Without Friction",
+            "heading": "",
+            "text": "<p><strong>Instead of harsh scrubs, Ultrasonic Waves give your skin a smooth cleanse without pressure or direct rubbing.</strong></p>",
+            "content_position": "flex-start",
+            "text_align_mobile": "center",
+            "text_color": "#FFFFFF",
+            "accent_color": "",
+            "overlay_color": "",
+            "use_overlay_override": false,
+            "overlay_opacity": 55
+          }
+        },
+        "slide_7hTAB3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_16_2026_02_52_58_PM.png",
+            "image_alt": "",
+            "eyebrow": "Smoother, Clearer Results",
+            "heading": "",
+            "text": "<p><strong>Helps reduce the appearance of blackheads, cleanse pores from within, and leave the skin feeling smoother and refreshed.</strong></p>",
+            "content_position": "flex-start",
+            "text_align_mobile": "center",
+            "text_color": "#FFFFFF",
+            "accent_color": "",
+            "overlay_color": "",
+            "use_overlay_override": false,
+            "overlay_opacity": 55
+          }
+        },
+        "slide_KQiHRN": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_16_2026_02_52_58_PM.png",
+            "image_alt": "",
+            "eyebrow": "Better Skincare Absorption",
+            "heading": "",
+            "text": "<p><strong>After cleansing, the skin becomes more prepared to absorb serums and skincare products more effectively.</strong></p>",
+            "content_position": "flex-start",
+            "text_align_mobile": "center",
+            "text_color": "#FFFFFF",
             "accent_color": "",
             "overlay_color": "",
             "use_overlay_override": false,
@@ -622,7 +673,10 @@
         }
       },
       "block_order": [
-        "slide_1"
+        "slide_1",
+        "slide_tjqW7w",
+        "slide_7hTAB3",
+        "slide_KQiHRN"
       ],
       "settings": {
         "background_color": "#0e1626",
