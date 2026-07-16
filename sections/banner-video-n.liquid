@@ -29,6 +29,25 @@
     {%- if img_des != blank %}--av-ar-des: {{ img_des.aspect_ratio }};{% endif -%}
     {%- if img_mb != blank %}--av-ar-mb: {{ img_mb.aspect_ratio }};{% endif -%}
   }
+  .hdt-yaman-about-video__media {
+  position: relative;
+  overflow: hidden;
+}
+
+.hdt-yaman-about-video__autoplay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hdt-yaman-about-video__img,
+.hdt-yaman-about-video__overlay {
+  position: relative;
+  z-index: 1;
+}
 {% endstyle %}
 <div
   class="
@@ -42,6 +61,18 @@
   color-scheme="{{ section.settings.color_scheme }}"
 >
   <div class="hdt-yaman-about-video__media">
+    {%- if section.settings.autoplay_video != blank -%}
+  {{
+    section.settings.autoplay_video
+    | video_tag:
+      autoplay: true,
+      loop: true,
+      muted: true,
+      controls: false,
+      playsinline: true,
+      class: 'hdt-yaman-about-video__autoplay'
+  }}
+{%- endif -%}
     {%- if img_mb != blank -%}
       {{
         img_mb
@@ -121,7 +152,9 @@
       root.querySelectorAll('video').forEach(function (v) {
         v.muted = false;
         v.removeAttribute('muted');
-        v.addEventListener('play', function () { v.muted = false; });
+        v.addEventListener('play', function () {
+          v.muted = false;
+        });
       });
     })();
   </script>
@@ -139,6 +172,11 @@
     {
       "type": "header",
       "content": "Media"
+    },
+    {
+      "type": "video",
+      "id": "autoplay_video",
+      "label": "Autoplay muted video"
     },
     {
       "type": "image_picker",

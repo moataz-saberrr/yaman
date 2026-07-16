@@ -66,6 +66,7 @@
       "blocks": {
         "about-video-btn": {
           "type": "_button_video",
+          "disabled": true,
           "static": true,
           "settings": {
             "source": "shopify",
