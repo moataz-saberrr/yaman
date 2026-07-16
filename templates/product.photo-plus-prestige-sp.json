@@ -577,7 +577,7 @@
           "settings": {
             "image": "shopify://shop_images/0.webp",
             "image_alt": "",
-            "size": "tall",
+            "size": "normal",
             "number": "04",
             "show_line": true,
             "title": "Enhancing skin glow",
