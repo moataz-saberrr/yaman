@@ -114,7 +114,7 @@
         "subtitle": "<p>The very latest and greatest in J-Beauty innovations are here.</p>",
         "text_color": "#aca594",
         "show_play": true,
-        "video_muted": false,
+        "video_muted": true,
         "play_size": 84,
         "play_border_color": "#a59a8e",
         "play_icon_color": "#a59a8e",
