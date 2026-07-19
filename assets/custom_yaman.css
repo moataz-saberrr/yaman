@@ -193,6 +193,15 @@
 .hdt-slider__container {
     height: 550px !important;
 }
+span.hdt-yaman-hero__overlay {
+    background: #00000030;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    display: block;
+    top: 0;
+}
   .hdt-slideshow-n .hdt-yaman-hero__button {
     width: 100%;
   }
