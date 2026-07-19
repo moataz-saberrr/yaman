@@ -357,30 +357,11 @@
     "yaman_product_proof_n_G4PnLR": {
       "type": "yaman-product-proof-n",
       "blocks": {
-        "image_dC7nGR": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
-            "alt": "",
-            "label_left": "",
-            "label_right": "",
-            "caption": ""
-          }
-        },
-        "image_kakTai": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
-            "alt": "",
-            "label_left": "",
-            "label_right": "",
-            "caption": ""
-          }
-        },
         "image_8HEEaf": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
+            "image": "shopify://shop_images/Untitled_design.png",
+            "image_mobile": "shopify://shop_images/Untitled_design.png",
             "alt": "",
             "label_left": "",
             "label_right": "",
@@ -421,8 +402,6 @@
         }
       },
       "block_order": [
-        "image_dC7nGR",
-        "image_kakTai",
         "image_8HEEaf",
         "stat_Ex8JXW",
         "stat_7RenzD",
