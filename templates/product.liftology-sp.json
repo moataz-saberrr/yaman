@@ -387,22 +387,6 @@
             "caption": ""
           }
         },
-        "stat_Ex8JXW": {
-          "type": "stat",
-          "settings": {
-            "value": "Targeted Body Rejuvenation",
-            "text": " Ideal for addressing skin laxity and sagging across the delicate chest, collarbone, and neck areas",
-            "accent_color": ""
-          }
-        },
-        "stat_7RenzD": {
-          "type": "stat",
-          "settings": {
-            "value": "Comprehensive, All-in-One Sculpting",
-            "text": " Perfect for anyone looking to lift, tone, and contour their face, upper arms, chest, and décolleté using a single, sophisticated device",
-            "accent_color": ""
-          }
-        },
         "stat_Jejtkn": {
           "type": "stat",
           "settings": {
@@ -440,8 +424,6 @@
         "image_dC7nGR",
         "image_g77aNn",
         "image_dyMq8t",
-        "stat_Ex8JXW",
-        "stat_7RenzD",
         "stat_Jejtkn",
         "stat_xzEDEG",
         "stat_bwmnnf",
