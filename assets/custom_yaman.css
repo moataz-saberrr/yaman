@@ -60,6 +60,7 @@
 .hdt-slideshow-n .hdt-yaman-hero__media {
   position: absolute;
   line-height: 0;
+  width: -webkit-fill-available;
 }
 .hdt-slideshow-n .hdt-yaman-hero__picture {
   display: block;
