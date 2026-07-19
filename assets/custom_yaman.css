@@ -179,17 +179,16 @@
   .hdt-slideshow-n .hdt-yaman-hero__content {
     order: 0;
     position: static;
-    background: var(--yaman-panel, #070707);
+    background: transparent;
     color: #fff;
     padding: 34px 22px 40px;
     text-align: start;
+            z-index: 9;
   }
   .hdt-slideshow-n .hdt-yaman-hero__media {
     order: 1;
   }
-  .hdt-slideshow-n .hdt-yaman-hero__overlay {
-    display: none;
-  }
+
   .hdt-slideshow-n .hdt-yaman-hero__button {
     width: 100%;
   }
