@@ -638,6 +638,7 @@
         "video_Q4bL6L",
         "video_F9bzY6"
       ],
+      "disabled": true,
       "name": "YAMAN Routines",
       "settings": {
         "header_style": "centered",
@@ -928,7 +929,10 @@
                 "text_3": "Provides continuous hydration from the beginning to the end of the session",
                 "text_4": "Helps the device glide smoothly over the skin without interruptions",
                 "text_5": "",
-                "text_6": ""
+                "text_6": "",
+                "text_7": "",
+                "text_8": "",
+                "text_9": ""
               },
               "blocks": {}
             }
