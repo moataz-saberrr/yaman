@@ -200,7 +200,7 @@
     position: absolute;
     bottom: -55%;
     left: 5%;
-    width: 90%;
+    width: 90% !important;
 }
   .hdt-slideshow-n .hdt-yaman-hero__media {
     order: 1;
