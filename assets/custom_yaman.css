@@ -1002,9 +1002,9 @@ span.hdt-yaman-hero__overlay {
   .hdt-yaman-science-section .hdt-yaman-science__card { aspect-ratio: var(--sci-ar-mb-lg, 130) / 100; }
   .hdt-yaman-science-section .hdt-yaman-science__content {
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 12px;
-    padding: 26px 22px 28px;
+    padding: 80px 22px 28px;
   }
   /* darken more on mobile so stacked text stays readable over the image */
   .hdt-yaman-science-section .hdt-yaman-science__overlay {
