@@ -175,6 +175,7 @@
   .hdt-slideshow-n .hdt-yaman-hero__inner {
     display: flex;
     flex-direction: column;
+            position: relative;
   }
   .hdt-slideshow-n .hdt-yaman-hero__content {
     order: 0;
