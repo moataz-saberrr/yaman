@@ -193,6 +193,9 @@
 .hdt-slider__container {
     height: 550px !important;
 }
+.hdt-slideshow-n .hdt-slider__slide {
+    height: -webkit-fill-available;
+}
 span.hdt-yaman-hero__overlay {
     background: #00000030;
     position: absolute;
