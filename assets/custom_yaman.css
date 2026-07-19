@@ -194,13 +194,14 @@
     color: #fff;
     padding: 34px 22px 40px;
     text-align: start;
-            z-index: 9;
+    z-index: 9;
+    padding-top: 110px;
   }
   .hdt-slideshow-n .hdt-yaman-hero__media {
     order: 1;
   }
 .hdt-slider__container:has(.hdt-yaman-hero__inner) {
-    height: 550px !important;
+    height: 600px !important;
 }
 .hdt-slideshow-n .hdt-slider__slide {
     height: -webkit-fill-available;
