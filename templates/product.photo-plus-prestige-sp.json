@@ -340,27 +340,8 @@
         "image_dC7nGR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
-            "alt": "",
-            "label_left": "",
-            "label_right": "",
-            "caption": ""
-          }
-        },
-        "image_g77aNn": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
-            "alt": "",
-            "label_left": "",
-            "label_right": "",
-            "caption": ""
-          }
-        },
-        "image_dyMq8t": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
+            "image": "shopify://shop_images/ya-man-photo-plus-prestige-ss-review-before-after-karin-closeup.jpg",
+            "image_mobile": "shopify://shop_images/ya-man-photo-plus-prestige-ss-review-before-after-karin-closeup.jpg",
             "alt": "",
             "label_left": "",
             "label_right": "",
@@ -402,8 +383,6 @@
       },
       "block_order": [
         "image_dC7nGR",
-        "image_g77aNn",
-        "image_dyMq8t",
         "stat_Ex8JXW",
         "stat_7RenzD",
         "stat_Jejtkn",
