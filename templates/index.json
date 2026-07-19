@@ -56,8 +56,8 @@
       "settings": {
         "image_height": "adapt_image",
         "fixed_height": 560,
-        "image_height_mb": "adapt_image",
-        "fixed_height_mb": 600,
+        "image_height_mb": "fixed",
+        "fixed_height_mb": 700,
         "overlay_opacity": 40,
         "is_fade": false,
         "loop": false,
