@@ -734,7 +734,7 @@
         "step_2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/87eed1c998b60f0c568b9ab837e5fb6f7d607d5f.png",
+            "image": "shopify://shop_images/1.0.png",
             "image_alt": "",
             "number": "02",
             "title": "SECURE THE MASK PROPERLY",
@@ -745,7 +745,7 @@
         "step_3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/8ee7ed1d320fee1c1af8b46b1bc1f524e4b17b30.png",
+            "image": "shopify://shop_images/2_7de4c218-6623-4e88-97c9-3881119691f2.png",
             "image_alt": "",
             "number": "03",
             "title": "ADJUST EACH SIDE",
@@ -756,7 +756,7 @@
         "step_4": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/29b408b200a12caa2fb4f30841e0da47b9507aa3.png",
+            "image": "shopify://shop_images/3_4e6c880b-eb3a-4a14-8a99-53aef1d11b68.png",
             "image_alt": "",
             "number": "04",
             "title": "WEAR FOR 10 MINUTES",
