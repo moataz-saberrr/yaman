@@ -108,7 +108,10 @@
                 "text_3": "10 minutes daily, hands-free.",
                 "text_4": "Adjustable intensity for each side independently.",
                 "text_5": "",
-                "text_6": ""
+                "text_6": "",
+                "text_7": "",
+                "text_8": "",
+                "text_9": ""
               },
               "blocks": {}
             },
@@ -987,6 +990,7 @@
         "video_Q4bL6L",
         "video_F9bzY6"
       ],
+      "disabled": true,
       "name": "YAMAN Routines",
       "settings": {
         "header_style": "split",
@@ -1180,6 +1184,7 @@
       ],
       "name": "t:sections.custom_section.name",
       "settings": {
+        "custom_class": "",
         "layout": "10",
         "item_spacing": 0,
         "item_spacing_tb": 0,
