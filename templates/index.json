@@ -568,6 +568,7 @@
         },
         "video_QHdKic": {
           "type": "video",
+          "disabled": true,
           "settings": {
             "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
             "poster": "shopify://shop_images/e1569ac562be17901277391660b53ed37aa6371c.jpg",
@@ -580,6 +581,7 @@
         },
         "video_i8RDce": {
           "type": "video",
+          "disabled": true,
           "settings": {
             "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
             "poster": "shopify://shop_images/e1569ac562be17901277391660b53ed37aa6371c.jpg",
@@ -592,6 +594,7 @@
         },
         "video_Cc7WMx": {
           "type": "video",
+          "disabled": true,
           "settings": {
             "video": "shopify://files/videos/5898044_Person_Human_3840x2160.mp4",
             "poster": "shopify://shop_images/e1569ac562be17901277391660b53ed37aa6371c.jpg",
