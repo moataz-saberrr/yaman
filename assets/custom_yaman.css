@@ -58,7 +58,18 @@
 
 /* ---- media (image) — common ---- */
 .hdt-slideshow-n .hdt-yaman-hero__media {
-  position: relative;
+      display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--yaman-hero-ov, 0.4);
+    background: linear-gradient(
+      90deg,
+      rgba(7, 7, 7, 0.92) 0%,
+      rgba(7, 7, 7, 0.55) 42%,
+      rgba(7, 7, 7, 0.12) 78%,
+      rgba(7, 7, 7, 0) 100%
+    );
   line-height: 0;
 }
 .hdt-slideshow-n .hdt-yaman-hero__picture {
