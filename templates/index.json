@@ -473,10 +473,10 @@
             "url": "",
             "banner_target": false,
             "title": "EMS — Electrical Muscle Stimulation",
-            "description": "Low-frequency electrical pulses gently activate facial muscles, helping to lift, firm and tone — for a more sculpted, defined contour with continued use.",
-            "tag_1": "MUSCLE LIFTING",
-            "tag_2": "ZERO UV",
-            "tag_3": "HANDS-FREE",
+            "description": "Electrical Muscle Stimulation (EMS) Technology to Tone Facial Muscles and Improve Flexibility",
+            "tag_1": "Smart Belt Design for a Secure, Slip-Free Fit",
+            "tag_2": "Tones and Defines Facial Muscles",
+            "tag_3": "Safe and UV-Free",
             "used_in": "Used in: Medi Lift Plus / Liftology SP"
           },
           "blocks": {}
@@ -501,7 +501,7 @@
           "type": "_science-slide-item-n",
           "settings": {
             "image": "shopify://shop_images/R_photoplus.png",
-            "image_mb": "shopify://shop_images/R_photoplus.png",
+            "image_mb": "shopify://shop_images/0.1.png",
             "url": "",
             "banner_target": false,
             "title": "5-in-1 intensive lifting and brightening device",
