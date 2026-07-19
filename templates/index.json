@@ -315,7 +315,7 @@
       "name": "YAMAN Results",
       "settings": {
         "heading": "Real Results. Clinically Proven.",
-        "subheading": "GCC women. Real devices. Zero filters.",
+        "subheading": "Feedback. Real devices. Zero filters.",
         "background_color": "#f8f7f0",
         "container_max_width": 1310,
         "card_radius": 16,
@@ -483,6 +483,7 @@
         },
         "science_slide_item_n_nn8azb": {
           "type": "_science-slide-item-n",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Product_Image_Container_6.png",
             "image_mb": "shopify://shop_images/YA-900.webp",

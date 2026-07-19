@@ -702,7 +702,7 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/9ddcd3d1fdeec2307dc025fbceed7fe6e3cc87f7.png",
+            "image": "shopify://shop_images/0.0.png",
             "image_alt": "",
             "number": "01",
             "title": "APPLY GEL OR SERUM",
@@ -713,7 +713,7 @@
         "step_2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/1.0.png",
+            "image": "shopify://shop_images/0.1_e512f148-6396-4c3a-b95e-0897df1104bd.png",
             "image_alt": "",
             "number": "02",
             "title": "SECURE THE MASK PROPERLY",
@@ -724,7 +724,7 @@
         "step_3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/2_7de4c218-6623-4e88-97c9-3881119691f2.png",
+            "image": "shopify://shop_images/0.2.png",
             "image_alt": "",
             "number": "03",
             "title": "ADJUST EACH SIDE",
@@ -735,7 +735,7 @@
         "step_4": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/3_4e6c880b-eb3a-4a14-8a99-53aef1d11b68.png",
+            "image": "shopify://shop_images/0.5.png",
             "image_alt": "",
             "number": "04",
             "title": "WEAR FOR 10 MINUTES",
