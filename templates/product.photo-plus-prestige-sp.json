@@ -39,7 +39,7 @@
               "type": "_product-custom-badges",
               "name": "Custom Badges",
               "settings": {
-                "badges_per_row_mobile": "4",
+                "badges_per_row_mobile": "2",
                 "text_1": "Japanese technology ",
                 "icon_svg_1": "",
                 "icon_image_1": "shopify://shop_images/icon_2_0c455788-9b79-48e7-994c-e14c71397fb4.svg",
