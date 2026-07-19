@@ -385,7 +385,7 @@
   },
   "platform_customizations": {
     "custom_css": [
-      ".hdt-card-product hdt-wishlist:not([action=\"add\"]) svg {color: rgb(236, 35, 97);}"
+      ".hdt-product-info__item.hdt-product__description.has-bottom-border .hdt-rte.hdt-text-secondary {font-size: 18px;}"
     ]
   }
 }
