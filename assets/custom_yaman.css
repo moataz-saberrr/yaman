@@ -173,6 +173,11 @@
 
 /* ---- MOBILE (<768px): black content panel stacked above the image ---- */
 @media (max-width: 767px) {
+  .hdt-product-info__item.hdt-product__title h1 {
+    color: inherit;
+    transition: all .3s ease;
+    font-size: 25px;
+}
   .hdt-product-info__item.hdt-product__description.has-bottom-border
   .hdt-rte.hdt-text-secondary {
   font-size: 18px;
