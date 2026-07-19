@@ -943,7 +943,7 @@ span.hdt-yaman-hero__overlay {
   @media (max-width: 767px) {
     justify-content: start;
     gap: 8px !important;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
   @media (max-width: 470px) {
     justify-content: center;
