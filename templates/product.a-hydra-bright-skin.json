@@ -347,23 +347,14 @@
     "yaman_product_proof_n_G4PnLR": {
       "type": "yaman-product-proof-n",
       "blocks": {
-        "image_dC7nGR": {
+        "image_4mFcaz": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
+            "image": "shopify://shop_images/63816152-79fc-4589-8065-e0a8c7e23231.webp",
+            "image_mobile": "shopify://shop_images/63816152-79fc-4589-8065-e0a8c7e23231.webp",
             "alt": "",
-            "label_left": "",
-            "label_right": "",
-            "caption": ""
-          }
-        },
-        "image_kakTai": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3de88b03441b704ed140164ec04dd5207ec1c1a6.png",
-            "alt": "",
-            "label_left": "",
-            "label_right": "",
+            "label_left": "Before",
+            "label_right": "Week 4",
             "caption": ""
           }
         },
@@ -403,8 +394,7 @@
         }
       },
       "block_order": [
-        "image_dC7nGR",
-        "image_kakTai",
+        "image_4mFcaz",
         "image_8HEEaf",
         "stat_Ex8JXW",
         "stat_7RenzD",
