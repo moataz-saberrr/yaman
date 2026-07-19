@@ -994,6 +994,7 @@
         "video_Faafpg",
         "video_nX8f7x"
       ],
+      "disabled": true,
       "name": "YAMAN Routines",
       "settings": {
         "header_style": "split",
