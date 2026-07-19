@@ -802,6 +802,10 @@ span.hdt-yaman-hero__overlay {
     padding-block: var(--nl-pt-mb, 44px) var(--nl-pb-mb, 44px);
     padding-inline: 16px;
   }
+  .hdt-yaman-science-section .hdt-yaman-science__img {
+
+    object-position: bottom;
+}
   .hdt-yaman-newsletter-banner .hdt-yaman-newsletter__container {
     flex-direction: column;
     align-items: stretch;
