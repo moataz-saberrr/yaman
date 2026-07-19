@@ -670,6 +670,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/110.webp",
+            "image_mobile": "shopify://shop_images/photoplus0.webp",
             "image_alt": "",
             "eyebrow": "CLEAN MODE",
             "heading": "RF + Ion Cleansing + Ionic Current",
@@ -687,6 +688,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/110.webp",
+            "image_mobile": "shopify://shop_images/photoplus0.webp",
             "image_alt": "",
             "eyebrow": "Radiance & Infusion Mode",
             "heading": "Red RF + LED + DWHP + DYHP",
@@ -704,6 +706,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/110.webp",
+            "image_mobile": "shopify://shop_images/photoplus0.webp",
             "image_alt": "",
             "eyebrow": "Muscle Toning Mode",
             "heading": "Rotating EMS + Red LED",
@@ -721,6 +724,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/110.webp",
+            "image_mobile": "shopify://shop_images/photoplus0.webp",
             "image_alt": "",
             "eyebrow": "EYE CARE MODE",
             "heading": "Eye Lift RF + Microcurrent + EMS",
@@ -738,6 +742,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/110.webp",
+            "image_mobile": "shopify://shop_images/photoplus0.webp",
             "image_alt": "",
             "eyebrow": "COOL MODE",
             "heading": "Cooling + Blue LED",
