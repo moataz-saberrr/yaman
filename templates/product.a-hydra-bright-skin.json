@@ -410,6 +410,10 @@
         "stat_7RenzD",
         "stat_Jejtkn"
       ],
+      "custom_css": [
+        ".hdt-yaman-proof-section .hdt-yaman-proof__stat:last-child {grid-column: span 2; }",
+        "@media (max-width: 767px) {.hdt-yaman-proof-section .hdt-yaman-proof__stat:last-child {grid-column: span 2; }}"
+      ],
       "name": "YAMAN Proof",
       "settings": {
         "heading": "Clinically proven results within weeks of use.",
