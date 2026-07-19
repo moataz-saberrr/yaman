@@ -173,6 +173,10 @@
 
 /* ---- MOBILE (<768px): black content panel stacked above the image ---- */
 @media (max-width: 767px) {
+  .hdt-product-info__item.hdt-product__description.has-bottom-border
+  .hdt-rte.hdt-text-secondary {
+  font-size: 18px;
+}
   .hdt-slideshow-n .hdt-yaman-hero__inner {
     display: flex;
     flex-direction: column;
@@ -190,7 +194,7 @@
   .hdt-slideshow-n .hdt-yaman-hero__media {
     order: 1;
   }
-.hdt-slider__container {
+.hdt-slider__container:has(.hdt-yaman-hero__inner) {
     height: 550px !important;
 }
 .hdt-slideshow-n .hdt-slider__slide {

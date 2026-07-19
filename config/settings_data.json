@@ -384,8 +384,6 @@
     }
   },
   "platform_customizations": {
-    "custom_css": [
-      ".hdt-product-info__item.hdt-product__description.has-bottom-border .hdt-rte.hdt-text-secondary {font-size: 18px;}"
-    ]
+    "custom_css": []
   }
 }
