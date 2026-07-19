@@ -339,22 +339,12 @@
                   },
                   "blocks": {}
                 },
-                "liquid_nqH3i9": {
-                  "type": "_liquid",
-                  "name": "t:blocks.liquid.name",
+                "payment_icons_7tNibT": {
+                  "type": "_payment_icons",
+                  "name": "t:blocks.payment.name",
                   "settings": {
-                    "option_type": "liquid",
-                    "page": "",
-                    "text": "<div class=\"custom-footer-payments\" style=\"display: flex; flex-wrap: wrap; gap: 8px; align-items: center;\">\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">Mada</span>\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">Visa</span>\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">Mastercard</span>\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">Apple Pay</span>\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">Tabby</span>\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">STC Pay</span>\n  \n  <span style=\"padding: 4px 8px; border: 1px solid #FFFFFF26; border-radius: 6px; color: #b3b3b3; font-size: 16px; font-weight: 700; background-color: transparent; white-space: nowrap;\">Tamara</span>\n\n</div>",
-                    "hidden_br_mobile": false,
-                    "hidden_on_mobile": false,
-                    "ffamily": "",
-                    "text_size": "base",
-                    "font_weight": "normal",
-                    "text_color": "hdt-s-text",
-                    "font_size_text_lg": 16,
-                    "font_size_text": 14,
-                    "letter_spacing_text": 0
+                    "svg": "apple_pay,tamara,stcpay,tabby,master,visa,mada",
+                    "height": 30
                   },
                   "blocks": {}
                 },
@@ -379,7 +369,7 @@
               },
               "block_order": [
                 "liquid_XLYhhg",
-                "liquid_nqH3i9",
+                "payment_icons_7tNibT",
                 "liquid_4dd4AQ"
               ]
             }
