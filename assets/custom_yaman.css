@@ -195,8 +195,13 @@
     padding: 34px 22px 40px;
     text-align: start;
     z-index: 9;
-
   }
+  .hdt-slideshow-n .hdt-yaman-hero__button {
+    position: absolute;
+    bottom: -55%;
+    left: 5%;
+    width: 90%;
+}
   .hdt-slideshow-n .hdt-yaman-hero__media {
     order: 1;
   }
