@@ -500,16 +500,16 @@
         "science_slide_item_n_qEYQiW": {
           "type": "_science-slide-item-n",
           "settings": {
-            "image": "shopify://shop_images/Product_Image_Container_7.png",
-            "image_mb": "shopify://shop_images/ya-700.webp",
+            "image": "shopify://shop_images/R_photoplus.png",
+            "image_mb": "shopify://shop_images/R_photoplus.png",
             "url": "",
             "banner_target": false,
-            "title": "Photon LED Light Therapy",
-            "description": "Multi-wavelength LED targets different skin concerns at the cellular level — red light boosts collagen, blue light targets blemish-causing bacteria, yellow light soothes — with zero UV and zero downtime.",
-            "tag_1": "MULTI-WAVELENGTH",
-            "tag_2": "ZERO UV",
-            "tag_3": "CELLULAR RENEWAL",
-            "used_in": "Used in: Photo Plus Prestige SP"
+            "title": "5-in-1 intensive lifting and brightening device",
+            "description": "3 MHz Radio Frequency (RF) Technology to Stimulate Collagen from Within\n.",
+            "tag_1": "Targets the Deeper Layers of the Skin",
+            "tag_2": "Stimulates Natural Collagen Production",
+            "tag_3": "Provides Even Coverage Across All Skin Layers",
+            "used_in": "Exclusively Used in: Photo Plus Prestige SP Device"
           },
           "blocks": {}
         }
@@ -524,14 +524,14 @@
       "settings": {
         "heading": "Science Behind the Glow",
         "subheading": "46 years of Japanese R&D — engineered into every device.",
-        "card_radius": 24,
+        "card_radius": 14,
         "overlay_opacity": 45,
-        "card_ratio_dk": 225,
+        "card_ratio_dk": 220,
         "card_ratio_tb": 110,
         "card_ratio_mb_lg": 100,
         "card_ratio_mb": 60,
-        "slide_width_dk": 88,
-        "slide_width_tb": 72,
+        "slide_width_dk": 100,
+        "slide_width_tb": 83,
         "slide_width_mb": 85,
         "gap": 24,
         "gap_mb": 28,
