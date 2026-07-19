@@ -190,7 +190,9 @@
   .hdt-slideshow-n .hdt-yaman-hero__media {
     order: 1;
   }
-
+.hdt-slider__container {
+    height: 550px !important;
+}
   .hdt-slideshow-n .hdt-yaman-hero__button {
     width: 100%;
   }
