@@ -453,7 +453,7 @@
           "type": "_science-slide-item-n",
           "settings": {
             "image": "shopify://shop_images/2058bec3c1006934ca350ea6c47f107c94f31115.png",
-            "image_mb": "shopify://shop_images/Frame_1984079447.png",
+            "image_mb": "shopify://shop_images/YA-120.webp",
             "url": "",
             "banner_target": false,
             "title": "DYHP — Dynamic Hydro-Pressure",
@@ -469,6 +469,7 @@
           "type": "_science-slide-item-n",
           "settings": {
             "image": "shopify://shop_images/Product_Image_Container_2.png",
+            "image_mb": "shopify://shop_images/YA-150.webp",
             "url": "",
             "banner_target": false,
             "title": "EMS — Electrical Muscle Stimulation",
@@ -484,6 +485,7 @@
           "type": "_science-slide-item-n",
           "settings": {
             "image": "shopify://shop_images/Product_Image_Container_6.png",
+            "image_mb": "shopify://shop_images/YA-140.webp",
             "url": "",
             "banner_target": false,
             "title": "Radio Frequency (RF)",
@@ -499,6 +501,7 @@
           "type": "_science-slide-item-n",
           "settings": {
             "image": "shopify://shop_images/Product_Image_Container_7.png",
+            "image_mb": "shopify://shop_images/YA-130.webp",
             "url": "",
             "banner_target": false,
             "title": "Photon LED Light Therapy",
@@ -526,7 +529,7 @@
         "card_ratio_dk": 225,
         "card_ratio_tb": 110,
         "card_ratio_mb_lg": 100,
-        "card_ratio_mb": 65,
+        "card_ratio_mb": 50,
         "slide_width_dk": 88,
         "slide_width_tb": 72,
         "slide_width_mb": 85,
