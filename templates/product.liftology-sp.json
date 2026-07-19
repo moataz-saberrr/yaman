@@ -434,7 +434,7 @@
       ],
       "name": "YAMAN Proof",
       "settings": {
-        "heading": " Who Is It For?",
+        "heading": "Clinically proven results within weeks of use.",
         "subtitle": "{{ product.metafields.custom.proof_subheading.value }}",
         "background_color": "#f7f6f1",
         "container_max_width": 1200,
