@@ -570,7 +570,7 @@
           "settings": {
             "image": "shopify://shop_images/both_the_face_and_body.png",
             "image_alt": "",
-            "size": "tall",
+            "size": "normal",
             "number": "01",
             "show_line": true,
             "title": "A dual-use device designed for both face and body.",
@@ -612,46 +612,12 @@
             "scrim": "none",
             "overlay_opacity": 40
           }
-        },
-        "card_4": {
-          "type": "card",
-          "settings": {
-            "image": "{{ product.metafields.custom.special_card_4_img.value }}",
-            "image_alt": "",
-            "size": "wide",
-            "number": "04",
-            "show_line": true,
-            "title": "{{ product.metafields.custom.special_card_4_title.value }}",
-            "description": "{{ product.metafields.custom.special_card_4_desc.value }}",
-            "text_color": "#000000",
-            "accent_color": "#c9a844",
-            "scrim": "light",
-            "overlay_opacity": 40
-          }
-        },
-        "card_5": {
-          "type": "card",
-          "settings": {
-            "image": "{{ product.metafields.custom.special_card_5_img.value }}",
-            "image_alt": "",
-            "size": "wide",
-            "number": "05",
-            "show_line": true,
-            "title": "{{ product.metafields.custom.special_card_5_title.value }}",
-            "description": "{{ product.metafields.custom.special_card_5_desc.value }}",
-            "text_color": "#000000",
-            "accent_color": "#c9a844",
-            "scrim": "light",
-            "overlay_opacity": 40
-          }
         }
       },
       "block_order": [
         "card_1",
         "card_2",
-        "card_3",
-        "card_4",
-        "card_5"
+        "card_3"
       ],
       "settings": {
         "heading": "What Makes It Different?",
