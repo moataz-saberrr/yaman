@@ -961,7 +961,7 @@
             "open": false,
             "icon": "none",
             "title": "Can I pay in instalments?",
-            "content": "<p>Yes. You can split your purchase into *4 interest-free monthly payments* through Tabby, Tamara, or STC Pay — available at checkout.</p><p>Medi Lift Plus at 1,700 SAR = 425 SAR/month × 4 with Tabby.</p><p>Simply select your preferred payment method at checkout — no paperwork, instant approval</p>"
+            "content": "<p>Yes. You can split your purchase into *4 interest-free monthly payments* through Tabby, Tamara, or STC Pay — available at checkout.</p><p></p><p>Simply select your preferred payment method at checkout — no paperwork, instant approval</p>"
           },
           "blocks": {}
         },
