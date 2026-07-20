@@ -53,14 +53,13 @@
   overflow-x: clip; */
 }
 .hdt-slideshow-n .hdt-slider__slide {
-  height: auto;
+  height: 100%;
 }
 
 /* ---- media (image) — common ---- */
 .hdt-slideshow-n .hdt-yaman-hero__media {
-  position: absolute;
+  position: relative;
   line-height: 0;
-  width: -webkit-fill-available;
 }
 .hdt-slideshow-n .hdt-yaman-hero__picture {
   display: block;
@@ -173,6 +172,11 @@
 
 /* ---- MOBILE (<768px): black content panel stacked above the image ---- */
 @media (max-width: 767px) {
+  .hdt-slideshow-n .hdt-yaman-hero__media {
+  position: absolute;
+  line-height: 0;
+  width: -webkit-fill-available;
+}
   .hdt-product-info__item.hdt-product__title h1 {
     color: inherit;
     transition: all .3s ease;
