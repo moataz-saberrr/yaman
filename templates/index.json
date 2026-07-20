@@ -55,7 +55,7 @@
       ],
       "settings": {
         "image_height": "adapt_image",
-        "fixed_height": 700,
+        "fixed_height": 560,
         "image_height_mb": "fixed",
         "fixed_height_mb": 700,
         "overlay_opacity": 40,
@@ -899,8 +899,8 @@
           "settings": {
             "open": false,
             "icon": "none",
-            "title": "How does the Medi Lift Plus work?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
+            "title": " How does the Medi Lift Plus work?",
+            "content": "<p>Medi Lift Plus uses EMS — Electrical Muscle Stimulation — to send low-frequency pulses directly to your facial muscles. Think of it as a gym session for your face: the pulses cause your muscles to contract and relax repeatedly, strengthening and lifting them over time.</p><p>It works in two modes simultaneously:</p><p>Training mode: targets the cheek muscles — activating and lifting them upward.</p><p>Release mode: targets the jaw muscle — relaxing tension and reducing involuntary clenching.</p><p>Just secure the mask, choose your mode, and let it work for 10 minutes — completely hands-free.</p>"
           },
           "blocks": {}
         },
@@ -910,7 +910,7 @@
             "open": false,
             "icon": "none",
             "title": "How soon will I see results?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
+            "content": "<p>Some results are visible from the very first session — a temporary lift and improved circulation right after use.</p><p> For lasting, structural results: allow 6-12 weeks of consistent daily use for a noticeable change in muscle tone and jawline definition.<br/> The muscles strengthen gradually, just like any exercise routine — consistency is what delivers the result.</p><p>For best results, use once daily, every day.</p>"
           },
           "blocks": {}
         },
@@ -920,7 +920,7 @@
             "open": false,
             "icon": "none",
             "title": "Is it safe for all skin types?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
+            "content": "<p>Yes — Medi Lift Plus works directly on the muscles beneath the skin, so skin type does not affect suitability.</p><p>However, it is not recommended in the following cases:</p><p>During pregnancy or immediately after delivery</p><p>If you have a pacemaker or heart arrhythmia</p><p>Over broken skin, wounds, or recently laser-treated areas</p><p>If you have epilepsy or metal implants in the face</p><p>If you have any medical condition or skin concern, consult your doctor before first use.</p>"
           },
           "blocks": {}
         },
@@ -929,8 +929,8 @@
           "settings": {
             "open": false,
             "icon": "none",
-            "title": "How often should I use it?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
+            "title": "How often should I use Med lift?",
+            "content": "<p>Once daily, for 10 minutes per session. The device switches off automatically after 10 minutes.</p><p>If you wish to use it twice in one day, leave at least 5 hours between sessions to allow your muscles to rest.</p><p>You can use Medi Lift Plus alongside other YA-MAN devices — for example, Hydra Bright Skin for cleansing before your session, or Medi Lift Neck on alternate sessions.</p>"
           },
           "blocks": {}
         },
@@ -940,7 +940,7 @@
             "open": false,
             "icon": "none",
             "title": "Do I need to use it with the YĀMAN app?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
+            "content": "<p>No — Medi Lift Plus works fully on its own, no app required. Simply select your mode directly on the device and begin your session.</p><p>The YA-MAN app is available as an optional companion for guided tutorials and routine tracking, but it is not necessary for the device to function.</p>"
           },
           "blocks": {}
         },
@@ -950,7 +950,7 @@
             "open": false,
             "icon": "none",
             "title": "Is there a warranty?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
+            "content": "<p>Yes. Every YA-MAN device purchased from yamanarabia.com or an authorised partner comes with an official *YA-MAN Arabia GCC warranty*.</p><p>For warranty details, coverage period, and how to register your device, please visit our [Warranty page] or contact our support team directly.</p><p>Always purchase from authorised channels to ensure your warranty is valid and your device is genuine.</p>"
           },
           "blocks": {}
         },
@@ -960,7 +960,7 @@
             "open": false,
             "icon": "none",
             "title": "Can I pay in instalments?",
-            "content": "<p>Add your answer here in the theme editor.</p>"
+            "content": "<p>Yes. You can split your purchase into *4 interest-free monthly payments* through Tabby, Tamara, or STC Pay — available at checkout.</p><p>Medi Lift Plus at 1,700 SAR = 425 SAR/month × 4 with Tabby.</p><p>Simply select your preferred payment method at checkout — no paperwork, instant approval</p>"
           },
           "blocks": {}
         },
