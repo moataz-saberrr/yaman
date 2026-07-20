@@ -719,6 +719,7 @@
         "review_3",
         "review_GQyjxc"
       ],
+      "disabled": true,
       "settings": {
         "show_summary": true,
         "rating_value": "4.8",
